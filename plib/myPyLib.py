@@ -2,7 +2,8 @@
 #
 # myPyLib.py   SUPPLIMENTAL PYTHON FUNCTIONS
 #
-# v0.1	19June2016  
+# v1.0  22Aug2018  (Carl)
+# v0.1	19June2016
 
 import time
 import sys
@@ -93,11 +94,23 @@ def main():
   print "sign(0): %d" % sign(0)
   print "sign(60): %d" % sign(60)
 
-  
+
   # test clamp(n,min,max)
   for i in range(-120,120,19):
       print "n: %d clamp(n, 1, 100): %d" % (i, clamp(i,1,100))
       print "n: %d clamp(n,-100,-1): %d" % (i, clamp(i,-100,-1))
+
+  # ######### Define a call back func
+  def ctrl_c_callback():
+    print "ctrl_c_callback() called"
+
+  # ######### SET CNTL-C HANDLER #####
+  set_cntl_c_handler(ctrl_c_callback)
+
+  while True:
+    print "Test myPyLib - type cntl-c"
+    time.sleep(60)
+  #end while
 
 
 if __name__ == "__main__":
