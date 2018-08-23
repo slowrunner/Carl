@@ -2,6 +2,11 @@
 #
 # lifelog.py   digital entity
 #
+# with sudo crontab -e
+#      @reboot /home/pi/Carl/plib/loglife.py&
+# touch /home/pi/Carl/life.log
+# chmod 777 /home/pi/Carl/life.log
+#
 
 import time
 import sys
@@ -18,7 +23,7 @@ loghandler = logging.FileHandler('/home/pi/Carl/life.log')
 logformatter = logging.Formatter('%(asctime)s|%(message)s',"%Y-%m-%d %H:%M")
 loghandler.setFormatter(logformatter)
 logger.addHandler(loghandler)
-#logger.info('-------------')  
+#logger.info('-------------')
 
 debugLevel = 0
 
@@ -45,7 +50,7 @@ class digitalEntity():
   # CLASS VARS (Avail to all instances)
   # Access as X.class_var_name
 
-  pHandle=None   # the SINGLE execution thread for the X class   
+  pHandle=None   # the SINGLE execution thread for the X class
   defaultSleep=60.0  # sleep for 1 minute by default
 
   # end of class vars definition
@@ -67,8 +72,8 @@ class digitalEntity():
   #end init()
 
   # digitalEntity main process
-  def dEmain(self,tSleep=defaultSleep):   
-    myname = multiprocessing.current_process().name  
+  def dEmain(self,tSleep=defaultSleep):
+    myname = multiprocessing.current_process().name
     time.sleep(60)  # wait for network date time sync
     logger.info("------------")
     if debugLevel: print "%s.dEmain started with tSleep=%f" % (myname,tSleep)
@@ -79,25 +84,25 @@ class digitalEntity():
         i+=1
         if debugLevel: print "%s.dEmain execution %i" % (myname,i)
         logger.info('%s.dEmain execution: %i',myname, i )
-    
+
 
     if debugLevel: print("dEmain end reached")
 
   def cancel(self):
-     myname = multiprocessing.current_process().name  
+     myname = multiprocessing.current_process().name
      if debugLevel: print "%s.cancel() called" % myname
      logger.info('%s.cancel() called',myname)
      if debugLevel: print "\nWaiting for %s dE.workerThread to quit\n" % self.pHandle.name
      self.pHandle.join()
-     if debugLevel: print "%s.cancel() complete" % myname     
- 
+     if debugLevel: print "%s.cancel() complete" % myname
+
 
 # ##### digitalEntity tt ######
-# 
+#
 
 def main():
 
-  tt=digitalEntity(dEname="lifelog",tSleep=3600)  #create 
+  tt=digitalEntity(dEname="lifelog",tSleep=3600)  #create
   set_cntl_c_handler(tt.cancel)
 
   try:
@@ -106,10 +111,10 @@ def main():
       time.sleep(3600)
     #end while
   except SystemExit:
-    if debugLevel: print "lifelog.py: Bye Bye"    
+    if debugLevel: print "lifelog.py: Bye Bye"
   except:
     if debugLevel: print "Exception Raised"
-    traceback.print_exc()  
+    traceback.print_exc()
 
 if __name__ == "__main__":
     main()
