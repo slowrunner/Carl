@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''
-# Modified by Alan McDonley to use  female and speak faster to sound a little like a minion
+# Modified by Alan McDonley to use female 3, speak faster to sound a little like a minion
+# Usage:  ./speak_count.py
 
 ## License
 The MIT License (MIT)

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 '''
 # Modified by Alan McDonley to run as user, and as female talking faster to sound similar to a Minion
+#
+# Usage:  ./speak_text.py
+#         Enter the Text: (enter line of text (with or without quotes - no printed char restrictions)
 
 ## License
 The MIT License (MIT)
