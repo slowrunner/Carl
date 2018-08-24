@@ -4,7 +4,9 @@
 #
 # Measure performance of some motor API calls
 # Method:  Use time.perf_counter() and time.process_time() to measure asynchronous motor commands
-
+#          perf_counter() measures total elapsed time including sleep
+#          process_time() measures sys and user time not including sleep
+#
 # force Python3 compatibility for print, integer division, and input()
 from __future__ import print_function
 from __future__ import division
@@ -20,7 +22,9 @@ import atexit
 
 # Create an instance egpg of the EasyGoPiGo3 class.
 egpg = easy.EasyGoPiGo3()
-atexit.register(egpg.stop)   #call egpg.stop() before exiting program
+atexit.register(egpg.stop)   #setup a call to egpg.stop() when exiting program
+
+# Make sure bot is ready and waiting
 egpg.reset_all()
 time.sleep(1)  # for reset to finish
 
