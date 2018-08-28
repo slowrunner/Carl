@@ -57,6 +57,24 @@ gpg.stop()
 end_pc=time.perf_counter()
 print("EasyGoPiGo3.stop() perf_counter time: %f ms \n" % (end_pc - start_pc)*1000 )
 
+
+##### Calculate travel speed
+test_distance = 18.0
+print("About to drive %.1f inches fwd" % test_distance )
+#egpg.set_speed(1000)
+time.sleep(1)
+start_pc=time.perf_counter()
+egpg.drive_inches(test_distance)       #default blocking=True, return when done.
+end_pc=time.perf_counter()
+print("EasyGoPiGo3.drive_inches(%.1f) in: %f seconds, for %.2f in/second at %d DPS speed \n" % (test_distance, (end_pc - start_pc), (end_pc - start_pc)/test_distance, egpg.get_speed() )
+
+print("Stopping the motors after 1 second.")
+time.sleep(1)
+start_pc=time.perf_counter()
+gpg.stop()
+end_pc=time.perf_counter()
+print("EasyGoPiGo3.stop() perf_counter time: %f ms \n" % (end_pc - start_pc)*1000 )
+
 print("EasyGoPiGo3.reset_all()")
 egpg.reset_all()
 time.sleep(1)  # allow time for reset to complete
