@@ -16,8 +16,11 @@ import time
 import signal
 import os
 import myPyLib
+import speak
 from datetime import datetime
 import gopigo3
+
+LOW_BATTERY_V = 7.4   # 8cells x 0.925
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -78,20 +81,23 @@ def main():
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
   # #### Create instance of GoPiGo3 base class 
-  gpg = GoPiGo3()
+  gpg = gopigo3.GoPiGo3()
   batteryLowCount = 0
   #print ("Starting status loop at %.2f volts" % battery.volts())  
   try:
     while True:
         printStatus()
-        #if (battery.batteryTooLow()): 
-        #    batteryLowCount += 1
-        #else: batteryLowCount = 0
-        #if (batteryLowCount > 3):
-          # speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
-        #  print ("BATTERY %.2f volts BATTERY - SHUTTING DOWN NOW" % battery.volts())
-        #  os.system("sudo shutdown -h now")
-        #  sys.exit(0)
+        vBatt = gpg.get_voltage_battery()
+        if (vBatt < LOW_BATTERY_V): 
+            batteryLowCount += 1
+        else: batteryLowCount = 0
+        if (batteryLowCount > 3):
+          speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
+          print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
+          gpg.reset_all()
+          time.sleep(1)
+          os.system("sudo shutdown -h now")
+          sys.exit(0)
         time.sleep(5)
     #end while
   except SystemExit:
