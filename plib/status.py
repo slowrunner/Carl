@@ -17,6 +17,7 @@ import signal
 import os
 import myPyLib
 from datetime import datetime
+import gopigo3
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -43,12 +44,14 @@ def getUptime():
 
 
 def printStatus():
-  global b, u
+  global gpg
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
-  vBatt = 9.2  #battery.volts()
-  #print "battery.volts(): %0.2f" % vBatt
+  vBatt = gpg.get_voltage_battery()  #battery.volts()
+  print "Battery Voltage: %0.2f" % vBatt
+  v5V = gpg.get_voltage_5v()
+  print "5v Supply: %0.2f" % v5V
   #lifeRem=battery.hoursOfLifeRemaining(vBatt)
   #lifeH=int(lifeRem)
   #lifeM=(lifeRem-lifeH)*60
@@ -64,20 +67,18 @@ def printStatus():
 # ##### MAIN ######
 
 def handle_ctlc():
-  global b, u
-  #b.cancel()
-  #u.cancel()
+  global gpg
+  gpg.reset_all()
   print "status.py: handle_ctlc() executed"
 
 def main():
-  global b, u
+  global gpg
 
   # #### SET CNTL-C HANDLER 
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
-  # #### INIT SENSORS 
-  # b=Bumpers()
-  # u=UltrasonicDistance()
+  # #### Create instance of GoPiGo3 base class 
+  gpg = GoPiGo3()
   batteryLowCount = 0
   #print ("Starting status loop at %.2f volts" % battery.volts())  
   try:
