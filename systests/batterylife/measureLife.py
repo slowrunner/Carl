@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 # measureLife.py     Controlled Battery Life Measurement
-#      Run Battery down while printing status every 60 seconds
+#      Run Battery down while printing status every 10 seconds
 #
 #      This test will loop reading the battery voltage
 #        UNTIL voltage stays below 7.4v 4 times,
@@ -106,7 +106,8 @@ def main():
           time.sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
-        time.sleep(60)    # check battery status every minute      
+        time.sleep(10)    # check battery status every 10 seconds
+                          # important to make four checks low V quickly      
     #end while
   except SystemExit:
     print "status.py: exiting"
