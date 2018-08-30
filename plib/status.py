@@ -7,16 +7,16 @@
 #      UNTIL voltage stays below 8.5v 4 times,
 #      then will issue a shutdown now
 #
-"""
-  After advice from some folks over at raspberrypi.org robotics forum, 
-  and thinking about the 168 NiMH cells in my 10 year old Prius, 
-  I have selected a shutdown limit of 1.1375v per cell, 9.1v at the battery, 
-  which is 8.5v indicated by gopigo3.volt(). 
-  This will yield a little more than 6.5 hours of mindless contemplation by my bot in its corner. 
-  (Sacrificing 45 minutes of immediate gratification for longevity.)
-"""
+
+# After advice from some folks over at raspberrypi.org robotics forum,
+# and thinking about the 168 NiMH cells in my 10 year old Prius,
+# I have selected a shutdown limit of 1.1375v per cell, 9.1v at the battery,
+# which is 8.5v indicated by gopigo3.volt().
+# This will yield a little more than 6.5 hours of mindless contemplation by my bot in its corner.
+# (Sacrificing 45 minutes of immediate gratification for longevity.)
+
 #
-from __future__ import print_function
+# from __future__ import print_function
 from __future__ import division
 
 # import the modules
@@ -77,7 +77,7 @@ def printStatus():
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
-  print  "Distance Sensor: %0.1f inches" %  ds.read_Inches()
+  print  "Distance Sensor: %0.1f inches" %  ds.read_inches()
 
 
 
