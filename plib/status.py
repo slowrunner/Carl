@@ -77,8 +77,11 @@ def printStatus():
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
-  print  "Distance Sensor: %0.1f inches" %  ds.read_inches()
-
+  distReading = ds.read_inches()
+  if distReading < 90:
+      print  "Distance Sensor: %0.1f inches" %  ds.read_inches()
+  else:
+      print  "Distance Sensor: nothing within 90 inches"
 
 
 # ##### MAIN ######
