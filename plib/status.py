@@ -4,10 +4,23 @@
 #      Run Battery down while printing status every 30s
 #
 # This test will loop reading the battery voltage
-#      UNTIL voltage stays below 7.5v 4 times,
+#      UNTIL voltage stays below 8.5v 4 times,
 #      then will issue a shutdown now
 #
+"""
+  After advice from some folks over at raspberrypi.org robotics forum, 
+  and thinking about the 168 NiMH cells in my 10 year old Prius, 
+  I have selected a shutdown limit of 1.1375v per cell, 9.1v at the battery, 
+  which is 8.5v indicated by gopigo3.volt(). 
+  This will yield a little more than 6.5 hours of mindless contemplation by my bot in its corner. 
+  (Sacrificing 45 minutes of immediate gratification for longevity.)
+"""
 #
+from __future__ import print_function
+from __future__ import division
+
+# import the modules
+
 import sys
 sys.path
 sys.path.append('/home/pi/Carl/plib')
@@ -19,8 +32,9 @@ import myPyLib
 import speak
 from datetime import datetime
 import gopigo3
+from di_sensors.easy_distance_sensor import EasyDistanceSensor
 
-LOW_BATTERY_V = 7.4   # 8cells x 0.925
+LOW_BATTERY_V = 8.5   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -47,7 +61,7 @@ def getUptime():
 
 
 def printStatus():
-  global gpg
+  global gpg,ds
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
@@ -63,7 +77,7 @@ def printStatus():
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
-  #print  "irDistance.inInches: %0.1f" %  irDistance.inInches()
+  print  "Distance Sensor: %0.1f inches" %  ds.read_Inches()
 
 
 
@@ -75,13 +89,17 @@ def handle_ctlc():
   print "status.py: handle_ctlc() executed"
 
 def main():
-  global gpg
+  global gpg, ds
 
   # #### SET CNTL-C HANDLER 
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
   # #### Create instance of GoPiGo3 base class 
   gpg = gopigo3.GoPiGo3()
+
+  # ### Create instance of EasyDistanceSensor
+  ds = EasyDistanceSensor()
+
   batteryLowCount = 0
   #print ("Starting status loop at %.2f volts" % battery.volts())  
   try:
