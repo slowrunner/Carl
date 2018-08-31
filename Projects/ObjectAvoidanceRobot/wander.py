@@ -26,7 +26,7 @@ from time import sleep
 
 DEBUG = False # if set to True, any exception that's encountered is debugged
 MAX_DISTANCE = 2300 # measured in mm
-MIN_DISTANCE = 150 # measured in mm
+MIN_DISTANCE = 225  # measured in mm (was 150)
 NO_OBSTACLE = 3000
 ERROR = 0 # the error that's returned when the DistanceSensor is not found
 MAX_SPEED = 300 # max speed of the GoPiGo3
@@ -40,7 +40,7 @@ robot_operating = True
 # required for gracefull exits of the script
 def signal_handler(signal, frame):
     global robot_operating
-    print("CTRL-C combination pressed")
+    print("CTRL-C combination pressed.  Finishing up.")
     robot_operating = False
 
 # function for debugging
@@ -57,12 +57,10 @@ def check_battery_voltage(LOW_BATTERY_V=7.5):
             batteryLowCount += 1
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
-          #speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
-          print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
+          Print ("WARNING, WARNING, LOW BATTERY")
+          print ("BATTERY %.2f volts BATTERY LOW" % vBatt)
           gopigo3.reset_all()
           time.sleep(1)
-          os.system("sudo shutdown -h now")
-          sys.exit(0)
         return 0
 
 def Main():
@@ -123,10 +121,14 @@ def Main():
         elif current_distance < MIN_DISTANCE:
             # then stop the GoPiGo3
             gopigo3.stop()
+            gopigo3_stationary = True
+            print("Current distance : {:4} mm Current speed: {:4} Stopped: {}".format(current_distance, int(determined_speed), gopigo3_stationary is True ))
+            print("Blocked!  Thinking about what to do")
             sleep(15)
             determined_speed = MAX_SPEED
             gopigo3.set_speed(determined_speed)
             gopigo3.turn_degrees(-135)  # turn 135 degrees and continue
+            print("Waiting for the world to stop spinning.")
             sleep(15)
         # if the robot is far away from the target
         else:
@@ -142,6 +144,7 @@ def Main():
                 determined_speed = MIN_SPEED + (MAX_SPEED - MIN_SPEED) * percent_speed
 
             # apply the changes
+            print("LET'S GO!")
             gopigo3.set_speed(determined_speed)
             gopigo3.forward()
 
@@ -155,6 +158,9 @@ def Main():
 
     # and finally stop the GoPiGo3 from moving
     gopigo3.stop()
+    print("Exiting")
+    print("Battery Voltage: %.1f" % gopigo3.volt())
+    print("Current distance : {:4} mm Stopped: {}".format(current_distance, gopigo3_stationary is True ))
 
 
 if __name__ == "__main__":
