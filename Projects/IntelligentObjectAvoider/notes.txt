@@ -1,0 +1,14 @@
+IntelligentObjectAvoider Notes
+
+
+First attempt had RuntimeError in numpy 
+
+Fix: 
+sudo pip3 install numpy --upgrade
+sudo apt-get update
+sudo apt-get install libatlas-base-dev -y 
+
+** make sure tilt servo is centered before starting **
+
+
+
