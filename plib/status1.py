@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# status.py    Basic Status
+# status.py    Basic Status (thread-safe)
 #      Run Battery down while printing status every 30s
 #
 # This test will loop reading the battery voltage
@@ -65,10 +65,10 @@ def printStatus():
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
-  vBatt = egpg.get_voltage_battery()  #battery.volts()
+  vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
   print "Battery Voltage: %0.2f" % vBatt
-  v5V = egpg.get_voltage_5v()
-  print "5v Supply: %0.2f" % v5V
+  #v5V = egpg.get_voltage_5v()
+  #print "5v Supply: %0.2f" % v5V
   #lifeRem=battery.hoursOfLifeRemaining(vBatt)
   #lifeH=int(lifeRem)
   #lifeM=(lifeRem-lifeH)*60
@@ -106,7 +106,7 @@ def main():
   try:
     while True:
         printStatus()
-        vBatt = egpg.get_voltage_battery()
+        vBatt = egpg.volt()
         if (vBatt < LOW_BATTERY_V):
             batteryLowCount += 1
         else: batteryLowCount = 0

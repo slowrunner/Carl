@@ -67,7 +67,7 @@ batteryLowCount = 0
 LOW_BATTERY_VOLTAGE = 8.5  # Stop at about 20% charge left for long battery life
 def check_battery_voltage(LOW_BATTERY_V=LOW_BATTERY_VOLTAGE):
         global gopigo3
-        vBatt = gopigo3.get_voltage_battery()
+        vBatt = gopigo3.volt()  # use the thread-safe version
         if (vBatt < LOW_BATTERY_V): 
             batteryLowCount += 1
         else: batteryLowCount = 0
