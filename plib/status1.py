@@ -72,7 +72,7 @@ def printStatus():
   #lifeRem=battery.hoursOfLifeRemaining(vBatt)
   #lifeH=int(lifeRem)
   #lifeM=(lifeRem-lifeH)*60
-  #print "battery.hoursOfLifeRemaining(): %d h %.0f m" % (lifeH, lifeM) 
+  #print "battery.hoursOfLifeRemaining(): %d h %.0f m" % (lifeH, lifeM)
   print "Processor Temp: %s" % getCPUtemperature()
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
@@ -92,22 +92,22 @@ def handle_ctlc():
 def main():
   global egpg, ds
 
-  # #### SET CNTL-C HANDLER 
+  # #### SET CNTL-C HANDLER
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
-  # #### Create a mutex protected instance of EasyGoPiGo3 base class 
-  egpg = easygopigo3.EasyGoPiGo3(mutex=True)
+  # #### Create a mutex protected instance of EasyGoPiGo3 base class
+  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
 
   # ### Create (protected) instance of EasyDistanceSensor
-  ds = egpg.init_distance_sensor()  # mutex=True passed from egpg
+  ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
 
   batteryLowCount = 0
-  #print ("Starting status loop at %.2f volts" % battery.volts())  
+  #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
     while True:
         printStatus()
         vBatt = egpg.get_voltage_battery()
-        if (vBatt < LOW_BATTERY_V): 
+        if (vBatt < LOW_BATTERY_V):
             batteryLowCount += 1
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
