@@ -32,7 +32,7 @@ import myPyLib
 import speak
 from datetime import datetime
 import easygopigo3
-# from di_sensors.easy_distance_sensor import EasyDistanceSensor
+import battery
 
 LOW_BATTERY_V = 8.5   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
@@ -69,10 +69,10 @@ def printStatus():
   print "Battery Voltage: %0.2f" % vBatt
   #v5V = egpg.get_voltage_5v()
   #print "5v Supply: %0.2f" % v5V
-  #lifeRem=battery.hoursOfLifeRemaining(vBatt)
-  #lifeH=int(lifeRem)
-  #lifeM=(lifeRem-lifeH)*60
-  #print "battery.hoursOfLifeRemaining(): %d h %.0f m" % (lifeH, lifeM)
+  lifeRem=battery.hoursOfLifeRemaining(vBatt)
+  lifeH=int(lifeRem)
+  lifeM=(lifeRem-lifeH)*60
+  print "Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM)
   print "Processor Temp: %s" % getCPUtemperature()
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
