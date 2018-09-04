@@ -9,13 +9,14 @@
 #  tilt(pos = tilt_pos)
 #  pan(pos = pan_pos)
 #  tiltpan_center()       # convenience tilt(TILT_CENTER), pan(PAN_CENTER)
-#  nod_yes(spd=0.03)      
+#  off()                  # turn both servos off / non-holding position
+#  nod_yes(spd=0.03)
 #  nod_no(spd=0.02)
 #  nod_IDK(spd=0.02)
 #  get_tilt_pos()
 #  get_pan_pos()
-# 
-#  
+#
+#
 """
 ```
 # Usage:
@@ -86,6 +87,11 @@ def tiltpan_center():
   pan_position = PAN_CENTER
   tilt()
   pan()
+
+def off():          # turn both servo PWM freq to 0 to stop holding position
+  global ts, ps
+  ps.gpg.set_servo(ps.portID, 0)
+  ts.gpg.set_servo(ts.portID, 0)
 
 def tilt(tgt=tilt_position):
   global ts,tilt_position
@@ -209,6 +215,9 @@ def main():
         print("IDK")
         nod_IDK()
         sleep(2)
+        print("Turning tiltpan servos off")
+        off()
+        sleep(5)
     #end while
   except SystemExit:
     print("tiltpan.py: exiting")
