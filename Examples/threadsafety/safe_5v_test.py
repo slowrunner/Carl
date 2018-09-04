@@ -35,6 +35,7 @@ import speak
 from datetime import datetime
 import easygopigo3
 import battery
+import easysensor
 
 LOW_BATTERY_V = 8.5   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
@@ -70,14 +71,9 @@ def printStatus():
   vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
   print "Battery Voltage: %0.2f" % vBatt
 
-  #_ifMutexAcquire(self.use_mutex)              # protect non-thread-safe gopigo3 base class method
-  egpg._ifMutexAcquire(egpg.use_mutex)
-  # val = self.gpg.get_grove_value(self.get_port_ID())
-  v5V = egpg.get_voltage_5v()                   # non-thread-safe method inherited from gopigo3 base class
-  #_ifMutexRelease(self.use_mutex)
-  egpg._ifMutexRelease(egpg.use_mutex)          # release the protection
+  # v5V = egpg.get_voltage_5v()                   # non-thread-safe method inherited from gopigo3 base class
+  # print "5v Supply: %0.2f" % v5V
 
-  print "5v Supply: %0.2f" % v5V
   lifeRem=battery.hoursOfLifeRemaining(vBatt)
   lifeH=int(lifeRem)
   lifeM=(lifeRem-lifeH)*60
