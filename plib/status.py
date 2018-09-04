@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# status.py    Basic Status
+# status.py    Basic Status (thread-safe)
 #      Run Battery down while printing status every 30s
 #
 # This test will loop reading the battery voltage
@@ -31,8 +31,8 @@ import os
 import myPyLib
 import speak
 from datetime import datetime
-import gopigo3
-from di_sensors.easy_distance_sensor import EasyDistanceSensor
+import easygopigo3
+import battery
 
 LOW_BATTERY_V = 8.5   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
@@ -61,18 +61,18 @@ def getUptime():
 
 
 def printStatus():
-  global gpg,ds
+  global egpg,ds
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
-  vBatt = gpg.get_voltage_battery()  #battery.volts()
+  vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
   print "Battery Voltage: %0.2f" % vBatt
-  v5V = gpg.get_voltage_5v()
-  print "5v Supply: %0.2f" % v5V
-  #lifeRem=battery.hoursOfLifeRemaining(vBatt)
-  #lifeH=int(lifeRem)
-  #lifeM=(lifeRem-lifeH)*60
-  #print "battery.hoursOfLifeRemaining(): %d h %.0f m" % (lifeH, lifeM) 
+  #v5V = egpg.get_voltage_5v()
+  #print "5v Supply: %0.2f" % v5V
+  lifeRem=battery.hoursOfLifeRemaining(vBatt)
+  lifeH=int(lifeRem)
+  lifeM=(lifeRem-lifeH)*60
+  print "Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM)
   print "Processor Temp: %s" % getCPUtemperature()
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
@@ -87,35 +87,32 @@ def printStatus():
 # ##### MAIN ######
 
 def handle_ctlc():
-  global gpg
-  gpg.reset_all()
   print "status.py: handle_ctlc() executed"
 
 def main():
-  global gpg, ds
+  global egpg, ds
 
-  # #### SET CNTL-C HANDLER 
+  # #### SET CNTL-C HANDLER
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
-  # #### Create instance of GoPiGo3 base class 
-  gpg = gopigo3.GoPiGo3()
+  # #### Create a mutex protected instance of EasyGoPiGo3 base class
+  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
 
-  # ### Create instance of EasyDistanceSensor
-  ds = EasyDistanceSensor()
+  # ### Create (protected) instance of EasyDistanceSensor
+  ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
 
   batteryLowCount = 0
-  #print ("Starting status loop at %.2f volts" % battery.volts())  
+  #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
     while True:
         printStatus()
-        vBatt = gpg.get_voltage_battery()
-        if (vBatt < LOW_BATTERY_V): 
+        vBatt = egpg.volt()
+        if (vBatt < LOW_BATTERY_V):
             batteryLowCount += 1
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
-          gpg.reset_all()
           time.sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
