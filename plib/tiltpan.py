@@ -2,13 +2,20 @@
 #
 # tiltpan.py    Tilt and Pan Servo Management
 #
-# Pan Servo:  PAN_LEFT_LIMIT  = 0, PAN_CENTER  = 90, PAN_RIGHT_LIMIT = 180
-# Tilt Servo: TILT_DOWN_LIMIT = 0, TILT_CENTER = 90, TILT_UP_LIMIT   = 180
+# Pan Servo:  PAN_LEFT_LIMIT  = 0, PAN_CENTER  = 90, PAN_RIGHT_LIMIT = 180   (for GoPiGo3 servo compatibility)
+# Tilt Servo: TILT_DOWN_LIMIT = -90, TILT_CENTER = 0, TILT_UP_LIMIT   = 90
 #
 # Methods:
 #  tilt(pos = tilt_pos)
 #  pan(pos = pan_pos)
 #  tiltpan_center()       # convenience tilt(TILT_CENTER), pan(PAN_CENTER)
+#  nod_yes(spd=0.03)      
+#  nod_no(spd=0.02)
+#  nod_IDK(spd=0.02)
+#  get_tilt_pos()
+#  get_pan_pos()
+# 
+#  
 """
 ```
 # Usage:
@@ -19,7 +26,10 @@ egpg = EasyGoPiGo3(use_mutex=True)  # protect so others can use also
 ts = egpg.init_servo(TILT_PORT)
 ps = egpg.init_servo(PAN_PORT)
 
-tiltpan_center()
+tiltpan.tiltpan_center()
+tiltpan.tilt(tiltpan.TILT_CENTER)  # -90 to +90
+tiltpan.pan(tiltpan.PAN_CENTER)
+print tiltpan.get_pan_pos(), tiltpan.get_tilt_pos()
 
 ```
 """
@@ -63,6 +73,12 @@ egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
 
 ts = egpg.init_servo(TILT_PORT)
 ps = egpg.init_servo(PAN_PORT)
+
+def get_tilt_pos():
+   return tilt_position
+
+def get_pan_pos():
+   return pan_position
 
 def tiltpan_center():
   global tilt_position,pan_position
@@ -175,13 +191,14 @@ def main():
         tilt(TILT_CENTER)
 
         tiltpan_center()
+        print("pan_position:",get_pan_pos() )
         print('UP too far')
         tilt(90)
-        print("tilt_position:",tilt_position)
+        print("tilt_position:",get_tilt_pos() )
         sleep(5)
         print('DOWN too far')
         tilt(-90)
-        print("tilt_position:",tilt_position)
+        print("tilt_position:",get_tilt_pos() )
         sleep(5)
         print("YES")
         nod_yes()
