@@ -67,8 +67,8 @@ def printStatus():
   print datetime.now().date(), getUptime()
   vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
   print "Battery Voltage: %0.2f" % vBatt
-  #v5V = egpg.get_voltage_5v()
-  #print "5v Supply: %0.2f" % v5V
+  v5V = egpg.get_voltage_5v()
+  print "5v Supply: %0.2f" % v5V
   lifeRem=battery.hoursOfLifeRemaining(vBatt)
   lifeH=int(lifeRem)
   lifeM=(lifeRem-lifeH)*60
