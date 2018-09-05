@@ -162,6 +162,11 @@ def print_map():
 	print("Map:")
 	print(fence*2)
 	for i in range(int(grid_size/2)):
+                if debug:
+                    print("|"),
+		    for j in range (grid_size):
+		        print(grid[i][j]),
+		    print("|")
 		print("|"),
 		for j in range (grid_size):
 			if (j==int(grid_size/2)) and i==(int(grid_size/2)-1):
