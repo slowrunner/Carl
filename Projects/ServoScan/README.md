@@ -2,15 +2,17 @@
 This example creates LIDAR like maps, moving the GoPiGo3 robot forward until the closest
 object is detected to be within PERSONAL_SPACE=10cm of the robot.
 
-#Required Elements:
+# Required Elements:
 
 - [ DI Distance sensor ](https://www.dexterindustries.com/shop/distance-sensor/)
 - [ DI servo package ](https://www.dexterindustries.com/shop/servo-package/) 
   (connected to "SERVO1", with 0=Left, 90=Center, 180=Right in degrees)
 - [ GoPiGo3 ](https://www.dexterindustries.com/gopigo3/)
 
-Attach DI Distance Sensor (VL53L0X TOF infrared time-of-flight ranging sensor) to either of the GoPiGo3 I2C ports.
-Attach the DI Servo Package to "SERVO1" port of the GOPiGo3 board.
+# Usage:
+- Attach DI Distance Sensor (VL53L0X TOF infrared time-of-flight ranging sensor) to either of the GoPiGo3 I2C ports.
+- Attach the DI Servo Package to "SERVO1" port of the GOPiGo3 board.
+- Run ./ds_servo_scan.py  (or ds_wServoPkg_scan.py)
 
 ![ GoPiGo3 Board ](https://github.com/DexterInd/GoPiGo3/blob/master/docs/source/images/gpg3_ports.jpg)
 
