@@ -163,18 +163,18 @@ def print_map():
 	print(fence*2)
 	for i in range(int(grid_size/2)):
                 if debug:
-                    print("|"),
+                    print("|", end='')
 		    for j in range (grid_size):
-		        print(grid[i][j]),
+		        print(grid[i][j], end='')
 		    print("|")
-		print("|"),
+		print("|", end='')
 		for j in range (grid_size):
 			if (j==int(grid_size/2)) and i==(int(grid_size/2)-1):
-				print("+"),
+				print("+", end='')
 			elif grid[i][j]==0:
-				print(" "),
+				print(" ", end='')
 			else:
-				print("o"),
+				print("o", end='')
 		print("|")
 	print(fence*2)
 	closest_obj=min(dist_l)
@@ -199,8 +199,12 @@ try:
 
 		print("*** STOPPING TO ENJOY THE VIEW ***")
 		sleep(5)
-	servo.rotate_servo(90)
+	servo.reset_servo()
+	sleep(delay)
+	servo.disable_servo()
 
 except KeyboardInterrupt:
 	print("**** Ctrl-C detected.  Finishing Up ****")
-	servo.rotate_servo(90)
+	servo.reset_servo()
+	sleep(delay)
+	servo.disable_servo()
