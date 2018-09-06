@@ -24,7 +24,7 @@ This repository contains example source code for the GoPiGo3 platform.
 - [Raspberry Pi] (http://www.raspberrypi.org/)
 
 ** Note: 
-- Based on ![ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/tree/master/Software/Python/Examples/Ultrasonic_Servo), 
+- Based on ![ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/blob/master/Software/Python/Examples/Ultrasonic_Servo/us_servo_scan.py), 
 - Update to GoPiGo3 with the DI TOF Distance Sensor, ScaleFactor adjusts to farthest object, added debug:  Alan McDonley
 
 ## License
