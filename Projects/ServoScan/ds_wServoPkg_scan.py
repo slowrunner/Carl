@@ -31,9 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
 #
 ############################################################################################
 #
-# ! Attach DI Distance Sensor (VL53L0x based) to either GoPiGo3 I2C port.
-# ! Attach DI Servo Pkg to GoPiGo3 SERVO1 Port.
-#   (Alan's version: pan servo to SERVO1 port, set REVERSE_AXIS=True)
+# ! Attach DI Distance Sensor (VL53L0X based) to either I2C port.
+# ! Attach DI Servo Package to GoPiGo3 SERVO1 Port.
+#
 ############################################################################################
 
 #
@@ -55,21 +55,22 @@ egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)    # use_mutex=True for "thread-s
 # Create an instance of the Distance Sensor class.
 # I2C1 and I2C2 are the two ports through which sensors can connect to the I2C bus
 # The sensor can be connected to either port to be "on the I2C bus" so no port id is needed
-# The EasyDistanceSensor will return trusted readings out to roughly 230 cm and returns 300 when no obstacle seen
+# The EasyDistanceSensor will return trusted readings out to roughly 230 cm
+#                                    and returns 300 when no obstacle seen
 
 distance_sensor = egpg.init_distance_sensor()
 servo = egpg.init_servo("SERVO1")
 
-REVERSE_AXIS=True		# Need to reverse axis if servo is mounted shaft down (tilt/pan assembly)
+REVERSE_AXIS=False		# May need to set REVERSE_AXIS True for micro servo of tilt/pan assemblies
 PERSONAL_SPACE=10		# Stop when nearest object is within this distance in cm
-samples=3			# Number of samples for each angle. Suggest 1-5 (more samples = more trust, more time)
+samples=3			# Number of samples for each angle. Suggest 1-5 (more samples, more trust, more time)
 num_of_readings=45		# Number of trusted readings to use
 incr=180/num_of_readings	# increment of angle in servo
 ang_l=[0]*(num_of_readings+1)	# list to hold the angle of each trusted readings
 dist_l=[0]*(num_of_readings+1)	# list to hold the distance (trusted_reading) at each angle
 x=[0]*(num_of_readings+1)	# list to hold the x coordinate of each point
 y=[0]*(num_of_readings+1)	# list to hold the y coordinate of each point
-lim=230				# trust limit of distance sensor in cm (any sample over this which be set to the limit value)
+lim=230				# trust limit of distance sensor in cm (sample over lim set to lim))
 delay=.02			# give servo time to finish moving
 
 
