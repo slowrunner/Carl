@@ -4,10 +4,10 @@ object is detected to be within PERSONAL_SPACE=10cm of the robot.
 
 #Required Elements:
 
-- ![ DI Distance sensor ](https://www.dexterindustries.com/shop/distance-sensor/)
-- ![ DI servo package ](https://www.dexterindustries.com/shop/servo-package/) 
+- [ DI Distance sensor ](https://www.dexterindustries.com/shop/distance-sensor/)
+- [ DI servo package ](https://www.dexterindustries.com/shop/servo-package/) 
   (connected to "SERVO1", with 0=Left, 90=Center, 180=Right in degrees)
-- ![ GoPiGo3 ](https://www.dexterindustries.com/gopigo3/)
+- [ GoPiGo3 ](https://www.dexterindustries.com/gopigo3/)
 
 Attach DI Distance Sensor (VL53L0X TOF infrared time-of-flight ranging sensor) to either of the GoPiGo3 I2C ports.
 Attach the DI Servo Package to "SERVO1" port of the GOPiGo3 board.
@@ -20,11 +20,11 @@ This repository contains example source code for the GoPiGo3 platform.
 
 # See Also
 
-- [Dexter Industries] (http://www.dexterindustries.com/GoPiGo)
-- [Raspberry Pi] (http://www.raspberrypi.org/)
+- [Dexter Industries](http://www.dexterindustries.com/GoPiGo)
+- [Raspberry Pi](http://www.raspberrypi.org/)
 
 ** Note: 
-- Based on ![ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/blob/master/Software/Python/Examples/Ultrasonic_Servo/us_servo_scan.py), 
+- Based on [ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/blob/master/Software/Python/Examples/Ultrasonic_Servo/us_servo_scan.py)
 - Update to GoPiGo3 with the DI TOF Distance Sensor, ScaleFactor adjusts to farthest object, added debug:  Alan McDonley
 
 ## License
