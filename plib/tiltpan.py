@@ -86,6 +86,7 @@ def tiltpan_center():
   tilt_position = TILT_CENTER
   pan_position = PAN_CENTER
   tilt()
+  sleep(0.2)  # delay to limit current draw, SG90 spec: 0.12 sec/60deg
   pan()
 
 def off():          # turn both servo PWM freq to 0 to stop holding position

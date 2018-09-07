@@ -62,8 +62,8 @@ servo = egpg.init_servo("SERVO1")
 
 REVERSE_AXIS=True		# Need to reverse axis if servo is mounted shaft down (tilt/pan assembly)
 PERSONAL_SPACE=10		# Stop when nearest object is within this distance in cm
-samples=3			# Number of samples for each angle. Suggest 1-5 (more samples = more trust, more time)
-num_of_readings=45		# Number of trusted readings to use
+samples=1			# Number of samples for each angle. Suggest 1-5 (more samples = more trust, more time)
+num_of_readings=18		# Number of trusted readings to use
 incr=180/num_of_readings	# increment of angle in servo
 ang_l=[0]*(num_of_readings+1)	# list to hold the angle of each trusted readings
 dist_l=[0]*(num_of_readings+1)	# list to hold the distance (trusted_reading) at each angle
