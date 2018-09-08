@@ -7,9 +7,9 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/GoPiGo3/blob/master/LICENSE.md
 #
-# This code is an example for controlling the GoPiGo3 Motors
+# This code is an example for controlling the GoPiGo3 Motors using set_motor_position()
 #
-# Results:  When you run this program, the GoPiGo3 Motors will rotate back and forth.
+# Results:  When you run this program, the GoPiGo3 will slowly move forward about 8 inches then repeatedly back and forward 16 inches.
 
 from __future__ import print_function # use python 3 syntax but make it compatible with python 2
 from __future__ import division       #                           ''

@@ -7,7 +7,7 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/GoPiGo3/blob/master/LICENSE.md
 #
-# This code is an example for controlling the GoPiGo3 Motors
+# This code is an example for controlling the GoPiGo3 Motors with set_motor_power.
 #
 # Results:  When you run this program, the GoPiGo3 Motors will rotate back and forth.
 
