@@ -46,7 +46,7 @@ from collections import Counter
 import math
 from time import sleep
 
-debug = False			# True to print all raw values
+debug = True			# True to print all raw values
 
 
 # Create an instance egpg of the GoPiGo3 class.
@@ -66,14 +66,19 @@ delay=.02			# give servo time to finish moving
 
 
 #
-# Scan for map data
+#   ds_map()	SCAN FOR MAP DATA
+#	sector=180		size of scan (centered around center-forward)
+#	limit=230		sensor trusted reading limit
+#	num_of_readings=18	number of angles to take readings at in sector
+#	samples=1		number of readings to take at each angle to improve reading reliability
 #
 def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
+	half_sector = int(sector/2)
+	incr = half_sector/int(num_of_readings/2)
+	ang = 90 - half_sector
+        right_angle = 90 + half_sector
 	ang_l = [0]*(num_of_readings+1)		# list to hold the angle of each trusted readings
 	dist_l = [0]*(num_of_readings+1)	# list to hold the distance (trusted_reading) at each angle
-	incr = int(sector/num_of_readings)
-
-	ang=0
 	index=0
 	buf=[0]*samples		# buffer to hold sample readings at one angle
 
@@ -84,28 +89,34 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 
 	while True:
 		if debug:
-		    print("\nAngle: {} deg".format(ang))
-
+		    print("\nAngle: {:.1f} deg".format(ang))
+		#Move the servo to the next angle
+		if not REVERSE_AXIS:
+			servo.rotate_servo(ang)		# DI Servo Package has shaft up, 0 = left
+		else:
+			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
+		sleep(delay)
+		
 		#Take the readings from the Distance sensor for this angle, validate within limit
 		for i in range(samples):
 			dist=distance_sensor.read()  # in cm
-			if dist<lim and dist>=0:
+			if dist<limit and dist>=0:
 				buf[i]=dist
 			else:
-				buf[i]=lim
+				buf[i]=limit
 
 		#Find the sample that is most common among all the samples for this angle
 		max=Counter(buf).most_common()
 		trusted_reading=-1
 		for i in range (len(max)):
-			if max[i][0] <> lim and max[i][0] <> 0:
+			if max[i][0] <> limit and max[i][0] <> 0:
 				trusted_reading=max[i][0]
 				break
 		if trusted_reading==-1:
-			trusted_reading=lim
+			trusted_reading=limit
 
 		if debug:
-                        print("Index:{} Angle:{} deg Distance:{} cm ".format(index,ang,trusted_reading))
+                        print("Index:{} Angle:{:.1f} deg Distance:{} cm ".format(index,ang,trusted_reading))
 			# print index,ang,trusted_reading
 		ang_l[index]=ang
 		dist_l[index]=trusted_reading
@@ -118,7 +129,7 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
 		sleep(delay)
 		ang+=incr
-		if ang>180:
+		if ang>right_angle:
 			break
 	return dist_l,ang_l
 # END ds_map()
@@ -126,26 +137,31 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 #
 # Print a "forward 180 view" with GoPiGo3 at middle of x-axis grid
 #
-def view180(dist_l,ang_l,grid_width=80, units="cm"):
+def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
         CHAR_ASPECT_RATIO=2.12
         if debug: print("view180() called with grid_width:",grid_width)
         if not(grid_width % 2): grid_width -=1
         if debug: print("using grid_width:",grid_width)
-        num_of_readings = len(dist_l)
+        index_list_valid_readings = [i for i, x in enumerate(dist_l) if dist_l[i] < ignore_over]
+	valid_dist_l = [dist_l[i] for i in index_list_valid_readings]
+        valid_ang_l  = [ang_l[i] for i in index_list_valid_readings] 
+        num_of_readings = len(valid_dist_l)
         x=[0]*(num_of_readings+1)       # list to hold the x coordinate of each point
         y=[0]*(num_of_readings+1)       # list to hold the y coordinate of each point
         grid_height = int( int((grid_width-3)/2) / CHAR_ASPECT_RATIO)
-        X_SCALE_FACTOR=max(dist_l)/int((grid_width-3)/2)
+	max_valid = max(valid_dist_l) 
+        X_SCALE_FACTOR=max_valid/int((grid_width-3)/2)
         Y_SCALE_FACTOR=X_SCALE_FACTOR * CHAR_ASPECT_RATIO
         if debug:
-            print("Farthest object:{} ".format(max(dist_l)),end='')
+            print("Farthest reading:{} ".format(max(dist_l)),end='')
+            print("Farthest_valid:{} ".format(max_valid),end='')
             print("X_SCALE_FACTOR:{} Y_SCALE_FACTOR:{}".format(X_SCALE_FACTOR,Y_SCALE_FACTOR))
             print("grid_width: {} grid_height: {}".format(grid_width,grid_height))
         #Convert the distance and angle to (x,y) coordinates and scale it down
         if debug:  print("Scaled Cartesian Data (0deg=left)")
         for i in range(num_of_readings):
-                x[i] = -int( dist_l[i] * math.cos(math.radians(ang_l[i]) )/X_SCALE_FACTOR )
-                y[i] =  int( dist_l[i] * math.sin(math.radians(ang_l[i]) )/Y_SCALE_FACTOR )
+                x[i] = -int( valid_dist_l[i] * math.cos(math.radians(valid_ang_l[i]) )/X_SCALE_FACTOR )
+                y[i] =  int( valid_dist_l[i] * math.sin(math.radians(valid_ang_l[i]) )/Y_SCALE_FACTOR )
                 if debug:
                    print("x[{}] y[{}]=[{} {}]".format(i,i,x[i],y[i]))
 
@@ -165,12 +181,12 @@ def view180(dist_l,ang_l,grid_width=80, units="cm"):
 
         if debug:  print("Put value 1 in grid for each trusted_reading")
         for i in range (num_of_readings):
-            grid_x = int((grid_width-3)/2 + x[i])
-            #if x[i] > 0: grid_x +=1
-            grid_y = grid_height-y[i]
-            if debug:
-                print("x[{0}]:{1} grid_x: {2}  y[{0}]:{3} grid_y: {4}".format(i,x[i],grid_x, y[i], grid_y))
-            grid[grid_y][grid_x] = 1
+                grid_x = int((grid_width-3)/2 + x[i])
+                #if x[i] > 0: grid_x +=1
+                grid_y = grid_height-y[i]
+                if debug:
+                    print("x[{0}]:{1} grid_x: {2}  y[{0}]:{3} grid_y: {4}".format(i,x[i],grid_x, y[i], grid_y))
+                grid[grid_y][grid_x] = 1
 
         bot_fence=" "+'-'*int((grid_width-3)/2)+"0"+'-'*int((grid_width-3)/2)
         top_fence=" "+'-'*(grid_width-2)
@@ -196,12 +212,13 @@ def view180(dist_l,ang_l,grid_width=80, units="cm"):
                                 print("o", end='')
                 print("|")
         print(bot_fence, label)
-        closest_obj=min(dist_l)
-        farthest_obj=max(dist_l)
+        closest_obj=min(valid_dist_l)
+        farthest_reading=max(dist_l)
         print("Each '-' is {:.1f} {}      ".format(X_SCALE_FACTOR,units),end='')
         print("Each '|' is {:.1f} {}".format(Y_SCALE_FACTOR,units))
         print("Closest Object: {0:.0f} {1}  ".format(closest_obj,units),end='')
-        print("Farthest: {} {}".format(farthest_obj,units))
+        print("Farthest Valid Object: {} {}".format(max_valid,units))
+        print("Farthest Reading: {} {}".format(farthest_reading,units))
         return closest_obj      #Return the closest distance in all directions
 
 # END view180()
@@ -213,10 +230,10 @@ def main():
 	egpg.stop()
 	while True:
 		#Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
-		dist_l,ang_l=ds_map()
-		closest_obj = min(dist_l)
+		dist_l,ang_l=ds_map(sector=160)
+		closest_object = min(dist_l)
 		servo.reset_servo()
-		view180(dist_l,ang_l,grid_width=80,units="cm"
+		view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=200)
 		if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
 			print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
 			break
