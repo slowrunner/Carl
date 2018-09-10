@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
 #
 ############################################################################################
 #
-# ! Attach DI Distance Sensor (VL53L0x based) to either GoPiGo3 I2C port.
+# ! Attach DI Distance Sensor (VL53L0X based) to either GoPiGo3 I2C port.
 # ! Attach DI Servo Pkg to GoPiGo3 SERVO1 Port.
 #   (Alan's version: pan servo to SERVO1 port, set REVERSE_AXIS=True)
 ############################################################################################
@@ -57,7 +57,8 @@ egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)    # use_mutex=True for "thread-s
 # Create an instance of the Distance Sensor class.
 # I2C1 and I2C2 are the two ports through which sensors can connect to the I2C bus
 # The sensor can be connected to either port to be "on the I2C bus" so no port id is needed
-# The EasyDistanceSensor will return trusted readings out to roughly 230 cm and returns 300 when no obstacle seen
+# The EasyDistanceSensor will return trusted readings out to roughly 230 cm
+#                                    and returns 300 when no obstacle seen
 
 distance_sensor = egpg.init_distance_sensor()
 servo = egpg.init_servo("SERVO1")
@@ -91,7 +92,7 @@ delay=.02			# give servo time to finish moving
 # Farthest: 230 cm
 # Farthest Valid: 230 cm
 #
-def ds_map(sector=180,limit=230,num_of_readings=18,samples=1,rev_axis=False):
+def ds_map(sector=180,limit=300,num_of_readings=18,samples=1,rev_axis=False):
 	half_sector = int(sector/2)
 	incr = half_sector/int(num_of_readings/2)
 	ang = 90 - half_sector
@@ -162,10 +163,10 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1,rev_axis=False):
 #		ang_l		# required list of reading angle (0=left) e.g. [0,90,180]
 #		grid_width=80	# optional printout chars to fit map into
 #		units="cm"	# optional label for range units
-#		ignore_over=9999# use to ignore readings beyond valid sensor detection range
+#		ignore_over=300 # use to ignore readings beyond valid sensor detection range
 #				  or if sensor returns a particular value if nothing detected
 #
-def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
+def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
         CHAR_ASPECT_RATIO=2.12
         if debug: print("view180() called with grid_width:",grid_width)
         if not(grid_width % 2): grid_width -=1
@@ -193,14 +194,7 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
                 if debug:
                    print("x[{}] y[{}]=[{} {}]".format(i,i,x[i],y[i]))
 
-        #
-        #if debug:  print("Rotated for printing")
-        #for i in range(num_of_readings):
-        #        x[i]=int(grid_width/2) + 1 - x[i]
-        #        y[i]=grid_height +1 -y[i]
-        #        if debug:
-        #           print("x[{}] y[{}]=[{} {}]".format(i,i,x[i],y[i]))
-
+ 
         #Create a grid  [ [top row] , [next lower] ... [bottom (y=0) row] ]
         grid = [[0 for a in xrange(grid_width-2)] for a in xrange(grid_height+1)]
         if debug:
@@ -264,7 +258,7 @@ def main():
 		servo.reset_servo()
 
 		# Print scan data on terminal
-		view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=200)
+		view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=230)
 
 		# Decide if can move forward
 		if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
