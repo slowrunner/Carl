@@ -6,7 +6,7 @@
 # History
 # ------------------------------------------------
 # Author     	Date      		Comments
-# McDonley               5 Sept 18      Update to EasyGoPiGo3, DI TOF Distance Sensor
+# McDonley                 Sept 18      Update to EasyGoPiGo3, DI TOF Distance Sensor
 #					New ScaleFactor based on farthest object, if debug
 # Karan		  	13 June 14  	Initial Authoring for GoPiGo with ultrasonic sensor
 #
@@ -46,7 +46,9 @@ from collections import Counter
 import math
 from time import sleep
 
-debug = True			# True to print all raw values
+debug = False			# True to print all raw values
+REVERSE_AXIS=True		# Need to reverse axis if rotate_servo(0) points right for your configuration
+PERSONAL_SPACE=10		# Stop when nearest object is within this distance in cm
 
 
 # Create an instance egpg of the GoPiGo3 class.
@@ -60,8 +62,6 @@ egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)    # use_mutex=True for "thread-s
 distance_sensor = egpg.init_distance_sensor()
 servo = egpg.init_servo("SERVO1")
 
-REVERSE_AXIS=True		# Need to reverse axis if servo is mounted shaft down (tilt/pan assembly)
-PERSONAL_SPACE=10		# Stop when nearest object is within this distance in cm
 delay=.02			# give servo time to finish moving
 
 
@@ -72,7 +72,26 @@ delay=.02			# give servo time to finish moving
 #	num_of_readings=18	number of angles to take readings at in sector
 #	samples=1		number of readings to take at each angle to improve reading reliability
 #
-def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
+#	returns valid_dist_list,valid_angle_list  (r-theta lists)
+#
+# Example:
+#
+# Map:         230 cm
+#  ---------------------------
+# |             o             |
+# |       o  o     o  o       |
+# |    o                 o    |
+# |  o                     o  |
+# |                           |
+# |                           |
+# |             +             |
+#  -------------0------------- 230 cm
+# Each '-' is 17.7 cm      Each '|' is 37.5 cm
+# Closest Object: 230 cm
+# Farthest: 230 cm
+# Farthest Valid: 230 cm
+#
+def ds_map(sector=180,limit=230,num_of_readings=18,samples=1,rev_axis=False):
 	half_sector = int(sector/2)
 	incr = half_sector/int(num_of_readings/2)
 	ang = 90 - half_sector
@@ -91,12 +110,12 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 		if debug:
 		    print("\nAngle: {:.1f} deg".format(ang))
 		#Move the servo to the next angle
-		if not REVERSE_AXIS:
+		if not rev_axis:
 			servo.rotate_servo(ang)		# DI Servo Package has shaft up, 0 = left
 		else:
 			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
 		sleep(delay)
-		
+
 		#Take the readings from the Distance sensor for this angle, validate within limit
 		for i in range(samples):
 			dist=distance_sensor.read()  # in cm
@@ -123,7 +142,7 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 		index+=1
 
 		#Move the servo to the next angle
-		if not REVERSE_AXIS:
+		if not rev_axis:
 			servo.rotate_servo(ang)		# DI Servo Package has shaft up, 0 = left
 		else:
 			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
@@ -135,7 +154,16 @@ def ds_map(sector=180,limit=230,num_of_readings=18,samples=1):
 # END ds_map()
 
 #
-# Print a "forward 180 view" with GoPiGo3 at middle of x-axis grid
+# view180()      Print a "forward 180 view" with GoPiGo3 at middle of x-axis grid
+#                0 deg = left 90 deg center 180 deg right
+#		 Scale is adjusted to farthest valid reading
+#	Parmaeters:
+#		dist_l		# required list of range values  e.g. [20, 30, 20] facing into corner
+#		ang_l		# required list of reading angle (0=left) e.g. [0,90,180]
+#		grid_width=80	# optional printout chars to fit map into
+#		units="cm"	# optional label for range units
+#		ignore_over=9999# use to ignore readings beyond valid sensor detection range
+#				  or if sensor returns a particular value if nothing detected
 #
 def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
         CHAR_ASPECT_RATIO=2.12
@@ -144,12 +172,12 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
         if debug: print("using grid_width:",grid_width)
         index_list_valid_readings = [i for i, x in enumerate(dist_l) if dist_l[i] < ignore_over]
 	valid_dist_l = [dist_l[i] for i in index_list_valid_readings]
-        valid_ang_l  = [ang_l[i] for i in index_list_valid_readings] 
+        valid_ang_l  = [ang_l[i] for i in index_list_valid_readings]
         num_of_readings = len(valid_dist_l)
         x=[0]*(num_of_readings+1)       # list to hold the x coordinate of each point
         y=[0]*(num_of_readings+1)       # list to hold the y coordinate of each point
         grid_height = int( int((grid_width-3)/2) / CHAR_ASPECT_RATIO)
-	max_valid = max(valid_dist_l) 
+	max_valid = max(valid_dist_l)
         X_SCALE_FACTOR=max_valid/int((grid_width-3)/2)
         Y_SCALE_FACTOR=X_SCALE_FACTOR * CHAR_ASPECT_RATIO
         if debug:
@@ -226,24 +254,31 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=9999):
 
 # MAIN
 def main():
+		#Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
     try:
 	egpg.stop()
 	while True:
-		#Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
-		dist_l,ang_l=ds_map(sector=160)
+		# Scan in front of GoPiGo3
+		dist_l,ang_l=ds_map(sector=160,rev_axis=REVERSE_AXIS)
 		closest_object = min(dist_l)
 		servo.reset_servo()
+
+		# Print scan data on terminal
 		view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=200)
+
+		# Decide if can move forward
 		if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
 			print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
 			break
 		print("\n*** PAUSING TO ENJOY THE VIEW ***")
 		sleep(5)
+
 		# We have clearance to move
 		dist_to_drive = (closest_object * 0.3)
 		print("\n*** WE HAVE CLEARANCE TO MOVE {:.1f}cm ***".format(dist_to_drive))
 		egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
 
+	# Continue here when object within personal space
 	servo.reset_servo()
 	sleep(2)
 	servo.disable_servo()
