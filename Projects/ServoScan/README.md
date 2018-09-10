@@ -31,6 +31,38 @@ This repository contains example source code for the GoPiGo3 platform.
 - Based on [ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/blob/master/Software/Python/Examples/Ultrasonic_Servo/us_servo_scan.py)
 - Update: For GoPiGo3, DI TOF Distance Sensor, ScaleFactor to farthest object, added debug - Alan McDonley
 
+# Sample Output:
+```
+*** SCANNING ***
+
+Map:                                  33 cm
+ -----------------------------------------------------------------------------
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                  o     o       o            |
+|              o       o   o    o   o     o    o                              |
+|         o                            o                                      |
+|                                                                             |
+|                                                                             |
+|          o                                                                  |
+|                                                                             |
+|                                                                             |
+|          o                                                                  |
+|                                                                             |
+|         o                                                                   |
+|                                                                             |
+|                                      +                                      |
+ --------------------------------------0-------------------------------------- 33 cm
+Each '-' is 0.9 cm      Each '|' is 1.8 cm
+Closest Object: 19 cm  Farthest Valid Object: 33 cm
+Farthest Reading: 300 cm
+
+*** PAUSING TO ENJOY THE VIEW ***
+```
+
 ## License
 GoPiGo3 for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
 Copyright (C) 2018  Dexter Industries
