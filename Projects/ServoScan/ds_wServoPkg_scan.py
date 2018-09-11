@@ -196,7 +196,7 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
 
  
         #Create a grid  [ [top row] , [next lower] ... [bottom (y=0) row] ]
-        grid = [[0 for a in xrange(grid_width-2)] for a in xrange(grid_height+1)]
+        grid = [[0 for a in range(grid_width-2)] for a in range(grid_height+1)]
         if debug:
             print("grid[0]:",grid[0])
             print("len(grid):",len(grid))
