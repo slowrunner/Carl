@@ -129,7 +129,7 @@ def ds_map(sector=180,limit=300,num_of_readings=18,samples=1,rev_axis=False):
 		max=Counter(buf).most_common()
 		trusted_reading=-1
 		for i in range (len(max)):
-			if max[i][0] <> limit and max[i][0] <> 0:
+			if max[i][0] != limit and max[i][0] != 0:
 				trusted_reading=max[i][0]
 				break
 		if trusted_reading==-1:
