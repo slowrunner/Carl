@@ -238,9 +238,9 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
         farthest_reading=max(dist_l)
         print("Each '-' is {:.1f} {}      ".format(X_SCALE_FACTOR,units),end='')
         print("Each '|' is {:.1f} {}".format(Y_SCALE_FACTOR,units))
-        print("Closest Object: {0:.0f} {1}  ".format(closest_obj,units),end='')
-        print("Farthest Valid Object: {} {}".format(max_valid,units))
-        print("Farthest Reading: {} {}".format(farthest_reading,units))
+        print("Closest Object: {0:.1f} {1}  ".format(closest_obj,units),end='')
+        print("Farthest Valid Object: {:.1f} {}".format(max_valid,units))
+        print("Farthest Reading: {:.1f} {}".format(farthest_reading,units))
         return closest_obj      #Return the closest distance in all directions
 
 # END view180()
