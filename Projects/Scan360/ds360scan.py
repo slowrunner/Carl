@@ -35,10 +35,14 @@ WHEEL_CIRCUMFERENCE = WHEEL_DIAMETER * math.pi          # 208.92 mm    (measures
 WHEEL_BASE_WIDTH = egpg.WHEEL_BASE_WIDTH                # 117 in mm    (static 114-115, cannot measure dynamic)
 WHEEL_BASE_CIRCUMFERENCE = WHEEL_BASE_WIDTH * math.pi   # 367.57 mm    (cannot measure actual)
 
-
+#
+#   MOTORS RUNNING         Returns True/False
+def motors_running():
+    motors_state = egpg.get_motor_status(egpg.MOTOR_LEFT)[3] | egpg.get_motor_status(egpg.MOTOR_RIGHT)[3]
+    return (motors_state != 0)
 
 def spin_and_scan(degrees=360, speed=100):
-
+    debug = True
     reading_l = []
     at_angle_l = []
 
@@ -57,7 +61,7 @@ def spin_and_scan(degrees=360, speed=100):
     # calculate an initial delay to limit readings loop
     time_360_at_100 = 4.0 # seconds
     default_readings=16
-    reading_delay = time_360_at_300/default_readings * 0.9
+    reading_delay = time_360_at_100/default_readings * 0.9
 
     # Start the spin
     egpg.turn_degrees(degrees,blocking=False)
@@ -66,33 +70,48 @@ def spin_and_scan(degrees=360, speed=100):
     sleep(reading_delay)
 
     # probably should have a timeout safety exit on this loop
-    while egpg.get_speed() > 0:
+    while motors_running():
         # take a new reading
         reading_l += [distance_sensor.read_mm()]    #in mm for no loss of precision
 
         # Find out how much we've spun so far
-        left_enc,right_enc = egpg.read_encoders()      # degrees each wheel turned
-        ave_encoders = (left_enc + right_enc) / 2.0    # average in case one turns a little faster than other
+        left_enc,right_enc = egpg.read_encoders()      		# degrees each wheel turned
+        ave_encoders = (abs(left_enc) + abs(right_enc)) / 2.0   # in case one turns a little faster
+	if debug:
+	    print("left enc:{} right enc:{}  ave enc:{:.1f}".format(left_enc,right_enc,ave_encoders))
 
         # starting at GoPiGo3 angle 90  (0 = left  90 = straight ahead)
         # angle = 90 + (Wheel Dia * Ave_Enc) / Wheel Base Cir     # simplified by *pi/pi) and *360/360 cancels
-        at_angle_l += [ (WHEEL_DIAMETER * ave_encoders) / WHEEL_BASE_CIRCUMFERENCE ]
+        at_angle_l +=  [( (WHEEL_DIAMETER * ave_encoders) / WHEEL_BASE_CIRCUMFERENCE) % 360 ]
         readings += 1
+
+	if debug:
+	   print("Readings:{} Reading:{:.1f} Angle:{:.1f}".format(readings, \
+								reading_l[readings-1], at_angle_l[readings-1]))
+
+	# adjust delay to get requested number of readings during the spin
         sleep(reading_delay)
 
-    return (reading_l, at_angle_l)
+    return reading_l, at_angle_l
 
 
 
 
 
-def main()
+def main():
+    dist_list_mm = []
+    at_angle_list = []
+
     try:
         dist_list_mm,at_angle_list = spin_and_scan(360, speed=100)   # spin in place and take distance sensor readings
         range_list_cm = [ dist/10 for dist in dist_list_mm ]
-        printmaps.view360(range_list_cm, at_angle_l)                # print view (all r positive, theta 0=left)
+        printmaps.view360(range_list_cm, at_angle_list)                # print view (all r positive, theta 0=left)
         egpg.stop()
 
-except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
-    egpg.stop()           # stop motors 
-    print("Ctrl-C detected - Finishing up")
+    except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
+    	egpg.stop()           # stop motors 
+    	print("Ctrl-C detected - Finishing up")
+
+
+if __name__ == "__main__":
+	main()
