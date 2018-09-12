@@ -1,6 +1,13 @@
 ## ds360scan.py </br>   
 
-This example spins GoPiGo3 one complete revolution and displays a LIDAR like map
+This example spins GoPiGo3 one complete revolution (360 degrees),
+while taking distance sensor readings as fast as possible.
+
+After collecting the distance readings with each corresponding direction (0 = left, 90 = forward),
+a 360 degree LIDAR like map is printed showing the GoPiGo3 in the center,
+and "how the world around looks."
+
+This example program ds360scan.py uses the view360() function from the printmaps.py module 
 
 # Required Elements:
 
@@ -24,7 +31,56 @@ This repository contains example source code for the GoPiGo3 platform.
 - [Dexter Industries](http://www.dexterindustries.com/GoPiGo)
 - [Raspberry Pi](http://www.raspberrypi.org/)
 
-** Note: 
+# Example Output:
+
+SPIN 360 AND SCAN at speed=100
+
+Map:                                  90 deg
+ ----------------------------------------------------------------------------- 48 cm
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                 o                           |
+|                                                                             |
+|                                           o        o                        |
+|                            o                                                |
+|                        o        o    o                o                     |
+|                                    o o                                      |
+|                      o                                  o                   |
+|                                                                             |
+|                                                         o                   |
+|                 o                                                           |
+|                                                            o                |
+|                                                              o              |
+|             o                                                               |
+|                  o                   +                         o            0  270 deg
+|                                                                             |
+|                 o                                                o          |
+|                                                                             |
+|                   o                                                         |
+|                     o                                               o       |
+|                                                                             |
+|                      o                                                      |
+|                                            o     o                    o     |
+|                       o        o   o                           o            |
+|                           o          o   o                                  |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+|                                                                             |
+ --------------------------------------0-------------------------------------- 48 cm
+Each '-' is 1.3 cm      Each '|' is 2.7 cm
+Closest Object: 23.5 cm  Farthest Valid Object: 48.1 cm
+Farthest Reading: 300.0 cm
+
+
+
+
+## Notes: 
 - Author: Alan McDonley Sep 2018 
 
 ## License
