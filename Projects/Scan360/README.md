@@ -1,20 +1,17 @@
-## ds_servo_scan.py </br>  ds_wServoPkg_scan.py 
+## ds360scan.py </br>   
 
-This example creates LIDAR like maps, moving the GoPiGo3 robot forward until the closest
-object is detected to be within PERSONAL_SPACE=10cm of the robot.
+This example spins GoPiGo3 one complete revolution and displays a LIDAR like map
 
 # Required Elements:
 
 - [ DI Distance sensor ](https://www.dexterindustries.com/shop/distance-sensor/)
-- [ DI servo package ](https://www.dexterindustries.com/shop/servo-package/) 
-  (connected to "SERVO1", with 0=Left, 90=Center, 180=Right in degrees)
 - [ GoPiGo3 ](https://www.dexterindustries.com/gopigo3/)
+- printmaps.py   contains the view360() function to print the scan values 
 
 # Usage:
 - Attach DI Distance Sensor (VL53L0X TOF infrared time-of-flight ranging sensor) to either of the GoPiGo3 I2C ports.
-- Attach the DI Servo Package to "SERVO1" port of the GOPiGo3 board.
-- Run ./ds_servo_scan.py  or </br>
-  Run ./ds_wServoPkg_scan.py (if using Dexter Industries Servo Package per Installation Instructions)
+- Run ./ds360scan.py  or </br>
+      python ds360scan.py
 
 ![ GoPiGo3 Board ](https://github.com/DexterInd/GoPiGo3/blob/master/docs/source/images/gpg3_ports.jpg)
 
@@ -28,8 +25,7 @@ This repository contains example source code for the GoPiGo3 platform.
 - [Raspberry Pi](http://www.raspberrypi.org/)
 
 ** Note: 
-- Based on [ GoPiGo us_servo_scan.py ](https://github.com/DexterInd/GoPiGo/blob/master/Software/Python/Examples/Ultrasonic_Servo/us_servo_scan.py)
-- Update: For GoPiGo3, DI TOF Distance Sensor, ScaleFactor to farthest object, added debug - Alan McDonley
+- Author: Alan McDonley Sep 2018 
 
 ## License
 GoPiGo3 for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
