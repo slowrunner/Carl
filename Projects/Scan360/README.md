@@ -32,7 +32,7 @@ This repository contains example source code for the GoPiGo3 platform.
 - [Raspberry Pi](http://www.raspberrypi.org/)
 
 # Example Output:
-
+```
 SPIN 360 AND SCAN at speed=100
 
 Map:                                  90 deg
@@ -76,7 +76,7 @@ Map:                                  90 deg
 Each '-' is 1.3 cm      Each '|' is 2.7 cm
 Closest Object: 23.5 cm  Farthest Valid Object: 48.1 cm
 Farthest Reading: 300.0 cm
-
+```
 
 
 
