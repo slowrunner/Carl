@@ -54,7 +54,7 @@ Map:                                  90 deg
 |                                                            o                |
 |                                                              o              |
 |             o                                                               |
-|                  o                   +                         o            0  270 deg
+|                  o                   +                         o            0  180 deg
 |                                                                             |
 |                 o                                                o          |
 |                                                                             |
