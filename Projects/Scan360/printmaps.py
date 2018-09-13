@@ -244,7 +244,7 @@ def view360(dist_l,ang_l,grid_width=80, units="cm", ignore_over=300):
                         else:
                                 print("o", end='')
                 if i == int(grid_height/2):
-                    print("0  270 deg")
+                    print("0  180 deg")
                 else:
                     print("|")
         print(bot_fence, label)
