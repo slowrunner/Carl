@@ -18,7 +18,7 @@ python_version = sys.version_info[0]
 print("Python Version:",python_version)
 
 def enc_to_distance_inches(enc):
-	return egpg.WHEEL_CIRCUMFIRENCE * enc/360.0 * 0.0393701 
+	return egpg.WHEEL_CIRCUMFERENCE * enc/360.0 * 0.0393701 
 
 default_dist = 20
 num_tries = 1
@@ -39,7 +39,7 @@ while True:
 	print("New default_dist:{:.1f}".format(default_dist))
 	continue
     elif i[0] == "x":
-	num_turns = int(float(i[1:]))
+	num_tries = int(float(i[1:]))
         dist=default_dist
     elif i[0] == "1":
 	default_dist += 1.0
@@ -53,7 +53,7 @@ while True:
 
 
     try:
-      for i in range(num_turns):
+      for i in range(num_tries):
 	print ("\n===== Drive {:.1f} Inches ========".format(dist))
 	encoderStartLeft, encoderStartRight = egpg.read_encoders()
 	print ( "Encoder Values: " + str(encoderStartLeft) + ' ' + str(encoderStartRight))	# print the encoder raw
@@ -79,11 +79,11 @@ while True:
 	print ("Wheel Rate:{:.1f} dps   (includes start/stop effect)".format(wheelrate))
 	#print ("Max wheel speed differential in encoder tics: %d" % maxWheelSpeedDiff)
 	print ("=============")
-	if num_turns > 1:
+	if num_tries > 1:
 		print(" ^^^^ Drive {} ^^^^".format(i+1))
                 dist = -dist
 		time.sleep(2)
-      num_turns = 1
+      num_tries = 1
     except KeyboardInterrupt:
 	egpg.stop()
 
