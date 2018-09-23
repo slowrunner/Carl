@@ -35,7 +35,7 @@ from datetime import datetime
 import easygopigo3
 import battery
 
-LOW_BATTERY_V = 8.5   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
+LOW_BATTERY_V = 7.4   #8.5  8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -118,7 +118,7 @@ def main():
           time.sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
-        time.sleep(5)
+        time.sleep(30)
     #end while
   except SystemExit:
     print "status.py: exiting"
