@@ -10,7 +10,7 @@ sys.path.append("/home/pi/Carl/plib")
 import time
 import os
 
-SafeShutDown = 8.75  # 20% life
+SafeShutDown = 8.75  # (1.09375v/cell yields 8h "fun time", 14% life remaining 1h18m)
 
 # ########## HOURS OF LIFE REMAINING
 # hoursOfLifeRemaining(Vbatt)
@@ -18,25 +18,27 @@ SafeShutDown = 8.75  # 20% life
 # Data points are adjusted to a shutdown point at 8.75v as a safe usage
 #      based on run of batery_life.py using 4 times under 7.4v (0.925/cell shutdown)
 #
+# Supposedly Toyota Prius uses 80% of battery capacity as safe limit to maximize 
+#      number of recharge cycles.
 #
 # Historical:
-#   Sep 2018  9.4h   (8x EBL 2800mAh AA cells, around 2550 mAh on BC-3000 test)
-#   Aug 2018  7.3h   (6xEnergizer 2300mAh AA and 2xAmazon 2000mAh AA)
+#   Sep 2018  9h21m   (8x EBL 2800mAh AA cells, around 2550 mAh on BC-3000 test)
+#   Aug 2018  7h20m   (6xEnergizer 2300mAh AA and 2xAmazon 2000mAh AA)
 
 #  (V , Time remaining)
 
 lifePoints= (
  (11.0,  8.25),   # guess
- (10.13, 7.75),   # 7h 45m to 8.75, 9h24m to 7.4v
- (9.54,  6.75),
- (9.42,  5.75),
- (9.36,  4.75),
- (9.30,  3.75),
- (9.10,  1.75),
- (8.91,  0.75),
+ (10.23, 7.95),   # 7h 57m to 8.75, 9h21m to 7.4v
+ (9.56,  6.95),
+ (9.40,  5.95),
+ (9.33,  4.95),
+ (9.28,  3.95),
+ (9.22,  1.95),
+ (8.95,  0.95),
  (8.75,  0.00),
- (8.70, -0.25),
- (7.40, -1.65),
+ (7.99, -1.30),
+ (7.40, -1.38),
  (0.00, -2.00)
  )
 
