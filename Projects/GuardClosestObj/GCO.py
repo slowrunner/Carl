@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 #
-# Find and guard closest object
-#
-# Results:  When you run this program, the GoPiGo3 should
-#                     spin360 taking distance measurement
-#                     spin to face closest object
-#                     travel to point where wheels are 10 inches from object
-#                     perform a 160 degree scan with obj in the center
-#                     spin 180 to face away from object
-#                     loop
-#			perform a quick 160 degree scan
-#		        if something gets closer, wag head and announce "I saw that."
-#
+# GUARD CLOSEST OBJECT
+"""
+This program performs the following plan:
+1) Perform 360 degree scan (Spin GoPiGo3 one complete revolution taking distance measurements)
+2) Print 360 degree view to console
+3) Turn toward closest object
+4) Move to "Guard Spot" (wheels 8 inches from object: 1.5" baseboards, 5.5" turning radius, 1.5" safety)
+5) Rotate 180 to "Guarding Direction"
+6) Repeatedly perform 160 degree sector servo scan
+  - If something moves closer, announce "I saw that"
+  - If something moves within Guard Area, announce "Back off.  I am protecting this area"
+
+"""
 
 from __future__ import print_function # use python 3 syntax but make it compatible with python 2
 from __future__ import division       #                           ''
@@ -42,14 +43,14 @@ def main():
 
 
     # Adjust GOPIGO3 CONSTANTS to my bot   default EasyGoPiGo3.WHEEL_DIAMETER = 66.5 mm
-    egpg.WHEEL_DIAMETER = 58.0				# empirical from systests/wheelDiaRotateTest.py
+    egpg.WHEEL_DIAMETER = 61.3				# empirical from systests/wheelDiaRotateTest.py
     egpg.WHEEL_CIRCUMFERENCE = egpg.WHEEL_DIAMETER * math.pi
 
     dist_list_mm = []
     at_angle_list = []
-    scan360speed = 100
-    safe_distance = 25.4 # cm  10 inches wheels to wall/object
-    ds_to_wheels = 7   #cm    distance sensor is in front of wheels
+    scan360speed = 120
+    safe_distance = 20.32 # cm  8 inches wheels to wall/object
+    ds_to_wheels = 7      # cm    distance sensor is 2.75 inches in front of wheels
     try:
         #  spin360 taking distance measurement
         print("\n360 degree scan  at speed={}".format(scan360speed))

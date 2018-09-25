@@ -1,84 +1,32 @@
-## ds360scan.py </br>   
+## GCO.py </br>   
 
-This example spins GoPiGo3 one complete revolution (360 degrees),
-while taking distance sensor readings as fast as possible.
+GUARD CLOSEST OBJECT
 
-After collecting the distance readings with each corresponding direction (0 = left, 90 = forward),
-a 360 degree LIDAR like map is printed showing the GoPiGo3 in the center,
-and "how the world around looks."
+This program performs the following plan:
+1) Perform 360 degree scan (Spin GoPiGo3 one complete revolution taking distance measurements,
+2) Print 360 degree view to console
+3) Turn toward closest object
+4) Move to "Guard Spot" (wheels 8 inches from object: 1.5" baseboards, 5.5" turning radius, 1.5" safety)
+5) Rotate 180 to "Guarding Direction"
+6) Repeatedly perform 160 degree sector servo scan
+  - If something moves closer, announce "I saw that"
+  - If something moves within Guard Area, announce "Back off.  I am protecting this area"
 
-This example program ds360scan.py uses the view360() function from the printmaps.py module 
 
 # Required Elements:
 
 - [ DI Distance sensor ](https://www.dexterindustries.com/shop/distance-sensor/)
+- [ Pan Servo or DI Servo Package] (https://www.dexterindustries.com/shop/servo-package/)
 - [ GoPiGo3 ](https://www.dexterindustries.com/gopigo3/)
-- printmaps.py   contains the view360() function to print the scan values 
+- printmaps.py   contains the view360() and view180() functions to print scan information
+- servoscan.py   contains the ds_map() distance sensor servo sector scan function
+- scan360.py     contains the spin_and_scan() method
 
 # Usage:
-- Attach DI Distance Sensor (VL53L0X TOF infrared time-of-flight ranging sensor) to either of the GoPiGo3 I2C ports.
-- Run ./ds360scan.py  or </br>
-      python ds360scan.py
+- Run ./GCO.py  or </br>
+      python GCO.py
 
-![ GoPiGo3 Board ](https://github.com/DexterInd/GoPiGo3/blob/master/docs/source/images/gpg3_ports.jpg)
-
-This repository contains example source code for the GoPiGo3 platform.
-
-![ GoPiGo3 ](https://github.com/DexterInd/GoPiGo3/blob/master/docs/source/images/gopigo3.jpg)
-
-# See Also
-
-- [Dexter Industries](http://www.dexterindustries.com/GoPiGo)
-- [Raspberry Pi](http://www.raspberrypi.org/)
-
-# Example Output:
-```
-SPIN 360 AND SCAN at speed=100
-
-Map:                                  90 deg
- ----------------------------------------------------------------------------- 48 cm
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                 o                           |
-|                                                                             |
-|                                           o        o                        |
-|                            o                                                |
-|                        o        o    o                o                     |
-|                                    o o                                      |
-|                      o                                  o                   |
-|                                                                             |
-|                                                         o                   |
-|                 o                                                           |
-|                                                            o                |
-|                                                              o              |
-|             o                                                               |
-|                  o                   +                         o            0  180 deg
-|                                                                             |
-|                 o                                                o          |
-|                                                                             |
-|                   o                                                         |
-|                     o                                               o       |
-|                                                                             |
-|                      o                                                      |
-|                                            o     o                    o     |
-|                       o        o   o                           o            |
-|                           o          o   o                                  |
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                                             |
-|                                                                             |
- --------------------------------------0-------------------------------------- 48 cm
-Each '-' is 1.3 cm      Each '|' is 2.7 cm
-Closest Object: 23.5 cm  Farthest Valid Object: 48.1 cm
-Farthest Reading: 300.0 cm
-```
-
-
+# 
 
 ## Notes: 
 - Author: Alan McDonley Sep 2018 
@@ -97,5 +45,4 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
+See <http://www.gnu.org/licenses/gpl-3.0.txt>.
