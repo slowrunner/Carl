@@ -11,11 +11,14 @@
 from __future__ import print_function # use python 3 syntax but make it compatible with python 2
 from __future__ import division       #                           ''
 
+import sys
+sys.path.append('/home/pi/Carl/plib')
+
 from time import sleep, clock
 import easygopigo3 # import the GoPiGo3 class
 import math
 import printmaps
-
+import tiltpan
 
 
 
@@ -45,9 +48,12 @@ def encoder_ave_to_spin_deg(egpg, encoder_ave):
 #	At speed= 30 takes about 120 readings (~ 3 deg)
 #
 
-def spin_and_scan(egpg, ds, degrees=360, speed=50):
+def spin_and_scan(egpg, distance_sensor, degrees=360, speed=50):
     debug = False
     timing= False
+
+    # center tiltpan before using distance sensor
+    tiltpan.tiltpan_center()
 
     reading_l = []
     at_angle_l = []
@@ -120,7 +126,7 @@ def spin_and_scan(egpg, ds, degrees=360, speed=50):
 	    print("\nleft enc:{} right enc:{} ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
 	    print("Readings:{} Reading:{:.1f} spun:{:.1f} deg".format(readings, \
 								reading_l[readings], \
-								encoder_ave_to_spin_deg(ave_enc_l[readings])))
+								encoder_ave_to_spin_deg(egpg, ave_enc_l[readings])))
 	# increment readings count for this datum
         readings += 1
 
@@ -132,7 +138,7 @@ def spin_and_scan(egpg, ds, degrees=360, speed=50):
 
     # convert average encoder reading to degrees turned and add 90 degrees for start angle
     # angle = 90 + (Wheel Dia * Ave_Enc) / Wheel Base Cir     # simplified by *pi/pi) and *360/360 cancels
-    at_angle_l =  [( (90 + encoder_ave_to_spin_deg(ave_encoders))  % 360) for ave_encoders in ave_enc_l  ]
+    at_angle_l =  [( (90 + encoder_ave_to_spin_deg(egpg, ave_encoders))  % 360) for ave_encoders in ave_enc_l  ]
     if timing: print("last reading took:",reading_took)
     return reading_l, at_angle_l
 
@@ -142,11 +148,11 @@ def spin_and_scan(egpg, ds, degrees=360, speed=50):
 
 def main():
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
-    distance_sensor = egpg.init_distance_sensor()
+    ds = egpg.init_distance_sensor()
 
 
     # Adjust GOPIGO3 CONSTANTS to my bot   default EasyGoPiGo3.WHEEL_DIAMETER = 66.5 mm
-    egpg.WHEEL_DIAMETER = 64.35				# empirical from systests/wheelDiaRotateTest.py
+    egpg.WHEEL_DIAMETER = 59.0				# empirical from systests/wheelDiaRotateTest.py
     egpg.WHEEL_CIRCUMFERENCE = egpg.WHEEL_DIAMETER * math.pi
 
 
