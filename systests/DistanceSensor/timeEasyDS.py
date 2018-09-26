@@ -15,10 +15,10 @@ import numpy as np
 print("\nExample program for timing a single read of the Dexter Industries Easy Distance Sensor.")
 
 eds = EasyDistanceSensor()
-timing_l = []
-dist_l = []
 delay_l = [0.0, 0.001, 0.005, 0.010, 0.100, 1.0]
 for delay in delay_l:
+  timing_l = []
+  dist_l = []
   for i in range(10):
     # read the distance as a single-shot sample
     start=time.clock()
