@@ -25,11 +25,11 @@ def enc_to_dist(enc):
 	return egpg.WHEEL_DIAMETER * enc / 360
 
 def minus_if_odd(a):
-    if a & 1:  rv = -a
-    else: rv = a
+    if a & 1:  rv = -1
+    else: rv = 1
     return rv
 
-default_dist
+default_dist = 20.0  # inches
 num_tries = 1
 dist = default_dist
 wd = egpg.WHEEL_DIAMETER
@@ -73,11 +73,7 @@ while True:
         drive_speed = int(float(i[1:]))
         print("New drive_speed:{}".format(drive_speed))
         continue
-    elif int(float(i)) == 0:
-	wd = egpg.WHEEL_DIAMETER
-	print("New WHEEL_DIAMETER:{:.2f}".format(wd))
-        continue
-    else:
+    else:         # NN.N  new WHEEL_DIAMETER
 	wd=float(i)
 
 
@@ -96,7 +92,7 @@ while True:
 	startclock = time.clock()
 	starttime  = time.time()
 	if check_motor_status:
-            egpg.drive_inches(minus_if_odd(dist)),blocking=False)
+            egpg.drive_inches(minus_if_odd(i)*dist,blocking=False)
             time.sleep(0.25)  # initial delay to let motion start
             motors_running = True
             motor_status_count = 0
@@ -107,7 +103,7 @@ while True:
                 motors_running = motors_state_l[3] | motors_state_r[3]
                 motor_status_count += 2
         else:
-            egpg.drive_inches(minus_if_odd(dist))
+            egpg.drive_inches(minus_if_odd(i)*dist)
 	drive_processor_time = time.clock() - startclock
 	drive_wall_time = time.time() - starttime
 
@@ -128,12 +124,12 @@ while True:
                                        deltaLeftdist * 100 / dist,
                                        deltaRightdist * 100 / dist,
                                        deltaAve * 100 / dist ))
-	turnrate = dist/drive_wall_time
+	drive_rate = dist/drive_wall_time
 	wheelrate = deltaAve/turn_wall_time
-	print ("Spin Rate:{:.1f} dps Wheel Rate:{:.1f} dps (includes start/stop effect)".format(spinrate, wheelrate))
+	print ("Drive Rate:{:.1f} in/s Wheel Rate:{:.1f} dps (includes start/stop effect)".format(drive_rate, wheelrate))
 	print ("=============")
 	if num_tries > 1:
-		print(" ^^^^ Turn {} ^^^^".format(i+1))
+		print(" ^^^^ Drive {} ^^^^".format(i+1))
 		time.sleep(2)
       num_tries = 1
     except KeyboardInterrupt:
