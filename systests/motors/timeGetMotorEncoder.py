@@ -12,7 +12,7 @@ import easygopigo3
 import time
 import numpy as np
 
-print("\nTiming get_motor_status().")
+print("\nTiming get_motor_encoder().")
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 
