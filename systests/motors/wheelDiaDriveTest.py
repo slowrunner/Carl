@@ -14,6 +14,11 @@
 #
 #  Operation:  Return executes once, ? gives help
 #
+#  Results:
+#     "Uncalibrated": -4% error with 0.2% repeatability (-2.75 inch error with 1/8 inch repeatability)
+#     "Calibration" via wheel diameter adjustment: 0.2% drive-to-drive accuracy  (1/8 inch error in 5 feet travel)
+#                   and 0.8% session, and session-to-session accuracy (1/2 inch error in 5 feet travel)
+#
 '''
 
 from __future__ import print_function
@@ -41,7 +46,7 @@ def minus_if_odd(a):
 default_dist = 21.0  # inches
 num_tries = 1
 dist = default_dist
-wd = 63.6  #  default GoPiGo3 WHEEL_DIAMETER is 66.5 (or set to  egpg.WHEEL_DIAMETER)
+wd = 63.97  #  default GoPiGo3 WHEEL_DIAMETER is 66.5 (or set to  egpg.WHEEL_DIAMETER)
 check_motor_status = False
 read_motor_status_delay = 0.010
 drive_speed = 120
