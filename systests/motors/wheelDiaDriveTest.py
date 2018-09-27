@@ -9,7 +9,7 @@
 #   drive_speed (120 DPS)            - change with sNNN command
 #   wheel diameter (63.7-63.975mm makes my bot very accurate, repeatably)  - change by entering NN.N at prompt
 #   check_motor_status(False)  will change to non-blocking drive and check left and right motor status - "c"
-#   ranging_active(False)  will perform read_range_continuous() during each check motor status loop  - "r" 
+#   ranging_active(False)  will perform read_inches() during each check motor status loop  - "r" 
 #   num_tries (1)  -change with xN
 #
 #  Operation:  Return executes once, ? gives help
