@@ -59,14 +59,15 @@ Carl Specs:
   * SERVO1: Pan Servo
   * SERVO2: Tilt Servo
 
-- Power Source: 8x 2300mAH NiMH AAA cells
+- Power Source: 8x 2800mAH NiMH AA cells (EBL)
   * Cliff at 7.4v (0.925 volts / cell)
-  * Cycling to 20% capacity (8.5v) for max cycles
+  * Cycling to 15% capacity (8.75v) for max cycles
   * Charging at 1A
   
-- Run Time:  up to 7 hours 
-  * About 6.5 hours using 8.5v "max cycles" shutdown limit
-  * About 7.3 hours to voltage cliff
+- Run Time:  up to 9 hours 
+  * "Thinking" 8 hours using 8.75v "max cycles" shutdown limit
+  * "Wandering" 2-3 hours to 8.75v recharge point
+  * About 9.3 hours to 7.4v voltage cliff
 
 - Recharger:  
   * Tenergy 6-12v Delta-Minus-V Peaking Charger
