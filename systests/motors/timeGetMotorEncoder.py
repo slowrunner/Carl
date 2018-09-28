@@ -2,7 +2,7 @@
 #
 # timeGetMotorEncoder.py    Time GoPiGo3.get_motor_encoder()
 #
-# Result: RPi3B  1.2MHz 4core   average 110ns for two (left and right) 
+# Result: RPi3B  1.2MHz 4core   average 110us for two (left and right) 
 #
 from __future__ import print_function
 from __future__ import division
@@ -30,4 +30,4 @@ for delay in delay_l:
     print("Timing: {:.6f}".format(timing))
     time.sleep(delay)
   print("\nDelay between readings: {:.0f}ms".format(delay*1000))
-  print("2x get_motor_encoder() Average Time: {:.0f} ns\n\n".format(np.mean(timing_l)*1000000))
+  print("2x get_motor_encoder() Average Time: {:.0f} us\n\n".format(np.mean(timing_l)*1000000))
