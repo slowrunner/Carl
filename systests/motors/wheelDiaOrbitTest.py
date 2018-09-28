@@ -29,11 +29,6 @@ import sys
 from math import pi
 
 
-'''
-    # execute the spin
-    egpg.orbit(degrees=ORBIT_ANGLE, radius_cm=ORBIT_RAD_CM, blocking=True)
-'''
-
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 ds   = egpg.init_distance_sensor()
 
@@ -77,6 +72,10 @@ while True:
 	orbit_angle = 360
 	print("New orbit_angle:{:.1f}".format(orbit_angle))
 	continue
+    elif i[0] == "a":
+	orbit_angle = int(float(i[1:])) 
+	print("New orbit_angle:{}".format(orbit_angle))
+	continue
     elif i == "c":
         check_motor_status = not check_motor_status
         print("check_motor_status is now {}".format(check_motor_status))
@@ -97,6 +96,7 @@ while True:
         print("c       toggle check_motor_status ({})".format(check_motor_status))
 	print("h       change orbit_angle to 180 deg")
 	print("f       change orbit_angle to 360 deg")
+        print("aNNN    set orbit_angle to NNN deg")
         print("d.NNN   change read_motor_status_delay to .NNN seconds")
         print("r       toggle ranging active")
 	print("xN      repeat with stated values N times")
@@ -113,9 +113,8 @@ while True:
 	continue
     elif i[0] == "x":
 	num_turns = int(float(i[1:]))
-        deg=default_turn
     elif i[0] == "s":
-        spin_speed = int(float(i[1:]))
+        orbit_speed = int(float(i[1:]))
         print("New orbit_speed:{}".format(orbit_speed))
         continue
     elif i[0] == "w":
