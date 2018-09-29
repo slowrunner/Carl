@@ -80,14 +80,14 @@ while True:
         continue
     elif i == "?":
         print("return executes once with stated values")
-	print("iN.n  change distance to N.n inches")
-        print("c     toggle check_motor_status")
-        print("d.NNN change read_motor_status_delay to .NNN seconds")
-	print("xN    repeat drive N times (fwd, bwd, fwd...)")
-        print("sNNN  change motor dps to NNN")
-	print("NN.n  set WHEEL_DIAMETER to NN.n and drive  once")
-        print("r     toggle ranging_active")
-	print("?     print this help")
+	print("iN.n   change distance to N.n inches")
+        print("c      toggle check_motor_status")
+        print("d.NNN  change read_motor_status_delay to .NNN seconds")
+	print("xN     repeat drive N times (fwd, bwd, fwd...)")
+        print("sNNN   change motor dps to NNN")
+	print("wNN.n  set WHEEL_DIAMETER to NN.n")
+        print("r      toggle ranging_active")
+	print("?      print this help")
 	print("\nCurrent WHEEL_DIAMETER:{:.2f}".format(wd))
 	print("Current Distance:{}".format(dist))
         print("Current Speed:{} dps".format(drive_speed))
@@ -101,8 +101,13 @@ while True:
         drive_speed = int(float(i[1:]))
         print("New drive_speed:{}".format(drive_speed))
         continue
-    else:         # NN.N  new WHEEL_DIAMETER
-	wd=float(i)
+    elif i[0] == "w":
+        wd = float(i[1:])
+        print("New WHEEL_DIAMETER:{:.3f}".format(wd))
+        continue
+    else:
+	print("Type ? for help")
+        continue
 
 
     egpg.WHEEL_DIAMETER = wd

@@ -27,25 +27,17 @@ default_turn = 360
 num_turns = 1
 deg = default_turn
 wd = egpg.WHEEL_DIAMETER
-default_wd = wd
 check_motor_status = False
 read_motor_status_delay = 0.1
 spin_speed = 120
 
 while True:
-    print ("\nSpin {} with Wheel Dia.({:.2f} mm)?  (? for help)".format(deg,default_wd))
+    print ("\nSpin {} with Wheel Dia.({:.2f} mm)?  (? for help)".format(deg,wd))
     if python_version < 3: i = raw_input()
     else: i = input()
 
-    if len(i) == 0: wd = default_wd
-    elif i == "-":
-	default_wd -= 0.1
-	print("New default_wd:{:.2f}".format(default_wd))
-	continue
-    elif i == "+":
-	default_wd += 0.1
-	print("New default_wd:{:.2f}".format(default_wd))
-	continue
+    if len(i) == 0:
+        num_turns = 1
     elif i == "h":
 	deg = default_turn = 180
 	print("New default_turn:{:.1f}".format(default_turn))
@@ -59,16 +51,15 @@ while True:
         print("check_motor_status is now {}".format(check_motor_status))
         continue
     elif i == "?":
-	print("-    decrease default_wd by 0.1")
-	print("+    increase default_wd by 0.1")
-        print("c    toggle check_motor_status ({})".format(check_motor_status))
-	print("h    change default_turn to 180 deg")
-	print("f    change default_turn to 360 deg")
-	print("xN   repeat default_turn with default_wd N times")
-        print("sNNN change motor dps to NNN")
-	print("NN.n set default_wd to NN.n and spin default_turn once")
-	print("?    print list of commands")
-	print("default_wd:{:.2f}".format(default_wd))
+        print("return  execute with stated values once")
+        print("c       toggle check_motor_status ({})".format(check_motor_status))
+	print("h       change default_turn to 180 deg")
+	print("f       change default_turn to 360 deg")
+	print("xN      execute spin N times")
+        print("sNNN    change motor dps to NNN")
+	print("wNN.n   set default_wd to NN.n")
+	print("?       print list of commands")
+	print("WHEEL_DIA:{:.2f}".format(wd))
 	print("default_turn:{}".format(default_turn))
         print("spin_speed:{}".format(spin_speed))
 	continue
@@ -79,14 +70,13 @@ while True:
         spin_speed = int(float(i[1:]))
         print("New spin_speed:{}".format(spin_speed))
         continue
-    elif int(float(i)) == 0:
-	default_wd = egpg.WHEEL_DIAMETER
-	wd = default_wd
-	print("New default_wd:{:.2f}".format(default_wd))
+    elif i[0] == "w":
+	wd = float(i[1:])
+	print("New WHEEL_DIA:{:.2f}".format(wd))
         continue
     else:
-	wd=float(i)
-	default_wd=wd
+        print("Type ? for help")
+        continue
 
     egpg.WHEEL_DIAMETER = wd
     egpg.WHEEL_CIRCUMFERENCE = wd * pi
