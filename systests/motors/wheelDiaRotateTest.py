@@ -1,7 +1,31 @@
 #!/usr/bin/env python
 
 '''
-# Routine for testing EasyGoPiGo WHEEL_DIAMETER using the rotate_deg() method
+# Routine for testing EasyGoPiGo3.turn_degrees() method
+#
+# Operation:
+>Spin 360 Wheel Dia:66.50 Base:117.0 mm?  (? for help)
+
+ return  execute with stated values once
+ c       toggle check_motor_status (False)
+ h       change default_turn to 180 deg
+ f       change default_turn to 360 deg
+ xN      execute spin N times
+ sNNN    change motor dps to NNN
+ wNN.n   set wheel diameter to NN.n
+ bNNN.n  set wheel base to NNN.n
+ ?       print list of commands
+
+ WHEEL_DIA:66.50
+ WHEEL_BASE_WIDTH:117.0
+ default_turn:360
+ spin_speed:120
+#
+# Result:  When the WHEEL_DIAMETER has been calibrated using wheelDiaDriveTest.py,
+#          The default WHEEL_BASE_WIDTH of 117 mm  yields the best accuracy on six 360deg spins
+#
+#          I'm unable to tell if fractional WHEEL_BASE_WIDTHS are different than whole numbered widths
+#
 
 '''
 
@@ -27,12 +51,13 @@ default_turn = 360
 num_turns = 1
 deg = default_turn
 wd = egpg.WHEEL_DIAMETER
+wbw= egpg.WHEEL_BASE_WIDTH
 check_motor_status = False
 read_motor_status_delay = 0.1
 spin_speed = 120
 
 while True:
-    print ("\nSpin {} with Wheel Dia.({:.2f} mm)?  (? for help)".format(deg,wd))
+    print ("\nSpin {} Wheel Dia:{:.2f} Base:{:.1f} mm?  (? for help)".format(deg,wd,wbw))
     if python_version < 3: i = raw_input()
     else: i = input()
 
@@ -57,9 +82,11 @@ while True:
 	print("f       change default_turn to 360 deg")
 	print("xN      execute spin N times")
         print("sNNN    change motor dps to NNN")
-	print("wNN.n   set default_wd to NN.n")
+	print("wNN.n   set wheel diameter to NN.n")
+        print("bNNN.n  set wheel base to NNN.n")
 	print("?       print list of commands")
 	print("WHEEL_DIA:{:.2f}".format(wd))
+        print("WHEEL_BASE_WIDTH:{:.1f}".format(wbw))
 	print("default_turn:{}".format(default_turn))
         print("spin_speed:{}".format(spin_speed))
 	continue
@@ -72,7 +99,11 @@ while True:
         continue
     elif i[0] == "w":
 	wd = float(i[1:])
-	print("New WHEEL_DIA:{:.2f}".format(wd))
+	print("New WHEEL_DIAMETER:{:.2f}".format(wd))
+        continue
+    elif i[0] == "b":
+	wbw = float(i[1:])
+	print("New WHEEL_BASE_WIDTH:{:.1f}".format(wbw))
         continue
     else:
         print("Type ? for help")
@@ -80,13 +111,15 @@ while True:
 
     egpg.WHEEL_DIAMETER = wd
     egpg.WHEEL_CIRCUMFERENCE = wd * pi
+    egpg.WHEEL_BASE_WIDTH = wbw
+    egpg.WHEEL_BASE_CIRCUMFERENCE = wbw * pi
 
     print("\nResetting Encoders")
     egpg.reset_encoders()
     time.sleep(1)
     try:
       for i in range(num_turns):
-	print ("\n===== Spin {:.1f} Degrees with WHEEL_DIA: {:.2f} mm at {} dps ========".format(deg,wd,spin_speed))
+	print ("\n===== Spin {:.1f} WHEEL_DIAMETER:{:.2f} WHEEL_BASE_WIDTH:{:.1f} mm at {} dps ========".format(deg,wd,wbw,spin_speed))
 	encoderStartLeft, encoderStartRight = egpg.read_encoders()
 	print ( "Encoder Values: " + str(encoderStartLeft) + ' ' + str(encoderStartRight))	# print the encoder raw
 	egpg.set_speed(spin_speed)  # DPS  (degrees per second rotation of wheels)
