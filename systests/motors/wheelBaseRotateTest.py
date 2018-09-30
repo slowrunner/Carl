@@ -7,13 +7,15 @@
 >Spin 360 Wheel Dia:66.50 Base:117.0 mm?  (? for help)
 
  return  execute with stated values once
+ aNNN.n  set default angle to NNN.n
  c       toggle check_motor_status (False)
  h       change default_turn to 180 deg
  f       change default_turn to 360 deg
+ aNNN.n  change default_turn to NNN deg
  xN      execute spin N times
  sNNN    change motor dps to NNN
- wNN.n   set wheel diameter to NN.n
- bNNN.n  set wheel base to NNN.n
+ wNN.n   set WHEEL_DIAMETER to NN.n
+ bNNN.n  set WHEEL_BASE_WIDTH to NNN.n
  ?       print list of commands
 
  WHEEL_DIA:66.50
@@ -23,8 +25,8 @@
 #
 # Result:  When the WHEEL_DIAMETER has been calibrated using wheelDiaDriveTest.py,
 #          The default WHEEL_BASE_WIDTH of 117 mm  yields the best accuracy on six 360deg spins
-#
-#          I'm unable to tell if fractional WHEEL_BASE_WIDTHS are different than whole numbered widths
+#          09-30-2018 with batteries installed inside Carl's body, and new Pololu 1" castor ball
+#          Calibration: WHEEL_DIAMETER: 64.5mm  WHEEL_BASE_WIDTH: 114.72-114.75
 #
 
 '''
@@ -57,7 +59,7 @@ read_motor_status_delay = 0.1
 spin_speed = 120
 
 while True:
-    print ("\nSpin {} Wheel Dia:{:.2f} Base:{:.1f} mm?  (? for help)".format(deg,wd,wbw))
+    print ("\nSpin {} Wheel Dia:{:.2f} Base:{:.2f} mm?  (? for help)".format(deg,wd,wbw))
     if python_version < 3: i = raw_input()
     else: i = input()
 
@@ -77,6 +79,8 @@ while True:
         continue
     elif i == "?":
         print("return  execute with stated values once")
+        print("aNNN.n  set default_turn to NNN.n")
+        print("bNNN.n  set wheel base width to NNN.n")
         print("c       toggle check_motor_status ({})".format(check_motor_status))
 	print("h       change default_turn to 180 deg")
 	print("f       change default_turn to 360 deg")
@@ -103,7 +107,12 @@ while True:
         continue
     elif i[0] == "b":
 	wbw = float(i[1:])
-	print("New WHEEL_BASE_WIDTH:{:.1f}".format(wbw))
+	print("New WHEEL_BASE_WIDTH:{:.2f}".format(wbw))
+        continue
+    elif i[0] == "a":
+	default_turn = float(i[1:])
+        deg = default_turn
+	print("New default spin:{:.2f}".format(default_turn))
         continue
     else:
         print("Type ? for help")
@@ -119,7 +128,7 @@ while True:
     time.sleep(1)
     try:
       for i in range(num_turns):
-	print ("\n===== Spin {:.1f} WHEEL_DIAMETER:{:.2f} WHEEL_BASE_WIDTH:{:.1f} mm at {} dps ========".format(deg,wd,wbw,spin_speed))
+	print ("\n===== Spin {:.1f} WHEEL_DIAMETER:{:.2f} WHEEL_BASE_WIDTH:{:.2f} mm at {} dps ========".format(deg,wd,wbw,spin_speed))
 	encoderStartLeft, encoderStartRight = egpg.read_encoders()
 	print ( "Encoder Values: " + str(encoderStartLeft) + ' ' + str(encoderStartRight))	# print the encoder raw
 	egpg.set_speed(spin_speed)  # DPS  (degrees per second rotation of wheels)
