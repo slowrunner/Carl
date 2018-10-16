@@ -83,7 +83,7 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
         if debug: print("view180() called with grid_width:",grid_width)
         if not(grid_width % 2): grid_width -=1
         if debug: print("using grid_width:",grid_width)
-        index_list_valid_readings = [i for i, x in enumerate(dist_l) if dist_l[i] < ignore_over]
+        index_list_valid_readings = [i for i, x in enumerate(dist_l) if (0 < dist_l[i] < ignore_over)]
         valid_dist_l = [dist_l[i] for i in index_list_valid_readings]
         valid_ang_l  = [ang_l[i] for i in index_list_valid_readings]
         num_of_readings = len(valid_dist_l)
