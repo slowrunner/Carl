@@ -25,7 +25,8 @@ import easygopigo3 # import the GoPiGo3 class
 import math
 import printmaps
 import scan360
-
+import tiltpan
+import servoscan
 
 
 
@@ -40,11 +41,16 @@ def main():
 
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
     ds = egpg.init_distance_sensor()
+    ts = egpg.init_servo(tiltpan.TILT_PORT)
+    ps = egpg.init_servo(tiltpan.PAN_PORT)
 
+    tiltpan.tiltpan_center()
 
     # Adjust GOPIGO3 CONSTANTS to my bot   default EasyGoPiGo3.WHEEL_DIAMETER = 66.5 mm
-    egpg.WHEEL_DIAMETER = 61.3				# empirical from systests/wheelDiaRotateTest.py
+    egpg.WHEEL_DIAMETER = 64.5				# empirical from systests/wheelDiaRotateTest.py
     egpg.WHEEL_CIRCUMFERENCE = egpg.WHEEL_DIAMETER * math.pi
+    egpg.WHEEL_BASE_WIDTH = 114.72
+    egpg.WHEEL_BASE_CIRCUMFERENCE = egpg.WHEEL_BASE_WIDTH * math.pi
 
     dist_list_mm = []
     at_angle_list = []
@@ -90,6 +96,11 @@ def main():
         #  loop
             #  perform a quick 160 degree scan
             #  if something gets closer, wag head and announce "I saw that."
+        while True:
+            dist_l,angl_l=servoscan.ds_map(ds, ps,num_of_readings=72,rev_axis=True)
+            printmaps.view180(dist_l,angl_l,grid_width=80,units="cm",ignore_over=230)
+            tiltpan.tiltpan_center()
+            sleep(30)
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
