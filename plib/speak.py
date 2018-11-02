@@ -2,7 +2,7 @@
 #
 # speak.py   Speaker utilities
 #
-#  say(phrase)  do not include apostrophes in phrase
+#  say(phrase)  includes protection from quotes and apostrophes in phrase
 
 import subprocess
 
