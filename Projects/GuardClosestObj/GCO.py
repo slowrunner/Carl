@@ -27,13 +27,20 @@ import printmaps
 import scan360
 import tiltpan
 import servoscan
+import status
+import battery
 
 
-
+def remove_zero_readings(dist_l,angle_l):
+    nz_reading_index_l = [i for i, x in  enumerate(dist_l) if dist_l[i] > 0]
+    nz_dist_l = [dist_l[i] for i in nz_reading_index_l]
+    nz_angl_l = [angle_l[i] for i in nz_reading_index_l]
+    return nz_dist_l,nz_angl_l
 
 def closest_obj(dist_l,angle_l):
-    closest_obj_i = dist_l.index(min(dist_l))
-    return dist_l[closest_obj_i], angle_l[closest_obj_i]
+    nz_dist_l, nz_angle_l = remove_zero_readings(dist_l,angle_l)
+    closest_obj_i = dist_l.index(min(nz_dist_l))
+    return nz_dist_l[closest_obj_i], nz_angle_l[closest_obj_i]
 
 
 
@@ -99,8 +106,17 @@ def main():
         while True:
             dist_l,angl_l=servoscan.ds_map(ds, ps,num_of_readings=72,rev_axis=True)
             printmaps.view180(dist_l,angl_l,grid_width=80,units="cm",ignore_over=230)
-            tiltpan.tiltpan_center()
+            #  turn  distance sensor (eyes) to face closest object
+	    dist_to_closest, scan_angle_to_closest = closest_obj(dist_l, angl_l)
+            angle_to_closest = scan_angle_to_closest # - 90   # adjust for 0=left
+            print("\nClosest object is {:.1f} cm at {:.0f} degrees".format(dist_to_closest, angle_to_closest))
+            print("\nPointing {:.0f} to face closest object".format(angle_to_closest))
+	    tiltpan.pan(angle_to_closest)
+	    sleep(2)
+            status.printStatus(egpg,ds)
             sleep(30)
+            tiltpan.tiltpan_center()
+#            status.batterySafetyCheck()
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors

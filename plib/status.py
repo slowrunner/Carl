@@ -60,8 +60,8 @@ def getUptime():
     return res.replace("\n","")
 
 
-def printStatus():
-  global egpg,ds
+def printStatus(egpg,ds):
+
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
@@ -90,7 +90,6 @@ def handle_ctlc():
   print "status.py: handle_ctlc() executed"
 
 def main():
-  global egpg, ds
 
   # #### SET CNTL-C HANDLER
   myPyLib.set_cntl_c_handler(handle_ctlc)
@@ -105,7 +104,7 @@ def main():
   #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
     while True:
-        printStatus()
+        printStatus(egpg,ds)
         vBatt = egpg.volt()
         if (vBatt < LOW_BATTERY_V):
             batteryLowCount += 1
