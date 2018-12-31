@@ -28,7 +28,7 @@ SafeShutDown = 8.75  # (1.09375v/cell yields 8h "fun time", 14% life remaining 1
 #  (V , Time remaining)
 
 lifePoints= (
- (14.0,  8.30),   # charging
+ (15.0,  8.30),   # charging
  (11.0,  8.25),   # guess
  (10.23, 7.95),   # 7h 57m to 8.75, 9h21m to 7.4v
  (9.56,  6.95),
