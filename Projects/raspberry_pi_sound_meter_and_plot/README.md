@@ -1,7 +1,13 @@
 # noise_level_protocol
 Raspberry Pi/Python project to monitor noise levels, save recordings, and plot up to 24 hours of measurements
 
+This is my 24hr test:  
+
 <img src="pic/Example_YYYY-MM-DD.png" width="60%">  
+
+This is the example plot from Mob-Barley:  
+
+<img src="pic/Orig_Readme_Example.png" width="60%">
 
 **Introduction:**  
 This is based on https://github.com/Mob-Barley/noise_level_protocol.
