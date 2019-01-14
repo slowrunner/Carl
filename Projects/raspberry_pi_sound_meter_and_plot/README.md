@@ -1,4 +1,5 @@
-# noise_level_protocol
+# RaspberryPi Recording Sound Meter and Plot
+
 Raspberry Pi/Python project to monitor noise levels, save recordings, and plot up to 24 hours of measurements
 
 This is my 24hr test:  
