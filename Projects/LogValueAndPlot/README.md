@@ -32,6 +32,7 @@ Example battery-only, recharge-period, followed by trickle-period:
 - If desire output in a specific place, set base_dir variable:  ./ is the default
 
 Packages needed to be installed:  
+-matplotlib  (sudo pip install matplotlib)
 -plotly  
 
   
