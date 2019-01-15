@@ -13,7 +13,7 @@ Example battery-only, recharge-period, followed by trickle-period:
 **Introduction:**  
 
 - To run it:
-  python3 logBattV.py  
+  python3 logBattV.py  or ./logBattV.py   or ./logBattV.py > logBattV.out 2>&1 &   
   python3 plotBattV.py  
  
 - logBattV.py:  Checks battery voltage periodically, and writes value to csv file
