@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import csv
 import os
+import math
 
 from matplotlib import rcParams
 from datetime import timedelta, date
@@ -19,6 +20,9 @@ from matplotlib.ticker import AutoMinorLocator
 
 
 dateOfPlot = date.today()
+
+# 15% capacity voltage limit
+limit_value = 8.5
 
 # uncomment next line to plot yesterday's data
 #dateOfPlot = date.today() - timedelta(days=1)
@@ -45,7 +49,7 @@ with open(filename_csv) as f:
 
         current_date = datetime.datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S")
         dates.append(current_date)
-
+        # print("row:",row)
         value = float(row[1])
         value1.append(value)
 
@@ -60,11 +64,12 @@ hours = mdates.HourLocator(interval = 2)
 h_fmt = mdates.DateFormatter('%H:%M')
 
 #Patches  (this doesn't seem to work in python2.7)
-value1_patch = mpatches.Patch(color='red', label='Battery Voltage')
 #rms_patch = mpatches.Patch(color='navy', label='no value')
+value1_patch = mpatches.Patch(color='red', label='Battery Voltage')
+limit_patch = mpatches.Patch(color='green', label='15% Capacity Limit')
 
 #plt.legend(handles=[peak_patch, rms_patch])
-plt.legend(handles=[value1_patch] )
+plt.legend(handles=[value1_patch, limit_patch] )
 
 #For a scatter plot use this: ax.scatter(dates, value1, color = 'red', linewidth = 0.1, s=4)
 ax.plot(dates, value1, color = 'red', linewidth = 0.5, label='vBatt')  # label added for python2.7
@@ -84,15 +89,30 @@ plt.ylabel('Battery Voltage (volts)', fontsize=12)
 plt.title('Battery Discharge Curve for ' + title_date, fontsize=15)
 plt.grid(True)
 
+# find maximum value
+value1max = max(value1)
+value1size =len(value1)
+# print("value1max: ",value1max," values: ",value1size)
+# check value list
+#for y in value1:
+#  print("y: ",y)
+
+# find minimum value
+value1min = min(value1)
+if value1min > limit_value:
+   ymin_plot = limit_value
+else:
+   ymin_plot = value1min
+
 #y axis
 plt.ylim (
-    ymin = 6,
-    ymax = 15
+    ymin = ymin_plot,
+    ymax = math.ceil(value1max)
 )
 
-#noise limit
+#15% capacity limit
 #plt.axhline(y=40, color = 'firebrick', linewidth = 0.8)
-plt.axhline(y=8.5, color = 'green', linewidth = 0.8, label="15% Capacity Shutdown Limit")
+plt.axhline(y=limit_value, color = 'green', linewidth = 0.8, label="15% Capacity Shutdown Limit")
 
 
 #x axis
@@ -104,7 +124,7 @@ plt.xlim(
 fig.autofmt_xdate()
 fig.set_size_inches(14,10)
 
-plt.legend()   # added for python2.7 ??
+#plt.legend()   # added for python2.7 ??
 
 # make sure pic folder exists
 picfolder = base_folder + value_folder + "pic/"

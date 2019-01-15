@@ -9,14 +9,17 @@
 #            with format:  YYYY-MM-DD HH:MM:SS, nn.nn (volts)
 #
 
-from __future__ import print_function 
+from __future__ import print_function
 
 import time
 import subprocess
 import os
 from subprocess import call
 import csv
-#import io    # python2 compatible
+import easygopigo3
+
+# ### Create (protected) instance of EasyGoPiGo3 base class
+egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
 
 header_csv = ("Date Time          ", "Battery Voltage")
 
@@ -41,7 +44,7 @@ try:
         filedate_csv  = time.strftime("%Y-%m-%d %H:%M:%S")
         terminal_time = time.strftime("%H:%M:%S ")
 
-        battV = 9.654321
+        battV = egpg.volt()
 
         print( "logBattV: ", terminal_time, str(round(battV,2)) )
 
