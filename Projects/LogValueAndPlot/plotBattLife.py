@@ -8,7 +8,8 @@ matplotlib.use('Agg')
 import time
 import datetime
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+#import matplotlib.dates as mdates
+import numpy as np
 import csv
 import os
 import math
@@ -21,8 +22,6 @@ from matplotlib.ticker import AutoMinorLocator
 
 dateOfPlot = date.today()
 
-# 20% capacity voltage limit
-limit_value = 8.1
 
 # uncomment next line to plot yesterday's data
 #dateOfPlot = date.today() - timedelta(days=1)
@@ -43,25 +42,48 @@ with open(filename_csv) as f:
     header_row = next(reader)
 
     #dates, highs, rms = [], [], []
-    dates, value1 = [], []
+    dates, upTime, value1 = [], [], []
+    readingCount = 0
 
     for row in reader:
 
         current_date = datetime.datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S")
         dates.append(current_date)
-        # print("row:",row)
+        #print("row:",row)
+
         value = float(row[1])
         value1.append(value)
 
+        if readingCount == 0:
+            upTime.append(0.0)	
+        else:
+           dtSinceStart = current_date - dates[0]
+           upTimeNow = dtSinceStart.days * 24.0 + dtSinceStart.seconds/3600.0
+           upTime.append(upTimeNow)
+           #print("upTime: ",upTimeNow)   
+
         #rms1 =  float(row[2])
         #rms.append(rms1)
+        readingCount += 1
+
+# analysis
+first_datetime = dates[0]
+print("First datetime:",first_datetime)
+last_datetime = dates[-1]
+print("Last datetime:",last_datetime)
+
+life_datetime = last_datetime - first_datetime
+life_hours = life_datetime.seconds/3600
+life_minutes = (life_datetime.seconds//60)%60
+life = life_datetime.days * 24.0 + life_datetime.seconds/3600.0
+print("Total Life: %.2f hours" % life )
 
 #locators for x axis
 #rcParams['axes.titlepad'] = 15
 
 fig, ax = plt.subplots()
-hours = mdates.HourLocator(interval = 2)
-h_fmt = mdates.DateFormatter('%H:%M')
+#hours = mdates.HourLocator(interval = 2)
+#h_fmt = mdates.DateFormatter('%H:%M')
 
 #Patches  (this doesn't seem to work in python2.7)
 #rms_patch = mpatches.Patch(color='navy', label='no value')
@@ -72,22 +94,28 @@ limit_patch = mpatches.Patch(color='green', label='15% Capacity Limit')
 plt.legend(handles=[value1_patch, limit_patch] )
 
 #For a scatter plot use this: ax.scatter(dates, value1, color = 'red', linewidth = 0.1, s=4)
-ax.plot(dates, value1, color = 'red', linewidth = 0.5, label='vBatt')  # label added for python2.7
-ax.xaxis.set_major_locator(hours)
-ax.xaxis.set_major_formatter(h_fmt)
+ax.plot(upTime, value1, color = 'red', linewidth = 0.5, label='vBatt')  # label added for python2.7
+#ax.xaxis.set_major_locator(hours)
+#ax.xaxis.set_major_formatter(h_fmt)
+ax.grid()
 
 #ax.plot(dates, rms, color = 'navy', linewidth = 0.5)
 
 #minorlocator for quarter of an hour
-minor_locator = AutoMinorLocator(8)
-ax.xaxis.set_minor_locator(minor_locator)
-plt.grid(which='minor', linestyle=':')
+#minor_locator = AutoMinorLocator(8)
+#ax.xaxis.set_minor_locator(minor_locator)
+#plt.grid(which='minor', linestyle=':')
 
 #Title,Label
-plt.xlabel('Wall Clock Time', fontsize=12)
+plt.xlabel('Up Time', fontsize=12)
 plt.ylabel('Battery Voltage (volts)', fontsize=12)
 plt.title('Battery Discharge Curve for ' + title_date, fontsize=15)
 plt.grid(True)
+
+# Mark 15-20% capacity limit determined from a prior total life discharge
+limit_value = 8.1
+plt.axhline(y=limit_value, color = 'green', linewidth = 0.8, label="15% Capacity")
+
 
 # find maximum value
 value1max = max(value1)
@@ -110,18 +138,17 @@ plt.ylim (
     ymax = math.ceil(value1max)
 )
 
-#15% capacity limit
-#plt.axhline(y=40, color = 'firebrick', linewidth = 0.8)
-plt.axhline(y=limit_value, color = 'green', linewidth = 0.8, label="15% Capacity Shutdown Limit")
 
 
 #x axis
 plt.xlim(
 
-    xmin = datetime.datetime(i,j,k,0,0,0),
-    xmax = datetime.datetime(i,j,k,23,59,0)
+    #xmin = datetime.datetime(i,j,k,0,0,0),
+    xmin = 0,
+    #xmax = datetime.datetime(i,j,k,23,59,0)
+    xmax = math.ceil(life)
 )
-fig.autofmt_xdate()
+# fig.autofmt_xdate()
 fig.set_size_inches(14,10)
 
 #plt.legend()   # added for python2.7 ??
