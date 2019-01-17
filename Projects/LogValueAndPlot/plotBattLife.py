@@ -133,8 +133,8 @@ value1size =len(value1)
 
 # find minimum value
 value1min = min(value1)
-if value1min > limit_value:
-   ymin_plot = limit_value
+if value1min >= limit_value:
+   ymin_plot = limit_value - 0.25
 else:
    ymin_plot = value1min
 
