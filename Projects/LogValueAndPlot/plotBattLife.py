@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+# ######### plotBattLife.py #########
+# 
+# reads logged data file  ./battV/csv/battV-YYYYmmdd.csv
+# output: plot of battery voltage vs up time to ./battV/pic/battLife-YYYYmmdd.png
+#
+
 from __future__ import print_function
 
 import matplotlib
@@ -160,4 +166,4 @@ if not os.path.exists(picfolder):
   print(picfolder + " folder created")
 
 #plt.savefig(picfolder + pic_title + '.png', bbox_inches='tight')
-plt.savefig(picfolder + pic_title + '.png')
+plt.savefig(picfolder + "battLife-"+ pic_title + '.png')

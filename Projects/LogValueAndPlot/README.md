@@ -5,6 +5,7 @@ GoPiGo3 project to monitor battery voltage, and generate plot of last "life peri
 Example battery-only cycle:  
 
 <img src="graphics/BatteryOnly.png" width="60%">  
+<img src="graphics/BatteryOnlyUpTime.png" width="60%">
 
 Example battery-only, recharge-period, followed by trickle-period:  
 
@@ -12,12 +13,17 @@ Example battery-only, recharge-period, followed by trickle-period:
 
 **Introduction:**  
 
-- To run it:
-  python3 logBattV.py  or ./logBattV.py   or ./logBattV.py > logBattV.out 2>&1 &   
-  python3 plotBattV.py  
+- To run:
+  python(3) logBattV.py    
+  ./logBattV.py   
+  ./logBattV.py > logBattV.out 2>&1 &
+   
+  ./plotBattV.py  
+  ./plotBattLife.py
  
-- logBattV.py:  Checks battery voltage periodically, and writes value to csv file
+- logBattV.py:  Checks battery voltage periodically, and writes value to csv file  
 - plotBattV.py: Creates a graphic of voltage vs wall-clock-time in battV-<date>.png   
+- plotBattLife.py:  Creates a graphic of voltage vs up time in battLife-<date>.png  
 
 - .csv files are written to      <base_folder>/battV/csv/         (created if not existing)  
 - .png plot files are written to <base_folder>/battV/pic/         (created if not existing)  
