@@ -26,11 +26,12 @@ SafeShutDown = 8.1  # (1.09v/cell yields 6.5hr "fun time", 15-20% life remaining
 #   Jan 2018  8h07m
 #   Sep 2018  9h21m   (8x EBL 2800mAh AA cells, around 2550 mAh on BC-3000 test)
 #   Aug 2018  7h20m   (6xEnergizer 2300mAh AA and 2xAmazon 2000mAh AA)
+#   Mar 2019  1h30m   and 16.45v charging seen
 
 #  (V , Time remaining)
 
 lifePoints= (
- (16.0,  8.50),   # charging
+ (18.0,  8.50),   # charging
  (11.0,  8.25),   # 
  (10.23, 8.12),   # 8h 07m to 7.04v
  (9.17,  7.12),
