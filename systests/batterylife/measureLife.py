@@ -7,6 +7,12 @@
 #        UNTIL voltage stays below 7.4v 4 times,
 #        then will force a shutdown.
 #
+#      Note: actual battery voltage is 0.6v higher than reading
+#            7.4v reading limit reliably gives time for orderly shutdown 
+#
+# 2019-03-25: changed to use volt() instead of get_voltage_battery()
+#             which read 0.1 lower than egpg.volt()
+#      
 #
 import sys
 import time
@@ -14,9 +20,9 @@ import signal
 import os
 from datetime import datetime
 
-import gopigo3
+import easygopigo3
 
-LOW_BATTERY_V = 7.4   # 8cells x 0.925v  # safe value, could go to 0.9
+LOW_BATTERY_V = 7.4   # (7.4+0.6 = 8cells x 1.0v safe value, could go to 0.9
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -43,13 +49,13 @@ def getUptime():
 
 
 def printStatus():
-  global gpg
+  global egpg
 
   print "\n********* CARL Basic STATUS *****"
   print datetime.now().date(), getUptime()
-  vBatt = gpg.get_voltage_battery()  #battery.volts()
+  vBatt = egpg.volt()  #egpg.get_voltage_battery()
   print "Battery Voltage: %0.2f" % vBatt
-  v5V = gpg.get_voltage_5v()
+  v5V = egpg.get_voltage_5v()
   print "5v Supply: %0.2f" % v5V
   print "Processor Temp: %s" % getCPUtemperature()
   print "Clock Frequency: %s" % getClockFreq()
@@ -78,31 +84,31 @@ def set_cntl_c_handler(toRun=None):
 # ##### MAIN ######
 
 def handle_ctlc():
-  global gpg
-  gpg.reset_all()
+  global egpg
+  egpg.reset_all()
   print "status.py: handle_ctlc() executed"
 
 def main():
-  global gpg
+  global egpg
 
   # #### SET CNTL-C HANDLER 
   set_cntl_c_handler(handle_ctlc)
 
   # #### Create instance of GoPiGo3 base class 
-  gpg = gopigo3.GoPiGo3()
+  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
   batteryLowCount = 0
   #print ("Starting status loop at %.2f volts" % battery.volts())  
   try:
     while True:
         printStatus()
-        vBatt = gpg.get_voltage_battery()
+        vBatt = egpg.volt()
         if (vBatt < LOW_BATTERY_V): 
             batteryLowCount += 1
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
           print ("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
-          gpg.reset_all()
+          egpg.reset_all()
           time.sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
