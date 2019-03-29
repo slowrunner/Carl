@@ -1,0 +1,24 @@
+#!/usr/bin/python
+
+# snapJPG.py  Takes single full resolution image
+#             after 5 sec delay to set exposure
+#             writes image to ./images/capture_YYYYmmdd-HHMMSS.jpg
+
+from picamera import PiCamera
+from time import sleep
+from datetime import datetime
+
+camera = PiCamera()
+camera.resolution = (2592, 1944)
+
+# if have HDMI monitor hooked up
+# camera.start_preview()
+
+sleep(5) # 0.25 good light, 5.0 when dark - allow picam to adjust exposure
+fname = "images/capture_"+datetime.now().strftime("%Y%m%d-%H%M%S")+".jpg"
+fn = camera.capture(fname)
+
+# if using HDMI monitor preview
+# sleep(30)
+# camera.stop_preview()
+
