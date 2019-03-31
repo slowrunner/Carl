@@ -33,8 +33,39 @@ import math
 import tiltpan
 import status
 import battery
+import numpy
+
+# variables to be maintained
+readingList = [ ]
+aveVolts = 0
+maxVolts = 0
+minVolts = 0
+shortMeanVolts = 0
+longMeanVolts = 0
+deltaAveVolts = 0
+deviationVolts = 0
+shortMeanDuration = 60.0 #seconds
+longMeanMultiplier = 5
+longMeanDuration = shortMeanDuration * longMeanMultiplier
+shortMeanCount = 9
+longMeanCount = shortMeanCount * longMeanMultiplier
+readingEvery = shortMeanDuration / shortMeanCount
 
 
+def compute(egpg):
+    global readingList,longMeanVolts,shortMeanVolts
+    readingList += [egpg.volt()]
+    if (len(readingList)>longMeanCount): 
+      del readingList[0]
+      longMeanVolts = numpy.mean(readingList)
+    shortMeanVolts = numpy.mean(readingList[-5:-1])
+
+def printValues():
+    print ("\nJuicer Values:")
+    print ("lastReading %.2f volts" % readingList[-1] )
+    print ("num of readings %d" % len(readingList) )
+    print ("shortMeanVolts %.2f volts" % shortMeanVolts)
+    print ("longMeanVolts  %.2f volts" % longMeanVolts)
 
 def main():
 
@@ -45,11 +76,18 @@ def main():
 
     tiltpan.tiltpan_center()
 
+    print ("Juicer Main Initialization")
+    print ("shortMeanDuration: %.1f" % shortMeanDuration)
+    print ("longMeanDuration: %.1f" % longMeanDuration)
+    print ("readingEvery %.1f seconds" % readingEvery)
+    
     try:
         #  loop
         while True:
+            compute(egpg)
             status.printStatus(egpg,ds)
-            sleep(30)
+            printValues()
+            sleep(readingEvery)
 #            status.batterySafetyCheck()
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
