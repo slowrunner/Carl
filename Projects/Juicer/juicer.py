@@ -37,13 +37,12 @@ import numpy
 
 # variables to be maintained
 readingList = [ ]
-aveVolts = 0
-maxVolts = 0
-minVolts = 0
 shortMeanVolts = 0
+shortPeakVolts = 0
+shortMinVolts = 0
+longPeakVolts = 0
 longMeanVolts = 0
-deltaAveVolts = 0
-deviationVolts = 0
+longMinVolts  = 0
 shortMeanDuration = 60.0 #seconds
 longMeanMultiplier = 5
 longMeanDuration = shortMeanDuration * longMeanMultiplier
@@ -53,19 +52,31 @@ readingEvery = shortMeanDuration / shortMeanCount
 
 
 def compute(egpg):
-    global readingList,longMeanVolts,shortMeanVolts
+    global readingList,shortMeanVolts,shortPeakVolts,shortMinVolts
+    global longMeanVolts,longPeakVolts,longMinVolts
     readingList += [egpg.volt()]
-    if (len(readingList)>longMeanCount): 
+    if (len(readingList)>longMeanCount):
       del readingList[0]
       longMeanVolts = numpy.mean(readingList)
-    shortMeanVolts = numpy.mean(readingList[-5:-1])
+      longPeakVolts = numpy.max(readingList)
+      longMinVolts  = numpy.min(readingList)
+
+    shortList = readingList[-5:-1]
+    if (len(shortList)>0):
+      shortMeanVolts = numpy.mean(shortList)
+      shortPeakVolts = numpy.max(shortList)
+      shortMinVolts = numpy.min(shortList)
 
 def printValues():
     print ("\nJuicer Values:")
     print ("lastReading %.2f volts" % readingList[-1] )
     print ("num of readings %d" % len(readingList) )
+    print ("shortPeakVolts %.2f volts" % shortPeakVolts)
     print ("shortMeanVolts %.2f volts" % shortMeanVolts)
+    print ("shortMinVolts  %.2f volts" % shortMinVolts)
+    print ("longPeakVolts  %.2f volts" % longPeakVolts)
     print ("longMeanVolts  %.2f volts" % longMeanVolts)
+    print ("longMinVolts   %.2f volts" % longMinVolts)
 
 def main():
 
