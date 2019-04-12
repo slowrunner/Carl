@@ -35,6 +35,7 @@ import status
 import battery
 import numpy as np
 import datetime as dt
+import speak
 
 # constants
 UNKNOWN = 0
@@ -84,7 +85,7 @@ def compute(egpg):
     if (lastChargingState != chargingState):
         dtLastChargingStateChange = dt.datetime.now()
         print("*** chargingState changed ****")
-
+        speak.say("New Charging State"+printableCS[chargingState])
 
 def chargingStatus():
     # https://stackoverflow.com/questions/10048571/python-finding-a-trend-in-a-set-of-numbers?noredirect=1&lq=1
@@ -108,6 +109,7 @@ def chargingStatus():
       slope = betas[0,0]
       intercept = betas[1,0]
       print("\nslope: %.4f" % slope)
+      chargingValue = chargingState
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
@@ -137,7 +139,7 @@ def chargingStatus():
                else:
                    chargingValue = TRICKLING
           elif (chargingState == UNKNOWN):
-               if (slope > -0.05):
+               if ((slope > 0) and (shortPeakVolts > 11)):
                    chargingValue = CHARGING
                else:
                    chargingValue = NOTCHARGING
