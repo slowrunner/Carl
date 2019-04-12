@@ -52,6 +52,7 @@ shortMinVolts = 0
 longPeakVolts = 0
 longMeanVolts = 0
 longMinVolts  = 0
+longSDev = 0
 shortMeanDuration = 60.0 #seconds
 longMeanMultiplier = 5
 longMeanDuration = shortMeanDuration * longMeanMultiplier
@@ -65,7 +66,7 @@ dtLastChargingStateChange = dt.datetime.now()
 def compute(egpg):
     global readingList, chargingState, dtLastChargingStateChange
     global shortMeanVolts,shortPeakVolts,shortMinVolts
-    global longMeanVolts,longPeakVolts,longMinVolts
+    global longMeanVolts,longPeakVolts,longMinVolts,longSDev
 
     readingList += [egpg.volt()]
     if (len(readingList)>longMeanCount):
@@ -73,6 +74,7 @@ def compute(egpg):
       longMeanVolts = np.mean(readingList)
       longPeakVolts = np.max(readingList)
       longMinVolts  = np.min(readingList)
+      longSDev      = np.std(readingList)
 
     shortList = readingList[-5:-1]
     if (len(shortList)>0):
@@ -84,7 +86,7 @@ def compute(egpg):
     chargingState = chargingStatus()
     if (lastChargingState != chargingState):
         dtLastChargingStateChange = dt.datetime.now()
-        print("*** chargingState changed ****")
+        print("*** chargingState changed: ",printableCS[chargingState]," ****")
         speak.say("New Charging State"+printableCS[chargingState])
 
 def chargingStatus():
@@ -93,8 +95,8 @@ def chargingStatus():
     global UNKNOWN, NOTCHARGING, CHARGING, TRICKLING
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
-    global longMeanVolts,longPeakVolts,longMinVolts
-    global chargingState
+    global longMeanVolts,longPeakVolts,longMinVolts,longSDev
+    global chargingState,dtLastChargingStateChange
 
     shortList = readingList[-9:-1]
     if (len(shortList)>1):
@@ -115,17 +117,18 @@ def chargingStatus():
           if (chargingState == CHARGING):
                if (slope > -0.1):
                    chargingValue = CHARGING
+               elif (longMeanVolts > shortMeanVolts):
+                   chargingValue = TRICKLING
                else:
-                   if (longMeanVolts > shortMeanVolts):
-                       chargingValue = TRICKLING
-                   else:
-                       chargingValue = CHARGING
+                   chargingValue = CHARGING
           elif (chargingState == NOTCHARGING):
                if (slope > 0.01):
                    chargingValue = CHARGING
           elif (chargingState == TRICKLING):
-               if (shortPeakVolts < 10.5):
+               if (longSDev < 0.2):
                    chargingValue = NOTCHARGING
+               else:   # need to set to avoid unknown
+                   chargingValue = TRICKLING
           elif (chargingState == UNKNOWN):
                if (slope > 0):
                    chargingValue = CHARGING
@@ -142,7 +145,7 @@ def chargingStatus():
                if ((slope > 0) and (shortPeakVolts > 11)):
                    chargingValue = CHARGING
                else:
-                   chargingValue = NOTCHARGING
+                   chargingValue = UNKNOWN
           elif (chargingState == TRICKLING):
                if ((shortPeakVolts - shortMeanVolts) < 0.5):
                    chargingValue = NOTCHARGING
