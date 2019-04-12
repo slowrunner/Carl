@@ -115,9 +115,7 @@ def chargingStatus():
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
-               if (slope > -0.1):
-                   chargingValue = CHARGING
-               elif (longMeanVolts > shortMeanVolts):
+               if (longMeanVolts > shortMeanVolts):
                    chargingValue = TRICKLING
                else:
                    chargingValue = CHARGING
@@ -139,11 +137,13 @@ def chargingStatus():
           if (chargingState == CHARGING):
                if (slope > -0.1):
                    chargingValue = CHARGING
-               else:
+               elif ((shortPeakVolts - shortMinVolts)>0.3):
                    chargingValue = TRICKLING
+               else:
+                   chargingValue = NOTCHARGING
           elif (chargingState == UNKNOWN):
-               if ((slope > 0) and (shortPeakVolts > 11)):
-                   chargingValue = CHARGING
+               if ( (shortPeakVolts-shortMinVolts)>0.3 ):
+                   chargingValue = CHARGING  # or trickling
                else:
                    chargingValue = UNKNOWN
           elif (chargingState == TRICKLING):
