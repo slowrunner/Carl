@@ -62,9 +62,10 @@ readingEvery = shortMeanDuration / shortMeanCount
 lowBatteryCount = 0
 chargingState = 0  # unknown
 dtLastChargingStateChange = dt.datetime.now()
+lastChangeRule = "0" # startup
 
 def compute(egpg):
-    global readingList, chargingState, dtLastChargingStateChange
+    global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts,longSDev
 
@@ -81,13 +82,7 @@ def compute(egpg):
       shortMeanVolts = np.mean(shortList)
       shortPeakVolts = np.max(shortList)
       shortMinVolts  = np.min(shortList)
-
-    lastChargingState = chargingState
-    chargingState = chargingStatus()
-    if (lastChargingState != chargingState):
-        dtLastChargingStateChange = dt.datetime.now()
-        print("*** chargingState changed: ",printableCS[chargingState]," ****")
-        speak.say("New Charging State"+printableCS[chargingState])
+    chargingStatus()
 
 def chargingStatus():
     # https://stackoverflow.com/questions/10048571/python-finding-a-trend-in-a-set-of-numbers?noredirect=1&lq=1
@@ -96,7 +91,7 @@ def chargingStatus():
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts,longSDev
-    global chargingState,dtLastChargingStateChange
+    global chargingState,dtLastChargingStateChange,lastChangeRule
 
     shortList = readingList[-9:-1]
     if (len(shortList)>1):
@@ -112,50 +107,87 @@ def chargingStatus():
       intercept = betas[1,0]
       print("\nslope: %.4f" % slope)
       chargingValue = chargingState
+      lastChangeInSeconds = (dt.datetime.now() - dtLastChargingStateChange).total_seconds()
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
-               if (longMeanVolts > shortMeanVolts):
+               if ((longMeanVolts > shortMeanVolts) and \
+                   (lastChangeInSeconds > 300) ):
                    chargingValue = TRICKLING
-               else:
-                   chargingValue = CHARGING
+                   lastChangeRule = "200"
+               else:  # no change
+                   pass
           elif (chargingState == NOTCHARGING):
-               if (slope > 0.01):
+               if ((slope > 0.01) and (lastChangeInSeconds > 60)):
                    chargingValue = CHARGING
+                   lastChangeRule = "100"
+               else:
+                   pass
           elif (chargingState == TRICKLING):
-               if (longSDev < 0.2):
+               if ((longSDev < 0.2) and \
+                   (slope < 0) and \
+                   (lastChangInSeconds > 60) ):
                    chargingValue = NOTCHARGING
-               else:   # need to set to avoid unknown
-                   chargingValue = TRICKLING
+                   lastChangeRule = "300"
+               else:   # no change
+                   pass
           elif (chargingState == UNKNOWN):
                if (slope > 0):
                    chargingValue = CHARGING
+                   lastChangeRule = "400"
           else:
-               chargingValue = UNKNOWN
+              pass
       else:   # just starting up - less than 5 minutes of data
           #if ((shortPeakVolts-shortMeanVolts)>0.5):
           if (chargingState == CHARGING):
                if (slope > -0.1):
-                   chargingValue = CHARGING
-               elif ((shortPeakVolts - shortMinVolts)>0.3):
+                   pass
+               elif ( ((shortPeakVolts - shortMinVolts)>0.3) and \
+                      (slope < 0) and \
+                      (lastChangeInSeconds > 60) ):
                    chargingValue = TRICKLING
+                   lastChangeRule = "23"
                else:
                    chargingValue = NOTCHARGING
+                   lastChangeRule = "21"
           elif (chargingState == UNKNOWN):
                if ( (shortPeakVolts-shortMinVolts)>0.3 ):
                    chargingValue = CHARGING  # or trickling
-               else:
-                   chargingValue = UNKNOWN
-          elif (chargingState == TRICKLING):
-               if ((shortPeakVolts - shortMeanVolts) < 0.5):
+                   lastChangeRule = "42a"
+               elif ( (shortMeanVolts > 10.5) and \
+                      (lastChangeInSeconds>60) and \
+                      (slope > 0) ):
+                   chargingValue = CHARGING
+                   lastChangeRule = "42b"
+               elif ( ((shortPeakVolts-shortMinVolts)<0.035) and \
+                      (lastChangeInSeconds > 60) and \
+                      (slope < 0) ):
                    chargingValue = NOTCHARGING
+                   lastChangeRule = "41"
+               else:
+                   pass
+          elif (chargingState == TRICKLING):
+               if ((shortPeakVolts - shortMeanVolts) < 0.3):
+                   chargingValue = NOTCHARGING
+                   lastChangeRule = "31"
           elif (chargingState == NOTCHARGING):
                if (slope < 0.05):
-                   chargingValue = NOTCHARGING
+                   pass
                else:
                    chargingValue = CHARGING
+                   lastChangeRule = "12"
     else:
         chargingValue = UNKNOWN
+        lastChangeRule = "44"
+
+    # check if changed from last time checked
+    lastChargingState = chargingState
+    if (lastChargingState != chargingValue):
+        chargingState = chargingValue
+        dtLastChargingStateChange = dt.datetime.now()
+        print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
+        print("*** by Rule: ",lastChangeRule)
+        speak.say("New Charging State"+printableCS[chargingState])
 
     return chargingValue
 
@@ -169,7 +201,7 @@ def printValues():
     print ("longPeakVolts  %.3f volts" % longPeakVolts)
     print ("longMeanVolts  %.3f volts" % longMeanVolts)
     print ("longMinVolts   %.3f volts" % longMinVolts)
-    print ("Charging Status: ", printableCS[chargingStatus()])
+    print ("Charging Status: ", printableCS[chargingState])
     lastChangeInSeconds = (dt.datetime.now() - dtLastChargingStateChange).total_seconds()
     lastChangeDays = divmod(lastChangeInSeconds, 86400)
     lastChangeHours = divmod(lastChangeDays[1], 3600)
