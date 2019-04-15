@@ -171,32 +171,39 @@ def chargingStatus():
           elif (chargingState == UNKNOWN):
                if (get_uptime() < 240):  # don't try if recently booted
                    lastChangeRule = "44a"
-               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
-                   chargingValue = CHARGING  # or trickling
-                   lastChangeRule = "42a"
                elif ( (shortMeanVolts > 10.5) and \
                       (lastChangeInSeconds>60) and \
                       (slope > 0) ):
                    chargingValue = CHARGING
+                   lastChangeRule = "42a"
+               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
+                   chargingValue = CHARGING  # or trickling
                    lastChangeRule = "42b"
                elif ( ((shortPeakVolts-shortMinVolts)<0.035) and \
-                      (lastChangeInSeconds > 60) and \
+                      (lastChangeInSeconds > 120) and \
                       (slope < 0) ):
                    chargingValue = NOTCHARGING
                    lastChangeRule = "41"
                else:
                    pass
           elif (chargingState == TRICKLING):
-               if ((shortPeakVolts - shortMeanVolts) < 0.3):
-                   chargingValue = NOTCHARGING
-                   lastChangeRule = "31"
+               if (((shortPeakVolts - shortMeanVolts) < 0.3) and \
+                   (lastChangeInSeconds>120) and \
+                   (slope < 0) ):
+                       chargingValue = NOTCHARGING
+                       lastChangeRule = "31"
           elif (chargingState == NOTCHARGING):
-               if (slope < 0.05):
-                   pass
-               else:
+               if ( (shortMeanVolts > 10.5) and \
+                      (lastChangeInSeconds>60) and \
+                      (slope > 0) ):
                    chargingValue = CHARGING
-                   lastChangeRule = "12"
-    else:
+                   lastChangeRule = "12a"
+               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
+                   chargingValue = CHARGING  # or trickling
+                   lastChangeRule = "12b"
+               else:
+                   pass
+    else:  # only one reading so far
         chargingValue = UNKNOWN
         lastChangeRule = "44b"
 
