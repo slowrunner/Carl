@@ -64,6 +64,12 @@ chargingState = 0  # unknown
 dtLastChargingStateChange = dt.datetime.now()
 lastChangeRule = "0" # startup
 
+def get_uptime():
+    with open('/proc/uptime', 'r') as f:
+        uptime_seconds = float(f.readline().split()[0])
+
+    return uptime_seconds
+
 def compute(egpg):
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
@@ -109,36 +115,48 @@ def chargingStatus():
       chargingValue = chargingState
       lastChangeInSeconds = (dt.datetime.now() - dtLastChargingStateChange).total_seconds()
 
+
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
                if ((longMeanVolts > shortMeanVolts) and \
-                   (lastChangeInSeconds > 300) ):
-                   chargingValue = TRICKLING
-                   lastChangeRule = "200"
+                   (shortPeakVolts >= longPeakVolts) and \
+                   (lastChangeInSeconds > 300) and \
+                   (slope < 0) ):
+                       chargingValue = TRICKLING
+                       lastChangeRule = "230"
+               elif ((longMeanVolts > shortMeanVolts) and \
+                    (longPeakVolts > shortPeakVolts) and \
+                    (slope < 0) ):
+                        chargingValue = NOTCHARGING
+                        lastChangeRule = "210"
                else:  # no change
                    pass
           elif (chargingState == NOTCHARGING):
-               if ((slope > 0.01) and (lastChangeInSeconds > 60)):
+               if ((slope > 0.01) and \
+                   (lastChangeInSeconds > 60) and \
+                   (shortMeanVolts > longMeanVolts) and \
+                   (shortPeakVolts >= longPeakVolts) ):
                    chargingValue = CHARGING
-                   lastChangeRule = "100"
+                   lastChangeRule = "120"
                else:
                    pass
           elif (chargingState == TRICKLING):
                if ((longSDev < 0.2) and \
                    (slope < 0) and \
-                   (lastChangInSeconds > 60) ):
+                   (lastChangeInSeconds > 60) ):
                    chargingValue = NOTCHARGING
                    lastChangeRule = "300"
                else:   # no change
                    pass
           elif (chargingState == UNKNOWN):
-               if (slope > 0):
+               if ( (shortPeakVolts > longPeakVolts) and \
+                    (shortMeanVolts > longMeanVolts) and \
+                    (slope > 0) ):
                    chargingValue = CHARGING
                    lastChangeRule = "400"
           else:
               pass
       else:   # just starting up - less than 5 minutes of data
-          #if ((shortPeakVolts-shortMeanVolts)>0.5):
           if (chargingState == CHARGING):
                if (slope > -0.1):
                    pass
@@ -151,7 +169,9 @@ def chargingStatus():
                    chargingValue = NOTCHARGING
                    lastChangeRule = "21"
           elif (chargingState == UNKNOWN):
-               if ( (shortPeakVolts-shortMinVolts)>0.3 ):
+               if (get_uptime() < 240):  # don't try if recently booted
+                   lastChangeRule = "44a"
+               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
                    chargingValue = CHARGING  # or trickling
                    lastChangeRule = "42a"
                elif ( (shortMeanVolts > 10.5) and \
@@ -178,7 +198,7 @@ def chargingStatus():
                    lastChangeRule = "12"
     else:
         chargingValue = UNKNOWN
-        lastChangeRule = "44"
+        lastChangeRule = "44b"
 
     # check if changed from last time checked
     lastChargingState = chargingState
@@ -208,6 +228,7 @@ def printValues():
     lastChangeMinutes = divmod(lastChangeHours[1], 60)
     lastChangeSeconds = divmod(lastChangeMinutes[1], 1)
     print ("Last Changed: %d days %dh %dm %ds" % (lastChangeDays[0],lastChangeHours[0],lastChangeMinutes[0],lastChangeSeconds[0]) )
+    print ("Last Change Rule: ",lastChangeRule)
 
 def safetyCheck(egpg):
         global batteryLowCount
