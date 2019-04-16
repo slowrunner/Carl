@@ -76,6 +76,7 @@ def compute(egpg):
     global longMeanVolts,longPeakVolts,longMinVolts,longSDev
 
     readingList += [egpg.volt()]
+    # print("debug: lastReading: %.3f" % readingList[-1])
     if (len(readingList)>longMeanCount):
       del readingList[0]
       longMeanVolts = np.mean(readingList)
@@ -83,7 +84,14 @@ def compute(egpg):
       longMinVolts  = np.min(readingList)
       longSDev      = np.std(readingList)
 
-    shortList = readingList[-5:-1]
+    if (len(readingList)>shortMeanCount):
+        shortList = readingList[-shortMeanCount:]
+    else:
+        shortList = readingList
+
+    # print("debug: readingList:",readingList)
+    # print("debug: shortList:",shortList)
+
     if (len(shortList)>0):
       shortMeanVolts = np.mean(shortList)
       shortPeakVolts = np.max(shortList)
@@ -99,7 +107,8 @@ def chargingStatus():
     global longMeanVolts,longPeakVolts,longMinVolts,longSDev
     global chargingState,dtLastChargingStateChange,lastChangeRule
 
-    shortList = readingList[-9:-1]
+    shortList = readingList[-shortMeanCount:]
+    # print("debug: shortlist =",shortList)
     if (len(shortList)>1):
       x = []
       y = shortList
@@ -146,19 +155,20 @@ def chargingStatus():
                else:
                    pass
           elif (chargingState == TRICKLING):
-               if ((longSDev < 0.2) and \
-                   (slope < 0) and \
-                   (lastChangeInSeconds > 60) ):
+               if ((longMeanVolts > shortMeanVolts) and \
+                   (longPeakVolts >= shortPeakVolts) and \
+                   (lastChangeInSeconds > 300) ):
                    chargingValue = NOTCHARGING
-                   lastChangeRule = "300"
+                   lastChangeRule = "310"
                else:   # no change
                    pass
           elif (chargingState == UNKNOWN):
-               if ( (shortPeakVolts > longPeakVolts) and \
+               if ( (shortPeakVolts >= longPeakVolts) and \
                     (shortMeanVolts > longMeanVolts) and \
-                    (slope > 0) ):
+                    (slope > 0.02) and \
+                    (lastChangeInSeconds > 60) ):
                    chargingValue = CHARGING
-                   lastChangeRule = "400"
+                   lastChangeRule = "420"
           else:
               pass
       else:   # just starting up - less than 5 minutes of data
@@ -172,7 +182,7 @@ def chargingStatus():
                    lastChangeRule = "23"
                elif (((shortPeakVolts-shortMinVolts)<0.035) and \
                      (lastChangeInSeconds > 120) and \
-                     (slope < 0) ): 
+                     (slope < 0) ):
                    chargingValue = NOTCHARGING
                    lastChangeRule = "21"
                else:
@@ -196,11 +206,7 @@ def chargingStatus():
                else:
                    pass
           elif (chargingState == TRICKLING):
-               if (((shortPeakVolts - shortMeanVolts) < 0.3) and \
-                   (lastChangeInSeconds>120) and \
-                   (slope < 0) ):
-                       chargingValue = NOTCHARGING
-                       lastChangeRule = "31"
+               pass
           elif (chargingState == NOTCHARGING):
                if ( (shortMeanVolts > 10.5) and \
                       (lastChangeInSeconds>60) and \
@@ -229,7 +235,7 @@ def chargingStatus():
 
 def printValues():
     print ("\nJuicer Values:")
-    print ("lastReading %.2f volts" % readingList[-1] )
+    print ("lastReading %.3f volts" % readingList[-1] )
     print ("num of readings %d" % len(readingList) )
     print ("shortPeakVolts %.3f volts" % shortPeakVolts)
     print ("shortMeanVolts %.3f volts" % shortMeanVolts)
@@ -279,8 +285,8 @@ def main():
     try:
         #  loop
         while True:
-            compute(egpg)
             status.printStatus(egpg,ds)
+            compute(egpg)
             printValues()
             safetyCheck(egpg)
             sleep(readingEvery)
