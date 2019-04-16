@@ -132,7 +132,12 @@ def chargingStatus():
                else:  # no change
                    pass
           elif (chargingState == NOTCHARGING):
-               if ((slope > 0.01) and \
+               if (((shortPeakVolts-shortMinVolts>0.5) or \
+                    (longPeakVolts-longMinVolts>0.5) ) and \
+                    (lastChangeInSeconds>300) ):
+                       chargingValue = TRICKLING
+                       lastChangeRule = "140"
+               elif ((slope > 0.02) and \
                    (lastChangeInSeconds > 60) and \
                    (shortMeanVolts > longMeanVolts) and \
                    (shortPeakVolts >= longPeakVolts) ):
@@ -165,9 +170,13 @@ def chargingStatus():
                       (lastChangeInSeconds > 60) ):
                    chargingValue = TRICKLING
                    lastChangeRule = "23"
-               else:
+               elif (((shortPeakVolts-shortMinVolts)<0.035) and \
+                     (lastChangeInSeconds > 120) and \
+                     (slope < 0) ): 
                    chargingValue = NOTCHARGING
                    lastChangeRule = "21"
+               else:
+                   pass
           elif (chargingState == UNKNOWN):
                if (get_uptime() < 240):  # don't try if recently booted
                    lastChangeRule = "44a"
