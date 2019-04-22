@@ -75,6 +75,7 @@ def compute(egpg):
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts,longSDev
 
+    sleep(1)
     readingList += [egpg.volt()]
     # print("debug: lastReading: %.3f" % readingList[-1])
     if (len(readingList)>longMeanCount):
@@ -127,27 +128,23 @@ def chargingStatus():
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
-               if ((longMeanVolts > shortMeanVolts) and \
-                   (shortPeakVolts >= longPeakVolts) and \
+               if ((longMeanVolts > 12.0) and \
+                   (longMeanVolts > shortMeanVolts) and \
                    (lastChangeInSeconds > 300) and \
                    (slope < 0) ):
                        chargingValue = TRICKLING
                        lastChangeRule = "230"
-               elif ((longMeanVolts > shortMeanVolts) and \
-                    (longPeakVolts > shortPeakVolts) and \
+               elif (((shortPeakVolts - shortMeanVolts) < 0.035) and \
+                    (longMeanVolts > shortMeanVolts) and \
+                    (lastChangeInSeconds > 150) and \
                     (slope < 0) ):
                         chargingValue = NOTCHARGING
                         lastChangeRule = "210"
                else:  # no change
                    pass
           elif (chargingState == NOTCHARGING):
-               if (((shortPeakVolts-shortMinVolts>0.5) or \
-                    (longPeakVolts-longMinVolts>0.5) ) and \
-                    (lastChangeInSeconds>300) ):
-                       chargingValue = TRICKLING
-                       lastChangeRule = "140"
-               elif ((slope > 0.02) and \
-                   (lastChangeInSeconds > 60) and \
+               if ((slope > 0.02) and \
+                   (lastChangeInSeconds > 150) and \
                    (shortMeanVolts > longMeanVolts) and \
                    (shortPeakVolts >= longPeakVolts) ):
                    chargingValue = CHARGING
@@ -155,11 +152,12 @@ def chargingStatus():
                else:
                    pass
           elif (chargingState == TRICKLING):
-               if ((longMeanVolts > shortMeanVolts) and \
-                   (longPeakVolts >= shortPeakVolts) and \
-                   (lastChangeInSeconds > 300) ):
-                   chargingValue = NOTCHARGING
-                   lastChangeRule = "310"
+               if (((shortPeakVolts - shortMinVolts) < 0.035) and \
+                   (longMeanVolts > shortMeanVolts) and \
+                   (lastChangeInSeconds > 120) and \
+                   (slope < 0) ):
+                       chargingValue = NOTCHARGING
+                       lastChangeRule = "310"
                else:   # no change
                    pass
           elif (chargingState == UNKNOWN):
