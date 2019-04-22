@@ -5,19 +5,20 @@
 Detect and Report Charge|Trickle|Discharge Status
 
 This module performs the following:
-1) Detect Charging by linear approximation (y=mx+b) of readings having m>0
-2) Detect Discharging by m<0
-3) Detect Trickling by m>0 and peak voltage 0.5v or more higher than mean voltage
-4) Maintain 1 minute and 5 minute peak and average voltage
-5) Demo main will 
+1) Maintains last one minute and last 5 minute battery voltage peak,mean,min stats
+2) Maintains charging status of Unknown, Charging, Trickling, Not Charging
+3) Detect charging status transitions by empirical rules for Tenergy 1025 6-12v peaking charger on 1A with 8x EBL 2800mAh AA cells
+5) Demo main 
  - instantiate juicer object
- - print "status" to console every 10 seconds
+ - print "status" to console every 6 seconds
  - Announce and print charging status changes
  - Request juice progressively more aggressively
        if discharging and battery voltage average falls below 8.1v
- - Request removal from juice when trickle charging 
+ - Request removal from juice when first transition to trickle charging
+ - Request juice progressively more aggressively
+       if trickling and battery voltage average falls below 8.1v
        and battery voltage average falls below 8.1v 
- - Shutdown if average battery voltage falls below 7.4v
+ - Shutdown if average battery voltage falls below 7.1v
 
 """
 
@@ -52,7 +53,6 @@ shortMinVolts = 0
 longPeakVolts = 0
 longMeanVolts = 0
 longMinVolts  = 0
-longSDev = 0
 shortMeanDuration = 60.0 #seconds
 longMeanMultiplier = 5
 longMeanDuration = shortMeanDuration * longMeanMultiplier
@@ -73,7 +73,7 @@ def get_uptime():
 def compute(egpg):
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
-    global longMeanVolts,longPeakVolts,longMinVolts,longSDev
+    global longMeanVolts,longPeakVolts,longMinVolts
 
     sleep(1)
     readingList += [egpg.volt()]
@@ -83,7 +83,6 @@ def compute(egpg):
       longMeanVolts = np.mean(readingList)
       longPeakVolts = np.max(readingList)
       longMinVolts  = np.min(readingList)
-      longSDev      = np.std(readingList)
 
     if (len(readingList)>shortMeanCount):
         shortList = readingList[-shortMeanCount:]
@@ -105,7 +104,7 @@ def chargingStatus():
     global UNKNOWN, NOTCHARGING, CHARGING, TRICKLING
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
-    global longMeanVolts,longPeakVolts,longMinVolts,longSDev
+    global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
 
     shortList = readingList[-shortMeanCount:]
@@ -128,8 +127,9 @@ def chargingStatus():
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
-               if ((longMeanVolts > 12.0) and \
+               if ((longPeakVolts > 12.0) and \
                    (longMeanVolts > shortMeanVolts) and \
+                   (longMinVolts >= shortMinVolts) and \
                    (lastChangeInSeconds > 300) and \
                    (slope < 0) ):
                        chargingValue = TRICKLING
@@ -153,8 +153,9 @@ def chargingStatus():
                    pass
           elif (chargingState == TRICKLING):
                if (((shortPeakVolts - shortMinVolts) < 0.035) and \
+                   ((longPeakVolts - longMinVolts) < 0.055) and \
                    (longMeanVolts > shortMeanVolts) and \
-                   (lastChangeInSeconds > 120) and \
+                   (lastChangeInSeconds > 300) and \
                    (slope < 0) ):
                        chargingValue = NOTCHARGING
                        lastChangeRule = "310"
@@ -251,15 +252,19 @@ def printValues():
     print ("Last Change Rule: ",lastChangeRule)
 
 def safetyCheck(egpg):
-        global batteryLowCount
+        global batteryLowCount,shortMeanVolts
 
         LOW_BATTERY_V = 7.1    # 7.1+0.6=7.7 or 0.9625/cell if they are balanced...
-        vBatt = egpg.volt()
+        vBatt = shortMeanVolts
         if (vBatt < LOW_BATTERY_V):
             batteryLowCount += 1
-            print("\nHello? My Battery is getting a little low here.")
+            print("\n******** WARNING: Safety Shutdown Is Imminent ******")
+            speak.say("Safety Shutdown Is Imminent.")
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
+          print("SHORT MEAN BATTERY VOLTAGE: %.2f" % shortMeanVolts)
+          time.sleep(1)
+          vBatt = egpg.volt()
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
           time.sleep(1)
