@@ -1,8 +1,17 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+# ######### plotBattV.py #############
+#
+# reads data file passed as parameter e.g. ./plotBattV.py battV/csv/battV-YYYYmmdd.csv
+#         note datafile must be named exactly that format
+#
+# output: plot of battery voltage vs wall clock to ./battV/pic/battV-YYYmmdd-HHMM.pic
+#
+
 from __future__ import print_function
 
+import sys
 import matplotlib
 matplotlib.use('Agg')
 import time
@@ -18,8 +27,19 @@ from datetime import timedelta, date
 import matplotlib.patches as mpatches
 from matplotlib.ticker import AutoMinorLocator
 
+if (len(sys.argv) ==2):
+    inFile = sys.argv[1]
+    print("Input File:       ",inFile)
+else:
+    print("Usage:  ./plotBattV.py battV/csv/battV-YYYYmmdd-HHMM.csv")
+    exit()
 
-dateOfPlot = date.today()
+file_date = inFile[-17:inFile.find(".csv")]
+dtObj = datetime.datetime.strptime(file_date, '%Y%m%d-%H%M')
+title_date = dtObj.strftime('%Y-%m-%d %H:%M')
+pic_title = dtObj.strftime('battV-%y%m%d-%H%M')
+
+#dateOfPlot = date.today()
 
 # 20% capacity voltage limit
 limit_value = 8.1
@@ -27,15 +47,21 @@ limit_value = 8.1
 # uncomment next line to plot yesterday's data
 #dateOfPlot = date.today() - timedelta(days=1)
 
+dateOfPlot = dtObj.date()
+#print("dateOfPlot: ",dateOfPlot)
+
+
 base_folder = "./"
 value_folder = "battV/"
-filename_csv = base_folder + value_folder + "csv/" + "battV-" + dateOfPlot.strftime("%Y%m%d") + ".csv"
+#filename_csv = base_folder + value_folder + "csv/" + "battV-" + dateOfPlot.strftime("%Y%m%d") + ".csv"
+filename_csv = base_folder + inFile
 
 i = int(dateOfPlot.strftime("%Y"))
 j = int(dateOfPlot.strftime("%m"))
 k = int(dateOfPlot.strftime("%d"))
-title_date = dateOfPlot.strftime('%d.%m.%Y')
-pic_title = dateOfPlot.strftime('%Y-%m-%d')
+title_date = dtObj.strftime('%d.%m.%Y %H:%M')
+#pic_title = dateOfPlot.strftime('%Y-%m-%d')
+pic_title = dtObj.strftime('battV-%Y%m%d-%H%M')
 
 #csv
 with open(filename_csv) as f:
@@ -133,4 +159,7 @@ if not os.path.exists(picfolder):
   print(picfolder + " folder created")
 
 #plt.savefig(picfolder + pic_title + '.png', bbox_inches='tight')
-plt.savefig(picfolder + pic_title + '.png')
+#plt.savefig(picfolder + pic_title + '.png')
+pic_file = picfolder + pic_title + '.png'
+print("Output Graphic: ",pic_file)
+plt.savefig(pic_file)

@@ -1,6 +1,6 @@
 # Log Value And Print
 
-GoPiGo3 project to monitor battery voltage, and generate plot of last "life period" 
+GoPiGo3 project to monitor battery voltage, and generate plot a "life" 
 
 Example battery-only cycle:  
 
@@ -18,12 +18,12 @@ Example battery-only, recharge-period, followed by trickle-period:
   ./logBattV.py   
   ./logBattV.py > logBattV.out 2>&1 &
    
-  ./plotBattV.py  
-  ./plotBattLife.py
+  ./plotBattV.py  battV/csv/battV-YYYYMMDD-HHMM.csv
+  ./plotBattLife.py  battV/csv/battV-YYYYMMDD-HHMM.csv
  
 - logBattV.py:  Checks battery voltage periodically, and writes value to csv file  
-- plotBattV.py: Creates a graphic of voltage vs wall-clock-time in battV-<date>.png   
-- plotBattLife.py:  Creates a graphic of voltage vs up time in battLife-<date>.png  
+- plotBattV.py: Creates a graphic of voltage vs wall-clock-time in battV-<date>-<time>.png   
+- plotBattLife.py:  Creates a graphic of voltage vs up time in battLife-<date>-<time>.png  
 
 - .csv files are written to      <base_folder>/battV/csv/         (created if not existing)  
 - .png plot files are written to <base_folder>/battV/pic/         (created if not existing)  
