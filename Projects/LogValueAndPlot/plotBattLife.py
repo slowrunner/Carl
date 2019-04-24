@@ -2,13 +2,14 @@
 #-*- coding: utf-8 -*-
 
 # ######### plotBattLife.py #########
-# 
-# reads logged data file  ./battV/csv/battV-YYYYmmdd.csv
-# output: plot of battery voltage vs up time to ./battV/pic/battLife-YYYYmmdd.png
+#
+# reads data file passed as parameter e.g. ./plotBattLife.py  battV/csv/battV-YYYYmmdd-HHMM.csv
+# output: plot of battery voltage vs up time to ./battV/pic/battLife-YYYYmmdd-HHMM.png
 #
 
 from __future__ import print_function
 
+import sys
 import matplotlib
 matplotlib.use('Agg')
 import time
@@ -26,21 +27,40 @@ import matplotlib.patches as mpatches
 from matplotlib.ticker import AutoMinorLocator
 
 
-dateOfPlot = date.today()
+if (len(sys.argv) == 2):
+    inFile = sys.argv[1]
+    print("Input File: ",inFile)
+else:
+    print("Usage:  ./plotBattLife.py battV/csv/battV-YYYYmmdd-HHMM.csv")
+    exit()
 
+# uncomment a line to plot data
+# dateOfPlot = date.today() - timedelta(days=1)
+# dateOfPlot = date.today()
 
-# uncomment next line to plot yesterday's data
-#dateOfPlot = date.today() - timedelta(days=1)
 
 base_folder = "./"
 value_folder = "battV/"
-filename_csv = base_folder + value_folder + "csv/" + "battV-" + dateOfPlot.strftime("%Y%m%d") + ".csv"
+#filename_csv = base_folder + value_folder + "csv/" + "battV-" + dateOfPlot.strftime("%Y%m%d") + ".csv"
+filename_csv = base_folder + inFile
 
-i = int(dateOfPlot.strftime("%Y"))
-j = int(dateOfPlot.strftime("%m"))
-k = int(dateOfPlot.strftime("%d"))
-title_date = dateOfPlot.strftime('%d.%m.%Y')
-pic_title = dateOfPlot.strftime('%Y-%m-%d')
+
+
+#i = int(dateOfPlot.strftime("%Y"))
+#j = int(dateOfPlot.strftime("%m"))
+#k = int(dateOfPlot.strftime("%d"))
+#title_date = dateOfPlot.strftime('%d.%m.%Y')
+file_date = inFile[-17:inFile.find(".csv")]
+#print("file_date",file_date)
+dtObj= datetime.datetime.strptime(file_date, '%Y%m%d-%H%M')
+#print("dtObj:",dtObj)
+title_date = dtObj.strftime('%Y-%m-%d %H:%M')
+#print("title_date: ",title_date)
+pic_title = dtObj.strftime('battLife-%Y%m%d-%H%M')
+#print("pic_title: ",pic_title)
+
+
+#pic_title = dateOfPlot.strftime('%Y-%m-%d')
 
 #csv
 with open(filename_csv) as f:
@@ -115,7 +135,7 @@ ax.grid()
 #Title,Label
 plt.xlabel('Up Time', fontsize=12)
 plt.ylabel('Battery Voltage (volts)', fontsize=12)
-plt.title('Battery Discharge Curve for ' + title_date, fontsize=15)
+plt.title('Battery Voltage History Beginning ' + title_date, fontsize=15)
 plt.grid(True)
 
 # Mark 15-20% capacity limit determined from a prior total life discharge
@@ -166,4 +186,6 @@ if not os.path.exists(picfolder):
   print(picfolder + " folder created")
 
 #plt.savefig(picfolder + pic_title + '.png', bbox_inches='tight')
-plt.savefig(picfolder + "battLife-"+ pic_title + '.png')
+pic_file = picfolder + pic_title + '.png'
+print("Output Graphic: ",pic_file)
+plt.savefig(pic_file)
