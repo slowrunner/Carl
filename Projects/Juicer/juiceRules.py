@@ -129,7 +129,7 @@ def chargingStatus(dtNow=None):
       betas = ((x.T*x).I*x.T*y)
       slope = betas[0,0]
       intercept = betas[1,0]
-      print("\nslope: %.4f" % slope)
+      # print("\nslope: %.4f" % slope)
       chargingValue = chargingState
       if (dtNow == None):
           dtNow = dt.datetime.now()
@@ -392,6 +392,7 @@ def main():
     print ("readingEvery %.1f seconds" % readingEvery)
     print ("simulation: ",sim)
 
+    """
     dockingState = DOCKED
     chargingState = TRICKLING
     print("Docking State:", printableDS[dockingState])
@@ -426,18 +427,38 @@ def main():
     sleep(5)
     speak.say("I'm thirsty.  I'll be here a while.")
     exit()
+    """
 
     try:
         #  loop
+        loopCount = 0
         while True:
-            status.printStatus(egpg,ds)
+            loopCount += 1
             compute(egpg)
             chargingStatus()
-            printValues()
+            if ((loopCount % 5) == 1 ):
+                status.printStatus(egpg,ds)
+                printValues()
             safetyCheck(egpg)
-            if (chargingState == TRICKLING) and \
-               (dockingState == DOCKED):
-                print("TBD")
+            if ((dockingState == UNKNOWN) and \
+                ((chargingState == TRICKLING) or \
+                 (chargingState == CHARGING)) ):
+                dockingState = DOCKED
+            if ((chargingState == TRICKLING) and \
+               (dockingState == DOCKED)):
+                print("Time to get off the pot")
+                undock(egpg,ds)
+            if ((chargingState == NOTCHARGING) and \
+                (dockingState == NOTDOCKED) and \
+                (shortMeanVolts < 9.5) ):
+                print("Time to get on the pot")
+                action = "Turning around to be at approach point"
+                print(action)
+                speak.say(action)
+                egpg.orbit(182)
+                sleep(5)
+                dock(egpg,ds)
+
             sleep(readingEvery)
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
