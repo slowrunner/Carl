@@ -1,24 +1,10 @@
 #!/usr/bin/env python
 #
-# Juicer
+# juiceRules
 """
-Detect and Report Charge|Trickle|Discharge Status
+Rules and Data that maintain Charging Status [UNKNOWN, CHARGING, TRICKLING, NOTCHARGING]
 
-This module performs the following:
-1) Maintains last one minute and last 5 minute battery voltage peak,mean,min stats
-2) Maintains charging status of Unknown, Charging, Trickling, Not Charging
-3) Detect charging status transitions by empirical rules for Tenergy 1025 6-12v peaking charger on 1A with 8x EBL 2800mAh AA cells
-5) Demo main 
- - instantiate juicer object
- - print "status" to console every 6 seconds
- - Announce and print charging status changes
- - Request juice progressively more aggressively
-       if discharging and battery voltage average falls below 8.1v
- - Request removal from juice when first transition to trickle charging
- - Request juice progressively more aggressively
-       if trickling and battery voltage average falls below 8.1v
-       and battery voltage average falls below 8.1v 
- - Shutdown if average battery voltage falls below 7.1v
+This module contains the rules for detecting charging status and charging status changes
 
 """
 
@@ -37,6 +23,7 @@ import battery
 import numpy as np
 import datetime as dt
 import speak
+import myDistSensor
 
 # constants
 UNKNOWN = 0
@@ -44,6 +31,12 @@ NOTCHARGING = 1   # disconnected
 CHARGING    = 2   # charging 
 TRICKLING   = 3   # Trickle charging (less than load)
 printableCS = ["Unknown", "Not Charging", "Charging", "Trickle Charging"]
+
+NOTDOCKED = 1
+DOCKED = 2
+DOCKREQUESTED = 3
+CABLED = 4
+printableDS = ["Unknown", "Not Docked", "Docked", "Cable Requested", "Cabled"]
 
 # variables to be maintained
 readingList = [ ]
@@ -54,9 +47,9 @@ longPeakVolts = 0
 longMeanVolts = 0
 longMinVolts  = 0
 shortMeanDuration = 60.0 #seconds
-longMeanMultiplier = 5
+longMeanMultiplier = 5     # six minutes
 longMeanDuration = shortMeanDuration * longMeanMultiplier
-shortMeanCount = 9
+shortMeanCount = 30
 longMeanCount = shortMeanCount * longMeanMultiplier
 readingEvery = shortMeanDuration / shortMeanCount
 lowBatteryCount = 0
@@ -64,25 +57,41 @@ chargingState = 0  # unknown
 dtLastChargingStateChange = dt.datetime.now()
 lastChangeRule = "0" # startup
 
-def get_uptime():
-    with open('/proc/uptime', 'r') as f:
-        uptime_seconds = float(f.readline().split()[0])
+dockingState = UNKNOWN
+dockingDistanceInMM = 87  # 89 = 3.5 * 25.4
+dockingApproachDistanceInMM = 264 # 260 = 10.25 * 25.4
+dismountFudgeInMM = 3  # 4 gave 266 ave dist and 30 good dockings
+dockingCount = 0
+
+def get_uptime(sim = False,simUptimeInSec = 300):
+    if (sim == True):
+        uptime_seconds = simUptimeInSec
+        print ("get_uptime(sim) returning:",uptime_seconds)
+    else:
+        with open('/proc/uptime', 'r') as f:
+            uptime_seconds = float(f.readline().split()[0])
 
     return uptime_seconds
 
-def compute(egpg):
+# maintain the datalist
+def compute(egpg=None,sim=False,simBattVoltage=10.5):
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts
 
-    sleep(1)
-    readingList += [egpg.volt()]
+    if (sim == True):
+        readingList += [simBattVoltage]
+    else:
+        sleep(1)
+        readingList += [egpg.volt()]
     # print("debug: lastReading: %.3f" % readingList[-1])
     if (len(readingList)>longMeanCount):
       del readingList[0]
+#      print("readingList:",readingList)
+#      print("readingList[:-shortMeanCount]:",readingList[:-shortMeanCount])
       longMeanVolts = np.mean(readingList)
-      longPeakVolts = np.max(readingList)
-      longMinVolts  = np.min(readingList)
+      longPeakVolts = np.max(readingList[:-shortMeanCount])  #max and min not include shortlist
+      longMinVolts  = np.min(readingList[:-shortMeanCount])
 
     if (len(readingList)>shortMeanCount):
         shortList = readingList[-shortMeanCount:]
@@ -96,9 +105,8 @@ def compute(egpg):
       shortMeanVolts = np.mean(shortList)
       shortPeakVolts = np.max(shortList)
       shortMinVolts  = np.min(shortList)
-    chargingStatus()
 
-def chargingStatus():
+def chargingStatus(dtNow=None):
     # https://stackoverflow.com/questions/10048571/python-finding-a-trend-in-a-set-of-numbers?noredirect=1&lq=1
 
     global UNKNOWN, NOTCHARGING, CHARGING, TRICKLING
@@ -107,11 +115,14 @@ def chargingStatus():
     global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
 
-    shortList = readingList[-shortMeanCount:]
+#    shortList = readingList[-shortMeanCount:]
     # print("debug: shortlist =",shortList)
-    if (len(shortList)>1):
+
+#    if (len(shortList)>1):
+    if (len(readingList)>1):
       x = []
-      y = shortList
+#      y = shortList
+      y= readingList
 
       x.append(range(len(y)))                  # Time Variable
       x.append([1 for ele in xrange(len(y))])  # add intercept, use range in Python3
@@ -120,46 +131,66 @@ def chargingStatus():
       betas = ((x.T*x).I*x.T*y)
       slope = betas[0,0]
       intercept = betas[1,0]
-      print("\nslope: %.4f" % slope)
+      # print("\nslope: %.4f" % slope)
       chargingValue = chargingState
-      lastChangeInSeconds = (dt.datetime.now() - dtLastChargingStateChange).total_seconds()
+      if (dtNow == None):
+          dtNow = dt.datetime.now()
+      lastChangeInSeconds = (dtNow - dtLastChargingStateChange).total_seconds()
 
 
       if (longMeanVolts > 0):
           if (chargingState == CHARGING):
-               if ((longPeakVolts > 12.0) and \
-                   (longMeanVolts > shortMeanVolts) and \
+               if ((longPeakVolts > 12) and \
+                   ((longMeanVolts - shortMeanVolts) > 0.5) and \
                    (longMinVolts >= shortMinVolts) and \
                    (lastChangeInSeconds > 300) and \
                    (slope < 0) ):
                        chargingValue = TRICKLING
                        lastChangeRule = "230"
-               elif (((shortPeakVolts - shortMinVolts) < 0.035) and \
-                   (longPeakVolts < 10.5) and \
-                   (longMeanVolts > shortMeanVolts) and \
+               elif ((longPeakVolts > 11.5) and \
+                   ((longMeanVolts - shortMeanVolts) > 0.5) and \
+                   (longMinVolts >= shortMinVolts) and \
                    (lastChangeInSeconds > 300) and \
+                   (slope < 0) ):
+                       chargingValue = TRICKLING
+                       lastChangeRule = "230a"
+               elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
+                   (longPeakVolts < 11.5) and \
+                   ((longPeakVolts - longMinVolts) < 0.25) and \
+                   (longMeanVolts > shortMeanVolts) and \
+                   (lastChangeInSeconds > 120) and \
                    (slope < 0) ):
                        chargingValue = NOTCHARGING
                        lastChangeRule = "210"
                else:  # no change
                    pass
           elif (chargingState == NOTCHARGING):
-               if ((slope > 0.02) and \
+               if ((slope > 0) and \
                    (lastChangeInSeconds > 150) and \
                    (shortMeanVolts > longMeanVolts) and \
-                   (shortPeakVolts >= longPeakVolts) ):
+                   (shortPeakVolts >= longPeakVolts) and \
+                   ((shortPeakVolts - shortMinVolts)>0.5) ):
                    chargingValue = CHARGING
                    lastChangeRule = "120"
                else:
                    pass
           elif (chargingState == TRICKLING):
-               if (((shortPeakVolts - shortMinVolts) < 0.035) and \
+               if (((shortPeakVolts - shortMeanVolts) < 0.035) and \
                    (longPeakVolts < 10.5) and \
+                   ((longPeakVolts - longMeanVolts) < 0.075) and \
+#                   ((longPeakVolts - longMinVolts) < 0.5) and \
                    (longMeanVolts > shortMeanVolts) and \
-                   (lastChangeInSeconds > 300) and \
+                   (lastChangeInSeconds > 120) and \
                    (slope < 0) ):
                        chargingValue = NOTCHARGING
                        lastChangeRule = "310"
+               elif (((shortPeakVolts - shortMeanVolts) < 0.1) and \
+                   ((longPeakVolts - longMeanVolts) < 0.2) and \
+                   (longMeanVolts > shortMeanVolts) and \
+                   (lastChangeInSeconds > 120) and \
+                   (slope < 0) ):
+                       chargingValue = NOTCHARGING
+                       lastChangeRule = "310a"
                else:   # no change
                    pass
           elif (chargingState == UNKNOWN):
@@ -169,53 +200,36 @@ def chargingStatus():
                     (lastChangeInSeconds > 60) ):
                    chargingValue = CHARGING
                    lastChangeRule = "420"
+               elif ( ((longPeakVolts - longMinVolts) < 0.15) and \
+                      (longMeanVolts > shortMeanVolts) and \
+                      ((shortPeakVolts - shortMinVolts) < 0.07) and \
+                      (slope < 0) and \
+                      (lastChangeInSeconds > 120) ):
+                          chargingValue = NOTCHARGING
+                          lastChangeRule = "410"
           else:
               pass
       else:   # just starting up - less than 5 minutes of data
-          if (chargingState == CHARGING):
-               if (slope > -0.1):
-                   pass
-               elif ( ((shortPeakVolts - shortMinVolts)>0.3) and \
-                      (slope < 0) and \
-                      (lastChangeInSeconds > 60) ):
-                   chargingValue = TRICKLING
-                   lastChangeRule = "23"
-               elif (((shortPeakVolts-shortMinVolts)<0.035) and \
-                     (lastChangeInSeconds > 120) and \
-                     (slope < 0) ):
-                   chargingValue = NOTCHARGING
-                   lastChangeRule = "21"
-               else:
-                   pass
-          elif (chargingState == UNKNOWN):
+          if (chargingState == UNKNOWN):
                if (get_uptime() < 240):  # don't try if recently booted
                    lastChangeRule = "44a"
-               elif ( (shortMeanVolts > 10.5) and \
+               elif ( (shortMeanVolts < 11) and \
+                      ((shortPeakVolts-shortMeanVolts)>0.5) and \
+                      ((shortMeanVolts-shortMinVolts)<0.15) and \
+                      (lastChangeInSeconds > 60) and \
+                      (slope < 0) ):
+                        chargingValue = TRICKLING
+                        lastChangeRule = "43"
+               elif ( ((shortMeanVolts-shortMinVolts)>0.5) and \
+                      (slope > 0)  and \
+                      (lastChangeInSeconds>45)):
+                        chargingValue = CHARGING
+                        lastChangeRule = "42b"
+               elif ( (shortMeanVolts > 11) and \
                       (lastChangeInSeconds>60) and \
                       (slope > 0) ):
                    chargingValue = CHARGING
                    lastChangeRule = "42a"
-               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
-                   chargingValue = CHARGING  # or trickling
-                   lastChangeRule = "42b"
-               elif ( ((shortPeakVolts-shortMinVolts)<0.035) and \
-                      (lastChangeInSeconds > 120) and \
-                      (slope < 0) ):
-                   chargingValue = NOTCHARGING
-                   lastChangeRule = "41"
-               else:
-                   pass
-          elif (chargingState == TRICKLING):
-               pass
-          elif (chargingState == NOTCHARGING):
-               if ( (shortMeanVolts > 10.5) and \
-                      (lastChangeInSeconds>60) and \
-                      (slope > 0) ):
-                   chargingValue = CHARGING
-                   lastChangeRule = "12a"
-               elif ( (shortPeakVolts-shortMinVolts)>0.5 ):
-                   chargingValue = CHARGING  # or trickling
-                   lastChangeRule = "12b"
                else:
                    pass
     else:  # only one reading so far
@@ -226,7 +240,7 @@ def chargingStatus():
     lastChargingState = chargingState
     if (lastChargingState != chargingValue):
         chargingState = chargingValue
-        dtLastChargingStateChange = dt.datetime.now()
+        dtLastChargingStateChange = dtNow
         print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
         print("*** by Rule: ",lastChangeRule)
         speak.say("New Charging State"+printableCS[chargingState])
@@ -251,48 +265,227 @@ def printValues():
     lastChangeSeconds = divmod(lastChangeMinutes[1], 1)
     print ("Last Changed: %d days %dh %dm %ds" % (lastChangeDays[0],lastChangeHours[0],lastChangeMinutes[0],lastChangeSeconds[0]) )
     print ("Last Change Rule: ",lastChangeRule)
+    print ("Docking Status: ", printableDS[dockingState])
+    print ("Docking Count: ", dockingCount)
 
-def safetyCheck(egpg):
-        global batteryLowCount,shortMeanVolts
+def safetyCheck(egpg,low_battery_v = 7.6):
+        global batteryLowCount, shortMinVolts, shortMeanVolts
 
-        LOW_BATTERY_V = 7.1    # 7.1+0.6=7.7 or 0.9625/cell if they are balanced...
+        #7.1  
         vBatt = shortMeanVolts
-        if (vBatt < LOW_BATTERY_V):
+        if (vBatt < low_battery_v):
             batteryLowCount += 1
             print("\n******** WARNING: Safety Shutdown Is Imminent ******")
             speak.say("Safety Shutdown Is Imminent.")
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
+          print("SHORT MIN BATTERY VOLTAGE: %.2f" % shortMinVolts)
           print("SHORT MEAN BATTERY VOLTAGE: %.2f" % shortMeanVolts)
-          time.sleep(1)
+          sleep(1)
           vBatt = egpg.volt()
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
-          time.sleep(1)
+          sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
 
-def main():
-
-    egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
-    ds = egpg.init_distance_sensor()
-    ts = egpg.init_servo(tiltpan.TILT_PORT)
-    ps = egpg.init_servo(tiltpan.PAN_PORT)
+def undock(egpg,ds):
+    global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
+    global lastChangeRule
 
     tiltpan.tiltpan_center()
+    distanceForwardInMM = myDistSensor.adjustForAveErrorInMM(ds.read_mm())
+    if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
+         (dockingState == DOCKED) ):
+         print("\n**** INITIATING DISMOUNT ****")
+         speak.say("Initiating dismount.")
+         sleep(5)
+         distanceForwardInMM = myDistSensor.adjustForAveErrorInMM(ds.read())
+         if (distanceForwardInMM > (dockingDistanceInMM * 2.0)):
+             print("**** Dismounting")
+             speak.say("Dismounting")
+             egpg.set_speed(150)
+             dismountDistanceInCM = (dockingDistanceInMM + dismountFudgeInMM)/10.0
+             egpg.drive_cm(dismountDistanceInCM,True)
+             dockingState = NOTDOCKED
+             lastChargingState = chargingState
+             chargingState = NOTCHARGING
+             lastChangeRule = "310c"
+             dtLastChargingStateChange = dt.datetime.now()
+             print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
+             print("*** by Rule: ",lastChangeRule)
+             speak.say("New Charging State"+printableCS[chargingState])
+
+
+             print("**** DISMOUNT COMPLETE ")
+             speak.say("Dismount complete")
+         else:
+             print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
+             speak.say("Dismount blocked")
+
+    elif ( dockingState == CABLED ):
+             print("**** Please DISCONNECT CABLE ****")
+             speak.say("Please disconnect cable.")
+    else:
+        print("**** UNABLE TO UNDOCK ****")
+        speak.say("Unable to undock.")
+
+
+def dock(egpg,ds):
+    global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount
+
+    print("\n**** DOCKING REQUESTED ****")
+
+    if (dockingState != NOTDOCKED):
+        print("**** ERROR: Docking request when not undocked")
+        return
+
+    tiltpan.tiltpan_center()
+    distanceReadings = []
+    for x in range(6):
+        sleep(0.2)
+        distanceReadings += [myDistSensor.adjustForAveErrorInMM(ds.read_mm())]
+    print("**** Distance Readings:",distanceReadings)
+    distanceForwardInMM = np.average(distanceReadings)
+    print("**** Current  Distance is %.1f mm %.2f in" % (distanceForwardInMM, distanceForwardInMM / 25.4))
+    print("**** Approach Distance is %.2f mm" % dockingApproachDistanceInMM )
+
+    appErrorInMM = distanceForwardInMM - dockingApproachDistanceInMM
+    if ( -20 <  appErrorInMM > 20 ):
+        print("**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
+        speak.say("Dock approach error. Please put me on the dock")
+        dockingState = DOCKREQUESTED
+        if (  appErrorInMM > 0):
+            print("**** Approach Distance too large by %.2f MM" % appErrorInMM)
+        else:
+            print("**** Approace Distance too small by %.2f MM" % appErrorInMM)
+        sleep(5)
+    elif ( (dockingState == NOTDOCKED) ):
+        print("\n**** INITIATING DOCK MOUNTING SEQUENCE ****")
+        speak.say("Initiating dock mounting sequence.")
+        sleep(5)
+        print("**** TURNING 180")
+        speak.say("Turning one eighty.")
+        egpg.set_speed(150)
+        egpg.orbit(180)
+        print("**** Preparing to Back")
+        print("Preparing to back onto dock.")
+        sleep(5)
+        backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM / 1.5) / 10.0
+        print("**** BACKING ONTO DOCK %.0f mm" % (backingDistanceInCM * 10.0))
+        speak.say("Backing onto dock")
+        egpg.drive_cm( backingDistanceInCM,True)
+        print("**** DOCKING COMPLETED ****")
+        speak.say("Docking completed.")
+        dockingState = DOCKED
+        dockingCount += 1
+        sleep(5)
+    else:
+        print("\n**** UNKNOWN DOCKING ERROR ****")
+        speak.say("Unknown docking error.")
+        sleep(5)
+
+def dockingTest(egpg,ds):
+    global dockingState,chargingState
+
+    # DOCKING TEST LOOP
+    for x in xrange(30):
+        print("\n****************************")
+        print("     DOCKING TEST CYCLE: ",x)
+        dockingState = DOCKED
+        chargingState = TRICKLING
+        print("Docking State:", printableDS[dockingState])
+        speak.say("Docking state is "+printableDS[dockingState])
+        print("Charging State:", printableCS[chargingState])
+        speak.say("Charging State is "+printableCS[chargingState])
+        undock(egpg,ds)
+        print("Docking State:", printableDS[dockingState])
+        speak.say("Docking state is "+printableDS[dockingState])
+        print("Charging State:", printableCS[chargingState])
+        speak.say("Charging State is "+printableCS[chargingState])
+
+        sleep(5)
+        action = "Turning around to be at approach point"
+        print(action)
+        speak.say(action)
+        egpg.orbit(182)
+        sleep(5)
+        chargingState = NOTCHARGING
+        print("Docking State:", printableDS[dockingState])
+        speak.say("Docking state is "+printableDS[dockingState])
+        print("Charging State:", printableCS[chargingState])
+        speak.say("Charging State is "+printableCS[chargingState])
+
+
+        dock(egpg,ds)
+        print("Docking State:", printableDS[dockingState])
+        speak.say("Docking state is "+printableDS[dockingState])
+        chargingState = UNKNOWN
+        print("Charging State:", printableCS[chargingState])
+        speak.say("Charging State is "+printableCS[chargingState])
+        sleep(5)
+        print("I'm thirsty.  I'll be here a while.")
+        speak.say("I'm thirsty.  I'll be here a while.")
+        sleep(5)
+
+
+def main():
+    global dockingState,chargingState
+
+    sim = False
+    if (sim != True):
+       egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
+       ds = egpg.init_distance_sensor()
+       ts = egpg.init_servo(tiltpan.TILT_PORT)
+       ps = egpg.init_servo(tiltpan.PAN_PORT)
+       tiltpan.tiltpan_center()
+    else:
+       egpg = None
+
+    # uncomment to perform 10 undock/docks 
+    dockingTest(egpg,ds)
 
     print ("Juicer Main Initialization")
     print ("shortMeanDuration: %.1f" % shortMeanDuration)
     print ("longMeanDuration: %.1f" % longMeanDuration)
     print ("readingEvery %.1f seconds" % readingEvery)
-    
+    print ("simulation: ",sim)
+
+
+
     try:
         #  loop
+        loopCount = 0
         while True:
-            status.printStatus(egpg,ds)
+            loopCount += 1
             compute(egpg)
-            printValues()
+            chargingStatus()
+            if ((loopCount % 5) == 1 ):
+                status.printStatus(egpg,ds)
+                printValues()
             safetyCheck(egpg)
+            if ((dockingState == UNKNOWN) and \
+                ((chargingState == TRICKLING) or \
+                 (chargingState == CHARGING)) ):
+                dockingState = DOCKED
+            if ((dockingState == UNKNOWN) and \
+                 (chargingState == NOTCHARGING) ):
+                dockingState = NOTDOCKED
+            if ((chargingState == TRICKLING) and \
+               (dockingState == DOCKED)):
+                print("Time to get off the pot")
+                undock(egpg,ds)
+            if ((chargingState == NOTCHARGING) and \
+                (dockingState == NOTDOCKED) and \
+                (shortMeanVolts < 8.1) ):
+                print("Time to get on the pot")
+                action = "Turning around to be at approach point"
+                print(action)
+                speak.say(action)
+                egpg.orbit(182)
+                sleep(5)
+                dock(egpg,ds)
+
             sleep(readingEvery)
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
