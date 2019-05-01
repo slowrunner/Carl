@@ -36,7 +36,7 @@ NOTDOCKED = 1
 DOCKED = 2
 DOCKREQUESTED = 3
 CABLED = 4
-printableDS = ["Unknown", "Not Docked", "Docked", "Cable Requested", "Cabled"]
+printableDS = ["Unknown", "Not Docked", "Docked", "Manual Dock Requested", "Cabled"]
 
 # variables to be maintained
 readingList = [ ]
@@ -54,14 +54,36 @@ longMeanCount = shortMeanCount * longMeanMultiplier
 readingEvery = shortMeanDuration / shortMeanCount
 lowBatteryCount = 0
 chargingState = 0  # unknown
-dtLastChargingStateChange = dt.datetime.now()
+dtStart = dt.datetime.now()
+dtLastChargingStateChange = dtStart
 lastChangeRule = "0" # startup
 
 dockingState = UNKNOWN
-dockingDistanceInMM = 87  # 89 = 3.5 * 25.4
-dockingApproachDistanceInMM = 264 # 260 = 10.25 * 25.4
-dismountFudgeInMM = 3  # 4 gave 266 ave dist and 30 good dockings
+dtLastDockingStateChange = dtStart
+dockingDistanceInMM = 90  # 89 = 3.5 * 25.4
+dockingApproachDistanceInMM = 266 # 260 = 10.25 * 25.4
+dismountFudgeInMM = 3  # gave 266 after approach turn
 dockingCount = 0
+
+def resetChargingStateToUnknown():
+    global readingList,shortMeanVolts,shortPeakVolts,shortMinVolts,longPeakVolts,longMeanVolts,longMinVolts
+    global chargingState,dtLastChargingStateChange,lastChangeRule
+
+    readingList = [ ]
+    shortMeanVolts = 0
+    shortPeakVolts = 0
+    shortMinVolts = 0
+    longPeakVolts = 0
+    longMeanVolts = 0
+    longMinVolts  = 0
+    lastChargingState = chargingState
+    chargingState = 0  # unknown
+    dtStart = dt.datetime.now()
+    dtLastChargingStateChange = dtStart
+    lastChangeRule = "0r" # restart
+    print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
+    print("*** by Rule: ",lastChangeRule)
+    speak.say("New Charging State"+printableCS[chargingState])
 
 def get_uptime(sim = False,simUptimeInSec = 300):
     if (sim == True):
@@ -82,7 +104,7 @@ def compute(egpg=None,sim=False,simBattVoltage=10.5):
     if (sim == True):
         readingList += [simBattVoltage]
     else:
-        sleep(1)
+        sleep(0.1)
         readingList += [egpg.volt()]
     # print("debug: lastReading: %.3f" % readingList[-1])
     if (len(readingList)>longMeanCount):
@@ -269,22 +291,23 @@ def printValues():
     print ("Docking Count: ", dockingCount)
 
 def safetyCheck(egpg,low_battery_v = 7.6):
-        global batteryLowCount, shortMinVolts, shortMeanVolts
+        global lowBatteryCount, shortMinVolts, shortMeanVolts
 
         #7.1  
         vBatt = shortMeanVolts
         if (vBatt < low_battery_v):
-            batteryLowCount += 1
+            lowBatteryCount += 1
             print("\n******** WARNING: Safety Shutdown Is Imminent ******")
             speak.say("Safety Shutdown Is Imminent.")
-        else: batteryLowCount = 0
-        if (batteryLowCount > 3):
+        else: lowBatteryCount = 0
+        if (lowBatteryCount > 3):
           print("SHORT MIN BATTERY VOLTAGE: %.2f" % shortMinVolts)
           print("SHORT MEAN BATTERY VOLTAGE: %.2f" % shortMeanVolts)
           sleep(1)
           vBatt = egpg.volt()
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
+          print ("Shutdown at ", dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
           sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
@@ -294,30 +317,30 @@ def undock(egpg,ds):
     global lastChangeRule
 
     tiltpan.tiltpan_center()
-    distanceForwardInMM = myDistSensor.adjustForAveErrorInMM(ds.read_mm())
+    distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
     if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
          (dockingState == DOCKED) ):
          print("\n**** INITIATING DISMOUNT ****")
          speak.say("Initiating dismount.")
          sleep(5)
-         distanceForwardInMM = myDistSensor.adjustForAveErrorInMM(ds.read())
-         if (distanceForwardInMM > (dockingDistanceInMM * 2.0)):
+         distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
+         if (distanceForwardInMM > (dockingDistanceInMM * 4.0)):
              print("**** Dismounting")
              speak.say("Dismounting")
              egpg.set_speed(150)
              dismountDistanceInCM = (dockingDistanceInMM + dismountFudgeInMM)/10.0
              egpg.drive_cm(dismountDistanceInCM,True)
              dockingState = NOTDOCKED
+             dtNow = dt.datetime.now()
+             dtLastDockingStateChange = dtNow
              lastChargingState = chargingState
              chargingState = NOTCHARGING
              lastChangeRule = "310c"
-             dtLastChargingStateChange = dt.datetime.now()
+             dtLastChargingStateChange = dtNow
              print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
              print("*** by Rule: ",lastChangeRule)
              speak.say("New Charging State"+printableCS[chargingState])
-
-
-             print("**** DISMOUNT COMPLETE ")
+             print("**** DISMOUNT COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
              speak.say("Dismount complete")
          else:
              print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
@@ -344,9 +367,9 @@ def dock(egpg,ds):
     distanceReadings = []
     for x in range(6):
         sleep(0.2)
-        distanceReadings += [myDistSensor.adjustForAveErrorInMM(ds.read_mm())]
-    print("**** Distance Readings:",distanceReadings)
-    distanceForwardInMM = np.average(distanceReadings)
+        distanceReadings += [ds.read_mm()]
+    # print("**** Distance Readings:",distanceReadings)
+    distanceForwardInMM = myDistSensor.adjustReadingInMMForError(np.average(distanceReadings))
     print("**** Current  Distance is %.1f mm %.2f in" % (distanceForwardInMM, distanceForwardInMM / 25.4))
     print("**** Approach Distance is %.2f mm" % dockingApproachDistanceInMM )
 
@@ -355,6 +378,7 @@ def dock(egpg,ds):
         print("**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
         speak.say("Dock approach error. Please put me on the dock")
         dockingState = DOCKREQUESTED
+        dtLastDockingStateChange = dt.datetime.now()
         if (  appErrorInMM > 0):
             print("**** Approach Distance too large by %.2f MM" % appErrorInMM)
         else:
@@ -368,16 +392,18 @@ def dock(egpg,ds):
         speak.say("Turning one eighty.")
         egpg.set_speed(150)
         egpg.orbit(180)
-        print("**** Preparing to Back")
-        print("Preparing to back onto dock.")
+        print("**** Preparing to Back onto dock")
+        speak.say("Preparing to back onto dock.")
         sleep(5)
         backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM / 1.5) / 10.0
         print("**** BACKING ONTO DOCK %.0f mm" % (backingDistanceInCM * 10.0))
         speak.say("Backing onto dock")
         egpg.drive_cm( backingDistanceInCM,True)
-        print("**** DOCKING COMPLETED ****")
+        dtNow = dt.datetime.now()
+        print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.say("Docking completed.")
         dockingState = DOCKED
+        dtLastDockingStateChange = dtNow
         dockingCount += 1
         sleep(5)
     else:
@@ -385,48 +411,64 @@ def dock(egpg,ds):
         speak.say("Unknown docking error.")
         sleep(5)
 
-def dockingTest(egpg,ds):
+def dockingTest(egpg,ds,numTests = 30):
     global dockingState,chargingState
 
+    print("\n**** DOCKING TEST INITIATED ****")
+    print("checking battery level")
+    while (longMeanVolts == 0):
+        compute(egpg)
+        chargingStatus()
+    print("shortMeanVolts: %.2f" % shortMeanVolts)
+
     # DOCKING TEST LOOP
-    for x in xrange(30):
+    for x in xrange(numTests):
         print("\n****************************")
         print("     DOCKING TEST CYCLE: ",x)
         dockingState = DOCKED
         chargingState = TRICKLING
+        lastChangeRule = "Testing"
+        dtLastChargingStateChange = dt.datetime.now()
         print("Docking State:", printableDS[dockingState])
         speak.say("Docking state is "+printableDS[dockingState])
         print("Charging State:", printableCS[chargingState])
         speak.say("Charging State is "+printableCS[chargingState])
-        undock(egpg,ds)
-        print("Docking State:", printableDS[dockingState])
-        speak.say("Docking state is "+printableDS[dockingState])
-        print("Charging State:", printableCS[chargingState])
-        speak.say("Charging State is "+printableCS[chargingState])
+        if (shortMeanVolts > 8.75):
+            undock(egpg,ds)
+            print("Status after undock()")
+            print("Docking State:", printableDS[dockingState])
+            speak.say("Docking state is "+printableDS[dockingState])
+            print("Charging State:", printableCS[chargingState])
+            speak.say("Charging State is "+printableCS[chargingState])
+            sleep(5)
 
-        sleep(5)
-        action = "Turning around to be at approach point"
-        print(action)
-        speak.say(action)
-        egpg.orbit(182)
-        sleep(5)
-        chargingState = NOTCHARGING
-        print("Docking State:", printableDS[dockingState])
-        speak.say("Docking state is "+printableDS[dockingState])
-        print("Charging State:", printableCS[chargingState])
-        speak.say("Charging State is "+printableCS[chargingState])
+            if (dockingState == NOTDOCKED):
+                print("\n**** DOCKING APPROACH INITIATED")
+                action = "Turning around to be at approach point"
+                print(action)
+                speak.say(action)
+                egpg.orbit(182)
+                sleep(5)
 
 
-        dock(egpg,ds)
-        print("Docking State:", printableDS[dockingState])
-        speak.say("Docking state is "+printableDS[dockingState])
-        chargingState = UNKNOWN
-        print("Charging State:", printableCS[chargingState])
-        speak.say("Charging State is "+printableCS[chargingState])
-        sleep(5)
-        print("I'm thirsty.  I'll be here a while.")
-        speak.say("I'm thirsty.  I'll be here a while.")
-        sleep(5)
+                dock(egpg,ds)
+                print("Status after dock()")
+                print("Docking State:", printableDS[dockingState])
+                speak.say("Docking state is "+printableDS[dockingState])
+                resetChargingStateToUnknown()
+                print("checking battery level")
+                while (longMeanVolts == 0):
+                    compute(egpg)
+                    chargingStatus()
+                print("Charging State:", printableCS[chargingState])
+                speak.say("Charging State is "+printableCS[chargingState])
+                print("I'm thirsty.  I'll be here a while.")
+                speak.say("I'm thirsty.  I'll be here a while.")
+                sleep(5)
+        else:
+            print("\n**** shortMeanVolts %.2f insufficient" % shortMeanVolts)
+            print("SLEEPING FOR 10 MINUTES\n")
+            sleep(600)
 
 
 def main():
@@ -442,8 +484,6 @@ def main():
     else:
        egpg = None
 
-    # uncomment to perform 10 undock/docks 
-    dockingTest(egpg,ds)
 
     print ("Juicer Main Initialization")
     print ("shortMeanDuration: %.1f" % shortMeanDuration)
@@ -451,7 +491,9 @@ def main():
     print ("readingEvery %.1f seconds" % readingEvery)
     print ("simulation: ",sim)
 
-
+    # uncomment to perform 10 undock/docks 
+    dockingTest(egpg,ds,numTests = 5)
+    resetChargingStateToUnknown()
 
     try:
         #  loop
@@ -477,7 +519,7 @@ def main():
                 undock(egpg,ds)
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
-                (shortMeanVolts < 8.1) ):
+                (shortMeanVolts < 8.5) ):
                 print("Time to get on the pot")
                 action = "Turning around to be at approach point"
                 print(action)

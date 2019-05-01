@@ -36,6 +36,7 @@ import speak
 from datetime import datetime
 import easygopigo3
 import battery
+import myDistSensor
 
 LOW_BATTERY_V = 8.1   # (8cells x 1.09) - 0.6 GoPiGo3 voltage drop from reverse voltage protection diode
 
@@ -80,9 +81,9 @@ def printStatus(egpg,ds):
   print "Clock Frequency: %s" % getClockFreq()
   print "%s" % getThrottled()
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
-  distReading = ds.read_inches()
+  distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
   if distReading < 90:
-      print  "Distance Sensor: %0.1f inches" %  ds.read_inches()
+      print  "Distance Sensor: %0.1f inches" %  distReading
   else:
       print  "Distance Sensor: nothing within 90 inches"
 
