@@ -271,8 +271,14 @@ def chargingStatus(dtNow=None):
 
 def printValues():
     print ("\nJuicer Values:")
+    dtNow = dt.datetime.now()
+    runTimeInSeconds = (dtNow - dtStart).total_seconds()
+    runTimeDays = divmod(runTimeInSeconds, 86400)
+    runTimeHours = divmod(runTimeDays[1], 3600)
+    runTimeMinutes = divmod(runTimeHours[1], 60)
+    print ("Juicer Run Time %d days %dh %dm" % (runTimeDays[0],runTimeHours[0],runTimeMinutes[0]))
     print ("lastReading %.3f volts" % readingList[-1] )
-    print ("num of readings %d" % len(readingList) )
+    if (len(readingList) < longMeanCount): print ("num of readings %d" % len(readingList) )
     print ("shortPeakVolts %.3f volts" % shortPeakVolts)
     print ("shortMeanVolts %.3f volts" % shortMeanVolts)
     print ("shortMinVolts  %.3f volts" % shortMinVolts)
@@ -280,7 +286,7 @@ def printValues():
     print ("longMeanVolts  %.3f volts" % longMeanVolts)
     print ("longMinVolts   %.3f volts" % longMinVolts)
     print ("Charging Status: ", printableCS[chargingState])
-    lastChangeInSeconds = (dt.datetime.now() - dtLastChargingStateChange).total_seconds()
+    lastChangeInSeconds = (dtNow - dtLastChargingStateChange).total_seconds()
     lastChangeDays = divmod(lastChangeInSeconds, 86400)
     lastChangeHours = divmod(lastChangeDays[1], 3600)
     lastChangeMinutes = divmod(lastChangeHours[1], 60)
@@ -289,6 +295,12 @@ def printValues():
     print ("Last Change Rule: ",lastChangeRule)
     print ("Docking Status: ", printableDS[dockingState])
     print ("Docking Count: ", dockingCount)
+    lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
+    lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
+    lastDockingChangeHours = divmod(lastDockingChangeDays[1], 3600)
+    lastDockingChangeMinutes = divmod(lastDockingChangeHours[1], 60)
+    lastDockingChangeSeconds = divmod(lastDockingChangeMinutes[1], 1)
+    print ("Last Docking Change: %dh %dm %ds" % (lastDockingChangeHours[0],lastDockingChangeMinutes[0],lastDockingChangeSeconds[0]) )
 
 def safetyCheck(egpg,low_battery_v = 7.6):
         global lowBatteryCount, shortMinVolts, shortMeanVolts
@@ -314,7 +326,7 @@ def safetyCheck(egpg,low_battery_v = 7.6):
 
 def undock(egpg,ds):
     global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
-    global lastChangeRule
+    global lastChangeRule,dtLastDockingStateChange
 
     tiltpan.tiltpan_center()
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
@@ -355,7 +367,7 @@ def undock(egpg,ds):
 
 
 def dock(egpg,ds):
-    global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount
+    global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount,dtLastDockingStateChange
 
     print("\n**** DOCKING REQUESTED ****")
 
