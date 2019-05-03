@@ -13,12 +13,14 @@ import sys
 sys.path.append('/home/pi/Carl/plib')
 import numpy as np
 import myDistSensor
+import lifeLog
 
 from di_sensors.easy_distance_sensor import EasyDistanceSensor
 from time import sleep
 
 ds = EasyDistanceSensor(use_mutex=True)
 distReadings = []
+lifeLog.logger.info("Starting readDistSensor")
 
 while True:
     distReadings += [ds.read_mm()]

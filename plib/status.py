@@ -37,6 +37,7 @@ from datetime import datetime
 import easygopigo3
 import battery
 import myDistSensor
+import lifeLog
 
 LOW_BATTERY_V = 8.1   # (8cells x 1.09) - 0.6 GoPiGo3 voltage drop from reverse voltage protection diode
 
@@ -94,7 +95,6 @@ def handle_ctlc():
   print "status.py: handle_ctlc() executed"
 
 def main():
-
   # #### SET CNTL-C HANDLER
   myPyLib.set_cntl_c_handler(handle_ctlc)
 
@@ -105,6 +105,9 @@ def main():
   ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
 
   batteryLowCount = 0
+
+  lifeLog.logger.info("Starting status.py at {0:0.2f}v".format(egpg.volt()))
+
   #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
     while True:
@@ -117,14 +120,18 @@ def main():
         else: batteryLowCount = 0
         if (batteryLowCount > 3):
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
+          lifeLog.logger.info("status.py safety shutdown at {0:0.2f}v".format(vBatt))
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
           time.sleep(1)
-          os.system("sudo shutdown -h now")
+          os.system("sudo shutdown -h +1")
           sys.exit(0)
         time.sleep(5)
     #end while
   except SystemExit:
-    print "status.py: exiting"
+    strToLog = "Exiting  status.py at {0:0.2f}v".format(egpg.volt())
+    lifeLog.logger.info(strToLog)
+    print strToLog
+    time.sleep(1)
 
 if __name__ == "__main__":
     main()

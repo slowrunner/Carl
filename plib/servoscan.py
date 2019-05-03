@@ -42,6 +42,8 @@ from __future__ import division
 #
 import easygopigo3
 import sys
+sys.path.append('/home/pi/Carl/plib')
+
 from collections import Counter
 import math
 from time import sleep
@@ -152,6 +154,7 @@ def main():
 
     # Create an instance egpg of the GoPiGo3 class.
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)    # use_mutex=True for "thread-safety"
+    lifeLog.logger.info("Starting servoscan.py at {0:0.2f}v".format(egpg.volt()))
 
     # Create an instance of the Distance Sensor class.
     # I2C1 and I2C2 are the two ports through which sensors can connect to the I2C bus
@@ -192,6 +195,7 @@ def main():
 
     except KeyboardInterrupt:
 	print("**** Ctrl-C detected.  Finishing Up ****")
+        lifeLog.logger.info("Exiting  servoscan.py at {0:0.2f}v".format(egpg.volt()))
 	servo.reset_servo()
 	sleep(2)
 	servo.disable_servo()

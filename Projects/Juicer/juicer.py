@@ -24,6 +24,7 @@ import numpy as np
 import datetime as dt
 import speak
 import myDistSensor
+import lifeLog
 
 # constants
 UNKNOWN = 0
@@ -344,7 +345,6 @@ def undock(egpg,ds):
              egpg.drive_cm(dismountDistanceInCM,True)
              dockingState = NOTDOCKED
              dtNow = dt.datetime.now()
-             dtLastDockingStateChange = dtNow
              lastChargingState = chargingState
              chargingState = NOTCHARGING
              lastChangeRule = "310c"
@@ -354,6 +354,19 @@ def undock(egpg,ds):
              speak.say("New Charging State"+printableCS[chargingState])
              print("**** DISMOUNT COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
              speak.say("Dismount complete")
+
+             # assumption juicer.py always starts docked.
+             lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
+             lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
+             lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
+             #print("lastDockingChangeDays:",lastDockingChangeDays)
+             #print("lastDockingChangeHours:",lastDockingChangeHours)
+             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h".format( (dockingCount+1),shortMeanVolts, lastDockingChangeHours)
+             lifeLog.logger.info(strToLog)
+
+             dtLastDockingStateChange = dtNow
+
+
          else:
              print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
              speak.say("Dismount blocked")
@@ -415,8 +428,13 @@ def dock(egpg,ds):
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.say("Docking completed.")
         dockingState = DOCKED
-        dtLastDockingStateChange = dtNow
         dockingCount += 1
+        lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
+        lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
+        lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
+        strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
+        lifeLog.logger.info(strToLog)
+        dtLastDockingStateChange = dtNow
         sleep(5)
     else:
         print("\n**** UNKNOWN DOCKING ERROR ****")
@@ -486,6 +504,8 @@ def dockingTest(egpg,ds,numTests = 30):
 def main():
     global dockingState,chargingState
 
+    lifeLog.logger.info("---- juicer.py started")
+
     sim = False
     if (sim != True):
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
@@ -539,12 +559,21 @@ def main():
                 egpg.orbit(182)
                 sleep(5)
                 dock(egpg,ds)
+            if ((dockingState == DOCKED) and \
+                ((chargingState == UNKNOWN) or \
+                 (chargingState == NOTCHARGING)) and \
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 420) ):
+                print("Docking Failure Possible, undocking")
+                lifeLog.logger.info("---- Docking Failure Possible")
+                undock(egpg,ds)
+
 
             sleep(readingEvery)
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
     	    print("Ctrl-C detected - Finishing up")
+            sleep(1)
     egpg.stop()
 
 if __name__ == "__main__":

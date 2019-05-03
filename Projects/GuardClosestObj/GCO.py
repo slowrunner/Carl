@@ -29,7 +29,7 @@ import tiltpan
 import servoscan
 import status
 import battery
-
+import lifeLog
 
 def remove_zero_readings(dist_l,angle_l):
     nz_reading_index_l = [i for i, x in  enumerate(dist_l) if dist_l[i] > 0]
@@ -46,6 +46,7 @@ def closest_obj(dist_l,angle_l):
 
 def main():
 
+    lifeLog.logger.info("Starting GCO.py")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
     ds = egpg.init_distance_sensor()
     ts = egpg.init_servo(tiltpan.TILT_PORT)
@@ -120,6 +121,7 @@ def main():
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
+            lifeLog.logger.info("Exiting GCO.py"
     	    print("Ctrl-C detected - Finishing up")
     egpg.stop()
 

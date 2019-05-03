@@ -25,9 +25,15 @@ import os
 from subprocess import call
 import csv
 import easygopigo3
+import sys
+sys.path.append('/home/pi/Carl/plib')
+import lifeLog
+
 
 # ### Create (protected) instance of EasyGoPiGo3 base class
 egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+
+lifeLog.logger.info("Starting logBattV.py at {0:0.2f}".format(egpg.volt()))
 
 header_csv = ("Date Time          ", "Battery Voltage")
 
@@ -74,6 +80,7 @@ try:
 
 
 except KeyboardInterrupt:
+        lifeLog.logger.info("Exiting  logBattV.py at {0:0.2f}".format(egpg.volt()))
 
         print('\n')
         print('End logBattV.py')

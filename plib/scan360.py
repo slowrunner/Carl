@@ -19,7 +19,7 @@ import easygopigo3 # import the GoPiGo3 class
 import math
 import printmaps
 import tiltpan
-
+import lifeLog
 
 
 
@@ -148,6 +148,7 @@ def spin_and_scan(egpg, distance_sensor, degrees=360, speed=50):
 
 def main():
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
+    lifeLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
     ds = egpg.init_distance_sensor()
 
 
@@ -170,6 +171,8 @@ def main():
 
 	except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
+            lifeLog.logger.info("Exiting  scan360.py at {0:0.2f}v".format(egpg.volt()))
+
     	    print("Ctrl-C detected - Finishing up")
     egpg.stop()
 
