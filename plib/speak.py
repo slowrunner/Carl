@@ -5,6 +5,8 @@
 #  say(phrase)  includes protection from quotes and apostrophes in phrase
 
 import subprocess
+import sys
+
 
 def say_espeak(phrase):
     phrase = phrase.replace("'","")
@@ -18,9 +20,13 @@ def say(phrase):
 def main():
     # say("hello from speak dot p y test main")
     # say_espeak("whats the weather, long quiet?")
-    say("This phrase contains an apostrophe which isn't allowed")
-    say('This phrase contains "a quoted word" ')
-    say("My name is Carl. I don't know Pogo.  Never met the little bot")
+    if (len(sys.argv) ==2):
+        strToSay = sys.argv[1]
+        say(strToSay)
+    else:
+        say("This phrase contains an apostrophe which isn't allowed")
+        say('This phrase contains "a quoted word" ')
+        say("My name is Carl. I don't know Pogo.  Never met the little bot")
 
 if __name__ == "__main__":
     main()
