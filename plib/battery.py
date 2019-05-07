@@ -16,13 +16,15 @@ SafeShutDown = 8.1  # (1.09v/cell yields 6.5hr "fun time", 15-20% life remaining
 # ########## HOURS OF LIFE REMAINING
 # hoursOfLifeRemaining(Vbatt)
 #
-# Data points are adjusted to a shutdown point at 8.75v as a safe usage
+# Data points are adjusted to a recharge point of 8.5v as a safe usage
 #      based on run of batery_life.py using 4 times under 7.4v (0.925/cell shutdown)
 #
 # Supposedly Toyota Prius uses 80% of battery capacity as safe limit to maximize 
 #      number of recharge cycles.
 #
 # Historical:
+#   Apr 2019  Auto docking off at trickle, on at 8.5v mean
+#   Apr 2019  7h49m to 8.5v, +30m to 8.1, +15m to 7.5v, +1m to 7.1v h/w shutdown
 #   Jan 2018  8h07m
 #   Sep 2018  9h21m   (8x EBL 2800mAh AA cells, around 2550 mAh on BC-3000 test)
 #   Aug 2018  7h20m   (6xEnergizer 2300mAh AA and 2xAmazon 2000mAh AA)
@@ -31,18 +33,19 @@ SafeShutDown = 8.1  # (1.09v/cell yields 6.5hr "fun time", 15-20% life remaining
 #  (V , Time remaining)
 
 lifePoints= (
- (18.0,  8.50),   # charging
- (11.0,  8.25),   # 
- (10.23, 8.12),   # 8h 07m to 7.04v
- (9.17,  7.12),
- (8.75,  6.12),
- (8.54,  5.12),
- (8.42,  4.12),
- (8.33,  3.12),
- (8.19,  2.12),
- (7.94,  1.12),
- (7.04,  0.12),
- (0.00, -2.00)
+ (18.000, 8.00),   # charging
+ (11.025, 7.82),   # 
+ (9.688,  6.82),   # 8h 48m to 8.5v
+ (9.483,  5.82),
+ (9.346,  4.82),
+ (9.286,  3.82),
+ (9.200,  2.82),
+ (9.046,  1.82),
+ (8.806,  0.82),
+ (8.500,  0.00),   # 45m to 7.5v shutdown, recharge now
+ (8.100,  -0.50),   # 15m to 7.5v shutdown
+ (7.500,  -0.53),   # 1-2 min to total die
+ (0.000,  -99.00)
  )
 
 hoursOfLifeRemainingArray = myPyLib.InterpolatedArray(lifePoints)

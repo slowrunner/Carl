@@ -114,10 +114,10 @@ fig, ax = plt.subplots()
 #Patches  (this doesn't seem to work in python2.7)
 #rms_patch = mpatches.Patch(color='navy', label='no value')
 value1_patch = mpatches.Patch(color='red', label='Battery Voltage')
-limit_patch = mpatches.Patch(color='green', label='15% Capacity Limit')
-
+limit_patch = mpatches.Patch(color='green', label='45 Minute Reserve')
+shutdown_patch = mpatches.Patch(color='blue', label='60s till Shutdown')
 #plt.legend(handles=[peak_patch, rms_patch])
-plt.legend(handles=[value1_patch, limit_patch] )
+plt.legend(handles=[value1_patch, limit_patch, shutdown_patch] )
 
 #For a scatter plot use this: ax.scatter(dates, value1, color = 'red', linewidth = 0.1, s=4)
 ax.plot(upTime, value1, color = 'red', linewidth = 0.5, label='vBatt')  # label added for python2.7
@@ -138,9 +138,11 @@ plt.ylabel('Battery Voltage (volts)', fontsize=12)
 plt.title('Battery Voltage History Beginning ' + title_date, fontsize=15)
 plt.grid(True)
 
-# Mark 15-20% capacity limit determined from a prior total life discharge
-limit_value = 8.1
-plt.axhline(y=limit_value, color = 'green', linewidth = 0.8, label="15% Capacity")
+# Mark reserve capacity limit determined from a prior total life discharge
+limit_value = 8.5
+shutdown_value = 7.5
+plt.axhline(y=limit_value, color = 'green', linewidth = 0.8, label="45 Minute Reserve")
+plt.axhline(y=shutdown_value, color = 'blue', linewidth = 1.5, label="60s Till Shutdown")
 
 
 # find maximum value
@@ -153,8 +155,8 @@ value1size =len(value1)
 
 # find minimum value
 value1min = min(value1)
-if value1min >= limit_value:
-   ymin_plot = limit_value - 0.25
+if value1min >= shutdown_value:
+   ymin_plot = shutdown_value - 0.5
 else:
    ymin_plot = value1min
 

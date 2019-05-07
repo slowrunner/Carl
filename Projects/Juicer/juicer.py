@@ -63,6 +63,7 @@ dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
 dockingDistanceInMM = 90  # 89 = 3.5 * 25.4
 dockingApproachDistanceInMM = 266 # 260 = 10.25 * 25.4
+maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
 dismountFudgeInMM = 3  # gave 266 after approach turn
 dockingCount = 0
 
@@ -420,10 +421,17 @@ def dock(egpg,ds):
         print("**** Preparing to Back onto dock")
         speak.say("Preparing to back onto dock.")
         sleep(5)
-        backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM / 1.5) / 10.0
+        # leave maxApproachDistanceMeasurementInMM to back manually
+        backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM -maxApproachDistanceMeasurementErrorInMM ) / 10.0
         print("**** BACKING ONTO DOCK %.0f mm" % (backingDistanceInCM * 10.0))
         speak.say("Backing onto dock")
         egpg.drive_cm( backingDistanceInCM,True)
+        sleep(1)
+        print("**** Backing for 90ms to account for measurement errors")
+        egpg.backward()
+        sleep(0.090)
+        egpg.stop()
+
         dtNow = dt.datetime.now()
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.say("Docking completed.")
@@ -524,8 +532,8 @@ def main():
     print ("simulation: ",sim)
 
     # uncomment to perform 10 undock/docks 
-    dockingTest(egpg,ds,numTests = 5)
-    resetChargingStateToUnknown()
+    # dockingTest(egpg,ds,numTests = 5)
+    # resetChargingStateToUnknown()
 
     try:
         #  loop
@@ -552,11 +560,11 @@ def main():
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
                 (shortMeanVolts < 8.5) ):
-                print("Time to get on the pot")
-                action = "Turning around to be at approach point"
+                print("\n**** Time to get on the pot")
+                action = "**** Turning around to be at approach point"
                 print(action)
                 speak.say(action)
-                egpg.orbit(182)
+                egpg.orbit(181)
                 sleep(5)
                 dock(egpg,ds)
             if ((dockingState == DOCKED) and \
