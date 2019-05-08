@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 progname = "cam-track.py"
-version = "version 1.1"
+version = "version 1.1.alan"
 
 """
 cam-track.py written by Claude Pageau pageauc@gmail.com
@@ -45,6 +45,13 @@ To Change Variables Use nano or text editor to edit config.py
 Good Luck  Claude ...
 
 """
+
+import sys
+sys.path.append('/home/pi/Carl/plib')
+import lifeLog
+
+lifeLog.logger.info("Starting cam-track.py")
+
 print(("%s %s using python2 and OpenCV2" % (progname, version)))
 print("Camera movement (pan/tilt) Tracker using openCV2 template match searching")
 print("Loading Please Wait ....")
@@ -393,6 +400,7 @@ def cam_track():
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 vs.stop()    # Stop video stream thread
+                time.sleep(2)
                 cv2.destroyAllWindows()
                 logging.info("End Cam Tracking")
                 break
@@ -428,12 +436,14 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         vs.stop()
         print("")
+        lifeLog.logger.info("Exiting cam-track.py")
         print("+++++++++++++++++++++++++++++++++++")
         print("User Pressed Keyboard ctrl-c")
         print(("%s %s - Exiting" % (progName, version)))
         print("+++++++++++++++++++++++++++++++++++")
         print("")
         quit(0)
+
 
 
 
