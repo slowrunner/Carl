@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # myPyLib.py   SUPPLIMENTAL PYTHON FUNCTIONS
 #
@@ -17,7 +17,7 @@ import signal
 _funcToRun=None
 
 def signal_handler(signal, frame):
-  print '\n** Control-C Detected'
+  print('\n** Control-C Detected')
   if (_funcToRun != None):
      _funcToRun()
   sys.exit(0)     # raise SystemExit exception
@@ -90,25 +90,25 @@ def sign(n):    # returns -1 if <0, 0 if 0, +1 if positive
 
 def main():
   # TEST CMP
-  print "sign(-60): %d" % sign(-60)
-  print "sign(0): %d" % sign(0)
-  print "sign(60): %d" % sign(60)
+  print ("sign(-60): %d" % sign(-60))
+  print ("sign(0): %d" % sign(0))
+  print ("sign(60): %d" % sign(60))
 
 
   # test clamp(n,min,max)
   for i in range(-120,120,19):
-      print "n: %d clamp(n, 1, 100): %d" % (i, clamp(i,1,100))
-      print "n: %d clamp(n,-100,-1): %d" % (i, clamp(i,-100,-1))
+      print ("n: %d clamp(n, 1, 100): %d" % (i, clamp(i,1,100)))
+      print ("n: %d clamp(n,-100,-1): %d" % (i, clamp(i,-100,-1)))
 
   # ######### Define a call back func
   def ctrl_c_callback():
-    print "ctrl_c_callback() called"
+    print ("ctrl_c_callback() called")
 
   # ######### SET CNTL-C HANDLER #####
   set_cntl_c_handler(ctrl_c_callback)
 
   while True:
-    print "Test myPyLib - type cntl-c"
+    print ("Test myPyLib - type cntl-c")
     time.sleep(60)
   #end while
 

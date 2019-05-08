@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # status.py    Basic Status (thread-safe)
 #      Run Battery down while printing status every 30s
@@ -20,7 +20,7 @@
 
 #
 # from __future__ import print_function
-from __future__ import division
+# from __future__ import division
 
 # import the modules
 
@@ -68,31 +68,31 @@ def getUptime():
 def printStatus(egpg,ds):
 
 
-  print "\n********* CARL Basic STATUS *****"
-  print datetime.now().date(), getUptime()
+  print ("\n********* CARL Basic STATUS *****")
+  print (datetime.now().date(), getUptime())
   vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
-  print "Battery Voltage: %0.2f" % vBatt
+  print ("Battery Voltage: %0.2f" % vBatt)
   v5V = egpg.get_voltage_5v()
-  print "5v Supply: %0.2f" % v5V
+  print ("5v Supply: %0.2f" % v5V)
   lifeRem=battery.hoursOfLifeRemaining(vBatt)
   lifeH=int(lifeRem)
   lifeM=(lifeRem-lifeH)*60
-  print "Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM)
-  print "Processor Temp: %s" % getCPUtemperature()
-  print "Clock Frequency: %s" % getClockFreq()
-  print "%s" % getThrottled()
+  print ("Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM))
+  print ("Processor Temp: %s" % getCPUtemperature())
+  print ("Clock Frequency: %s" % getClockFreq())
+  print ("%s" % getThrottled())
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
   distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
   if distReading < 90:
-      print  "Distance Sensor: %0.1f inches" %  distReading
+      print  ("Distance Sensor: %0.1f inches" %  distReading)
   else:
-      print  "Distance Sensor: nothing within 90 inches"
+      print  ("Distance Sensor: nothing within 90 inches")
 
 
 # ##### MAIN ######
 
 def handle_ctlc():
-  print "status.py: handle_ctlc() executed"
+  print ("status.py: handle_ctlc() executed")
 
 def main():
   # #### SET CNTL-C HANDLER
@@ -130,7 +130,7 @@ def main():
   except SystemExit:
     strToLog = "Exiting  status.py at {0:0.2f}v".format(egpg.volt())
     lifeLog.logger.info(strToLog)
-    print strToLog
+    print (strToLog)
     time.sleep(1)
 
 if __name__ == "__main__":

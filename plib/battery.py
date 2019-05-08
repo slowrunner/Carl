@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # battery.py   BATTERY LIFE ESTIMATE
 #
@@ -55,10 +55,10 @@ def hoursOfLifeRemaining(Vbatt):
 
 def printLifeTable():
   testVs = [ float(x)/10 for x in range(110,70, -5) ]
-  print "Voltage Life Table"
-  print "V   Hours Remaining"
+  print ("Voltage Life Table")
+  print ("V   Hours Remaining")
   for v in testVs:
-    print "%0.1f  %0.1f" % (v, hoursOfLifeRemaining(v))
+    print ("%0.1f  %0.1f" % (v, hoursOfLifeRemaining(v)))
 
 def batteryTooLow(vBatt):
   if (vBatt < SafeShutDown):
@@ -69,12 +69,12 @@ def batteryTooLow(vBatt):
 
 # ##### MAIN ######
 def main():
-      print "\n"
+      print ("\n")
       printLifeTable()
-      print "batteryTooLow(9.0): ",batteryTooLow(9.0)
-      print "batteryTooLow(8.0): ",batteryTooLow(8.0)
+      print ("batteryTooLow(9.0): ",batteryTooLow(9.0))
+      print ("batteryTooLow(8.0): ",batteryTooLow(8.0))
       Vtest=10.25
-      print "hoursOfLifeRemaining(%.1f):%.2fh"% (Vtest,hoursOfLifeRemaining(Vtest)) 
+      print ("hoursOfLifeRemaining(%.1f):%.2fh"% (Vtest,hoursOfLifeRemaining(Vtest)) )
 
 if __name__ == "__main__":
     main()

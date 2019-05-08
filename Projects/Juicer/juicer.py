@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# juiceRules
+# juicer3.py
+
 """
 Rules and Data that maintain Charging Status [UNKNOWN, CHARGING, TRICKLING, NOTCHARGING]
 
@@ -8,8 +9,8 @@ This module contains the rules for detecting charging status and charging status
 
 """
 
-from __future__ import print_function # use python 3 syntax but make it compatible with python 2
-from __future__ import division       #                           ''
+# from __future__ import print_function # use python 3 syntax but make it compatible with python 2
+# from __future__ import division       #                           ''
 
 import sys
 sys.path.append('/home/pi/Carl/plib')
@@ -61,10 +62,10 @@ lastChangeRule = "0" # startup
 
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
-dockingDistanceInMM = 90  # 89 = 3.5 * 25.4
-dockingApproachDistanceInMM = 266 # 260 = 10.25 * 25.4
-maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
-dismountFudgeInMM = 3  # gave 266 after approach turn
+dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm dismount)
+dockingApproachDistanceInMM = 248  # 248 to sign, 266 to wall 
+maxApproachDistanceMeasurementErrorInMM = 5  #  +/-5 typical max and min 
+dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
 dockingCount = 0
 
 def resetChargingStateToUnknown():
@@ -149,7 +150,7 @@ def chargingStatus(dtNow=None):
       y= readingList
 
       x.append(range(len(y)))                  # Time Variable
-      x.append([1 for ele in xrange(len(y))])  # add intercept, use range in Python3
+      x.append([1 for ele in range(len(y))])  # add intercept, use range in Python3
       y = np.matrix(y).T
       x = np.matrix(x).T
       betas = ((x.T*x).I*x.T*y)
@@ -460,7 +461,7 @@ def dockingTest(egpg,ds,numTests = 30):
     print("shortMeanVolts: %.2f" % shortMeanVolts)
 
     # DOCKING TEST LOOP
-    for x in xrange(numTests):
+    for x in range(numTests):
         print("\n****************************")
         print("     DOCKING TEST CYCLE: ",x)
         dockingState = DOCKED
@@ -531,9 +532,9 @@ def main():
     print ("readingEvery %.1f seconds" % readingEvery)
     print ("simulation: ",sim)
 
-    # uncomment to perform 10 undock/docks 
-    # dockingTest(egpg,ds,numTests = 5)
-    # resetChargingStateToUnknown()
+    # uncomment next two lines to perform undock/docking tests
+    dockingTest(egpg,ds,numTests = 5)
+    resetChargingStateToUnknown()
 
     try:
         #  loop
@@ -580,7 +581,7 @@ def main():
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
-    	    print("Ctrl-C detected - Finishing up")
+            print("Ctrl-C detected - Finishing up")
             sleep(1)
     egpg.stop()
 
