@@ -533,8 +533,8 @@ def main():
     print ("simulation: ",sim)
 
     # uncomment next two lines to perform undock/docking tests
-    dockingTest(egpg,ds,numTests = 5)
-    resetChargingStateToUnknown()
+    # dockingTest(egpg,ds,numTests = 5)
+    # resetChargingStateToUnknown()
 
     try:
         #  loop
