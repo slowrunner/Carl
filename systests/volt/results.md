@@ -1,5 +1,5 @@
 # with sleep(0.001) after the ds.read_mm() before the second volt() call:
-
+  
 ```
 pi@Carl : ~/Carl/systests/volt $ ./volt_test.py
 loop:100
@@ -24,9 +24,10 @@ time 1st to 2nd - mean:0.166 max:0.318 min:0.119 std:0.035
 time 2nd to 1st - mean:1.002 max:1.002 min:1.002 std:0.000
 <b>times1stGreater: 96</b>
 times2ndGreater: 2
-  
+```
+    
 # With sleep(1) after read_mm(), before second volt() call =================
-
+```
 pi@Carl : ~/Carl/systests/volt $ ./volt_test.py
 loop:100
 RESULTS
@@ -50,9 +51,12 @@ time 1st to 2nd - mean:1.160 max:1.317 min:1.111 std:0.029
 time 2nd to 1st - mean:1.002 max:1.002 min:1.001 std:0.000
 times1stGreater: 42
 times2ndGreater: 46
-
+```
+  
+  
 #  No dist reading, only sleep(0.001) between first and second volt() calls
 (A2D has 7mv precision so this result might not be significant)
+```
 loop:100
 RESULTS
 No readDist: Sleep before 2nd reading:0.001 Sleep at end of loop:1
@@ -75,9 +79,12 @@ time 2nd to 1st - mean:1.002 max:1.003 min:1.002 std:0.000
 times1stGreater: 17
 times2ndGreater: 0
 pi@Carl:~/Carl/systests/volt $ nano volt_test.py
-
+```
+  
+  
 #  no distance sensor read, but with the ave time a reading would take 0.166s
-
+```
+  
 loop:100
 RESULTS
 No readDist: Sleep before 2nd reading:0.166 Sleep at end of loop:1
