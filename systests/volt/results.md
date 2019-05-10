@@ -1,5 +1,6 @@
 # with sleep(0.001) after the ds.read_mm() before the second volt() call:
 
+```
 pi@Carl : ~/Carl/systests/volt $ ./volt_test.py
 loop:100
 RESULTS
@@ -98,3 +99,4 @@ time 1st to 2nd - mean:0.167 max:0.167 min:0.167 std:0.000
 time 2nd to 1st - mean:1.002 max:1.002 min:1.002 std:0.000
 times1stGreater: 39
 times2ndGreater: 41
+```
