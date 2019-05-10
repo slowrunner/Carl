@@ -7,10 +7,10 @@ RESULTS
 Sleep after ds.read_mm() before 2nd reading:0.001 Sleep at end of loop:1
 First Readings - mean:9.475 max:9.500 min:9.440 std:0.011
 Second Readings - mean:9.408 max:9.466 min:9.354 std:0.023
-<b>Difference - mean:0.067</b> max:0.120 min:-0.009 std:0.024
+```**Difference - mean:0.067**``` max:0.120 min:-0.009 std:0.024
 time 1st to 2nd - mean:0.176 max:0.354 min:0.113 std:0.040
 time 2nd to 1st - mean:1.002 max:1.002 min:1.002 std:0.000
-<b>times1stGreater: 99</b>
+```**times1stGreater: 99**```
 times2ndGreater: 1
 
 pi@Carl : ~/Carl/systests/volt $ ./volt_test.py
@@ -22,7 +22,7 @@ Second Readings - mean:9.401 max:9.466 min:9.320 std:0.025
 <b>Difference - mean:0.064</b> max:0.120 min:-0.017 std:0.028
 time 1st to 2nd - mean:0.166 max:0.318 min:0.119 std:0.035
 time 2nd to 1st - mean:1.002 max:1.002 min:1.002 std:0.000
-<b>times1stGreater: 96</b>
+```**times1stGreater: 96**```
 times2ndGreater: 2
 ```
     
@@ -34,7 +34,7 @@ RESULTS
 Sleep after ds.read_mm() before 2nd reading:1 Sleep at end of loop:1
 First Readings - mean:9.431 max:9.457 min:9.371 std:0.013
 Second Readings - mean:9.429 max:9.457 min:9.363 std:0.016
-**Difference - mean:0.002** max:0.068 min:-0.060 std:0.020
+```**Difference - mean:0.002**``` max:0.068 min:-0.060 std:0.020
 time 1st to 2nd - mean:1.171 max:1.319 min:1.120 std:0.042
 time 2nd to 1st - mean:1.002 max:1.002 min:1.002 std:0.000
 times1stGreater: 46
@@ -46,7 +46,7 @@ RESULTS
 Sleep after ds.read_mm() before 2nd reading:1 Sleep at end of loop:1
 First Readings - mean:9.410 max:9.431 min:9.346 std:0.014
 Second Readings - mean:9.411 max:9.440 min:9.303 std:0.017
-**Difference - mean:-0.001** max:0.111 min:-0.068 std:0.023
+```**Difference - mean:-0.001**``` max:0.111 min:-0.068 std:0.023
 time 1st to 2nd - mean:1.160 max:1.317 min:1.111 std:0.029
 time 2nd to 1st - mean:1.002 max:1.002 min:1.001 std:0.000
 times1stGreater: 42
