@@ -67,7 +67,7 @@ times2ndGreater: 46
   
   
 #  No dist reading, only sleep(0.001) between first and second volt() calls
-(A2D has 7mv precision so this result might not be significant)
+(volt() A2D has 8.6mv precision so this result might not be significant)
 ```
 loop:100
 RESULTS
