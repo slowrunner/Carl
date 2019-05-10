@@ -63,7 +63,7 @@ lastChangeRule = "0" # startup
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
 dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm dismount)
-dockingApproachDistanceInMM = 248  # 248 to sign, 266 to wall 
+dockingApproachDistanceInMM = 266  # 248 to sign, 266 to wall 
 maxApproachDistanceMeasurementErrorInMM = 5  #  +/-5 typical max and min 
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
 dockingCount = 0
@@ -404,6 +404,7 @@ def dock(egpg,ds):
     if ( -20 <  appErrorInMM > 20 ):
         print("**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
         speak.say("Dock approach error. Please put me on the dock")
+        lifeLog.logger.info("**** Dock Approach Error - MANUAL DOCKING REQUESTED")
         dockingState = DOCKREQUESTED
         dtLastDockingStateChange = dt.datetime.now()
         if (  appErrorInMM > 0):
@@ -547,16 +548,20 @@ def main():
                 status.printStatus(egpg,ds)
                 printValues()
             safetyCheck(egpg)
-            if ((dockingState == UNKNOWN) and \
+            if (((dockingState == UNKNOWN) or \
+                 (dockingState == DOCKREQUESTED) or \
+                 (dockingState == NOTDOCKED)) and \
                 ((chargingState == TRICKLING) or \
                  (chargingState == CHARGING)) ):
                 dockingState = DOCKED
+                dtLastDockingStateChange = dt.datetime.now()
             if ((dockingState == UNKNOWN) and \
                  (chargingState == NOTCHARGING) ):
                 dockingState = NOTDOCKED
+                dtLastDockingStateChange = dt.datetime.now()
             if ((chargingState == TRICKLING) and \
                (dockingState == DOCKED)):
-                print("Time to get off the pot")
+                print("\n**** Time to get off the pot")
                 undock(egpg,ds)
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
@@ -572,7 +577,7 @@ def main():
                 ((chargingState == UNKNOWN) or \
                  (chargingState == NOTCHARGING)) and \
                 ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 420) ):
-                print("Docking Failure Possible, undocking")
+                print("\n**** Docking Failure Possible, undocking")
                 lifeLog.logger.info("---- Docking Failure Possible")
                 undock(egpg,ds)
 
