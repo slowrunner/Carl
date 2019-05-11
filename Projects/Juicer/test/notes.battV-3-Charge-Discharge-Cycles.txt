@@ -1,0 +1,28 @@
+Notes on battV-3-Charge-Discharge-Cycles
+
+Battery Voltages began before and ran after this juicer.py test run.
+
+This run started with 5 undock/dock tests, then proceeded normal juicer behavior:
+
+Date       Time		Hours   Action
+2019-05-03 18:12	0	started Juicer
+2019-05-03 18:19	0.1	Docking 5 of tests
+2019-05-03 18:34	0.4	Trickle - Undock (Charged 15m)
+2019-05-04 02:34	8.4	8.5v    - Dock (Played 8h)
+2019-05-04 05:31	11.3	Trickle - UnDock (Charged 2h57m)
+2019-05-04 13:22	19.2	8.5v    - Dock (Played 7h51m)
+2019-05-04 16:24	22.2	Trickle - UnDock (Charged 3h2m)
+2019-05-05 00:09	30.0	8.5v    - Dock (Played 7h45m)
+2019-05-05 03:05	32.9	Trickle - UnDock (Charged 2h54m)
+2019-05-05 10:50	40.6	8.5v    - Dock (Played 7h44m)
+2019-05-05 13:49	43.6	Trickle - UnDock (Charged 3h)
+2019-05-05 21:38	51.4	8.5v    - Dock (Played 7h48m)
+2019-05-06 00:34	54.4	Trickle - UnDock (Charged 2h56m)
+2019-05-06 08:13	62.0	8.5v    - Dock (Played 7h38m)
+2019-05-06 11:12	65.0	Trickle - UnDock (Charged 2h56m)
+2019-05-06 18:48	72.6	8.5v    - Dock (Played 7h38m)
+
+
+
+
+ 
