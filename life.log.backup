@@ -385,3 +385,200 @@
 2019-05-06 21:51|[status.py.main]Starting status.py at 10.30v
 2019-05-06 21:51|[status.py.main]Exiting  status.py at 10.34v
 2019-05-07 06:48|------------
+2019-05-07 08:19|------------
+2019-05-07 15:49|------------
+2019-05-07 15:49|[juicer.py.main]---- juicer.py started
+2019-05-07 16:01|[juicer.py.main]---- juicer.py started
+2019-05-07 16:01|[juicer.py.undock]---- Dismount 1 at 12.1 v after 0.0 h
+2019-05-07 16:02|[juicer.py.dock]---- Docking 1 completed  at 12.1 v after 0.0 h
+2019-05-07 16:06|[juicer.py.main]---- juicer.py started
+2019-05-07 16:06|[juicer.py.undock]---- Dismount 1 at 10.9 v after 0.0 h
+2019-05-07 16:07|[juicer.py.dock]---- Docking 1 completed  at 10.9 v after 0.0 h
+2019-05-07 16:08|[juicer.py.undock]---- Dismount 2 at 10.8 v after 0.0 h
+2019-05-07 16:08|[juicer.py.dock]---- Docking 2 completed  at 10.8 v after 0.0 h
+2019-05-07 16:09|[juicer.py.main]---- juicer.py started
+2019-05-07 16:09|[juicer.py.undock]---- Dismount 1 at 10.8 v after 0.0 h
+2019-05-07 16:10|[juicer.py.dock]---- Docking 1 completed  at 10.8 v after 0.0 h
+2019-05-07 16:11|[juicer.py.undock]---- Dismount 2 at 10.8 v after 0.0 h
+2019-05-07 16:12|[juicer.py.dock]---- Docking 2 completed  at 10.8 v after 0.0 h
+2019-05-07 16:13|[juicer.py.undock]---- Dismount 3 at 10.8 v after 0.0 h
+2019-05-07 16:13|[juicer.py.dock]---- Docking 3 completed  at 10.8 v after 0.0 h
+2019-05-07 16:14|[juicer.py.undock]---- Dismount 4 at 10.8 v after 0.0 h
+2019-05-07 16:15|[juicer.py.dock]---- Docking 4 completed  at 10.8 v after 0.0 h
+2019-05-07 16:16|[juicer.py.undock]---- Dismount 5 at 10.7 v after 0.0 h
+2019-05-07 16:16|[juicer.py.dock]---- Docking 5 completed  at 10.7 v after 0.0 h
+2019-05-07 16:18|[juicer.py.main]---- juicer.py started
+2019-05-07 16:18|[juicer.py.undock]---- Dismount 1 at 11.4 v after 0.0 h
+2019-05-07 16:19|[juicer.py.dock]---- Docking 1 completed  at 11.4 v after 0.0 h
+2019-05-07 16:20|[juicer.py.undock]---- Dismount 2 at 10.7 v after 0.0 h
+2019-05-07 16:21|[juicer.py.dock]---- Docking 2 completed  at 10.7 v after 0.0 h
+2019-05-07 16:21|[juicer.py.undock]---- Dismount 3 at 10.7 v after 0.0 h
+2019-05-07 16:22|[juicer.py.dock]---- Docking 3 completed  at 10.7 v after 0.0 h
+2019-05-07 16:23|[juicer.py.undock]---- Dismount 4 at 10.8 v after 0.0 h
+2019-05-07 16:24|[juicer.py.dock]---- Docking 4 completed  at 10.8 v after 0.0 h
+2019-05-07 16:25|[juicer.py.undock]---- Dismount 5 at 10.6 v after 0.0 h
+2019-05-07 16:25|[juicer.py.dock]---- Docking 5 completed  at 10.6 v after 0.0 h
+2019-05-07 16:41|[juicer.py.undock]---- Dismount 6 at 11.5 v after 0.3 h
+2019-05-07 16:49|[juicer.py.main]---- juicer.py started
+2019-05-07 16:50|[juicer.py.undock]---- Dismount 1 at 10.9 v after 0.0 h
+2019-05-07 16:50|[juicer.py.dock]---- Docking 1 completed  at 10.9 v after 0.0 h
+2019-05-07 16:51|[juicer.py.undock]---- Dismount 2 at 11.1 v after 0.0 h
+2019-05-07 16:52|[juicer.py.dock]---- Docking 2 completed  at 11.1 v after 0.0 h
+2019-05-07 16:53|[juicer.py.undock]---- Dismount 3 at 10.8 v after 0.0 h
+2019-05-07 16:53|[juicer.py.dock]---- Docking 3 completed  at 10.8 v after 0.0 h
+2019-05-07 16:54|[juicer.py.undock]---- Dismount 4 at 10.8 v after 0.0 h
+2019-05-07 16:55|[juicer.py.dock]---- Docking 4 completed  at 10.8 v after 0.0 h
+2019-05-07 16:56|[juicer.py.undock]---- Dismount 5 at 10.7 v after 0.0 h
+2019-05-07 16:57|[juicer.py.dock]---- Docking 5 completed  at 10.7 v after 0.0 h
+2019-05-07 17:09|[juicer.py.undock]---- Dismount 6 at 11.4 v after 0.2 h
+2019-05-07 17:14|[juicer.py.main]---- juicer.py started
+2019-05-07 17:15|[juicer.py.undock]---- Dismount 1 at 10.8 v after 0.0 h
+2019-05-07 17:15|[juicer.py.dock]---- Docking 1 completed  at 10.8 v after 0.0 h
+2019-05-07 17:16|[juicer.py.undock]---- Dismount 2 at 10.8 v after 0.0 h
+2019-05-07 17:17|[juicer.py.dock]---- Docking 2 completed  at 10.8 v after 0.0 h
+2019-05-07 17:18|[juicer.py.undock]---- Dismount 3 at 10.8 v after 0.0 h
+2019-05-07 17:18|[juicer.py.dock]---- Docking 3 completed  at 10.8 v after 0.0 h
+2019-05-07 17:19|[juicer.py.undock]---- Dismount 4 at 10.7 v after 0.0 h
+2019-05-07 17:20|[juicer.py.dock]---- Docking 4 completed  at 10.7 v after 0.0 h
+2019-05-07 17:21|[juicer.py.undock]---- Dismount 5 at 10.6 v after 0.0 h
+2019-05-07 17:22|[juicer.py.dock]---- Docking 5 completed  at 10.6 v after 0.0 h
+2019-05-07 19:02|--- opencv-contrib-python installed v3.3.4 ---------
+2019-05-07 19:02|--- changing code to use python3  ---------
+2019-05-07 22:09|[juicer3.py.main]---- juicer.py started
+2019-05-07 22:15|[juicer3.py.main]---- juicer.py started
+2019-05-07 22:15|[juicer3.py.undock]---- Dismount 1 at 10.3 v after 0.0 h
+2019-05-07 22:16|[juicer3.py.dock]---- Docking 1 completed  at 10.3 v after 0.0 h
+2019-05-07 22:17|[juicer3.py.undock]---- Dismount 2 at 10.3 v after 0.0 h
+2019-05-07 22:18|[juicer3.py.dock]---- Docking 2 completed  at 10.3 v after 0.0 h
+2019-05-07 22:19|[juicer3.py.undock]---- Dismount 3 at 10.3 v after 0.0 h
+2019-05-07 22:19|[juicer3.py.dock]---- Docking 3 completed  at 10.3 v after 0.0 h
+2019-05-07 22:20|[juicer3.py.undock]---- Dismount 4 at 10.3 v after 0.0 h
+2019-05-07 22:21|[juicer3.py.dock]---- Docking 4 completed  at 10.3 v after 0.0 h
+2019-05-07 22:22|[juicer3.py.undock]---- Dismount 5 at 10.3 v after 0.0 h
+2019-05-07 22:22|[juicer3.py.dock]---- Docking 5 completed  at 10.3 v after 0.0 h
+2019-05-07 22:44|[juicer3.py.undock]---- Dismount 6 at 11.4 v after 0.4 h
+2019-05-08 06:35|[juicer3.py.dock]---- Docking 6 completed  at 8.5 v after 7.9 h
+2019-05-08 08:10|[juicer3.py.undock]---- Dismount 7 at 10.4 v after 1.6 h
+2019-05-08 12:01|[juicer3.py.dock]---- Docking 7 completed  at 8.5 v after 3.9 h
+2019-05-08 14:01|[juicer.py.main]---- juicer.py started
+2019-05-08 14:55|[juicer.py.undock]---- Dismount 1 at 11.2 v after 0.9 h
+2019-05-08 19:02|[cam-track.py.<module>]Starting cam-track.py
+2019-05-08 19:16|[cam-track.py.<module>]Exiting cam-track.py
+2019-05-08 21:05|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 6.2 h
+2019-05-08 21:12|[juicer.py.main]---- Docking Failure Possible
+2019-05-08 21:34|[juicer.py.main]---- Docking Failure Possible
+2019-05-08 21:34|[juicer.py.undock]---- Dismount 2 at 8.2 v after 0.5 h
+2019-05-08 21:50|[juicer.py.main]---- juicer.py started
+2019-05-09 00:38|[juicer.py.undock]---- Dismount 1 at 11.3 v after 2.8 h
+2019-05-09 08:24|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 7.8 h
+2019-05-09 09:39|[load_display_save.py.main]Started
+2019-05-09 09:40|[load_display_save.py.main]Finished
+2019-05-09 10:19|[load_display_save.py.main]Started
+2019-05-09 10:20|[load_display_save.py.main]Finished
+2019-05-09 10:20|[load_display_save.py.main]Started
+2019-05-09 10:48|[load_display_save.py.main]Finished
+2019-05-09 11:19|[juicer.py.undock]---- Dismount 2 at 11.2 v after 2.9 h
+2019-05-09 13:23|[cam-track.py.<module>]Starting cam-track.py
+2019-05-09 13:24|[cam-track.py.<module>]Exiting cam-track.py
+2019-05-09 20:36|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 9.3 h
+2019-05-09 21:33|[volt_test.py.main]Started
+2019-05-09 21:38|[volt_test.py.main]Started
+2019-05-09 21:39|[volt_test.py.main]Finished
+2019-05-09 21:40|[volt_test.py.main]Started
+2019-05-09 21:41|[volt_test.py.main]Finished
+2019-05-09 21:44|[volt_test.py.main]Started
+2019-05-09 21:44|[volt_test.py.main]Finished
+2019-05-09 21:44|[volt_test.py.main]Started
+2019-05-09 21:44|[volt_test.py.main]Finished
+2019-05-09 21:50|[volt_test.py.main]Started
+2019-05-09 21:50|[volt_test.py.main]Started
+2019-05-09 21:50|[volt_test.py.main]Finished
+2019-05-09 21:50|[volt_test.py.main]Started
+2019-05-09 21:50|[volt_test.py.main]Finished
+2019-05-09 21:50|[volt_test.py.main]Started
+2019-05-09 21:50|[volt_test.py.main]Finished
+2019-05-09 21:55|[volt_test.py.main]Started
+2019-05-09 21:55|[volt_test.py.main]Finished
+2019-05-09 21:55|[volt_test.py.main]Started
+2019-05-09 21:55|[volt_test.py.main]Finished
+2019-05-09 21:59|[volt_test.py.main]Started
+2019-05-09 21:59|[volt_test.py.main]Finished
+2019-05-09 21:59|[volt_test.py.main]Started
+2019-05-09 22:00|[volt_test.py.main]Finished
+2019-05-09 22:00|[volt_test.py.main]Started
+2019-05-09 22:02|[volt_test.py.main]Finished
+2019-05-09 22:02|[volt_test.py.main]Started
+2019-05-09 22:04|[volt_test.py.main]Finished
+2019-05-09 22:06|[volt_test.py.main]Started
+2019-05-09 22:06|[volt_test.py.main]Finished
+2019-05-09 22:07|[volt_test.py.main]Started
+2019-05-09 22:07|[volt_test.py.main]Finished
+2019-05-09 22:08|[volt_test.py.main]Started
+2019-05-09 22:10|[volt_test.py.main]Finished
+2019-05-09 22:14|[volt_test.py.main]Started
+2019-05-09 22:16|[volt_test.py.main]Finished
+2019-05-09 22:24|[volt_test.py.main]Started
+2019-05-09 22:26|[volt_test.py.main]Finished
+2019-05-09 22:31|[volt_test.py.main]Started
+2019-05-09 22:34|[volt_test.py.main]Finished
+2019-05-09 22:39|[volt_test.py.main]Started
+2019-05-09 22:43|[volt_test.py.main]Finished
+2019-05-09 22:44|[volt_test.py.main]Started
+2019-05-09 22:47|[volt_test.py.main]Finished
+2019-05-09 22:53|[volt_test.py.main]Started
+2019-05-09 22:55|[volt_test.py.main]Started
+2019-05-09 22:57|[volt_test.py.main]Finished
+2019-05-09 22:58|[volt_test.py.main]Started
+2019-05-09 23:00|[volt_test.py.main]Finished
+2019-05-09 23:05|[volt_test.py.main]Started
+2019-05-09 23:09|[volt_test.py.main]Finished
+2019-05-09 23:09|[volt_test.py.main]Started
+2019-05-09 23:13|[volt_test.py.main]Finished
+2019-05-09 23:20|[volt_test.py.main]Started
+2019-05-09 23:22|[volt_test.py.main]Finished
+2019-05-09 23:22|[volt_test.py.main]Started
+2019-05-09 23:24|[volt_test.py.main]Finished
+2019-05-09 23:24|[volt_test.py.main]Started
+2019-05-09 23:26|[volt_test.py.main]Finished
+2019-05-09 23:27|[volt_test.py.main]Started
+2019-05-09 23:29|[volt_test.py.main]Finished
+2019-05-09 23:39|[volt_test.py.main]Started
+2019-05-09 23:42|[volt_test.py.main]Finished
+2019-05-09 23:42|[volt_test.py.main]Started
+2019-05-09 23:44|[volt_test.py.main]Finished
+2019-05-10 00:27|[juicer.py.main]---- juicer.py started
+2019-05-10 02:34|[juicer.py.undock]---- Dismount 1 at 11.2 v after 2.1 h
+2019-05-10 09:43|[load_display_save.py.main]Started
+2019-05-10 09:44|[load_display_save.py.main]Started
+2019-05-10 09:47|[load_display_save.py.main]Started
+2019-05-10 09:48|[load_display_save.py.main]Finished
+2019-05-10 09:58|[load_display_save.py.main]Started
+2019-05-10 10:02|[load_display_save.py.main]Finished
+2019-05-10 10:14|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 7.7 h
+2019-05-10 10:14|[juicer.py.main]---- Docking Failure Possible
+2019-05-10 10:14|[juicer.py.undock]---- Dismount 2 at 8.5 v after 0.0 h
+2019-05-10 10:15|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 0.0 h
+2019-05-10 10:15|[juicer.py.main]---- Docking Failure Possible
+2019-05-10 10:15|[juicer.py.undock]---- Dismount 3 at 8.5 v after 0.0 h
+2019-05-10 10:16|[juicer.py.dock]---- Docking 3 completed  at 8.5 v after 0.0 h
+2019-05-10 10:16|[juicer.py.main]---- Docking Failure Possible
+2019-05-10 10:17|[load_display_save.py.main]Started
+2019-05-10 10:17|[load_display_save.py.main]Finished
+2019-05-10 10:26|[juicer.py.main]---- juicer.py started
+2019-05-10 10:28|[cam-track.py.<module>]Starting cam-track.py
+2019-05-10 10:37|[cam-track.py.<module>]Exiting cam-track.py
+2019-05-10 10:49|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 0.1 h
+2019-05-10 10:54|[juicer.py.main]---- juicer.py started
+2019-05-10 11:08|[juicer.py.dock]---- Docking 1 completed  at 8.4 v after 0.0 h
+2019-05-10 14:06|[juicer.py.undock]---- Dismount 2 at 11.3 v after 3.0 h
+2019-05-10 19:00|[logMaintenance.py.main]** Changed speaker to HP USB powered on rear apron **
+2019-05-10 19:36|[juicer.py.main]---- juicer.py started
+2019-05-10 21:33|[juicer.py.undock]---- Dismount 1 at 11.2 v after 1.6 h
+2019-05-11 04:04|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 6.5 h
+2019-05-11 07:03|[juicer.py.undock]---- Dismount 2 at 11.2 v after 3.0 h
+2019-05-11 14:38|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 7.6 h
+2019-05-11 18:03|[juicer.py.main]---- juicer.py started
+2019-05-11 18:15|[juicer.py.undock]---- Dismount 1 at 11.2 v after 0.2 h
+2019-05-12 00:56|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 6.7 h
+2019-05-12 03:56|[juicer.py.undock]---- Dismount 2 at 11.2 v after 3.0 h
+2019-05-12 10:03|lifelog.dEmain execution: 111
