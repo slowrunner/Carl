@@ -31,6 +31,7 @@ import datetime as dt
 import speak
 import myDistSensor
 import lifeLog
+import myconfig
 
 # constants
 UNKNOWN = 0
@@ -493,7 +494,7 @@ def dockingTest(egpg,ds,numTests = 30):
                 action = "Turning around to be at approach point"
                 print(action)
                 speak.whisper(action)
-                egpg.orbit(182)
+                egpg.orbit(180)
                 sleep(5)
 
 
@@ -525,6 +526,7 @@ def main():
     sim = False
     if (sim != True):
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
+       myconfig.setParameters(egpg)
        ds = egpg.init_distance_sensor()
        ts = egpg.init_servo(tiltpan.TILT_PORT)
        ps = egpg.init_servo(tiltpan.PAN_PORT)
@@ -578,7 +580,7 @@ def main():
                 action = "**** Turning around to be at approach point"
                 print(action)
                 speak.whisper(action)
-                egpg.orbit(181)
+                egpg.orbit(180)
                 sleep(5)
                 dock(egpg,ds)
             if ((dockingState == DOCKED) and \
