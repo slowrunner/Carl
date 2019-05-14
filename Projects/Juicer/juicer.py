@@ -440,7 +440,7 @@ def dock(egpg,ds):
         egpg.backward()
         sleep(dockingFinalBackInSeconds)
         egpg.stop()
-
+        sleep(1)
         print("**** Backing again just to be sure we're good")
         egpg.backward()
         sleep(dockingFinalBackInSeconds)
