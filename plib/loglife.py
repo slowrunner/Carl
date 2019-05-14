@@ -75,7 +75,7 @@ class digitalEntity():
   def dEmain(self,tSleep=defaultSleep):
     myname = multiprocessing.current_process().name
     time.sleep(60)  # wait for network date time sync
-    logger.info("------------")
+    logger.info("------------ boot ------------")
     if debugLevel: print "%s.dEmain started with tSleep=%f" % (myname,tSleep)
     # logger.info('%s.dEmain started',myname)
     i=0
