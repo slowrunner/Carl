@@ -441,6 +441,11 @@ def dock(egpg,ds):
         sleep(dockingFinalBackInSeconds)
         egpg.stop()
 
+        print("**** Backing again just to be sure we're good")
+        egpg.backward()
+        sleep(dockingFinalBackInSeconds)
+        egpg.stop()
+
         dtNow = dt.datetime.now()
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.whisper("Docking completed.")
