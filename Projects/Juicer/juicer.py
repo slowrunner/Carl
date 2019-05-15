@@ -533,9 +533,9 @@ def main():
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
        myconfig.setParameters(egpg)
        ds = egpg.init_distance_sensor()
-       ts = egpg.init_servo(tiltpan.TILT_PORT)
-       ps = egpg.init_servo(tiltpan.PAN_PORT)
        tiltpan.tiltpan_center()
+       sleep(0.5)
+       tiltpan.off()
     else:
        egpg = None
 

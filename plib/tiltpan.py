@@ -9,7 +9,7 @@
 #  tilt(pos = tilt_pos)
 #  pan(pos = pan_pos)
 #  tiltpan_center()       # convenience tilt(TILT_CENTER), pan(PAN_CENTER)
-#  off()                  # turn both servos off / non-holding position
+#  off()                  # turn both servos off / non-holding position (sets pos to UNKNOWN)
 #  nod_yes(spd=0.03)
 #  nod_no(spd=0.02)
 #  nod_IDK(spd=0.02)
@@ -20,17 +20,14 @@
 """
 ```
 # Usage:
-import easygopigo
-import tiltpan
 
-egpg = EasyGoPiGo3(use_mutex=True)  # protect so others can use also
-ts = egpg.init_servo(TILT_PORT)
-ps = egpg.init_servo(PAN_PORT)
+import tiltpan
 
 tiltpan.tiltpan_center()
 tiltpan.tilt(tiltpan.TILT_CENTER)  # -90 to +90
 tiltpan.pan(tiltpan.PAN_CENTER)
 print tiltpan.get_pan_pos(), tiltpan.get_tilt_pos()
+tiltpan.off()
 
 ```
 """
@@ -66,6 +63,8 @@ TILT_DOWN_LIMIT = -65
 TILT_CENTER = 0
 TILT_UP_LIMIT = 65
 
+UNKNOWN = 999
+
 tilt_position = TILT_CENTER
 pan_position  = PAN_CENTER
 
@@ -90,9 +89,11 @@ def tiltpan_center():
   pan()
 
 def off():          # turn both servo PWM freq to 0 to stop holding position
-  global ts, ps
+  global ts, ps, tilt_position, pan_position
   ps.gpg.set_servo(ps.portID, 0)
   ts.gpg.set_servo(ts.portID, 0)
+  tilt_position = UNKNOWN
+  pan_position = UNKNOWN
 
 def tilt(tgt=tilt_position):
   global ts,tilt_position
@@ -219,6 +220,8 @@ def main():
         print("Turning tiltpan servos off")
         off()
         sleep(5)
+        print("tilt_position(999=UNKNOWN):",get_tilt_pos() )
+        print("pan_position (999=UNKNOWN):",get_pan_pos() )
     #end while
   except SystemExit:
     print("tiltpan.py: exiting")
