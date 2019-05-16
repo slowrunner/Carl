@@ -387,6 +387,8 @@ def undock(egpg,ds):
         print("**** UNABLE TO UNDOCK ****")
         speak.say("Unable to undock.")
 
+    tiltpan.off()
+    # exit undock
 
 def dock(egpg,ds):
     global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount,dtLastDockingStateChange
@@ -406,7 +408,6 @@ def dock(egpg,ds):
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(np.average(distanceReadings))
     print("**** Current  Distance is %.1f mm %.2f in" % (distanceForwardInMM, distanceForwardInMM / 25.4))
     print("**** Approach Distance is %.2f mm" % dockingApproachDistanceInMM )
-
     appErrorInMM = distanceForwardInMM - dockingApproachDistanceInMM
     if ( -20 <  appErrorInMM > 20 ):
         print("**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
@@ -462,6 +463,9 @@ def dock(egpg,ds):
         print("\n**** UNKNOWN DOCKING ERROR ****")
         speak.say("Unknown docking error.")
         sleep(5)
+
+    tiltpan.off()
+    # exit dock()
 
 def dockingTest(egpg,ds,numTests = 30):
     global dockingState,chargingState
