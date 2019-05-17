@@ -600,6 +600,15 @@ def main():
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
                 undock(egpg,ds)
+            # Falsely detection of Trickling as Charging - need to undock/dock
+            if ((dockingState == DOCKED) and \
+                (chargingState == CHARGING) and \
+                (shortMeanVolts < 8.5) and \
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 420) ):
+                print("\n**** Charger Trickling, Need Charging Possible, undocking")
+                speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
+                lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
+                undock(egpg,ds)
 
 
             sleep(readingEvery)
