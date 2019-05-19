@@ -567,6 +567,7 @@ def main():
                 status.printStatus(egpg,ds)
                 printValues()
             safetyCheck(egpg)
+            # Detect when docked
             if (((dockingState == UNKNOWN) or \
                  (dockingState == DOCKREQUESTED) or \
                  (dockingState == NOTDOCKED)) and \
@@ -574,14 +575,17 @@ def main():
                  (chargingState == CHARGING)) ):
                 dockingState = DOCKED
                 dtLastDockingStateChange = dt.datetime.now()
+            # Starting up away from dock
             if ((dockingState == UNKNOWN) and \
                  (chargingState == NOTCHARGING) ):
                 dockingState = NOTDOCKED
                 dtLastDockingStateChange = dt.datetime.now()
+            # Time to go out to play
             if ((chargingState == TRICKLING) and \
                (dockingState == DOCKED)):
                 print("\n**** Time to get off the pot")
                 undock(egpg,ds)
+            # End of play time
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
                 (shortMeanVolts < 8.5) ):
@@ -592,19 +596,20 @@ def main():
                 egpg.orbit(180)
                 sleep(5)
                 dock(egpg,ds)
+            # Detect docking that didn't align contacts well - need to undock/dock
             if ((dockingState == DOCKED) and \
                 ((chargingState == UNKNOWN) or \
                  (chargingState == NOTCHARGING)) and \
-                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 420) ):
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 180) ):
                 print("\n**** Docking Failure Possible, undocking")
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
                 undock(egpg,ds)
-            # Falsely detection of Trickling as Charging - need to undock/dock
+            # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
-                (shortMeanVolts < 8.5) and \
-                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 420) ):
+                (shortMeanVolts < 8.75) and \
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 120) ):
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
