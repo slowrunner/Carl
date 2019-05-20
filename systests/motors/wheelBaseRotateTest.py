@@ -34,14 +34,35 @@
 from __future__ import print_function
 from __future__ import division
 
+import sys
+
+try:
+    sys.path.append('/home/pi/Carl/plib')
+    import speak
+    import tiltpan
+    import status
+    import battery
+    import myDistSensor
+    import lifeLog
+    import myconfig
+    Carl = True
+except:
+    Carl = False
+
+
 import time
 import easygopigo3
-import sys
 from math import pi
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 ds   = egpg.init_distance_sensor()
 
+if Carl:
+    lifeLog.logger.info("Started")
+    myconfig.setParameters(egpg)   # configure custom wheel dia and base
+    tiltpan.tiltpan_center()
+    time.sleep(0.5)
+    tiltpan.off()
 
 python_version = sys.version_info[0]
 print("Python Version:",python_version)
@@ -175,3 +196,5 @@ while True:
     except KeyboardInterrupt:
 	egpg.stop()
 
+
+    if Carl:  lifeLog.logger.info("Exit")

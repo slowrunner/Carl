@@ -48,7 +48,7 @@ def main():
     if Carl: lifeLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
-        myconfig.setparameters(egpg)   # configure custom wheel dia and base
+        myconfig.setParameters(egpg)   # configure custom wheel dia and base
         tiltpan.tiltpan_center()
         sleep(0.5)
         tiltpan.off()

@@ -28,9 +28,30 @@ import time
 import easygopigo3
 import sys
 from math import pi
+import sys
+
+try:
+    sys.path.append('/home/pi/Carl/plib')
+    import speak
+    import tiltpan
+    import status
+    import battery
+    import myDistSensor
+    import lifeLog
+    import myconfig
+    Carl = True
+except:
+    Carl = False
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 ds   = egpg.init_distance_sensor()
+
+if Carl:
+    lifeLog.logger.info("Started")
+    myconfig.setParameters(egpg)   # configure custom wheel dia and base
+    tiltpan.tiltpan_center()
+    time.sleep(0.5)
+    tiltpan.off()
 
 python_version = sys.version_info[0]
 print("Python Version:",python_version)
@@ -46,7 +67,7 @@ def minus_if_odd(a):
 default_dist = 21.0  # inches
 num_tries = 1
 dist = default_dist
-wd = 63.97  #  default GoPiGo3 WHEEL_DIAMETER is 66.5 (or set to  egpg.WHEEL_DIAMETER)
+wd = egpg.WHEEL_DIAMETER  #  default GoPiGo3 WHEEL_DIAMETER is 66.5 
 check_motor_status = False
 read_motor_status_delay = 0.010
 drive_speed = 120
@@ -171,5 +192,6 @@ while True:
 		time.sleep(2)
       num_tries = 1
     except KeyboardInterrupt:
-	egpg.stop()
-
+        egpg.stop()
+lifeLog.logger.info("Exit")
+time.sleep(0.5)
