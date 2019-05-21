@@ -1,7 +1,5 @@
 Chatbot
 From Wikipedia, the free encyclopedia
-Jump to navigationJump to search
-For other uses, see Chatbot (disambiguation).
 
 An virtual assistant chatbot
 A chatbot (also known as a spy, conversational bot, chatterbot, interactive agent, conversational interface, Conversational AI, talkbot or artificial spy entity) is a computer program or an artificial intelligence which conducts a conversation via auditory or textual methods.[1] Such programs are often designed to convincingly simulate how a human would behave as a conversational partner, thereby passing the Turing test. Chatbots are typically used in dialog systems for various practical purposes including customer service or information acquisition. Some chatbots use sophisticated natural language processing systems, but many simpler ones scan for keywords within the input, then pull a reply with the most matching keywords, or the most similar wording pattern, from a database.
@@ -11,24 +9,6 @@ The term "ChatterBot" was originally coined by Michael Mauldin (creator of the f
 Beyond chatbots, Conversational AI refers to the use of messaging apps, speech-based assistants and chatbots to automate communication and create personalized customer experiences at scale.[6]
 
 
-Contents
-1	Background
-2	Development
-3	Application
-3.1	Messaging apps
-3.1.1	As part of company apps and websites
-3.2	Company internal platforms
-3.3	Banking
-3.4	Toys
-3.5	Chatbots in Medicine and for Mental Health
-4	Chatbot development platforms
-5	Malicious use
-6	Examples of malicious uses for Chatbots
-7	Limitations of Chatbots
-8	Chatbots killing jobs
-9	See also
-10	Citations
-11	References
 Background
 In 1950, Alan Turing's famous article "Computing Machinery and Intelligence" was published,[7] which proposed what is now called the Turing test as a criterion of intelligence. This criterion depends on the ability of a computer program to impersonate a human in a real-time written conversation with a human judge, sufficiently well that the judge is unable to distinguish reliably—on the basis of the conversational content alone—between the program and a real human. The notoriety of Turing's proposed test stimulated great interest in Joseph Weizenbaum's program ELIZA, published in 1966, which seemed to be able to fool users into believing that they were conversing with a real human. However Weizenbaum himself did not claim that ELIZA was genuinely intelligent, and the introduction to his paper presented it more as a debunking exercise:
 
@@ -48,7 +28,6 @@ Jabberwacky learns new responses and context based on real-time user interaction
 Chatbot competitions focus on the Turing test or more specific goals. Two such annual contests are the Loebner Prize and The Chatterbox Challenge (the latter has been offline since 2015, however materials can still be found from web archives).[15]
 
 Application
-See also: Virtual assistant
 
 Aeromexico airline chatbot running on Facebook Messenger, March 2018
 Messaging apps
@@ -136,85 +115,3 @@ Chatbots are predicted to be progressively present in businesses and will automa
 
 A study by Forrester (June 2017) predicts that 25% of today's jobs will most likely be impacted by AI technologies by 2019.[64]
 
-See also
-Applications of artificial intelligence
-Eugene Goostman
-Interactive online characters
-Social bot
-Twitterbot
-List of chatterbots
-Citations
- "What is a chatbot?". techtarget.com. Retrieved 30 January 2017.
- Mauldin 1994
- Orf, Darren. "Google Assistant Is a Mega AI Bot That Wants To Be Absoutely Everywhere".
- "The 8 best chatbots of 2016". 21 December 2016.
- "2017 Messenger Bot Landscape, a Public Spreadsheet Gathering 1000+ Messenger Bots". 3 May 2017.
- https://georgianpartners.com/investment-thesis-areas/overview-conversational-ai/
- (Turing 1950)
- (Weizenbaum 1966, p. 36)
- (Weizenbaum 1966, pp. 44–5)
- GüzeldereFranchi 1995
- Computer History Museum 2006
- Sondheim 1997
- Network Working Group 1973—Transcript of a session between Parry and Eliza. (This is not the dialogue from the ICCC, which took place October 24–26, 1972, whereas this session is from September 18, 1972.)
- www.everything.com 13 November 1999
- (in German) Chatroboter simulieren Menschen
- Beaver, Laurie (July 2016). The Chatbots Explainer. BI Intelligence.
- "Facebook Messenger Hits 100,000 bots". 2017-04-18. Retrieved 2017-09-22.
- "KLM claims airline first with WhatsApp Business Platform".
- Staff, Forbes (26 October 2017). "Aeroméxico te atenderá por WhatsApp durante 2018". Retrieved 2 July 2018.
- Redacción (27 October 2017). "Podrás hacer 'check in' y consultar tu vuelo con Aeroméxico a través de WhatsApp". Huffington Post. Retrieved 2 July 2018 – via Huff Post.
- "Building for People, and Now Businesses". WhatsApp.com. Retrieved 2 July 2018.
- "She is the company's most effective employee". Nordea News.
- "Better believe the bot boom is blowing up big for B2B, B2C businesses". VentureBeat. 2016-07-24.
- "Chatbots Take Education To the Next Level – Chatbot News Daily". Chatbot News Daily. 2016-09-29. Retrieved 2017-06-23.
- "The AI Revolution is Underway! – PM360". www.pm360online.com. Retrieved 2 July 2018.
- "80% of businesses want chatbots by 2020". Retrieved 2 July 2018.
- "A Virtual Travel Agent With All the Answers". The New York Times. 4 March 2008.
- "Chatbot vendor directory released –". www.hypergridbusiness.com.
- "Rare Carat's Watson-powered chatbot will help you put a diamond ring on it". TechCrunch. February 15, 2017.
- "10 ways you may have already used IBM Watson". VentureBeat. March 10, 2017.
- Greenfield, Rebecca. "Chatbots Are Your Newest, Dumbest Co-Workers". Bloomberg.
- "Facebook opens its Messenger platform to chatbots". 12 April 2016.
- "Chatbot Reference Architecture". 1 January 2019.
- "HOW CHATBOTS ARE TRANSFORMING WALL STREET AND MAIN STREET BANKS?". 1 April 2019.
- "Facebook launches Messenger platrofm with chatbots". 1 April 2019.
- "Российский банк запустил чат-бота в Facebook". 1 April 2019.
- "Absa launches 'world-first' Facebook Messenger banking". 1 April 2019.
- "The Biggest French Banks by Total Assets". Banks around the World. Retrieved April 1, 2019.
- "GAGNER DU TEMPS AVEC LE CHATBOT BANCAIRE POUR GAGNER EN INTELLIGENCE AVEC LES CONSEILLERS". Marketing Client. Retrieved April 1, 2019.
- "Meet 11 of the Most Interesting Chatbots in Banking". The Financial Brain. Retrieved April 1, 2019.
- "CHATBOTS: BOON OR BANE?". bluelupin. Retrieved April 1, 2019.
- Amy (2015-02-23). "Conversational Toys – The Latest Trend in Speech Technology". Virtual Agent Chat. Retrieved 2016-08-11.
- NAGY, EVIE. "USING TOYTALK TECHNOLOGY, NEW HELLO BARBIE WILL HAVE REAL CONVERSATIONS WITH KIDS". Fast Company. Retrieved 18 March 2015.
- Oren Jacob, the co-founder and CEO of ToyTalk interviewed on the TV show Triangulation on the TWiT.tv network
- "Artificial intelligence script tool".
- Takahashi, Dean. "Elemental's smart connected toy taps IBM's Watson supercomputer for its brains". Venture Beat. Retrieved 15 May 2015.
- "Top 60 chatbots".
- "JMIR e-collection "Chatbots and Conversational Agents in Health and Medicine"". Journal of Medical Internet Research. JMIR Publications.
- Fulmer, R; Joerin, A; Gentile, B; Lakerink, L; Rauws, M (13 December 2018). "Using Psychological Artificial Intelligence (Tess) to Relieve Symptoms of Depression and Anxiety: Randomized Controlled Trial". JMIR Mental Health. 5 (4): e64. doi:10.2196/mental.9782. PMC 6315222. PMID 30545815.
- Fitzpatrick, KK; Darcy, A; Vierhile, M (6 June 2017). "Delivering Cognitive Behavior Therapy to Young Adults With Symptoms of Depression and Anxiety Using a Fully Automated Conversational Agent (Woebot): A Randomized Controlled Trial". JMIR Mental Health. 4 (2): e19. doi:10.2196/mental.7785. PMC 5478797. PMID 28588005.
- Yuan, Michael (2018-02-19). Chatbots: Building Intelligent, Cross-Platform, Messaging Bots. Pearson Education. ISBN 9780134650616.
- "Oracle launches a chatbot development platform | VentureBeat". venturebeat.com. Retrieved 2017-11-15.
- "Oracle Introduces AI-Powered Intelligent Bots to Help Enterprises Engage Customers and Employees". www.oracle.com. Retrieved 2017-11-15.
- "Mobile Service | Oracle Cloud". cloud.oracle.com. Retrieved 2017-11-15.
- "From Russia With Love" (PDF). Retrieved 2007-12-09. Psychologist and Scientific American: Mind contributing editor Robert Epstein reports how he was initially fooled by a chatterbot posing as an attractive girl in a personal ad he answered on a dating website. In the ad, the girl portrayed herself as being in Southern California and then soon revealed, in poor English, that she was actually in Russia. He became suspicious after a couple of months of email exchanges, sent her an email test of gibberish, and she still replied in general terms. The dating website is not named. Scientific American: Mind, October–November 2007, page 16–17, "From Russia With Love: How I got fooled (and somewhat humiliated) by a computer". Also available online.
- Bird, Jordan J.; Ekart, Aniko; Faria, Diego R. (June 2018). Advances in Computational Intelligence Systems (1st ed.). Nottingham, UK: Springer. pp. 179–190. ISBN 978-3-319-97982-3. Retrieved 3 December 2018.
- "An Afghan kid saved thanks to a message he sent". Retrieved 2016-04-08.
- "Fake News". Retrieved 2018-11-20.
- "Malicious uses". Retrieved 2016-05-11.
- "Meet 11 of the Most Interesting Chatbots in Banking". Retrieved 2019-04-01.
- "Why chatbots fail (and why natural languages are hard)". Retrieved 2019-04-01.
- "Artificial Intelligence Will Kill These Jobs (And #5 Has Nobody Else To Blame)". Retrieved 2019-04-01.
- "How talking machines are taking call centre jobs". Retrieved 2019-04-01.
- "How chatbots are killing jobs (and creating new ones)". June 2017. Retrieved 2019-04-01.
-References
-Computer History Museum (2006), "Internet History—1970's", Exhibits, Computer History Museum, archived from the original on 2008-02-21, retrieved 2008-03-05
-Güzeldere, Güven; Franchi, Stefano (1995-07-24), "Constructions of the Mind", Stanford Humanities Review, SEHR, Stanford University, 4 (2), retrieved 2008-03-05
-Mauldin, Michael (1994), "ChatterBots, TinyMuds, and the Turing Test: Entering the Loebner Prize Competition", Proceedings of the Eleventh National Conference on Artificial Intelligence, AAAI Press, retrieved 2008-03-05 (abstract)
-Network Working Group (1973), "RFC 439, PARRY Encounters the DOCTOR", Internet Engineering Task Force, Internet Society, retrieved 2008-03-05
-Sondheim, Alan J (1997), <nettime> Important Documents from the Early Internet (1972), nettime.org, archived from the original on 2008-06-13, retrieved 2008-03-05
-Searle, John (1980), "Minds, Brains and Programs", Behavioral and Brain Sciences, 3 (3): 417–457, doi:10.1017/S0140525X00005756
-Shevat, Amir (2017). Designing bots: Creating conversational experiences (First ed.). Sebastopol, CA: O'Reilly Media. ISBN 9781491974827. OCLC 962125282.
-Turing, Alan (1950), "Computing Machinery and Intelligence", Mind, 59 (236): 433–60, doi:10.1093/mind/lix.236.433
-Weizenbaum, Joseph (January 1966), "ELIZA—A Computer Program For the Study of Natural Language Communication Between Man And Machine", Communications of the ACM, 9 (1): 36–45, doi:10.1145/365153.365168
