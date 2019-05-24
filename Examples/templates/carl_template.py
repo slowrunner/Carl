@@ -20,17 +20,19 @@ try:
     import myDistSensor
     import lifeLog
     import myconfig
+    import myimutils   # display(windowname, image, scale_percent=30)
     Carl = True
 except:
     Carl = False
-import easygopigo3 # import the GoPiGo3 class
+import easygopigo3 # import the EasyGoPiGo3 class
 import numpy as np
 import datetime as dt
 import argparse
 from time import sleep
-# import cv2
 
-# construct the argument parser and parse the arguments
+import cv2
+
+# ARGUMENT PARSER
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
@@ -38,17 +40,23 @@ from time import sleep
 # print("Started with args:",args)
 
 
-# constants
+# CONSTANTS
 
 
-# varibles
+# VARIABLES
 
+
+# METHODS 
+
+
+
+# MAIN
 
 def main():
     if Carl: lifeLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
-        myconfig.setParameters(egpg)   # configure custom wheel dia and base
+        myconfig.setParameters(egpg)
         tiltpan.tiltpan_center()
         sleep(0.5)
         tiltpan.off()
