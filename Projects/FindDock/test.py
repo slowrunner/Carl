@@ -16,14 +16,18 @@ ap.add_argument("-i", "--image", required = True, help = "Path to the image")
 args = vars(ap.parse_args())
 
 image = cv2.imread(args["image"])
+original = image
 image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # convert to grayscale
+grayed = image
 image = cv2.GaussianBlur(image, (5, 5), 0)       # blur to reduce noisy pixels
+blurred = image
 canny = cv2.Canny(image, 30, 150)                # edge detection using Canny method
 
 # cv2.imshow("Original", image)
-
-display("Blurred", image)
-display("Canny", image)
+display("Original",original)
+display("Blurred", blurred)
+display("Canny", canny)
+cv2.waitKey(0)
 
 sobelX = cv2.Sobel(image, cv2.CV_64F, 1, 0)
 sobelY = cv2.Sobel(image, cv2.CV_64F, 0, 1)

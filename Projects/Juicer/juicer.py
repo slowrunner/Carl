@@ -608,8 +608,8 @@ def main():
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
-                (shortMeanVolts < 8.75) and \
-                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 120) ):
+                (shortMeanVolts < 8.5) and \
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 180) ):
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
