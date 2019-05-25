@@ -69,7 +69,7 @@ lastChangeRule = "0" # startup
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
 dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm dismount)
-dockingApproachDistanceInMM = 266  # 248 to sign, 266 to wall 
+dockingApproachDistanceInMM = 263  # 263 to sign, 266 to wall 
 maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
 dockingCount = 0
@@ -600,7 +600,7 @@ def main():
             if ((dockingState == DOCKED) and \
                 ((chargingState == UNKNOWN) or \
                  (chargingState == NOTCHARGING)) and \
-                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 180) ):
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
                 print("\n**** Docking Failure Possible, undocking")
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
@@ -609,7 +609,7 @@ def main():
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
                 (shortMeanVolts < 8.5) and \
-                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 180) ):
+                ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
