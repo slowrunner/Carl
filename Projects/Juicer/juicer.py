@@ -193,6 +193,7 @@ def chargingStatus(dtNow=None):
                    (slope < 0) ):
                        chargingValue = TRICKLING
                        lastChangeRule = "230b"
+                       lifeLog.logger.info("EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \
