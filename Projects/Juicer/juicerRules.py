@@ -189,6 +189,13 @@ def chargingStatus(dtNow=None):
                    (slope < 0) ):
                        chargingValue = TRICKLING
                        lastChangeRule = "230a"
+               elif ((shortMeanVolts < 11) and \
+                   ((shortPeakVolts - shortMeanVolts) > 0.5) and \
+                   ((shortMeanVolts - shortMinVolts) < 0.15) and \
+                   (lastChangeInSeconds > 600) and \
+                   (slope < 0) ):
+                       chargingValue = TRICKLING
+                       lastChangeRule = "230b"
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \
