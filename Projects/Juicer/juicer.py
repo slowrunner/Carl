@@ -191,9 +191,13 @@ def chargingStatus(dtNow=None):
                    ((shortMeanVolts - shortMinVolts) < 0.15) and \
                    (lastChangeInSeconds > 600) and \
                    (slope < 0) ):
+                       # chargingValue = TRICKLING
+                       # lastChangeRule = "230b"
+                       lifeLog.logger.info("--- Possible EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
+               elif  (lastChangeInSeconds >  12600):
                        chargingValue = TRICKLING
-                       lastChangeRule = "230b"
-                       lifeLog.logger.info("EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
+                       lastChangeRule = "230c"
+                       lifeLog.logger.info("--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts))
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \

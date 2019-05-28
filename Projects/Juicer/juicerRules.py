@@ -194,8 +194,13 @@ def chargingStatus(dtNow=None):
                    ((shortMeanVolts - shortMinVolts) < 0.15) and \
                    (lastChangeInSeconds > 600) and \
                    (slope < 0) ):
+                       # chargingValue = TRICKLING
+                       #lastChangeRule = "230b"
+                       print("--- Possible EARLY TRICKLE? ---")
+               elif  (lastChangeInSeconds >  12600):
                        chargingValue = TRICKLING
-                       lastChangeRule = "230b"
+                       lastChangeRule = "230c"
+                       print("--- Probable TRICKLE not detected {:.1f}v".format(shor$
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \
