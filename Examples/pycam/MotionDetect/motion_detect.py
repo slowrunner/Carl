@@ -30,7 +30,7 @@ import random
 MOTION_MAGNITUDE = 60   # the magnitude of vectors required for motion
 MOTION_VECTORS = 10     # the number of vectors required to detect motion
 HELLO_COUNT = 300       # if number of vectors over this, probably a big person movement
-GREETINGS = ["hi", "hey", "hello", "greetings", "whats up?", "hi there", "howdy", "yo.", "finally", "wherve you been all my life?", "about time isn't it?", "back already?", "Im glad you're home now","I was starting to get lonely here all by myself"]
+GREETINGS = ["hi", "hey", "hello", "greetings", "whats up?", "hi there", "howdy", "yo.", "I am glad you're home now","Did you bring me anything?"]
 availableGreetings = GREETINGS.copy()
 okToSayHi = False
 
