@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# arithmetic.py
+# masking.py
 
 """
 Documentation:
@@ -58,26 +58,20 @@ def main():
         image = cv2.imread(args["image"])
         cv2.imshow("Original", image)
 
-        print("max of 255: {}".format(cv2.add(np.uint8([200]), np.uint8([100]))))
-        print("min of 0: {}".format(cv2.subtract(np.uint8([50]), np.uint8([100]))))
+        mask = np.zeros(image.shape[:2], dtype = "uint8")
+        (cX, cY) = (image.shape[1] // 2, image.shape[0] // 2)
+        cv2.rectangle(mask, (cX - 75, cY - 75), (cX + 75, cY + 75), 255, -1)
+        cv2.imshow("Mask", mask)
 
-        print("wrap around: {}".format(np.uint8([200]) + np.uint8([100])))
-        print("wrap around: {}".format(np.uint8([50]) - np.uint8([100])))
+        masked = cv2.bitwise_and(image, image, mask = mask)
+        cv2.imshow("Mask Applied to Image", masked)
 
-        M = np.ones(image.shape, dtype = "uint8") * 100
-        added = cv2.add(image, M)
-        cv2.imshow("Added", added)
+        mask = np.zeros(image.shape[:2], dtype = "uint8")
+        cv2.circle(mask, (cX, cY), 100, 255, -1)
+        cv2.imshow("Circle Mask", mask)
 
-        M = np.ones(image.shape, dtype = "uint8") * 50
-        subtracted = cv2.subtract(image, M)
-        cv2.imshow("Subtracted", subtracted)
-
-
-
-
-
-
-
+        masked = cv2.bitwise_and(image, image, mask = mask)
+        cv2.imshow("Circle Mask Applied to Image", masked)
 
         cv2.waitKey(0)
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# arithmetic.py
+# bitwise.py
 
 """
 Documentation:
@@ -33,10 +33,10 @@ import imutils
 import cv2
 
 # construct the argument parser and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to image file")
+#ap = argparse.ArgumentParser()
+#ap.add_argument("-i", "--image", required=True, help="path to image file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
-args = vars(ap.parse_args())
+#args = vars(ap.parse_args())
 # print("Started with args:",args)
 
 
@@ -55,26 +55,29 @@ def main():
         tiltpan.off()
 
     try:
-        image = cv2.imread(args["image"])
-        cv2.imshow("Original", image)
+        #image = cv2.imread(args["image"])
+        #cv2.imshow("Original", image)
 
-        print("max of 255: {}".format(cv2.add(np.uint8([200]), np.uint8([100]))))
-        print("min of 0: {}".format(cv2.subtract(np.uint8([50]), np.uint8([100]))))
+        rectangle = np.zeros((300, 300), dtype = "uint8")
+        cv2.rectangle( rectangle, (25,25), (275,275), 255, -1)
+        cv2.imshow("Rectangle", rectangle)
 
-        print("wrap around: {}".format(np.uint8([200]) + np.uint8([100])))
-        print("wrap around: {}".format(np.uint8([50]) - np.uint8([100])))
+        circle = np.zeros((300,300), dtype = "uint8")
+        cv2.circle(circle, (150,150), 150, 255, -1)
+        cv2.imshow("Circle", circle)
 
-        M = np.ones(image.shape, dtype = "uint8") * 100
-        added = cv2.add(image, M)
-        cv2.imshow("Added", added)
-
-        M = np.ones(image.shape, dtype = "uint8") * 50
-        subtracted = cv2.subtract(image, M)
-        cv2.imshow("Subtracted", subtracted)
+        bitwiseAnd = cv2.bitwise_and(rectangle, circle)
+        cv2.imshow("AND", bitwiseAnd)
 
 
+        bitwiseOr = cv2.bitwise_or(rectangle,circle)
+        cv2.imshow("OR", bitwiseOr)
 
+        bitwiseXor = cv2.bitwise_xor(rectangle, circle)
+        cv2.imshow("XOR", bitwiseXor)
 
+        bitwiseNot = cv2.bitwise_not(circle)
+        cv2.imshow("NOT", bitwiseNot)
 
 
 
