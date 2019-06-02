@@ -9,7 +9,7 @@ import pickle
 
 
 try:
-    chargeCycles = pickle.load(open('chargeCycles.pkl', 'rb'))
+    chargeCycles = pickle.load(open('chargeCycles.pkl','rb'))
 
 except:
     chargeCycles = 0
@@ -18,7 +18,10 @@ except:
 print("chargeCycles:",chargeCycles)
 
 chargeCycles += 1
-pickle.dump(chargeCycles, open('chargeCycles.pkl', 'wb'))
+# strChargeCycles = str(chargeCycles)
+
+
+pickle.dump( chargeCycles, open( 'chargeCycles.pkl', 'wb'))
 
 print("pickled chargeCycles:",chargeCycles)
 
