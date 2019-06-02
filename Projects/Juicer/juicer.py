@@ -32,6 +32,7 @@ import speak
 import myDistSensor
 import lifeLog
 import myconfig
+import carlDataJson as cd
 
 # constants
 UNKNOWN = 0
@@ -72,7 +73,18 @@ dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm d
 dockingApproachDistanceInMM = 263  # 263 to sign, 266 to wall 
 maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
-dockingCount = 0
+try:
+    chargeCycles = int(cd.getCarlData('chargeCycles'))
+    dockingCount = chargeCycles
+except:
+    dockingCount = 0
+    chargeCycles = 0
+
+try:
+    chargeConditioning = int(cd.getCarlData('chargeConditioning'))
+except:
+    chargeConditioning = 0
+
 dockingFinalBackInSeconds = 0.125
 
 def resetChargingStateToUnknown():
@@ -146,6 +158,7 @@ def chargingStatus(dtNow=None):
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
+    global chargeCycles
 
 #    shortList = readingList[-shortMeanCount:]
     # print("debug: shortlist =",shortList)
@@ -288,7 +301,9 @@ def chargingStatus(dtNow=None):
         print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
         print("*** by Rule: ",lastChangeRule)
         speak.whisper("New Charging State"+printableCS[chargingState])
-
+        if chargingState == CHARGING:
+            chargeCycles += 1
+            cd.saveCarlData('chargeCycles',chargeCycles)
     return chargingValue
 
 def printValues():
@@ -323,6 +338,7 @@ def printValues():
     lastDockingChangeMinutes = divmod(lastDockingChangeHours[1], 60)
     lastDockingChangeSeconds = divmod(lastDockingChangeMinutes[1], 1)
     print ("Last Docking Change: %dh %dm %ds" % (lastDockingChangeHours[0],lastDockingChangeMinutes[0],lastDockingChangeSeconds[0]) )
+    print ("chargeConditioning:",chargeConditioning)
 
 def safetyCheck(egpg,low_battery_v = 7.6):
         global lowBatteryCount, shortMinVolts, shortMeanVolts
@@ -540,7 +556,7 @@ def dockingTest(egpg,ds,numTests = 30):
 
 
 def main():
-    global dockingState,chargingState,dtLastDockingStateChange
+    global dockingState,chargingState,dtLastDockingStateChange,chargeConditioning
 
     lifeLog.logger.info("---- juicer.py started")
 
@@ -600,7 +616,9 @@ def main():
             # End of play time
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
-                (shortMeanVolts < 8.5) ):
+                ( ((chargeConditioning ==0) and (shortMeanVolts < 8.5)) or \
+                  ((chargeConditioning > 0) and (shortMeanVolts < 7.9)) ) \
+               ) :
                 print("\n**** Time to get on the pot")
                 action = "**** Turning around to be at approach point"
                 print(action)
@@ -608,6 +626,13 @@ def main():
                 egpg.orbit(180)
                 sleep(5)
                 dock(egpg,ds)
+                if (chargeConditioning > 0) and (chargeConditioning < 4):
+                    chargeConditioning += 1
+                    cd.setCarlData('chargeConditioning',chargeConditioning)
+                elif (chargeConditioning >= 4):
+                    chargeConditioning = 0
+                    cd.setCarlData('chargeConditioning',chargeConditioning)
+
             # Detect docking that didn't align contacts well - need to undock/dock
             if ((dockingState == DOCKED) and \
                 ((chargingState == UNKNOWN) or \

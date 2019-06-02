@@ -8,16 +8,19 @@
 #    saveCarlData(dataname, datavalue)   # adds datanaem:datavalue to carlData.json file
 #    getCarlData(dataname = None)    # either returns dictionary with all values, or just value of passed name
 #
+import sys
+sys.path.append('/home/pi/Carl/plib')
 
 import json
 import threading
+import lifeLog
 
 carlDataLock = threading.Lock()       # with carlDataLock: any operation to make syncronous
 
 def saveCarlData(dataname, datavalue):
 
 
-    print("-- saveCarlData({},{}) called".format(dataname, datavalue))
+    # print("-- saveCarlData({},{}) called".format(dataname, datavalue))
     with carlDataLock:         # prevents two different saveCarlData() at same time
         lcarlData = {}
 
@@ -26,21 +29,22 @@ def saveCarlData(dataname, datavalue):
             lcarlData = getCarlData()   # lock assures no one changes this till we are done
             if lcarlData == None:
                 lcarlData = {}
-            print("   carlData:", lcarlData)
+            # print("   carlData:", lcarlData)
             lcarlData[dataname] = datavalue
-            print("   lcarlData:",lcarlData)
+            # print("   lcarlData:",lcarlData)
 
             with open('/home/pi/Carl/carlData.json', 'w') as outfile:
                 json.dump( lcarlData, outfile )
-            print("   carlData.json updated")
+            # print("   carlData.json updated")
+            lifeLog.logger.info("** carlData '{}':{} updated **".format(dataname, datavalue))
         except:
-            print("   saveCarlData failed")
+            # print("   saveCarlData failed")
             return False
 
         return True
 
 def delCarlData(dataname):
-    print("-- delCarlData({}) called".format(dataname))
+    # print("-- delCarlData({}) called".format(dataname))
 
     with carlDataLock:
         lcarlData = {}
@@ -49,17 +53,17 @@ def delCarlData(dataname):
             lcarlData = getCarlData()
             if lcarlData == None:
                lcarlData = ()
-            print("   carlData:", lcarlData)
+            # print("   carlData:", lcarlData)
             if dataname in lcarlData: 
                 del lcarlData[dataname]
-                print("   lcarlData:", lcarlData)
+                # print("   lcarlData:", lcarlData)
 
                 with open('/home/pi/Carl/carlData.json', 'w') as outfile:
                     json.dump( lcarlData, outfile )
-                print("   carlData.json updated")
-            else:  print("   {} not found in carlData".format(dataname))
+                # print("   carlData.json updated")
+            # else:   print("   {} not found in carlData".format(dataname))
         except:
-            print("   delCarlData{} failed".dataname)
+            # print("   delCarlData{} failed".dataname)
             return False
 
         return True
@@ -68,7 +72,7 @@ def delCarlData(dataname):
 def getCarlData(dataname=None):
 
 
-    print("-- getCarlData({}) called".format(dataname))
+    # print("-- getCarlData({}) called".format(dataname))
 
     try:
         with open('/home/pi/Carl/carlData.json', 'r') as infile:
@@ -78,7 +82,7 @@ def getCarlData(dataname=None):
             else:
                 return lcarlData[dataname]
     except:
-        print("   getCarlData() except")
+        # print("   getCarlData() except")
         return None
 
 def main():
