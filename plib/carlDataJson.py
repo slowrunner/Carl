@@ -5,8 +5,9 @@
 # Serialize data values to /home/pi/Carl/carlData.json
 #
 # Methods:
-#    saveCarlData(dataname, datavalue)   # adds datanaem:datavalue to carlData.json file
-#    getCarlData(dataname = None)    # either returns dictionary with all values, or just value of passed name
+#    saveCarlData(dataname, datavalue, logit=False)   # adds datanaem:datavalue to carlData.json file
+#    getCarlData(dataname=None)      # either returns dictionary with all values, or just value of passed name
+#    delCarlData(dataname)           # delete item from carlData.json
 #
 import sys
 sys.path.append('/home/pi/Carl/plib')
@@ -17,7 +18,7 @@ import lifeLog
 
 carlDataLock = threading.Lock()       # with carlDataLock: any operation to make syncronous
 
-def saveCarlData(dataname, datavalue):
+def saveCarlData(dataname, datavalue, logit=False):
 
 
     # print("-- saveCarlData({},{}) called".format(dataname, datavalue))
@@ -36,7 +37,7 @@ def saveCarlData(dataname, datavalue):
             with open('/home/pi/Carl/carlData.json', 'w') as outfile:
                 json.dump( lcarlData, outfile )
             # print("   carlData.json updated")
-            lifeLog.logger.info("** carlData '{}' = {} updated **".format(dataname, datavalue))
+            if logit: lifeLog.logger.info("** carlData '{}' = {} updated **".format(dataname, datavalue))
         except:
             # print("   saveCarlData failed")
             return False

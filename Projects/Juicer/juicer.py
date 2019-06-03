@@ -627,9 +627,11 @@ def main():
                 sleep(5)
                 dock(egpg,ds)
                 if (chargeConditioning > 0) and (chargeConditioning < 4):
+                    lifeLog.logger.info("-- Charge Conditioning {} completed".format(chargeConditioning))
                     chargeConditioning += 1
                     cd.saveCarlData('chargeConditioning',chargeConditioning)
                 elif (chargeConditioning >= 4):
+                    lifeLog.logger.info("-- Charge Conditioning {} completed".format(chargeConditioning))
                     chargeConditioning = 0
                     cd.setCarlData('chargeConditioning',chargeConditioning)
 
