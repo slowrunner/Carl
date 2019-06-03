@@ -7,6 +7,7 @@ Documentation:
 
   pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/
   Modified ball_tracking.py to only use picamera, and default points = 4
+  Added circular morph structuring element kernel to the dilate and erode steps (from skin detection post)
 
   1) print TennisBall.jpg
   2) snapJPG.py of the print with flashlight illumination
@@ -146,10 +147,17 @@ def main():
             mask = cv2.inRange(hsv, greenLower, greenUpper)
             #cv2.imshow("mask",mask)
             #cv2.waitKey(0)
-            mask = cv2.erode(mask, None, iterations=2)
+
+            # from skin-detection blog post use a circle element
+            kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11,11))
+
+            #mask = cv2.erode(mask, None, iterations=2)
+            mask = cv2.erode(mask, kernel, iterations=2)
             #cv2.imshow("mask",mask)
             #cv2.waitKey(0)
-            mask = cv2.dilate(mask, None, iterations=2)
+
+            #mask = cv2.dilate(mask, None, iterations=2)
+            mask = cv2.dilate(mask, kernel, iterations=2)
             cv2.imshow("mask",mask)
             # cv2.waitKey(0)
 
