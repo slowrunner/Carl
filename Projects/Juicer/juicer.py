@@ -628,7 +628,7 @@ def main():
                 dock(egpg,ds)
                 if (chargeConditioning > 0) and (chargeConditioning < 4):
                     chargeConditioning += 1
-                    cd.setCarlData('chargeConditioning',chargeConditioning)
+                    cd.saveCarlData('chargeConditioning',chargeConditioning)
                 elif (chargeConditioning >= 4):
                     chargeConditioning = 0
                     cd.setCarlData('chargeConditioning',chargeConditioning)
@@ -645,7 +645,8 @@ def main():
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
-                (shortMeanVolts < 8.5) and \
+                ( ((chargeConditioning > 0) and (shortMeanVolts < 7.9)) or \
+                  ((chargeConditioning == 0) and (shortMeanVolts < 8.5)) ) and \
                 ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
