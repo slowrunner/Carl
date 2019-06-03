@@ -36,7 +36,7 @@ def saveCarlData(dataname, datavalue):
             with open('/home/pi/Carl/carlData.json', 'w') as outfile:
                 json.dump( lcarlData, outfile )
             # print("   carlData.json updated")
-            lifeLog.logger.info("** carlData '{}':{} updated **".format(dataname, datavalue))
+            lifeLog.logger.info("** carlData '{}' = {} updated **".format(dataname, datavalue))
         except:
             # print("   saveCarlData failed")
             return False
