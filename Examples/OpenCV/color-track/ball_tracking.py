@@ -6,7 +6,15 @@
 Documentation:
 
   pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/
+  Modified ball_tracking.py to only use picamera, and default points = 4
 
+  1) print TennisBall.jpg
+  2) snapJPG.py of the print with flashlight illumination
+  3) range-detect.py -i tennis_ball2.jpg -f HSV to find good greenLower and greenUpper values
+  4) run ball_tracking.py, hold print close enough to be the largest unmasked contour (blob)
+
+  Note: This program on Raspberry Pi 3B will capture, process, and display at 1 fps
+        or 0.940ms without waitKey() in loop - load average 0.3
 """
 
 # from __future__ import print_function # use python 3 syntax but make it compatible with python 2
@@ -50,10 +58,15 @@ args = vars(ap.parse_args())
 # CONSTANTS
 
 # define the lower and upper boundaries of the "green" ball
-# in the HSV color space
-# tennis ball
-greenLower = (29, 86, 6)
-greenUpper = (64, 255, 255)
+# in the HSV color space 
+
+# Adrian's tennis ball
+# greenLower = (29, 86, 6)
+# greenUpper = (64, 255, 255)
+
+# range-detector.py -i tennis_ball.jpg -f HSV
+greenLower = (22, 75, 50)
+greenUpper = (78, 255, 255)
 
 
 # VARIABLES
@@ -104,6 +117,7 @@ def main():
                 camera.capture(stream, format='jpeg')
 
             frame_time = dt.datetime.now().strftime("%H:%M:%S.%f")[:12]
+
 
             # convert pic into numpy array
             buff = np.fromstring(stream.getvalue(), dtype=np.uint8)
@@ -174,6 +188,7 @@ def main():
 
             # show the frame with markup
             cv2.imshow("Frame",frame)
+            # print("frame taken: ",frame_time)
             key = cv2.waitKey(1) & 0xFF
 
             # if 'q' key is pressed, stop the loop
@@ -184,6 +199,7 @@ def main():
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
             print("\n*** Ctrl-C detected - Finishing up")
+            cv2.destroyAllWindows()
             time.sleep(1)
     if (egpg != None): egpg.stop()
     if Carl: lifeLog.logger.info("Finished")
