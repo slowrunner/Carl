@@ -633,7 +633,7 @@ def main():
                 elif (chargeConditioning >= 4):
                     lifeLog.logger.info("-- Charge Conditioning {} completed".format(chargeConditioning))
                     chargeConditioning = 0
-                    cd.setCarlData('chargeConditioning',chargeConditioning)
+                    cd.saveCarlData('chargeConditioning',chargeConditioning)
 
             # Detect docking that didn't align contacts well - need to undock/dock
             if ((dockingState == DOCKED) and \
