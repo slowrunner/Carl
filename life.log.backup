@@ -440,10 +440,10 @@
 2019-05-06 18:51|lifelog.dEmain execution: 131.5
 2019-05-06 19:03|------------ boot ------------
 2019-05-06 19:04|[juicer.py.main]---- juicer.py started
-2019-05-06 21:03|lifelog.dEmain execution: 2.6
 2019-05-06 21:38|[juicer.py.undock]---- Dismount 1 at 11.2 v after 2.6 h
 2019-05-06 21:51|[status.py.main]Starting status.py at 10.30v
 2019-05-06 21:51|[status.py.main]Exiting  status.py at 10.34v
+2019-05-06 21:51|lifelog.dEmain execution: 2.8
 2019-05-07 06:48|------------ boot ------------
 2019-05-07 08:19|------------ boot ------------
 2019-05-07 15:49|------------ boot ------------
@@ -745,4 +745,112 @@
 2019-05-25 01:35|[juicer.py.undock]---- Dismount 5 at 9.7 v after 0.1 h
 2019-05-25 01:39|[juicer.py.dock]---- Docking 5 completed  at 8.5 v after 0.1 h
 2019-05-25 04:46|[juicer.py.undock]---- Dismount 6 at 11.2 v after 3.1 h
-2019-05-25 06:08|lifelog.dEmain execution: 22
+2019-05-25 07:41|[face_in_image.py.main]Started
+2019-05-25 09:22|[face_in_image.py.main]Finished
+2019-05-25 10:49|[juicer.py.dock]---- Docking 6 completed  at 8.5 v after 6.1 h
+2019-05-25 11:52|[face_in_pycam_stream.py.main]Started
+2019-05-25 12:48|[face_in_pycam_stream.py.main]Finished
+2019-05-25 13:31|[juicer.py.main]---- juicer.py started
+2019-05-25 13:33|[juicer.py.undock]---- Dismount 1 at 9.7 v after 0.0 h
+2019-05-25 16:40|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 3.1 h
+2019-05-25 19:21|[face_in_pycam_stream.py.main]Started
+2019-05-25 19:23|[face_in_pycam_stream.py.main]Finished
+2019-05-25 19:24|[juicer.py.undock]---- Dismount 2 at 11.0 v after 2.7 h
+2019-05-25 19:27|[face_in_pycam_stream.py.main]Started
+2019-05-25 23:27|[face_in_pycam_stream.py.main]Finished
+2019-05-26 00:14|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 4.8 h
+2019-05-26 03:10|[juicer.py.undock]---- Dismount 3 at 11.2 v after 2.9 h
+2019-05-26 09:04|[juicer.py.dock]---- Docking 3 completed  at 8.5 v after 5.9 h
+2019-05-26 12:01|[juicer.py.undock]---- Dismount 4 at 11.2 v after 2.9 h
+2019-05-26 12:50|[motion_detect.py.<module>]Started
+2019-05-26 16:50|[motion_detect.py.<module>]Exit
+2019-05-26 16:59|[juicer.py.dock]---- Docking 4 completed  at 8.5 v after 5.0 h
+2019-05-26 17:11|[juicer.py.undock]---- Dismount 5 at 9.0 v after 0.2 h
+2019-05-26 17:29|[juicer.py.dock]---- Docking 5 completed  at 8.5 v after 0.3 h
+2019-05-26 17:38|[juicer.py.undock]---- Dismount 6 at 9.0 v after 0.2 h
+2019-05-26 17:48|[juicer.py.dock]---- Docking 6 completed  at 8.5 v after 0.2 h
+2019-05-26 21:05|[motion_detect.py.<module>]Started
+2019-05-26 23:04|[motion_detect.py.<module>]Exit
+2019-05-26 23:04|[logMaintenance.py.main]** Failed to detect trickle charging 2.5h ago **
+2019-05-26 23:04|[juicer.py.main]---- juicer.py started
+2019-05-26 23:05|[juicer.py.undock]---- Dismount 1 at 8.7 v after 0.0 h
+2019-05-26 23:17|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 0.2 h
+2019-05-27 02:18|[juicer.py.undock]---- Dismount 2 at 11.2 v after 3.0 h
+2019-05-27 08:10|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 5.9 h
+2019-05-27 09:10|[arithmetic.py.main]Started
+2019-05-27 09:10|[arithmetic.py.main]Started
+2019-05-27 09:11|[arithmetic.py.main]Finished
+2019-05-27 09:17|[arithmetic.py.main]Started
+2019-05-27 09:21|[arithmetic.py.main]Finished
+2019-05-27 09:33|[logBattV.py.<module>]Starting logBattV.py at 9.60
+2019-05-27 10:17|[logBattV.py.<module>]Exiting  logBattV.py at 9.35
+2019-05-27 10:25|[logMaintenance.py.main]** early trickle not detected, add rule 230b **
+2019-05-27 10:25|[juicer.py.main]---- juicer.py started
+2019-05-27 10:27|[juicer.py.undock]---- Dismount 1 at 9.5 v after 0.0 h
+2019-05-27 10:43|[juicer.py.main]---- juicer.py started
+2019-05-27 12:30|[juicer.py.undock]---- Dismount 1 at 11.3 v after 1.8 h
+2019-05-27 13:21|[motion_detect.py.<module>]Started
+2019-05-27 15:21|[motion_detect.py.<module>]Exit
+2019-05-27 17:47|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 5.3 h
+2019-05-27 20:42|[juicer.py.undock]---- Dismount 2 at 11.2 v after 2.9 h
+2019-05-28 02:27|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 5.8 h
+2019-05-28 03:14|[juicer.py.chargingStatus]EARLY TRICKLE DETECTED at 10.9v
+2019-05-28 03:15|[juicer.py.undock]---- Dismount 3 at 10.9 v after 0.8 h
+2019-05-28 05:04|[juicer.py.dock]---- Docking 3 completed  at 8.5 v after 1.8 h
+2019-05-28 07:58|[juicer.py.undock]---- Dismount 4 at 11.2 v after 2.9 h
+2019-05-28 10:01|[logMaintenance.py.main]** Added Rule 230c 3.5h charge limit **
+2019-05-28 10:07|[juicer.py.main]---- juicer.py started
+2019-05-28 13:44|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 3.5 h
+2019-05-28 16:34|[juicer.py.undock]---- Dismount 2 at 11.2 v after 2.8 h
+2019-05-28 22:15|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 5.7 h
+2019-05-29 01:09|[juicer.py.undock]---- Dismount 3 at 11.2 v after 2.9 h
+2019-05-29 06:47|[juicer.py.dock]---- Docking 3 completed  at 8.5 v after 5.6 h
+2019-05-29 09:35|[juicer.py.undock]---- Dismount 4 at 11.2 v after 2.8 h
+2019-05-29 15:09|[juicer.py.dock]---- Docking 4 completed  at 8.5 v after 5.6 h
+2019-05-29 17:54|[juicer.py.undock]---- Dismount 5 at 11.2 v after 2.8 h
+2019-05-29 23:26|[juicer.py.dock]---- Docking 5 completed  at 8.5 v after 5.5 h
+2019-05-30 02:10|[juicer.py.undock]---- Dismount 6 at 11.2 v after 2.7 h
+2019-05-30 07:40|[juicer.py.dock]---- Docking 6 completed  at 8.5 v after 5.5 h
+2019-05-30 08:34|[bitwise.py.main]Started
+2019-05-30 08:56|[masking.py.main]Finished
+2019-05-30 10:28|[juicer.py.undock]---- Dismount 7 at 11.2 v after 2.8 h
+2019-05-30 10:35|lifelog.dEmain execution: 146.5
+2019-06-01 09:09|------------ boot ------------
+2019-06-01 09:09|[logMaintenance.py.main]** Discharged All Cells In BC-3000 **
+2019-06-01 09:10|[juicer.py.main]---- juicer.py started
+2019-06-01 09:12|[juicer.py.undock]---- Dismount 1 at 10.2 v after 0.0 h
+2019-06-01 09:15|[colorspaces.py.main]Started
+2019-06-01 09:16|[colorspaces.py.main]Finished
+2019-06-01 09:16|[splitting_and_merging.py.main]Started
+2019-06-01 09:19|[splitting_and_merging.py.main]Finished
+2019-06-01 15:31|[juicer.py.dock]---- Docking 1 completed  at 8.5 v after 6.3 h
+2019-06-01 18:38|[juicer.py.undock]---- Dismount 2 at 11.2 v after 3.1 h
+2019-06-02 00:41|[juicer.py.dock]---- Docking 2 completed  at 8.5 v after 6.0 h
+2019-06-02 03:42|[juicer.py.undock]---- Dismount 3 at 11.2 v after 3.0 h
+2019-06-02 09:28|[juicer.py.dock]---- Docking 3 completed  at 8.5 v after 5.8 h
+2019-06-02 11:54|[juicer.py.main]---- juicer.py started
+2019-06-02 11:57|[carlDataJson.py.saveCarlData]** carlData 'chargeCycles'=151 updated **
+2019-06-02 12:25|[juicer.py.main]---- juicer.py started
+2019-06-02 16:07|[ball_tracking.py.main]Started
+2019-06-02 19:02|[ball_tracking.py.main]Finished
+2019-06-02 19:12|[juicer.py.dock]---- Docking 152 completed  at 7.9 v after 6.6 h
+2019-06-02 19:23|[ball_tracking.py.main]Started
+2019-06-02 19:38|[juicer.py.main]---- juicer.py started
+2019-06-02 19:40|[carlDataJson.py.saveCarlData]** carlData 'chargeCycles'=152 updated **
+2019-06-02 19:45|[juicer.py.main]---- False Docking Failure Possible.
+2019-06-02 19:46|[juicer.py.undock]---- Dismount 152 at 8.5 v after 0.1 h
+2019-06-02 19:46|lifelog.dEmain execution: 22.6
+2019-06-02 21:55|------------ boot ------------
+2019-06-02 22:02|[juicer.py.main]---- juicer.py started
+2019-06-03 04:37|[juicer.py.dock]---- Docking 153 completed  at 7.9 v after 6.5 h
+2019-06-03 04:37|[carlDataJson.py.saveCarlData]** carlData 'chargeConditioning'=3 updated **
+2019-06-03 04:37|[carlDataJson.py.saveCarlData]** carlData 'chargeCycles'=153 updated **
+2019-06-03 07:05|[juicer.py.undock]---- Dismount 154 at 10.6 v after 2.5 h
+2019-06-03 07:16|[ball_tracking.py.main]Started
+2019-06-03 09:39|[ball_tracking.py.main]Finished
+2019-06-03 12:13|[juicer.py.dock]---- Docking 154 completed  at 7.9 v after 5.1 h
+2019-06-03 12:13|[carlDataJson.py.saveCarlData]** carlData 'chargeConditioning':4 updated **
+2019-06-03 12:13|[carlDataJson.py.saveCarlData]** carlData 'chargeCycles':154 updated **
+2019-06-03 15:33|[juicer.py.undock]---- Dismount 155 at 11.3 v after 3.3 h
+2019-06-03 19:55|lifelog.dEmain execution: 22
+2019-06-03 20:55|lifelog.dEmain execution: 23
