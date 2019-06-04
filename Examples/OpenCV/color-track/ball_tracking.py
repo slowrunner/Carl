@@ -66,7 +66,9 @@ args = vars(ap.parse_args())
 # greenUpper = (64, 255, 255)
 
 # range-detector.py -i tennis_ball.jpg -f HSV
-greenLower = (22, 75, 50)
+#greenLower = (22, 75, 50)
+#greenUpper = (78, 255, 255)
+greenLower = (22, 150, 100)
 greenUpper = (78, 255, 255)
 
 
@@ -115,6 +117,10 @@ def main():
             with picamera.PiCamera() as camera:
                 # camera.resolution = (320, 240)
                 camera.resolution = (640, 480)
+                camera.brightness = 70   # default 50
+                camera.contrast = 70     # default 0
+                camera.sharpness = 75    # default 0
+                camera.awb_mode = 'incandescent'
                 camera.capture(stream, format='jpeg')
 
             frame_time = dt.datetime.now().strftime("%H:%M:%S.%f")[:12]
