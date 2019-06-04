@@ -73,6 +73,10 @@ dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm d
 dockingApproachDistanceInMM = 263  # 263 to sign, 266 to wall 
 maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
+
+possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
+
+
 try:
     chargeCycles = int(cd.getCarlData('chargeCycles'))
     dockingCount = chargeCycles
@@ -204,10 +208,15 @@ def chargingStatus(dtNow=None):
                    ((shortMeanVolts - shortMinVolts) < 0.15) and \
                    (lastChangeInSeconds > 600) and \
                    (slope < 0) ):
-                       # chargingValue = TRICKLING
-                       # lastChangeRule = "230b"
-                       lifeLog.logger.info("--- Possible EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
-               elif  (lastChangeInSeconds >  12600):
+                       if ( (possibleEarlyTrickleVolts - shortMeanVolts) > 0.3 ):
+                           lifeLog.logger.info("--- Probable EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
+                           chargingValue = TRICKLING
+                           lastChangeRule = "230b"
+                           possibleEarlyTrickleVolts = 0
+                       elif (possibleEarlyTrickleVolts == 0):
+                           lifeLog.logger.info("--- Possible EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
+                           possibleEarlyTrickleVolts = shortMeanVolts
+               elif  (lastChangeInSeconds >  12600):        # max charge time is around 3.5h
                        chargingValue = TRICKLING
                        lastChangeRule = "230c"
                        lifeLog.logger.info("--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts))
@@ -339,6 +348,8 @@ def printValues():
     lastDockingChangeSeconds = divmod(lastDockingChangeMinutes[1], 1)
     print ("Last Docking Change: %dh %dm %ds" % (lastDockingChangeHours[0],lastDockingChangeMinutes[0],lastDockingChangeSeconds[0]) )
     print ("chargeConditioning:",chargeConditioning)
+    print ("possibleEarlyTrickleVolts: {:.2f}".format(possibleEarlyTrickleVolts) )
+
 
 def safetyCheck(egpg,low_battery_v = 7.6):
         global lowBatteryCount, shortMinVolts, shortMeanVolts
@@ -643,6 +654,7 @@ def main():
                 print("\n**** Docking Failure Possible, undocking")
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
+                resetChargingStateToUnknown()  # clear the voltage history to not confuse rules
                 undock(egpg,ds)
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
@@ -653,6 +665,7 @@ def main():
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
+                resetChargingStateToUnknown() # clear the voltage history to not confuse rules
                 undock(egpg,ds)
 
 
