@@ -409,7 +409,11 @@ def undock(egpg,ds):
              lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
              #print("lastDockingChangeDays:",lastDockingChangeDays)
              #print("lastDockingChangeHours:",lastDockingChangeHours)
-             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h".format( (dockingCount+1),shortMeanVolts, lastDockingChangeHours)
+             # prepare a two reading average of battery voltage to log for dismount
+             vBatt = egpg.volt()
+             sleep(0.25)
+             vBatt = (vBatt + egpg.volt())/2.0
+             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h".format( (dockingCount+1),vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
 
              dtLastDockingStateChange = dtNow
