@@ -162,7 +162,7 @@ def chargingStatus(dtNow=None):
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
-    global chargeCycles
+    global chargeCycles, possibleEarlyTrickleVolts
 
 #    shortList = readingList[-shortMeanCount:]
     # print("debug: shortlist =",shortList)
