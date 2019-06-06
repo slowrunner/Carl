@@ -200,7 +200,7 @@ def chargingStatus(dtNow=None):
                elif  (lastChangeInSeconds >  12600):
                        chargingValue = TRICKLING
                        lastChangeRule = "230c"
-                       print("--- Probable TRICKLE not detected {:.1f}v".format(shor$
+                       print("--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts))
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \
