@@ -93,7 +93,7 @@ dockingFinalBackInSeconds = 0.125
 
 def resetChargingStateToUnknown():
     global readingList,shortMeanVolts,shortPeakVolts,shortMinVolts,longPeakVolts,longMeanVolts,longMinVolts
-    global chargingState,dtLastChargingStateChange,lastChangeRule
+    global chargingState,dtLastChargingStateChange,lastChangeRule,possibleEarlyTrickleVolts
 
     readingList = [ ]
     shortMeanVolts = 0
@@ -104,12 +104,13 @@ def resetChargingStateToUnknown():
     longMinVolts  = 0
     lastChargingState = chargingState
     chargingState = 0  # unknown
-    dtStart = dt.datetime.now()
-    dtLastChargingStateChange = dtStart
+    dtNow = dt.datetime.now()
+    dtLastChargingStateChange = dtNow
     lastChangeRule = "0r" # restart
     print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
     print("*** by Rule: ",lastChangeRule)
     speak.whisper("New Charging State"+printableCS[chargingState])
+    possibleEarlyTrickleVolts = 0
 
 def get_uptime(sim = False,simUptimeInSec = 300):
     if (sim == True):
@@ -214,12 +215,16 @@ def chargingStatus(dtNow=None):
                            lastChangeRule = "230b"
                            possibleEarlyTrickleVolts = 0
                        elif (possibleEarlyTrickleVolts == 0):
-                           lifeLog.logger.info("--- Possible EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts))
+                           logMsg = "--- Possible EARLY TRICKLE DETECTED at {:.1f}v".format(shortMeanVolts)
+                           lifeLog.logger.info(logMsg)
+                           print(logMsg)
                            possibleEarlyTrickleVolts = shortMeanVolts
                elif  (lastChangeInSeconds >  12600):        # max charge time is around 3.5h
                        chargingValue = TRICKLING
                        lastChangeRule = "230c"
-                       lifeLog.logger.info("--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts))
+                       logMsg = "--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts)
+                       lifeLog.logger.info(logMsg)
+                       print(logMsg)
                elif (((shortPeakVolts - shortMinVolts) < 0.07) and \
                    (longPeakVolts < 11.5) and \
                    ((longPeakVolts - longMinVolts) < 0.25) and \
@@ -415,9 +420,8 @@ def undock(egpg,ds):
              vBatt = (vBatt + egpg.volt())/2.0
              strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h".format( (dockingCount+1),vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
-
+             print(strToLog)
              dtLastDockingStateChange = dtNow
-
 
          else:
              print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
