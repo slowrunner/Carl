@@ -577,11 +577,11 @@ def dockingTest(egpg,ds,numTests = 30):
 def main():
     global dockingState,chargingState,dtLastDockingStateChange,chargeConditioning
 
-    lifeLog.logger.info("---- juicer.py started")
 
     sim = False
     if (sim != True):
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
+       lifeLog.logger.info("---- juicer.py started at {:.2f}v".format(egpg.volt()))
        myconfig.setParameters(egpg)
        ds = egpg.init_distance_sensor()
        tiltpan.tiltpan_center()
