@@ -380,7 +380,7 @@ def safetyCheck(egpg,low_battery_v = 7.6):
 
 def undock(egpg,ds):
     global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
-    global lastChangeRule,dtLastDockingStateChange
+    global lastChangeRule,dtLastDockingStateChange,chargeConditioning
 
     tiltpan.tiltpan_center()
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
@@ -422,6 +422,14 @@ def undock(egpg,ds):
              lifeLog.logger.info(strToLog)
              print(strToLog)
              dtLastDockingStateChange = dtNow
+
+             # check ~/Carl/carlData.json value (if set >0 will begin rundown to lower voltage cycles)
+             try:
+                 chargeConditioning = int(cd.getCarlData('chargeConditioning'))
+             except:
+                 chargeConditioning = 0
+
+
 
          else:
              print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
