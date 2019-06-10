@@ -34,6 +34,9 @@ target_link_libraries(motors gopigo3)
 add_executable(sensors Examples/sensors.cpp)
 target_link_libraries(sensors gopigo3)
 
+# robot
+add_executable(robot robots/robot.cpp)
+target_link_libraries(robot gopigo3)
 ### Installation
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
