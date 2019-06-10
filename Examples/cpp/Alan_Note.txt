@@ -12,7 +12,16 @@ Setting up to compile C++ programs for GoPiGo3
   make
 6) try out the motors executable:
   ./motors
-7) to compile a new file e.g. robot.cpp, put it in Examples/cpp/Examples/ and:
-  g++ -o robot robot.cpp ../libgopigo3.so -I..
-  ./robot
+7) to compile a new file e.g. robot.cpp, put it in Examples/cpp/robots/
+  mkdir /home/pi/Carl/Examples/cpp/robots
+8) add to CMakeLists.txt
+   # robot
+   add_executable(robot robots/robot.cpp)
+   target_link_libraries(robot gopigo3)
+9)  create a make file for the new program
+    cmake CMakeLists.txt
+10) compile and link the new executable
+    make
+11) run the executable
+    ./robot
 
