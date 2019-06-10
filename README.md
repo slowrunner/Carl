@@ -14,8 +14,7 @@ Carl Specs:
   * Onboard WiFi (Sometimes Flakey..)
 
 - OS: Raspbian For Robots
-  * Headless configuration
-
+ 
 - Control Interfaces: 
   * ssh over WiFi
   * TightVNC (Mac Remote Desktop)
@@ -36,7 +35,7 @@ Carl Specs:
   * DI Distance Sensor (VL53L0X Infrared Time-Of-Flight)
     About 4% accuracy to 7.5 feet (2.3m) 
     Mounted on Tilt/Pan
-  * Pi-Camera
+  * Pi-Camera v1.3
   * USB Microphone
   * (Planned: Battery_Current - ACS712 to "Grove" AD Port)
   
@@ -48,7 +47,7 @@ Carl Specs:
 
 - Actuators/Effectors 
   * Two Servo Tilt/Pan Assembly
-  * Rechargable Wired Audio Speaker
+  * USB Wired Audio Speaker (draws 50mA)
   * USB WiFi Dongle 
   
 - Available GoPiGo3 Ports
@@ -61,13 +60,16 @@ Carl Specs:
 
 - Power Source: 8x 2800mAH NiMH AA cells (EBL)
   * Cliff at 7.4v (0.925 volts / cell)
-  * Cycling to 15% capacity (8.75v) for max cycles
+  * Cycling to 15% capacity (8.5v) for max cycles
+  * cycleConditioning to 7.9v four times to treat NiMH battery memory 
+    when play-time drops off 10%
   * Charging at 1A
   
 - Run Time:  up to 9 hours 
-  * "Thinking" 8 hours using 8.75v "max cycles" shutdown limit
-  * "Wandering" 2-3 hours to 8.75v recharge point
-  * About 9.3 hours to 7.4v voltage cliff
+  * "Thinking" 6 hours using 8.5v "max cycles" limit
+  * Cycle Conditioning 7 hours to 7.9v 
+  * "Wandering" 2-3 hours to 8.5v recharge point
+  * About 8 hours to 7.4v voltage cliff
 
 - Recharger:  
   * Tenergy 6-12v Delta-Minus-V Peaking Charger
@@ -78,5 +80,3 @@ Carl Specs:
   * 6" wide x 9" Long x 12" High
 
 - First "Life": August 2018 
-
-
