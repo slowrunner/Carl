@@ -46,7 +46,17 @@ Bus 001 Device 004: ID 0c76:160a JMTek, LLC.
 
 arecord -D plughw:1,0 -d 3 -f S16_LE -r 16000 -c 1 test16k.wav
 
-speak a phrase such as "turn left 45 degrees"
+speak a phrase such as "What's the weather like?"
+
+==== TEST from recorded Voice File =====
+
+./from_file.py -f test16k.wav
+
+Best hypothesis segments:  ['<s>', "what's", 'the', 'weather', 'like', '</s>']
+
+==== TEST from mic ====
+
+./from_mic.py
 
 
 
