@@ -37,5 +37,16 @@ python3 example.py
 Best hypothesis segments:  ['<s>', '<sil>', 'go', 'forward', 'ten', 'meters', '</s>']
 .
 
+==== CREATE Voice File =====
+* find mic device
+lsusb
+.
+Bus 001 Device 004: ID 0c76:160a JMTek, LLC. 
+.
+
+arecord -D plughw:1,0 -d 3 -f S16_LE -r 16000 -c 1 test16k.wav
+
+speak a phrase such as "turn left 45 degrees"
+
 
 
