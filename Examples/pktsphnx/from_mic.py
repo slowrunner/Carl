@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 sys.path.append('/home/pi/Carl/plib')
@@ -26,14 +26,17 @@ config = Decoder.default_config()
 config.set_string('-hmm', path.join(MODELDIR, 'en-us'))
 config.set_string('-lm', path.join(MODELDIR, 'en-us.lm.bin'))
 config.set_string('-dict', path.join(MODELDIR, 'cmudict-en-us.dict'))
+config.set_string('-logfn', '/dev/null')
 
-config.set_string('-samprate', '44100')
+# config.set_string('-samprate', '44100')
 
 decoder = Decoder(config)
 
 p = pyaudio.PyAudio()
 samprate = p.get_device_info_by_index(0)['defaultSampleRate']
-print("mic sample rate:",samprate)
+print("default mic sample rate:",samprate)
+samprate = 16000
+
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=int(samprate), input=True, frames_per_buffer=1024)
 stream.start_stream() 
 
@@ -52,7 +55,7 @@ while True:
                 decoder.end_utt()
                 result = decoder.hyp().hypstr
                 print ('Result:', result)
-                speak.say("I heard, "+result)
+                # speak.say("I heard, "+result)
                 time.sleep(3)
                 decoder.start_utt()
     else:

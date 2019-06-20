@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from os import environ, path
 import argparse
+import wave
 
 from pocketsphinx.pocketsphinx import *
 from sphinxbase.sphinxbase import *
@@ -16,6 +17,9 @@ inputFile = args['file']
 print("Input File: ", inputFile)
 
 
+f = wave.open(inputFile, "rb")
+samprate = f.getframerate()
+print("Sample Rate: ", samprate)
 
 # MODELDIR = "pocketsphinx/model"
 MODELDIR = "/usr/local/lib/python3.5/dist-packages/pocketsphinx/model"
@@ -30,12 +34,7 @@ config.set_string('-hmm', path.join(MODELDIR, 'en-us'))
 config.set_string('-lm', path.join(MODELDIR, 'en-us.lm.bin'))
 # config.set_string('-dict', path.join(MODELDIR, 'en-us/cmudict-en-us.dict'))
 config.set_string('-dict', path.join(MODELDIR, 'cmudict-en-us.dict'))
-decoder = Decoder(config)
-
-print ('\n\n**** ')
-print("This example reads the sample file goforward.raw (in DATADIR)\n")
-print("and should reco the words 'go forward ten meters' ")
-print ('**** \n\n')
+# config.set_string('-samprate', str(samprate))
 
 # Decode streaming data.
 decoder = Decoder(config)
