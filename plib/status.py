@@ -38,6 +38,8 @@ import easygopigo3
 import battery
 import myDistSensor
 import lifeLog
+import argparse
+
 
 LOW_BATTERY_V = 8.1   # (8cells x 1.09) - 0.6 GoPiGo3 voltage drop from reverse voltage protection diode
 
@@ -106,11 +108,20 @@ def main():
 
   batteryLowCount = 0
 
-  lifeLog.logger.info("Starting status.py at {0:0.2f}v".format(egpg.volt()))
+  # ARGUMENT PARSER
+  ap = argparse.ArgumentParser()
+  ap.add_argument("-l", "--loop", default=False, action='store_true')
+  args = vars(ap.parse_args())
+  loopFlag = args['loop']
+
+  strStart = "Starting status.py at {0:0.2f}v".format(egpg.volt())
+  print(strStart)
+  if loopFlag: lifeLog.logger.info(strStart)
 
   #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
     while True:
+        time.sleep(5)
         printStatus(egpg,ds)
         vBatt = egpg.volt()
         if (vBatt < LOW_BATTERY_V):
@@ -125,11 +136,11 @@ def main():
           time.sleep(1)
           os.system("sudo shutdown -h +1")
           sys.exit(0)
-        time.sleep(5)
+        if (loopFlag == False):  break
     #end while
   except SystemExit:
     strToLog = "Exiting  status.py at {0:0.2f}v".format(egpg.volt())
-    lifeLog.logger.info(strToLog)
+    if loopFlag:  lifeLog.logger.info(strToLog)
     print (strToLog)
     time.sleep(1)
 
