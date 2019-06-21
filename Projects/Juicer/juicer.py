@@ -3,7 +3,7 @@
 # juicer.py
 #
 # USAGE::
-#      ./juicer.py        will undock when trickle charging, will dock at 8.5v
+#      ./juicer.py        will undock when trickle charging, will dock at PLAYTIME_LIMITv
 #      ./juicer.py test   will perform 5 undock-dockings (start on dock)
 """
 
@@ -35,6 +35,8 @@ import myconfig
 import carlDataJson as cd
 
 # constants
+PLAYTIME_LIMIT = 8.0
+CONDITIONING_LIMIT = 7.7
 UNKNOWN = 0
 NOTCHARGING = 1   # disconnected 
 CHARGING    = 2   # charging 
@@ -525,6 +527,7 @@ def dock(egpg,ds):
 def dockingTest(egpg,ds,numTests = 30):
     global dockingState,chargingState
 
+    DOCKING_TEST_LIMIT = 8.75
     print("\n**** DOCKING TEST INITIATED ****")
     print("checking battery level")
     while (longMeanVolts == 0):
@@ -544,7 +547,7 @@ def dockingTest(egpg,ds,numTests = 30):
         speak.whisper("Docking state is "+printableDS[dockingState])
         print("Charging State:", printableCS[chargingState])
         speak.whisper("Charging State is "+printableCS[chargingState])
-        if (shortMeanVolts > 8.75):
+        if (shortMeanVolts > DOCKING_TEST_LIMIT):
             undock(egpg,ds)
             print("Status after undock()")
             print("Docking State:", printableDS[dockingState])
@@ -643,8 +646,8 @@ def main():
             # End of play time
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
-                ( ((chargeConditioning ==0) and (shortMeanVolts < 8.5)) or \
-                  ((chargeConditioning > 0) and (shortMeanVolts < 7.9)) ) \
+                ( ((chargeConditioning ==0) and (shortMeanVolts < PLAYTIME_LIMIT)) or \
+                  ((chargeConditioning > 0) and (shortMeanVolts < CONDITIONING_LIMIT)) ) \
                ) :
                 print("\n**** Time to get on the pot")
                 action = "**** Turning around to be at approach point"
@@ -675,8 +678,8 @@ def main():
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
-                ( ((chargeConditioning > 0) and (shortMeanVolts < 7.9)) or \
-                  ((chargeConditioning == 0) and (shortMeanVolts < 8.5)) ) and \
+                ( ((chargeConditioning > 0) and (shortMeanVolts < CONDITIONING_LIMIT)) or \
+                  ((chargeConditioning == 0) and (shortMeanVolts < PLAYTIME_LIMIT)) ) and \
                 ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
