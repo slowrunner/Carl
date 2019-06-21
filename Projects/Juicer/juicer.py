@@ -420,7 +420,7 @@ def undock(egpg,ds):
              vBatt = egpg.volt()
              sleep(0.25)
              vBatt = (vBatt + egpg.volt())/2.0
-             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h".format( (dockingCount+1),vBatt, lastDockingChangeHours)
+             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h recharge".format( (dockingCount+1),vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
              print(strToLog)
              dtLastDockingStateChange = dtNow
@@ -512,7 +512,7 @@ def dock(egpg,ds):
         lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
         lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
         lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
-        strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
+        strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
         lifeLog.logger.info(strToLog)
         dtLastDockingStateChange = dtNow
         sleep(5)
