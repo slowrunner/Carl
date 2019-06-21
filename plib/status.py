@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 #
 # status.py    Basic Status (thread-safe)
-#      Run Battery down while printing status every 30s
+#      import status provides printStatus(egpg,ds)
+#      ./status.py    will print status once and exit
 #
-# This test will loop reading the battery voltage
-#      UNTIL voltage stays below 8.1v 4 times,
-#      then will issue a shutdown now
+#      ./status.py -l (or -loop) will print status every 5 seconds
+#      UNTIL voltage stays below LOW_BATTERY (8.1v) 4 times,
+#      then will issue a shutdown
+#
+#      ./status.py -h (or --help) will print usage
 #
 
 # After advice from some folks over at raspberrypi.org robotics forum,
@@ -110,7 +113,7 @@ def main():
 
   # ARGUMENT PARSER
   ap = argparse.ArgumentParser()
-  ap.add_argument("-l", "--loop", default=False, action='store_true')
+  ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
   args = vars(ap.parse_args())
   loopFlag = args['loop']
 
