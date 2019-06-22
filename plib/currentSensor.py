@@ -34,13 +34,14 @@ class ACS712(easysensors.AnalogSensor):
         easysensors.AnalogSensor.set_descriptor(self,"ACS712 +/-5A Current Sensor, outputs Analog Voltage 185mV/Amp around 2.5v")
 
     def get_reading(self, samples=10):
-        mV_per_Amp = 185.0
-        zeroV = 2.500
+        mV_per_Amp = 370  # spec 185.0
+        zeroV = 2.573     # spec 0.5 * VREF
         VREF = 5.0              # GoPiGo3 Analog Input is 0-5v
         A2D_RESOLUTION = 4096   # GoPiGo3 A2D is 12-bit resolution on 0-5v range
 
         vReadings = []
         for i in xrange(0,samples):
+            sleep(.005)
             vReadings += [(self.read() / A2D_RESOLUTION) * VREF]
         aveV = np.mean(vReadings)
         print("aveV: {:.3f} v".format(aveV))
@@ -61,9 +62,9 @@ def main():
       print("Single Current Reading:   {:.0f} mA".format(acs712.get_reading(samples=1)))
       print("Averaged Current Reading: {:.0f} mA".format(acs712.get_reading()))
 
-      print("Sensor Description",acs2.__str__())
-      print("Single Current Reading:   {:.0f} mA".format(acs2.get_reading(samples=1)))
-      print("Averaged Current Reading: {:.0f} mA".format(acs2.get_reading()))
+      # print("Sensor Description",acs2.__str__())
+      # print("Single Current Reading:   {:.0f} mA".format(acs2.get_reading(samples=1)))
+      # print("Averaged Current Reading: {:.0f} mA".format(acs2.get_reading()))
 
       print("\n\n")
       sleep(1)
