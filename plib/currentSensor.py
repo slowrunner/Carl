@@ -18,7 +18,7 @@ from __future__ import division       #                           ''
 # import sys
 # sys.path.append('/home/pi/Carl/plib')
 
-# from time import sleep
+from time import sleep
 import easygopigo3 # import the EasyGoPiGo3 class
 import easysensors # import Sensor() class
 import numpy as np
@@ -34,8 +34,8 @@ class ACS712(easysensors.AnalogSensor):
         easysensors.AnalogSensor.set_descriptor(self,"ACS712 +/-5A Current Sensor, outputs Analog Voltage 185mV/Amp around 2.5v")
 
     def get_reading(self, samples=10):
-        mA_per_mV = 185.0
-        zeroV = 2.50
+        mV_per_Amp = 185.0
+        zeroV = 2.500
         VREF = 5.0              # GoPiGo3 Analog Input is 0-5v
         A2D_RESOLUTION = 4096   # GoPiGo3 A2D is 12-bit resolution on 0-5v range
 
@@ -43,9 +43,9 @@ class ACS712(easysensors.AnalogSensor):
         for i in xrange(0,samples):
             vReadings += [(self.read() / A2D_RESOLUTION) * VREF]
         aveV = np.mean(vReadings)
-        # print("aveV:",aveV)
+        print("aveV: {:.3f} v".format(aveV))
         # print("Readings:",vReadings)
-        mA = (aveV - zeroV) * 1000 / mA_per_mV
+        mA = (aveV - zeroV) * 1000 / mV_per_Amp 
         return mA
 
 
@@ -56,14 +56,17 @@ def main():
     acs2 = ACS712(egpg,"AD2")
     # acs2.set_pin(2)
     # acs712.set_pin(2)
+    while True:
+      print("Sensor Description",acs712.__str__())
+      print("Single Current Reading:   {:.0f} mA".format(acs712.get_reading(samples=1)))
+      print("Averaged Current Reading: {:.0f} mA".format(acs712.get_reading()))
 
-    print("Sensor Description",acs712.__str__())
-    print("Single Current Reading:   {:.0f} mA".format(acs712.get_reading(samples=1)))
-    print("Averaged Current Reading: {:.0f} mA".format(acs712.get_reading()))
+      print("Sensor Description",acs2.__str__())
+      print("Single Current Reading:   {:.0f} mA".format(acs2.get_reading(samples=1)))
+      print("Averaged Current Reading: {:.0f} mA".format(acs2.get_reading()))
 
-    print("Sensor Description",acs2.__str__())
-    print("Single Current Reading:   {:.0f} mA".format(acs2.get_reading(samples=1)))
-    print("Averaged Current Reading: {:.0f} mA".format(acs2.get_reading()))
+      print("\n\n")
+      sleep(1)
 
 if __name__ == "__main__":
 	main()
