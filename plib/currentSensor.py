@@ -45,7 +45,7 @@ class ACS712(easysensors.AnalogSensor):
         aveV = np.mean(vReadings)
         print("aveV: {:.3f} v".format(aveV))
         # print("Readings:",vReadings)
-        mA = (aveV - zeroV) * 1000 / mV_per_Amp 
+        mA = ( (aveV - zeroV) * 1000 / mV_per_Amp ) * 1000 
         return mA
 
 
