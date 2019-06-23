@@ -26,9 +26,9 @@ import numpy as np
 
 VREF  = 5.10            # GoPiGo3 supplied
 zeroV = 0.5 * VREF
-READING_BIAS = 25       # saw 2073 instead of 2048
+READING_BIAS = 10       # saw 2073 instead of 2048
 A2D_RESOLUTION = 4096   # GoPiGo3 A2D is 12-bit resolution on 0-5v range
-mV_per_Amp = 480        # spec 185.0
+mV_per_Amp = 220        # spec 185.0
 
 
 # usage  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)  # create a GoPiGo3 object
@@ -41,17 +41,18 @@ class ACS712(easysensors.AnalogSensor):
         easysensors.AnalogSensor.__init__(self, port, "INPUT", gpg, gpg.use_mutex)
         easysensors.AnalogSensor.set_descriptor(self,"ACS712 +/-5A Current Sensor, outputs Analog Voltage 185mV/Amp around 2.5v")
 
-    def get_amps(self, samples=10):
+    def get_amps(self, vRef=VREF, samples=10):
 
         vReadings = []
         for i in xrange(0,samples):
             sleep(.005)
             vReadings += [self.read()]
-        aveV = (np.mean(vReadings)-READING_BIAS) / A2D_RESOLUTION * VREF
+        aveV = (np.mean(vReadings)-READING_BIAS) / A2D_RESOLUTION * vRef
         print("aveReading: {:.0f}:".format(np.mean(vReadings)))
         print("aveV: {:.2f} v".format(aveV))
         # print("Readings:",vReadings)
-        amps = (aveV - zeroV) * 1000 / mV_per_Amp
+        zeroV = vRef * 0.5
+        amps = (zeroV - aveV) * 1000 / mV_per_Amp
         return amps
 
 
@@ -68,7 +69,8 @@ def main():
       sleep(5)
       while True:
         # print("Single Current Reading:   {:.2f} A".format(acs712.get_amps(samples=1)))
-        print("Averaged Current Reading: {:.3f} A".format(acs712.get_amps()))
+        print("Averaged Current Reading: {:.3f} A".format(acs712.get_amps(egpg.get_voltage_5v()) ))
+        print("5v supply {:.2f} v".format(egpg.get_voltage_5v()))
 
         # print("Sensor Description",acs2.__str__())
         # print("Single Current Reading:   {:.0f} mA".format(acs2.get_amps(samples=1)))
