@@ -23,6 +23,14 @@ import easygopigo3 # import the EasyGoPiGo3 class
 import easysensors # import Sensor() class
 import numpy as np
 
+
+VREF  = 5.10            # GoPiGo3 supplied
+zeroV = 0.5 * VREF
+READING_BIAS = 25       # saw 2073 instead of 2048
+A2D_RESOLUTION = 4096   # GoPiGo3 A2D is 12-bit resolution on 0-5v range
+mV_per_Amp = 480        # spec 185.0
+
+
 # usage  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)  # create a GoPiGo3 object
 #        acs712 = currentSensor.ACS712(egpg)             # create the currentSensor
 #  or    acs712 = currentSensor.ACS712(egpg, port="AD2", use_mutex=True)
@@ -33,41 +41,43 @@ class ACS712(easysensors.AnalogSensor):
         easysensors.AnalogSensor.__init__(self, port, "INPUT", gpg, gpg.use_mutex)
         easysensors.AnalogSensor.set_descriptor(self,"ACS712 +/-5A Current Sensor, outputs Analog Voltage 185mV/Amp around 2.5v")
 
-    def get_reading(self, samples=10):
-        mV_per_Amp = 370  # spec 185.0
-        zeroV = 2.573     # spec 0.5 * VREF
-        VREF = 5.0              # GoPiGo3 Analog Input is 0-5v
-        A2D_RESOLUTION = 4096   # GoPiGo3 A2D is 12-bit resolution on 0-5v range
+    def get_amps(self, samples=10):
 
         vReadings = []
         for i in xrange(0,samples):
             sleep(.005)
-            vReadings += [(self.read() / A2D_RESOLUTION) * VREF]
-        aveV = np.mean(vReadings)
-        print("aveV: {:.3f} v".format(aveV))
+            vReadings += [self.read()]
+        aveV = (np.mean(vReadings)-READING_BIAS) / A2D_RESOLUTION * VREF
+        print("aveReading: {:.0f}:".format(np.mean(vReadings)))
+        print("aveV: {:.2f} v".format(aveV))
         # print("Readings:",vReadings)
-        mA = ( (aveV - zeroV) * 1000 / mV_per_Amp ) * 1000 
-        return mA
+        amps = (aveV - zeroV) * 1000 / mV_per_Amp
+        return amps
 
 
 
 def main():
-    egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
-    acs712 = ACS712(egpg)  # default port AD1
-    acs2 = ACS712(egpg,"AD2")
-    # acs2.set_pin(2)
-    # acs712.set_pin(2)
-    while True:
+    try:
+      egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
+      acs712 = ACS712(egpg)  # default port AD1
+      acs2 = ACS712(egpg,"AD2")
+      # acs2.set_pin(2)
+      # acs712.set_pin(2)
       print("Sensor Description",acs712.__str__())
-      print("Single Current Reading:   {:.0f} mA".format(acs712.get_reading(samples=1)))
-      print("Averaged Current Reading: {:.0f} mA".format(acs712.get_reading()))
+      print("Averaged Current Reading: {:.3f} A".format(acs712.get_amps()))
+      sleep(5)
+      while True:
+        # print("Single Current Reading:   {:.2f} A".format(acs712.get_amps(samples=1)))
+        print("Averaged Current Reading: {:.3f} A".format(acs712.get_amps()))
 
-      # print("Sensor Description",acs2.__str__())
-      # print("Single Current Reading:   {:.0f} mA".format(acs2.get_reading(samples=1)))
-      # print("Averaged Current Reading: {:.0f} mA".format(acs2.get_reading()))
+        # print("Sensor Description",acs2.__str__())
+        # print("Single Current Reading:   {:.0f} mA".format(acs2.get_amps(samples=1)))
+        # print("Averaged Current Reading: {:.0f} mA".format(acs2.get_amps()))
 
-      print("\n\n")
-      sleep(1)
+        print("\n\n")
+        sleep(1)
+    except KeyboardInterrupt:
+        print("\nGoodbye")
 
 if __name__ == "__main__":
 	main()
