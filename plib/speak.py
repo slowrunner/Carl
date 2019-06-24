@@ -16,16 +16,19 @@
 import subprocess
 import sys
 import time
-
+debug = False
 
 # QUIET TIME is before 10AM and after 10PM 
 # (unless told to ignore , then never quietTime
 
 def quietTime(startOK=10,notOK=23,ignore=False):
     timeNow = time.localtime()
+    if debug:
+        print("time.localtime().tm_hour():",timeNow.tm_hour)
+        print("startOK: {} notOK: {}".format(startOK, notOK))
     if (ignore):
         return False
-    elif (startOK < timeNow.tm_hour < notOK):
+    elif (startOK <= timeNow.tm_hour < notOK):
         return False
     else:
         return True
@@ -59,6 +62,7 @@ def whisper(phrase,vol=10,anytime=True):
 
 # ##### MAIN ####
 def main():
+    global debug
     # say("hello from speak dot p y test main")
     # say_espeak("whats the weather, long quiet?")
     if (len(sys.argv) >1):
@@ -73,9 +77,11 @@ def main():
             ignore=False
         say(strToSay,vol,ignore)
     else:
-        say("This phrase contains an apostrophe which isn't allowed")
-        say('This phrase contains "a quoted word" ')
-        say("My name is Carl. I don't know Pogo.  Never met the little bot")
+        debug = True
+        say("This phrase contained an apostrophe which isn't allowed")
+        whisper('This phrase contains "a quoted word" ', 20)
+        shout("My name is Carl. ")
+        say("I don't know Pogo.  Never met the little bot")
 
 if __name__ == "__main__":
     main()
