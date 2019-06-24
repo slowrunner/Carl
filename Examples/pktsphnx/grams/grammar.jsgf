@@ -140,9 +140,7 @@ grammar command;
         up time {uptime};
 
 <robot_name> =
-	pogo 	|
-        carl    |
-	pi	;
+        carl    ;
 
 
 <greeting> =
@@ -150,7 +148,6 @@ grammar command;
         good afternoon   |
         good evening   |
         howdy   |
-        yo      |
         wake up |
 	hello	;
 

@@ -14,20 +14,38 @@ from collections import deque
 import time
 import math
 import sys
+import random
+
 
 """
 Based on a post by Sophie Li, 2016
 http://blog.justsophie.com/python-speech-to-text-with-pocketsphinx/
 """
 
+GREETING_INPUTS = ("hello carl", "wake up carl", "hello", "good morning", "good morning carl", "good afternoon", "good afternoon carl")
+GREETING_RESPONSES = ["hi", "hey", "hi there", "hello", "Howdy", "good to see you", "good morning, good afternoon, good evening, which ever the case may be"]
+
+WEATHER_QUESTIONS = ("whats the weather look like", "whats the weather", "is it sunny today", "will it rain today")
+WEATHER_RESPONSES = ["This is the sunshine state, no?", "My radar is down at the moment", "There is a chance it will rain", "There might be some clouds today", "No hurricane today"]
+
+GOODBYE_INPUTS = ("goodbye", "goodbye carl", "good night", "good night carl")
+GOODBYE_RESPONSES = ["bye", "I don't know why you say goodbye, I say hello o, hello.","goodbye"]
+
+SLEEP_INPUTS = ("good night", "good night carl", "go to sleep", "go to sleep carl")
+SLEEP_RESPONSES = ["good night to you too", "right.", "sure","O K"]
+
 def react_to(phrase,confidence):
-    if phrase =="whats the weather look like":
-        response = "Its always sunny in southern california"
-    elif phrase =="hello carl":
-        response = "hello"
+    if phrase in WEATHER_QUESTIONS:
+        response = random.choice(WEATHER_RESPONSES)
+    elif phrase in GREETING_INPUTS:
+        response = random.choice(GREETING_RESPONSES)
+    elif phrase in GOODBYE_INPUTS:
+        response = random.choice(GOODBYE_RESPONSES)
+    elif phrase in SLEEP_INPUTS:
+        response = random.choice(SLEEP_RESPONSES)
     else:
         response = None
-    if response:  
+    if response:
         print("Response:",response)
         speak.say(response)
 
