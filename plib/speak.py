@@ -39,7 +39,7 @@ def quietTime(startOK=10,notOK=23,ignore=False):
 
 def say_espeak(phrase,vol=100,anytime=False):
 
-
+    phrase = phrase.replace("I'm","I m")
     phrase = phrase.replace("'","")
     phrase = phrase.replace('"',' quote ')
     phrase = phrase.replace('*',"")
