@@ -3,10 +3,12 @@
 #
 # file: motion_detect.py
 #
-# from https://github.com/waveform80/picamera_demos
+# based on https://github.com/waveform80/picamera_demos
 #
 # Motion Detect using picamera and numpy only
 #
+#   Selects a response based on motion trend to left (exits) or to right (greetings)
+#   If running on my robot Carl, it speaks the responses
 
 
 import sys
@@ -31,12 +33,39 @@ MOTION_MAGNITUDE = 60   # the magnitude of vectors required for motion
 MOTION_VECTORS = 10     # the number of vectors required to detect motion
 HELLO_COUNT = 300       # if number of vectors over this, probably a big person movement
 GREETINGS = ["hi", "hey", "hello", "greetings", "whats up?", "hi there", "howdy", "yo.", "I am glad you're home now","Did you bring me anything?"]
+EXITS = ["come back soon", "will you be gone long", "dont go, i ull miss you", "can I go too?"]
+availableExits = EXITS.copy()
 availableGreetings = GREETINGS.copy()
 okToSayHi = False
+startup = True
+
+
+def getGreeting():
+    global availableGreetings
+
+    response = random.choice(availableGreetings)
+    availableGreetings.remove(response)
+    if (len(availableGreetings) == 0):
+      availableGreetings = GREETINGS.copy()
+    return response
+
+def getExit():
+    global availableExits
+
+    response = random.choice(availableExits)
+    availableExits.remove(response)
+    if (len(availableExits) == 0):
+      availableExits = EXITS.copy()
+    return response
 
 class MyMotionDetector(PiMotionAnalysis):
     def analyse(self, a):
-        global okToSayHi, availableGreetings
+        global okToSayHi, availableGreetings, startup
+
+        raw_a = a
+        # calc motion trend left or right
+        trend_lr = np.mean(raw_a['x'].astype(np.float))  # negative for moving right, postive for moving left
+
 
         # Calculate the magnitude of all vectors with pythagoras' theorem
         a = np.sqrt(
@@ -50,18 +79,17 @@ class MyMotionDetector(PiMotionAnalysis):
             ave_motion = np.average(a)
             timeStrNow = datetime.datetime.now().strftime("%H:%M:%S.%f")[:12]
             print('{}: Detected motion -vectors: {} ave mag: {:.0f}'.format(timeStrNow,vector_count,ave_motion))
+            print('Trend {:.1f}:'.format(trend_lr))
             if (vector_count > HELLO_COUNT):
-                if  okToSayHi:
-                    response = random.choice(availableGreetings)
-                    availableGreetings.remove(response)
-                    if (len(availableGreetings) == 0):
-                        availableGreetings = GREETINGS.copy()
-                    if Carl: speak.say(response)
-                    print(response)
-                    okToSayHi = False
+                if  (okToSayHi and (startup == False)):
+                      if trend_lr > 0: response = getExit()
+                      else: response = getGreeting()
+                      if Carl: speak.say(response)
+                      print("\n\n***** ", response)
+                      okToSayHi = False
             else:
                 okToSayHi = True
-
+                startup = False
 
 with picamera.PiCamera() as camera:
     camera.resolution = (1280, 720)
