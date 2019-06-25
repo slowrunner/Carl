@@ -1,9 +1,30 @@
 README.md
 
 ==== Install pocketsphinx-python ===
+(perhaps should try without libpulse-dev?)
 
 sudo apt-get install swig libpulse-dev
 sudo pip install pocketsphinx
+
+(USB mic ALSA device 2 with capture set at 81%)
+
+
+Files in this repo:
+example.py           reco from wav file in distribution
+from_file.py         reco from passed filename  -f
+from_mic_keyword.py  keyword reco from mic
+from_mic.py          language model reco from mic
+from_mic_w_gram.py   grammar reco from mic
+
+justsophie.py        example used for pyAudio reco from mic
+                     (good start_utterance threshold for my setup is around 1000)
+
+live_keyword.py      LiveSpeech example blocked by pulse audio preference, not installed/configured
+README.md  
+system_info.py  
+test16k.wav          sample in my voice mono 16kHz file with wave header
+test.wav             attempt at mic default rate of 41kHz
+grams/               folder for a corpus, dictionary and jsgf grammar 
 
 
 ==== FIRST TEST ====
