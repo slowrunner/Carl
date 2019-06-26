@@ -35,7 +35,7 @@ import myconfig
 import carlDataJson as cd
 
 # constants
-PLAYTIME_LIMIT = 8.0
+PLAYTIME_LIMIT = 8.1
 CONDITIONING_LIMIT = 7.7
 UNKNOWN = 0
 NOTCHARGING = 1   # disconnected 
