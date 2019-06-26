@@ -41,6 +41,7 @@ import easygopigo3
 import battery
 import myDistSensor
 import lifeLog
+import runLog
 import argparse
 
 
@@ -119,7 +120,7 @@ def main():
 
   strStart = "Starting status.py at {0:0.2f}v".format(egpg.volt())
   print(strStart)
-  if loopFlag: lifeLog.logger.info(strStart)
+  if loopFlag: runLog.logger.info(strStart)
 
   #print ("Starting status loop at %.2f volts" % battery.volts())
   try:
@@ -143,7 +144,7 @@ def main():
     #end while
   except SystemExit:
     strToLog = "Exiting  status.py at {0:0.2f}v".format(egpg.volt())
-    if loopFlag:  lifeLog.logger.info(strToLog)
+    if loopFlag:  runLog.logger.info(strToLog)
     print (strToLog)
     time.sleep(1)
 

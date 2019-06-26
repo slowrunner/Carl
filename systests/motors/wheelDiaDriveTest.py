@@ -37,7 +37,7 @@ try:
     import status
     import battery
     import myDistSensor
-    import lifeLog
+    import runLog
     import myconfig
     Carl = True
 except:
@@ -47,7 +47,7 @@ egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 ds   = egpg.init_distance_sensor()
 
 if Carl:
-    lifeLog.logger.info("Started")
+    runLog.logger.info("Started")
     myconfig.setParameters(egpg)   # configure custom wheel dia and base
     tiltpan.tiltpan_center()
     time.sleep(0.5)
@@ -193,5 +193,5 @@ while True:
       num_tries = 1
     except KeyboardInterrupt:
         egpg.stop()
-lifeLog.logger.info("Exit")
+runLog.logger.info("Exit")
 time.sleep(0.5)

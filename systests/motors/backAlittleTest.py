@@ -14,13 +14,13 @@ import time
 import easygopigo3
 import sys
 sys.path.append('/home/pi/Carl/plib')
-import lifeLog
+import runLog
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 
 strToLog = "Starting backAlittleTest.py"
 print(strToLog)
-lifeLog.logger.info(strToLog)
+runLog.logger.info(strToLog)
 
 python_version = sys.version_info[0]
 print("Python Version:",python_version)
@@ -99,6 +99,6 @@ while True:
 	egpg.stop()
         strToLog = "Exiting backAlittleTest.py"
         print(strToLog)
-        lifeLog.logger.info(strToLog)
+        runLog.logger.info(strToLog)
         time.sleep(3)
 

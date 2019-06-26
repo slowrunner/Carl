@@ -19,7 +19,7 @@ try:
     import status
     import battery
     import myDistSensor
-    import lifeLog
+    import runLog
     Carl = True
 except:
     Carl = False
@@ -47,7 +47,7 @@ args = vars(ap.parse_args())
 
 
 def main():
-    if Carl: lifeLog.logger.info("Started")
+    if Carl: runLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
         tiltpan.tiltpan_center()
@@ -76,7 +76,7 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    if Carl: lifeLog.logger.info("Finished")
+    if Carl: runLog.logger.info("Finished")
     sleep(1)
 
 

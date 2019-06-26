@@ -46,7 +46,7 @@ import easygopigo3
 import sys
 sys.path.append('/home/pi/Carl/plib')
 
-import lifeLog
+import runLog
 from collections import Counter
 import math
 from time import sleep
@@ -77,7 +77,7 @@ delay=.02			# give servo time to finish moving
 
 # MAIN
 def main():
-    lifeLog.logger.info("Starting plibServoScan.py at {0:0.2f}v".format(egpg.volt()))
+    runLog.logger.info("Starting plibServoScan.py at {0:0.2f}v".format(egpg.volt()))
 		#Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
     try:
 	egpg.stop()
@@ -110,7 +110,7 @@ def main():
 
     except KeyboardInterrupt:
 	print("**** Ctrl-C detected.  Finishing Up ****")
-        lifeLog.logger.info("Exiting  plibServoScan.py at {0:0.2f}v".format(egpg.volt()))
+        runLog.logger.info("Exiting  plibServoScan.py at {0:0.2f}v".format(egpg.volt()))
 
 	ps.reset_servo()
 	sleep(2)

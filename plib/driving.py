@@ -20,7 +20,7 @@ try:
     #import status
     #import battery
     #import myDistSensor
-    import lifeLog
+    import runLog
     import myconfig
     Carl = True
 except:
@@ -67,7 +67,7 @@ def translatePos(egpg=None,dist_mm=5.0,turns_behind_line = False):
     egpg.drive_cm(dist=backup_cm,blocking=True)
 
 def main():
-    if Carl: lifeLog.logger.info("Started")
+    if Carl: runLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
         myconfig.setParameters(egpg)   # configure custom wheel dia and base
@@ -111,7 +111,7 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    if Carl: lifeLog.logger.info("Finished")
+    if Carl: runLog.logger.info("Finished")
     sleep(1)
 
 

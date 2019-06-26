@@ -21,7 +21,7 @@ import numpy as np
 import datetime as dt
 #import speak
 #import myDistSensor
-import lifeLog
+import runLog
 #import argparse
 from time import sleep
 # import cv2
@@ -41,7 +41,7 @@ from time import sleep
 
 
 def main():
-    lifeLog.logger.info("Started")
+    runLog.logger.info("Started")
 
     firstReadingList = [ ]
     secondReadingList = [ ]
@@ -135,7 +135,7 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    lifeLog.logger.info("Finished")
+    runLog.logger.info("Finished")
     sleep(1)
 
 if __name__ == "__main__":

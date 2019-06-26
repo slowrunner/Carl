@@ -14,7 +14,7 @@ sys.path.append('/home/pi/Carl/plib')
 
 import json
 import threading
-import lifeLog
+import runLog
 
 carlDataLock = threading.Lock()       # with carlDataLock: any operation to make syncronous
 
@@ -37,7 +37,7 @@ def saveCarlData(dataname, datavalue, logit=False):
             with open('/home/pi/Carl/carlData.json', 'w') as outfile:
                 json.dump( lcarlData, outfile )
             # print("   carlData.json updated")
-            if logit: lifeLog.logger.info("** carlData '{}' = {} updated **".format(dataname, datavalue))
+            if logit: runLog.logger.info("** carlData '{}' = {} updated **".format(dataname, datavalue))
         except:
             # print("   saveCarlData failed")
             return False

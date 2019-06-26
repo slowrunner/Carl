@@ -19,6 +19,7 @@ try:
     import battery
     import myDistSensor
     import lifeLog
+    import runLog
     import myconfig
     import myimutils   # display(windowname, image, scale_percent=30)
     Carl = True
@@ -53,7 +54,7 @@ import cv2
 # MAIN
 
 def main():
-    if Carl: lifeLog.logger.info("Started")
+    if Carl: runLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
         myconfig.setParameters(egpg)
@@ -77,7 +78,7 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    if Carl: lifeLog.logger.info("Finished")
+    if Carl: runLog.logger.info("Finished")
     sleep(1)
 
 
