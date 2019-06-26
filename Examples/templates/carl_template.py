@@ -37,9 +37,11 @@ import cv2
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
+# ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
 # args = vars(ap.parse_args())
 # print("Started with args:",args)
-
+# filename = args['file']
+# loopFlag = args['loop']
 
 # CONSTANTS
 
@@ -55,7 +57,13 @@ import cv2
 
 def main():
     if Carl: runLog.logger.info("Started")
-    egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+    try:
+        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+    except:
+        strToLog = "Could not instantiate an EasyGoPiGo3"
+        print(strToLog)
+        if Carl: lifeLog.logger.info(strToLog)
+        exit(1)
     if Carl:
         myconfig.setParameters(egpg)
         tiltpan.tiltpan_center()

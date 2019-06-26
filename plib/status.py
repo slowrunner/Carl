@@ -8,6 +8,8 @@
 #      UNTIL voltage stays below LOW_BATTERY (8.1v) 4 times,
 #      then will issue a shutdown
 #
+#      ./status.py -d will print status without distance sensor
+#
 #      ./status.py -h (or --help) will print usage
 #
 
@@ -88,11 +90,12 @@ def printStatus(egpg,ds):
   print ("Clock Frequency: %s" % getClockFreq())
   print ("%s" % getThrottled())
   #print "currentsensor.current_sense(): %.0f mA" % currentsensor.current_sense()
-  distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
-  if distReading < 90:
-      print  ("Distance Sensor: %0.1f inches" %  distReading)
-  else:
-      print  ("Distance Sensor: nothing within 90 inches")
+  if ds != None: 
+      distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+      if distReading < 90:
+          print  ("Distance Sensor: %0.1f inches" %  distReading)
+      else:
+          print  ("Distance Sensor: nothing within 90 inches")
 
 
 # ##### MAIN ######
@@ -107,16 +110,26 @@ def main():
   # #### Create a mutex protected instance of EasyGoPiGo3 base class
   egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
 
-  # ### Create (protected) instance of EasyDistanceSensor
-  ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
 
   batteryLowCount = 0
 
   # ARGUMENT PARSER
   ap = argparse.ArgumentParser()
   ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
+  ap.add_argument("-d", "--distance_sensor", default=True, action='store_false', help="no distance sensor")
+  ap.add_argument("-v", "--lowBattV", type=int, default=LOW_BATTERY_V, help="Shutdown battery voltage limit")
   args = vars(ap.parse_args())
   loopFlag = args['loop']
+  dsFlag = args['distance_sensor']
+  lowBattV = args['lowBattV']
+
+  # ### Create (protected) instance of EasyDistanceSensor
+  if dsFlag: 
+    try:
+        ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
+    except:
+        ds = None
+  else: ds = None
 
   strStart = "Starting status.py at {0:0.2f}v".format(egpg.volt())
   print(strStart)
@@ -128,7 +141,7 @@ def main():
         time.sleep(5)
         printStatus(egpg,ds)
         vBatt = egpg.volt()
-        if (vBatt < LOW_BATTERY_V):
+        if (vBatt < lowBattV):
             batteryLowCount += 1
             speak.say("Hello? My battery is getting a little low here.")
             print("\nHello? My Battery is getting a little low here.")
@@ -136,7 +149,7 @@ def main():
         if (batteryLowCount > 3):
           speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
           lifeLog.logger.info("status.py safety shutdown at {0:0.2f}v".format(vBatt))
-          print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
+          print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN IN 1 MINUTE" % vBatt)
           time.sleep(1)
           os.system("sudo shutdown -h +1")
           sys.exit(0)
