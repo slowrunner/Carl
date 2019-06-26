@@ -1,0 +1,29 @@
+HW Runs using port='I2C_1':
+** 2 in 984 calls:
+
+17:45:01 969:distance from object: 47 mm
+17:45:01 970:distance from object: 47 mm
+[Errno 5] Input/output error
+[Errno 5] Input/output error
+17:45:01 971:distance from object: 47 mm
+17:45:02 972:distance from object: 47 mm
+
+** 23 in 13265 calls in 1hr **
+
+SW Runs using port='I2C_1SW':
+
+** 1 in 651 calls:
+17:57:39 621:I2C_1SW distance from object: 47 mm
+[Errno 5] Input/output error
+17:57:40 622:I2C_1SW distance from object: 47 mm
+
+** 2 in 854 calls:
+
+18:00:54 303:distance from object: 48 mm
+[Errno 5] Input/output error
+18:00:55 304:distance from object: 48 mm
+
+18:02:37 677:distance from object: 47 mm
+[Errno 5] Input/output error
+18:02:37 678:distance from object: 48 mm
+
