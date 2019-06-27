@@ -28,5 +28,16 @@ SW Runs using port='I2C_1SW':
 18:02:37 678:distance from object: 48 mm
 
 *** 228097  in 313777 calls in 3 hours (72.7%) on the charger ***
+and when I killed that process and tried to init a new distance sensor:
+Traceback (most recent call last):
+  File "HWDistanceSensor.py", line 20, in <module>
+    my_sensor = EasyDistanceSensor(use_mutex=True, port='RPI_1')
+  File "/usr/local/lib/python3.5/dist-packages/DI_Sensors-1.0.0-py3.5.egg/di_sensors/easy_distance_sensor.py", line 56, in __init__
+  File "/usr/local/lib/python3.5/dist-packages/DI_Sensors-1.0.0-py3.5.egg/di_sensors/distance_sensor.py", line 28, in __init__
+  File "/usr/local/lib/python3.5/dist-packages/DI_Sensors-1.0.0-py3.5.egg/di_sensors/VL53L0X.py", line 126, in __init__
+  File "/usr/local/lib/python3.5/dist-packages/Dexter_AutoDetection_and_I2C_Mutex-0.0.0-py3.5.egg/di_i2c.py", line 220, in write_reg_8
+  File "/usr/local/lib/python3.5/dist-packages/Dexter_AutoDetection_and_I2C_Mutex-0.0.0-py3.5.egg/di_i2c.py", line 177, in transfer
+  File "/usr/local/lib/python3.5/dist-packages/python_periphery-1.1.0-py3.5.egg/periphery/i2c.py", line 133, in transfer
+periphery.i2c.I2CError: [Errno 121] I2C transfer: Remote I/O error
 
 
