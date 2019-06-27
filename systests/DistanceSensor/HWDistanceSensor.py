@@ -17,7 +17,7 @@ from di_sensors.easy_distance_sensor import EasyDistanceSensor
 import time
 
 # instantiate the distance object
-my_sensor = EasyDistanceSensor(use_mutex=True, port='I2C_1')
+my_sensor = EasyDistanceSensor(use_mutex=True, port='RPI_1')
 
 count = 0
 # and read the sensor iteratively
