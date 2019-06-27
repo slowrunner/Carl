@@ -47,16 +47,28 @@ periphery.i2c.I2CError: [Errno 121] I2C transfer: Remote I/O error
 
 # ### ANALYSIS
 
-Initial analysis of the software I2C port lockup that disabled Carl on June 25th:
+# INITIAL RESULTS - HW vs SW I2C
+
+Analysis of the software I2C port lockup that disabled Carl on June 25th:
 
 1) First I2C Errno 5 occurred off the charging dock (not charging), after 15 minutes operation, and was a single occurrence at 8.5v 8.6v peak in prior 5 minutes.
 
 2) Second and third I2C Errno 5 events occurred while charging, after 2h and 2h22m operation, and were single occurrences at 11.5v 12v peak and 9.6v 15v peak respectively
 
-3) Continuous I2C Errno 5 began while charging, after 2h46m operation, at 11.8v with 13.5v peak in the prior 5 minutes.  
+3) Continuous I2C Errno 5 began while charging, after 2h46m operation, at 11.8v with 13.5v peak in the prior 5 minutes.
 
-Given that Carl ran almost 24 hours a day for two months using hardware I2C for the distance sensor, and saw his first fatal I2C occurrence, on the charger and after updating which uses software I2C for the same code, battery, and charger, I began questioning if the software I2C could be sensitive to the charging voltage spikes seen in my very "off label" use of the GoPiGo3.
+Given that Carl ran almost 24 hours a day for two months using hardware I2C for the distance sensor, and saw his first fatal I2C occurrence, on the charger and 
+after updating which uses software I2C for the same code, battery, and charger, I began questioning if the software I2C could be sensitive 
+to the charging voltage spikes seen in my very "off label" use of the GoPiGo3.
 
-This is operating outside the design parameters of the GoPiGo3, so my analysis should not be taken as a complaint or fault.   I thank DI for including the "considerably less reliable" RPI_1 hardware I2C configuration when making changes intended to improve the product and reduce support incidents.
+At this moment, I have been running the hardware I2C test for over three hours, including one charging session, and have not seen a single Errno 5.  This is very promising.
 
+08:06  Start Test
+09:48  Manual Dock Recharge Start
+11:02  Manual UnDock Discharging Start
+11:34  No Errno 5 events so far
 
+This is operating outside the design parameters of the GoPiGo3, so my analysis should not be taken as a complaint or fault.
+
+I thank DI for including the "considerably less reliable" RPI_1 hardware I2C configuration when making changes intended to improve the product and reduce support incidents.  
+I believe for Carl's  circumstances returning to using hardware I2C will get him back to managing his own battery charge level. 
