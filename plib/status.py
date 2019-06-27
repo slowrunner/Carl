@@ -126,7 +126,7 @@ def main():
   # ### Create (protected) instance of EasyDistanceSensor
   if dsFlag: 
     try:
-        ds = egpg.init_distance_sensor()  # use_mutex=True passed from egpg
+        ds = egpg.init_distance_sensor(port='RPI_1')  # must use HW I2C, use_mutex=True passed from egpg
     except:
         ds = None
   else: ds = None

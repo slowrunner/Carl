@@ -109,7 +109,7 @@ def resetChargingStateToUnknown():
     dtNow = dt.datetime.now()
     dtLastChargingStateChange = dtNow
     lastChangeRule = "0r" # restart
-    print("*** chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
+    print("*** ",dtNow.strftime("%H:%M:%S")," chargingState changed from: ",printableCS[lastChargingState]," to: ", printableCS[chargingState]," ****")
     print("*** by Rule: ",lastChangeRule)
     speak.whisper("New Charging State"+printableCS[chargingState])
     possibleEarlyTrickleVolts = 0
@@ -434,14 +434,14 @@ def undock(egpg,ds):
 
 
          else:
-             print("**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
+             print(dt.datetime.now().strftime("%H:%M:%S"),"**** DISMOUNT BLOCKED by object at: %.0f inches" % (distanceForwardInMM / 25.4) )
              speak.say("Dismount blocked")
 
     elif ( dockingState == CABLED ):
              print("**** Please DISCONNECT CABLE ****")
              speak.say("Please disconnect cable.")
     else:
-        print("**** UNABLE TO UNDOCK ****")
+        print(dt.datetime.now().strftime("%H:%M:%S"),"**** UNABLE TO UNDOCK ****")
         speak.say("Unable to undock.")
 
     tiltpan.off()
@@ -467,7 +467,7 @@ def dock(egpg,ds):
     print("**** Approach Distance is %.2f mm" % dockingApproachDistanceInMM )
     appErrorInMM = distanceForwardInMM - dockingApproachDistanceInMM
     if ( -20 <  appErrorInMM > 20 ):
-        print("**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
+        print(dt.datetime.now().strftime("%H:%M:%S"),"**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
         speak.say("Dock approach error. Please put me on the dock")
         lifeLog.logger.info("**** Dock Approach Error - MANUAL DOCKING REQUESTED")
         dockingState = DOCKREQUESTED
@@ -594,7 +594,7 @@ def main():
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
        lifeLog.logger.info("---- juicer.py started at {:.2f}v".format(egpg.volt()))
        myconfig.setParameters(egpg)
-       ds = egpg.init_distance_sensor()
+       ds = egpg.init_distance_sensor(port='RPI_1')   # must use hardware I2C
        tiltpan.tiltpan_center()
        sleep(0.5)
        tiltpan.off()

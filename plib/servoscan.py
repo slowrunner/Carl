@@ -166,7 +166,7 @@ def main():
     # The EasyDistanceSensor will return trusted readings out to roughly 230 cm
     #                                    and returns 300 when no obstacle seen
 
-    ds = egpg.init_distance_sensor()
+    ds = egpg.init_distance_sensor(port='RPI_1')   # must use HW I2C
     servo = egpg.init_servo("SERVO1")
 
     try:

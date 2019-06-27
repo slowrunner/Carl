@@ -149,7 +149,7 @@ def spin_and_scan(egpg, distance_sensor, degrees=360, speed=50):
 def main():
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
     runLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
-    ds = egpg.init_distance_sensor()
+    ds = egpg.init_distance_sensor(port='RPI_1')   # must use HW I2C
 
 
     # Adjust GOPIGO3 CONSTANTS to my bot   default EasyGoPiGo3.WHEEL_DIAMETER = 66.5 mm
