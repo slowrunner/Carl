@@ -55,6 +55,8 @@ Initial analysis of the software I2C port lockup that disabled Carl on June 25th
 
 3) Continuous I2C Errno 5 began while charging, after 2h46m operation, at 11.8v with 13.5v peak in the prior 5 minutes.  
 
-Given that Carl ran almost 24 hours a day for two months using hardware I2C for the distance sensor, and saw his first fatal I2C occurrence, on the charger and after updating which uses software I2C for the same code, battery, and charger, I am wondering if the software I2C could be sensitive to the charging voltage spikes.
+Given that Carl ran almost 24 hours a day for two months using hardware I2C for the distance sensor, and saw his first fatal I2C occurrence, on the charger and after updating which uses software I2C for the same code, battery, and charger, I began questioning if the software I2C could be sensitive to the charging voltage spikes seen in my very "off label" use of the GoPiGo3.
 
-I understand this is operating outside the design parameters of the GoPiGo3, so this in no way should be taken as a complaint or fault.   I thank you all for including the RPI_1 hardware I2C configuration and have begun a 
+This is operating outside the design parameters of the GoPiGo3, so my analysis should not be taken as a complaint or fault.   I thank DI for including the "considerably less reliable" RPI_1 hardware I2C configuration when making changes intended to improve the product and reduce support incidents.
+
+
