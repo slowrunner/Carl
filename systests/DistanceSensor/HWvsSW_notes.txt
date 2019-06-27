@@ -27,3 +27,6 @@ SW Runs using port='I2C_1SW':
 [Errno 5] Input/output error
 18:02:37 678:distance from object: 48 mm
 
+*** 228097  in 313777 calls in 3 hours (72.7%) on the charger ***
+
+
