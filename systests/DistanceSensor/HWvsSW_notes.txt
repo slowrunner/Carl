@@ -29,6 +29,10 @@ SW I2C Runs:
 [Errno 5] Input/output error
 18:02:37 678:distance from object: 48 mm
 
+SW.out:
+*** 1 Errno 5 every 2 minutes (0.2%) then continuous after 38m
+     22 in 9653 before failed, tested 85679 calls
+
 *** 228097  in 313777 calls in 3 hours (72.7%) on the charger ***
 continuous errors from 2h22m.  
 
@@ -61,12 +65,16 @@ Given that Carl ran almost 24 hours a day for two months using hardware I2C for 
 after updating which uses software I2C for the same code, battery, and charger, I began questioning if the software I2C could be sensitive 
 to the charging voltage spikes seen in my very "off label" use of the GoPiGo3.
 
+Repeated runs of SWDistanceSensor.py that uses software I2C exhibit a 0.2% Errno 5 Input/output error rate,
+and eventual complete non-recoverable GoPiGo3 I2C lockup that can only be corrected by total shutdown and coldstart.
+
 At this moment, I have been running the hardware I2C test for over three hours, including one charging session, and have not seen a single Errno 5.  This is very promising.
 
 08:06  Start Test
 09:48  Manual Dock Recharge Start
 11:02  Manual UnDock Discharging Start
-11:34  No Errno 5 events so far
+14:24  6h18m No Errno 5 events in 90K calls by HWDistanceSensor.py 
+       (juicer.py also using DistanceSensor via HW I2C every 12 seconds)
 
 This is operating outside the design parameters of the GoPiGo3, so my analysis should not be taken as a complaint or fault.
 
