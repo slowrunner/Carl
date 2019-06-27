@@ -1,4 +1,7 @@
-HW Runs using port='I2C_1':
+
+SW I2C Runs:
+
+
 ** 2 in 984 calls  (0.2%):
 
 17:45:01 969:distance from object: 47 mm
@@ -10,7 +13,6 @@ HW Runs using port='I2C_1':
 
 ** 23 in 13265 calls in 1hr (0.17%) **
 
-SW Runs using port='I2C_1SW':
 
 ** 1 in 651 calls (0.15%):
 17:57:39 621:I2C_1SW distance from object: 47 mm
@@ -28,7 +30,9 @@ SW Runs using port='I2C_1SW':
 18:02:37 678:distance from object: 48 mm
 
 *** 228097  in 313777 calls in 3 hours (72.7%) on the charger ***
-and when I killed that process and tried to init a new distance sensor:
+continuous errors from 2h22m.  
+
+When I killed that process and tried to init a new distance sensor (I2C port hosed):
 Traceback (most recent call last):
   File "HWDistanceSensor.py", line 20, in <module>
     my_sensor = EasyDistanceSensor(use_mutex=True, port='RPI_1')
@@ -41,3 +45,16 @@ Traceback (most recent call last):
 periphery.i2c.I2CError: [Errno 121] I2C transfer: Remote I/O error
 
 
+# ### ANALYSIS
+
+Initial analysis of the software I2C port lockup that disabled Carl on June 25th:
+
+1) First I2C Errno 5 occurred off the charging dock (not charging), after 15 minutes operation, and was a single occurrence at 8.5v 8.6v peak in prior 5 minutes.
+
+2) Second and third I2C Errno 5 events occurred while charging, after 2h and 2h22m operation, and were single occurrences at 11.5v 12v peak and 9.6v 15v peak respectively
+
+3) Continuous I2C Errno 5 began while charging, after 2h46m operation, at 11.8v with 13.5v peak in the prior 5 minutes.  
+
+Given that Carl ran almost 24 hours a day for two months using hardware I2C for the distance sensor, and saw his first fatal I2C occurrence, on the charger and after updating which uses software I2C for the same code, battery, and charger, I am wondering if the software I2C could be sensitive to the charging voltage spikes.
+
+I understand this is operating outside the design parameters of the GoPiGo3, so this in no way should be taken as a complaint or fault.   I thank you all for including the RPI_1 hardware I2C configuration and have begun a 
