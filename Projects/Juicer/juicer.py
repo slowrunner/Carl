@@ -37,6 +37,9 @@ import carlDataJson as cd
 # constants
 PLAYTIME_LIMIT = 8.1
 CONDITIONING_LIMIT = 7.7
+SHUTDOWN_LIMIT = 7.4
+DOCKING_TEST_LIMIT = 8.75
+
 UNKNOWN = 0
 NOTCHARGING = 1   # disconnected 
 CHARGING    = 2   # charging 
@@ -46,8 +49,9 @@ printableCS = ["Unknown", "Not Charging", "Charging", "Trickle Charging"]
 NOTDOCKED = 1
 DOCKED = 2
 DOCKREQUESTED = 3
-CABLED = 4
-printableDS = ["Unknown", "Not Docked", "Docked", "Manual Dock Requested", "Cabled"]
+UNDOCKREQUESTED = 4
+CABLED = 5
+printableDS = ["Unknown", "Not Docked", "Docked", "Manual Dock Requested", "Manual UnDock Requested", "Cabled"]
 
 # variables to be maintained
 readingList = [ ]
@@ -58,7 +62,7 @@ longPeakVolts = 0
 longMeanVolts = 0
 longMinVolts  = 0
 shortMeanDuration = 60.0 #seconds
-longMeanMultiplier = 5     # six minutes
+longMeanMultiplier = 5     # five minutes
 longMeanDuration = shortMeanDuration * longMeanMultiplier
 shortMeanCount = 30
 longMeanCount = shortMeanCount * longMeanMultiplier
@@ -280,6 +284,12 @@ def chargingStatus(dtNow=None):
                       (lastChangeInSeconds > 120) ):
                           chargingValue = NOTCHARGING
                           lastChangeRule = "410"
+               elif ( (longMeanVolts > shortMeanVolts) and \
+                      (longPeakVolts < 10.5) and \
+                      (slope < 0) and \
+                      (lastChangeInSeconds > 300) ):
+                          chargingValue = NOTCHARGING
+                          lastChangeRule = "410a"
           else:
               pass
       else:   # just starting up - less than 5 minutes of data
@@ -354,18 +364,22 @@ def printValues():
     lastDockingChangeMinutes = divmod(lastDockingChangeHours[1], 60)
     lastDockingChangeSeconds = divmod(lastDockingChangeMinutes[1], 1)
     print ("Last Docking Change: %dh %dm %ds" % (lastDockingChangeHours[0],lastDockingChangeMinutes[0],lastDockingChangeSeconds[0]) )
-    print ("chargeConditioning:",chargeConditioning)
-    print ("possibleEarlyTrickleVolts: {:.2f}".format(possibleEarlyTrickleVolts) )
+    if (chargeConditioning>0): 
+        print ("Conditioning Cycle:",chargeConditioning)
+        print ("Conditioning Play Time Limit {}v".format(CONDITIONING_LIMIT))
+    else:
+        print ("Play Time Limit {}v".format(PLAYTIME_LIMIT))
+    if (possibleEarlyTrickleVolts>0): print ("possibleEarlyTrickleVolts: {:.2f}".format(possibleEarlyTrickleVolts) )
 
 
-def safetyCheck(egpg,low_battery_v = 7.6):
+def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
         global lowBatteryCount, shortMinVolts, shortMeanVolts
 
 
         vBatt = shortMeanVolts
         if (vBatt < low_battery_v):
             lowBatteryCount += 1
-            print("\n******** WARNING: Safety Shutdown Is Imminent ******")
+            print("\n******** WARNING: {}v Safety Shutdown Is Imminent ******".format(low_battery_v))
             speak.say("Safety Shutdown Is Imminent.")
         else: lowBatteryCount = 0
         if (lowBatteryCount > 3):
@@ -384,6 +398,7 @@ def undock(egpg,ds):
     global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
     global lastChangeRule,dtLastDockingStateChange,chargeConditioning
 
+    printValues()
     tiltpan.tiltpan_center()
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
     if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
@@ -410,7 +425,7 @@ def undock(egpg,ds):
              print("**** DISMOUNT COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
              speak.whisper("Dismount complete")
 
-             # assumption juicer.py always starts docked.
+             # 
              lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
              lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
              lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
@@ -440,6 +455,15 @@ def undock(egpg,ds):
     elif ( dockingState == CABLED ):
              print("**** Please DISCONNECT CABLE ****")
              speak.say("Please disconnect cable.")
+    elif ( dockingState == UNDOCKREQUESTED ):
+             print("**** PLEASE MANUALLY UNDOCK ME ****")
+             speak.say("Please take me off the dock.")
+             speak.say("Requesting manual undock.")
+             strToLog = "Manual UnDock Requested at {}v".format(shortMeanVolts)
+             lifeLog.logger.info(strToLog)
+             print(strToLog)
+
+
     else:
         print(dt.datetime.now().strftime("%H:%M:%S"),"**** UNABLE TO UNDOCK ****")
         speak.say("Unable to undock.")
@@ -452,7 +476,18 @@ def dock(egpg,ds):
 
     print("\n**** DOCKING REQUESTED ****")
 
-    if (dockingState != NOTDOCKED):
+
+    if ( dockingState == DOCKREQUESTED ):
+             print("**** PLEASE MANUALLY DOCK ME ****")
+             speak.say("Please put me on the dock.")
+             sleep(5)
+             speak.say("Requesting manual docking.")
+             strToLog = "Manual Dock Requested at {}v".format(shortMeanVolts)
+             lifeLog.logger.info(strToLog)
+             print(strToLog)
+             return
+
+    elif (dockingState != NOTDOCKED):
         print("**** ERROR: Docking request when not undocked")
         return
 
@@ -527,7 +562,6 @@ def dock(egpg,ds):
 def dockingTest(egpg,ds,numTests = 30):
     global dockingState,chargingState
 
-    DOCKING_TEST_LIMIT = 8.75
     print("\n**** DOCKING TEST INITIATED ****")
     print("checking battery level")
     while (longMeanVolts == 0):
@@ -670,6 +704,7 @@ def main():
                 ((chargingState == UNKNOWN) or \
                  (chargingState == NOTCHARGING)) and \
                 ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
+                printValues()
                 print("\n**** Docking Failure Possible, undocking")
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
@@ -681,6 +716,7 @@ def main():
                 ( ((chargeConditioning > 0) and (shortMeanVolts < CONDITIONING_LIMIT)) or \
                   ((chargeConditioning == 0) and (shortMeanVolts < PLAYTIME_LIMIT)) ) and \
                 ( (dt.datetime.now() - dtLastDockingStateChange).total_seconds() > 300) ):
+                printValues()
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
@@ -693,6 +729,8 @@ def main():
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
             print("Ctrl-C detected - Finishing up")
+            printValues()
+            print("**** juicer exit ****")
             sleep(1)
     egpg.stop()
 
