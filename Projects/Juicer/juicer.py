@@ -673,7 +673,7 @@ def main():
                 print("\n**** Docking Failure Possible, undocking")
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
-                resetChargingStateToUnknown()  # clear the voltage history to not confuse rules
+                # resetChargingStateToUnknown()  # clear the voltage history to not confuse rules
                 undock(egpg,ds)
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
@@ -684,7 +684,7 @@ def main():
                 print("\n**** Charger Trickling, Need Charging Possible, undocking")
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
-                resetChargingStateToUnknown() # clear the voltage history to not confuse rules
+                # resetChargingStateToUnknown() # clear the voltage history to not confuse rules
                 undock(egpg,ds)
 
 
