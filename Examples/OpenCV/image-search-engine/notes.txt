@@ -1,0 +1,44 @@
+Notes on image-search-engine
+
+from https://www.pyimagesearch.com/2014/12/01/complete-guide-building-image-search-engine-python-opencv/
+
+
+Process:
+
+1) create an image descriptor that outputs features
+2) extract features for dataset to an index file
+   python3 index.py --dataset dataset --index index.csv
+3) build a feature comparator
+4) search index for closest match to test_photo, display closest match(es) from dataset
+   python3 search.py --index index.csv --query queries/<test_photo>  --result-path dataset
+
+The image feature extractor calculates a 3D color-histogram for five areas of an image, 1- center oval, 
+    2,3,4,5- the remaining image divided into top-left, top-right, bottom-right, bottom-left
+
+I changed index.py for .jpg file extension, and
+  changed search.py to display the test image and result images scaled to 20%
+
+
+command:
+
+python3 search.py --index index.csv --query queries/Red-wingedBlackbirdMale.jpg --result-path dataset
+
+takes roughly 1 minute to find and display resized test photo and first match
+
+
+The feature extractor worked very well to distinquish a pyramid shot, a tree by the sea, a sunset, or a fish 
+   with near 100% first or second match, 
+
+As an untuned for birds extractor on a wildly random dataset of birds, the result was another story entirely.
+
+
+For my lifelist photos as a dataset, and some of my non-lifelist bird shots as test photos:
+  17 Test Photos:
+   2 bird in results, both as the second best result: Red-wingedBlackbird and the RoseateSpoonbill
+  15 bird not in results at all
+
+   (4 different tri-color herons tried, not one matched with result set) 
+
+  4 Tests with dataset photos as the query photo produced a first match in 3 out of the four,
+    with a second result match on 1 test.
+ 
