@@ -15,7 +15,7 @@ import sys
 sys.path.append('/home/pi/Carl/plib/')
 try:
     import speak
-    import lifeLog
+    import runLog
     Carl = True
 except:
     Carl = False
@@ -98,11 +98,11 @@ with picamera.PiCamera() as camera:
             os.devnull, format='h264', motion_output=motion_detector)
         keepLooping = True
         try:
-            if Carl:  lifeLog.logger.info("Started")
+            if Carl:  runLog.logger.info("Started")
             while keepLooping:
                 camera.wait_recording(1)
         except KeyboardInterrupt:
             keepLooping = False
         finally:
             camera.stop_recording()
-            if Carl:  lifeLog.logger.info("Exit")
+            if Carl:  runLog.logger.info("Exit")
