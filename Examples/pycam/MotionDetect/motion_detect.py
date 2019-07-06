@@ -31,14 +31,13 @@ import random
 
 MOTION_MAGNITUDE = 60   # the magnitude of vectors required for motion
 MOTION_VECTORS = 10     # the number of vectors required to detect motion
-HELLO_COUNT = 300       # if number of vectors over this, probably a big person movement
+HELLO_COUNT = 100       # if number of vectors over this, probably a big person movement
 GREETINGS = ["hi", "hey", "hello", "greetings", "whats up?", "hi there", "howdy", "yo.", "I am glad you're home now","Did you bring me anything?"]
 EXITS = ["come back soon", "will you be gone long", "dont go, i ull miss you", "can I go too?"]
 availableExits = EXITS.copy()
 availableGreetings = GREETINGS.copy()
-okToSayHi = False
-startup = True
-
+time_last_spoke = datetime.datetime.now()
+NoTalkingTimeout = 60
 
 def getGreeting():
     global availableGreetings
@@ -59,8 +58,9 @@ def getExit():
     return response
 
 class MyMotionDetector(PiMotionAnalysis):
+
     def analyse(self, a):
-        global okToSayHi, availableGreetings, startup
+        global time_last_spoke
 
         raw_a = a
         # calc motion trend left or right
@@ -74,22 +74,20 @@ class MyMotionDetector(PiMotionAnalysis):
             ).clip(0, 255).astype(np.uint8)
         # Count the number of vectors with a magnitude greater than our
         # threshold
+        dtNow = datetime.datetime.now()
         vector_count = (a > MOTION_MAGNITUDE).sum()
         if vector_count > MOTION_VECTORS:
             ave_motion = np.average(a)
-            timeStrNow = datetime.datetime.now().strftime("%H:%M:%S.%f")[:12]
+            timeStrNow = dtNow.strftime("%H:%M:%S.%f")[:12]
             print('{}: Detected motion -vectors: {} ave mag: {:.0f}'.format(timeStrNow,vector_count,ave_motion))
             print('Trend {:.1f}:'.format(trend_lr))
             if (vector_count > HELLO_COUNT):
-                if  (okToSayHi and (startup == False)):
+                if  ( (dtNow - time_last_spoke).total_seconds() > NoTalkingTimeout ):
                       if trend_lr > 0: response = getExit()
                       else: response = getGreeting()
-                      if Carl: speak.say(response)
+                      if Carl: speak.say(response,100)
+                      time_last_spoke = dtNow
                       print("\n\n***** ", response)
-                      okToSayHi = False
-            else:
-                okToSayHi = True
-                startup = False
 
 with picamera.PiCamera() as camera:
     camera.resolution = (1280, 720)
