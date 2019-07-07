@@ -9,7 +9,8 @@
 from picamera import PiCamera
 from time import sleep
 from datetime import datetime
-
+import cv2
+import numpy as np
 
 def snapJPG():
     camera = PiCamera()
@@ -28,10 +29,33 @@ def snapJPG():
     camera.close()
     return fname
 
+def captureOCV(x=640, y=480, lowlight=False):
+    with PiCamera() as camera:
+        camera.resolution = (x,y)
+        camera.framerate = 24
+        if lowlight:
+            camera.brightness = 70  # default 50
+            camera.contrast = 60    # default 0
+        camera.sharpness = 75   # default 0
+        camera.awb_mode = 'incandescent'
+        sleep(2)
+        image = np.empty((y * x * 3,), dtype=np.uint8)
+        camera.capture(image, 'bgr')
+        image = image.reshape((y, x, 3))
+        camera.close()
+    return image
+
 def main():
     print("Testing snapJPG()")
     fname = snapJPG()
     print("snapJPG() wrote ", fname)
+
+    print("Testing captureOCV()")
+    image = captureOCV()
+    cv2.imshow("captureOCV() image",image)
+    image2 = captureOCV(lowlight=True)
+    cv2.imshow("captureOCV(lowlight=True) image",image2)
+    cv2.waitKey(0)
 
 if (__name__ == "__main__"): main()
 

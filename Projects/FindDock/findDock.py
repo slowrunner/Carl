@@ -76,24 +76,63 @@ POV_ANGLE      = 1.84 # deg up   (325mm above floor at 2794mm)
 POV_ELEVATION  = 235  # mm (9.25 inches) above floor
 POV_TILT       = 2.0 # deg
 OVERLAP_H_ANGLE = 0.0 # deg overlap of successive images
+HSVmin   = (29, 190, 150)  # green LEDs in HSV colorspace
+HSVmax   = (99, 255, 255)  
 
 # VARIABLES
 
 
 # METHODS
 
+def hsvGreenMask(image):
+    # use HSV filter to mask out everything but green LEDs
+ 
+    # usefult to blur the image first
+    blurred = cv2.GaussianBlur(image, (11,11), 0)
+    # convert image to hsv color space
+    hsvImage = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
+    hsvMasked = cv2.inRange(hsvImage, HSVmin, HSVmax)
+    cv2.imshow("Masked View", hsvMasked)
+
+    return hsvMasked
+
+def cirleErodeDialate(mask):
+    # generate a circular kernel
+    kernel = cv2.getStructureingElement(cv2.MORPH_ELLIPSE, (9,9))
+    # erode to clean 
+    eroded = cv2.erode(mask, kernel, iterations=2)
+    cv2.imshow("eroded mask",eroded)
+    # dilate to circle
+    dilated = cv3.dilate(eroded, kernel, iterations=2)
+    cv2.imshow("dialated mask",dilated)
+    return dilated
+
+def findLEDs(masked):
+    # find contours in the mask
+    cnts = cv2.findContours(masked.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours = imutils.grab_contours(cnts)
+    print("Probable {} LEDs:".format(len(contours), contours)
+    return contours
+
 def findDock(egpg, verbose = True):
     foundDock = False
     angleSearched = 0
     greenLEDs = []
+    currentHeading = 0
     while ( (not foundDock) and (angleSearched < 360)):
-        # image = captureImage()
         if verbose:
             strToLog = "Capturing Image"
             runLog.logger.info(strToLog)
             speak.say(strToLog)
-        fname = camUtils.snapJPG()
-        # masked = greenMask(image)
+        # fname = camUtils.snapJPG()
+        image = camUtils.captureImage()
+        cv2.imshow("View at heading: {:.0f} deg".format(currentHeading),image)
+
+        hsvGreenMasked = hsvGreenMask(image)
+        circleProcessd = circleErodeDialate(hsvGreenMasked)
+
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
         # greenLEDs = findGreenLEDs(masked)
 
         if angleSearched == 0:
@@ -109,17 +148,18 @@ def findDock(egpg, verbose = True):
                 speak.say(strToLog)
         elif (angleSearched < 360):
             angleToTurn = (FOV_H_ANGLE-OVERLAP_H_ANGLE)
-            if verbose: 
-                strToLog = "Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(angleSearched - OVERLAP_H_ANGLE) )
+            if verbose:
+                strToLog = "Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(currentHeading+angleToTurn) )
                 runLog.logger.info(strToLog)
                 speak.say(strToLog)
             egpg.turn_degrees(angleToTurn)
+            currentHeading = currentHeading + angleToTurn
     if foundDock:
         if (len(greenLEDs) > 1):  pixelHV = np.average(greenLEDs)
         # horizAngleToDock = horizAngleToObjInFOV(pixelHV)
 
-    if verbose:  
-        strToLog = "foundDock returning {}".format(foundDock)
+    if verbose:
+        strToLog = "findDock returning {}".format(foundDock)
         runLog.logger.info(strToLog)
         speak.say(strToLog)
 
@@ -145,8 +185,13 @@ def main():
     try:
         dtNow = dt.datetime.now()
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
-        print("Starting findDock() at {}".format(timeStrNow))
+        strToLog ="Starting findDock() at {}".format(timeStrNow)
+        print(strToLog)
+        # runLog.logger.info(strToLog)
+        # speak.say(strToLog)
+
         foundDock = findDock(egpg)
+
         dtNow = dt.datetime.now()
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         if foundDock:
