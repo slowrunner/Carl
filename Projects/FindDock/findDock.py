@@ -11,21 +11,21 @@ Documentation:
    3) Find number and position in the image of green LED(s)
    4) If no LEDs and number of captures < "360 degrees of captures": 
           turn capture width and continue from step 1
-      else if no LEDs in 360 degrees: declare "dock not visible (at this location)"
-   4) Calculate dock angle relative to heading angle
-   5) Estimate dock distance based on vertical LED position in image
-   6) Point distance sensor toward dock, take distance reading
-   7) Fuse estimate and reading for distance to dock
-   6) Point distance sensor fwd and 10" away (for U turn clearance plus 1")
-   7) If distance to dock GE 30" turn to face dock, otherwise turn away from dock
-   8) While distance sensor reading > 9" (U turn clearance), drive to point 30" from dock
-   9) If drove away from dock, turn to face dock
-  10) Perform wall_scan() returns distance to wall, angle to wall normal
-  11) Calculate turn angle to intersect wall normal from dock at 90 degrees
-  12) Calculate distance from current position to dock wall normal
-  11) Turn to intersect wall normal from dock at 90 degrees
-  12) While distance sensor reading > 9", drive to dock wall normal
-  13) Turn to face dock
+      else: declare "dock not visible (at this location)"
+   5) Calculate dock angle relative to heading angle using horiz LED position in image
+   6) Estimate dock distance based on vertical LED position in image
+   7) Point distance sensor toward dock, take distance reading
+   8) Fuse estimate and reading for distance to dock
+   9) Point distance sensor fwd and 10" away (for U turn clearance plus 1")
+   10) If distance to dock GE 30" turn to face dock, otherwise turn away from dock
+   11) While distance sensor reading > 9" (U turn clearance), drive to point 30" from dock
+   12) If drove away from dock, turn to face dock
+   13) Perform wall_scan() returns distance to wall, angle to wall normal
+   14) Calculate turn angle to intersect wall normal from dock at 90 degrees
+   15) Calculate distance from current position to dock-ctr-wall-normal
+   16) Turn to intersect wall-normal-from-dock at 90 degrees
+   17) While distance sensor reading > 9", drive to dock-wall-normal
+   18) Turn to face dock
 
   Followed by approach_dock(), and then dock()
 
@@ -46,6 +46,7 @@ try:
     import runLog
     import myconfig
     import myimutils   # display(windowname, image, scale_percent=30)
+    import camUtils
     Carl = True
 except:
     Carl = False
@@ -68,14 +69,61 @@ import cv2
 # loopFlag = args['loop']
 
 # CONSTANTS
-
+FOV_H_ANGLE    = 53.0
+FOV_V_ANGLE    = 41.0
+POV_H_ANGLE    = 0.0
+POV_ANGLE      = 1.84 # deg up   (325mm above floor at 2794mm)
+POV_ELEVATION  = 235  # mm (9.25 inches) above floor
+POV_TILT       = 2.0 # deg
+OVERLAP_H_ANGLE = 0.0 # deg overlap of successive images
 
 # VARIABLES
 
 
-# METHODS 
+# METHODS
 
+def findDock(egpg, verbose = True):
+    foundDock = False
+    angleSearched = 0
+    greenLEDs = []
+    while ( (not foundDock) and (angleSearched < 360)):
+        # image = captureImage()
+        if verbose:
+            strToLog = "Capturing Image"
+            runLog.logger.info(strToLog)
+            speak.say(strToLog)
+        fname = camUtils.snapJPG()
+        # masked = greenMask(image)
+        # greenLEDs = findGreenLEDs(masked)
 
+        if angleSearched == 0:
+            angleSearched += FOV_H_ANGLE
+        else:
+            angleSearched += (FOV_H_ANGLE - OVERLAP_H_ANGLE)
+
+        if ( len(greenLEDs) > 0 ):
+            foundDock = True
+            if verbose:
+                strToLog = "Found LEDs"
+                runLog.logger.info(strToLog)
+                speak.say(strToLog)
+        elif (angleSearched < 360):
+            angleToTurn = (FOV_H_ANGLE-OVERLAP_H_ANGLE)
+            if verbose: 
+                strToLog = "Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(angleSearched - OVERLAP_H_ANGLE) )
+                runLog.logger.info(strToLog)
+                speak.say(strToLog)
+            egpg.turn_degrees(angleToTurn)
+    if foundDock:
+        if (len(greenLEDs) > 1):  pixelHV = np.average(greenLEDs)
+        # horizAngleToDock = horizAngleToObjInFOV(pixelHV)
+
+    if verbose:  
+        strToLog = "foundDock returning {}".format(foundDock)
+        runLog.logger.info(strToLog)
+        speak.say(strToLog)
+
+    return foundDock
 
 # MAIN
 
@@ -95,16 +143,18 @@ def main():
         tiltpan.off()
 
     try:
-        #  loop
-        loopSleep = 1 # second
-        loopCount = 0
-        keepLooping = True
-        while keepLooping:
-            loopCount += 1
+        dtNow = dt.datetime.now()
+        timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
+        print("Starting findDock() at {}".format(timeStrNow))
+        foundDock = findDock(egpg)
+        dtNow = dt.datetime.now()
+        timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
+        if foundDock:
+           print("findDock() reports success at {}".format(timeStrNow))
+        else:
+           print("findDock() reports failure at {}".format(timeStrNow))
 
 
-
-            sleep(loopSleep)
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
             print("\n*** Ctrl-C detected - Finishing up")

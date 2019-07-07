@@ -10,6 +10,9 @@ __pycache__/
 .DS_Store
 *.json
 
+# Alan added for Carl folders
+/home/pi/Carl/images
+
 # Alan added for Examples/cpp
 CMakeCache.txt
 CMakeFiles/
