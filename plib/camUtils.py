@@ -12,6 +12,8 @@ from datetime import datetime
 import cv2
 import numpy as np
 
+CAM_TILT = 2.0  # 1.53
+
 def snapJPG():
     camera = PiCamera()
     camera.resolution = (2592, 1944)
@@ -45,16 +47,28 @@ def captureOCV(x=640, y=480, lowlight=False):
         camera.close()
     return image
 
+def fixTilt(image):
+    # Note: extra pixels will be black
+    (h,w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, CAM_TILT, 1.0)
+    rotated = cv2.warpAffine(image, M, (w, h))
+    return rotated
+
 def main():
     print("Testing snapJPG()")
     fname = snapJPG()
     print("snapJPG() wrote ", fname)
 
-    print("Testing captureOCV()")
+    print("Testing captureOCV() and fixTilt()")
     image = captureOCV()
     cv2.imshow("captureOCV() image",image)
     image2 = captureOCV(lowlight=True)
     cv2.imshow("captureOCV(lowlight=True) image",image2)
+    print("image2 shape [y,x]", image2.shape[:2])
+    image3 = fixTilt(image2)
+    print("fixTilt() image shape [y,x]", image3.shape[:2])
+    cv2.imshow("fixTilt() applied", image3)
     cv2.waitKey(0)
 
 if (__name__ == "__main__"): main()
