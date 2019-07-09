@@ -70,16 +70,16 @@ import imutils
 # loopFlag = args['loop']
 
 # CONSTANTS
-FOV_H_ANGLE    = 55.5
+FOV_H_ANGLE    = 55.5  # empirical
 FOV_V_ANGLE    = 41.0
 POV_H_ANGLE    = 0.0
 POV_ANGLE      = 1.84 # deg up   (325mm above floor at 2794mm)
 POV_ELEVATION  = 235  # mm (9.25 inches) above floor
 POV_TILT       = 2.0 # deg
-OVERLAP_H_ANGLE = 0.0 # deg overlap of successive images
-HSVmin   = (29, 150, 100)  # green LEDs in HSV colorspace
+OVERLAP_H_ANGLE = 3.1 # deg overlap of successive images to make 360 in 7 images 
+HSVmin   = (29, 190, 100)  # green LEDs in HSV colorspace
 HSVmax   = (99, 255, 255)
-
+MAX_LED_RADIUS = 6
 # VARIABLES
 
 
@@ -90,9 +90,9 @@ def topMask(image):
     mask = np.zeros(image.shape[:2], dtype = "uint8")
     notMaskV = image.shape[0] // 2
     cv2.rectangle(mask, (0,notMaskV), (image.shape[1], image.shape[0]), 255, -1)
-    cv2.imshow("top mask", mask)
+    # cv2.imshow("top mask", mask)
     maskedImage = cv2.bitwise_and(image, image, mask = mask)
-    cv2.imshow("top masked image",maskedImage)
+    # cv2.imshow("top masked image",maskedImage)
     return maskedImage
 
 def hsvGreenMask(image):
@@ -100,32 +100,50 @@ def hsvGreenMask(image):
 
     # usefult to blur the image first
     blurred = cv2.GaussianBlur(image, (3,3), 0)
-    cv2.imshow("Blurred 3,3",blurred)
+    # cv2.imshow("Blurred 3,3",blurred)
     # convert image to hsv color space
     hsvImage = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
     # hsvImage = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     hsvMasked = cv2.inRange(hsvImage, HSVmin, HSVmax)
-    cv2.imshow("Masked View", hsvMasked)
+    # cv2.imshow("Masked View", hsvMasked)
 
     return hsvMasked
 
-def circleErodeDilate(mask):
+def circleDilate(mask):
     # generate a circular kernel
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9,9))
-    # erode to clean 
-    eroded = cv2.erode(mask, kernel, iterations=2)
-    cv2.imshow("eroded mask",eroded)
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
     # dilate to circle
-    dilated = cv2.dilate(eroded, kernel, iterations=2)
+    dilated = cv2.dilate(mask, kernel, iterations=2)
     cv2.imshow("dilated mask",dilated)
     return dilated
 
 def findLEDs(masked):
+
+    ledsFound = []
     # find contours in the mask
     cnts = cv2.findContours(masked.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = imutils.grab_contours(cnts)
     print("Probable {} LEDs:".format(len(contours), contours))
-    return contours
+    if ( 2 >= len(contours) > 0 ):
+      for c in contours:
+          # comput the center of the contour
+          #M = cv2.moments(c)
+          #cX = int(M["m10"] / M["m00"])
+          #cY = int(M["m01"] / M["m00"])
+          # (x,y), raadius
+          (x,y),radius = cv2.minEnclosingCircle(c)
+          ctr = ( int(x), int(y) )
+          radius = int(radius)
+          if (radius <= MAX_LED_RADIUS):
+              ledsFound += [(ctr,radius,c)]
+          else:
+             # disqualify whole set if radius is too big
+             print("Throwing out set, radius {} too big.".format(radius))
+             ledsFound = []
+             break
+    elif (len(contours) > 2):
+        print("Too many hits.  Ignoring")
+    return ledsFound
 
 def findDock(egpg, verbose = True):
     foundDock = False
@@ -139,7 +157,7 @@ def findDock(egpg, verbose = True):
             speak.say(strToLog)
 
         # can use to fine tune FOV_H_ANGLE with OVERLAP_H_ANGLE=0 (turn_deg() accuracy)
-        fname = camUtils.snapJPG()
+        # fname = camUtils.snapJPG()
 
         image = camUtils.captureOCV()
         cv2.imshow("View at heading: {:.0f} deg".format(currentHeading),image)
@@ -150,27 +168,23 @@ def findDock(egpg, verbose = True):
         # mask anything not LED green
         hsvGreenMasked = hsvGreenMask(topMasked)
 
-        # circleProcessed = circleErodeDilate(hsvGreenMasked)
-        # greenLEDs = findLEDs(circleProcessed)
+        circleProcessed = circleDilate(hsvGreenMasked)
+        greenLEDs = findLEDs(circleProcessed)
 
-        greenLEDs = findLEDs(hsvGreenMasked)
-
-
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
 
         if angleSearched == 0:
             angleSearched += FOV_H_ANGLE
         else:
             angleSearched += (FOV_H_ANGLE - OVERLAP_H_ANGLE)
 
-        if ( len(greenLEDs) > 0 ):
+        if ( 2 >= len(greenLEDs) > 0 ):
             foundDock = True
             if verbose:
                 strToLog = "Found LEDs"
                 runLog.logger.info(strToLog)
                 speak.say(strToLog)
-            print("LED Contours:",greenLEDs)
+            for led in greenLEDs:
+                print("LED ( Center(x,y),radius,contour):",led)
         elif (angleSearched < 360):
             angleToTurn = (FOV_H_ANGLE-OVERLAP_H_ANGLE)
             if verbose:
@@ -180,6 +194,7 @@ def findDock(egpg, verbose = True):
             egpg.turn_degrees(angleToTurn)
             currentHeading = currentHeading + angleToTurn
     if foundDock:
+        # cv2.waitKey(0)
         if (len(greenLEDs) > 1):
             print("Need to analyse found items")
             #  pixelHV = np.average(greenLEDs)
@@ -216,6 +231,12 @@ def main():
         tiltpan.off()
 
     try:
+        # speak.say("Action in 5 seconds.  Drive Forward 4 feet")
+        # sleep(5)
+        # egpg.drive_inches(48)
+        speak.say("Action in 5 seconds. Find Dock")
+        sleep(5)
+
         dtNow = dt.datetime.now()
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         strToLog ="Starting findDock() at {}".format(timeStrNow)
@@ -229,6 +250,8 @@ def main():
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         if foundDock:
            print("findDock() reports success at {}".format(timeStrNow))
+           cv2.waitKey(0)
+
         else:
            print("findDock() reports failure at {}".format(timeStrNow))
 
