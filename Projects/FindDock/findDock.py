@@ -60,14 +60,14 @@ import cv2
 import imutils
 
 # ARGUMENT PARSER
-# ap = argparse.ArgumentParser()
+ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
-# ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
-# args = vars(ap.parse_args())
+ap.add_argument("-v", "--view", default=False, action='store_true', help="optional view images")
+args = vars(ap.parse_args())
 # print("Started with args:",args)
 # filename = args['file']
-# loopFlag = args['loop']
+viewFlag = args['view']
 
 # CONSTANTS
 FOV_H_ANGLE    = 55.5  # empirical
@@ -80,6 +80,13 @@ OVERLAP_H_ANGLE = 3.1 # deg overlap of successive images to make 360 in 7 images
 HSVmin   = (29, 190, 100)  # green LEDs in HSV colorspace
 HSVmax   = (99, 255, 255)
 MAX_LED_RADIUS = 6
+MAX_LED_SEPARATION = 20
+CAPTURE_HRES = 640
+CAPTURE_VRES = 480
+CTR_PIXEL_H_OFFSET = 64    # The image ctr is offset 64 pixels to left of robot ctr
+STAGING_DISTANCE_INCHES = 30
+DISTANCE_SENSOR_MAX_INCHES = 90
+
 # VARIABLES
 
 
@@ -114,7 +121,7 @@ def circleDilate(mask):
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
     # dilate to circle
     dilated = cv2.dilate(mask, kernel, iterations=2)
-    cv2.imshow("dilated mask",dilated)
+    if viewFlag: cv2.imshow("dilated mask",dilated)
     return dilated
 
 def findLEDs(masked):
@@ -123,14 +130,11 @@ def findLEDs(masked):
     # find contours in the mask
     cnts = cv2.findContours(masked.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = imutils.grab_contours(cnts)
-    print("Probable {} LEDs:".format(len(contours), contours))
+    print("Probable {} LEDs".format(len(contours)))
     if ( 2 >= len(contours) > 0 ):
+      # find center and radius of each contour
+      # if either radius is too big, throw out set
       for c in contours:
-          # comput the center of the contour
-          #M = cv2.moments(c)
-          #cX = int(M["m10"] / M["m00"])
-          #cY = int(M["m01"] / M["m00"])
-          # (x,y), raadius
           (x,y),radius = cv2.minEnclosingCircle(c)
           ctr = ( int(x), int(y) )
           radius = int(radius)
@@ -141,11 +145,17 @@ def findLEDs(masked):
              print("Throwing out set, radius {} too big.".format(radius))
              ledsFound = []
              break
+      # if two possible LEDS, check distance between them < MAX_LED_SEPARATION
+      if (len(ledsFound) == 2):
+          separation = abs(ledsFound[1][0][0] - ledsFound[0][0][0])
+          if separation > MAX_LED_SEPARATION:
+              print("Throwing out set, separation {} greater than MAX_LED_SEPARATION".format(separation) )
+              ledsFound = []
     elif (len(contours) > 2):
         print("Too many hits.  Ignoring")
     return ledsFound
 
-def findDock(egpg, verbose = True):
+def findDock(egpg, verbose = False):
     foundDock = False
     angleSearched = 0
     greenLEDs = []
@@ -159,8 +169,9 @@ def findDock(egpg, verbose = True):
         # can use to fine tune FOV_H_ANGLE with OVERLAP_H_ANGLE=0 (turn_deg() accuracy)
         # fname = camUtils.snapJPG()
 
-        image = camUtils.captureOCV()
-        cv2.imshow("View at heading: {:.0f} deg".format(currentHeading),image)
+        image1 = camUtils.captureOCV()
+        image = camUtils.fixTiltOCV(image1)
+        if viewFlag: cv2.imshow("Corrected View at heading: {:.0f} deg".format(currentHeading),image)
 
         # mask off the top of image - no LEDs up there
         topMasked = topMask(image)
@@ -184,21 +195,32 @@ def findDock(egpg, verbose = True):
                 runLog.logger.info(strToLog)
                 speak.say(strToLog)
             for led in greenLEDs:
-                print("LED ( Center(x,y),radius,contour):",led)
+                if verbose:
+                    print("LED ( Center(x,y),radius,contour):",led)
+                else:
+                    print("LED Center(x,y)",led[0]," radius:",led[1])
         elif (angleSearched < 360):
             angleToTurn = (FOV_H_ANGLE-OVERLAP_H_ANGLE)
+            strToLog = "Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(currentHeading+angleToTurn) )
             if verbose:
-                strToLog = "Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(currentHeading+angleToTurn) )
                 runLog.logger.info(strToLog)
                 speak.say(strToLog)
+            print(strToLog)
             egpg.turn_degrees(angleToTurn)
             currentHeading = currentHeading + angleToTurn
     if foundDock:
         # cv2.waitKey(0)
         if (len(greenLEDs) > 1):
-            print("Need to analyse found items")
-            #  pixelHV = np.average(greenLEDs)
-            # horizAngleToDock = horizAngleToObjInFOV(pixelHV)
+            dockPixel = (greenLEDs[0][0][0] + greenLEDs[1][0][0]) // 2
+        else:  dockPixel = greenLEDs[0][0][0]
+        # dockPixel = min((dockPixel + CTR_PIXEL_H_OFFSET),CAPTURE_HRES)  # correct for image horizontal offset from bot ctr
+        dockPixel = dockPixel + CTR_PIXEL_H_OFFSET   # correct for image horizontal offset from bot ctr
+        horizAngleToDock = camUtils.hAngle(dockPixel,CAPTURE_HRES,FOV_H_ANGLE)
+        if verbose:
+            strToLog = "Turning {:.0f} degrees to face probable dock".format(horizAngleToDock)
+            runLog.logger.info(strToLog)
+            speak.say(strToLog)
+        egpg.turn_degrees(horizAngleToDock)
     else:
         angleToTurn = 360 - currentHeading
         if verbose:
@@ -219,6 +241,7 @@ def main():
     if Carl: runLog.logger.info("Started")
     try:
         egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+        ds = egpg.init_distance_sensor(port='RPI_1')     # must use HW I2C
     except:
         strToLog = "Could not instantiate an EasyGoPiGo3"
         print(strToLog)
@@ -234,7 +257,7 @@ def main():
         # speak.say("Action in 5 seconds.  Drive Forward 4 feet")
         # sleep(5)
         # egpg.drive_inches(48)
-        speak.say("Action in 5 seconds. Find Dock")
+        # speak.say("Action in 5 seconds. Find Dock")
         sleep(5)
 
         dtNow = dt.datetime.now()
@@ -250,7 +273,41 @@ def main():
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         if foundDock:
            print("findDock() reports success at {}".format(timeStrNow))
-           cv2.waitKey(0)
+           # cv2.waitKey(0)
+           distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+           if distReading > STAGING_DISTANCE_INCHES:
+              print  ("Distance Sensor: %0.1f inches" %  distReading)
+              if distReading > DISTANCE_SENSOR_MAX_INCHES:
+                  print("Distance greater than sensor maximum, requires two drives")
+                  need_two_drives = True
+                  dist_to_drive = (DISTANCE_SENSOR_MAX_INCHES - STAGING_DISTANCE_INCHES) * 0.75
+              else:
+                  need_two_drives = False
+                  dist_to_drive = distReading - STAGING_DISTANCE_INCHES
+              print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
+              sleep(5)
+              egpg.drive_inches(dist_to_drive)  # blocking
+              sleep(1)
+              if need_two_drives:
+                  distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+                  if (DISTANCE_SENSOR_MAX_INCHES > distReading > STAGING_DISTANCE_INCHES):
+                      print  ("Distance Sensor: %0.1f inches" %  distReading)
+                      dist_to_drive = distReading - STAGING_DISTANCE_INCHES
+                      print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
+                      sleep(5)
+                      egpg.drive_inches(dist_to_drive)  # blocking
+              print("On Position")
+           else:
+              print("Distance Sensor: %0.1f inches" % distReading)
+              dist_to_drive = STAGING_DISTANCE_INCHES - distReading
+              print("Pending Action: TURN 180, DRIVE {:.1f} inches".format(dist_to_drive))
+              sleep(5)
+              egpg.turn_degrees(180)
+              sleep(1)
+              egpg.drive_inches(dist_to_drive)  # blocking
+              sleep(1)
+              egpg.turn_degrees(180)
+              print("On Position")
 
         else:
            print("findDock() reports failure at {}".format(timeStrNow))
