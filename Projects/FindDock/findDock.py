@@ -246,7 +246,9 @@ def findDock(egpg):
         strToLog = "find Dock returning {}".format(foundDock)
         runLog.logger.info(strToLog)
         speak.say(strToLog)
-    if viewFlag: cv2.waitKey(0)
+    if viewFlag:
+        if verbose: speak.say("Waiting for key press to continue")
+        cv2.waitKey(0)
     return foundDock
 
 # MAIN
@@ -304,7 +306,11 @@ def main():
                       print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
                       sleep(5)
                       egpg.drive_inches(dist_to_drive)  # blocking
-              print("On Position")
+              strToLog = "On Position"
+              print(strToLog)
+              if verbose:
+                  speak.say(strToLog)
+                  runLog.logger.info(strToLog)
            else:
               print("Distance Sensor: %0.1f inches" % distReading)
               dist_to_drive = STAGING_DISTANCE_INCHES - distReading
@@ -315,10 +321,18 @@ def main():
               egpg.drive_inches(dist_to_drive)  # blocking
               sleep(1)
               egpg.turn_degrees(180)
-              print("On Position")
+              strToLog = "On Position"
+              print(strToLog)
+              if verbose:
+                  speak.say(strToLog)
+                  runLog.logger.info(strToLog)
 
         else:
-           print("findDock() reports failure at {}".format(timeStrNow))
+           strToLog = "findDock() reports failure at {}".format(timeStrNow)
+           print(strToLog)
+           if verbose:
+               speak.say(strToLog)
+               runLog.logger.info(strToLog)
 
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
