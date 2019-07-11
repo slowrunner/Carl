@@ -64,10 +64,12 @@ ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
 ap.add_argument("-v", "--view", default=False, action='store_true', help="optional view images")
+ap.add_argument("-t", "--talk", default=False, action='store_true', help="optional with TTS")
 args = vars(ap.parse_args())
 # print("Started with args:",args)
 # filename = args['file']
 viewFlag = args['view']
+verbose  = args['talk']
 
 # CONSTANTS
 FOV_H_ANGLE    = 55.5  # empirical
@@ -79,13 +81,15 @@ POV_TILT       = 2.0 # deg
 OVERLAP_H_ANGLE = 3.1 # deg overlap of successive images to make 360 in 7 images 
 HSVmin   = (29, 190, 100)  # green LEDs in HSV colorspace
 HSVmax   = (99, 255, 255)
-MAX_LED_RADIUS = 6
-MAX_LED_SEPARATION = 20
+MAX_LED_RADIUS = 5
+MAX_H_LED_SEPARATION = 20
+MAX_V_LED_SEPARATION = 4
 CAPTURE_HRES = 640
 CAPTURE_VRES = 480
 CTR_PIXEL_H_OFFSET = 64    # The image ctr is offset 64 pixels to left of robot ctr
 STAGING_DISTANCE_INCHES = 30
 DISTANCE_SENSOR_MAX_INCHES = 90
+TOP_MASK_V_PERCENT = 0.625   # pixel 300 of 480 is highest Y (smallest value) of LEDs in image
 
 # VARIABLES
 
@@ -93,11 +97,16 @@ DISTANCE_SENSOR_MAX_INCHES = 90
 # METHODS
 
 def topMask(image):
-    # LEDs will not be in upper portion of image
-    mask = np.zeros(image.shape[:2], dtype = "uint8")
-    notMaskV = image.shape[0] // 2
+    # LEDs will not be in upper portion of image, so mask out small Y values
+    mask = np.zeros(image.shape[:2], dtype = "uint8")  # build mask the size of image
+
+    # compute highest Y (smallest value) valid LEDs can appear in an image
+    notMaskV = int(TOP_MASK_V_PERCENT * image.shape[0]) # 300 of 480, was 240 ( image.shape[0] // 2)
+
+    # create a notMasked area from notMaskV to bottom of image
     cv2.rectangle(mask, (0,notMaskV), (image.shape[1], image.shape[0]), 255, -1)
-    # cv2.imshow("top mask", mask)
+
+    # apply the mask to the captured image (leaving only the lower portion of the image)
     maskedImage = cv2.bitwise_and(image, image, mask = mask)
     # cv2.imshow("top masked image",maskedImage)
     return maskedImage
@@ -107,7 +116,7 @@ def hsvGreenMask(image):
 
     # usefult to blur the image first
     blurred = cv2.GaussianBlur(image, (3,3), 0)
-    # cv2.imshow("Blurred 3,3",blurred)
+
     # convert image to hsv color space
     hsvImage = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
     # hsvImage = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
@@ -145,17 +154,23 @@ def findLEDs(masked):
              print("Throwing out set, radius {} too big.".format(radius))
              ledsFound = []
              break
-      # if two possible LEDS, check distance between them < MAX_LED_SEPARATION
+      # if two possible LEDS, check horizontal distance between them < MAX_LED_SEPARATION
       if (len(ledsFound) == 2):
           separation = abs(ledsFound[1][0][0] - ledsFound[0][0][0])
-          if separation > MAX_LED_SEPARATION:
-              print("Throwing out set, separation {} greater than MAX_LED_SEPARATION".format(separation) )
+          if separation > MAX_H_LED_SEPARATION:
+              print("Throwing out set, separation {} greater than MAX_H_LED_SEPARATION".format(separation) )
+              ledsFound = []
+      # if two possible LEDS, check vertical distance between them < MAX_H_LED_SEPARATION
+      if (len(ledsFound) == 2):
+          separation = abs(ledsFound[1][0][1] - ledsFound[0][0][1])
+          if separation > MAX_V_LED_SEPARATION:
+              print("Throwing out set, vertical separation {} greater than MAX_V_LED_SEPARATION".format(separation) )
               ledsFound = []
     elif (len(contours) > 2):
         print("Too many hits.  Ignoring")
     return ledsFound
 
-def findDock(egpg, verbose = False):
+def findDock(egpg):
     foundDock = False
     angleSearched = 0
     greenLEDs = []
@@ -209,7 +224,6 @@ def findDock(egpg, verbose = False):
             egpg.turn_degrees(angleToTurn)
             currentHeading = currentHeading + angleToTurn
     if foundDock:
-        # cv2.waitKey(0)
         if (len(greenLEDs) > 1):
             dockPixel = (greenLEDs[0][0][0] + greenLEDs[1][0][0]) // 2
         else:  dockPixel = greenLEDs[0][0][0]
@@ -232,7 +246,7 @@ def findDock(egpg, verbose = False):
         strToLog = "find Dock returning {}".format(foundDock)
         runLog.logger.info(strToLog)
         speak.say(strToLog)
-
+    if viewFlag: cv2.waitKey(0)
     return foundDock
 
 # MAIN
@@ -254,18 +268,12 @@ def main():
         tiltpan.off()
 
     try:
-        # speak.say("Action in 5 seconds.  Drive Forward 4 feet")
-        # sleep(5)
-        # egpg.drive_inches(48)
-        # speak.say("Action in 5 seconds. Find Dock")
-        sleep(5)
-
         dtNow = dt.datetime.now()
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         strToLog ="Starting findDock() at {}".format(timeStrNow)
         print(strToLog)
-        # runLog.logger.info(strToLog)
-        # speak.say(strToLog)
+        runLog.logger.info(strToLog)
+        if verbose: speak.say(strToLog)
 
         foundDock = findDock(egpg)
 

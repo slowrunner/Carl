@@ -49,7 +49,7 @@ import myPyLib
 import speak
 from datetime import datetime
 from math import sin,cos,radians
-
+import myconfig
 import easygopigo3
 
 TILT_PORT = "SERVO2"
@@ -70,6 +70,7 @@ pan_position  = PAN_CENTER
 
 # #### Create a mutex protected instance of EasyGoPiGo3 base class
 egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+myconfig.setParameters(egpg)
 
 ts = egpg.init_servo(TILT_PORT)
 ps = egpg.init_servo(PAN_PORT)

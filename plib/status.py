@@ -38,6 +38,7 @@ import signal
 import os
 import myPyLib
 import speak
+import myconfig
 from datetime import datetime
 import easygopigo3
 import battery
@@ -109,7 +110,7 @@ def main():
 
   # #### Create a mutex protected instance of EasyGoPiGo3 base class
   egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
-
+  myconfig.setParameters(egpg)
 
   batteryLowCount = 0
 
