@@ -14,14 +14,21 @@ sys.path
 sys.path.append('/home/pi/Carl/plib')
 import tiltpan
 from time import sleep
+import easygopigo3
+import myconfig
 
 # ##### MAIN ######
 
 def main():
+  egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+  myconfig.setParameters(egpg)
+  tp = tiltpan.TiltPan(egpg)
+
+  tp.tiltpan_center()
   print("tiltpan centered")
-  tiltpan.tiltpan_center()
   sleep(0.2)
-  tiltpan.off()
+  tp.off()
+  print("tiltpan off")
 
 if __name__ == "__main__":
     main()
