@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 ############################################################################################
-# This example creates LIDAR like map using an ultrasonic sensor and a servo with the GoPiGo
+# Create LIDAR like map using DI TOF Distance Sensor on tiltpan mount with the GoPiGo
 #
-# http://www.dexterindustries.com/GoPiGo/
 # History
 # ------------------------------------------------
 # Author     	Date      		Comments
+# McDonley	July 2019		Convert to Carl's tiltpan class
 # McDonley                 Sept 18      Update to EasyGoPiGo3, DI TOF Distance Sensor
 #					New ScaleFactor based on farthest object, if debug
 # Karan		  	13 June 14  	Initial Authoring for GoPiGo with ultrasonic sensor
@@ -32,8 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/gpl-3.0.txt>.
 ############################################################################################
 #
 # ! Attach DI Distance Sensor (VL53L0X based) to either GoPiGo3 I2C port.
-# ! Attach DI Servo Pkg to GoPiGo3 SERVO1 Port.
-#   (Alan's version: pan servo to SERVO1 port, set REVERSE_AXIS=True)
 ############################################################################################
 
 #
@@ -46,6 +44,10 @@ try:
   sys.path.append('/home/pi/Carl/plib')
   carl = True
   import runLog
+  import myDistSensor
+  import tiltpan
+  import myconfig
+
 except:
   carl = False
 from collections import Counter
@@ -54,11 +56,8 @@ from time import sleep
 import printmaps
 
 debug = False			# True to print all raw values
-REVERSE_AXIS=True		# Need to reverse axis if rotate_servo(0) points right for your configuration
 
-
-
-delay=.02			# give servo time to finish moving
+delay = 0.02			# give servo time to finish moving
 
 
 #
@@ -87,11 +86,11 @@ delay=.02			# give servo time to finish moving
 # Farthest: 230 cm
 # Farthest Valid: 230 cm
 #
-def ds_map(distance_sensor, servo, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=False):
+def ds_map(ds, tp, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=True):
 	half_sector = int(sector/2)
 	incr = half_sector/int(num_of_readings/2)
 	ang = 90 - half_sector
-        right_angle = 90 + half_sector
+	right_angle = 90 + half_sector
 	ang_l = [0]*(num_of_readings+1)		# list to hold the angle of each trusted readings
 	dist_l = [0]*(num_of_readings+1)	# list to hold the distance (trusted_reading) at each angle
 	index=0
@@ -107,14 +106,14 @@ def ds_map(distance_sensor, servo, sector=160,limit=300,num_of_readings=18,sampl
 		    print("\nAngle: {:.1f} deg".format(ang))
 		#Move the servo to the next angle
 		if not rev_axis:
-			servo.rotate_servo(ang)		# DI Servo Package has shaft up, 0 = left
+			tp.pan(ang)		# DI Servo Package has shaft up, 0 = left
 		else:
-			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
+			tp.pan(180-ang)	# Shaft down servo configuration 0 = right
 		sleep(delay)
 
 		#Take the readings from the Distance sensor for this angle, validate within limit
 		for i in range(samples):
-			dist=distance_sensor.read()  # in cm
+			dist = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 10.0  # in cm
 			if dist<limit and dist>=0:
 				buf[i]=dist
 			else:
@@ -139,9 +138,9 @@ def ds_map(distance_sensor, servo, sector=160,limit=300,num_of_readings=18,sampl
 
 		#Move the servo to the next angle
 		if not rev_axis:
-			servo.rotate_servo(ang)		# DI Servo Package has shaft up, 0 = left
+			tp.pan(ang)		# DI Servo Package has shaft up, 0 = left
 		else:
-			servo.rotate_servo(180-ang)	# Shaft down servo configuration 0 = right
+			tp.pan(180-ang)	# Shaft down servo configuration 0 = right
 		sleep(delay)
 		ang+=incr
 		if ang>right_angle:
@@ -154,10 +153,12 @@ def ds_map(distance_sensor, servo, sector=160,limit=300,num_of_readings=18,sampl
 def main():
     #Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
 
-    PERSONAL_SPACE = 25  #cm
+    PERSONAL_SPACE = 25  # cm
 
     # Create an instance egpg of the GoPiGo3 class.
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)    # use_mutex=True for "thread-safety"
+    myconfig.setParameters(egpg)
+
     if carl: runLog.logger.info("Starting servoscan.py at {0:0.2f}v".format(egpg.volt()))
 
     # Create an instance of the Distance Sensor class.
@@ -166,43 +167,45 @@ def main():
     # The EasyDistanceSensor will return trusted readings out to roughly 230 cm
     #                                    and returns 300 when no obstacle seen
 
-    ds = egpg.init_distance_sensor(port='RPI_1')   # must use HW I2C
-    servo = egpg.init_servo("SERVO1")
+    #ds = egpg.init_distance_sensor(port='RPI_1')   # must use HW I2C
+    #servo = egpg.init_servo("SERVO1")
+    ds = myDistSensor.init(egpg)
+    tp = tiltpan.TiltPan(egpg)
 
     try:
-	egpg.stop()
-	while True:
-		# Scan in front of GoPiGo3
-		dist_l,ang_l=ds_map(ds, servo, sector=160,rev_axis=REVERSE_AXIS)
-		closest_object = min(dist_l)
-		servo.reset_servo()
+        egpg.stop()
+        while True:
+            # Scan in front of GoPiGo3
+            dist_l,ang_l=ds_map(ds, tp, sector=160)
+            closest_object = min(dist_l)
+            tp.center()
 
-		# Print scan data on terminal
-		printmaps.view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=230)
+            # Print scan data on terminal
+            printmaps.view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=230)
 
-		# Decide if can move forward
-		if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
-			print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
-			break
-		print("\n*** PAUSING TO ENJOY THE VIEW ***")
-		sleep(5)
+            # Decide if can move forward
+            if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
+                print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
+                break
+            print("\n*** PAUSING TO ENJOY THE VIEW ***")
+            sleep(5)
 
-		# We have clearance to move
-		dist_to_drive = (closest_object * 0.3)
-		print("\n*** WE HAVE CLEARANCE TO MOVE {:.1f}cm ***".format(dist_to_drive))
-		egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
+            # We have clearance to move
+            dist_to_drive = (closest_object * 0.3)
+            print("\n*** WE HAVE CLEARANCE TO MOVE {:.1f}cm ***".format(dist_to_drive))
+            egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
 
-	# Continue here when object within personal space
-	servo.reset_servo()
-	sleep(2)
-	servo.disable_servo()
+        # Continue here when object within personal space
+        tp.center()
+        sleep(2)
+        tp.off()
 
     except KeyboardInterrupt:
-	print("**** Ctrl-C detected.  Finishing Up ****")
+        print("**** Ctrl-C detected.  Finishing Up ****")
         if carl: runLog.logger.info("Exiting  servoscan.py at {0:0.2f}v".format(egpg.volt()))
-	servo.reset_servo()
-	sleep(2)
-	servo.disable_servo()
+        tp.center()
+        sleep(2)
+        tp.off()
 
 
 if __name__ == "__main__":
