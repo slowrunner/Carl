@@ -47,6 +47,7 @@ try:
   import myDistSensor
   import tiltpan
   import myconfig
+  import argparse
 
 except:
   carl = False
@@ -151,6 +152,12 @@ def ds_map(ds, tp, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=Fa
 
 # MAIN
 def main():
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--drive", default=False, action='store_true', help="optional scan and drive forward")
+    args = vars(ap.parse_args())
+    driveFlag = args['drive']
+
     #Make Map, GoPiGo move forward if no object within , stops makes a map and again moves forward
 
     PERSONAL_SPACE = 25  # cm
@@ -183,25 +190,26 @@ def main():
             # Print scan data on terminal
             printmaps.view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=230)
 
-            # Decide if can move forward
-            if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
-                print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
-                break
+            if driveFlag:
+                # Decide if can move forward
+                if (closest_object < PERSONAL_SPACE):	#If any obstacle is closer than desired, stop
+                    print("\n!!! FREEZE - THERE IS SOMETHING INSIDE MY PERSONAL SPACE !!!\n")
+                    break
+
+                # We have clearance to move
+                dist_to_drive = (closest_object * 0.3)
+                print("\n*** WE HAVE CLEARANCE TO MOVE {:.1f}cm ***".format(dist_to_drive))
+                sleep(5)
+                egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
             print("\n*** PAUSING TO ENJOY THE VIEW ***")
-            sleep(5)
-
-            # We have clearance to move
-            dist_to_drive = (closest_object * 0.3)
-            print("\n*** WE HAVE CLEARANCE TO MOVE {:.1f}cm ***".format(dist_to_drive))
-            egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
-
+            sleep(15)
         # Continue here when object within personal space
         tp.center()
         sleep(2)
         tp.off()
 
     except KeyboardInterrupt:
-        print("**** Ctrl-C detected.  Finishing Up ****")
+        print("\n**** Ctrl-C detected.  Finishing Up ****")
         if carl: runLog.logger.info("Exiting  servoscan.py at {0:0.2f}v".format(egpg.volt()))
         tp.center()
         sleep(2)
