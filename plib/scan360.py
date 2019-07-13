@@ -76,7 +76,7 @@ def spin_and_scan(egpg, distance_sensor, tp, degrees=360, speed=50):
     enc_right = motors_state_r[2]
     ave_enc_l +=[ (abs(enc_left) + abs(enc_right)) * 0.5]   # save average in case one turns a little faster
     if debug:
-	print("left enc:{} right enc:{}  ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
+        print("left enc:{} right enc:{}  ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
     readings = 1
 
 
@@ -104,38 +104,38 @@ def spin_and_scan(egpg, distance_sensor, tp, degrees=360, speed=50):
     # probably should have a timeout safety exit on this loop
     while motors_running:
 
-    	# Take and Store Reading
-    	reading_l += [distance_sensor.read_mm()]     # in mm to keep precision
+        # Take and Store Reading
+        reading_l += [distance_sensor.read_mm()]     # in mm to keep precision
 
-	# get encoder value and motor speed value
-  	motors_state_l = egpg.get_motor_status(egpg.MOTOR_LEFT)
-    	motors_state_r = egpg.get_motor_status(egpg.MOTOR_RIGHT)
+        # get encoder value and motor speed value
+        motors_state_l = egpg.get_motor_status(egpg.MOTOR_LEFT)
+        motors_state_r = egpg.get_motor_status(egpg.MOTOR_RIGHT)
 
-	# if either motor/wheel has a non-zero speed, motors_running will be set non-zero (used as True/False)
-    	motors_running = motors_state_l[3] | motors_state_r[3]
+        # if either motor/wheel has a non-zero speed, motors_running will be set non-zero (used as True/False)
+        motors_running = motors_state_l[3] | motors_state_r[3]
 
-	# extract encoder values from motor state returns
-    	enc_left = motors_state_l[2]
-    	enc_right = motors_state_r[2]
+        # extract encoder values from motor state returns
+        enc_left = motors_state_l[2]
+        enc_right = motors_state_r[2]
 
-	# save encoder average in a list (averaged in case one turns a little faster)
-    	ave_enc_l +=[ (abs(enc_left) + abs(enc_right)) / 2.0]
-    	if debug:
-	   print("left enc:{} right enc:{}  ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
+        # save encoder average in a list (averaged in case one turns a little faster)
+        ave_enc_l +=[ (abs(enc_left) + abs(enc_right)) / 2.0]
+        if debug:
+           print("left enc:{} right enc:{}  ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
 
-	if debug:
-	    print("\nleft enc:{} right enc:{} ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
-	    print("Readings:{} Reading:{:.1f} spun:{:.1f} deg".format(readings, \
+        if debug:
+            print("\nleft enc:{} right enc:{} ave enc:{:.1f}".format(enc_left,enc_right,ave_enc_l[readings]))
+            print("Readings:{} Reading:{:.1f} spun:{:.1f} deg".format(readings, \
 								reading_l[readings], \
 								encoder_ave_to_spin_deg(egpg, ave_enc_l[readings])))
-	# increment readings count for this datum
+        # increment readings count for this datum
         readings += 1
 
-	# timer to measure loop
+        # timer to measure loop
         if timing: reading_took=clock() - start
 
         #sleep(reading_delay)
-	if timing: start = clock()
+        if timing: start = clock()
 
     # convert average encoder reading to degrees turned and add 90 degrees for start angle
     # angle = 90 + (Wheel Dia * Ave_Enc) / Wheel Base Cir     # simplified by *pi/pi) and *360/360 cancels
@@ -165,18 +165,18 @@ def main():
     # speeds = [300, 100, 50, 30]
     speeds = [150, 50, 300]
     for spd in speeds:
-	try:
-	    print("\nSPIN 360 AND SCAN at speed={}".format(spd))
-	    dist_list_mm,at_angle_list = spin_and_scan(egpg, ds, tp, 360, speed=spd)   # spin in place and take distance sensor readings
-	    range_list_cm = [ dist/10 for dist in dist_list_mm ]
-	    printmaps.view360(range_list_cm, at_angle_list)                # print view (all r positive, theta 0=left
-	    print("Readings:{}".format(len(at_angle_list)))
+        try:
+            print("\nSPIN 360 AND SCAN at speed={}".format(spd))
+            dist_list_mm,at_angle_list = spin_and_scan(egpg, ds, tp, 360, speed=spd)   # spin in place and take distance sensor readings
+            range_list_cm = [ dist/10 for dist in dist_list_mm ]
+            printmaps.view360(range_list_cm, at_angle_list)                # print view (all r positive, theta 0=left
+            print("Readings:{}".format(len(at_angle_list)))
 
-	except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
+        except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
             runLog.logger.info("Exiting  scan360.py at {0:0.2f}v".format(egpg.volt()))
 
-    	    print("Ctrl-C detected - Finishing up")
+            print("Ctrl-C detected - Finishing up")
     egpg.stop()
 
 if __name__ == "__main__":
