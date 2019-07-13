@@ -78,7 +78,7 @@ def printStatus(egpg,ds):
 
 
   print ("\n********* CARL Basic STATUS *****")
-  print (datetime.now().date(), getUptime())
+  print( datetime.now().date(), getUptime())
   vBatt = egpg.volt()  # use thread-safe version not get_battery_voltage
   print ("Battery Voltage: %0.2f" % vBatt)
   v5V = egpg.get_voltage_5v()
@@ -127,7 +127,7 @@ def main():
   # ### Create (protected) instance of EasyDistanceSensor
   if dsFlag: 
     try:
-        ds = egpg.init_distance_sensor(port='RPI_1')  # must use HW I2C, use_mutex=True passed from egpg
+        ds = myDistSensor.init(egpg)
     except:
         ds = None
   else: ds = None
