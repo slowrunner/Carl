@@ -86,7 +86,7 @@ delay = 0.02			# give servo time to finish moving
 # Farthest: 230 cm
 # Farthest Valid: 230 cm
 #
-def ds_map(ds, tp, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=True):
+def ds_map(ds, tp, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=False):
 	half_sector = int(sector/2)
 	incr = half_sector/int(num_of_readings/2)
 	ang = 90 - half_sector
