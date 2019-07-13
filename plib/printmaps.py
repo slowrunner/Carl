@@ -63,6 +63,7 @@ import random
 
 debug = False                  # True to print all raw values
 
+IGNORE_OVER_CM = 230
 
 # ******** PRINT FORWARD 180 Degree VIEW *********
 #
@@ -78,7 +79,7 @@ debug = False                  # True to print all raw values
 #				  or if sensor returns a particular value if nothing detected
 #
 
-def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
+def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=IGNORE_OVER_CM):
         CHAR_ASPECT_RATIO=2.12
         if debug: print("view180() called with grid_width:",grid_width)
         if not(grid_width % 2): grid_width -=1
@@ -90,7 +91,10 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=300):
         x=[0]*(num_of_readings+1)       # list to hold the x coordinate of each point
         y=[0]*(num_of_readings+1)       # list to hold the y coordinate of each point
         grid_height = int( int((grid_width-3)/2) / CHAR_ASPECT_RATIO)
-        max_valid = max(valid_dist_l)
+        if num_of_readings > 0:
+            max_valid = max(valid_dist_l)
+        else:
+            max_valid = IGNORE_OVER_CM
         X_SCALE_FACTOR=max_valid/int((grid_width-3)/2)
         Y_SCALE_FACTOR=X_SCALE_FACTOR * CHAR_ASPECT_RATIO
         if debug:
