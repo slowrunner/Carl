@@ -394,12 +394,12 @@ def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
           os.system("sudo shutdown -h now")
           sys.exit(0)
 
-def undock(egpg,ds):
+def undock(egpg,ds,tp):
     global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
     global lastChangeRule,dtLastDockingStateChange,chargeConditioning
 
     printValues()
-    tiltpan.tiltpan_center()
+    tp.tiltpan_center()
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
     if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
          (dockingState == DOCKED) ):
@@ -471,7 +471,7 @@ def undock(egpg,ds):
     tiltpan.off()
     # exit undock
 
-def dock(egpg,ds):
+def dock(egpg,ds,tp):
     global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount,dtLastDockingStateChange
 
     print("\n**** DOCKING REQUESTED ****")
@@ -491,7 +491,7 @@ def dock(egpg,ds):
         print("**** ERROR: Docking request when not undocked")
         return
 
-    tiltpan.tiltpan_center()
+    tp.tiltpan_center()
     distanceReadings = []
     for x in range(6):
         sleep(0.2)
@@ -556,7 +556,7 @@ def dock(egpg,ds):
         speak.say("Unknown docking error.")
         sleep(5)
 
-    tiltpan.off()
+    tp.off()
     # exit dock()
 
 def dockingTest(egpg,ds,numTests = 30):
@@ -582,7 +582,7 @@ def dockingTest(egpg,ds,numTests = 30):
         print("Charging State:", printableCS[chargingState])
         speak.whisper("Charging State is "+printableCS[chargingState])
         if (shortMeanVolts > DOCKING_TEST_LIMIT):
-            undock(egpg,ds)
+            undock(egpg,ds,tp)
             print("Status after undock()")
             print("Docking State:", printableDS[dockingState])
             speak.whisper("Docking state is "+printableDS[dockingState])
@@ -599,7 +599,7 @@ def dockingTest(egpg,ds,numTests = 30):
                 sleep(5)
 
 
-                dock(egpg,ds)
+                dock(egpg,ds,tp)
                 print("Status after dock()")
                 print("Docking State:", printableDS[dockingState])
                 speak.whisper("Docking state is "+printableDS[dockingState])
@@ -628,10 +628,11 @@ def main():
        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
        lifeLog.logger.info("---- juicer.py started at {:.2f}v".format(egpg.volt()))
        myconfig.setParameters(egpg)
-       ds = egpg.init_distance_sensor(port='RPI_1')   # must use hardware I2C
-       tiltpan.tiltpan_center()
+       ds = myDistSensor.init(egpg)
+       tp = tiltpan.TiltPan(egpg)
+       tp.tiltpan_center()
        sleep(0.5)
-       tiltpan.off()
+       tp.off()
     else:
        egpg = None
 
@@ -676,7 +677,7 @@ def main():
             if ((chargingState == TRICKLING) and \
                (dockingState == DOCKED)):
                 print("\n**** Time to get off the pot")
-                undock(egpg,ds)
+                undock(egpg,ds,tp)
             # End of play time
             if ((chargingState == NOTCHARGING) and \
                 (dockingState == NOTDOCKED) and \
@@ -689,7 +690,7 @@ def main():
                 speak.whisper(action)
                 egpg.orbit(180)
                 sleep(5)
-                dock(egpg,ds)
+                dock(egpg,ds,tp)
                 if (chargeConditioning > 0) and (chargeConditioning < 4):
                     lifeLog.logger.info("-- Charge Conditioning {} completed".format(chargeConditioning))
                     chargeConditioning += 1
@@ -709,7 +710,7 @@ def main():
                 speak.say("Docking Failure Possible, undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible")
                 # resetChargingStateToUnknown()  # clear the voltage history to not confuse rules
-                undock(egpg,ds)
+                undock(egpg,ds,tp)
             # False detection of Trickling as Charging - need to undock/dock
             if ((dockingState == DOCKED) and \
                 (chargingState == CHARGING) and \
@@ -721,7 +722,7 @@ def main():
                 speak.say("Charger Trickling, I Need A Real Charge. Undocking.")
                 lifeLog.logger.info("---- Docking Failure Possible. Trickling, Need Charging")
                 # resetChargingStateToUnknown() # clear the voltage history to not confuse rules
-                undock(egpg,ds)
+                undock(egpg,ds,tp)
 
 
             sleep(readingEvery)
