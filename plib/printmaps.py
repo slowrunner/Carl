@@ -513,6 +513,8 @@ def create360TestWallData(dist_to_walls=50,items=24,sensor_error_pct=0):
 
 
 def createTestWallOnRight():
+     # dist at 180 deg = 30
+     # dist at each angle = x / cos(rads(180-theta))
      theta_list = [120,    135,   150]
      r_list =     [60.0, 42.43, 34.64]
      return r_list,theta_list
