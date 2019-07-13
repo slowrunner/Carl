@@ -16,11 +16,12 @@ sys.path.append('/home/pi/Carl/plib')
 
 from time import sleep, clock
 import easygopigo3 # import the GoPiGo3 class
+import myconfig
 import math
 import printmaps
 import tiltpan
 import runLog
-
+import myDistSensor
 
 
 # WHEEL_DIAMETER                    # 66.5 mm default,   use (adjusted) value from EasyGoPiGo3 instance
@@ -48,12 +49,12 @@ def encoder_ave_to_spin_deg(egpg, encoder_ave):
 #	At speed= 30 takes about 120 readings (~ 3 deg)
 #
 
-def spin_and_scan(egpg, distance_sensor, degrees=360, speed=50):
+def spin_and_scan(egpg, distance_sensor, tp, degrees=360, speed=50):
     debug = False
     timing= False
 
     # center tiltpan before using distance sensor
-    tiltpan.tiltpan_center()
+    tp.tiltpan_center()
 
     reading_l = []
     at_angle_l = []
@@ -148,23 +149,25 @@ def spin_and_scan(egpg, distance_sensor, degrees=360, speed=50):
 
 def main():
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
-    runLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
-    ds = egpg.init_distance_sensor(port='RPI_1')   # must use HW I2C
+    myconfig.setParameters(egpg)
 
+    runLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
+    ds = myDistSensor.init(egpg)
+    tp = tiltpan.TiltPan(egpg)
 
     # Adjust GOPIGO3 CONSTANTS to my bot   default EasyGoPiGo3.WHEEL_DIAMETER = 66.5 mm
-    egpg.WHEEL_DIAMETER = 59.0				# empirical from systests/wheelDiaRotateTest.py
-    egpg.WHEEL_CIRCUMFERENCE = egpg.WHEEL_DIAMETER * math.pi
+    # egpg.WHEEL_DIAMETER = 59.0				# empirical from systests/wheelDiaRotateTest.py
+    # egpg.WHEEL_CIRCUMFERENCE = egpg.WHEEL_DIAMETER * math.pi
 
 
     dist_list_mm = []
     at_angle_list = []
     # speeds = [300, 100, 50, 30]
-    speeds = [120, 120]
+    speeds = [150, 50, 300]
     for spd in speeds:
 	try:
 	    print("\nSPIN 360 AND SCAN at speed={}".format(spd))
-	    dist_list_mm,at_angle_list = spin_and_scan(egpg, ds, 360, speed=spd)   # spin in place and take distance sensor readings
+	    dist_list_mm,at_angle_list = spin_and_scan(egpg, ds, tp, 360, speed=spd)   # spin in place and take distance sensor readings
 	    range_list_cm = [ dist/10 for dist in dist_list_mm ]
 	    printmaps.view360(range_list_cm, at_angle_list)                # print view (all r positive, theta 0=left
 	    print("Readings:{}".format(len(at_angle_list)))
