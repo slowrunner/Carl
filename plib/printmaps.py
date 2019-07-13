@@ -110,7 +110,7 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=IGNORE_OVER_CM):
                 if debug:
                    print("x[{}] y[{}]=[{} {}]".format(i,i,x[i],y[i]))
 
- 
+
         #Create a grid  [ [top row] , [next lower] ... [bottom (y=0) row] ]
         grid = [[0 for a in range(grid_width-2)] for a in range(grid_height+1)]
         if debug:
@@ -150,7 +150,10 @@ def view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=IGNORE_OVER_CM):
                                 print("o", end='')
                 print("|")
         print(bot_fence, label)
-        closest_obj=min(valid_dist_l)
+        if len(valid_dist_l) > 0:
+            closest_obj=min(valid_dist_l)
+        else:
+            closest_obj=min(dist_l)
         farthest_reading=max(dist_l)
         print("Each '-' is {:.1f} {}      ".format(X_SCALE_FACTOR,units),end='')
         print("Each '|' is {:.1f} {}".format(Y_SCALE_FACTOR,units))
@@ -509,8 +512,15 @@ def create360TestWallData(dist_to_walls=50,items=24,sensor_error_pct=0):
     return radius_l,theta_list
 
 
+def createTestWallOnRight():
+     theta_list = [120,    135,   150]
+     r_list =     [60.0, 42.43, 34.64]
+     return r_list,theta_list
 
-
+def createTestWallOnLeft():
+     theta_list = [60,    45,   30]
+     r_list =     [60.0, 42.43, 34.64]
+     return r_list,theta_list
 
 
 # ******* TEST MAIN *****
@@ -518,6 +528,13 @@ def main():
 
     print("***** TEST printmaps.py *******")
 
+    print("\n\nCREATE and DISPLAY: wall on left")
+    dist_l,ang_l = createTestWallOnLeft()
+    view180(dist_l, ang_l, grid_width=60)
+
+    print("\n\nCREATE and DISPLAY: wall on right")
+    dist_l,ang_l = createTestWallOnRight()
+    view180(dist_l, ang_l, grid_width=60)
 
     print("\n\nCREATE and DISPLAY: 180 Degree Sector READINGS ")
     #  CREATE EVENLY SPACED MAX DISTANCE r-theta READINGS
@@ -527,7 +544,7 @@ def main():
 
     print("\n\nCREATE and DISPLAY: 120 Degree Sector READINGS ")
     #  CREATE EVENLY SPACED MAX DISTANCE r-theta READINGS
-    dist_l,ang_l = createSectorTestData(sector=120, min_radius=2, radius=230, items=9, randomize_data=False)
+    dist_l,ang_l = createSectorTestData(sector=120, min_radius=2, radius=229, items=9, randomize_data=False)
     #  DISPLAY DATA in 180 character width
     view180(dist_l, ang_l, grid_width=60, units="cm")
 
