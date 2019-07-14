@@ -468,7 +468,7 @@ def undock(egpg,ds,tp):
         print(dt.datetime.now().strftime("%H:%M:%S"),"**** UNABLE TO UNDOCK ****")
         speak.say("Unable to undock.")
 
-    tiltpan.off()
+    tp.off()
     # exit undock
 
 def dock(egpg,ds,tp):

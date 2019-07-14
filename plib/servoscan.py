@@ -55,6 +55,7 @@ from collections import Counter
 import math
 from time import sleep
 import printmaps
+import numpy as np
 
 debug = False			# True to print all raw values
 
@@ -149,6 +150,73 @@ def ds_map(ds, tp, sector=160,limit=300,num_of_readings=18,samples=1,rev_axis=Fa
 	return dist_l,ang_l
 # END ds_map()
 
+IGNORE_OVER_CM = 230
+
+
+# returns r, theta_degrees
+def cart2polar(x,y):
+    return np.hypot(x,y), math.degrees(math.atan2(y,x))
+
+def cartl2polarl(xl,yl):
+    rl = []
+    tl = []
+    if 0 < len(xl) == len(yl):
+        for x,y in zip(xl,yl):
+            r,t = cart2polar(x,y)
+            rl += [r]
+            tl += [t]
+    return rl,tl
+
+# polar2cart(r,theta) returns x,y
+def polar2cart(r,theta_deg):
+    return r * math.cos(math.radians(theta_deg)), r * math.sin(math.radians(theta_deg))
+
+def polarl2cartl(rl, theta_degl):
+    xl = []
+    yl = []
+    if 0 < len(rl) == len(theta_degl):
+        for r,theta in zip(rl,theta_degl):
+            x,y = polar2cart(r,theta)
+            xl += [x]
+            yl += [y]
+    return xl,yl
+
+def wallAngle(x_list,y_list):
+        angle = float('nan')
+        if len(y_list) == len(x_list) > 1:
+            wall_mb = np.polyfit(x_list,y_list,1)
+            #print ("wall_mb",wall_mb)
+            #print ("wall_mb[0]",wall_mb[0])
+            angle = np.arctan(wall_mb[0])
+        return angle
+
+
+def wallAngleScan(ds,tp,sector=45,verbose=False):
+
+        # Scan in front of GoPiGo3
+        dist_l,ang_l=ds_map(ds,tp,sector)
+        closest_object = min(dist_l)
+        tp.center()
+        tp.off()
+
+        if verbose:
+            # Print scan data on terminal
+            printmaps.view180(dist_l,ang_l,grid_width=80,units="cm",ignore_over=IGNORE_OVER_CM)
+
+
+        x_list,y_list = polarl2cartl(dist_l,ang_l)
+        angle = wallAngle(x_list,y_list)
+        if np.isnan(angle):
+            if verbose:
+                print("Not enough points to determine wall angle")
+        else:
+            angle = np.degrees(angle)
+            if verbose: print("angle:{:.0f}".format(angle) )
+        return angle
+
+
+
+
 
 # MAIN
 def main():
@@ -203,6 +271,9 @@ def main():
                 egpg.drive_cm(dist_to_drive,blocking = True)	# drive 1/3 of the distance to closest object
             print("\n*** PAUSING TO ENJOY THE VIEW ***")
             sleep(15)
+            print("\n*** Wall Angle Scan ***")
+            angleToWallNormal = wallAngleScan(ds,tp,verbose=True)
+            sleep(5)
         # Continue here when object within personal space
         tp.center()
         sleep(2)

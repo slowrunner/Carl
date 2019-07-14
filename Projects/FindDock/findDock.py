@@ -47,6 +47,7 @@ try:
     import myconfig
     import myimutils   # display(windowname, image, scale_percent=30)
     import camUtils
+    import servoscan
     Carl = True
 except:
     Carl = False
@@ -257,7 +258,8 @@ def main():
     if Carl: runLog.logger.info("Started")
     try:
         egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
-        ds = egpg.init_distance_sensor(port='RPI_1')     # must use HW I2C
+        ds = myDistSensor.init(egpg)
+        tp = tiltpan.TiltPan(egpg)
     except:
         strToLog = "Could not instantiate an EasyGoPiGo3"
         print(strToLog)
@@ -265,9 +267,9 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tiltpan.tiltpan_center()
+        tp.tiltpan_center()
         sleep(0.5)
-        tiltpan.off()
+        tp.off()
 
     try:
         dtNow = dt.datetime.now()
@@ -306,7 +308,7 @@ def main():
                       print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
                       sleep(5)
                       egpg.drive_inches(dist_to_drive)  # blocking
-              strToLog = "On Position"
+              strToLog = "Facing Dock at staging distance"
               print(strToLog)
               if verbose:
                   speak.say(strToLog)
@@ -321,12 +323,30 @@ def main():
               egpg.drive_inches(dist_to_drive)  # blocking
               sleep(1)
               egpg.turn_degrees(180)
-              strToLog = "On Position"
+              strToLog = "Facing Dock at staging distance"
               print(strToLog)
               if verbose:
                   speak.say(strToLog)
                   runLog.logger.info(strToLog)
-
+           # update dist to dock wall at heading
+           distToDockWall = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+           print("Distance To Dock Wall: %0.1f inches" % distToDockWall)
+           # find heading angle from wall
+           angleToDockWall = servoscan.wallAngleScan(ds,tp,sector=45,verbose=True)
+           if np.isnan(angleToDockWall) == False:
+               if angleToDockWall > 0:
+                   turnAngle =  abs(angleToDockWall) - 90
+               elif angleToDockWall < 0:
+                   turnAngle =  90 - abs(angleToDockWall)
+               else:
+                   turnAngle =  90
+               print("Turn {:.0f} Parallel To Wall".format(turnAngle) )
+               egpg.turn_degrees(turnAngle)
+               distToDockNormal = distToDockWall * np.cos(np.radians(abs(angleToDockWall)))
+               print("Distance To Dock Normal {:.1f} cm".format(distToDockNormal))
+               egpg.drive_cm(distToDockNormal)
+               egpg.turn_degrees(90*np.sign(angleToDockWall))
+               print("ON POSITION FOR DOCKING APPROACH")
         else:
            strToLog = "findDock() reports failure at {}".format(timeStrNow)
            print(strToLog)
