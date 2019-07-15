@@ -93,8 +93,9 @@ class TiltPan():
       TiltPan.tilt_position = TILT_CENTER
       TiltPan.pan_position = PAN_CENTER
       self.tilt()
-      sleep(0.5)  # delay to limit current draw, SG90 spec: 0.12 sec/60deg
+      sleep(0.25)  # delay to limit current draw, SG90 spec: 0.12 sec/60deg
       self.pan()
+      sleep(0.25)  # delay to ensure action incase next method is off()
 
     def center(self):
       self.tiltpan_center()
