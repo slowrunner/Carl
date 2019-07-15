@@ -211,7 +211,7 @@ def wallAngleScan(ds,tp,sector=45,verbose=False):
                 print("Not enough points to determine wall angle")
         else:
             angle = np.degrees(angle)
-            if verbose: print("angle:{:.0f}".format(angle) )
+            if verbose: print("wall angle:{:.0f} degrees (0 degrees to left)".format(angle) )
         return angle
 
 

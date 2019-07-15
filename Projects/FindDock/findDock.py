@@ -88,8 +88,9 @@ MAX_V_LED_SEPARATION = 4
 CAPTURE_HRES = 640
 CAPTURE_VRES = 480
 CTR_PIXEL_H_OFFSET = 64    # The image ctr is offset 64 pixels to left of robot ctr
-STAGING_DISTANCE_INCHES = 30
+STAGING_DISTANCE_INCHES = 24 # 30
 DISTANCE_SENSOR_MAX_INCHES = 90
+DISTANCE_SENSOR_RANGE_ACCURACY = 0.04  # spec'd at 4% seems about right
 TOP_MASK_V_PERCENT = 0.625   # pixel 300 of 480 is highest Y (smallest value) of LEDs in image
 
 # VARIABLES
@@ -187,7 +188,7 @@ def findDock(egpg):
 
         image1 = camUtils.captureOCV()
         image = camUtils.fixTiltOCV(image1)
-        if viewFlag: cv2.imshow("Corrected View at heading: {:.0f} deg".format(currentHeading),image)
+        if viewFlag: cv2.imshow("Corrected View at heading: {:.0f} degrees".format(currentHeading),image)
 
         # mask off the top of image - no LEDs up there
         topMasked = topMask(image)
@@ -231,15 +232,17 @@ def findDock(egpg):
         # dockPixel = min((dockPixel + CTR_PIXEL_H_OFFSET),CAPTURE_HRES)  # correct for image horizontal offset from bot ctr
         dockPixel = dockPixel + CTR_PIXEL_H_OFFSET   # correct for image horizontal offset from bot ctr
         horizAngleToDock = camUtils.hAngle(dockPixel,CAPTURE_HRES,FOV_H_ANGLE)
+        strToLog = "Turning {:.0f} degrees to face probable dock".format(horizAngleToDock)
+        print(strToLog)
         if verbose:
-            strToLog = "Turning {:.0f} degrees to face probable dock".format(horizAngleToDock)
             runLog.logger.info(strToLog)
             speak.say(strToLog)
         egpg.turn_degrees(horizAngleToDock)
     else:
         angleToTurn = 360 - currentHeading
+        strToLog = "Not Found. Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(currentHeading+angleToTurn) )
+        print(strToLog)
         if verbose:
-            strToLog = "Not Found. Turning {:.0f} degrees to heading {:.0f}".format(angleToTurn,(currentHeading+angleToTurn) )
             runLog.logger.info(strToLog)
             speak.say(strToLog)
         egpg.turn_degrees(angleToTurn)
@@ -251,6 +254,132 @@ def findDock(egpg):
         if verbose: speak.say("Waiting for key press to continue")
         cv2.waitKey(0)
     return foundDock
+
+
+# ******************
+# navToStagingPoint()
+#
+def navToStagingPoint(egpg,ds,tp):
+           distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+           if distReading > STAGING_DISTANCE_INCHES:
+              print  ("Distance Sensor: %0.1f inches" %  distReading)
+              if distReading > DISTANCE_SENSOR_MAX_INCHES:
+                  print("Distance greater than sensor maximum, requires two drives")
+                  need_two_drives = True
+                  dist_to_drive = (DISTANCE_SENSOR_MAX_INCHES - STAGING_DISTANCE_INCHES) * 0.75
+              else:
+                  need_two_drives = False
+                  dist_to_drive = distReading - STAGING_DISTANCE_INCHES
+              strToLog = "Pending Action: FORWARD {:.1f} inches".format(dist_to_drive)
+              print(strToLog)
+              if verbose:
+                  speak.say(strToLog)
+                  runLog.logger.info(strToLog)
+              sleep(5)
+              egpg.drive_inches(dist_to_drive)  # blocking
+              sleep(1)
+              if need_two_drives:
+                  distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+                  if (DISTANCE_SENSOR_MAX_INCHES > distReading > STAGING_DISTANCE_INCHES):
+                      print  ("Distance Sensor: %0.1f inches" %  distReading)
+                      dist_to_drive = distReading - STAGING_DISTANCE_INCHES
+                      strToLog = "Pending Action: FORWARD {:.1f} inches".format(dist_to_drive)
+                      print(strToLog)
+                      if verbose:
+                          speak.say(strToLog)
+                          runLog.logger.info(strToLog)
+                      sleep(5)
+                      egpg.drive_inches(dist_to_drive)  # blocking
+              strToLog = "Facing Dock at staging distance"
+              print(strToLog)
+              if verbose:
+                  speak.say(strToLog)
+                  runLog.logger.info(strToLog)
+           else:
+              print("Distance Sensor: %0.1f inches" % distReading)
+              dist_to_drive = STAGING_DISTANCE_INCHES - distReading
+              if (dist_to_drive > DISTANCE_SENSOR_RANGE_ACCURACY * STAGING_DISTANCE_INCHES):
+                  angleToTurn = 180
+                  strToLog = "Pending Action: TURN {:.0f}, DRIVE {:.1f} inches".format(angleToTurn,dist_to_drive)
+                  print(strToLog)
+                  if verbose:
+                      speak.say(strToLog)
+                      runLog.logger.info(strToLog)
+                  sleep(5)
+                  egpg.turn_degrees(angleToTurn)
+                  sleep(1)
+                  egpg.drive_inches(dist_to_drive)  # blocking
+                  sleep(1)
+                  angleToTurn = 180
+                  strToLog = "Pending Action: TURN {:.0f} degrees".format(angleToTurn)
+                  print(strToLog)
+                  if verbose:
+                      speak.say(strToLog)
+                      runLog.logger.info(strToLog)
+                  sleep(1)
+                  egpg.turn_degrees(angleToTurn)
+              strToLog = "Facing Dock at staging distance"
+              print(strToLog)
+              if verbose:
+                  speak.say(strToLog)
+                  runLog.logger.info(strToLog)
+           # update dist to dock wall at heading
+           distToDockWall = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
+           print("Distance To Dock Wall: %0.1f inches" % distToDockWall)
+           # find heading angle from wall
+           strToLog = "Pending Action: Scan for angle of wall "
+           print(strToLog)
+           if verbose:
+               speak.say(strToLog)
+               runLog.logger.info(strToLog)
+           angleToDockWall = servoscan.wallAngleScan(ds,tp,sector=45,verbose=True)
+           if np.isnan(angleToDockWall) == False:
+               strToLog = "Result: {:.0f} degrees From Dock Wall Normal to Current Heading".format(angleToDockWall)
+               print(strToLog)
+               if verbose:
+                   speak.say(strToLog)
+                   runLog.logger.info(strToLog)
+               if angleToDockWall > 0:
+                   angleToTurn =  abs(angleToDockWall) - 90
+               elif angleToDockWall < 0:
+                   angleToTurn =  90 - abs(angleToDockWall)
+               else:
+                   angleToTurn = 90
+               # compute distance to line normal from wall/Dock
+               dist_to_drive = distToDockWall * np.cos(np.radians(abs(angleToTurn)))
+               strToLog = "Pending Action: TURN {:.0f} degrees, Parallel to wall, DRIVE {:.1f} inches".format(angleToTurn,dist_to_drive)
+               print(strToLog)
+               if verbose:
+                   speak.say(strToLog)
+                   runLog.logger.info(strToLog)
+               egpg.turn_degrees(angleToTurn)
+               egpg.drive_inches(dist_to_drive)
+
+               # turn to face dock
+               angleToTurn = 90*np.sign(angleToDockWall)
+               strToLog = "Pending Action: TURN {:.0f} degrees to face dock".format(angleToTurn)
+               print(strToLog)
+               if verbose:
+                      speak.say(strToLog)
+                      runLog.logger.info(strToLog)
+               sleep(1)
+               egpg.turn_degrees(angleToTurn)
+               strToLog = "ON POSITION FOR DOCKING APPROACH"
+               print(strToLog)
+               if verbose:
+                   speak.say(strToLog)
+                   runLog.logger.info(strToLog)
+               stagedForDocking = True
+           else:
+               strToLog = "wallAngleScan() failed to find dock wall"
+               print(strToLog)
+               if verbose:
+                   speak.say(strToLog)
+                   runLog.logger.info(strToLog)
+               stagedForDocking = False
+
+           return stagedForDocking
+
 
 # MAIN
 
@@ -268,7 +397,6 @@ def main():
     if Carl:
         myconfig.setParameters(egpg)
         tp.tiltpan_center()
-        sleep(0.5)
         tp.off()
 
     try:
@@ -286,73 +414,20 @@ def main():
         if foundDock:
            print("findDock() reports success at {}".format(timeStrNow))
            # cv2.waitKey(0)
-           distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
-           if distReading > STAGING_DISTANCE_INCHES:
-              print  ("Distance Sensor: %0.1f inches" %  distReading)
-              if distReading > DISTANCE_SENSOR_MAX_INCHES:
-                  print("Distance greater than sensor maximum, requires two drives")
-                  need_two_drives = True
-                  dist_to_drive = (DISTANCE_SENSOR_MAX_INCHES - STAGING_DISTANCE_INCHES) * 0.75
-              else:
-                  need_two_drives = False
-                  dist_to_drive = distReading - STAGING_DISTANCE_INCHES
-              print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
-              sleep(5)
-              egpg.drive_inches(dist_to_drive)  # blocking
-              sleep(1)
-              if need_two_drives:
-                  distReading = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
-                  if (DISTANCE_SENSOR_MAX_INCHES > distReading > STAGING_DISTANCE_INCHES):
-                      print  ("Distance Sensor: %0.1f inches" %  distReading)
-                      dist_to_drive = distReading - STAGING_DISTANCE_INCHES
-                      print("Pending Action: FORWARD {:.1f} inches".format(dist_to_drive))
-                      sleep(5)
-                      egpg.drive_inches(dist_to_drive)  # blocking
-              strToLog = "Facing Dock at staging distance"
-              print(strToLog)
-              if verbose:
-                  speak.say(strToLog)
-                  runLog.logger.info(strToLog)
-           else:
-              print("Distance Sensor: %0.1f inches" % distReading)
-              dist_to_drive = STAGING_DISTANCE_INCHES - distReading
-              print("Pending Action: TURN 180, DRIVE {:.1f} inches".format(dist_to_drive))
-              sleep(5)
-              egpg.turn_degrees(180)
-              sleep(1)
-              egpg.drive_inches(dist_to_drive)  # blocking
-              sleep(1)
-              egpg.turn_degrees(180)
-              strToLog = "Facing Dock at staging distance"
-              print(strToLog)
-              if verbose:
-                  speak.say(strToLog)
-                  runLog.logger.info(strToLog)
-           # update dist to dock wall at heading
-           distToDockWall = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
-           print("Distance To Dock Wall: %0.1f inches" % distToDockWall)
-           # find heading angle from wall
-           angleToDockWall = servoscan.wallAngleScan(ds,tp,sector=45,verbose=True)
-           if np.isnan(angleToDockWall) == False:
-               if angleToDockWall > 0:
-                   turnAngle =  abs(angleToDockWall) - 90
-               elif angleToDockWall < 0:
-                   turnAngle =  90 - abs(angleToDockWall)
-               else:
-                   turnAngle =  90
-               print("Turn {:.0f} Parallel To Wall".format(turnAngle) )
-               egpg.turn_degrees(turnAngle)
-               distToDockNormal = distToDockWall * np.cos(np.radians(abs(angleToDockWall)))
-               print("Distance To Dock Normal {:.1f} cm".format(distToDockNormal))
-               egpg.drive_cm(distToDockNormal)
-               egpg.turn_degrees(90*np.sign(angleToDockWall))
-               print("ON POSITION FOR DOCKING APPROACH")
+           stagedForDocking = navToStagingPoint(egpg,ds,tp)
+           if stagedForDocking == False:
+               strToLog = "navToStagingPoint() reports failure at {}".format(timeStrNow)
+               print(strToLog)
+               if verbose:
+                   speak.say(strToLog)
+                   runLog.logger.info(strToLog)
         else:
            strToLog = "findDock() reports failure at {}".format(timeStrNow)
            print(strToLog)
            if verbose:
                speak.say(strToLog)
                runLog.logger.info(strToLog)
+           stagedForDocking = False
 
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
