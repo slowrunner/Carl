@@ -66,21 +66,23 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tiltpan.tiltpan_center()
-        sleep(0.5)
-        tiltpan.off()
+        tp = tiltpan.TiltPand(egpg)
+        tp.tiltpan_center()
+        tp.off()
 
     try:
-        #  loop
+        # Do Somthing in a Loop
         loopSleep = 1 # second
         loopCount = 0
-        keepLooping = True
+        keepLooping = False
         while keepLooping:
             loopCount += 1
-
-
-
+            # do something
             sleep(loopSleep)
+
+        # Do Something Once
+
+
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
             print("\n*** Ctrl-C detected - Finishing up")
