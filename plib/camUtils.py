@@ -89,7 +89,7 @@ def fixTiltOCV(image):
 
 # hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV)
 #             returns horizontal angle off center in degrees
-def hAngle(targetPixel, hRes, hFOV):
+def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
     Base = (hRes/2) / np.tan( np.deg2rad( hFOV/2 ))
     dCtr = targetPixel - (hRes // 2)
     leftRight = np.sign(dCtr)    # negative = left, positive = right of center
