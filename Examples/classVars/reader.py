@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 #
-# filename.py
+# reader.py
 
 """
 Documentation:
+
+Uses base classes in myrobot.py to test if class vars are per process or not (hint: yes, per process)
 
 """
 
@@ -30,8 +32,9 @@ import numpy as np
 import datetime as dt
 import argparse
 from time import sleep
+import myrobot
 
-import cv2
+#import cv2
 
 # ARGUMENT PARSER
 # ap = argparse.ArgumentParser()
@@ -43,14 +46,16 @@ import cv2
 # filename = args['file']
 # loopFlag = args['loop']
 
+
 # CONSTANTS
 
 
 # VARIABLES
 
 
-# METHODS 
+# METHODS
 
+# CLASSES
 
 
 # MAIN
@@ -66,18 +71,23 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tp = tiltpan.TiltPand(egpg)
+        tp = tiltpan.TiltPan(egpg)
         tp.tiltpan_center()
         tp.off()
 
     try:
         # Do Somthing in a Loop
-        loopSleep = 1 # second
+        loopSleep = 10 # second
         loopCount = 0
-        keepLooping = False
+        keepLooping = True
+        myrobot1 = myrobot.MyRobot("myrobot1")
         while keepLooping:
             loopCount += 1
             # do something
+            print("reader.py: Loop ",loopCount)
+            print("reader.py: myrobot1.getClassVar1():",myrobot1.getClassVar1())
+            keepLooping = (myrobot1.getClassVar1() == -999)
+            if (loopCount > 12): keepLooping = False
             sleep(loopSleep)
 
         # Do Something Once

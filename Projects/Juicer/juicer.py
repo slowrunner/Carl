@@ -396,7 +396,7 @@ def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
 
 def undock(egpg,ds,tp):
     global dockingDistanceInCM,dockingState,chargingState,dtLastChargingStateChange
-    global lastChangeRule,dtLastDockingStateChange,chargeConditioning
+    global lastChangeRule,dtLastDockingStateChange,chargeConditioning,possibleEarlyTrickleVolts
 
     printValues()
     tp.tiltpan_center()
@@ -439,7 +439,7 @@ def undock(egpg,ds,tp):
              lifeLog.logger.info(strToLog)
              print(strToLog)
              dtLastDockingStateChange = dtNow
-
+             possibleEarlyTrickleVolts = 0      # undocked so possible trickle voltage no longer relevant
              # check ~/Carl/carlData.json value (if set >0 will begin rundown to lower voltage cycles)
              try:
                  chargeConditioning = int(cd.getCarlData('chargeConditioning'))
@@ -473,6 +473,7 @@ def undock(egpg,ds,tp):
 
 def dock(egpg,ds,tp):
     global dockingApproachDistanceInCM,dockingState,dockingDistanceInCM,dockingCount,dtLastDockingStateChange
+    global possibleEarlyTrickleVolts
 
     print("\n**** DOCKING REQUESTED ****")
 
@@ -550,6 +551,7 @@ def dock(egpg,ds,tp):
         strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
         lifeLog.logger.info(strToLog)
         dtLastDockingStateChange = dtNow
+        possibleEarlyTrickleVolts = 0       # reset any prior detections
         sleep(5)
     else:
         print("\n**** UNKNOWN DOCKING ERROR ****")

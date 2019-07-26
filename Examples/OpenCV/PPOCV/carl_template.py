@@ -37,9 +37,11 @@ import cv2
 # ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
+# ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
 # args = vars(ap.parse_args())
 # print("Started with args:",args)
-
+# filename = args['file']
+# loopFlag = args['loop']
 
 # CONSTANTS
 
@@ -55,24 +57,32 @@ import cv2
 
 def main():
     if Carl: runLog.logger.info("Started")
-    egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+    try:
+        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+    except:
+        strToLog = "Could not instantiate an EasyGoPiGo3"
+        print(strToLog)
+        if Carl: lifeLog.logger.info(strToLog)
+        exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tiltpan.tiltpan_center()
-        sleep(0.5)
-        tiltpan.off()
+        tp = tiltpan.TiltPand(egpg)
+        tp.tiltpan_center()
+        tp.off()
 
     try:
-        #  loop
+        # Do Somthing in a Loop
         loopSleep = 1 # second
         loopCount = 0
-        keepLooping = True
+        keepLooping = False
         while keepLooping:
             loopCount += 1
-
-
-
+            # do something
             sleep(loopSleep)
+
+        # Do Something Once
+
+
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
             print("\n*** Ctrl-C detected - Finishing up")

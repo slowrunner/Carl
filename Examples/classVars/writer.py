@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 #
-# filename.py
+# writer.py
 
 """
 Documentation:
+
+Test to see if Class vars are per process or not  (hint:  per process so bummer)
 
 """
 
@@ -30,8 +32,9 @@ import numpy as np
 import datetime as dt
 import argparse
 from time import sleep
+import myrobot
 
-import cv2
+#import cv2
 
 # ARGUMENT PARSER
 # ap = argparse.ArgumentParser()
@@ -43,14 +46,16 @@ import cv2
 # filename = args['file']
 # loopFlag = args['loop']
 
+
 # CONSTANTS
 
 
 # VARIABLES
 
 
-# METHODS 
+# METHODS
 
+# CLASSES
 
 
 # MAIN
@@ -66,22 +71,27 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tp = tiltpan.TiltPand(egpg)
+        tp = tiltpan.TiltPan(egpg)
         tp.tiltpan_center()
         tp.off()
 
     try:
         # Do Somthing in a Loop
-        loopSleep = 1 # second
+        loopSleep = 10 # second
         loopCount = 0
         keepLooping = False
         while keepLooping:
             loopCount += 1
             # do something
+            print("writer.py: Loop ",loopCount)
+            if (loopCount > 12): keepLooping = False
             sleep(loopSleep)
 
         # Do Something Once
-
+        myrobot2 = myrobot.MyRobot("myrobot2")
+        print("writer.py: myrobot2.getClassVar1():",myrobot2.getClassVar1())
+        myrobot2.setClassVar1(1000)
+        print("writer.py: myrobot2.getClassVar1():",myrobot2.getClassVar1())
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
