@@ -23,6 +23,7 @@ try:
     import runLog
     import myconfig
     import myimutils   # display(windowname, image, scale_percent=30)
+    import camUtils
     Carl = True
 except:
     Carl = False
@@ -37,14 +38,14 @@ import io
 import picamera
 
 # ARGUMENT PARSER
-# ap = argparse.ArgumentParser()
+ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
-# ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
-# args = vars(ap.parse_args())
+ap.add_argument("-v", "--view", default=False, action='store_true', help="view image and mask")
+args = vars(ap.parse_args())
 # print("Started with args:",args)
 # filename = args['file']
-# loopFlag = args['loop']
+viewFlag = args['view']
 
 # CONSTANTS
 
@@ -52,7 +53,21 @@ import picamera
 # VARIABLES
 
 
-# METHODS 
+# METHODS
+def topMask(image,maskoff_top_percent=50):
+    # Desired object will not be in upper portion of image, so mask out small Y values
+    mask = np.zeros(image.shape[:2], dtype = "uint8")  # build mask the size of image
+
+    # compute highest Y (smallest value) valid LEDs can appear in an image
+    notMaskV = int(maskoff_top_percent/100.0 * image.shape[0])
+
+    # create a notMasked area from notMaskV to bottom of image
+    cv2.rectangle(mask, (0,notMaskV), (image.shape[1], image.shape[0]), 255, -1)
+
+    # apply the mask to the image (leaving only the lower portion of the image)
+    maskedImage = cv2.bitwise_and(image, image, mask = mask)
+    # cv2.imshow("top masked image",maskedImage)
+    return maskedImage
 
 
 
@@ -101,12 +116,27 @@ def main():
             # create an OpenCV image
             frame = cv2.imdecode(buff, 1)
 
+            # Fix camera tilt
+            tiltfixed = camUtils.fixTiltOCV(frame)
+
+            # get image dimensions
+            frameWidth = tiltfixed.shape[1]
+            frameHeight = tiltfixed.shape[0]
+
             # convert to mono and blur
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            blur = cv2.GaussianBlur(gray, (9,9), 0)
+            gray = cv2.cvtColor(tiltfixed, cv2.COLOR_BGR2GRAY)
+
+            # mask off top part of image, leave only light shining on floor
+            bottom = topMask(gray,maskoff_top_percent=70)   # floor is bottom 30% approx
+
+            # blur to avoid noise
+            blur = cv2.GaussianBlur(bottom, (9,9), 0)
 
             # identify threshold intensities and locations
             (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(blur)
+
+            # print("maxVal:",maxVal)
+            # if maxVal < 140:  maxVal = 140  # flashlight circle will be bright
 
             # threshold the blurred frame accordingly
             hi, threshold = cv2.threshold(blur, maxVal-20, 230, cv2.THRESH_BINARY)
@@ -125,10 +155,10 @@ def main():
 
             # find the circle created by the light
             circles = cv2.HoughCircles(threshold, cv2.HOUGH_GRADIENT, 1.0, 20,
-                param1=200,                 # was 10
-                param2=1,                # was 15
-                minRadius=5,             # was 20
-                maxRadius=100,)            # was 100
+                param1=200,                 # high threshold for canny, was 10
+                param2=1,                   # accumulator threshold - smaller = more false circles, was 15
+                minRadius=5,                # was 20
+                maxRadius=100,)             # was 100
 
             print("{} {} contours, ".format(frame_time, len(lightcontours) ),end="")
             if circles is not None:
@@ -144,19 +174,16 @@ def main():
                 # make sure it is reasonable size
                 if cv2.contourArea(maxcontour) > 100:   # was 2000:
                     (x, final_y), radius = cv2.minEnclosingCircle(maxcontour)
-                    cv2.circle(frame, (int(x), int(final_y)), int(radius), (0, 255, 0), 4)
-                    cv2.rectangle(frame, (int(x) - 5, int(final_y) - 5), (int(x) + 5, int(final_y) + 5), (0, 128, 255), -1)
-            # display and exit
-            cv2.imshow('edges', edges)
-            cv2.imshow('frame', frame)
-            cv2.waitKey(4)
-            key = cv2.waitKey(5) & 0xFF
-            if key == ord('q'):
-                keepLooping = False
-                cv2.destroyAllWindows()
-
-
-
+                    cv2.circle(tiltfixed, (int(x), int(final_y)), int(radius), (0, 255, 0), 4)
+                    cv2.rectangle(tiltfixed, (int(x) - 5, int(final_y) - 5), (int(x) + 5, int(final_y) + 5), (0, 128, 255), -1)
+                    beamXY = (int(x), int(final_y))
+                    h_angle = camUtils.hAngle(beamXY[0],frameWidth)  #  hFOV=DEFAULT_H_FOV
+                    tp.pan(90+h_angle)
+            # display
+            if viewFlag:
+                cv2.imshow('edges', edges)
+                cv2.imshow('frame', tiltfixed)
+                cv2.waitKey(1)
 
 
             # sleep(loopSleep)
