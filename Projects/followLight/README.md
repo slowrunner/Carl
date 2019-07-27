@@ -5,9 +5,7 @@ using OpenCV to follow the beam of a flashlight shown on the floor
 Based on an example at https://botforge.wordpress.com/2016/07/25/torchflashlight-tracker-using-python-and-opencv/
 
 
-
-<iframe src="https://player.vimeo.com/video/350441698" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/350441698">Carl Wants To Play A Game</a> from <a href="https://vimeo.com/user2287375">Alan McDonley</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+Watch it run: <a href="https://vimeo.com/350441698">Carl Wants To Play A Game</a> video on Vimeo
 
 - Processing:
 
