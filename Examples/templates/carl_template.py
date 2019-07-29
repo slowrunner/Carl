@@ -66,7 +66,7 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        tp = tiltpan.TiltPand(egpg)
+        tp = tiltpan.TiltPan(egpg)
         tp.tiltpan_center()
         tp.off()
 
