@@ -4,7 +4,7 @@
 
 # snapJPG(fpath,fname,preview=False, lowlight=False, longexp=False)
 #     Takes single full resolution image, 
-#     after 5 sec delay to set exposure (or 30s for longexp=True)
+#     after delay to set exposure (0.25s or 5s lowlight, 30s longexp)
 #     defaults write image to /home/pi/Carl/images/capture_YYYYmmdd-HHMMSS.jpg
 
 # captureOCV(x=640, y=480, lowlight=False)
@@ -40,6 +40,10 @@ IMAGES_DIR = "/home/pi/Carl/images/"
 DEFAULT_FNAME = "capture_YYYYMMDD-HHMMSS.jpg"
 DEFAULT_H_FOV = 55.5
 
+LONGEXP_DELAY = 30  # let camera settle for good long time
+LOWLIGHT_DELAY = 5
+GOODLIGHT_DELAY = 0.25
+
 # snapJPG(fpath,fname,preview=False, lowlight=False, longexp=False)
 #     Takes single full resolution image,
 #     after 5 sec delay to set exposure, (or 30s longexp)
@@ -52,11 +56,11 @@ def snapJPG(fpath=IMAGES_DIR,fname=DEFAULT_FNAME, preview=False, lowlight=False,
             resolution=(2592, 1944),
             framerate=Fraction(1, 6),
             sensor_mode=3)
-        camera.shutter_speed = 6000000
+        camera.shutter_speed = 6 * 1000000  # micro seconds
         camera.iso = 800
         camera.awb_mode = 'incandescent'
-        print("snapJPG(longexp) 30s settling delay")
-        sleep(30)
+        print("snapJPG(longexp) {}s settling delay".format(LONGEXP_DELAY))
+        sleep(LONGEXP_DELAY)
         camera.exposure_mode = 'off'
     else:
         camera = PiCamera()
@@ -67,8 +71,8 @@ def snapJPG(fpath=IMAGES_DIR,fname=DEFAULT_FNAME, preview=False, lowlight=False,
         camera.sharpness = 75       # default 0
         camera.awb_mode = 'incandescent'
         if lowlight:
-            sleep(5) # 0.25 good light, 5.0 when dark - allow picam to adjust exposure
-        else: sleep(0.25)
+            sleep(LOWLIGHT_DELAY) # 0.25 good light, 5.0 when dark - allow picam to adjust exposure
+        else: sleep(GOODLIGHT_DELAY)
 
     # if have HDMI monitor hooked up
     if preview: camera.start_preview()
@@ -104,11 +108,14 @@ def captureOCV(x=640, y=480, lowlight=False):
             camera.contrast = 60    # default 0
         camera.sharpness = 75   # default 0
         camera.awb_mode = 'incandescent'
-        sleep(2)
+        if lowlight: 
+            sleep(LOWLIGHT_DELAY)
+        else:
+            sleep(GOODLIGHT_DELAY)
         image = np.empty((y * x * 3,), dtype=np.uint8)
         camera.capture(image, 'bgr')
         image = image.reshape((y, x, 3))
-        camera.close()
+        camera.close()     # theorhetically not needed for "with PiCamera()" construct
     return image
 
 # longExpOCV(x=640, y=480)
@@ -126,10 +133,11 @@ def longExpOCV(x=640,y=480):
     camera.awb_mode = 'incandescent'
 
     # Give the camera a good long time to set gains
-    sleep(30)
+    print("longExpOCV: delay {}s for camera to settle".format(LONGEXP_DELAY))
+    sleep(LONGEXP_DELAY)
     camera.exposure_mode = 'off'
     # Now capture an image with a 6s exposure. (takes longer than 6s)
-    print("Capturing Long Exposure Still Image")
+    print("Capturing Long Exposure Still Image Now")
     image = np.empty((y * x * 3,), dtype=np.uint8)
     camera.capture(image, 'bgr')
     image = image.reshape((y, x, 3))
@@ -162,6 +170,7 @@ def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
     return (leftRight * xAngle)
 
 def main():
+
 
     print("Testing hAngle(targetPixel=480, hRes=640, hFOV=DEFAULT_H_FOV)")
     degOffCtr = hAngle(480,640,DEFAULT_H_FOV)
@@ -202,6 +211,7 @@ def main():
     image3 = fixTiltOCV(image2)
     print("fixTilt() image shape [y,x]", image3.shape[:2])
     cv2.imshow("fixTiltOCV() applied", image3)
+
 
     print("Testing longExpOCV()")
     image4 = longExpOCV()
