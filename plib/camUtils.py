@@ -4,7 +4,7 @@
 
 # snapJPG(fpath,fname,preview=False, lowlight=False, longexp=False)
 #     Takes single full resolution image, 
-#     after delay to set exposure (0.25s or 5s lowlight, 30s longexp)
+#     after delay to set exposure (2s auto or 5s lowlight, 30s longexp)
 #     defaults write image to /home/pi/Carl/images/capture_YYYYmmdd-HHMMSS.jpg
 
 # captureOCV(x=640, y=480, lowlight=False)
@@ -40,9 +40,12 @@ IMAGES_DIR = "/home/pi/Carl/images/"
 DEFAULT_FNAME = "capture_YYYYMMDD-HHMMSS.jpg"
 DEFAULT_H_FOV = 55.5
 
+# Camera takes 200 frames to compute exposure, 
+# office auto=1/15s exposure so 2-3s to settle
+# longexp uses 1/6s framerate so 30s
 LONGEXP_DELAY = 30  # let camera settle for good long time
 LOWLIGHT_DELAY = 5
-GOODLIGHT_DELAY = 0.25
+GOODLIGHT_DELAY = 2
 
 # snapJPG(fpath,fname,preview=False, lowlight=False, longexp=False)
 #     Takes single full resolution image,
