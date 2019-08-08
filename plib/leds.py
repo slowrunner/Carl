@@ -34,6 +34,8 @@ def all_on(egpg=None):
         egpg.led_on("right")
         egpg.set_eye_color(WHITE_BRIGHT)
         egpg.open_eyes()
+        # can set wifi led to white, but it will reset to red shortly
+        egpg.set_led(egpg.LED_WIFI,255,255,255)
 
 def all_off(egpg=None):
         egpg.blinker_off("left")
@@ -41,7 +43,8 @@ def all_off(egpg=None):
         egpg.led_off("left")
         egpg.led_off("right")
         egpg.close_eyes()
-
+        # can turn wifi led off but it will turn on shortly
+        egpg.set_led(egpg.LED_WIFI,0,0,0)
 
 def main():
 
