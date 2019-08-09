@@ -43,6 +43,6 @@ sobelCombined = cv2.bitwise_or(sobelX, sobelY)
 # cv2.imshow("Sobel Combined", sobelCombinedSmall)
 #display("Sobel X", sobelX)
 #display("Sobel Y", sobelY)
-display("Sobel Combined", sobelCombined, 50)
+display("Sobel Combined", sobelCombined, 30)
 cv2.waitKey(0)
 
