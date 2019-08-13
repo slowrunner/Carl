@@ -1,0 +1,620 @@
+Carl's WHEEL_DIAMETER   set to 64.0
+Carl's WHEEL_BASE_WIDTH set to 115.1
+Carl's SPEED set to 150 for best accuracy
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:07:26.607 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:26.846 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.047 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.223 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.395 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.588 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.760 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.929 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.104 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.299 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.484 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.703 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.932 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.104 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.277 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.453 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.627 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:29.803 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.971 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.135 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.303 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.469 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.669 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.846 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:31.021 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.220 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.423 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.647 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:31.841 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.024 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.198 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.395 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.594 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.800 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.991 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.168 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.346 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.523 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.704 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.919 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.095 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.281 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.451 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.621 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.820 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.037 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.219 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.391 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.565 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.750 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.966 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.179 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.371 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:36.570 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.742 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.904 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.070 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.236 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.403 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.567 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.735 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.906 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.076 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.252 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.427 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.649 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.855 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.049 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.244 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.439 pid 6320 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:39.635 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.846 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.041 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.222 pid 6320 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+11:07:26.485 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:26.666 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:26.898 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.076 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.256 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.461 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.643 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+do_processing(): stream empty
+11:07:27.918 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:28.110 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.295 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.515 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.712 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.922 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.123 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:29.297 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.485 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.671 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.866 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:30.077 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.262 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.434 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.619 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.816 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.003 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.190 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.377 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.569 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:31.751 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.929 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.097 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.261 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.432 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.605 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.782 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.955 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.123 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.304 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.484 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.669 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.915 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.111 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.303 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.492 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.667 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.844 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.015 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.193 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.367 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.540 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.799 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.001 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.185 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.386 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+do_processing(): stream empty
+11:07:36.668 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.840 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.006 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.174 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.352 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.528 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.708 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.882 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.051 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.224 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.401 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.561 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.725 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.890 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.058 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.228 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:39.391 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:39.554 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:39.716 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.895 pid 6318 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.075 pid 6318 do_processing: Processing 480x640 image
+Found 1 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:07:26.578 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:26.786 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:26.949 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.116 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.283 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.451 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.631 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.812 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.980 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:28.148 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.324 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.531 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:28.739 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:29.032 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:29.200 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:29.365 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:29.632 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:29.837 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:30.052 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.245 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.475 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:30.754 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.921 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.090 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.265 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.462 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:31.641 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.815 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.007 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:32.195 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.382 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.590 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.794 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.021 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.191 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.368 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.536 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.717 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.894 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.066 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.262 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.461 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.650 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.820 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.994 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.161 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.359 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.583 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.759 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:35.933 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.146 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.355 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:36.538 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.715 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:36.927 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.108 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.319 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.495 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:37.662 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:37.825 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.990 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.156 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.319 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.486 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.674 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.847 pid 6317 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:39.078 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.273 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.485 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.674 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.858 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.049 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.251 pid 6317 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:07:26.607 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:26.857 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.024 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:27.193 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.366 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.535 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.704 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:27.867 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.033 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.201 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:28.368 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.539 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.733 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:28.968 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.153 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.336 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.526 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.698 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:29.871 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.046 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.223 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.399 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.639 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:30.827 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.014 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.204 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.414 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.600 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.793 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:31.981 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.155 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.342 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.510 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:32.677 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:32.850 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:33.114 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:33.446 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:33.637 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:33.851 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.026 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.220 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.399 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:34.571 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.750 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:34.921 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.099 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.266 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.434 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.616 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.791 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:35.981 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:07:36.278 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.451 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:36.615 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.786 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:36.954 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.121 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.286 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:37.452 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.618 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.783 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:37.954 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.122 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.292 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.459 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:38.625 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.800 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:38.970 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.133 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.296 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.473 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.645 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.816 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:39.986 pid 6319 do_processing: Processing 480x640 image
+Found 1 lane_lines
+11:07:40.158 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+11:07:40.328 pid 6319 do_processing: Processing 480x640 image
+Found 2 lane_lines
+QueueOutput().init started
+QueueOutput().flush started
+do_capture() ran

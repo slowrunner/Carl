@@ -85,7 +85,8 @@ class QueueOutput(object):
         self.finished.set()
 
 def do_capture(queue, finished):
-    with picamera.PiCamera(resolution='VGA', framerate=30) as camera:
+    # with picamera.PiCamera(resolution='VGA', framerate=30) as camera:
+    with picamera.PiCamera(resolution=(320,240), framerate=30) as camera:
         output = QueueOutput(queue, finished)
         camera.start_recording(output, format='mjpeg')
         # camera.start_recording(output, format='bgr')
@@ -114,9 +115,9 @@ def do_processing(queue, finished):
             # Pretend it takes 0.1 seconds to process the frame; on a quad-core
             # Pi this gives a maximum processing throughput of 40fps
             #time.sleep(0.1)
-            cv2.imwrite("carls_lane.jpg", image)
+            #cv2.imwrite("carls_lane.jpg", image)
             combo_image = lanes.find_lane_in(image)
-            cv2.imwrite("result-{}.jpg".format(strTime),combo_image)
+            #cv2.imwrite("result-{}.jpg".format(strTime),combo_image)
             #cv2.imshow("image",image)
             #cv2.waitKey(0)
 

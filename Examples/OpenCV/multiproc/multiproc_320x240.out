@@ -1,0 +1,349 @@
+Carl's WHEEL_DIAMETER   set to 64.0
+Carl's WHEEL_BASE_WIDTH set to 115.1
+Carl's SPEED set to 150 for best accuracy
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:19:26.639 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.782 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.905 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.032 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.158 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.284 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.415 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.579 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.717 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.860 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.987 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.115 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.257 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.396 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.521 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:28.748 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:28.973 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.097 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.221 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.346 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.471 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.595 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.721 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.859 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.019 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.154 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.284 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.421 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:30.653 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.810 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.951 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.092 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.234 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.362 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.491 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.645 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.770 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.894 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:32.019 pid 7381 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:19:26.615 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:26.882 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.015 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.167 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.301 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.442 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.587 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.731 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:27.960 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.088 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.223 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.388 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.519 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.647 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.781 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.905 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.041 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.186 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.317 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.444 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.581 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.717 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.878 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.015 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.145 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.276 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.405 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.536 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.671 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.826 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.951 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.082 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.212 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.338 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.467 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.618 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.743 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.869 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:32.014 pid 7378 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+do_processing(): stream empty
+11:19:26.633 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.783 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.909 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.038 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.166 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.290 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.420 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.567 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.694 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.817 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.940 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.065 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.193 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.358 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.492 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.619 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.744 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.873 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.001 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.143 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.267 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.394 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.522 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.646 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.769 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.900 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.032 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.161 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.288 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.417 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.548 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.686 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.831 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.969 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.099 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.225 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.358 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.499 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.641 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.765 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.890 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:32.015 pid 7380 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+do_processing(): stream empty
+11:19:26.516 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:26.739 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.861 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:26.981 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.103 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.224 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.349 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.474 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.597 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.723 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.850 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:27.975 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.100 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.238 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.377 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.508 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.646 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:28.775 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+do_processing(): stream empty
+11:19:29.027 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.180 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.308 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.439 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.570 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.709 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.843 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:29.991 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.116 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.244 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.370 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.496 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.626 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.794 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:30.931 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.057 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.181 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.306 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.429 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.570 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.695 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.818 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:31.944 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+11:19:32.068 pid 7379 do_processing: Processing 240x320 image
+Found 2 lane_lines
+
+*** Ctrl-C detected - Finishing up
+QueueOutput().init started
+QueueOutput().flush started
