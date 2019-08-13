@@ -2,10 +2,10 @@
 
 
 ## Configuration 
-PiCamera v1.3 mounted on robot Carl (Dexter Industries GoPiGo3)
-Raspberry Pi 3B Processor 1.2GHz 4-core 1GB memory 
-Raspbian For Robots (Dexter Industries Release of Raspian Stretch) 
-    Linux Carl 4.14.98-v7+ #1200 SMP Tue Feb 12 20:27:48 GMT 2019 armv7l GNU/Linux
+- PiCamera v1.3 mounted on robot Carl (Dexter Industries GoPiGo3)  
+- Raspberry Pi 3B Processor 1.2GHz 4-core 1GB memory  
+- Raspbian For Robots (Dexter Industries Release of Raspian Stretch) 
+  - Linux Carl 4.14.98-v7+ #1200 SMP Tue Feb 12 20:27:48 GMT 2019 armv7l GNU/Linux
 
 ## Demonstrate find_lane_in(image) using multiprocessing with PiCamera
 
@@ -60,8 +60,8 @@ lanes.find_lane_in(image) performs the following:
 
 ## RESULTS
 
-It does not appear that multi-processing will result in  
-more frames processed per second.
+**It does not appear that multi-processing will result in  
+more frames processed per second.**
 
 Multiprocessing of find_lane_in( 640x480 image) 
 * In Order Average Inter-frame Time 48 ms or 20 fps
