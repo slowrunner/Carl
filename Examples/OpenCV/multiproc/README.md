@@ -9,10 +9,10 @@ List Example
 1. Item
 2. Item
 
-...indented text note blank line
+... indented text note blank line
 
-...text with line break w/o paragraph, use two spaces at end of line  
-...text without line break
+... text with line break w/o paragraph, use two spaces at end of line  
+... text without line break
 
 * Unordered list items can use asterisks, or
 + plus, or
