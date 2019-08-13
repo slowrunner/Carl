@@ -33,13 +33,13 @@ lanes.find_lane_in(image) performs the following:
 
 
 
-![Input Image](/images/carls_lane.jpg?raw=true)
+![Input Image](./images/input_image.jpg?raw=true)
 
-![Edge Detection](/images/grayBlurCannyROI.jpg?raw=true)
+![Edge Detection](./images/edge_detect.jpg?raw=true)
 
-![First Result](/images/result-10:29:01.306.jpg?raw=true)
+![First Result](./images/first_result.jpg?raw=true)
 
-![Subsequent Results](/images/result-10:29:03.799?raw=true)
+![Subsequent Results](./images/result.jpg?raw=true)
 
 List Example
 1. Item
