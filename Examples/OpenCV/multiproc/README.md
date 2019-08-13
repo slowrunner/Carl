@@ -11,20 +11,21 @@ Raspbian For Robots (Dexter Industries Release of Raspian Stretch)
 
 multiprocessing based on https://picamera.readthedocs.io/en/release-1.13/faq.html?highlight=multiprocess#camera-locks-up-with-multiprocessing
 
-One process owns camera and fills a Queue with 320x240 images.  (Uncomment alternate for VGA 640x480.)
-Four processes each grab images from the Queue, and run find_lane_in(image)
-    (they do nothing with the result, unless the write-result-to-timestamped-file line is uncommented)
-    (they will write-input-frame-to-file if line is uuncommented)
-lanes.find_lane_in(image) performs the following:
+One process owns camera and fills a Queue with 320x240 images.  (Uncomment alternate for VGA 640x480.)  
+Four processes each grab images from the Queue, and run find_lane_in(image)  
+    (they do nothing with the result, unless the write-result-to-timestamped-file line is uncommented)  
+    (they will write-input-frame-to-file if line is uuncommented)  
 
-  1) create a grayscale image copy
-  2) blur the grayscale image
+lanes.find_lane_in(image) performs the following:  
+
+  1) create a grayscale image copy  
+  2) blur the grayscale image  
   3) apply Canny edge detect to blurred grayscale image  
-     return edge mask
-  4) crop edge mask to triangular region of interest
-  5) use Hough transform (binned r,theta normal to len/gap qualifed lines) to find lines
-  6) average left and right lane lines down to one left of lane, one right of lane line
-  7) create lane lines overlay
+     return edge mask  
+  4) crop edge mask to triangular region of interest  
+  5) use Hough transform (binned r,theta normal to len/gap qualifed lines) to find lines  
+  6) average left and right lane lines down to one left of lane, one right of lane line  
+  7) create lane lines overlay  
   8) combine lane lines overlay over original image  
      returns image with lane lines drawn in bottom 40%
 
