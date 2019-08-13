@@ -37,17 +37,36 @@ lanes.find_lane_in(image) performs the following:
 
 
 
+---
+INPUT FRAME(S)  
 
 ![Input Image](./images/input_image.jpg?raw=true)
 
+---
+EDGE DETECTION (Gray, Blur, Canny, Trangular Region Of Interest Mask)  
+
 ![Edge Detection](./images/edge_detect.jpg?raw=true)
+
+---
+FIRST FRAME RESULT (No wait for camera to adjust exposure)  
 
 ![First Result](./images/first_result.jpg?raw=true)
 
+---
+NORMAL FRAME RESULT  
+
 ![Subsequent Results](./images/result.jpg?raw=true)
 
+---
+## MY CONCLUSION
 
-## Definitions  
+**It is not obvious from this test that multi-processing will result in  
+more frames processed per second.  
+
+I would need to create a comparable resolution videos or  
+create single-thread.py to put this to rest. **
+
+## Definitionss  
 * Frame Processing Time consists of 
   * dequeue or if single threaded, capture an image, 
   * find_lane_in(image), 
@@ -56,12 +75,7 @@ lanes.find_lane_in(image) performs the following:
 * Inter-frame Time
   * Time until next find_lane_in(image) results available 
 
-
-
 ## RESULTS
-
-**It does not appear that multi-processing will result in  
-more frames processed per second.**
 
 Multiprocessing of find_lane_in( 640x480 image) 
 * In Order Average Inter-frame Time 48 ms or 20 fps
