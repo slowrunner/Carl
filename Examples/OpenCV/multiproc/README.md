@@ -9,7 +9,11 @@ Raspbian For Robots (Dexter Industries Release of Raspian Stretch)
 
 ## Demonstrate find_lane_in(image) using multiprocessing with PiCamera
 
-multiprocessing based on https://picamera.readthedocs.io/en/release-1.13/faq.html?highlight=multiprocess#camera-locks-up-with-multiprocessing
+* multiprocessing based on https://picamera.readthedocs.io/en/release-1.13/faq.html?highlight=multiprocess#camera-locks-up-with-multiprocessing
+* find_lane_in(image) based https://www.youtube.com/watch?v=eLTLtUVuuy4  
+         "OpenCV Python Tutorial - Find Lanes for Self-Driving Cars"
+
+
 
 One process owns camera and fills a Queue with 320x240 images.  (Uncomment alternate for VGA 640x480.)  
 Four processes each grab images from the Queue, and run find_lane_in(image)  
@@ -42,43 +46,48 @@ lanes.find_lane_in(image) performs the following:
 
 ![Subsequent Results](./images/result.jpg?raw=true)
 
-List Example
-1. Item
-2. Item
 
-   indented text note blank line
+## Definitions  
+* Frame Processing Time consists of 
+  * dequeue or if single threaded, capture an image, 
+  * find_lane_in(image), 
+  * print statistics to stdout (redirected to file)
 
-   text with line break w/o paragraph, use two spaces at end of line  
-   text without line break
-
-* Unordered list items can use asterisks, or
-+ plus, or
-- minus
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-
-Code example:
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-Horizontal Rule: three or more hyphens, asterisks, underscores
-
-***
-
-YouTube Video:
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+* Inter-frame Time
+  * Time until next find_lane_in(image) results available 
 
 
 
+## RESULTS
+
+It does not appear that multi-processing will result in  
+more frames processed per second.
+
+Multiprocessing of find_lane_in( 640x480 image) 
+* In Order Average Inter-frame Time 48 ms or 20 fps
+* By Process Average Frame Processing Time 193 ms
+* "cpu load 80%"
+* 307200 pixels per frame
+
+Multiprocessing of find_lane_in( 320x240 image)
+* In Order Average Inter-frame Time 35 ms or 28 fps
+* By Process Average Frame Processing Time 142 ms
+* "cpu load 57%"
+* 76800 pixels per frame
+
+
+For Reference Only: Running lanes.py -f lane_video.mp4 -n  
+(Comparable video sizes were not immediately available)  
+
+* Single-threaded find_lane_in( 720x1280 image)  
+  * Average Inter-frame Time (and Frame Processing Time) 122 ms or 8 fps  
+  * "cpu load 65%"
+  * (Carl/Examples/find-lane/lane_video.mp4)
+  * 921600 pixels per frame
+
+* Single-threaded find_lane_in( 244x400 image)  
+  * Average Inter-frame Time (and Frame Processing Time)  30 ms or 33 fps  
+  * "cpu load 65%"
+  * (Carl/Examples/find-lane/lane_video_400x240.mp4)
+  * 117120 pixels per frame
 
