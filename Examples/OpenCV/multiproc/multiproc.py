@@ -6,7 +6,28 @@
 Documentation:
 
 
-Demonstrate using multiprocessing with PiCamera
+Demonstrate find_lane_in(image) using multiprocessing with PiCamera
+
+multiprocessing based on https://picamera.readthedocs.io/en/release-1.13/faq.html?highlight=multiprocess#camera-locks-up-with-multiprocessing
+
+One process owns camera and fills a Queue with 320x240 images.  (Uncomment alternate for VGA 640x480.)
+Four processes each grab images from the Queue, and run find_lane_in(image)
+    (they do nothing with the result, unless the write-result-to-timestamped-file line is uncommented)
+    (they will write-input-frame-to-file if line is uuncommented)
+lanes.find_lane_in(image) performs the following:
+
+  1) create a grayscale image copy
+  2) blur the grayscale image
+  3) apply Canny edge detect to blurred grayscale image
+     return edge mask
+  4) crop edge mask to triangular region of interest
+  5) use Hough transform (binned r,theta normal to len/gap qualifed lines) to find lines
+  6) average left and right lane lines down to one left of lane, one right of lane line
+  7) create lane lines overlay
+  8) combine lane lines overlay over original image
+  returns image with lane lines drawn in bottom 40%
+
+  (can uncomment write-edge-detect-image)
 
 """
 
@@ -89,7 +110,6 @@ def do_capture(queue, finished):
     with picamera.PiCamera(resolution=(320,240), framerate=30) as camera:
         output = QueueOutput(queue, finished)
         camera.start_recording(output, format='mjpeg')
-        # camera.start_recording(output, format='bgr')
         camera.wait_recording(10)
         camera.stop_recording()
         print("do_capture() ran")
@@ -115,7 +135,7 @@ def do_processing(queue, finished):
             # Pretend it takes 0.1 seconds to process the frame; on a quad-core
             # Pi this gives a maximum processing throughput of 40fps
             #time.sleep(0.1)
-            #cv2.imwrite("carls_lane.jpg", image)
+            #cv2.imwrite("carls_lane-{}.jpg".format(strTime), image)
             combo_image = lanes.find_lane_in(image)
             #cv2.imwrite("result-{}.jpg".format(strTime),combo_image)
             #cv2.imshow("image",image)
