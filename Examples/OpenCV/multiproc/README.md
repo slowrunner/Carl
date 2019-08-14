@@ -12,7 +12,8 @@
 * multiprocessing based on https://picamera.readthedocs.io/en/release-1.13/faq.html?highlight=multiprocess#camera-locks-up-with-multiprocessing
 * find_lane_in(image) based https://www.youtube.com/watch?v=eLTLtUVuuy4  
          "OpenCV Python Tutorial - Find Lanes for Self-Driving Cars"
-
+* single-thread.py based on https://www.pyimagesearch.com/2016/08/29/common-errors-using-the-raspberry-pi-camera-module/  
+  and https://github.com/waveform80/picamera/issues/195  for PiCameraValueError on ctrl-C
 
 
 One process owns camera and fills a Queue with 320x240 images.  (Uncomment alternate for VGA 640x480.)  

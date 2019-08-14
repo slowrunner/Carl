@@ -8,6 +8,9 @@ Documentation:
 
 Demonstrate find_lane_in(image) using a single thread with PiCamera
 
+Based on https://www.pyimagesearch.com/2016/08/29/common-errors-using-the-raspberry-pi-camera-module/
+and https://github.com/waveform80/picamera/issues/195  for PiCameraValueError on ctrl-C
+
 One process captures images and calls find_lane_in(image)
     (nothing is done with the result, unless the write-result-to-timestamped-file line is uncommented)
     (can write-input-frame-to-file if line is uuncommented)
