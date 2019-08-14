@@ -60,11 +60,12 @@ NORMAL FRAME RESULT
 ---
 ## MY CONCLUSION
 
-**It is not obvious from this test that multi-processing will result in  
-more frames processed per second.  
+**Using MultiProcessing for 640x480 image results in 2.5x higher frame rate (20 vs 8 fps)**
 
-I would need to create a comparable resolution videos or  
-create single-thread.py to put this to rest. **
+**Using MultiProcessing for 320x240 image results in (only) 20-30% higher frame rate (28 vs ~23)**  
+
+**Utilizing the processing result of the single-threaded is much easier,   
+  (multi needs interprocess result messaging)**
 
 ## Definitionss  
 * Frame Processing Time consists of 
@@ -89,19 +90,14 @@ Multiprocessing of find_lane_in( 320x240 image)
 * "cpu load 57%"
 * 76800 pixels per frame
 
+Single-Thread.py Results of find_lane_in(640x480 image)
+* Average Inter-frame Time (and Frame Processing Time) 125 ms for 7-9 fps  
+* "cpu load 35%"
+* 3 fps with imshow
 
-For Reference Only: Running lanes.py -f lane_video.mp4 -n  
-(Comparable video sizes were not immediately available)  
+Single-Thread.py Results of find_lane_in(640x480 image)
+* Average Inter-frame Time (and Frame Processing Time)  ~40 ms or 21-26 fps  
+* "cpu load 50%"
+* 7 fps with imshow
 
-* Single-threaded find_lane_in( 720x1280 image)  
-  * Average Inter-frame Time (and Frame Processing Time) 122 ms or 8 fps  
-  * "cpu load 65%"
-  * (Carl/Examples/find-lane/lane_video.mp4)
-  * 921600 pixels per frame
-
-* Single-threaded find_lane_in( 244x400 image)  
-  * Average Inter-frame Time (and Frame Processing Time)  30 ms or 33 fps  
-  * "cpu load 65%"
-  * (Carl/Examples/find-lane/lane_video_400x240.mp4)
-  * 117120 pixels per frame
 
