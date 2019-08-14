@@ -67,6 +67,9 @@ NORMAL FRAME RESULT
 **Utilizing the processing result of the single-threaded is much easier,   
   (multi needs interprocess result messaging)**
 
+**Find_lane_in( frame) method needs a computation only mode, (no image result)  
+  to further minimize computation time and improve performance for robot navigation**  
+
 ## Definitionss  
 * Frame Processing Time consists of 
   * dequeue or if single threaded, capture an image, 
