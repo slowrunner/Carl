@@ -58,7 +58,7 @@ NORMAL FRAME RESULT
 ![Subsequent Results](./images/result.jpg?raw=true)
 
 ---
-## MY CONCLUSION
+## MY CONCLUSIONS
 
 **Using MultiProcessing for 640x480 image results in 2.5x higher frame rate (20 vs 8 fps)**
 
@@ -70,7 +70,7 @@ NORMAL FRAME RESULT
 **Find_lane_in( frame) method needs a computation only mode, (no image result)  
   to further minimize computation time and improve performance for robot navigation**  
 
-## Definitionss  
+## Definitions  
 * Frame Processing Time consists of 
   * dequeue or if single threaded, capture an image, 
   * find_lane_in(image), 
