@@ -102,7 +102,7 @@ Single-Thread.py Results of find_lane_in(640x480 image)
 * "cpu load 35%"
 * 3 fps with imshow
 
-Single-Thread.py Results of find_lane_in(640x480 image)
+Single-Thread.py Results of find_lane_in(320x240 image)
 * Average Inter-frame Time (and Frame Processing Time)  ~40 ms or 21-26 fps  
 * "cpu load 50%"
 * 7 fps with imshow
