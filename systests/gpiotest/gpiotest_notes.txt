@@ -1,0 +1,13 @@
+
+GPIOTEST
+
+from http://abyz.me.uk/rpi/pigpio/faq.html#How_fast_is_SPI
+video: https://www.youtube.com/watch?v=sCJFLKWaxHo&feature=youtu.be
+
+NOTHING CONNECTED TO GPIO!!
+
+pigpio daemon must be running, if not  sudo pigpiod 
+
+# gpiotest
+
+
