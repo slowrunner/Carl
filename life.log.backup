@@ -1421,4 +1421,18 @@
 2019-08-21 20:16|[juicer.py.undock]---- Dismount 343 at 11.0 v after 3.0 h recharge
 2019-08-22 02:30|[juicer.py.dock]---- Docking 343 completed  at 8.1 v after 6.2 h playtime
 2019-08-22 05:29|[juicer.py.undock]---- Dismount 344 at 11.1 v after 3.0 h recharge
-2019-08-22 10:23|lifelog.dEmain execution: 352
+2019-08-22 11:36|[juicer.py.dock]---- Docking 344 completed  at 8.1 v after 6.1 h playtime
+2019-08-22 11:58|[logMaintenance.py.main]** reboot while recharging (22m) to try sw updates **
+2019-08-22 11:58|lifelog.dEmain execution: 353.6
+2019-08-22 12:00|------------ boot ------------
+2019-08-22 12:22|[juicer.py.main]---- juicer.py started at 10.80v
+2019-08-22 12:22|lifelog.dEmain execution: 0.4
+2019-08-22 12:22|------------ boot ------------
+2019-08-22 12:26|[juicer.py.undock]---- Dismount 345 at 9.7 v after 0.0 h recharge
+2019-08-22 12:26|lifelog.dEmain execution: 0.1
+2019-08-22 12:44|------------ boot ------------
+2019-08-22 14:11|lifelog.dEmain execution: 1.45
+2019-08-22 14:11|------------ boot ------------
+2019-08-22 14:11|[juicer.py.main]---- juicer.py started at 11.04v
+2019-08-22 15:54|[juicer.py.undock]---- Dismount 345 at 10.1 v after 0.6 h recharge
+2019-08-22 17:11|lifelog.dEmain execution: 3
