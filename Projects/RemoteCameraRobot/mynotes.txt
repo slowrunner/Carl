@@ -1,0 +1,9 @@
+mynotes.txt  for RemoteCameraRobot
+
+to run:
+
+python3 remote_robot.py
+
+(That's it.)
+
+
