@@ -7,6 +7,7 @@ The PiCamera pointed horizontal 10 inches off the floor, records a Brightness Va
 - exactly 0.0 for total darkness
 - roughly 0.05 in a dark room with light streaming through the doorway from kitchen 30 feet away
 - roughly 0.7 for a small room lit only by 150 watt overhead lighting
+- roughly 1.0 for a small room with one large window at evening light plus overhead lighting
 - roughly 1.5 for a small room with one large window during end of the world storm outside
 - roughly 2.6 for a small room with one large window with partial blinds and full sun outside
 
