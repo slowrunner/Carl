@@ -36,17 +36,18 @@ p = pyaudio.PyAudio()
 samprate = p.get_device_info_by_index(0)['defaultSampleRate']
 print("default mic sample rate:",samprate)
 samprate = 16000
+frames = 4096  # 1024
 
-stream = p.open(format=pyaudio.paInt16, channels=1, rate=int(samprate), input=True, frames_per_buffer=1024)
+stream = p.open(format=pyaudio.paInt16, channels=1, rate=int(samprate), input=True, frames_per_buffer=frames)
 stream.start_stream() 
 
 in_speech_bf = False
 
 
 decoder.start_utt()
+print ('\n\n**** LISTENING ****\n\n')
 while True:
-    print ('\n\n**** LISTENING ****\n\n')
-    buf = stream.read(1024, exception_on_overflow = False)
+    buf = stream.read(frames, exception_on_overflow = False)
     if buf:
         decoder.process_raw(buf, False, False)
         if decoder.get_in_speech() != in_speech_bf:
@@ -56,8 +57,9 @@ while True:
                 result = decoder.hyp().hypstr
                 print ('Result:', result)
                 # speak.say("I heard, "+result)
-                time.sleep(3)
+                time.sleep(0.5)
                 decoder.start_utt()
+                print ('\n\n**** LISTENING ****\n\n')
     else:
         break
 decoder.end_utt()
