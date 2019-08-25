@@ -1,7 +1,7 @@
 # Log and Plot Brightness Value Using PiCamera
 
 Project to monitor light level using picamera JPG format EXIF Brightness Value,
-and generate a 12am to 12pm plot 
+and generate a plot versus local time for 24 hours from 00:00 to 24:00 
 
 The PiCamera pointed horizontal 10 inches off the floor, records a Brightness Value: 
 - exactly 0.0 for total darkness
