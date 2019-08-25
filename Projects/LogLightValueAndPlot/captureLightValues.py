@@ -42,7 +42,7 @@ header_csv = ("Date Time          ", "Brightness Value")
 base_folder = "./"
 
 #change duration between captures here
-dur = 60  # seconds
+dur = 57  # seconds - results in 60s loop
 
 # make sure folder for csv files exists (executes once)
 csvfolder = base_folder + "logfiles/"
