@@ -14,6 +14,7 @@
 #
 #      ./status.py -l -v N.N  will loop till N.N x4 times,
 #                             then shutdown
+#      ./status.py -l -n      will not shutdown, warn only
 #
 # After advice from some folks over at raspberrypi.org robotics forum,
 # and thinking about the 168 NiMH cells in my 10 year old Prius,
@@ -51,7 +52,7 @@ import runLog
 import argparse
 
 # (8cells x 1.09) - 0.6 GoPiGo3 reverse protect diode
-LOW_BATTERY_V = 8.1
+LOW_BATTERY_V = 8.1  
 WARNING_DELTA_V = 0.1
 
 # Return CPU temperature as a character string
@@ -130,10 +131,14 @@ def main():
                     action='store_false', help="no distance sensor")
     ap.add_argument("-v", "--lowBattV", type=float, default=LOW_BATTERY_V,
                     help="Shutdown battery voltage limit")
+    ap.add_argument("-n", "--noShutdown", default=False, action='store_true',
+                    help="Will not shutdown, warning only")
+
     args = vars(ap.parse_args())
     loopFlag = args['loop']
     dsFlag = args['distance_sensor']
     lowBattV = args['lowBattV']
+    noShutdown = args['noShutdown']
 
     # ### Create (protected) instance of EasyDistanceSensor
     if dsFlag:
@@ -156,12 +161,13 @@ def main():
                     speak.say("Hello? My battery is getting a little low here.")
                     print("\nHello? My Battery is getting a little low here.")
             if (vBatt < lowBattV):
-                batteryLowCount += 1
+                if noShutdown is False:
+                    batteryLowCount += 1
                 speak.say("My battery is very low. Warning {}".format(batteryLowCount))
                 print("\nMy Battery is very low. Warning {}".format(batteryLowCount))
             else:
                 batteryLowCount = 0
-            if (batteryLowCount > 3):
+            if (noShutdown is False) and (batteryLowCount > 3):
                 speak.say("WARNING, WARNING, SHUTTING DOWN NOW")
                 lifeLog.logger.info(
                        "status.py safety shutdown at {0:0.2f}v".format(vBatt))
