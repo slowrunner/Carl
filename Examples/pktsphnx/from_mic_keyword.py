@@ -23,7 +23,7 @@ config.set_string('-hmm', path.join(MODELDIR, 'en-us'))
 config.set_string('-dict', path.join(MODELDIR, 'cmudict-en-us.dict'))
 config.set_string('-logfn', '/dev/null')
 config.set_string('-keyphrase', 'carl')
-# config.set_float('-kws_threshold', 1e+20)
+config.set_float('-kws_threshold', 1e-10)  # 12-10 for 1 syllable, 1e-20 for 2 syllable 1e-30 for 3 recommended
 
 WAKEUP_RESPONSES = ["yes", "I m listening", "right here", "go ahead", "you have my undivided attention, sort of.","What can I do for you?", "listening", "I m all ears", "thats me", "your wish is my command"]
 
