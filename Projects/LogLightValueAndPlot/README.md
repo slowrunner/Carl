@@ -25,7 +25,7 @@ Example plot:
 **Introduction:**  
 
 - To collect light data:
-  python(3) captureLightValue.py    
+  python3 captureLightValue.py    
   ./captureLightValue.py   
   ./captureLightValue.py > logBV.out 2>&1 &  
 
