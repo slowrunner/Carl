@@ -30,7 +30,7 @@ Example plot:
   ./captureLightValue.py > logBV.out 2>&1 &  
 
 - To plot collected light data:
-  ./plotLight.py  logfiles/bv-YYYYMMDD-HHMM.csv
+  ./plotLight.py  logfiles/bv-YYYYMMDD-HHMM.csv  
  
 - captureLightValue.py:  Captures jpg file every 60 seconds to images/bv-<date>-<time>.jpg, 
   reads jpg EXIF, and writes brightness value to csv file in logfiles/bv-<date>-<time>.jpg  
