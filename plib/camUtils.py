@@ -81,7 +81,7 @@ def snapJPG(fpath=IMAGES_DIR,fname=DEFAULT_FNAME, preview=False, lowlight=False,
     if preview: camera.start_preview()
     if fname == DEFAULT_FNAME:
         fname = "capture_" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".jpg"
-    fullPath = IMAGES_DIR + fname
+    fullPath = fpath + fname
     print("snapJPG: capturing image now")
     fn = camera.capture(fullPath)
     print("snapJPG: capture done")
