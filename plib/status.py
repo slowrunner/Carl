@@ -12,6 +12,8 @@
 #
 #      ./status.py -h (or --help) will print usage
 #
+#      ./status.py -l -v N.N  will loop till N.N x4 times,
+#                             then shutdown
 #
 # After advice from some folks over at raspberrypi.org robotics forum,
 # and thinking about the 168 NiMH cells in my 10 year old Prius,
@@ -50,7 +52,7 @@ import argparse
 
 # (8cells x 1.09) - 0.6 GoPiGo3 reverse protect diode
 LOW_BATTERY_V = 8.1
-
+WARNING_DELTA_V = 0.1
 
 # Return CPU temperature as a character string
 def getCPUtemperature():
@@ -118,6 +120,7 @@ def main():
     myconfig.setParameters(egpg)
 
     batteryLowCount = 0
+    warningCount = 0
 
     # ARGUMENT PARSER
     ap = argparse.ArgumentParser()
@@ -125,7 +128,7 @@ def main():
                     help="optional loop mode")
     ap.add_argument("-d", "--distance_sensor", default=True,
                     action='store_false', help="no distance sensor")
-    ap.add_argument("-v", "--lowBattV", type=int, default=LOW_BATTERY_V,
+    ap.add_argument("-v", "--lowBattV", type=float, default=LOW_BATTERY_V,
                     help="Shutdown battery voltage limit")
     args = vars(ap.parse_args())
     loopFlag = args['loop']
@@ -147,10 +150,15 @@ def main():
             time.sleep(5)
             printStatus(egpg, ds)
             vBatt = egpg.volt()
+            if (lowBattV < vBatt < (lowBattV + WARNING_DELTA_V)):
+                warningCount += 1
+                if (warningCount % 12) == 1:
+                    speak.say("Hello? My battery is getting a little low here.")
+                    print("\nHello? My Battery is getting a little low here.")
             if (vBatt < lowBattV):
                 batteryLowCount += 1
-                speak.say("Hello? My battery is getting a little low here.")
-                print("\nHello? My Battery is getting a little low here.")
+                speak.say("My battery is very low. Warning {}".format(batteryLowCount))
+                print("\nMy Battery is very low. Warning {}".format(batteryLowCount))
             else:
                 batteryLowCount = 0
             if (batteryLowCount > 3):
