@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # Alan Added to Python .gitignore
 # ignore captured jpgs
@@ -9,6 +10,10 @@ __pycache__/
 *.bak
 .DS_Store
 *.json
+*.wav
+*.db
+*.csv
+*.out
 
 # Alan added for Carl folders
 /home/pi/Carl/images
