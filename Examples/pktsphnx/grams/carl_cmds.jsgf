@@ -1,0 +1,67 @@
+#JSGF V1.0;
+grammar command;
+
+<robot_name> =
+        carl    ;
+
+<greeting> =
+        good morning   |
+        good afternoon   |
+        good evening   |
+	hello	;
+
+<farewell> =
+	goodbye	;
+
+<direction> =
+	forward		|
+	backward	|
+	back		;
+
+<turn_direction> =
+	left		|
+	right		;
+
+<angle> =
+	thirty		|
+	forty five	|
+	ninety		|
+	one eighty	;
+
+	
+<tilt_directions> =
+	up	|
+	down	;
+
+<robot_greeting> =
+	<greeting> <robot_name> ;
+
+<robot_farewell> =
+	<farewell> <robot_name> ;
+	
+<imperative> =
+	stop					|
+	sleep					|
+        pan  <turn_direction>			|
+	spin <turn_direction> [ <angle> ]	|
+	turn <turn_direction> [ <angle> ]	|
+	tilt <tilt_direction>			|
+	whisper					|
+	sleep					;
+
+<value_question> =
+	battery		|
+	date		|
+	distance	|
+	load		|
+	status		|
+	temperature	|
+	time		|
+	servos		|
+	weather		;
+	
+public <command> =
+	<robot_greeting>	|
+	<robot_farewell>	|
+	<imperative>		|
+	<value_question>	;;

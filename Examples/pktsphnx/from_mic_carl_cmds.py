@@ -18,28 +18,34 @@ import random
 
 
 """
+FILE:  from_mic_carl_cmds.py
+
+DOC:  recognize commands from grams/carl_cmds.jsgf and .dic
+
+
+
 Based on a post by Sophie Li, 2016
 http://blog.justsophie.com/python-speech-to-text-with-pocketsphinx/
 """
 # In Speech Threshold Adjustment (subtracted)
 THRESHOLD_ADJUST = 250
 
-GREETING_INPUTS = ("hello carl", "wake up carl", "hello", "good morning", "good morning carl", "good afternoon", "good afternoon carl")
+GREETING_INPUTS = ("hello carl", "hello", "good morning", "good morning carl", "good afternoon", "good afternoon carl", "good evening", "good evening carl")
 GREETING_RESPONSES = ["hi", "hi there", "hello", "Howdy", "good to see you", "good morning, good afternoon, good evening, which ever the case may be"]
 
-WEATHER_QUESTIONS = ("whats the weather look like", "whats the weather", "is it sunny today", "will it rain today")
+WEATHER_QUESTIONS = ("weather", "whats the weather look like", "whats the weather", "is it sunny today", "will it rain today")
 WEATHER_RESPONSES = ["This is the sunshine state, no?", "My radar is down at the moment", "There is a chance it will rain", "There might be some clouds today", "No hurricane today"]
 
 GOODBYE_INPUTS = ("goodbye", "goodbye carl", "good night", "good night carl", "bye carl")
 GOODBYE_RESPONSES = ["bye", "I don't know why you say goodbye, I say hello o, hello.","goodbye"]
 
-SLEEP_INPUTS = ("good night", "good night carl", "go to sleep", "go to sleep carl")
+SLEEP_INPUTS = ("sleep", "good night", "good night carl", "go to sleep", "go to sleep carl")
 SLEEP_RESPONSES = ["good night to you too", "right.", "sure","O K"]
 
-TIME_QUESTIONS = ("what time is it","whats the time", "what time is it carl", "what time is it now")
+TIME_QUESTIONS = ("time", "what time is it","whats the time", "what time is it carl", "what time is it now")
 
-WHERE_IS_NAME = ("where is hanna", "where is alan")
-WHERE_IS_NAME_RESPONSES = ["I don't know right now", "I'm not sure enough to say", "I wish I knew"]
+STATUS_QUESTIONS = ("status", "how are you doing")
+STATUS_RESPONSES = ["I'm happy right now", "I'm doing well.  Thank you for asking", "I think.  Therefore.  I think that I am thinking"]
 
 def react_to(phrase,confidence):
     if phrase in WEATHER_QUESTIONS:
@@ -55,8 +61,8 @@ def react_to(phrase,confidence):
         exit()
     elif phrase in TIME_QUESTIONS:
         response = time.strftime("%-I %M")
-    elif phrase in WHERE_IS_NAME:
-        response = random.choice(WHERE_IS_NAME_RESPONSES)
+    elif phrase in STATUS_QUESTIONS:
+        response = random.choice(STATUS_RESPONSES)
     else:
         response = None
     if response:
@@ -90,7 +96,7 @@ class SpeechDetector:
                           # of the phrase.
 
         # self.THRESHOLD = 4500
-        self.THRESHOLD = 2500
+        self.THRESHOLD = 1000
         self.num_phrases = -1
 
         # These will need to be modified according to where the pocketsphinx folder is
@@ -105,17 +111,20 @@ class SpeechDetector:
 
         MODELDIR = "/usr/local/lib/python3.5/dist-packages/pocketsphinx/model"
         DATADIR = "/usr/local/lib/python3.5/dist-packages/pocketsphinx/data"
-        # GRAMDIR = "/home/pi/Carl/Examples/pktsphnx/grams"
-        GRAMDIR = "./grams"
+        GRAMDIR = "/home/pi/Carl/Examples/pktsphnx/grams"
+        # GRAMDIR = "./grams"
 
         # Create a decoder with en-us model
         config = Decoder.default_config()
 
         config.set_string('-hmm', os.path.join(MODELDIR, 'en-us'))
         # config.set_string('-lm', os.path.join(MODELDIR, 'en-us.lm.bin'))
-        config.set_string('-jsgf', os.path.join(GRAMDIR, 'grammar.jsgf'))
+        config.set_string('-jsgf', os.path.join(GRAMDIR, 'carl_cmds.jsgf'))
+        # config.set_string('-jsgf', os.path.join(GRAMDIR, 'grammar.jsgf'))
+        # config.set_string('-dict', os.path.join(GRAMDIR, 'carl_cmds.dic'))
         config.set_string('-dict', os.path.join(MODELDIR, 'cmudict-en-us.dict'))
-        # config.set_string('-logfn', 'from_mic_w_gram.out')
+        # uncomment to produce log
+        config.set_string('-logfn', 'from_mic_w_gram.out')
         config.set_string('-logfn', '/dev/null')
         config.set_string('-samprate', str(int(self.RATE)))
         config.set_boolean('-allphone_ci', True)

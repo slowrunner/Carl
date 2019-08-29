@@ -12,8 +12,8 @@ grammar command;
 <name> = 
 	<person>	|
 	pogo		|
-	raspberry pi	|
-	carl		|
+	raspberry pi 	|
+        carl            |
 	go pi go [ three ]	|
 	facebook ;
 
