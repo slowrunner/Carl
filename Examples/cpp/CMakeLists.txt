@@ -30,6 +30,10 @@ target_link_libraries(leds gopigo3)
 add_executable(motors Examples/motors.cpp)
 target_link_libraries(motors gopigo3)
 
+# MY SERVO example
+add_executable(servos Examples/servos.cpp)
+target_link_libraries(servos gopigo3)
+
 # sensors
 add_executable(sensors Examples/sensors.cpp)
 target_link_libraries(sensors gopigo3)
