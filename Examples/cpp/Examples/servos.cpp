@@ -8,7 +8,7 @@
  *
  *  This code is an example for using GoPiGo3 servos.
  *
- *  Results:  When you run this program, you should see the servos cycle.
+ *  Results:  When you run this program, you should see the servos center.
  *
  *  To compile see: https://github.com/slowrunner/Carl/blob/master/Examples/cpp/Alan_Note.txt
  */
