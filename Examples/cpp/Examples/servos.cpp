@@ -29,7 +29,13 @@ int main(){
 
   // Reset the servos to center
   GPG.set_servo(SERVO_1,1500);
+  // let one servo move at a time to keep load smaller
+  usleep(200000);
   GPG.set_servo(SERVO_2,1500);
+  usleep(200000);
+  // Turn servo power off
+  GPG.set_servo(SERVO_1,0);
+  GPG.set_servo(SERVO_2,0);
 
   while(true){
     usleep(20000);
