@@ -1,3 +1,3 @@
 #!/bin/bash
-nohup ~/Carl/Projects/Juicer/juicer.py > ~/Carl/juicer.out &
+nohup /home/pi/Carl/Projects/Juicer/juicer.py > /home/pi/Carl/juicer.out &
 
