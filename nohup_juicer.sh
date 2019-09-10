@@ -1,3 +1,9 @@
 #!/bin/bash
-nohup /home/pi/Carl/Projects/Juicer/juicer.py > /home/pi/Carl/juicer.out &
+LOGFILE=/home/pi/Carl/juicer.out
+
+if test -f "$LOGFILE"; then
+    mv $LOGFILE $LOGFILE".bak"
+fi
+
+nohup /home/pi/Carl/plib/juicer.py > $LOGFILE &
 
