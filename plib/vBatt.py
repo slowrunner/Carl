@@ -3,8 +3,11 @@
 import easygopigo3
 from time import sleep
 from statistics import mean
+import myconfig
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+myconfig.setParameters(egpg)
+
 x = []
 
 for i in [1,2,3]:
