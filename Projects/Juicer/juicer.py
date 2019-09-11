@@ -450,8 +450,9 @@ def undock(egpg,ds,tp):
              vBatt = egpg.volt()
              sleep(0.25)
              vBatt = (vBatt + egpg.volt())/2.0
-             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h recharge".format( (dockingCount+1),vBatt, lastDockingChangeHours)
+             strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h recharge".format( dockingCount,vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
+             cd.saveCarlData('lastDismount',strToLog)
              print(strToLog)
              dtLastDockingStateChange = dtNow
              possibleEarlyTrickleVolts = 0      # undocked so possible trickle voltage no longer relevant
@@ -565,6 +566,7 @@ def dock(egpg,ds,tp):
         lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
         strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
         lifeLog.logger.info(strToLog)
+        cd.saveCarlData('lastDocking',strToLog)
         dtLastDockingStateChange = dtNow
         possibleEarlyTrickleVolts = 0       # reset any prior detections
         sleep(5)
