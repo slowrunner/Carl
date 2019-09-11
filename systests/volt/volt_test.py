@@ -15,6 +15,7 @@ import sys
 sys.path.append('/home/pi/Carl/plib')
 import easygopigo3 # import the GoPiGo3 class
 import tiltpan
+import myconfig
 import status
 import battery
 import numpy as np
@@ -52,15 +53,18 @@ def main():
     secondMeanVolts = 0
     times1stGreater = 0
     times2ndGreater = 0
-    numLoops = 100
-
+    numLoops = 10
+    timeVoltList = [ ]
 
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+    myconfig.setParameters(egpg)
+    tp = tiltpan.TiltPan(egpg)
+    tp.tiltpan_center()
+    tp.off()
+
     ds = egpg.init_distance_sensor()
 
-    tiltpan.tiltpan_center()
     sleep(0.5)
-    tiltpan.off()
 
     try:
         #  loop
@@ -75,11 +79,16 @@ def main():
             dtFirstReading = dt.datetime.now()
             if (loopCount>1): 
                 dtPriorSecondReading = dtSecondReading
+            tb4 = dt.datetime.now()
             firstReading = egpg.volt()
+            timeVoltList += [(dt.datetime.now() - tb4).total_seconds()]
+
             if (readDist == True): distReading = ds.read_mm()
             sleep(gapSleep)
             dtSecondReading = dt.datetime.now()
+            tb4 = dt.datetime.now()
             secondReading = egpg.volt()
+            timeVoltList += [(dt.datetime.now() - tb4).total_seconds()]
 
             if (firstReading > secondReading):  times1stGreater +=1
             if (secondReading > firstReading):  times2ndGreater +=1
@@ -117,7 +126,14 @@ def main():
         minSecondToFirst = np.min(timeSecondToFirstList)
         stdSecondToFirst = np.std(timeSecondToFirstList)
 
+        maxTimeVolt = np.max(timeVoltList)
+        meanTimeVolt = np.mean(timeVoltList)
+        minTimeVolt = np.min(timeVoltList)
+        stdTimeVolt = np.std(timeVoltList)
+
         print("\n     RESULTS     ")
+        print("time Volt() - mean:{0:.6f} max:{1:.6f} min:{2:.6f} std:{3:.6f}".format(meanTimeVolt, maxTimeVolt, minTimeVolt, stdTimeVolt) )
+
         if (readDist):
             print("Sleep after ds.read_mm() before 2nd reading:{} Sleep at end of loop:{}".format(gapSleep,loopSleep))
         else:

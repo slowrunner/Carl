@@ -4,6 +4,10 @@
 pi@Carl : ~/Carl/systests/volt $ ./volt_test.py
 loop:100
 RESULTS
+
+time Volt() - mean:0.000328 max:0.000522 min:0.000247 std:0.000084  
+
+
 Sleep after ds.read_mm() before 2nd reading:0.001 Sleep at end of loop:1
 First Readings - mean:9.475 max:9.500 min:9.440 std:0.011
 Second Readings - mean:9.408 max:9.466 min:9.354 std:0.023
