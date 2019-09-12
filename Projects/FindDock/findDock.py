@@ -9,16 +9,16 @@ Documentation:
    1) Capture an image
    2) Mask for green LED(s) of the dock
    3) Find number and position in the image of green LED(s)
-   4) If no LEDs and number of captures < "360 degrees of captures"
+   4) If no LEDs and number of captures < '360 degrees of captures'
           turn capture width and continue from step 1
-      else declare "dock not visible (at this location)"
+      else declare 'dock not visible (at this location)'
    5) Calculate dock angle relative to heading angle using horiz LED position in image
    6) Estimate dock distance based on vertical LED position in image
    7) Point distance sensor toward dock, take distance reading
-   8) Fuse estimate and reading for distance to dock
-   9) Point distance sensor fwd and 10" away (for U turn clearance plus 1")
-   10) If distance to dock GE 30" turn to face dock, otherwise turn away from dock
-   11) While distance sensor reading > 9" (U turn clearance), drive to point 30" from dock
+   8) Fuse estimate and reading for distance to dock (to do)
+   9) Point distance sensor fwd and 10 in. away for U turn clearance plus 1 in. (to do)
+   10) If distance to dock GE staging_distance (24") turn to face dock, otherwise turn away from dock
+   11) (While distance sensor reading > 9 inchesU turn clearance - to do),  Drive to point 30" from dock
    12) If drove away from dock, turn to face dock
    13) Perform wall_scan() returns distance to wall, angle to wall normal
    14) Calculate turn angle to intersect wall normal from dock at 90 degrees
@@ -27,8 +27,14 @@ Documentation:
    17) While distance sensor reading > 9", drive to dock-wall-normal
    18) Turn to face dock
 
-  Followed by approach_dock(), and then dock()
+  Follow findDock() by approach_dock(), and then dock()
 
+
+USAGE:
+  ./findDock.py     execute algorithm with command line output only
+  ./findDock.py -t  announce actions with TTS
+  ./findDock.py -v  show captured images, and masks (must launch from desktop)
+                       waits for keypress after doc found for image viewing
 """
 
 # from __future__ import print_function # use python 3 syntax but make it compatible with python 2
@@ -252,6 +258,7 @@ def findDock(egpg):
         speak.say(strToLog)
     if viewFlag:
         if verbose: speak.say("Waiting for key press to continue")
+        print("WAITING for KEY PRESS to CONTINUE")
         cv2.waitKey(0)
     return foundDock
 
