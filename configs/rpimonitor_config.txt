@@ -1,0 +1,103 @@
+# RPi-Monitor for GoPiGo3 Carl
+
+* Documentation:
+
+https://xavierberger.github.io/RPi-Monitor-docs/11_installation.html
+https://xavierberger.github.io/RPi-Monitor-docs/index.html
+
+* Installation
+sudo apt-get install dirmngr
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
+sudo wget http://goo.gl/vewCLL -O /etc/apt/sources.list.d/rpimonitor.list
+sudo apt-get update
+sudo apt-get install rpimonitor
+
+* RPi-Monitor is designed to start automatically and collect metrics. 
+The web interface is available on address:
+   
+    http://raspberrypi.local:8888
+
+
+
+* After first install, and after any system update with "sudo apt-get dist-upgrade"
+  will see a message to update:
+
+  sudo /etc/init.d/rpimonitor update
+
+== To view RPI-Monitor Output
+
+Browse to 10.0.0.XXX:8888
+Bookmark Page
+Click Options, click autorefresh this page
+
+
+
+=== To Remove RPi-Monitor ===
+
+In an event you would like to remove RPi-Monitor you can execute the command:
+dpkg --purge rpimonitor
+
+
+=== Configuring Carl's RPI-Monitor section
+
+* create data getter-printer functions in plib
+* create vBatt.py to print GoPiGo3 battery voltage value (naked)
+* create getDockCycle.py to print juicer docking count
+* create getChargingStateStr.py to print chargingState string (Charging, Not Charging..)
+* create getLastDocking.py to print last docking string
+* create getLastDismount.py to print last dismount string 
+
+* create rpimonitor configuration in ~/Carl/configs
+* create 32x32 icon (usr.share.rpimonitor.web.img.carl.png)
+(used GIMP on Mac to crop photo, resize to 32x32, export as png)
+
+* create a carl data template (etc.rpimonitor.template.carl.conf)
+add battery guage, and docking cycle, charging state, last playtime, last recharge lines
+
+(Battery Voltage Guage: min 5, max 15, 
+  size 100,80 100 px x 80 px
+  "normal/carl_critical" below 7.2v, color red #ff0000
+  "warning" above 7.2v  color orange #f9c802
+  "critical/carl normal" above 8.1v  color green #a9d70b
+  colors: [red, orange, green] = [ "#ff0000", "#f9c802", "#a9d70b" ] )
+
+* create a wlan0 wlan1 data template (etc.rpimonitor.template.wlan01.conf)
+* change daemon.delay to 30 seconds (etc.rpimonitor.daemon.conf)
+* add wlan01 and carl templates (etc.rpimonitor.data.conf)
+
+cd ~/Carl/configs
+
+sudo service rpimonitor stop
+sudo cp /etc/rpimonitor/daemon.conf /etc/rpimonitor/daemon.conf.bak
+sudo cp /etc/rpimonitor/data.conf /etc/rpimonitor/data.conf.bak
+sudo cp etc.rpimonitor.daemon.conf /etc/rpimonitor/daemon.conf
+sudo cp etc.rpimonitor.data.conf /etc/rpimonitor/data.conf
+sudo cp etc.rpimonitor.template.wlan01.conf /etc/rpimonitor/template/wlan01.conf
+sudo cp etc.rpimonitor.template.carl.conf /etc/rpimonitor/template/carl.conf
+sudo cp usr.share.rpimonitor.web.img.carl.png /usr/share/rpimonitor/web/img
+
+* delete any statistics with different daemon.delay interval
+sudo rm -r /var/lib/rpimonitor/stat
+sudo service rpimonitor start
+
+Browse to 10.0.0.XXX:8888
+Bookmark Page
+Click Options, click autorefresh this page
+
+
+=== to see RPI-Monitor collected Battery voltage database rows
+
+https://oss.oetiker.ch/rrdtool/index.en.html
+
+sudo apt-get install rrdtool
+
+cd ~/Carl/Examples/rrd
+cp /var/lib/rpimonitor/stat/carl_vbatt.rrd .
+
+rrdtool dump carl_vbatt.rrd > carl_vbatt.xml
+
+To see entry with 4v:
+grep "<v>4" carl_vbatt.xml
+
+
+
