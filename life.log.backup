@@ -1547,7 +1547,7 @@
 2019-09-06 14:31|[logMaintenance.py.main]** Shutting Down to change battery set **
 2019-09-06 14:33|lifelog.dEmain execution: 23.75
 2019-09-06 15:17|------------ boot ------------
-2019-09-06 15:19|[logMaintenance.py.main]** NEW BATTERY SET - 4x2300 old EBLs,  4x 2300 PowerOwl **
+2019-09-06 15:19|[logMaintenance.py.main]** NEW BATTERY SET - 4x2300 old EBLs,  4x new 2300 PowerOwl **
 2019-09-06 15:19|[logMaintenance.py.main]** Old Battery Set (powerowls) -  156 cycles 1272 hours **
 2019-09-06 15:19|[logMaintenance.py.main]** Starting at cycle 389 and 3683 total hours   **
 2019-09-06 16:14|[juicer.py.dock]---- Docking 389 completed  at 8.1 v after 0.9 h playtime
@@ -1572,6 +1572,65 @@
 2019-09-08 07:32|[logMaintenance.py.main]** Shutting down to change 4 old batts with rejuvinated old powerowls **
 2019-09-08 07:34|lifelog.dEmain execution: 32.1
 2019-09-08 07:36|------------ boot ------------
+2019-09-06 23:28|[logMaintenance.py.main]** NEW BATTERY SET - 4 refreshed old PowerOwl 4x new PowerOwl **
+2019-09-06 15:19|[logMaintenance.py.main]** Starting at cycle 397 and 3723 total hours   **
 2019-09-08 07:49|[juicer.py.undock]---- Dismount 397 at 10.6 v after 0.2 h recharge
-2019-09-08 08:36|lifelog.dEmain execution: 1
-2019-09-08 09:36|lifelog.dEmain execution: 2
+2019-09-08 11:25|[juicer.py.dock]---- Docking 397 completed  at 8.1 v after 3.6 h playtime
+2019-09-08 13:16|[juicer.py.undock]---- Dismount 398 at 10.4 v after 1.8 h recharge
+2019-09-08 17:18|[juicer.py.dock]---- Docking 398 completed  at 8.1 v after 4.0 h playtime
+2019-09-08 19:26|[juicer.py.undock]---- Dismount 399 at 10.5 v after 2.1 h recharge
+2019-09-08 21:18|[logMaintenance.py.main]** lost wlan1 built-in WiFi Possible SYN flooding on port 8888 **
+2019-09-08 21:24|lifelog.dEmain execution: 13.8
+2019-09-08 21:23|------------ boot ------------
+2019-09-09 00:07|[juicer.py.dock]---- Docking 400 completed  at 8.1 v after 4.6 h playtime
+2019-09-09 02:33|[juicer.py.undock]---- Dismount 401 at 10.5 v after 2.4 h recharge
+2019-09-09 07:51|[juicer.py.dock]---- Docking 401 completed  at 8.1 v after 5.3 h playtime
+2019-09-09 10:52|[juicer.py.undock]---- Dismount 402 at 10.6 v after 3.0 h recharge
+2019-09-09 16:26|[juicer.py.dock]---- Docking 402 completed  at 8.1 v after 5.6 h playtime
+2019-09-09 17:08|[logMaintenance.py.main]** shutdown to change cells **
+2019-09-09 17:11|lifelog.dEmain execution: 18.8
+2019-09-09 17:15|------------ boot ------------
+2019-09-09 17:16|[logMaintenance.py.main]** NEW BATTERY SET reinstalled all 8 refreshed old Powerowls 1950-2150mAh **
+2019-09-06 15:19|[logMaintenance.py.main]** Continuing from cycle 403 at 3756 total hours   **
+2019-09-06 15:19|[logMaintenance.py.main]** with prior 165 cycles 1350 hours on this refreshed *old* Powerowl set **
+2019-09-10 00:10|[logMaintenance.py.main]** Forgot to start juicer - died **
+2019-09-09 00:10|lifelog.dEmain execution: 6.9
+2019-09-10 00:18|------------ boot ------------
+2019-09-10 00:35|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 8.7v
+2019-09-10 00:44|[juicer.py.undock]---- Dismount 403 at 6.9 v after 0.3 h recharge
+2019-09-10 00:45|[juicer.py.dock]---- Docking 403 completed  at 8.1 v after 0.0 h playtime
+2019-09-10 00:48|[logMaintenance.py.main]** safety shutdown - docked but vBatt too low? **
+2019-09-10 00:48|lifelog.dEmain execution: 0.5
+2019-09-10 07:34|------------ boot ------------
+2019-09-10 07:44|[juicer.py.undock]---- Dismount 404 at 10.8 v after 0.1 h recharge
+2019-09-10 12:51|[juicer.py.dock]---- Docking 404 completed  at 8.1 v after 5.1 h playtime
+2019-09-10 15:27|[newjuicer.py.undock]---- Dismount 406 at 10.6 v after 2.6 h recharge
+2019-09-10 19:53|[juicer.py.dock]---- Docking 407 completed  at 8.1 v after 3.3 h playtime
+2019-09-10 20:25|[juicer.py.undock]---- Dismount 408 at 9.6 v after 0.5 h recharge
+2019-09-10 20:51|[logMaintenance.py.main]** Restarted Juicer - added carlData for dismount and docking **
+2019-09-10 21:35|[juicer.py.dock]---- Docking 408 completed  at 8.1 v after 1.2 h playtime
+2019-09-11 00:11|[juicer.py.undock]---- Dismount 409 at 10.5 v after 2.6 h recharge
+2019-09-11 04:22|[juicer.py.dock]---- Docking 409 completed  at 8.1 v after 4.2 h playtime
+2019-09-11 06:45|[juicer.py.undock]---- Dismount 409 at 10.6 v after 2.4 h recharge
+2019-09-11 10:45|[juicer.py.dock]---- Docking 410 completed  at 8.1 v after 4.0 h playtime
+2019-09-11 13:03|[juicer.py.undock]---- Dismount 410 at 10.6 v after 2.3 h recharge
+2019-09-11 16:54|[juicer.py.dock]---- Docking 411 completed  at 8.1 v after 3.9 h playtime
+2019-09-11 19:05|[juicer.py.undock]---- Dismount 411 at 10.4 v after 2.2 h recharge
+2019-09-11 22:47|[juicer.py.dock]---- Docking 412 completed  at 8.1 v after 3.7 h playtime
+2019-09-12 00:48|[juicer.py.undock]---- Dismount 412 at 10.5 v after 2.0 h recharge
+2019-09-12 04:44|[juicer.py.dock]---- Docking 413 completed  at 8.1 v after 3.9 h playtime
+2019-09-12 05:15|[juicer.py.undock]---- Dismount 413 at 9.5 v after 0.5 h recharge
+2019-09-12 06:31|[juicer.py.dock]---- Docking 414 completed  at 8.1 v after 1.3 h playtime
+2019-09-12 08:45|[juicer.py.undock]---- Dismount 414 at 10.5 v after 2.2 h recharge
+2019-09-12 10:19|[logMaintenance.py.main]** shutdown for battery change **
+2019-09-12 10:19|[logMaintenance.py.main]** Old Battery Set (powerowls) -  176 cycles 1408 hours **
+2019-09-12 10:19|lifelog.dEmain execution: 50.75
+2019-09-12 10:34|------------ boot -- 414 -- 3814.32h --------
+2019-09-09 17:16|[logMaintenance.py.main]** NEW BATTERY SET 4 best refreshed old Powerowls 4x new Powerowls (2200mAh) **
+2019-09-06 15:19|[logMaintenance.py.main]** All cells continuing from cycle 414 at 3814 total hours   **
+2019-09-06 15:19|[logMaintenance.py.main]** Old cells with prior 176 cycles 1408 hours  **
+2019-09-06 15:19|[logMaintenance.py.main]** New cells with prior 13 cycles 73 hours  **
+2019-09-12 14:29|[juicer.py.dock]---- Docking 415 completed  at 8.1 v after 3.9 h playtime
+2019-09-12 14:56|[juicer.py.undock]---- Dismount 415 at 9.6 v after 0.4 h recharge
+2019-09-12 15:52|[juicer.py.dock]---- Docking 416 completed  at 8.1 v after 0.9 h playtime
+2019-09-12 18:04|[juicer.py.undock]---- Dismount 416 at 10.4 v after 2.2 h recharge
