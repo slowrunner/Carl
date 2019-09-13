@@ -4,6 +4,8 @@ Based on https://www.pyimagesearch.com/2019/09/02/opencv-stream-video-to-web-bro
 
 Stream OpenCV video to web browser - applies motion detection
 
+![Carl Video Surveillance](CarlMotionFlask.png?raw=true)
+
 
 # USAGE:  
  ./webstreaming.py -i ip.ip.ip.ip -p port [-f NN]  (background frames set 32 default)
@@ -11,6 +13,9 @@ Stream OpenCV video to web browser - applies motion detection
 
 # PERFORMANCE  
   On Raspberry Pi 3B GoPiGo3 Robot:  (PiCamera v1.3 10fps 320x240)  
+  
+![RPI-Monitor Status](CarlMotionFlaskStatus.png?raw=true)
+  
 
  -  CPU Temperature on GoPiGo3 RPi3B was 59degC when home air cooling active  
     and rose to 72degC when cooling not active (Home at 77degF)
@@ -22,3 +27,7 @@ Stream OpenCV video to web browser - applies motion detection
  - Reduced FRAMERATE to 10 fps to limit load and temp stays between 59-71 degC  
 
  - Full speed 32 fps will climb to throttling point (80degC)  
+
+![CPU Temperature Profile](CarlMotionFlaskTemperature.png?raw=true)
+
+![CPU Load Profile](CarlMotionFlaskCPULoad.png?raw=true)
