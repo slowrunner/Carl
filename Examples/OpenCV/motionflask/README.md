@@ -8,7 +8,7 @@ Stream OpenCV video to web browser - applies motion detection
 
 
 # USAGE:  
- ./webstreaming.py -i ip.ip.ip.ip -p port [-f NN]  (background frames set 32 default)
+ ./webstreaming.py -i ip.ip.ip.ip -o port [-f NN]  (background frames set 32 default)
  (Python3, OpenCV 3.4)
 
 # PERFORMANCE  

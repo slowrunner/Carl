@@ -7,7 +7,7 @@
 # full speed ran at 70% and climbed close to throttling before I killed it
 #
 # USAGE:
-# ./webstreaming.py -i ip.ip.ip.ip -p port [-f NN] (background frame set)
+# ./webstreaming.py -i ip.ip.ip.ip -o port [-f NN] (background frame set)
 #
 # PERFORMANCE:  (10fps 320x240)
 #
