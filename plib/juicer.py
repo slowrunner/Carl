@@ -179,6 +179,7 @@ def chargingStatus(dtNow=None):
     global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
     global chargeCycles, possibleEarlyTrickleVolts
+    global dockingState, DOCKED
 
 #    shortList = readingList[-shortMeanCount:]
     # print("debug: shortlist =",shortList)
@@ -255,7 +256,8 @@ def chargingStatus(dtNow=None):
                    (lastChangeInSeconds > 150) and \
                    (shortMeanVolts > longMeanVolts) and \
                    (shortPeakVolts >= longPeakVolts) and \
-                   ((shortPeakVolts - shortMinVolts)>0.5) ):
+                   ((shortPeakVolts - shortMinVolts)>0.5) and \
+                   (dockingState == DOCKED) ):
                    chargingValue = CHARGING
                    lastChangeRule = "120"
                else:
