@@ -5,5 +5,4 @@
 
 awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' life.log
 awk -F':' 'FNR > 6 {sum+=$3}END{print "life this year: " sum " hrs";}' life.log
-echo "Sessions (booted) this year"
-grep "\- boot \-" life.log | wc -l
+echo "Sessions (boot) this year: " `(grep -c "\- boot \-" life.log)`
