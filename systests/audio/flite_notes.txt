@@ -1,0 +1,17 @@
+# flite notes
+
+== install
+
+sudo apt-get install flite-dev flite
+
+== play via wave file
+
+flite -t "hello from flite" -o tmp.wav
+omxplayer tmp.wav
+rm tmp.wav
+
+== all in one
+
+flite -t "hello from flite" -o tmp.wav; omxplayer tmp.wav; rm tmp.wav
+
+
