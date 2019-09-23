@@ -342,3 +342,5 @@
 2019-09-23 11:45|[juicer.py.dock]---- Docking 463 completed  at 7.7 v after 4.1 h playtime
 2019-09-23 11:45|[juicer.py.main]-- Charge Conditioning 4 completed
 2019-09-23 11:52|lifelog.dEmain execution: 24.6
+2019-09-23 11:58|------------ boot ------------
+2019-09-23 12:39|[logMaintenance.py.main]** Reverted to 11Sep OS (before update) to fix espeak and aplay **
