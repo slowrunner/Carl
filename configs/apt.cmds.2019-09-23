@@ -1,0 +1,162 @@
+history.log:Start-Date: 2019-09-07  16:08:11
+history.log:Commandline: apt-get install dirmngr
+history.log:Start-Date: 2019-09-07  16:10:52
+history.log:Commandline: apt-get install rpimonitor
+history.log:Start-Date: 2019-09-11  10:31:15
+history.log:Commandline: apt-get install rrdtool
+history.log:Start-Date: 2019-09-16  17:14:16
+history.log:Commandline: apt-get upgrade
+history.log:Start-Date: 2019-09-21  08:06:54
+history.log:Commandline: apt-get upgrade
+history.log:Start-Date: 2019-09-21  08:09:33
+history.log:Commandline: apt autoremove
+history.log:Start-Date: 2019-09-21  08:16:21
+history.log:Commandline: apt-get install --upgrade omxplayer
+history.log:Start-Date: 2019-09-21  08:21:57
+history.log:Commandline: apt-get install flite-dev flite
+history.log:Start-Date: 2019-09-22  16:17:19
+history.log:Commandline: apt-get install libespeak-dev
+history.log:Start-Date: 2019-09-22  16:39:28
+history.log:Commandline: apt-get remove libpulse0
+history.log:Start-Date: 2019-09-22  16:45:27
+history.log:Commandline: apt-get install espeak
+history.log.1:Start-Date: 2019-08-15  18:15:27
+history.log.1:Commandline: apt-get install sqlite3
+history.log.2:Start-Date: 2019-08-05  15:34:06
+history.log.2:Commandline: apt-get install exiftool
+history.log.3:Start-Date: 2019-06-09  22:12:28
+history.log.3:Commandline: apt-get install cmake
+history.log.3:Start-Date: 2019-06-17  09:38:26
+history.log.3:Commandline: apt-get install swig libpulse-dev
+history.log.3:Start-Date: 2019-06-18  16:14:53
+history.log.3:Commandline: apt-get install mplayer
+history.log.3:Start-Date: 2019-06-18  18:08:37
+history.log.3:Commandline: apt-get install git python-dev libsmpeg0 libttspico-utils libsmpeg0 flac libffi-dev libffi-dev libssl-dev portaudio19-dev build-essential libssl-dev libffi-dev sox libatlas3-base mplayer libyaml-dev libpython2.7-dev libav-tools libjpeg-dev
+history.log.3:Start-Date: 2019-06-20  00:55:03
+history.log.3:Commandline: apt-get remove libpulse-dev
+history.log.4:Start-Date: 2019-05-11  17:11:05
+history.log.4:Commandline: apt-get install reptyr
+history.log.4:Start-Date: 2019-05-12  08:38:23
+history.log.4:Commandline: apt-get install portaudio19-dev
+history.log.4:Start-Date: 2019-05-20  19:56:50
+history.log.4:Commandline: apt install --reinstall python*-decorator
+history.log.4:Start-Date: 2019-05-25  22:10:52
+history.log.4:Commandline: apt-get install sox libsox-fmt-all
+history.log.4:Start-Date: 2019-05-25  22:15:43
+history.log.4:Commandline: apt-get install libttspico-utils
+history.log.5:Start-Date: 2019-05-06  18:47:32
+history.log.5:Commandline: apt-get upgrade
+history.log.5:Start-Date: 2019-05-07  19:04:51
+history.log.5:Commandline: apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100
+history.log.5:Start-Date: 2019-05-07  19:05:48
+history.log.5:Commandline: apt-get install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
+history.log.5:Start-Date: 2019-05-07  19:07:13
+history.log.5:Commandline: apt-get install libjasper-dev
+history.log.6:Start-Date: 2019-01-04  09:37:07
+history.log.6:Commandline: apt-get install lame
+history.log.6:Start-Date: 2019-01-04  10:44:46
+history.log.6:Commandline: apt-get install sox
+history.log.6:Start-Date: 2019-01-04  10:57:42
+history.log.6:Commandline: apt-get install libsox-fmt-mp3
+history.log.6:Start-Date: 2019-01-13  10:03:13
+history.log.6:Commandline: apt-get install stress
+history.log.6:Start-Date: 2019-03-26  13:02:13
+history.log.6:Commandline: apt-get upgrade
+history.log.6:Start-Date: 2019-03-27  07:36:07
+history.log.6:Commandline: apt-get autoremove -y
+history.log.7:Start-Date: 2019-01-03  09:57:35
+history.log.7:Commandline: apt-get install -y python3-serial python-serial i2c-tools avahi-daemon avahi-utils python-rpi.gpio python3-rpi.gpio python-picamera python3-picamera python-smbus python3-smbus python-setuptools geany espeak autocutsel raspberrypi-net-mods shellinabox screen
+history.log.7:Start-Date: 2019-01-03  09:59:27
+history.log.7:Commandline: apt-get install apache2 websockify php libapache2-mod-php -y
+history.log.7:Start-Date: 2019-01-03  10:01:16
+history.log.7:Commandline: apt-get install -y raspberrypi-kernel
+history.log.7:Start-Date: 2019-01-03  10:07:27
+history.log.7:Commandline: apt-get install -y --no-install-recommends git build-essential libi2c-dev i2c-tools python-dev python3-dev python-setuptools python3-setuptools python-pip python3-pip libffi-dev
+history.log.7:Start-Date: 2019-01-03  10:11:17
+history.log.7:Commandline: apt-get install samba samba-common-bin -y
+history.log.8:Start-Date: 2018-09-23  10:31:00
+history.log.8:Commandline: apt-get install -y raspberrypi-kernel
+history.log.8:Start-Date: 2018-09-23  10:41:17
+history.log.8:Commandline: apt-get autoremove -y
+history.log.9:Start-Date: 2018-08-31  09:54:16
+history.log.9:Commandline: apt-get install libatlas-base-dev -y --no-install-recommends
+history.log.9:Start-Date: 2018-09-16  15:14:22
+history.log.9:Commandline: apt-get upgrade
+history.log.10:Start-Date: 2018-04-18  18:03:19
+history.log.10:Commandline: apt-get purge -y wolfram-engine
+history.log.10:Start-Date: 2018-04-18  18:04:51
+history.log.10:Commandline: apt-get purge -y libreoffice*
+history.log.10:Start-Date: 2018-04-18  18:08:06
+history.log.10:Commandline: apt-get upgrade -y
+history.log.10:Start-Date: 2018-04-18  18:12:08
+history.log.10:Commandline: apt-get autoremove -y
+history.log.10:Start-Date: 2018-04-18  18:27:57
+history.log.10:Commandline: apt-get install tightvncserver -y
+history.log.10:Start-Date: 2018-04-18  23:02:45
+history.log.10:Commandline: apt-get install apache2 websockify -y
+history.log.10:Start-Date: 2018-04-19  01:10:52
+history.log.10:Commandline: apt-get purge -y supercollider*
+history.log.10:Start-Date: 2018-04-19  01:11:04
+history.log.10:Commandline: apt-get purge -y minecraft-pi
+history.log.10:Start-Date: 2018-04-19  01:11:13
+history.log.10:Commandline: apt-get remove dillo netsurf-gtk -y
+history.log.10:Start-Date: 2018-04-19  01:11:36
+history.log.10:Commandline: apt-get autoremove -y
+history.log.10:Start-Date: 2018-04-19  01:24:15
+history.log.10:Commandline: apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev -y
+history.log.10:Start-Date: 2018-04-19  14:23:05
+history.log.10:Commandline: apt-get install shellinabox -y
+history.log.10:Start-Date: 2018-04-19  14:54:01
+history.log.10:Commandline: apt-get install apache2 websockify php libapache2-mod-php -y
+history.log.10:Start-Date: 2018-04-19  15:38:08
+history.log.10:Commandline: apt-get remove shellinabox
+history.log.10:Start-Date: 2018-04-19  15:38:27
+history.log.10:Commandline: apt-get install shellinabox
+history.log.10:Start-Date: 2018-05-17  16:09:56
+history.log.10:Commandline: apt-get install -y python3-serial python-serial i2c-tools avahi-daemon avahi-utils python-rpi.gpio python3-rpi.gpio python-picamera python3-picamera python-smbus python3-smbus python-setuptools geany espeak autocutsel raspberrypi-net-mods shellinabox screen
+history.log.10:Start-Date: 2018-05-17  16:12:54
+history.log.10:Commandline: apt-get install python3-pip python3-numpy python3-curtsies -y
+history.log.10:Start-Date: 2018-05-17  16:13:06
+history.log.10:Commandline: apt-get install python-pip python-numpy python-curtsies -y
+history.log.10:Start-Date: 2018-05-17  16:13:51
+history.log.10:Commandline: apt-get install git libi2c-dev i2c-tools minicom libnss-mdns build-essential libffi-dev -y
+history.log.10:Start-Date: 2018-05-17  16:16:01
+history.log.10:Commandline: apt-get install nodejs -y
+history.log.10:Start-Date: 2018-05-17  16:16:58
+history.log.10:Commandline: apt-get install git libi2c-dev i2c-tools arduino minicom -y
+history.log.10:Start-Date: 2018-05-17  16:18:35
+history.log.10:Commandline: apt-get install python-pip python-smbus python-dev python-serial python-rpi.gpio python-scipy python-numpy -y
+history.log.10:Start-Date: 2018-05-17  16:19:13
+history.log.10:Commandline: apt-get install python3-pip python3-smbus python3-dev python3-rpi.gpio python3-rpi.gpio python3-scipy python3-numpy -y
+history.log.10:Start-Date: 2018-05-17  16:20:51
+history.log.10:Commandline: apt-get autoremove -y
+history.log.10:Start-Date: 2018-05-17  16:40:54
+history.log.10:Commandline: apt-get install python-wxgtk3.0 python-psutil -y
+history.log.10:Start-Date: 2018-05-17  16:48:59
+history.log.10:Commandline: apt-get install samba samba-common-bin -y
+history.log.10:Start-Date: 2018-06-01  19:33:53
+history.log.10:Commandline: apt-get install -y git build-essential libi2c-dev i2c-tools python-dev python3-dev python-setuptools python3-setuptools python-pip python3-pip libffi-dev
+history.log.10:Start-Date: 2018-06-01  22:09:19
+history.log.10:Commandline: apt-get install python-wxgtk3.0 python-wxgtk2.8 build-essential python-psutil python-dev python-pip -y
+history.log.10:Start-Date: 2018-06-01  22:44:46
+history.log.10:Commandline: apt-get purge python-wxgtk3.0 -y
+history.log.10:Start-Date: 2018-06-27  17:49:14
+history.log.10:Commandline: apt-get install python-wxgtk3.0 python-wxgtk2.8 build-essential python-psutil python-dev python-pip -y
+history.log.10:Start-Date: 2018-06-27  17:59:36
+history.log.10:Commandline: apt-get install nodejs -y
+history.log.10:Start-Date: 2018-08-22  14:46:19
+history.log.10:Commandline: apt-get upgrade
+history.log.10:Start-Date: 2018-08-23  10:41:44
+history.log.10:Commandline: apt-get install dstat
+history.log.10:Start-Date: 2018-08-23  10:44:44
+history.log.10:Commandline: apt-get install iotop
+history.log.10:Start-Date: 2018-08-23  10:53:37
+history.log.10:Commandline: apt-get install atop
+history.log.10:Start-Date: 2018-08-23  11:41:12
+history.log.10:Commandline: apt-get install glances
+history.log.10:Start-Date: 2018-08-23  12:57:31
+history.log.10:Commandline: apt-get install lshw
+history.log.10:Start-Date: 2018-08-23  13:01:41
+history.log.10:Commandline: apt-get install hdparm
+history.log.10:Start-Date: 2018-08-23  16:48:11
+history.log.10:Commandline: apt-get install python-wxgtk2.8 python-wxgtk3.0 python-wxtools wx2.8-i18n python-psutil --yes
