@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 #
-# Usage:  ./try_pico.py
+# Usage:  ./try_espeak.py
 #         Enter the Text: (enter line of text (with or without quotes - no printed char restrictions)
 
 '''
@@ -16,6 +16,6 @@ print(text)
 text = text.replace("'","")
 text = text.replace('"',' quote ')
 
-#Calls the pico2wave TTS Engine to read aloud a Text
-os.system("pico2wave -w samples/pico.wav -l en-US \""+text+"\"")
-os.system("aplay samples/pico.wav 2>/dev/null")
+#Calls the espeak TTS Engine to read aloud a Text
+os.system("espeak -w samples/espeak.wav \""+text+"\"")
+os.system("aplay samples/espeak.wav 2>/dev/null")
