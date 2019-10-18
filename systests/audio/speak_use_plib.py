@@ -18,4 +18,6 @@ print(text)
 #print("clean text: %s" % text)
 
 speak.say(text)
+speak.shout(text)
+speak.whisper(text)
 

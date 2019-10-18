@@ -8,9 +8,13 @@
 #            includes optional vol parameter (range 10-500 useful)
 #            includes optional ignore (quietTime) parameter 
 
-#  say(     phrase, vol=50,  anytime=False)
-#  whisper( phrase, vol=10,  anytime=True)
-#  shout(   phrase, vol=200, anytime=False)
+#  Oct2019: increased volume for MonkMakes Amplified Speaker
+#           reduced speed to 150wpm (default was 175)
+#           switched to espeak-ng (supported, better quality)
+
+#  say(     phrase, vol=125,  anytime=False)
+#  whisper( phrase, vol= 50,  anytime=True)
+#  shout(   phrase, vol=250,  anytime=False)
 
 
 import subprocess
@@ -19,7 +23,7 @@ import time
 debug = False
 import math
 
-# QUIET TIME is before 10AM and after 10PM 
+# QUIET TIME is before 10AM and after 11PM
 # (unless told to ignore , then never quietTime
 
 def quietTime(startOK=10,notOK=23,ignore=False):
@@ -75,19 +79,21 @@ def say_espeak(phrase,vol=100,anytime=False):
     if (quietTime(ignore=anytime)):
         print("QuietTime speak request: {} at vol: {}".format(phrase,vol))
     else:
-        subprocess.check_output(['espeak -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
+        # subprocess.check_output(['espeak -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
+        subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
 
-def say(phrase,vol=50,anytime=False):
+def say(phrase,vol=125,anytime=False):
     say_espeak(phrase,vol,anytime)
+    # vol = 50 for HP amplified spkr
     # vol = vol + 40  # adjust for flite
     # say_flite(phrase,vol,anytime)
 
-def shout(phrase,vol=200,anytime=False):
+def shout(phrase,vol=250,anytime=False):
     say_espeak(phrase,vol,anytime)
     # vol = vol - 50  # adjust for flite
     # say_flite(phrase,vol,anytime)
 
-def whisper(phrase,vol=10,anytime=True):
+def whisper(phrase,vol=50,anytime=True):
     say_espeak(phrase,vol,anytime)
     # vol = vol + 30  # adjust for flite
     # say_flite(phrase,vol,anytime=False)
