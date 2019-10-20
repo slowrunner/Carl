@@ -56,13 +56,14 @@ from math import pi
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 ds   = egpg.init_distance_sensor()
+tp   = tiltpan.TiltPan(egpg)
 
 if Carl:
     runLog.logger.info("Started")
     myconfig.setParameters(egpg)   # configure custom wheel dia and base
-    tiltpan.tiltpan_center()
+    tp.tiltpan_center()
     time.sleep(0.5)
-    tiltpan.off()
+    tp.off()
 
 python_version = sys.version_info[0]
 print("Python Version:",python_version)
