@@ -73,6 +73,11 @@ def getClockFreq():
 
 
 # Return throttled flags as a character string
+#   0x10001  under-voltage 4.63v occurred / occurring
+#   0x20002  freq-cap occurred / occurring
+#   0x40004  Temp Throttled occurred / occurring
+#   0x80008  SOFT_TEMPERATURE_LIMIT (default 60degC, boot/config.txt temp_soft_limit=70 to increase)
+
 def getThrottled():
     res = os.popen('vcgencmd get_throttled').readline()
     return res.replace("\n", "")
