@@ -8,7 +8,8 @@
 import time
 from threading import Thread
 import smbus
-
+import signal
+import sys
 
 class MPU9255(Thread):
     PWR_M = 0x6B  #  PWR_MGMT_1 Address - Register 107 H_RESET|SLEEP|CYCLE|GSTBY|PDPTAT|CLKSEL2:0
@@ -62,12 +63,13 @@ class MPU9255(Thread):
     MyCal = 0
     MzCal = 0
 
-    dt = .02
+    dt = .02     # Reading Loop delta time
+    directReadAdjust = 0.0125
 
-
-    def __init__(self):
+    def __init__(self,dt=0.02):
         # pass
         super(MPU9255, self).__init__()
+        self.dt = dt
         self.gyroAngle = 0
         self.magAngle = 0
         self.accelAngle = 0
@@ -79,7 +81,8 @@ class MPU9255(Thread):
     def run(self):
         while self.running:
             self.data.append(self.getInfo())
-            time.sleep(self.dt)
+            time.sleep(0.001)
+            # time.sleep(self.dt - self.directReadAdjust))
 
 
 
@@ -154,9 +157,9 @@ class MPU9255(Thread):
         self.readMPUAddress(self.ST_2, self.MAG_ADDRESS)
 
         # calibration
-        Mx = x - MxCal
-        My = y - MyCal
-        Mz = z - MzCal
+        Mx = x / 0.6 - MxCal
+        My = y / 0.6 - MyCal
+        Mz = z / 0.6 - MzCal
         return {"MX": Mx, "MY": My, "MZ": Mz}
 
     def temp(self):
@@ -302,10 +305,48 @@ class IMU:
         li.append(self.getTemp())
         return li
 
+# ######### CNTL-C #####
+# Callback and setup to catch control-C and quit program
+
+_funcToRun=None
+
+def signal_handler(signal, frame):
+  print('\n** Control-C Detected')
+  if (_funcToRun != None):
+     _funcToRun()
+  sys.exit(0)     # raise SystemExit exception
+
+# Setup the callback to catch control-C
+def set_cntl_c_handler(toRun=None):
+  global _funcToRun
+  _funcToRun = toRun
+  signal.signal(signal.SIGINT, signal_handler)
+
+
+
+
+# ##### MAIN ######
+
+def stop_it():
+  global mpu
+
+  mpu.running = False
+  if mpu.is_alive():
+      mpu.join(2.0)  # wait up to two seconds for thread to stop running
+  print("stop_it() executed")
+
 
 
 def main():
-    mpu = MPU9255()
+    global mpu
+
+    DELTA_T = 0.05
+
+    mpu = MPU9255(DELTA_T)
+
+    # #### SET CNTL-C HANDLER 
+    set_cntl_c_handler(stop_it)
+
     print("Magnemometer Calibration")
     mpu.calibrateMag()
     print("Gyros and Accelerometers Calibration")
@@ -314,35 +355,70 @@ def main():
         time.sleep(1)
     mpu.calibrate()
 
-    # while True:
-    for i in range(100):
+    string_to_print = ""
+    numSamples = 100
+    print("\n==== {} DIRECT READS (and format for output) AS FAST AS POSSIBLE ====".format(numSamples))
+
+    tStart = time.time()
+    for i in range(numSamples):
         mag   = mpu.mag()
         gyro  = mpu.gyro()
         accel = mpu.accel()
         #euler = imu.read_euler()
         temp  = mpu.temp()
 
-        string_to_print = "Magnetometer X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Gyroscope X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Accelerometer X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
-                      "Temperature: {:.1f}C".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
+        string_to_print += \
+                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
+                      "Temp: {:.1f}C \n".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
                                                     float(gyro['GX']), float(gyro['GY']), float(gyro['GZ']),
                                                     float(accel['AX']), float(accel['AY']), float(accel['AZ']),
                                                     float(temp['TEMP']))
-        print(string_to_print)
 
-        time.sleep(0.05)
+        time.sleep(0.001)  # Go as fast as possible
+    tEnd = time.time()
+    print(string_to_print)
+    tDuration = tEnd - tStart
+    hZ = 1.0 / (tDuration / numSamples)
+    print("{} DIRECT READINGS (and formats) TOOK {:.2f} SECONDS, ACHIEVED {:.0f} Hz \n".format(numSamples,tDuration, hZ))
 
+
+    #  NOW TEST THREADED READS
     mpu.start()
     time.sleep(1)
-
-    while True:
+    mpu.getData() # clear data array
+    tStart = time.time()
+    time.sleep(1)
+    print("\n==== THREADED DIRECT READS AS FAST AS POSSIBLE ====")
+    string_to_print = ""
+    # while True:
+    for i in range(5):
+        tEnd = time.time()
         imuList = mpu.getData()
-        if (len(imuList) > 0):
+        tDuration = tEnd - tStart
+        tStart = time.time()
+        numReadings = len(imuList)
+        if (numReadings > 0):
             for i in imuList:
-                print(i.getMag(),i.getGyro(),i.getAccel(),i.getTemp())
-        time.sleep(1)
+                string_to_print += \
+                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
+                      "Temp: {:.1f}C \n".format(float(i.getMag()[0]), float(i.getMag()[1]), float(i.getMag()[2]),
+                                                    float(i.getGyro()[0]), float(i.getGyro()[1]), float(i.getGyro()[2]),
+                                                    float(i.getAccel()[0]), float(i.getAccel()[1]), float(i.getAccel()[2]),
+                                                    float(i.getTemp()))
 
+        print(string_to_print)
+        hZ = 1.0 / (tDuration/numReadings)
+        print("{} THREADED READINGS ( {:.2f} SECONDS at {:.0f} Hz ) \n".format(numReadings,tDuration, hZ))
+
+        string_to_print = ""
+        tSleep = .9875 # - (time.clock() - tStart)
+        print("/n==== SLEEPING  ====")
+        time.sleep(tSleep)
+    stop_it()
 
 
 if (__name__ == '__main__'): main()
