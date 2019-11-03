@@ -17,6 +17,8 @@ class MPU9255(Thread):
     GYRO_CONFIG = 0x1B  # Reg 27:  XG_Cten|YG_Cten|ZG_Cten|G_FS_SEL1:0|-|FCHOICE_B1:0
     ACCEL_CONFIG = 0x1C  # Reg 28: ax_st_en|ay_st_en|az_st_en|A_FS_SEL1:0
     INT_EN = 0x38   # Reg 56: Interrupt_Enable
+    INT_PIN_CFG = 0x37 # Reg 55: Interrupt Pin Configuration
+    I2C_MST_STATUS = 0x36 # Reg 54 Ronly
 
     ACCEL_X = 0x3B  # Reg 59-60  High byte, Low byte
     ACCEL_Y = 0x3D  # Reg 61-62
@@ -33,6 +35,8 @@ class MPU9255(Thread):
     ST_1 = 0x02
     ST_2 = 0x09
     MAG_ADDRESS = 0x0C
+    MAG_CNTL = 0x0A
+
 
     bus = smbus.SMBus(1)   # Current RPi use I2C bus 1
     Device_Address = 0x68  # MPU-9250 I2C device address
@@ -85,17 +89,18 @@ class MPU9255(Thread):
         self.bus.write_byte_data(self.Device_Address, self.PWR_M, 1)  # tie clock source to Gyro X axis for best accuracy
         self.bus.write_byte_data(self.Device_Address, self.CONFIG, 0) # 0=Gyros 250 Hz, Delay 0.97ms Fs 8kHz
         # GYRO_CONFIG    [4:3]GYRO_FS_SEL:11=2000dps [2]0 [1:0]FCHOICE_b:00 (inverted FCHOICE)=Use DLPF
-        self.bus.write_byte_data(self.Device_Address, self.GYRO_CONFIG, 24) # 
+        self.bus.write_byte_data(self.Device_Address, self.GYRO_CONFIG, 24) #
         self.bus.write_byte_data(self.Device_Address, self.INT_EN, 0) # 0=disabled, 1=Enable Raw Sensor Data Ready to Interrupt pin
-        self.bus.write_byte_data(self.Device_Address, 0x37, 0x22)
-        self.bus.write_byte_data(self.Device_Address, 0x36, 0x01)
-        self.bus.write_byte_data(self.MAG_ADDRESS, 0x0A, 0x00)
+        # INT_PIN_CG: [7]ACTL [6]OPEN [5]LATCH_INT_EN [4]INT_ANYRD_2CLEAR [3]ACTL_FSYNC [2]FSYNC_INT_MODE_EN [1]BYPASS_EN [0]-
+        self.bus.write_byte_data(self.Device_Address, self.INT_PIN_CFG, 0x22) #[7]ACT_Hi [5]LATCH_INT_EN=hold till clrd [1]BYPASS_EN
+        self.bus.write_byte_data(self.Device_Address, self.I2C_MST_STATUS, 0x01) #[0]I2C_SLV0_NACK
+        self.bus.write_byte_data(self.MAG_ADDRESS, self.MAG_CNTL, 0x00)  # Power-Down Mode
         time.sleep(.05)
-        self.bus.write_byte_data(self.MAG_ADDRESS, 0x0A, 0x0F)
+        self.bus.write_byte_data(self.MAG_ADDRESS, self.MAG_CNTL, 0x0F)  # Fuse ROM access mode
         time.sleep(.05)
-        self.bus.write_byte_data(self.MAG_ADDRESS, 0x0A, 0x00)
+        self.bus.write_byte_data(self.MAG_ADDRESS, self.MAG_CNTL, 0x00)  # Power-Down Mode
         time.sleep(.05)
-        self.bus.write_byte_data(self.MAG_ADDRESS, 0x0A, 0x06)
+        self.bus.write_byte_data(self.MAG_ADDRESS, self.MAG_CNTL, 0x06)  # Continuous mode 2 (???)
         time.sleep(1)
 
     def readMPU(self, addr, dev_add=Device_Address):
@@ -149,9 +154,9 @@ class MPU9255(Thread):
         self.readMPUAddress(self.ST_2, self.MAG_ADDRESS)
 
         # calibration
-        Mx = x
-        My = y
-        Mz = z
+        Mx = x - MxCal
+        My = y - MyCal
+        Mz = z - MzCal
         return {"MX": Mx, "MY": My, "MZ": Mz}
 
     def temp(self):
@@ -230,9 +235,9 @@ class MPU9255(Thread):
         z = z / ra
 
         # calibration
-        MxCal = x / 16384.0
-        MyCal = y / 16384.0
-        MzCal = z / 16384.0
+        MxCal = x / 0.6
+        MyCal = y / 0.6
+        MzCal = z / 0.6
 
         print("MxCal: ", MxCal)
         print("MyCal: ", MyCal)
@@ -245,7 +250,7 @@ class MPU9255(Thread):
 
     def getInfo(self):
         imu = IMU()
-        print(self.temp()["TEMP"])
+        # print(self.temp()["TEMP"])
         imu.setTemp(self.temp()["TEMP"])
         imu.setAccel(self.accel())
         imu.setGyro(self.gyro())
@@ -309,13 +314,13 @@ def main():
         time.sleep(1)
     mpu.calibrate()
 
-    while True:
+    # while True:
+    for i in range(100):
         mag   = mpu.mag()
         gyro  = mpu.gyro()
         accel = mpu.accel()
         #euler = imu.read_euler()
         temp  = mpu.temp()
-        # print("gyro: X: {:.1f}".format(float(gyro['GX'])))
 
         string_to_print = "Magnetometer X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
                       "Gyroscope X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
@@ -328,12 +333,14 @@ def main():
 
         time.sleep(0.05)
 
-    #mpu.start()
+    mpu.start()
     time.sleep(1)
-    exit(0)
+
     while True:
         imuList = mpu.getData()
-        print(imuList)
+        if (len(imuList) > 0):
+            for i in imuList:
+                print(i.getMag(),i.getGyro(),i.getAccel(),i.getTemp())
         time.sleep(1)
 
 
