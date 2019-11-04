@@ -3,7 +3,15 @@
 #
 # Based on https://github.com/scottmayberry/MPU9255/blob/master/MPUTRIAL.py
 #
-
+# If see WHO_AM_I: 0x71 meaning I2C working to MPU9250, but get OSError: 121 writing to mag,
+#  must power down GoPiGo3 or disconnect/reconnect IMU cable, then try again)
+#
+# Tested on a lightly loaded RPi3B (juicer.py, RPI-Monitor)
+#
+# Direct Readings and threaded direct reeadings achieve 55 to 58 Hz, max 90 Hz
+#
+# OUTPUT VALUES ARE NOT CORRECT...
+#
 
 import time
 from threading import Thread
@@ -64,7 +72,6 @@ class MPU9255(Thread):
     MzCal = 0
 
     dt = .02     # Reading Loop delta time
-    directReadAdjust = 0.0125
 
     def __init__(self,dt=0.02):
         # pass
@@ -81,19 +88,21 @@ class MPU9255(Thread):
     def run(self):
         while self.running:
             self.data.append(self.getInfo())
-            time.sleep(0.001)
-            # time.sleep(self.dt - self.directReadAdjust))
-
+            # time.sleep(self.dt) # 0.02 only gives 15Hz
+            time.sleep(0.0005)  # as fast as possible
 
 
     def initMPU(self):
+        whoAmI = self.bus.read_byte_data(self.Device_Address, self.WHO_AM_I)
+        print("WHO_AM_I: ",hex(whoAmI))
+        # self.bus.write_byte_data(self.Device_Address, self.PWR_M, 0x80)  # reset registers
         self.bus.write_byte_data(self.Device_Address, self.DIV, 7)  # sample rate divider -
                                                                     # FIFO sample rate=(internal rate / (1+DIV)
         self.bus.write_byte_data(self.Device_Address, self.PWR_M, 1)  # tie clock source to Gyro X axis for best accuracy
         self.bus.write_byte_data(self.Device_Address, self.CONFIG, 0) # 0=Gyros 250 Hz, Delay 0.97ms Fs 8kHz
         # GYRO_CONFIG    [4:3]GYRO_FS_SEL:11=2000dps [2]0 [1:0]FCHOICE_b:00 (inverted FCHOICE)=Use DLPF
         self.bus.write_byte_data(self.Device_Address, self.GYRO_CONFIG, 24) #
-        self.bus.write_byte_data(self.Device_Address, self.INT_EN, 0) # 0=disabled, 1=Enable Raw Sensor Data Ready to Interrupt pin
+        self.bus.write_byte_data(self.Device_Address, self.INT_EN, 1) # 0=disabled, 1=Enable Raw Sensor Data Ready to Interrupt pin
         # INT_PIN_CG: [7]ACTL [6]OPEN [5]LATCH_INT_EN [4]INT_ANYRD_2CLEAR [3]ACTL_FSYNC [2]FSYNC_INT_MODE_EN [1]BYPASS_EN [0]-
         self.bus.write_byte_data(self.Device_Address, self.INT_PIN_CFG, 0x22) #[7]ACT_Hi [5]LATCH_INT_EN=hold till clrd [1]BYPASS_EN
         self.bus.write_byte_data(self.Device_Address, self.I2C_MST_STATUS, 0x01) #[0]I2C_SLV0_NACK
@@ -335,6 +344,25 @@ def stop_it():
       mpu.join(2.0)  # wait up to two seconds for thread to stop running
   print("stop_it() executed")
 
+def direct_read(printit=False):
+        global mpu
+
+        mag   = mpu.mag()
+        gyro  = mpu.gyro()
+        accel = mpu.accel()
+        temp  = mpu.temp()
+
+        if printit:
+            string_to_print = \
+                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
+                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
+                      "Temp: {:.1f}C \n".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
+                                                    float(gyro['GX']), float(gyro['GY']), float(gyro['GZ']),
+                                                    float(accel['AX']), float(accel['AY']), float(accel['AZ']),
+                                                    float(temp['TEMP']))
+            print(string_to_print)
+        return [mag, gyro, accel, temp]
 
 
 def main():
@@ -364,7 +392,6 @@ def main():
         mag   = mpu.mag()
         gyro  = mpu.gyro()
         accel = mpu.accel()
-        #euler = imu.read_euler()
         temp  = mpu.temp()
 
         string_to_print += \
@@ -419,6 +446,12 @@ def main():
         print("/n==== SLEEPING  ====")
         time.sleep(tSleep)
     stop_it()
+
+    # now just read and print
+    while True:
+        direct_read(printit=True)
+        time.sleep(0.5)
+
 
 
 if (__name__ == '__main__'): main()
