@@ -3,8 +3,9 @@
 #
 # Based on https://github.com/scottmayberry/MPU9255/blob/master/MPUTRIAL.py
 #
-# If see WHO_AM_I: 0x71 meaning I2C working to MPU9250, but get OSError: 121 writing to mag,
-#  must power down GoPiGo3 or disconnect/reconnect IMU cable, then try again)
+# (Prior to adding the reset I2C master/slave write,
+#  If saw WHO_AM_I: 0x71 meaning I2C working to MPU9250, but get OSError: 121 writing to mag,
+#  had to power down GoPiGo3 or disconnect/reconnect IMU cable, then try again)
 #
 # Tested on a lightly loaded RPi3B (juicer.py, RPI-Monitor)
 #
@@ -20,6 +21,7 @@ import signal
 import sys
 
 class MPU9255(Thread):
+    USER_CTRL = 0x6A # [6]FIFO_EN [5]I2C_MST_EN [4]I2C_IF_DIS [2]FIFO_RST [1]I2C_MST_RST [0]SIG_COND_RST
     PWR_M = 0x6B  #  PWR_MGMT_1 Address - Register 107 H_RESET|SLEEP|CYCLE|GSTBY|PDPTAT|CLKSEL2:0
     DIV = 0x19  #    Sample Rate Divider - Register 25  rate = internal_sample_rate / (1 + DIV)
     CONFIG = 0x1A  # Config Reg 26: -|FIFO_MODE|EXT_SYNC_SET2:0|DLPF_CFG2:0
@@ -96,6 +98,7 @@ class MPU9255(Thread):
         whoAmI = self.bus.read_byte_data(self.Device_Address, self.WHO_AM_I)
         print("WHO_AM_I: ",hex(whoAmI))
         # self.bus.write_byte_data(self.Device_Address, self.PWR_M, 0x80)  # reset registers
+        self.bus.write_byte_data(self.Device_Address, self.USER_CTRL, 0x02) # reset I2C master/slave 
         self.bus.write_byte_data(self.Device_Address, self.DIV, 7)  # sample rate divider -
                                                                     # FIFO sample rate=(internal rate / (1+DIV)
         self.bus.write_byte_data(self.Device_Address, self.PWR_M, 1)  # tie clock source to Gyro X axis for best accuracy
