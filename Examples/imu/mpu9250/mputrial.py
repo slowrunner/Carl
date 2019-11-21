@@ -15,6 +15,7 @@
 #
 
 import time
+from datetime import datetime as dt
 from threading import Thread
 import smbus
 import signal
@@ -62,7 +63,7 @@ class MPU9255(Thread):
     YG_OFFS = 0x15 # Reg 21 X GYRO Offset two bytes
     ZG_OFFS = 0x17 # Reg 23 X GYRO Offset two bytes
 
-
+    # Original
     AxCal = -2520
     AyCal = 4395
     AzCal = 1577
@@ -73,12 +74,24 @@ class MPU9255(Thread):
     MyCal = 0
     MzCal = 0
 
-    dt = .02     # Reading Loop delta time
+    # my calibration values (from prior run)
+    AxCal =  0.03078125
+    AyCal =  1.00831787109375
+    AzCal =  -0.02070556640625
+    GxCal =  -0.07358778625954199
+    GyCal =  0.2364885496183206
+    GzCal =  0.15908396946564884
+    # Magnemometer Calibration
+    MxCal =  11750
+    MyCal =  -949
+    MzCal =  -9461
 
-    def __init__(self,dt=0.02):
+    dT = .02     # Reading Loop delta time
+
+    def __init__(self,dT=0.02):
         # pass
         super(MPU9255, self).__init__()
-        self.dt = dt
+        self.dT = dT
         self.gyroAngle = 0
         self.magAngle = 0
         self.accelAngle = 0
@@ -90,8 +103,8 @@ class MPU9255(Thread):
     def run(self):
         while self.running:
             self.data.append(self.getInfo())
-            # time.sleep(self.dt) # 0.02 only gives 15Hz
-            time.sleep(0.0005)  # as fast as possible
+            time.sleep(self.dT) # 0.02 only gives 15Hz
+            # time.sleep(0.0005)  # as fast as possible
 
 
     def initMPU(self):
@@ -128,6 +141,7 @@ class MPU9255(Thread):
 
     def readMPUAddress(self, addr, dev_add=Device_Address):
         return self.bus.read_byte_data(dev_add, addr)
+
 
     def accel(self):
         global AxCal
@@ -179,6 +193,9 @@ class MPU9255(Thread):
         tempC = (tempRow / 340.0) + 36.53
         tempC = "%.2f" % tempC
         return {"TEMP": tempC}
+
+    def reading_time(self):
+        return {"TIME": dt.now().strftime("%H:%M:%S.%f")[:-3]}
 
     def calibrate(self):
         global AxCal
@@ -265,43 +282,52 @@ class MPU9255(Thread):
 
     def getInfo(self):
         imu = IMU()
-        # print(self.temp()["TEMP"])
-        imu.setTemp(self.temp()["TEMP"])
+        imu.setTime(self.reading_time())
+        imu.setTemp(self.temp())
         imu.setAccel(self.accel())
         imu.setGyro(self.gyro())
         imu.setMag(self.mag())
         return imu
 
 class IMU:
+    # class contains floating point values and reading time string
     def __init__(self):
         pass
 
+    def setTime(self, t):
+        self.tReading = t
+    def setTime(self, data):
+        self.tReading = data["TIME"]
     def setTemp(self, temp):
         self.temp = temp
+    def setTemp(self, data):
+        self.temp = float(data["TEMP"])
     def setGyro(self, gx, gy, gz):
+        # print("setGyro(gx, gy, gz) called")
         self.gx = gx
         self.gy = gy
         self.gz = gz
     def setGyro(self, data):
-        self.gx = data["GX"]
-        self.gy = data["GY"]
-        self.gz = data["GZ"]
+        # print("setGyro(data) called")
+        self.gx = float(data["GX"])
+        self.gy = float(data["GY"])
+        self.gz = float(data["GZ"])
     def setAccel(self, ax, ay, az):
         self.ax = ax
         self.ay = ay
         self.az = az
     def setAccel(self, data):
-        self.ax = data["AX"]
-        self.ay = data["AY"]
-        self.az = data["AZ"]
+        self.ax = float(data["AX"])
+        self.ay = float(data["AY"])
+        self.az = float(data["AZ"])
     def setMag(self, mx, my, mz):
         self.mx = mx
         self.my = my
         self.mz = mz
     def setMag(self, data):
-        self.mx = data["MX"]
-        self.my = data["MY"]
-        self.mz = data["MZ"]
+        self.mx = float(data["MX"])
+        self.my = float(data["MY"])
+        self.mz = float(data["MZ"])
     def getGyro(self):
         return [self.gx, self.gy, self.gz]
     def getAccel(self):
@@ -310,11 +336,14 @@ class IMU:
         return [self.mx, self.my, self.mz]
     def getTemp(self):
         return self.temp
+    def getTime(self):
+        return self.tReading
     def getAll(self):
         li = self.getAccel()
         li.append(self.getGyro())
         li.append(self.getMag())
         li.append(self.getTemp())
+        li.append(self.getTime())
         return li
 
 # ######### CNTL-C #####
@@ -350,22 +379,47 @@ def stop_it():
 def direct_read(printit=False):
         global mpu
 
+        dtNow = dt.now()
         mag   = mpu.mag()
         gyro  = mpu.gyro()
         accel = mpu.accel()
         temp  = mpu.temp()
 
         if printit:
-            string_to_print = \
-                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
-                      "Temp: {:.1f}C \n".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
+            print_reading(mag, gyro, accel, temp, dtNow)
+
+        return mag, gyro, accel, temp, dtNow
+
+def print_reading(mag, gyro, accel, temp, dtNow=0):
+        string_to_print = \
+                      "MagXYZ:{: 7.1f} {: 7.1f} {: 7.1f} | " \
+                      "GyroXYZ:{: 6.1f} {: 6.1f} {: 6.1f} | " \
+                      "AccelXYZ:{: 6.1f} {: 6.1f} {: 6.1f} | " \
+                      "Temp:{:3.1f}C | Time {} \n".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
                                                     float(gyro['GX']), float(gyro['GY']), float(gyro['GZ']),
                                                     float(accel['AX']), float(accel['AY']), float(accel['AZ']),
-                                                    float(temp['TEMP']))
-            print(string_to_print)
-        return [mag, gyro, accel, temp]
+                                                    float(temp['TEMP']),dtNow.strftime("%H:%M:%S.%f")[:-3])
+        print(string_to_print)
+        return string_to_print
+
+def print_imu(i):
+        tReading = i.getTime()
+        mag = i.getMag()
+        gyro = i.getGyro()
+        accel = i.getAccel()
+        temp = i.getTemp()
+        string_to_print = \
+                      "MagXYZ:{: 7.1f} {: 7.1f} {: 7.1f} | " \
+                      "GyroXYZ:{: 6.1f} {: 6.1f} {: 6.1f} | " \
+                      "AccelXYZ:{: 6.1f} {: 6.1f} {: 6.1f} | " \
+                      "Temp:{:3.1f}C | Time {} \n".format(mag[0], mag[1], mag[2],
+                                                    gyro[0], gyro[1], gyro[2],
+                                                    accel[0], accel[1], accel[2],
+                                                    temp,tReading)
+
+        print(string_to_print)
+        return string_to_print
+
 
 
 def main():
@@ -386,32 +440,25 @@ def main():
         time.sleep(1)
     mpu.calibrate()
 
-    string_to_print = ""
-    numSamples = 100
-    print("\n==== {} DIRECT READS (and format for output) AS FAST AS POSSIBLE ====".format(numSamples))
+    # Take a few readings
+    print("\n==== READ AND PRINT ====")
+    for i in range(5):
+        direct_read(printit=True)
 
+    # Time direct reading
+    numSamples = 100
+    print("\n==== {} DIRECT READS AS FAST AS POSSIBLE ====".format(numSamples))
+    readings = []
     tStart = time.time()
     for i in range(numSamples):
-        mag   = mpu.mag()
-        gyro  = mpu.gyro()
-        accel = mpu.accel()
-        temp  = mpu.temp()
-
-        string_to_print += \
-                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
-                      "Temp: {:.1f}C \n".format(float(mag['MX']), float(mag['MY']), float(mag['MZ']),
-                                                    float(gyro['GX']), float(gyro['GY']), float(gyro['GZ']),
-                                                    float(accel['AX']), float(accel['AY']), float(accel['AZ']),
-                                                    float(temp['TEMP']))
-
+        readings += [direct_read()]
         time.sleep(0.001)  # Go as fast as possible
     tEnd = time.time()
-    print(string_to_print)
     tDuration = tEnd - tStart
     hZ = 1.0 / (tDuration / numSamples)
-    print("{} DIRECT READINGS (and formats) TOOK {:.2f} SECONDS, ACHIEVED {:.0f} Hz \n".format(numSamples,tDuration, hZ))
+    print("{} DIRECT READINGS TOOK {:.2f} SECONDS, ACHIEVED {:.0f} Hz \n".format(numSamples,tDuration, hZ))
+    for i in readings:
+        print_reading(i[0],i[1],i[2],i[3],i[4])
 
 
     #  NOW TEST THREADED READS
@@ -421,9 +468,9 @@ def main():
     tStart = time.time()
     time.sleep(1)
     print("\n==== THREADED DIRECT READS AS FAST AS POSSIBLE ====")
-    string_to_print = ""
+    readings = []
     # while True:
-    for i in range(5):
+    for j in range(5):
         tEnd = time.time()
         imuList = mpu.getData()
         tDuration = tEnd - tStart
@@ -431,20 +478,11 @@ def main():
         numReadings = len(imuList)
         if (numReadings > 0):
             for i in imuList:
-                string_to_print += \
-                      "Mag X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Gyro X: {:.1f}  Y: {:.1f}  Z: {:.1f} " \
-                      "Accel X: {:.1f}  Y: {:.1f} Z: {:.1f} " \
-                      "Temp: {:.1f}C \n".format(float(i.getMag()[0]), float(i.getMag()[1]), float(i.getMag()[2]),
-                                                    float(i.getGyro()[0]), float(i.getGyro()[1]), float(i.getGyro()[2]),
-                                                    float(i.getAccel()[0]), float(i.getAccel()[1]), float(i.getAccel()[2]),
-                                                    float(i.getTemp()))
-
-        print(string_to_print)
+                # print_reading(i.getMag(), i.getGyro(), i.getAccel, i.getTemp(), i.getTime()  )
+                print_imu(i)
         hZ = 1.0 / (tDuration/numReadings)
         print("{} THREADED READINGS ( {:.2f} SECONDS at {:.0f} Hz ) \n".format(numReadings,tDuration, hZ))
 
-        string_to_print = ""
         tSleep = .9875 # - (time.clock() - tStart)
         print("/n==== SLEEPING  ====")
         time.sleep(tSleep)
