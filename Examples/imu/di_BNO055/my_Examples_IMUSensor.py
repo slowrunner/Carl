@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # https://www.dexterindustries.com
 #
@@ -12,10 +12,11 @@ from __future__ import print_function
 from __future__ import division
 
 import time
-from di_sensors.inertial_measurement_unit import InertialMeasurementUnit
+#from di_sensors.inertial_measurement_unit import InertialMeasurementUnit
+from my_easy_inertial_measurement_unit import EasyIMUSensor
 
 print("Example program for reading a Dexter Industries IMU Sensor on a GoPiGo3 AD1 port.")
-imu = InertialMeasurementUnit(bus = "GPG3_AD1")
+imu = EasyIMUSensor(port = "AD1", use_mutex = True)
 
 # print("Example program for reading a Dexter Industries IMU Sensor on a GoPiGo3 HW I2C port.")
 # imu = InertialMeasurementUnit(bus = "RPI_1")  # use HW I2C on Carl
@@ -23,11 +24,11 @@ imu = InertialMeasurementUnit(bus = "GPG3_AD1")
 time.sleep(1.0) # allow warmup
 while True:
     # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
-    mag   = imu.read_magnetometer()
-    gyro  = imu.read_gyroscope()
-    accel = imu.read_accelerometer()
-    euler = imu.read_euler()
-    temp  = imu.read_temperature()
+    mag   = imu.safe_read_magnetometer()
+    gyro  = imu.safe_read_gyroscope()
+    accel = imu.safe_read_accelerometer()
+    euler = imu.safe_read_euler()
+    temp  = imu.safe_read_temperature()
 
     string_to_print = \
                       "Euler Heading: {:>5.1f}  Roll: {:>5.1f}  Pitch: {:>5.1f} |  " \

@@ -27,9 +27,9 @@ from di_sensors import inertial_measurement_unit
 from easygopigo3 import *
 
 MINIMUM_VOLTAGE = 7.0
-DEBUG = False
-MOTORS_SPEED = 250 # see documentation
-MAGNETIC_DECLINATION = 6.89  # Boynton Beach, FL  Original 0
+DEBUG = True
+MOTORS_SPEED = 150 # 250 see documentation
+MAGNETIC_DECLINATION = 0 # 6.89  # Boynton Beach, FL  Original 0
 I2C_BUS = "RPI_1"  # Use HW I2C, Original "GPG3_AD1"
 
 
@@ -236,10 +236,12 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
     direction_degrees = None
     move = False
-    acceptable_error_percent = 8
+    acceptable_error_percent = 8 # original 8
     command = "stop"
     rotational_factor = 0.30
-    accepted_minimum_by_drivers = 6
+    accepted_minimum_by_drivers = 6 # original 6
+    last_command = command
+
 
     # while CTRL-C is not pressed, the synchronization between threads didn't fail and while the batteries' voltage isn't too low
     while not (trigger.is_set() or simultaneous_launcher.broken or gopigo3_robot.volt() <= MINIMUM_VOLTAGE):
@@ -249,6 +251,10 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
             motor_command_queue.task_done()
         except queue.Empty:
             pass
+
+        if (DEBUG is True) and (command != last_command):
+                print("Command: {}".format(command))
+                last_command = command
 
         # make some selection depending on what every command represents
         if command == "stop":
@@ -278,11 +284,13 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
             how_much_to_rotate = int(heading_diff * rotational_factor)
 
             if DEBUG is True:
-                print("direction_degrees {} heading {} error {} heading_diff {}".format(direction_degrees, heading, error, heading_diff))
+                print("direction_degrees {:<3.0f} heading {:<3.0f} error {:<3.1f} heading_diff {:<3.1f}".format(direction_degrees, heading, error, heading_diff))
 
             # check if the heading isn't so far from the desired orientation
             # if it needs correction, then rotate the robot
             if error >= acceptable_error_percent and abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
+                if DEBUG is True:
+                    print("Turning {:.1f} degrees".format(how_much_to_rotate))
                 gopigo3_robot.turn_degrees(how_much_to_rotate, blocking = True)
 
         # command for making the robot move of stop
