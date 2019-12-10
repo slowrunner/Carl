@@ -4,7 +4,7 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
-
+declare -i newBattsAtCycle=486
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' life.log
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' life.log)`
 echo "Total Life: " $totalLife "hrs"
@@ -20,12 +20,14 @@ totalDockings=`(awk -F"Docking " '{sub(/ .*/,"",$2);print $2}' <<< $lastDockingS
 echo "Total Dockings: " $totalDockings
 dockingsThisYear=`(grep -c "h playtime" life.log)`
 echo "Dockings this year: " $dockingsThisYear
+echo "New Batteries At Cycle:" $newBattsAtCycle
+currentBattCycles=`(echo "scale=1; $totalDockings - $newBattsAtCycle" | bc)`
+echo "Battery Set At Cycle: " $currentBattCycles
 dockingFailures=`(grep -c "Docking Failure Possible" life.log)`
 failurePercent=`(echo "scale=1; $dockingFailures * 100 / $dockingsThisYear" | bc)`
 echo "Docking Failures this year: " $dockingFailures " or " $failurePercent "% of Dockings"
 #aveCycleTimeTotal=`(echo "scale=1; $totalLife / $totalDockings" | bc)`
 #echo "Ave Cycle total life: " $aveCycleTimeTotal "hours"
-
 aveCycleTime=`(echo "scale=1; $lifeThisYear / ($dockingsThisYear - $dockingFailures)" | bc)`
 echo "Ave Cycle this year (w/o failures): " $aveCycleTime "hours"
 
