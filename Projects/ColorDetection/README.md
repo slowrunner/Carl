@@ -2,8 +2,16 @@
 GoPiGo can react to colors as seen via the Pi Camera
 
 This program has two modes:  
-1. Learning Mode:	./colors.py LEARN	will learn user-named colors (and save <color>.jpg)
-2. Identify Mode:	./colors.py		will print and speak color it sees
+1. Learning Mode:  will learn user-named colors (and save <color>.jpg)	
+```
+./colors.py LEARN
+```
+
+2. Identify Mode:  will print and speak color it sees
+```
+./colors.py
+```
+
 
 For expanded color naming, use an underscore between words: e.g. light_green, dark_blue
 
