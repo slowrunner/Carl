@@ -31,5 +31,5 @@ Modifications made:
 - Tolerant of non-existent or empty knowncolors.csv
 - Control-C aborts program anywhere without error tracebacks
 - Identification loop sleep added to make experience less hectic sounding
-- <color>.jpg saved for each learned color to give insight into learned colors
+- \<color\>.jpg saved for each learned color to give insight into learned colors
 - changed to use espeak-ng (the supported version of espeak)
