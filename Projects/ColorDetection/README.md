@@ -2,7 +2,7 @@
 GoPiGo can react to colors as seen via the Pi Camera
 
 This program has two modes:  
-1. Learning Mode:  will learn user-named colors (and save <color>.jpg)	
+1. Learning Mode:  will learn user-named colors (and save \<color\>.jpg)	
 ```
 ./colors.py LEARN
 ```
