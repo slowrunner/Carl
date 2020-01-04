@@ -133,7 +133,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             self.BNO055.set_mode(BNO055.OPERATION_MODE_NDOF)
             ifMutexRelease(self.use_mutex)
-        time.sleep(1.0)
+        sleep(1.0)
 
     def loadCalDataJSON(self):
         ifMutexAcquire(self.use_mutex)
@@ -168,15 +168,65 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return status
 
     def resetBNO055(self):
-            print("Switching to CONFIG_MODE")
-            self.BNO055._config_mode()
+
+        ifMutexAcquire(self.use_mutex)
+        try:
+            print("save initial mode")
+            initial_mode = self.BNO055._mode
+
+            print("save initial units")
+            initial_units = self.BNO055.i2c_bus.read_8(BNO055.REG_UNIT_SEL)  # m/s**2, DegPerSec, degC
+
             print("Resetting BNO055")
-            self.my_reset_sys()
-            print("Setting NDOF Mode")
-            self.BNO055.set_mode(BNO055.OPERATION_MODE_NDOF)
-            printCalStatus(imu)
-            print("\n")
-            time.sleep(1.0)
+
+            # Send a thow-away command and ignore any response or I2C errors
+            # just to make sure the BNO055 is in a good state and ready to accept
+            # commands (this seems to be necessary after a hard power down).
+            try:
+                self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PAGE_ID, 0)
+            except IOError:
+                # pass on an I2C IOError
+                pass
+
+            print("switch to config mode")
+            self.BNO055._config_mode()
+
+            print("write reset byte")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PAGE_ID, 0)
+
+            print("check the chip ID")
+            if BNO055.ID != self.BNO055.i2c_bus.read_8(BNO055.REG_CHIP_ID):
+                raise RuntimeError("BNO055 failed to respond")
+
+            print("reset the device using the reset command")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_SYS_TRIGGER, 0x20)
+
+            print("wait 650ms after reset for chip to be ready (recommended in datasheet)")
+            sleep(0.65)
+
+            print("set to normal power mode")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PWR_MODE, BNO055.POWER_MODE_NORMAL)
+
+            print("default to internal oscillator")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_SYS_TRIGGER, 0x00)
+
+            print("set temperature source to gyroscope, as it seems to be more accurate.")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_TEMP_SOURCE, 0x01)
+
+            print("set the unit selection bits")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_UNIT_SEL, initial_units)
+
+            print("set temperature source to gyroscope, as it seems to be more accurate.")
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_TEMP_SOURCE, 0x01)
+
+            print("restore mode")
+            self.BNO055.set_mode(initial_mode)
+        except:
+            raise RuntimeError("BNO055 reset failure")
+        finally:
+            ifMutexRelease(self.use_mutex)
+        sleep(1.0)
+        print("BNO055 Reset Complete")
 
 
 

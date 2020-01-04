@@ -6,7 +6,18 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
-# Python example program for the Dexter Industries IMU Sensor
+# My Python example program of basic calibration and then reading the Dexter Industries IMU Sensor
+#
+# Usage:  Expand a console to be 192 chars wide (next line does not appear wrapped)
+# 3456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
+#
+# ./calEz.py  or python3 calEz.py
+#
+# To calibrate - rotate GoPiGo3 in the air through a lazy eight pattern
+#
+# Uses Alan's extended mutex protected EasyIMUSensor() class from my_easy_inertial_measurement_unit.py
+# to calibrate IMU and then print/overwrite a line of values 5 times a second.
+
 
 from __future__ import print_function
 from __future__ import division
@@ -15,7 +26,6 @@ import time
 from datetime import datetime as dt
 #from di_sensors.easy_inertial_measurement_unit import EasyIMUSensor
 from my_easy_inertial_measurement_unit import EasyIMUSensor
-# import calBNO055
 import numpy as np
 
 def readIMU(imu):
@@ -55,9 +65,7 @@ def printReadings(readingsMGAELT, cr = False):
             print(string_to_print, end='\r')
 
 
-def readAndPrint(imu,cnt=1,delay=0.01,cr = False):
-    if cnt > 1:
-        print("\nRead And Print {} times with delay: {:.3f}".format(cnt,delay))
+def readAndPrint(imu,cnt=1,delay=0.02,cr = False):
     if cnt == 0:
         while True:
             printReadings(readIMU(imu),cr)
@@ -71,28 +79,27 @@ def readAndPrint(imu,cnt=1,delay=0.01,cr = False):
 def main():
     IMUPORT = "AD1"   # Must be AD1 or AD2 only
 
-    print("\nExample program for reading a Dexter Industries IMU Sensor")
-    print("Using SW I2C on GoPiGo3 port {}\n".format(IMUPORT))
+    print("\nMy example program for basic calibration (only magnetometers)")
+    print("\nand then reading the Dexter Industries IMU Sensor")
+    print("\nUsing mutex-protected, exception-tolerant SW I2C on GoPiGo3 port {}\n".format(IMUPORT))
 
-    imu = EasyIMUSensor(port = IMUPORT, use_mutex = True)  
-
+    imu = EasyIMUSensor(port = IMUPORT, use_mutex = True)
 
     time.sleep(1.0)  # allow for all measurements to initialize
 
     exCnt = imu.getExceptionCount()
 
     try:
+        imu.resetBNO055()
+
         calStatus = imu.safe_calibration_status()
-        print("NDOF Calibration {}".format(calStatus))
+        print("NDOF Calibration {}\n".format(calStatus))
 
         if calStatus < 3:
             print("Rotate GoPiGo3 in swinging figure-8 until calibrated")
             imu.safe_calibrate()
-            print("Calibration Complete")
-            time.slieep(1.0)
-
-        # print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
-
+            print("Calibration Complete\n")
+            time.sleep(1.0)
 
         while True:
             readAndPrint(imu,cnt=1,delay=0.2)
@@ -100,12 +107,10 @@ def main():
                 exCnt = imu.getExceptionCount()
                 print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
             if (abs(imu.safe_read_gyroscope()[2]) > 0.5): print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
-        #XYZ = track(imu, 1000, 0.01)
-        print("\n")
+
 
     except KeyboardInterrupt:
         print("\nCntrl-C detected. Exiting..")
-        # break
 
 
 # Main loop
