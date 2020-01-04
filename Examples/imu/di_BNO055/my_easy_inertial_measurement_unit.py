@@ -13,7 +13,34 @@
 # IMU SENSOR
 
 # MUTEX SUPPORT WHEN NEEDED
+#
+"""
+DI Methods Implemented (Unchanged)
+ - EasyIMUSensor(port="AD1", use_mutex=False)
+ - imu.reconfig_bus()
+ - imu.safe_calibrate()
+ - imu.safe_calibration_status()
+ - imu.convert_heading(in_heading)
+ - imu.safe_read_euler()
+ - imu.safe_read_magnetometer()
+ - imu.safe_north_point()
 
+Expanded mutex protected Methods Implemented:
+ - imu.resetExceptionCount()              resset count of recent I2C exceptions
+ - imu.getExceptionCount()                get number of recent I2C exceptions
+ - imu.printCalStatus()                   prints sys, gyro, acc, mag status 0=not cal, 3=fully calibrated
+ - imu.dumpCalDataJSON()                  writes out calibration data to ./calData.json
+ - imu.loadCalDataJSON()                  returns calibration data from file ./calData.json
+ - imu.loadAndSetCalDataJSON()            Resets calibrarion from data in file ./calData.json
+ - imu.resetBNO055()                      reset the IMU and print calibration status
+ - imu.my_safe_calibrate()                uses the NDOF SYS value instead of just mags value
+ - imu.my_safe_sgam_calibration_status()  returns all four cal status: sys, gyro, accels, mags
+ - imu.safe_read_gyroscope()              returns the gyroscope values x, y, z
+ - imu.safe_read_accelerometer()          returns the accels values x, y, z
+ - imu.safe_read_linear_acceleration()    returns the linear accel values x, y, z
+ - imu_safe_read_temperature()            returns the chip temp degC
+
+"""
 
 from di_sensors import inertial_measurement_unit
 from di_sensors import BNO055
@@ -198,14 +225,15 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
     def my_safe_calibrate(self):
         """
-        Once called, the method returns when the NDOF SYS of the `InertialMeasurementUnit Sensor`_ gets fully calibrated. Rotate the sensor in the air to help the sensor calibrate faster.
+        Once called, the method returns when the NDOF SYS of the `InertialMeasurementUnit Sensor`_ gets fully calibrated.
+        Rotate the sensor in the air to two orthoganal directions of each axis.
 
         .. note::
            Also, this method is not used to trigger the process of calibrating the sensor (the IMU does that automatically),
            but its purpose is to block a given script until the sensor reports it has fully calibrated.
 
            If you wish to block your code until the sensor calibrates and still have control over your script, use
-           :py:meth:`~di_sensors.easy_inertial_measurement_unit.EasyIMUSensor.safe_calibration_status` method along with a ``while`` loop to continuously check it.
+           :py:meth:`my_easy_inertial_measurement_unit.EasyIMUSensor.my_safe_sgam_calibration_status` method along with a ``while`` loop to continuously check it.
 
         """
 

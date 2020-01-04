@@ -6,7 +6,9 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
-# Python example program for the Dexter Industries IMU Sensor
+# My Python example program for the Dexter Industries IMU Sensor
+# Uses my expanded mutex protected EasyIMUSensor() class from my_easy_inertial_measurement_unit.py
+#
 
 from __future__ import print_function
 from __future__ import division
@@ -15,22 +17,24 @@ import time
 #from di_sensors.inertial_measurement_unit import InertialMeasurementUnit
 from my_easy_inertial_measurement_unit import EasyIMUSensor
 
-print("Example program for reading a Dexter Industries IMU Sensor on a GoPiGo3 AD1 port.")
-imu = EasyIMUSensor(port = "AD1", use_mutex = True)
+# MUST be either AD1 or AD2 which implement sofware I2C with proper clock stretching
+PORT = "AD1"
 
-# print("Example program for reading a Dexter Industries IMU Sensor on a GoPiGo3 HW I2C port.")
-# imu = InertialMeasurementUnit(bus = "RPI_1")  # use HW I2C on Carl
+print("My example program for reading a Dexter Industries IMU Sensor on a GoPiGo3 {} port.".format(PORT))
+imu = EasyIMUSensor(port = PORT, use_mutex = True)
 
 time.sleep(1.0) # allow warmup
-while True:
-    # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
-    mag   = imu.safe_read_magnetometer()
-    gyro  = imu.safe_read_gyroscope()
-    accel = imu.safe_read_accelerometer()
-    euler = imu.safe_read_euler()
-    temp  = imu.safe_read_temperature()
 
-    string_to_print = \
+while True:
+    try:
+        # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
+        mag   = imu.safe_read_magnetometer()
+        gyro  = imu.safe_read_gyroscope()
+        accel = imu.safe_read_accelerometer()
+        euler = imu.safe_read_euler()
+        temp  = imu.safe_read_temperature()
+
+        string_to_print = \
                       "Euler Heading: {:>5.1f}  Roll: {:>5.1f}  Pitch: {:>5.1f} |  " \
                       "Mag XYZ: {:>4.1f} {:>4.1f} {:>4.1f} | " \
                       "Gyro XYZ: {:>4.1f} {:>4.1f} {:>4.1f} | " \
@@ -41,6 +45,9 @@ while True:
                                              gyro[0], gyro[1], gyro[2],
                                              accel[0], accel[1], accel[2],
                                              temp)
-    print(string_to_print)
+        print(string_to_print)
 
-    time.sleep(0.1)
+        time.sleep(0.1)
+    except KeyboardInterrupt:
+        print("\nCtrl-C Detected...")
+        exit(0)
