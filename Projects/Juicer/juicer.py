@@ -257,9 +257,17 @@ def chargingStatus(dtNow=None):
                    (shortMeanVolts > longMeanVolts) and \
                    (shortPeakVolts >= longPeakVolts) and \
                    ((shortPeakVolts - shortMinVolts)>0.5) and \
-                   (dockingState == DOCKED) ):
+                   (dockingState == DOCKED)):
                    chargingValue = CHARGING
                    lastChangeRule = "120"
+               elif ((slope > 0) and \
+                   (lastChangeInSeconds > 150) and \
+                   (shortMeanVolts > longMeanVolts) and \
+                   (shortPeakVolts >= longPeakVolts) and \
+                   ((shortPeakVolts - shortMinVolts)>0.5) and \
+                   (dockingState == DOCKREQUESTED)):
+                   chargingValue = CHARGING
+                   lastChangeRule = "121"
                else:
                    pass
           elif (chargingState == TRICKLING):
