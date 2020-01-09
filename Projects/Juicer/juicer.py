@@ -83,24 +83,44 @@ dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
 
 
-try:
-    chargeCycles = int(cd.getCarlData('chargeCycles'))
-    dockingCount = chargeCycles
-except:
-    dockingCount = 0
-    chargeCycles = 0
+# load chargeConditioning and chargeCycles/dockingCount
+# Not loading chargingState and dockingState 
+def loadVars():
+    global chargeCycles, dockingCount, chargeConditioning, chargingState, dockingState
 
-try:
-    chargeConditioning = int(cd.getCarlData('chargeConditioning'))
-except:
-    chargeConditioning = 0
+    try:
+        chargeCycles = int(cd.getCarlData('chargeCycles'))
+        dockingCount = chargeCycles
+        print("loaded chargeCycles and dockingCount from carlData.json")
+    except:
+        dockingCount = 0
+        chargeCycles = 0
+        print("init dockingCount and chargeCycles to 0/Unknown")
 
-try:
-    chargingState = int(cd.getCarlData('chargingState'))
-except:
-    chargingState = 0
-    cd.saveCarlData('chargingState',chargingState)
+    try:
+        chargeConditioning = int(cd.getCarlData('chargeConditioning'))
+        print("loaded chargeConditioning from carlData.json")
+    except:
+        chargeConditioning = 0
+        print("init chargeConditioning to 0")
 
+    """
+    try:
+        chargingState = int(cd.getCarlData('chargingState'))
+        print("loaded chargingState from carlData.json")
+    except:
+        chargingState = 0
+        cd.saveCarlData('chargingState',chargingState)
+        print("init carlData chargingState to 0 UNKNOWN")
+
+    try:
+        dockingState = int(cd.getCarlData('dockingState'))
+        print("loaded dockingState from carlData.json")
+    except:
+        dockingState = 0
+        cd.saveCarlData('dockingState', dockingState)
+        print("init carlData dockingState to 0 UNKNOWN")
+    """
 
 dockingFinalBackInSeconds = 0.125
 
@@ -173,13 +193,14 @@ def compute(egpg=None,sim=False,simBattVoltage=10.5):
 def chargingStatus(dtNow=None):
     # https://stackoverflow.com/questions/10048571/python-finding-a-trend-in-a-set-of-numbers?noredirect=1&lq=1
 
-    global UNKNOWN, NOTCHARGING, CHARGING, TRICKLING
+    # global UNKNOWN, NOTCHARGING, CHARGING, TRICKLING
     global readingList
     global shortMeanVolts,shortPeakVolts,shortMinVolts
     global longMeanVolts,longPeakVolts,longMinVolts
     global chargingState,dtLastChargingStateChange,lastChangeRule
     global chargeCycles, possibleEarlyTrickleVolts
-    global dockingState, DOCKED
+    global dockingState
+    # global DOCKED, DOCKREQUESTED, UNDOCKREQUESTED, NOTDOCKED, CABLED
 
 #    shortList = readingList[-shortMeanCount:]
     # print("debug: shortlist =",shortList)
@@ -258,16 +279,16 @@ def chargingStatus(dtNow=None):
                    (shortPeakVolts >= longPeakVolts) and \
                    ((shortPeakVolts - shortMinVolts)>0.5) and \
                    (dockingState == DOCKED)):
-                   chargingValue = CHARGING
-                   lastChangeRule = "120"
+                       chargingValue = CHARGING
+                       lastChangeRule = "120"
                elif ((slope > 0) and \
                    (lastChangeInSeconds > 150) and \
                    (shortMeanVolts > longMeanVolts) and \
                    (shortPeakVolts >= longPeakVolts) and \
                    ((shortPeakVolts - shortMinVolts)>0.5) and \
                    (dockingState == DOCKREQUESTED)):
-                   chargingValue = CHARGING
-                   lastChangeRule = "121"
+                       chargingValue = CHARGING
+                       lastChangeRule = "121"
                else:
                    pass
           elif (chargingState == TRICKLING):
@@ -438,6 +459,7 @@ def undock(egpg,ds,tp):
              dismountDistanceInCM = (dockingDistanceInMM + dismountFudgeInMM)/10.0
              egpg.drive_cm(dismountDistanceInCM,True)
              dockingState = NOTDOCKED
+             cd.saveCarlData('dockingState', dockingState)
              dtNow = dt.datetime.now()
              lastChargingState = chargingState
              chargingState = NOTCHARGING
@@ -531,8 +553,11 @@ def dock(egpg,ds,tp):
     if ( -20 <  appErrorInMM > 20 ):
         print(dt.datetime.now().strftime("%H:%M:%S"),"**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
         speak.say("Dock approach error. Please put me on the dock")
+        strToLog = "---- Manual Docking {0} requested  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
+        lifelog.logger.info(strToLog)
         lifeLog.logger.info("**** Dock Approach Error - MANUAL DOCKING REQUESTED")
         dockingState = DOCKREQUESTED
+        cd.saveCarlData('dockingState', dockingState)
         dtLastDockingStateChange = dt.datetime.now()
         if (  appErrorInMM > 0):
             print("**** Approach Distance too large by %.2f MM" % appErrorInMM)
@@ -570,6 +595,7 @@ def dock(egpg,ds,tp):
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.whisper("Docking completed.")
         dockingState = DOCKED
+        cd.saveCarlData('dockingState', dockingState)
         dockingCount += 1
         lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
         lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
@@ -587,6 +613,25 @@ def dock(egpg,ds,tp):
 
     tp.off()
     # exit dock()
+
+
+def manualDockingCompleted():
+    global dockingState, chargingState, dockingCount, lastDockingChangeInSeconds, lastDockingChangeDays, lastDockingChangeHours, dtLastDockingStateChange
+    global possibleEarlyTrickleVolts
+
+    dtNow = dt.datetime.now()
+    print("**** MANUAL DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
+    speak.whisper("Manual Docking completed.")
+    dockingState = DOCKED
+    dockingCount += 1
+    lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
+    lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
+    lastDockingChangeHours = round( (lastDockingChangeDays[1] / 3600.0),1)
+    strToLog = "---- Manual Docking {0} complete at {1:.1f} v and {2:.1f} h".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
+    lifeLog.logger.info(strToLog)
+    cd.saveCarlData('lastDocking',strToLog)
+    dtLastDockingStateChange = dtNow
+    possibleEarlyTrickleVolts = 0       # reset any prior detections
 
 def dockingTest(egpg,ds,numTests = 30):
     global dockingState,chargingState
@@ -665,12 +710,15 @@ def main():
     else:
        egpg = None
 
+    loadVars()  # get vars from carlData.json
 
     print ("Juicer Main Initialization")
     print ("shortMeanDuration: %.1f" % shortMeanDuration)
     print ("longMeanDuration: %.1f" % longMeanDuration)
     print ("readingEvery %.1f seconds" % readingEvery)
     print ("simulation: ",sim)
+    print ("dockingState: ", dockingState)
+    print ("chargingState: ", chargingState)
 
     # ./juicer.py test   to perform undock/docking tests
     if (len(sys.argv)>1):
@@ -691,16 +739,22 @@ def main():
             safetyCheck(egpg)
             # Detect when docked
             if (((dockingState == UNKNOWN) or \
-                 (dockingState == DOCKREQUESTED) or \
                  (dockingState == NOTDOCKED)) and \
                 ((chargingState == TRICKLING) or \
                  (chargingState == CHARGING)) ):
                 dockingState = DOCKED
+                cd.saveCarlData('dockingState', dockingState)
                 dtLastDockingStateChange = dt.datetime.now()
+            # Detect when docked after manual docking requested
+            if ((dockingState == DOCKREQUESTED) and \
+                ((chargingState == TRICKLING) or \
+                 (chargingState == CHARGING)) ):
+                manualDockingCompleted()
             # Starting up away from dock
             if ((dockingState == UNKNOWN) and \
                  (chargingState == NOTCHARGING) ):
                 dockingState = NOTDOCKED
+                cd.saveCarlData('dockingState', dockingState)
                 dtLastDockingStateChange = dt.datetime.now()
             # Time to go out to play
             if ((chargingState == TRICKLING) and \
