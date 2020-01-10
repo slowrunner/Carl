@@ -1,4 +1,4 @@
-2019-08-22 11:58|[logMaintenance.py.main]******************** END OF YEAR 1 LIFE ******************************************
+þ2019-08-22 11:58|[logMaintenance.py.main]******************** END OF YEAR 1 LIFE ******************************************
 2019-08-22 11:58|[logMaintenance.py.main]** END OF YEAR 1 LIFE -  3324 hrs 344 Dockings 168 Sessions (booted) 36% Uptime **
 2019-08-22 11:58|[logMaintenance.py.main]** END OF YEAR 1 PowerOwl Batteries 111 cycles 910 hrs **
 2019-08-22 11:58|lifelog.dEmain execution: 3324.37
@@ -770,7 +770,8 @@
 2019-11-20 00:04|------------ boot ------------
 2019-11-20 00:04|[juicer.py.main]---- juicer.py started at 9.58v
 2019-11-20 06:23|[juicer.py.dock]---- Docking 597 completed  at 8.1 v after 9.0 h playtime
-2019-11-20 09:36|[logMaintenance.py.main]** RPI-Monitor failure may be source of long playtimes **
+2019-11-20 09:36|[logMaintenance.py.main]** 6 degF Lower House Temps, or .225 web-interface failure source of long playtimes? **
+2019-11-20 09:36|[logMaintenance.py.main]** DI IMU added **
 2019-11-20 09:54|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
 2019-11-20 09:54|[juicer.py.undock]---- Dismount 597 at 11.5 v after 3.5 h recharge
 2019-11-20 18:15|[juicer.py.dock]---- Docking 598 completed  at 8.1 v after 8.4 h playtime
@@ -786,6 +787,424 @@
 2019-11-21 06:31|[juicer.py.main]---- Docking Failure Possible
 2019-11-21 06:31|[juicer.py.undock]---- Dismount 601 at 8.8 v after 0.1 h recharge
 2019-11-21 06:36|[juicer.py.dock]---- Docking 602 completed  at 8.1 v after 0.1 h playtime
-2019-11-21 07:05|lifelog.dEmain execution: 31
-2019-11-21 08:05|lifelog.dEmain execution: 32
-2019-11-21 09:05|lifelog.dEmain execution: 33
+2019-11-21 10:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-11-21 10:09|[juicer.py.undock]---- Dismount 602 at 11.5 v after 3.5 h recharge
+2019-11-21 18:41|[juicer.py.dock]---- Docking 603 completed  at 8.1 v after 8.5 h playtime
+2019-11-21 22:12|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-11-21 22:12|[juicer.py.undock]---- Dismount 603 at 11.4 v after 3.5 h recharge
+2019-11-22 06:43|[juicer.py.dock]---- Docking 604 completed  at 8.1 v after 8.5 h playtime
+2019-11-22 10:14|[juicer.py.undock]---- Dismount 604 at 11.3 v after 3.5 h recharge
+2019-11-22 18:35|[juicer.py.dock]---- Docking 605 completed  at 8.1 v after 8.3 h playtime
+2019-11-22 22:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2019-11-22 22:06|[juicer.py.undock]---- Dismount 605 at 11.3 v after 3.5 h recharge
+2019-11-23 06:23|[juicer.py.dock]---- Docking 606 completed  at 8.1 v after 8.3 h playtime
+2019-11-23 09:46|[juicer.py.undock]---- Dismount 606 at 11.3 v after 3.4 h recharge
+2019-11-23 18:06|[juicer.py.dock]---- Docking 607 completed  at 8.1 v after 8.3 h playtime
+2019-11-23 21:37|[juicer.py.undock]---- Dismount 607 at 11.3 v after 3.5 h recharge
+2019-11-24 06:00|[juicer.py.dock]---- Docking 608 completed  at 8.1 v after 8.4 h playtime
+2019-11-24 09:31|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-11-24 09:31|[juicer.py.undock]---- Dismount 608 at 11.4 v after 3.5 h recharge
+2019-11-24 12:50|[logMaintenance.py.main]** Testing - restarted juicer **
+2019-11-24 17:49|[juicer.py.dock]---- Docking 607 completed  at 8.1 v after 8.3 h playtime
+2019-11-24 21:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-11-24 21:20|[juicer.py.undock]---- Dismount 607 at 11.4 v after 3.5 h recharge
+2019-11-25 05:41|[juicer.py.dock]---- Docking 608 completed  at 8.1 v after 8.4 h playtime
+2019-11-25 09:09|[juicer.py.undock]---- Dismount 608 at 11.3 v after 3.5 h recharge
+2019-11-25 17:30|[juicer.py.dock]---- Docking 609 completed  at 8.1 v after 8.3 h playtime
+2019-11-25 19:16|[juicer.py.undock]---- Dismount 609 at 10.2 v after 1.8 h recharge
+2019-11-25 23:20|[juicer.py.dock]---- Docking 610 completed  at 8.1 v after 4.1 h playtime
+2019-11-26 00:27|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2019-11-26 01:01|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2019-11-26 01:01|[juicer.py.undock]---- Dismount 610 at 9.8 v after 1.7 h recharge
+2019-11-26 03:03|[juicer.py.dock]---- Docking 611 completed  at 8.1 v after 2.0 h playtime
+2019-11-26 06:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-11-26 06:35|[juicer.py.undock]---- Dismount 611 at 11.5 v after 3.5 h recharge
+2019-11-26 14:40|[juicer.py.dock]---- Docking 612 completed  at 8.1 v after 8.1 h playtime
+2019-11-26 18:07|[juicer.py.undock]---- Dismount 612 at 11.2 v after 3.4 h recharge
+2019-11-27 02:12|[juicer.py.dock]---- Docking 613 completed  at 8.1 v after 8.1 h playtime
+2019-11-27 02:17|[juicer.py.main]---- Docking Failure Possible
+2019-11-27 02:18|[juicer.py.undock]---- Dismount 613 at 7.6 v after 0.1 h recharge
+2019-11-27 02:18|[juicer.py.dock]---- Docking 614 completed  at 7.6 v after 0.0 h playtime
+2019-11-27 05:50|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-11-27 05:50|[logMaintenance.py.main]** RPI-Monitor started (playtime loss 0.2-0.3h) **
+2019-11-27 05:50|[juicer.py.undock]---- Dismount 614 at 11.3 v after 3.5 h recharge
+2019-11-27 13:53|[juicer.py.dock]---- Docking 615 completed  at 8.1 v after 8.0 h playtime
+2019-11-27 17:24|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-11-27 17:24|[juicer.py.undock]---- Dismount 615 at 11.4 v after 3.5 h recharge
+2019-11-28 01:33|[juicer.py.dock]---- Docking 616 completed  at 8.1 v after 8.2 h playtime
+2019-11-28 05:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-11-28 05:04|[juicer.py.undock]---- Dismount 616 at 11.4 v after 3.5 h recharge
+2019-11-28 13:11|[juicer.py.dock]---- Docking 617 completed  at 8.1 v after 8.1 h playtime
+2019-11-28 16:42|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-11-28 16:42|[juicer.py.undock]---- Dismount 617 at 11.4 v after 3.5 h recharge
+2019-11-29 00:50|[juicer.py.dock]---- Docking 618 completed  at 8.1 v after 8.1 h playtime
+2019-11-29 03:08|[juicer.py.undock]---- Dismount 618 at 10.2 v after 2.3 h recharge
+2019-11-29 08:33|[juicer.py.dock]---- Docking 619 completed  at 8.1 v after 5.4 h playtime
+2019-11-29 12:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-11-29 12:04|[juicer.py.undock]---- Dismount 619 at 11.4 v after 3.5 h recharge
+2019-11-29 20:08|[juicer.py.dock]---- Docking 620 completed  at 8.1 v after 8.1 h playtime
+2019-11-29 23:39|[juicer.py.undock]---- Dismount 620 at 11.3 v after 3.5 h recharge
+2019-11-30 07:43|[juicer.py.dock]---- Docking 621 completed  at 8.1 v after 8.1 h playtime
+2019-11-30 10:50|[juicer.py.undock]---- Dismount 621 at 10.6 v after 3.1 h recharge
+2019-11-30 18:05|[juicer.py.dock]---- Docking 622 completed  at 8.1 v after 7.3 h playtime
+2019-11-30 21:33|[juicer.py.undock]---- Dismount 622 at 11.3 v after 3.5 h recharge
+2019-12-01 05:35|[juicer.py.dock]---- Docking 623 completed  at 8.1 v after 8.0 h playtime
+2019-12-01 07:58|[juicer.py.undock]---- Dismount 623 at 10.3 v after 2.4 h recharge
+2019-12-01 13:29|[juicer.py.dock]---- Docking 624 completed  at 8.1 v after 5.5 h playtime
+2019-12-01 16:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-01 16:59|[juicer.py.undock]---- Dismount 624 at 11.3 v after 3.5 h recharge
+2019-12-02 01:05|[juicer.py.dock]---- Docking 625 completed  at 8.1 v after 8.1 h playtime
+2019-12-02 03:07|[juicer.py.undock]---- Dismount 625 at 10.2 v after 2.0 h recharge
+2019-12-02 07:50|[juicer.py.dock]---- Docking 626 completed  at 8.1 v after 4.7 h playtime
+2019-12-02 11:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-02 11:21|[juicer.py.undock]---- Dismount 626 at 11.4 v after 3.5 h recharge
+2019-12-02 19:23|[juicer.py.dock]---- Docking 627 completed  at 8.1 v after 8.0 h playtime
+2019-12-02 22:54|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2019-12-02 22:54|[juicer.py.undock]---- Dismount 627 at 11.3 v after 3.5 h recharge
+2019-12-03 06:55|[juicer.py.dock]---- Docking 628 completed  at 8.1 v after 8.0 h playtime
+2019-12-03 10:26|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-03 10:27|[juicer.py.undock]---- Dismount 628 at 11.3 v after 3.5 h recharge
+2019-12-03 18:27|[juicer.py.dock]---- Docking 629 completed  at 8.1 v after 8.0 h playtime
+2019-12-03 21:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-03 21:59|[juicer.py.undock]---- Dismount 629 at 11.5 v after 3.5 h recharge
+2019-12-04 06:04|[juicer.py.dock]---- Docking 630 completed  at 8.1 v after 8.1 h playtime
+2019-12-04 07:32|[juicer.py.undock]---- Dismount 630 at 10.2 v after 1.5 h recharge
+2019-12-04 10:54|[juicer.py.dock]---- Docking 631 completed  at 8.1 v after 3.4 h playtime
+2019-12-04 14:25|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-04 14:25|[juicer.py.undock]---- Dismount 631 at 11.4 v after 3.5 h recharge
+2019-12-04 22:26|[juicer.py.dock]---- Docking 632 completed  at 8.1 v after 8.0 h playtime
+2019-12-04 23:54|[juicer.py.undock]---- Dismount 632 at 10.2 v after 1.5 h recharge
+2019-12-05 03:07|[juicer.py.dock]---- Docking 633 completed  at 8.1 v after 3.2 h playtime
+2019-12-05 06:38|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-05 06:38|[juicer.py.undock]---- Dismount 633 at 11.5 v after 3.5 h recharge
+2019-12-05 14:41|[juicer.py.dock]---- Docking 634 completed  at 8.1 v after 8.0 h playtime
+2019-12-05 18:11|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-05 18:12|[juicer.py.undock]---- Dismount 634 at 11.3 v after 3.5 h recharge
+2019-12-06 02:07|[juicer.py.dock]---- Docking 635 completed  at 8.1 v after 7.9 h playtime
+2019-12-06 02:12|[juicer.py.main]---- Docking Failure Possible
+2019-12-06 02:12|[juicer.py.undock]---- Dismount 635 at 7.9 v after 0.1 h recharge
+2019-12-06 02:13|[juicer.py.dock]---- Docking 636 completed  at 8.0 v after 0.0 h playtime
+2019-12-06 02:18|[juicer.py.main]---- Docking Failure Possible
+2019-12-06 02:18|[juicer.py.undock]---- Dismount 636 at 8.7 v after 0.1 h recharge
+2019-12-06 02:24|[juicer.py.dock]---- Docking 637 completed  at 8.1 v after 0.1 h playtime
+2019-12-06 03:38|[juicer.py.undock]---- Dismount 637 at 10.0 v after 1.2 h recharge
+2019-12-06 06:18|[juicer.py.dock]---- Docking 638 completed  at 8.1 v after 2.7 h playtime
+2019-12-06 09:43|[juicer.py.undock]---- Dismount 638 at 11.3 v after 3.4 h recharge
+2019-12-06 17:34|[juicer.py.dock]---- Docking 639 completed  at 8.1 v after 7.8 h playtime
+2019-12-06 17:39|[juicer.py.main]---- Docking Failure Possible
+2019-12-06 17:39|[juicer.py.undock]---- Dismount 639 at 7.9 v after 0.1 h recharge
+2019-12-06 17:40|[juicer.py.dock]---- Docking 640 completed  at 7.9 v after 0.0 h playtime
+2019-12-06 17:45|[juicer.py.main]---- Docking Failure Possible
+2019-12-06 17:45|[juicer.py.undock]---- Dismount 640 at 8.7 v after 0.1 h recharge
+2019-12-06 17:51|[juicer.py.dock]---- Docking 641 completed  at 8.1 v after 0.1 h playtime
+2019-12-06 18:13|[logMaintenance.py.main]** Seems like IMU may cause false docking failure **
+2019-12-06 18:56|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.0v
+2019-12-06 19:24|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.7v
+2019-12-06 19:24|[juicer.py.undock]---- Dismount 641 at 9.7 v after 1.6 h recharge
+2019-12-06 21:11|[juicer.py.dock]---- Docking 642 completed  at 8.1 v after 1.8 h playtime
+2019-12-07 00:41|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-07 00:42|[juicer.py.undock]---- Dismount 642 at 11.4 v after 3.5 h recharge
+2019-12-07 08:44|[juicer.py.dock]---- Docking 643 completed  at 8.1 v after 8.0 h playtime
+2019-12-07 12:15|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2019-12-07 12:15|[juicer.py.undock]---- Dismount 643 at 11.2 v after 3.5 h recharge
+2019-12-07 20:03|[juicer.py.dock]---- Docking 644 completed  at 8.1 v after 7.8 h playtime
+2019-12-07 21:17|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2019-12-07 21:23|[logMaintenance.py.main]** reboot to try enabling ipv6 **
+2019-12-07 21:25|lifelog.dEmain execution: 429.4
+2019-12-07 21:25|------------ boot ------------
+2019-12-07 21:25|[juicer.py.main]---- juicer.py started at 9.91v
+2019-12-07 21:35|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.0v
+2019-12-07 23:07|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.7v
+2019-12-07 23:08|[juicer.py.undock]---- Dismount 639 at 9.7 v after 3.1 h recharge
+2019-12-08 01:04|[juicer.py.dock]---- Docking 640 completed  at 8.1 v after 1.9 h playtime
+2019-12-08 04:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-08 04:35|[juicer.py.undock]---- Dismount 640 at 11.4 v after 3.5 h recharge
+2019-12-08 08:08|[logMaintenance.py.main]** reboot for OS update **
+2019-12-08 08:09|lifelog.dEmain execution: 10.7
+2019-12-08 08:09|------------ boot ------------
+2019-12-08 08:21|[logMaintenance.py.main]** TTS not right, reverting kernal to 4.14.98 **
+2019-12-08 08:23|lifelog.dEmain execution: 0.35
+2019-12-08 08:23|------------ boot ------------
+2019-12-08 08:24|[logMaintenance.py.main]** kernal reversion restored TTS function **
+2019-12-08 12:29|[juicer.py.dock]---- Docking 641 completed  at 8.1 v after 7.9 h playtime
+2019-12-08 15:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-08 16:00|[juicer.py.undock]---- Dismount 641 at 11.3 v after 3.5 h recharge
+2019-12-08 18:36|lifelog.dEmain execution: 10.2
+2019-12-08 18:36|------------ boot ------------
+2019-12-08 18:36|[logMaintenance.py.main]** reboot to try ipv6 to fd01 colon colon 11 **
+2019-12-09 00:03|[juicer.py.dock]---- Docking 642 completed  at 8.1 v after 8.1 h playtime
+2019-12-09 03:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-09 03:34|[juicer.py.undock]---- Dismount 642 at 11.4 v after 3.5 h recharge
+2019-12-09 11:34|[juicer.py.dock]---- Docking 643 completed  at 8.1 v after 8.0 h playtime
+2019-12-09 15:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-09 15:04|[juicer.py.undock]---- Dismount 643 at 11.4 v after 3.5 h recharge
+2019-12-09 22:59|[juicer.py.dock]---- Docking 644 completed  at 8.1 v after 7.9 h playtime
+2019-12-09 23:04|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2019-12-09 23:04|[juicer.py.undock]---- Dismount 644 at 8.0 v after 0.1 h recharge
+2019-12-09 23:05|[juicer.py.dock]---- Docking 645 completed  at 8.1 v after 0.0 h playtime
+2019-12-09 23:10|[juicer.py.main]---- Docking Failure Possible
+2019-12-09 23:10|[juicer.py.undock]---- Dismount 645 at 8.7 v after 0.1 h recharge
+2019-12-09 23:17|[juicer.py.dock]---- Docking 646 completed  at 8.1 v after 0.1 h playtime
+2019-12-10 00:39|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.9v
+2019-12-10 02:48|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-10 02:48|[juicer.py.undock]---- Dismount 646 at 11.4 v after 3.5 h recharge
+2019-12-10 10:51|[juicer.py.dock]---- Docking 647 completed  at 8.1 v after 8.0 h playtime
+2019-12-10 14:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-10 14:22|[juicer.py.undock]---- Dismount 647 at 11.4 v after 3.5 h recharge
+2019-12-10 22:20|[juicer.py.dock]---- Docking 648 completed  at 8.1 v after 8.0 h playtime
+2019-12-11 01:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-11 01:52|[juicer.py.undock]---- Dismount 648 at 11.4 v after 3.5 h recharge
+2019-12-11 09:49|[juicer.py.dock]---- Docking 649 completed  at 8.1 v after 8.0 h playtime
+2019-12-11 13:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.3v
+2019-12-11 13:20|[juicer.py.undock]---- Dismount 649 at 11.4 v after 3.5 h recharge
+2019-12-11 21:21|[juicer.py.dock]---- Docking 650 completed  at 8.1 v after 8.0 h playtime
+2019-12-12 00:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-12 00:52|[juicer.py.undock]---- Dismount 650 at 11.4 v after 3.5 h recharge
+2019-12-12 08:49|[juicer.py.dock]---- Docking 651 completed  at 8.1 v after 7.9 h playtime
+2019-12-12 12:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-12 12:20|[juicer.py.undock]---- Dismount 651 at 11.4 v after 3.5 h recharge
+2019-12-12 20:13|[juicer.py.dock]---- Docking 652 completed  at 8.1 v after 7.9 h playtime
+2019-12-12 23:44|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-12 23:44|[juicer.py.undock]---- Dismount 652 at 11.4 v after 3.5 h recharge
+2019-12-13 07:40|[juicer.py.dock]---- Docking 653 completed  at 8.1 v after 7.9 h playtime
+2019-12-13 11:11|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-13 11:12|[juicer.py.undock]---- Dismount 653 at 11.4 v after 3.5 h recharge
+2019-12-13 19:07|[juicer.py.dock]---- Docking 654 completed  at 8.1 v after 7.9 h playtime
+2019-12-13 22:39|[juicer.py.undock]---- Dismount 654 at 11.2 v after 3.5 h recharge
+2019-12-14 06:27|[juicer.py.dock]---- Docking 655 completed  at 8.1 v after 7.8 h playtime
+2019-12-14 08:00|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2019-12-14 09:57|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-14 09:57|[juicer.py.undock]---- Dismount 655 at 11.4 v after 3.5 h recharge
+2019-12-14 09:59|[logMaintenance.py.main]** Battery Cycle 169 - 3% decreased playtime **
+2019-12-14 10:01|[logMaintenance.py.main]** Starting 4 maintenance mode cycles **
+2019-12-14 17:58|[juicer.py.dock]---- Docking 656 completed  at 7.7 v after 8.0 h playtime
+2019-12-14 17:58|[juicer.py.main]-- Charge Conditioning 1 completed
+2019-12-14 21:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2019-12-14 21:30|[juicer.py.undock]---- Dismount 656 at 10.9 v after 3.5 h recharge
+2019-12-15 04:57|[juicer.py.dock]---- Docking 657 completed  at 8.1 v after 7.5 h playtime
+2019-12-15 06:38|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2019-12-15 08:28|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-15 08:28|[juicer.py.undock]---- Dismount 657 at 11.4 v after 3.5 h recharge
+2019-12-15 16:21|[juicer.py.dock]---- Docking 658 completed  at 8.1 v after 7.9 h playtime
+2019-12-15 19:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-15 19:52|[juicer.py.undock]---- Dismount 658 at 11.4 v after 3.5 h recharge
+2019-12-16 03:50|[juicer.py.dock]---- Docking 659 completed  at 7.7 v after 8.0 h playtime
+2019-12-16 03:50|[juicer.py.main]-- Charge Conditioning 2 completed
+2019-12-16 05:33|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2019-12-16 07:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-16 07:22|[juicer.py.undock]---- Dismount 659 at 11.3 v after 3.5 h recharge
+2019-12-16 15:22|[juicer.py.dock]---- Docking 660 completed  at 7.7 v after 8.0 h playtime
+2019-12-16 15:22|[juicer.py.main]-- Charge Conditioning 3 completed
+2019-12-16 18:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2019-12-16 18:53|[juicer.py.undock]---- Dismount 660 at 11.2 v after 3.5 h recharge
+2019-12-17 02:42|[juicer.py.dock]---- Docking 661 completed  at 7.7 v after 7.8 h playtime
+2019-12-17 02:42|[juicer.py.main]-- Charge Conditioning 4 completed
+2019-12-17 06:13|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2019-12-17 06:13|[juicer.py.undock]---- Dismount 661 at 11.2 v after 3.5 h recharge
+2019-12-17 13:56|[juicer.py.dock]---- Docking 662 completed  at 8.1 v after 7.7 h playtime
+2019-12-17 17:23|[juicer.py.undock]---- Dismount 662 at 11.2 v after 3.4 h recharge
+2019-12-18 01:07|[juicer.py.dock]---- Docking 663 completed  at 8.1 v after 7.7 h playtime
+2019-12-18 03:08|[juicer.py.undock]---- Dismount 663 at 10.2 v after 2.0 h recharge
+2019-12-18 07:37|[juicer.py.dock]---- Docking 664 completed  at 8.1 v after 4.5 h playtime
+2019-12-18 11:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-18 11:08|[juicer.py.undock]---- Dismount 664 at 11.4 v after 3.5 h recharge
+2019-12-18 18:58|[juicer.py.dock]---- Docking 665 completed  at 8.1 v after 7.8 h playtime
+2019-12-18 22:27|[juicer.py.undock]---- Dismount 665 at 11.2 v after 3.5 h recharge
+2019-12-19 06:17|[juicer.py.dock]---- Docking 666 completed  at 8.1 v after 7.8 h playtime
+2019-12-19 09:45|[juicer.py.undock]---- Dismount 666 at 11.3 v after 3.5 h recharge
+2019-12-19 17:31|[juicer.py.dock]---- Docking 667 completed  at 8.1 v after 7.8 h playtime
+2019-12-19 18:28|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.0v
+2019-12-19 18:56|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.7v
+2019-12-19 18:56|[juicer.py.undock]---- Dismount 667 at 9.6 v after 1.4 h recharge
+2019-12-19 20:32|[juicer.py.dock]---- Docking 668 completed  at 8.1 v after 1.6 h playtime
+2019-12-19 22:16|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2019-12-20 00:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.3v
+2019-12-20 00:05|[juicer.py.undock]---- Dismount 668 at 11.4 v after 3.5 h recharge
+2019-12-20 07:49|[juicer.py.dock]---- Docking 669 completed  at 8.1 v after 7.7 h playtime
+2019-12-20 11:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-20 11:20|[juicer.py.undock]---- Dismount 669 at 11.4 v after 3.5 h recharge
+2019-12-20 19:03|[juicer.py.dock]---- Docking 670 completed  at 8.1 v after 7.7 h playtime
+2019-12-20 22:33|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-20 22:34|[juicer.py.undock]---- Dismount 670 at 11.1 v after 3.5 h recharge
+2019-12-21 06:12|[juicer.py.dock]---- Docking 671 completed  at 8.1 v after 7.6 h playtime
+2019-12-21 09:42|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-21 09:43|[juicer.py.undock]---- Dismount 671 at 11.3 v after 3.5 h recharge
+2019-12-21 17:26|[juicer.py.dock]---- Docking 672 completed  at 8.1 v after 7.7 h playtime
+2019-12-21 17:31|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2019-12-21 17:31|[juicer.py.undock]---- Dismount 672 at 7.9 v after 0.1 h recharge
+2019-12-21 17:32|[juicer.py.dock]---- Docking 673 completed  at 8.1 v after 0.0 h playtime
+2019-12-21 17:37|[juicer.py.main]---- Docking Failure Possible
+2019-12-21 17:37|[juicer.py.undock]---- Dismount 673 at 7.7 v after 0.1 h recharge
+2019-12-21 17:38|[juicer.py.dock]---- Docking 674 completed  at 7.8 v after 0.0 h playtime
+2019-12-21 17:43|[juicer.py.main]---- Docking Failure Possible
+2019-12-21 17:43|[juicer.py.undock]---- Dismount 674 at 7.3 v after 0.1 h recharge
+2019-12-21 17:44|[juicer.py.dock]---- Docking 675 completed  at 7.4 v after 0.0 h playtime
+2019-12-21 17:44|[logMaintenance.py.main]** Docking Failure - Low voltage Shutdown **
+2019-12-21 17:44|lifelog.dEmain execution: 311.2
+2019-12-21 22:21|------------ boot ------------
+2019-12-22 06:40|[juicer.py.dock]---- Docking 672 completed  at 8.1 v after 8.3 h playtime
+2019-12-22 08:22|[juicer.py.undock]---- Dismount 672 at 10.1 v after 1.7 h recharge
+2019-12-22 12:03|[juicer.py.dock]---- Docking 673 completed  at 8.1 v after 3.7 h playtime
+2019-12-22 15:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.3v
+2019-12-22 15:34|[juicer.py.undock]---- Dismount 673 at 11.3 v after 3.5 h recharge
+2019-12-22 23:15|[juicer.py.dock]---- Docking 674 completed  at 8.1 v after 7.7 h playtime
+2019-12-22 23:21|[logMaintenance.py.main]** Shutdown for pending storm **
+2019-12-22 23:21|lifelog.dEmain execution: 25
+2019-12-23 12:20|------------ boot ------------
+2019-12-23 12:29|[juicer.py.undock]---- Dismount 674 at 11.3 v after 6.0 h recharge
+2019-12-23 20:24|[juicer.py.dock]---- Docking 675 completed  at 8.1 v after 7.9 h playtime
+2019-12-23 23:53|[juicer.py.undock]---- Dismount 675 at 11.2 v after 3.5 h recharge
+2019-12-24 07:35|[juicer.py.dock]---- Docking 676 completed  at 8.1 v after 7.7 h playtime
+2019-12-24 07:40|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2019-12-24 07:40|[juicer.py.undock]---- Dismount 676 at 8.0 v after 0.1 h recharge
+2019-12-24 07:41|[juicer.py.dock]---- Docking 677 completed  at 8.0 v after 0.0 h playtime
+2019-12-24 11:14|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-24 11:14|[juicer.py.undock]---- Dismount 677 at 11.2 v after 3.6 h recharge
+2019-12-24 18:42|[juicer.py.dock]---- Docking 678 completed  at 8.1 v after 7.5 h playtime
+2019-12-24 22:13|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-24 22:14|[juicer.py.undock]---- Dismount 678 at 11.2 v after 3.5 h recharge
+2019-12-25 05:44|[juicer.py.dock]---- Docking 679 completed  at 8.1 v after 7.5 h playtime
+2019-12-25 06:43|[juicer.py.undock]---- Dismount 679 at 9.9 v after 1.0 h recharge
+2019-12-25 08:53|[juicer.py.dock]---- Docking 680 completed  at 8.1 v after 2.2 h playtime
+2019-12-25 12:23|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-25 12:24|[juicer.py.undock]---- Dismount 680 at 11.2 v after 3.5 h recharge
+2019-12-25 19:49|[juicer.py.dock]---- Docking 681 completed  at 8.1 v after 7.4 h playtime
+2019-12-25 23:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-25 23:21|[juicer.py.undock]---- Dismount 681 at 11.2 v after 3.5 h recharge
+2019-12-26 06:42|[juicer.py.dock]---- Docking 682 completed  at 8.1 v after 7.4 h playtime
+2019-12-26 10:12|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2019-12-26 10:13|[juicer.py.undock]---- Dismount 682 at 11.2 v after 3.5 h recharge
+2019-12-26 17:34|[juicer.py.dock]---- Docking 683 completed  at 8.1 v after 7.4 h playtime
+2019-12-26 21:05|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-26 21:05|[juicer.py.undock]---- Dismount 683 at 11.2 v after 3.5 h recharge
+2019-12-27 04:22|[juicer.py.dock]---- Docking 684 completed  at 8.1 v after 7.3 h playtime
+2019-12-27 07:53|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2019-12-27 07:53|[juicer.py.undock]---- Dismount 684 at 11.2 v after 3.5 h recharge
+2019-12-27 15:10|[juicer.py.dock]---- Docking 685 completed  at 8.1 v after 7.3 h playtime
+2019-12-27 18:38|[juicer.py.undock]---- Dismount 685 at 11.0 v after 3.5 h recharge
+2019-12-28 01:55|[juicer.py.dock]---- Docking 686 completed  at 8.1 v after 7.3 h playtime
+2019-12-28 03:07|[juicer.py.undock]---- Dismount 686 at 10.0 v after 1.2 h recharge
+2019-12-28 05:54|[juicer.py.dock]---- Docking 687 completed  at 8.1 v after 2.8 h playtime
+2019-12-28 09:19|[juicer.py.undock]---- Dismount 687 at 11.0 v after 3.4 h recharge
+2019-12-28 16:35|[juicer.py.dock]---- Docking 688 completed  at 8.1 v after 7.3 h playtime
+2019-12-28 20:03|[juicer.py.undock]---- Dismount 688 at 11.0 v after 3.5 h recharge
+2019-12-29 03:19|[juicer.py.dock]---- Docking 689 completed  at 8.1 v after 7.3 h playtime
+2019-12-29 06:41|[juicer.py.undock]---- Dismount 689 at 11.1 v after 3.4 h recharge
+2019-12-29 13:52|[juicer.py.dock]---- Docking 690 completed  at 8.1 v after 7.2 h playtime
+2019-12-29 14:26|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.7v
+2019-12-29 16:57|[juicer.py.undock]---- Dismount 690 at 11.1 v after 3.1 h recharge
+2019-12-30 00:17|[juicer.py.dock]---- Docking 691 completed  at 8.1 v after 7.3 h playtime
+2019-12-30 03:43|[juicer.py.undock]---- Dismount 691 at 11.1 v after 3.4 h recharge
+2019-12-30 10:55|[juicer.py.dock]---- Docking 692 completed  at 8.1 v after 7.2 h playtime
+2019-12-30 14:20|[juicer.py.undock]---- Dismount 692 at 11.1 v after 3.4 h recharge
+2019-12-30 21:33|[juicer.py.dock]---- Docking 693 completed  at 8.1 v after 7.2 h playtime
+2019-12-30 22:47|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2019-12-31 00:58|[juicer.py.undock]---- Dismount 693 at 11.1 v after 3.4 h recharge
+2019-12-31 08:06|[juicer.py.dock]---- Docking 694 completed  at 8.1 v after 7.1 h playtime
+2019-12-31 09:41|[juicer.py.undock]---- Dismount 694 at 10.0 v after 1.6 h recharge
+2019-12-31 12:54|[juicer.py.dock]---- Docking 695 completed  at 8.1 v after 3.2 h playtime
+2019-12-31 14:02|[juicer.py.undock]---- Dismount 695 at 10.0 v after 1.1 h recharge
+2019-12-31 16:52|[juicer.py.dock]---- Docking 696 completed  at 8.1 v after 2.8 h playtime
+2019-12-31 20:06|[juicer.py.undock]---- Dismount 696 at 11.1 v after 3.2 h recharge
+2020-01-01 03:15|[logMaintenance.py.main]** gopigo_newyear.py shutdown Carl! **
+2020-01-01 03:15|lifelog.dEmain execution: 206.9
+2020-01-01 10:24|------------ boot ------------
+2020-01-01 07:00|[logMaintenance.py.main]** Manual Dock after 7.2 h playtime **
+2020-01-01 10:24|[logMaintenance.py.main]** Manual Dismount after 3.4 h recharge **
+2020-01-01 10:24|[logMaintenance.py.main]** Need to add one to count **
+2020-01-01 18:13|[juicer.py.dock]---- Docking 697 completed  at 8.1 v after 7.8 h playtime
+2020-01-01 21:42|[juicer.py.undock]---- Dismount 697 at 11.1 v after 3.5 h recharge
+2020-01-02 04:55|[juicer.py.dock]---- Docking 698 completed  at 8.1 v after 7.2 h playtime
+2020-01-02 08:24|[juicer.py.undock]---- Dismount 698 at 11.1 v after 3.5 h recharge
+2020-01-02 15:39|[juicer.py.dock]---- Docking 699 completed  at 8.1 v after 7.3 h playtime
+2020-01-02 19:00|[juicer.py.undock]---- Dismount 699 at 11.1 v after 3.4 h recharge
+2020-01-03 02:24|[juicer.py.dock]---- Docking 700 completed  at 7.7 v after 7.4 h playtime
+2020-01-03 02:24|[juicer.py.main]-- Charge Conditioning 4 completed
+2020-01-03 05:55|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.3v
+2020-01-03 05:55|[juicer.py.undock]---- Dismount 700 at 11.1 v after 3.5 h recharge
+2020-01-03 13:01|[juicer.py.dock]---- Docking 701 completed  at 8.1 v after 7.1 h playtime
+2020-01-03 16:26|[juicer.py.undock]---- Dismount 701 at 11.0 v after 3.4 h recharge
+2020-01-03 23:40|[juicer.py.dock]---- Docking 702 completed  at 7.7 v after 7.2 h playtime
+2020-01-03 23:40|[juicer.py.main]-- Charge Conditioning 2 completed
+2020-01-04 00:34|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.9v
+2020-01-04 00:55|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.6v
+2020-01-04 00:55|[juicer.py.undock]---- Dismount 702 at 9.6 v after 1.2 h recharge
+2020-01-04 02:36|[juicer.py.dock]---- Docking 703 completed  at 7.7 v after 1.7 h playtime
+2020-01-04 02:36|[juicer.py.main]-- Charge Conditioning 3 completed
+2020-01-04 03:08|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.5v
+2020-01-04 03:23|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.2v
+2020-01-04 03:24|[juicer.py.undock]---- Dismount 703 at 9.2 v after 0.8 h recharge
+2020-01-04 04:10|[juicer.py.dock]---- Docking 704 completed  at 7.7 v after 0.8 h playtime
+2020-01-04 04:10|[juicer.py.main]-- Charge Conditioning 4 completed
+2020-01-04 07:41|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.4v
+2020-01-04 07:41|[juicer.py.undock]---- Dismount 704 at 11.2 v after 3.5 h recharge
+2020-01-04 14:47|[juicer.py.dock]---- Docking 705 completed  at 8.1 v after 7.1 h playtime
+2020-01-04 18:10|[juicer.py.undock]---- Dismount 705 at 11.1 v after 3.4 h recharge
+2020-01-05 01:20|[juicer.py.dock]---- Docking 706 completed  at 8.1 v after 7.2 h playtime
+2020-01-05 04:44|[juicer.py.undock]---- Dismount 706 at 11.1 v after 3.4 h recharge
+2020-01-05 11:47|[juicer.py.dock]---- Docking 707 completed  at 8.1 v after 7.0 h playtime
+2020-01-05 15:09|[juicer.py.undock]---- Dismount 707 at 11.1 v after 3.4 h recharge
+2020-01-05 22:04|[juicer.py.dock]---- Docking 708 completed  at 8.1 v after 6.9 h playtime
+2020-01-06 01:29|[juicer.py.undock]---- Dismount 708 at 11.1 v after 3.4 h recharge
+2020-01-06 08:23|[juicer.py.dock]---- Docking 709 completed  at 8.1 v after 6.9 h playtime
+2020-01-06 09:29|[juicer.py.undock]---- Dismount 709 at 9.9 v after 1.1 h recharge
+2020-01-06 11:54|[juicer.py.dock]---- Docking 710 completed  at 8.1 v after 2.4 h playtime
+2020-01-06 11:59|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2020-01-06 11:59|[juicer.py.undock]---- Dismount 710 at 8.0 v after 0.1 h recharge
+2020-01-06 12:00|[juicer.py.dock]---- Docking 711 completed  at 8.1 v after 0.0 h playtime
+2020-01-06 12:05|[juicer.py.main]---- Docking Failure Possible
+2020-01-06 12:05|[juicer.py.undock]---- Dismount 711 at 8.6 v after 0.1 h recharge
+2020-01-06 12:12|[juicer.py.dock]---- Docking 712 completed  at 8.1 v after 0.1 h playtime
+2020-01-06 15:37|[juicer.py.undock]---- Dismount 712 at 11.0 v after 3.4 h recharge
+2020-01-06 22:25|[juicer.py.dock]**** Dock Approach Error - MANUAL DOCKING REQUESTED
+2020-01-06 22:30|[logMaintenance.py.main]** Docked manually as requested after 6.9 h playtime **
+2020-01-07 07:15|[logMaintenance.py.main]** Safety Shutdown-did not recognize charging **
+2020-01-07 07:15|lifelog.dEmain execution: 140.85
+2020-01-07 11:00|------------ boot ------------
+2020-01-07 11:00|[logMaintenance.py.main]** Manual Dismount, adding new rule 121 to juicer **
+2020-01-07 12:33|lifelog.dEmain execution: 1.55
+2020-01-07 12:33|[logMaintenance.py.main]** WiFi 225 down, rebooting **
+2020-01-07 12:35|------------ boot ------------
+2020-01-07 12:35|[juicer.py.main]---- juicer.py started at 9.01v
+2020-01-07 18:08|[juicer.py.dock]---- Docking 712 completed  at 8.1 v after 7.15 h playtime
+2020-01-07 21:32|[juicer.py.undock]---- Dismount 712 at 11.0 v after 3.4 h recharge
+2020-01-08 04:21|[juicer.py.dock]---- Docking 713 completed  at 8.1 v after 6.8 h playtime
+2020-01-08 07:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.2v
+2020-01-08 07:52|[juicer.py.undock]---- Dismount 713 at 11.1 v after 3.5 h recharge
+2020-01-08 12:35|lifelog.dEmain execution: 24.5
+2020-01-08 13:08|------------ boot ------------
+2020-01-08 13:08|[logMaintenance.py.main]** Reboot to add two missing manual docking cycles **
+2020-01-08 13:08|[juicer.py.main]---- juicer.py started at 8.70v
+2020-01-08 14:40|[juicer.py.dock]---- Docking 716 completed  at 8.1 v after 6.8 h playtime
+2020-01-08 16:14|[juicer.py.undock]---- Dismount 716 at 9.9 v after 1.6 h recharge
+2020-01-08 19:06|[juicer.py.dock]**** Testing Manual Docking Requests
+2020-01-08 23:38|[juicer.py.dock]---- Docking 718 completed  at 8.1 v after 7.4 h playtime
+2020-01-08 23:43|[juicer.py.undock]---- Dismount 718 at 8.1 v after 0.1 h recharge
+2020-01-08 23:44|[juicer.py.dock]---- Docking 719 completed  at 8.1 v after 0.0 h playtime
+2020-01-08 23:49|[juicer.py.undock]---- Dismount 719 at 8.0 v after 0.1 h recharge
+2020-01-08 23:50|[juicer.py.dock]---- Docking 720 completed  at 8.0 v after 0.0 h playtime
+2020-01-08 23:55|[juicer.py.undock]---- Dismount 720 at 7.8 v after 0.1 h recharge
+2020-01-08 23:56|[juicer.py.dock]---- Docking 721 completed  at 7.8 v after 0.0 h playtime
+2020-01-09 00:01|[juicer.py.undock]---- Dismount 721 at 8.5 v after 0.1 h recharge
+2020-01-09 00:08|lifelog.dEmain execution: 11.5
+2020-01-09 00:38|------------ boot ------------
+2020-01-09 00:39|[logMaintenance.py.main]** reboot to start juicer for night alone **
+2020-01-09 11:58|[juicer.py.dock]**** Testing - MANUAL DOCKING REQUESTED
+2020-01-09 11:59|[juicer.py.dock]---- Docking Manual 722 completed  at 8.1 v after 7.5 h playtime
+2020-01-09 12:28|[logMaintenance.py.main]** shutdown **
+2020-01-09 12:28|lifelog.dEmain execution: 11.8
+2020-01-09 17:19|------------ boot ------------
+2020-01-09 17:19|[juicer.py.undock]---- Dismount Manual 722 at 10.58 v after 4.5 h recharge
+2020-01-10 00:28|[juicer.py.dock]---- Docking 722 completed  at 8.1 v after 7.1 h playtime
+2020-01-10 03:47|[juicer.py.undock]---- Dismount 722 at 10.9 v after 3.3 h recharge
+2020-01-10 12:03|[juicer.py.manualDockingCompleted]---- Manual Docking 723 complete at 9.2 v and 0.1 h
+2020-01-10 12:53|[juicer.py.manualDockingCompleted]---- Manual Docking 725 complete at 9.5 v and 0.0 h
+2020-01-10 14:07|[juicer.py.dock]---- Manual Docking 725 requested  at 8.1 v after 0.0 h playtime
+2020-01-10 14:16|[juicer.py.manualDockingCompleted]---- Manual Docking 726 complete at 8.0 v and 0.0 h
+2020-01-10 14:23|[juicer.py.manualDockingCompleted]---- Manual Docking 727 completed at 8.3 v and 0.1 h
+2020-01-10 14:46|[juicer.py.dock]---- Manual Docking 727 requested  at 7.8 v after 0.0 h playtime
+2020-01-10 14:58|[juicer.py.manualDockingCompleted]---- Docking 728 (manual) at 8.4 v and 7.1 h playtime
+2020-01-10 15:02|[logMaintenance.py.main]** juicer manual docking dev completed **
+2020-01-10 15:02|lifelog.dEmain execution: 21.7
+2020-01-10 15:04|------------ boot ------------
+2020-01-10 17:04|lifelog.dEmain execution: 2
