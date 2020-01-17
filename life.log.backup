@@ -1207,4 +1207,62 @@
 2020-01-10 15:02|[logMaintenance.py.main]** juicer manual docking dev completed **
 2020-01-10 15:02|lifelog.dEmain execution: 21.7
 2020-01-10 15:04|------------ boot ------------
-2020-01-10 17:04|lifelog.dEmain execution: 2
+2020-01-10 17:55|[juicer.py.undock]---- Dismount 728 at 11.0 v after 2.9 h recharge
+2020-01-10 18:04|lifelog.dEmain execution: 3.15
+2020-01-10 18:08|------------ boot ------------
+2020-01-10 18:08|[juicer.py.main]---- juicer.py started at 10.28v (add 0.2h)
+2020-01-11 00:46|[juicer.py.dock]---- Docking 729 completed  at 8.1 v after 6.7 h playtime
+2020-01-11 03:38|[juicer.py.undock]---- Dismount 729 at 10.2 v after 2.3 h recharge
+2020-01-11 08:47|[logMaintenance.py.main]** early trickle - reason not known - will reduce next play time **
+2020-01-11 08:23|[juicer.py.dock]---- Docking 730 completed  at 8.1 v after 5.3 h playtime
+2020-01-11 08:47|[juicer.py.undock]---- Dismount 730 at 9.4 v after 0.4 h recharge
+2020-01-11 08:47|[logMaintenance.py.main]** early trickle - reason not known - will reduce next play time **
+2020-01-11 09:38|[juicer.py.dock]---- Docking 731 completed  at 8.1 v after 0.9 h playtime
+2020-01-11 12:43|[juicer.py.undock]---- Dismount 731 at 11.0 v after 3.1 h recharge
+2020-01-11 19:16|[juicer.py.dock]---- Docking 732 completed  at 8.1 v after 6.6 h playtime
+2020-01-11 19:27|[juicer.py.undock]---- Dismount 732 at 8.8 v after 0.2 h recharge
+2020-01-11 19:39|[juicer.py.dock]---- Docking 733 completed  at 8.1 v after 0.2 h playtime
+2020-01-11 19:39|[logMaintenance.py.main]** early trickle caused by compiling python version 3.7.6 - load 4.3 and temp 79.9 deg **
+2020-01-11 22:49|[juicer.py.undock]---- Dismount 733 at 10.9 v after 3.2 h recharge
+2020-01-12 05:10|[juicer.py.dock]---- Docking 734 completed  at 8.1 v after 6.3 h playtime
+2020-01-12 08:12|[juicer.py.undock]---- Dismount 734 at 10.9 v after 3.0 h recharge
+2020-01-12 14:30|[juicer.py.dock]---- Docking 735 completed  at 8.1 v after 6.3 h playtime
+2020-01-12 17:34|[juicer.py.undock]---- Dismount 735 at 10.9 v after 3.1 h recharge
+2020-01-12 23:50|[juicer.py.dock]---- Docking 736 completed  at 8.1 v after 6.3 h playtime
+2020-01-12 23:56|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2020-01-12 23:56|[juicer.py.undock]---- Dismount 736 at 8.1 v after 0.1 h recharge
+2020-01-12 23:57|[juicer.py.dock]---- Docking 737 completed  at 8.1 v after 0.0 h playtime
+2020-01-13 00:02|[juicer.py.main]---- Docking Failure Possible
+2020-01-13 00:03|[juicer.py.undock]---- Dismount 737 at 8.6 v after 0.1 h recharge
+2020-01-13 00:13|[juicer.py.dock]---- Docking 738 completed  at 8.1 v after 0.2 h playtime
+2020-01-13 03:20|[juicer.py.undock]---- Dismount 738 at 10.9 v after 3.1 h recharge
+2020-01-13 09:29|[juicer.py.dock]---- Docking 739 completed  at 8.1 v after 6.1 h playtime
+2020-01-13 12:32|[juicer.py.undock]---- Dismount 739 at 10.9 v after 3.0 h recharge
+2020-01-13 18:39|[juicer.py.dock]---- Docking 740 completed  at 8.1 v after 6.1 h playtime
+2020-01-13 21:42|[juicer.py.undock]---- Dismount 740 at 10.9 v after 3.0 h recharge
+2020-01-14 03:32|[juicer.py.dock]---- Docking 741 completed  at 8.1 v after 5.8 h playtime
+2020-01-14 04:28|[juicer.py.undock]---- Dismount 741 at 9.8 v after 0.9 h recharge
+2020-01-14 06:42|[juicer.py.dock]---- Docking 742 completed  at 8.1 v after 2.2 h playtime
+2020-01-14 09:42|[juicer.py.undock]---- Dismount 742 at 10.8 v after 3.0 h recharge
+2020-01-14 15:37|[juicer.py.dock]---- Docking 743 completed  at 8.1 v after 5.9 h playtime
+2020-01-14 18:34|[juicer.py.undock]---- Dismount 743 at 10.9 v after 2.9 h recharge
+2020-01-15 00:19|[juicer.py.dock]---- Docking 744 completed  at 8.1 v after 5.7 h playtime
+2020-01-15 03:10|[juicer.py.undock]---- Dismount 744 at 10.8 v after 2.9 h recharge
+2020-01-15 08:48|[juicer.py.dock]---- Docking 745 completed  at 8.1 v after 5.6 h playtime
+2020-01-15 11:34|[juicer.py.undock]---- Dismount 745 at 10.8 v after 2.8 h recharge
+2020-01-15 17:07|[juicer.py.dock]---- Docking 746 completed  at 8.1 v after 5.5 h playtime
+2020-01-15 19:58|[juicer.py.undock]---- Dismount 746 at 10.8 v after 2.9 h recharge
+2020-01-16 01:15|[juicer.py.dock]---- Docking 747 completed  at 8.1 v after 5.3 h playtime
+2020-01-16 04:02|[juicer.py.undock]---- Dismount 747 at 10.8 v after 2.8 h recharge
+2020-01-16 09:10|[juicer.py.dock]---- Docking 748 completed  at 8.1 v after 5.1 h playtime
+2020-01-16 11:45|[juicer.py.undock]---- Dismount 748 at 10.8 v after 2.6 h recharge
+2020-01-16 16:52|[juicer.py.dock]---- Docking 749 completed  at 8.1 v after 5.1 h playtime
+2020-01-16 19:32|[juicer.py.undock]---- Dismount 749 at 10.8 v after 2.7 h recharge
+2020-01-17 00:26|[juicer.py.dock]---- Docking 750 completed  at 8.1 v after 4.9 h playtime
+2020-01-17 03:00|[juicer.py.undock]---- Dismount 750 at 10.8 v after 2.6 h recharge
+2020-01-17 07:37|[juicer.py.dock]---- Docking 751 completed  at 8.1 v after 4.6 h playtime
+2020-01-17 07:50|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2020-01-17 07:51|[juicer.py.undock]---- Dismount 751 at 8.1 v after 0.2 h recharge
+2020-01-17 07:51|[juicer.py.dock]---- Docking 752 completed  at 8.1 v after 0.0 h playtime
+2020-01-17 07:52|[logMaintenance.py.main]** Charger switching to trickle almost immediately **
+2020-01-17 07:55|lifelog.dEmain execution: 157.8
