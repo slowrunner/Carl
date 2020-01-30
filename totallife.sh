@@ -4,7 +4,7 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
-declare -i newBattsAtCycle=486
+declare -i newBattsAtCycle=752
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' life.log
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' life.log)`
 echo "Total Life: " $totalLife "hrs"

@@ -12,7 +12,7 @@ totalRotate=`(awk -F'rotation:' '{sum+=$2}END{print sum;}' wheel.log)`
 totalRevs=`(echo "scale=1; $totalRotate / 360" | bc)`
 echo "Total Rotate: " $totalRotate "deg" $totalRevs "revolutions"
 totalMotion=`(awk -F'motion:' '{sum+=$2}END{print sum;}' wheel.log)`
-totalMotionHrs=`(echo "scale=1; $totalMotion / 3600" | bc)`
+totalMotionHrs=`(echo "scale=3; $totalMotion / 3600" | bc)`
 echo "Total Motion: " $totalMotion "sec" $totalMotionHrs "hrs"
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' life.log)`
 percentInMotion=`(echo "scale=2; $totalMotionHrs * 100.0 / $totalLife" | bc)`
