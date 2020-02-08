@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# robo_chat.py
+# carl_chat.py
 
 """
 Documentation:
@@ -52,7 +52,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 def responseXXX(user_response):
-    robo_response=''
+    carl_response=''
     sent_tokens.append(user_response)
 
     TfidfVec = TfidfVectorizer(tokenizer=LemNormalize,stop_words='english')
@@ -63,11 +63,11 @@ def responseXXX(user_response):
     req_tfidf = flat[-2]
 
     if(req_tfidf==0):
-        robo_response=robo_response+"I am sorry! I don't understand you"
-        return robo_response
+        carl_response=carl_response+"I am sorry! I don't understand you"
+        return carl_response
     else:
-        robo_response = robo_response+sent_tokens[idx]
-        return robo_response
+        carl_response = carl_response+sent_tokens[idx]
+        return carl_response
 
 
 
@@ -144,7 +144,7 @@ def main():
 
 
         def response(user_response):
-            robo_response=''
+            carl_response=''
             sent_tokens.append(user_response)
 
             TfidfVec = TfidfVectorizer(tokenizer=LemNormalize,stop_words='english')
@@ -156,13 +156,13 @@ def main():
             req_tfidf = flat[-2]
 
             if(req_tfidf==0):
-                robo_response=robo_response+"I am sorry! I don't understand you"
-                return robo_response
+                carl_response=carl_response+"I am sorry! I don't understand you"
+                return carl_response
             else:
-                robo_response = robo_response+sent_tokens[idx]
-                return robo_response
+                carl_response = carl_response+sent_tokens[idx]
+                return carl_response
 
-        print("\nROBO: My name is Robo.  I will answer your queries about Chatbots.  If you want to exit, type Bye!")
+        print("\nCARL: My name is CARL.  I will answer your queries about me.  If you want to exit, type Bye!")
 
         #  loop
         loopSleep = 1 # second
@@ -176,17 +176,17 @@ def main():
             if(user_response!='bye'):
                 if (user_response=='thanks' or user_response=='thank you'):
                     keepLooping = False
-                    print("ROBO: You are welcome..")
+                    print("CARL: You are welcome..")
                 else:
                     if(greeting(user_response)!=None):
-                        print("ROBO: "+greeting(user_response))
+                        print("CARL: "+greeting(user_response))
                     else:
-                        print("ROBO: ", end="")
+                        print("CARL: ", end="")
                         print(response(user_response))
                         sent_tokens.remove(user_response)
             else:
                 keepLooping=False
-                print("ROBO: Bye! Take care..")
+                print("CARL: Bye! Take care..")
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    if (egpg != None): egpg.stop()           # stop motors
