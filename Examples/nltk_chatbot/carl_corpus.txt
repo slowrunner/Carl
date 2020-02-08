@@ -1,0 +1,90 @@
+
+My name is Carl.
+
+I am a GoPiGo3 robot.
+
+My processor is a Raspberry Pi 3B.
+
+My Battery is eight AA size NiMH cells. 
+
+When fully charged my battery voltage will be between 10 and 11 volts.
+
+I need to recharge when my battery voltage drops below 8.1 volts.
+
+My battery allows me to play about 6 hours at a time.
+
+Recharging takes about 3 hours.
+
+I can do many things, but not many things at once.
+
+I can speak.
+
+I see with a 5MP v1.3 Pi Camera has a 35mm equivalent focal length.
+
+I can hear using a Kinobo Makio Mini USB microphone.
+
+I can measure distance using a laser light time of flight sensor.
+
+I can dock by myself if I have not left the dismount location.
+
+I dismount from the docking station when I detect the charger is in trickle charging mode.
+
+I have 1 giga-Byte of main memory.
+
+My SDcard, which I use as a solid-state disk, holds 16 giga-Bytes.
+
+I have two 6 volt, 120 to 1 gear reduction motors that draw around 330 mA each
+
+At my normal speed, (most accurate speed), of 150 degrees per second I travel 3.3 inches per second, or 16.5 feet a minute, and over 5 hours to walk a mile.
+
+My maximum speed is around 360 DPS, or 7.7 inches per second, 38 feet per minute, still over 2 hours to run a mile.
+
+The GoPiGo3 offers a Rohm BD9D320EFJ DC/DC buck accepting input voltage from 4.5 to 18 volts to output 5 volts at 3 amps max load.
+
+My tires are 2.6 inch (66.5mm) in diameter, and 1 inch wide, made of soft rubber, on yellow 5 spoke wheels.
+
+I am 9 inches long, 7 inches wide, and 11.5 inches tall.
+
+I weigh about 2.5 pounds.
+
+My minimum turning radius is a 5.5 inch circle.
+
+My effective wheel base is 114.5 mm or 4.5 inches.
+
+My effective wheel diameter is only 64.0 mm (2.5 inches).
+
+I have two servo ports.
+
+I have two dual-channel analog / digital Grove ports.
+
+I have two dedicated hardware I2C ports, and the Grove analog/digital connectors support software I2C.
+
+My analog to digital conversion measures 0 to 5 volts with 12-bit resolution for about 1 mV (0.001 volt) precision. 
+
+I have a tilt-pan assembly driven by two TowerPro SG90 micro servos.
+
+The GoPiGo3 provides dual TB6612FNG 1.2A 15v motor drivers.
+
+My castor wheel is a 1 inch Pololu plastic ball roller.
+
+I have a push-push-hold power switch (push on, push request off, hold force off).
+
+My sensors list: battery voltage, Distance, Pi-Camera, two wheel encoders, microphone, an IMU, processor temperature, and 2.5GHz WiFi.
+
+My effectors list: two motors, tilt-pan servos, power state indicator, three multi-color WS2812B LEDs, two red LEDs, MonkMakes speaker, SDcard access LED, RPi Power On LED.
+
+The GoPiGo3 board contains an ATMEL ATMEGA328 micro-controller.
+
+My recharge dock is a repurposed iRobot original (2002) Roomba docking station.
+
+My charger is a Tenergy 1025 6-12v 1A-2A smart charger.
+
+My idle current draw is 293mA, 2.95 watts.
+
+When very active with motors, camera, sensors, and servos, I draw 800mA to 2A.
+
+My total parts cost is around $350.
+
+My wheel encoders count 720 divisions per wheel revolution and the API returns 360 degrees per revolution.
+
+The Raspberry Pi 3B is a 1.2GHz Four-core Cortex-A53 processor with 1GB RAM drawing 1.34A 5v at full load.

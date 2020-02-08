@@ -119,7 +119,7 @@ def main():
 
     try:
 
-        f=open('corpus.txt','r',errors = 'ignore')
+        f=open('carl_corpus.txt','r',errors = 'ignore')
         raw=f.read()
         raw=raw.lower()    # convert everything to lowercase
         nltk.download('punkt')    # first time only
