@@ -12,6 +12,8 @@
 
 import datetime
 from shutil import copyfile
+import argparse
+
 
 dtNow = datetime.datetime.now()
 
@@ -19,9 +21,21 @@ inFileName = "/home/pi/Carl/life.log"
 outFileName = "/home/pi/Carl/life.log"
 bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
 
+# Uncomment these to test in ~/Carl/Projects/CleanLifeLog/
 # inFileName = "life.log.test"
 # outFileName = "life.log.new"
 # bkupFileName = "life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+
+# ARGUMENT PARSER
+ap = argparse.ArgumentParser()
+# ap.add_argument("-f", "--file", required=True, help="path to input file")
+# ap.add_argument("-n", "--num", type=int, default=5, help="number")
+ap.add_argument("-p", "--previous", default=False, action='store_true', help="clean previous boot session")
+args = vars(ap.parse_args())
+# print("Started with args:",args)
+clean_previous_session = args['previous']
+
+
 
 copyfile(inFileName, bkupFileName)
 changed = False
@@ -36,6 +50,12 @@ print("lines: {}".format(lines))
 print("lastline: {}".format(lineList[last]))
 bootlogline = "----- boot -----"
 executionlogline = "lifelog.dEmain execution:"
+
+if (clean_previous_session == True):
+    # Find last boot log line
+    while (bootlogline not in lineList[lineIdx]):
+        lineIdx -=1
+    lineIdx -=1
 
 # Find last execution log line before the last boot log line
 while ((bootlogline not in lineList[lineIdx]) and (executionlogline not in lineList[lineIdx])):
