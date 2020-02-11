@@ -1,12 +1,13 @@
 ## PS3 Controller Example
-### This example controls the GoPiGo and using a PS3 Dualshock 3 controller
+### This example controls the GoPiGo3 and using a PS3 Dualshock 3 controller
 
+Based on this article for the original GoPiGo:
 ![PS3 Controller and the Raspberry Pi Robot](https://raw.githubusercontent.com/DexterInd/GoPiGo/master/Software/Python/Examples/PS3_Control/PS3-controller-for-raspberry-pi.jpg "GoPiGo Raspberry Pi Robot controlled with a Playstation3 controller")
 
 
 **Files:**
 - ps3.py : Python library for getting values from the PS3 controller
-- ps3_gpg_example.py :Example for using the PS3 controller with the GoPiGo
+- ps3_egpg_example.py :Example for using the PS3 controller with the GoPiGo3
 - sixpair: used to pair the PS3 controller using bluetooth
 
 **Usage**
@@ -14,42 +15,29 @@
 
 >./sixpair
 
-- Now disconnect the USB cable an press the **PS** button on teh PS3 controller a few times and the run the ps3_gpg_example.py
+- Now disconnect the USB cable an press the **PS** button on the PS3 controller a few times and the run the ps3_egpg_example.py
 
->python ps3_gpg_example.py
+>python ps3_egpg_example.py
 
 **Note:**
-If you are not using Dexter Industries Image, do the following:
-- sudo apt-get update
-- Create a folder for the PS3 setup and delete the folder after the installation is complete (Do all of this in one folder so you can download and delete it when you're done)
-- sudo apt-get install bluez-utils bluez-compat bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick 
-- wget http://www.pabr.org/sixlinux/sixpair.c 
-- gcc -o sixpair sixpair.c -lusb 
-- wget http://sourceforge.net/projects/qtsixa/files/QtSixA%201.5.1/QtSixA-1.5.1-src.tar.gz 
-- tar xfvz QtSixA-1.5.1-src.tar.gz cd QtSixA-1.5.1/sixad 
-- make 
-- sudo mkdir -p /var/lib/sixad/profiles 
-- sudo checkinstall 
-- sudo update-rc.d sixad defaults reboot
+This code is only targeted for GoPiGo3 with Dexter Industries Image Raspbian For Robots
 
 
+![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo3/master/GoPiGo3_Raspberry_Pi_Robot_With_Eyes.jpg)
 
-![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo/master/GoPiGo_Chassis-300.jpg)
+This repository contains source code, firmware and design materials for the GoPiGo3.
 
-This repository contains source code, firmware and design materials for the GoPiGo.
-
-![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo/master/GoPiGo_Front_Facing_Camera300.jpg)
+![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo3/master/README.md)
 
 # See Also
 
-- [Dexter Industries](http://www.dexterindustries.com/GoPiGo)
-- [Kickstarter Campaign](http://kck.st/Q6vVOP)
+- [Dexter Industries](http://www.dexterindustries.com/gopigo3)
 - [Raspberry Pi](http://www.raspberrypi.org/)
 
 
 ## License
-GoPiGo for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
-Copyright (C) 2015  Dexter Industries
+GoPiGo3 for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
+Copyright (C) 2020  Dexter Industries
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
