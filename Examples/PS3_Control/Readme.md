@@ -25,10 +25,6 @@ This code is only targeted for GoPiGo3 with Dexter Industries Image Raspbian For
 
 ![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo3/master/GoPiGo3_Raspberry_Pi_Robot_With_Eyes.jpg)
 
-This repository contains source code, firmware and design materials for the GoPiGo3.
-
-![ GoPiGo ](https://raw.githubusercontent.com/DexterInd/GoPiGo3/master/README.md)
-
 # See Also
 
 - [Dexter Industries](http://www.dexterindustries.com/gopigo3)
