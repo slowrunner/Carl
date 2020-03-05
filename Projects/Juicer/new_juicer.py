@@ -766,7 +766,7 @@ def main():
             loopCount += 1
             compute(egpg)
             chargingStatus()
-            if ((loopCount % 5) == 1 ):
+            if ((loopCount % 15) == 1 ):  # loop is 2s, so once every 30s print values
                 status.printStatus(egpg,ds)
                 printValues()
             safetyCheck(egpg)
