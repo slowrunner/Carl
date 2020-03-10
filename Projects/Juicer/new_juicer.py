@@ -439,6 +439,8 @@ def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
           speak.shout("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
           print ("Shutdown at ", dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
+          strToLog = "Safety Shutdown at  {:.2f} volts".format(vBatt)
+          lifeLog.logger.info(strToLog)
           sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)

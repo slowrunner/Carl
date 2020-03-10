@@ -26,6 +26,9 @@ echo "Battery Set At Cycle: " $currentBattCycles
 dockingFailures=`(grep -c "Docking Failure Possible" life.log)`
 failurePercent=`(echo "scale=1; $dockingFailures * 100 / $dockingsThisYear" | bc)`
 echo "Docking Failures this year: " $dockingFailures " or " $failurePercent "% of Dockings"
+safetyShutdowns=`(grep -c "Safety Shutdown" life.log)`
+safetyPercent=`(echo "scale=1; $safetyShutdowns * 100 / $dockingsThisYear" | bc)`
+echo "Safety Shutdowns this year: " $safetyShutdowns " or " $safetyPercent "% of Dockings"
 #aveCycleTimeTotal=`(echo "scale=1; $totalLife / $totalDockings" | bc)`
 #echo "Ave Cycle total life: " $aveCycleTimeTotal "hours"
 aveCycleTime=`(echo "scale=1; $lifeThisYear / ($dockingsThisYear - $dockingFailures)" | bc)`
