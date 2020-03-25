@@ -1,6 +1,6 @@
 Adafruit==0.0.0
 aniso8601==7.0.0
-ansible==2.8.1
+ansible==2.8.8
 appdirs==1.4.3
 APScheduler==3.6.0
 argh==0.26.2
