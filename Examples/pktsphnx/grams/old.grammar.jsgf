@@ -1,0 +1,209 @@
+#JSGF V1.0;
+grammar command;
+
+
+<person> =
+	alan	|
+	hanna	;
+
+<city>	=
+	boynton beach ;
+
+<name> = 
+	<person>	|
+	pogo		|
+	[ raspberry ] pi [ ( b plus | two ) ]	|
+	pi droid alpha	|
+        carl            |
+	facebook ;
+
+<state> = 
+	listening 	|
+	on facebook 	|
+	up		|
+	running		;
+
+<condition> =
+	hear me		|
+	understand [ ( me | that ) ] 	;
+
+<object> =
+	a bed time	|
+	a web site	;
+
+
+<action> =
+	do email 	|
+	take dictation	;
+
+
+<time_question>	 =
+	how long do your batteries last 	|
+	how long have you been <state>		;
+
+	
+<question> =
+	are you <state>	|
+	did you <condition>	|
+	do you have <object>	|
+	do you <action>		|
+	how are you programmed	|
+	what did you understand |
+	what do you know	|
+	what good are you	|
+	what is <person> doing	|
+	what is the weather in <city>	|
+	what is your operating system	|
+	what is your processor 	|
+	what kind of robot are you	|
+	what languages do you know 	|
+	what operating system are you running	|
+	what speech recognition package are you running	|
+	what text to speech package do you use	|
+	whats on tv tonight	|
+	when do you sleep	|
+	when was your last backup |
+	where do you sleep 	|
+	where is <person>	|
+	who made you		;
+
+ 
+
+<value_question> =
+	how much [ free ] disk [ space ] do you have	|
+	how much [ free ] memory do you have		|
+	how old are you					;
+
+
+<imperative_state> =
+	[ ( very | very very ) ] quiet	;
+	
+
+<direction> =
+	away		|
+	forward		|
+	backward	|
+	back		|
+	<turn_direction> ;
+
+<turn_direction> =
+	left		|
+	right		;
+
+<angle> = 
+	forty five [ degrees ] |
+	ninety [ degrees ]		;
+
+		
+<imperative> =
+	be <imperative_state>	|
+	go			|
+	go <direction>		|
+	stop			|
+	record a memo		|
+	start			|
+	turn <turn_direction>	|
+	drive [ <direction> ]	|
+	move [ <direction> ]	|
+	spin [ <turn_direction> ]	|
+	turn [ <angle> ] <turn_direction> ;
+	
+<non_modifiable_imperative> =
+	whisper		|
+	about face	|
+        go to sleep     |
+	at ease		;
+
+	
+<post_imperative_modifier> =
+	fast		|
+	slow		|
+	slowly		|
+	slower		|
+	faster		|
+	quickly		|
+	a little	;
+
+<when> =
+	immediately	|
+	now		;
+
+<modified_imperative> =
+	<imperative> <post_imperative_modifier> [<robot_name>];
+
+
+<cli_command> =
+//	sudo shutdown minus h now	|
+//	sudo shutdown minus h plus ten	|
+//	sudo shutdown minus r plus ten	|
+//	sudo reboot 			;
+        up time {uptime};
+
+<robot_name> =
+        carl    ;
+
+
+<greeting> =
+        good morning   |
+        good afternoon   |
+        good evening   |
+        howdy   |
+        wake up |
+	hello	;
+
+<farewell> =
+	goodbye	|
+	bye	|
+	good bye;
+
+<robot_greeting> =
+	<greeting> <robot_name> ;
+
+<robot_farewell> =
+	<farewell> <robot_name> ;
+
+<place> = 
+	computer	|
+	kitchen		|
+	phone		;
+
+<location_question> =
+	is <person> ( at the | in the ) <place> 	;
+
+
+
+<wx_question> =
+	is it going to rain	|
+        whats the weather like  |
+        whats the weather look like  |
+	is the sun out		;
+
+<ability_question> =
+	what can you do		;
+
+<datetime_question> =
+	what ( day | date ) is it [ today ]	|
+	what time is it [ now ]		;
+
+
+
+
+public <command> =
+	<datetime_question>	|
+	<ability_question>	|
+	<wx_question>		|
+	<location_question>	|
+	<greeting>		|
+	<robot_greeting>	|
+	<farewell>		|
+	<robot_farewell>	|
+	<cli_command>		|
+	<imperative>		|
+	<non_modifiable_imperative>	|
+	<modified_imperative>	|
+	<value_question>	|
+	<question>		|
+	<time_question>		;;
+
+
+

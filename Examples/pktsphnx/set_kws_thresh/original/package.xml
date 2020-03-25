@@ -1,0 +1,19 @@
+<?xml version="2.0"?>
+<package format="2">
+  <name>pocketsphinx</name>
+  <version>1.0.1</version>
+  <description>
+    ROS package for pocketsphinx speech recognizer
+  </description>
+  <author>Pankaj Baranwal</author>
+  <maintainer email="pankajbaranwal@lithics.in">Pankaj Baranwal</maintainer>
+  <license>BSD</license>
+  <url type="website">http://github.com/Pankaj-Baranwal/ros-pocketsphinx</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend><!-- only needed for demos -->
+
+</package>
