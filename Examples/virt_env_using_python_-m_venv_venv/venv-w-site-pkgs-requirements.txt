@@ -82,7 +82,7 @@ mote==0.0.4
 motephat==0.0.2
 netifaces==0.10.4
 networkx==2.3
-nltk==3.4.1
+nltk==3.4.5
 num2words==0.5.7
 numpy==1.15.1
 oauthlib==2.0.1
