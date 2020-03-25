@@ -99,7 +99,7 @@ picamera==1.13
 picraft==1.0
 piglow==1.2.5
 pigpio==1.38
-Pillow==6.0.0
+Pillow==6.2.0
 pivotpi==0.0.0
 pocketsphinx==0.1.15
 psutil==5.0.1
