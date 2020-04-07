@@ -56,4 +56,8 @@ source ~/.bashrc
 more $GOOGLE_APPLICATION_CREDENTIALS
 cd ~/Carl/Examples/GoogleCloudVision/
 git clone https://github.com/DexterInd/GoogleVisionTutorials
+cp GoogleVisionTutorials/*.py .
+cp GoogleVisionTutorials/wheel.py .
+created a README.md from the GoogleVisionTutorials/README.md
+
 ```
