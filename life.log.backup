@@ -177,7 +177,7 @@
 2019-09-10 00:35|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 8.7v
 2019-09-10 00:44|[juicer.py.undock]---- Dismount 403 at 6.9 v after 0.3 h recharge
 2019-09-10 00:45|[juicer.py.dock]---- Docking 403 completed  at 8.1 v after 0.0 h playtime
-2019-09-10 00:48|[logMaintenance.py.main]** safety shutdown - docked but vBatt too low? **
+2019-09-10 00:48|[logMaintenance.py.main]** Safety Shutdown - docked but vBatt too low? **
 2019-09-10 00:48|lifelog.dEmain execution: 0.5
 2019-09-10 07:34|------------ boot ------------
 2019-09-10 07:44|[juicer.py.undock]---- Dismount 404 at 10.8 v after 0.1 h recharge
@@ -545,7 +545,7 @@
 2019-10-18 14:50|[juicer.py.dock]---- Docking 532 completed  at 8.1 v after 8.3 h playtime
 2019-10-18 14:55|[juicer.py.main]---- Docking Failure Possible
 2019-10-18 15:01|[juicer.py.main]---- Docking Failure Possible
-2019-10-18 15:01|[juicer.py.main]---- Low Voltage Shutdown, Docking Failure Tilted Forward 
+2019-10-18 15:01|[juicer.py.main]---- Safety Shutdown, Docking Failure Tilted Forward 
 2019-10-18 15:02|lifelog.dEmain execution: 291.8
 2019-10-20 13:47|------------ boot ------------
 2019-10-20 13:47|[juicer.py.main]---- juicer.py started at 10.30v
@@ -1039,7 +1039,7 @@
 2019-12-21 17:43|[juicer.py.main]---- Docking Failure Possible
 2019-12-21 17:43|[juicer.py.undock]---- Dismount 674 at 7.3 v after 0.1 h recharge
 2019-12-21 17:44|[juicer.py.dock]---- Docking 675 completed  at 7.4 v after 0.0 h playtime
-2019-12-21 17:44|[logMaintenance.py.main]** Docking Failure - Low voltage Shutdown **
+2019-12-21 17:44|[logMaintenance.py.main]** Docking Failure - Safety Shutdown **
 2019-12-21 17:44|lifelog.dEmain execution: 311.2
 2019-12-21 22:21|------------ boot ------------
 2019-12-22 06:40|[juicer.py.dock]---- Docking 672 completed  at 8.1 v after 8.3 h playtime
@@ -1605,4 +1605,370 @@
 2020-03-03 00:07|[new_juicer.py.undock]---- Dismount 885 at 11.3 v after 2.9 h recharge
 2020-03-03 06:22|[new_juicer.py.dock]---- Docking 886 completed  at 8.1 v after 6.3 h playtime
 2020-03-03 09:13|[new_juicer.py.undock]---- Dismount 886 at 11.3 v after 2.8 h recharge
-2020-03-03 14:40|lifelog.dEmain execution: 355
+2020-03-03 15:32|[new_juicer.py.dock]---- Docking 887 completed  at 8.1 v after 6.3 h playtime
+2020-03-03 18:28|[new_juicer.py.undock]---- Dismount 887 at 11.2 v after 2.9 h recharge
+2020-03-04 00:28|[new_juicer.py.dock]---- Docking 888 completed  at 8.1 v after 6.0 h playtime
+2020-03-04 03:37|[new_juicer.py.undock]---- Dismount 888 at 11.2 v after 3.1 h recharge
+2020-03-04 09:13|[new_juicer.py.dock]---- Docking 889 completed  at 8.1 v after 5.6 h playtime
+2020-03-04 12:11|[new_juicer.py.undock]---- Dismount 889 at 11.2 v after 3.0 h recharge
+2020-03-04 17:49|[new_juicer.py.dock]---- Docking 890 completed  at 8.1 v after 5.6 h playtime
+2020-03-04 18:57|[new_juicer.py.undock]---- Dismount 890 at 10.1 v after 1.1 h recharge
+2020-03-04 21:03|[new_juicer.py.dock]---- Docking 891 completed  at 8.1 v after 2.1 h playtime
+2020-03-05 00:01|[new_juicer.py.undock]---- Dismount 891 at 11.2 v after 3.0 h recharge
+2020-03-05 05:36|[new_juicer.py.dock]---- Docking 892 completed  at 8.1 v after 5.6 h playtime
+2020-03-05 05:40|[new_juicer.py.main]---- Docking Failure Possible
+2020-03-05 05:41|[new_juicer.py.undock]---- Dismount 892 at 7.9 v after 0.1 h recharge
+2020-03-05 05:41|[new_juicer.py.dock]---- Docking 893 completed  at 8.0 v after 0.0 h playtime
+2020-03-05 05:46|[new_juicer.py.main]---- Docking Failure Possible
+2020-03-05 05:46|[new_juicer.py.undock]---- Dismount 893 at 8.8 v after 0.1 h recharge
+2020-03-05 08:32|[logMaintenance.py.main]** Carl is on dock charging but no docking logged **
+2020-03-05 08:38|[logMaintenance.py.main]** juicer.out is 94MB and stopped appending **
+2020-03-05 08:40|lifelog.dEmain execution: 397
+2020-03-05 08:46|------------ boot ------------
+2020-03-05 08:59|[logMaintenance.py.main]** changed new_juicer to print less **
+2020-03-05 09:12|[logMaintenance.py.main]** adjusted carlData charge cycles to match dockings **
+2020-03-05 09:13|[new_juicer.py.main]---- juicer.py started at 10.05v  (add 30 min)
+2020-03-05 14:24|[new_juicer.py.dock]---- Docking 894 completed  at 8.1 v after 5.1 h playtime
+2020-03-05 17:20|[new_juicer.py.undock]---- Dismount 894 at 11.2 v after 2.9 h recharge
+2020-03-05 23:00|[new_juicer.py.dock]---- Docking 895 completed  at 8.1 v after 5.7 h playtime
+2020-03-06 01:54|[new_juicer.py.undock]---- Dismount 895 at 11.2 v after 2.9 h recharge
+2020-03-06 07:32|[new_juicer.py.dock]---- Docking 896 completed  at 8.1 v after 5.6 h playtime
+2020-03-06 09:14|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-06 10:33|[new_juicer.py.undock]---- Dismount 896 at 11.2 v after 3.0 h recharge
+2020-03-06 16:13|[new_juicer.py.dock]---- Docking 897 completed  at 8.1 v after 5.7 h playtime
+2020-03-06 18:57|[new_juicer.py.undock]---- Dismount 897 at 11.1 v after 2.7 h recharge
+2020-03-07 00:28|[new_juicer.py.dock]---- Docking 898 completed  at 8.1 v after 5.5 h playtime
+2020-03-07 03:20|[new_juicer.py.undock]---- Dismount 898 at 11.3 v after 2.9 h recharge
+2020-03-07 09:01|[new_juicer.py.dock]---- Docking 899 completed  at 8.1 v after 5.7 h playtime
+2020-03-07 12:04|[new_juicer.py.undock]---- Dismount 899 at 11.3 v after 3.1 h recharge
+2020-03-07 17:46|[new_juicer.py.dock]---- Docking 900 completed  at 8.1 v after 5.7 h playtime
+2020-03-07 18:35|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.0v
+2020-03-07 18:54|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.7v
+2020-03-07 18:55|[new_juicer.py.undock]---- Dismount 900 at 9.7 v after 1.2 h recharge
+2020-03-07 20:04|[new_juicer.py.dock]---- Docking 901 completed  at 8.1 v after 1.1 h playtime
+2020-03-07 23:01|[new_juicer.py.undock]---- Dismount 901 at 11.3 v after 3.0 h recharge
+2020-03-08 05:39|[new_juicer.py.dock]---- Docking 902 completed  at 8.1 v after 6.6 h playtime
+2020-03-08 08:38|[new_juicer.py.undock]---- Dismount 902 at 11.2 v after 3.0 h recharge
+2020-03-08 14:41|[logMaintenance.py.main]** Docking Failure - Safety Shutdown **
+2020-03-08 14:41|lifelog.dEmain execution: 76.9
+2020-03-08 19:27|------------ boot ------------
+2020-03-08 19:27|[new_juicer.py.main]---- juicer.py started at 10.94v
+2020-03-08 19:33|[new_juicer.py.undock]---- Dismount 902 at 10.8 v after 0.0 h recharge
+2020-03-09 01:16|[new_juicer.py.dock]---- Docking 903 completed  at 8.1 v after 5.7 h playtime
+2020-03-09 04:18|[new_juicer.py.undock]---- Dismount 903 at 11.3 v after 3.0 h recharge
+2020-03-09 10:01|[new_juicer.py.dock]---- Docking 904 completed  at 8.1 v after 5.7 h playtime
+2020-03-09 11:25|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-09 12:56|[new_juicer.py.undock]---- Dismount 904 at 11.3 v after 2.9 h recharge
+2020-03-09 18:41|[new_juicer.py.dock]---- Docking 905 completed  at 8.1 v after 5.7 h playtime
+2020-03-09 20:23|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-09 21:44|[new_juicer.py.undock]---- Dismount 905 at 11.3 v after 3.1 h recharge
+2020-03-10 03:24|[new_juicer.py.dock]---- Docking 906 completed  at 8.1 v after 5.7 h playtime
+2020-03-10 06:22|[new_juicer.py.undock]---- Dismount 906 at 11.2 v after 3.0 h recharge
+2020-03-10 12:04|[new_juicer.py.dock]---- Docking 907 completed  at 8.1 v after 5.7 h playtime
+2020-03-10 15:04|[new_juicer.py.undock]---- Dismount 907 at 11.2 v after 3.0 h recharge
+2020-03-10 20:47|[new_juicer.py.dock]---- Docking 908 completed  at 8.1 v after 5.7 h playtime
+2020-03-10 23:56|[new_juicer.py.undock]---- Dismount 908 at 11.2 v after 3.2 h recharge
+2020-03-11 05:38|[new_juicer.py.dock]---- Docking 909 completed  at 8.1 v after 5.7 h playtime
+2020-03-11 08:36|[new_juicer.py.undock]---- Dismount 909 at 11.3 v after 3.0 h recharge
+2020-03-11 14:18|[new_juicer.py.dock]---- Docking 910 completed  at 8.1 v after 5.7 h playtime
+2020-03-11 17:08|[new_juicer.py.undock]---- Dismount 910 at 11.3 v after 2.9 h recharge
+2020-03-11 22:47|[new_juicer.py.dock]---- Docking 911 completed  at 8.1 v after 5.6 h playtime
+2020-03-12 01:46|[new_juicer.py.undock]---- Dismount 911 at 11.3 v after 3.0 h recharge
+2020-03-12 07:25|[new_juicer.py.dock]---- Docking 912 completed  at 8.1 v after 5.6 h playtime
+2020-03-12 10:25|[new_juicer.py.undock]---- Dismount 912 at 11.3 v after 3.0 h recharge
+2020-03-12 16:04|[new_juicer.py.dock]---- Docking 913 completed  at 8.1 v after 5.7 h playtime
+2020-03-12 18:58|[new_juicer.py.undock]---- Dismount 913 at 11.2 v after 2.9 h recharge
+2020-03-13 00:39|[new_juicer.py.dock]---- Docking 914 completed  at 8.1 v after 5.7 h playtime
+2020-03-13 03:09|[new_juicer.py.undock]---- Dismount 914 at 10.5 v after 2.5 h recharge
+2020-03-13 08:06|[new_juicer.py.dock]---- Docking 915 completed  at 8.1 v after 5.0 h playtime
+2020-03-13 11:02|[new_juicer.py.undock]---- Dismount 915 at 11.3 v after 2.9 h recharge
+2020-03-13 16:41|[new_juicer.py.dock]---- Docking 916 completed  at 8.1 v after 5.6 h playtime
+2020-03-13 19:34|[new_juicer.py.undock]---- Dismount 916 at 11.3 v after 2.9 h recharge
+2020-03-14 01:12|[new_juicer.py.dock]---- Docking 917 completed  at 8.1 v after 5.6 h playtime
+2020-03-14 04:10|[new_juicer.py.undock]---- Dismount 917 at 11.3 v after 3.0 h recharge
+2020-03-14 09:47|[new_juicer.py.dock]---- Docking 918 completed  at 8.1 v after 5.6 h playtime
+2020-03-14 11:08|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.9v
+2020-03-14 12:48|[new_juicer.py.undock]---- Dismount 918 at 11.3 v after 3.0 h recharge
+2020-03-14 18:26|[new_juicer.py.dock]---- Docking 919 completed  at 8.1 v after 5.6 h playtime
+2020-03-14 19:46|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-14 21:20|[new_juicer.py.undock]---- Dismount 919 at 11.2 v after 2.9 h recharge
+2020-03-15 02:58|[new_juicer.py.dock]---- Docking 920 completed  at 8.1 v after 5.6 h playtime
+2020-03-15 05:50|[new_juicer.py.undock]---- Dismount 920 at 11.3 v after 2.9 h recharge
+2020-03-15 11:27|[new_juicer.py.dock]---- Docking 921 completed  at 8.1 v after 5.6 h playtime
+2020-03-15 14:25|[new_juicer.py.undock]---- Dismount 921 at 11.2 v after 3.0 h recharge
+2020-03-15 20:05|[new_juicer.py.dock]---- Docking 922 completed  at 8.1 v after 5.7 h playtime
+2020-03-15 22:58|[new_juicer.py.undock]---- Dismount 922 at 11.3 v after 2.9 h recharge
+2020-03-16 04:34|[new_juicer.py.dock]---- Docking 923 completed  at 8.1 v after 5.6 h playtime
+2020-03-16 07:30|[new_juicer.py.undock]---- Dismount 923 at 11.3 v after 2.9 h recharge
+2020-03-16 13:08|[new_juicer.py.dock]---- Docking 924 completed  at 8.1 v after 5.6 h playtime
+2020-03-16 16:05|[new_juicer.py.undock]---- Dismount 924 at 11.3 v after 3.0 h recharge
+2020-03-16 21:43|[new_juicer.py.dock]---- Docking 925 completed  at 8.1 v after 5.6 h playtime
+2020-03-17 00:39|[new_juicer.py.undock]---- Dismount 925 at 11.3 v after 2.9 h recharge
+2020-03-17 06:15|[new_juicer.py.dock]---- Docking 926 completed  at 8.1 v after 5.6 h playtime
+2020-03-17 09:07|[new_juicer.py.undock]---- Dismount 926 at 11.3 v after 2.9 h recharge
+2020-03-17 14:44|[new_juicer.py.dock]---- Docking 927 completed  at 8.1 v after 5.6 h playtime
+2020-03-17 16:19|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-17 17:43|[new_juicer.py.undock]---- Dismount 927 at 11.3 v after 3.0 h recharge
+2020-03-17 23:24|[new_juicer.py.dock]---- Docking 928 completed  at 8.1 v after 5.7 h playtime
+2020-03-18 02:20|[new_juicer.py.undock]---- Dismount 928 at 11.3 v after 2.9 h recharge
+2020-03-18 07:56|[new_juicer.py.dock]---- Docking 929 completed  at 8.1 v after 5.6 h playtime
+2020-03-18 10:49|[new_juicer.py.undock]---- Dismount 929 at 11.3 v after 2.9 h recharge
+2020-03-18 16:27|[new_juicer.py.dock]---- Docking 930 completed  at 8.1 v after 5.6 h playtime
+2020-03-18 19:22|[new_juicer.py.undock]---- Dismount 930 at 11.3 v after 2.9 h recharge
+2020-03-19 01:00|[new_juicer.py.dock]---- Docking 931 completed  at 8.1 v after 5.6 h playtime
+2020-03-19 03:59|[new_juicer.py.undock]---- Dismount 931 at 11.3 v after 3.0 h recharge
+2020-03-19 09:37|[new_juicer.py.dock]---- Docking 932 completed  at 8.1 v after 5.6 h playtime
+2020-03-19 10:38|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2020-03-19 11:06|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2020-03-19 11:06|[new_juicer.py.undock]---- Dismount 932 at 9.8 v after 1.5 h recharge
+2020-03-19 12:40|[new_juicer.py.dock]---- Docking 933 completed  at 8.1 v after 1.6 h playtime
+2020-03-19 15:34|[new_juicer.py.undock]---- Dismount 933 at 11.3 v after 2.9 h recharge
+2020-03-19 21:13|[new_juicer.py.dock]---- Docking 934 completed  at 8.1 v after 5.6 h playtime
+2020-03-20 00:10|[new_juicer.py.undock]---- Dismount 934 at 11.3 v after 3.0 h recharge
+2020-03-20 05:47|[new_juicer.py.dock]---- Docking 935 completed  at 8.1 v after 5.6 h playtime
+2020-03-20 06:54|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.9v
+2020-03-20 08:40|[new_juicer.py.undock]---- Dismount 935 at 11.3 v after 2.9 h recharge
+2020-03-20 14:17|[new_juicer.py.dock]---- Docking 936 completed  at 8.1 v after 5.6 h playtime
+2020-03-20 15:26|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.2v
+2020-03-20 16:07|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2020-03-20 16:07|[new_juicer.py.undock]---- Dismount 936 at 9.8 v after 1.8 h recharge
+2020-03-20 17:53|[new_juicer.py.dock]---- Docking 937 completed  at 8.1 v after 1.8 h playtime
+2020-03-20 20:52|[new_juicer.py.undock]---- Dismount 937 at 11.3 v after 3.0 h recharge
+2020-03-21 02:30|[new_juicer.py.dock]---- Docking 938 completed  at 8.1 v after 5.6 h playtime
+2020-03-21 03:30|[new_juicer.py.undock]---- Dismount 938 at 10.1 v after 1.0 h recharge
+2020-03-21 05:24|[new_juicer.py.dock]---- Docking 939 completed  at 8.1 v after 1.9 h playtime
+2020-03-21 08:18|[new_juicer.py.undock]---- Dismount 939 at 11.3 v after 2.9 h recharge
+2020-03-21 13:58|[new_juicer.py.dock]---- Docking 940 completed  at 8.1 v after 5.7 h playtime
+2020-03-21 17:01|[new_juicer.py.undock]---- Dismount 940 at 11.3 v after 3.1 h recharge
+2020-03-21 22:43|[new_juicer.py.dock]---- Docking 941 completed  at 8.1 v after 5.7 h playtime
+2020-03-22 01:37|[new_juicer.py.undock]---- Dismount 941 at 11.3 v after 2.9 h recharge
+2020-03-22 07:15|[new_juicer.py.dock]---- Docking 942 completed  at 8.1 v after 5.6 h playtime
+2020-03-22 10:10|[new_juicer.py.undock]---- Dismount 942 at 11.3 v after 2.9 h recharge
+2020-03-22 15:49|[new_juicer.py.dock]---- Docking 943 completed  at 8.1 v after 5.6 h playtime
+2020-03-22 17:21|[new_juicer.py.undock]---- Dismount 943 at 10.2 v after 1.5 h recharge
+2020-03-22 18:22|[logMaintenance.py.main]** Changed UPS Battery caused early trickle **
+2020-03-22 20:20|[new_juicer.py.dock]---- Docking 944 completed  at 8.1 v after 3.0 h playtime
+2020-03-22 21:33|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-22 23:18|[new_juicer.py.undock]---- Dismount 944 at 11.3 v after 3.0 h recharge
+2020-03-23 04:55|[new_juicer.py.dock]---- Docking 945 completed  at 8.1 v after 5.6 h playtime
+2020-03-23 07:49|[new_juicer.py.undock]---- Dismount 945 at 11.3 v after 2.9 h recharge
+2020-03-23 13:28|[new_juicer.py.dock]---- Docking 946 completed  at 8.1 v after 5.6 h playtime
+2020-03-23 16:22|[new_juicer.py.undock]---- Dismount 946 at 11.3 v after 2.9 h recharge
+2020-03-23 22:00|[new_juicer.py.dock]---- Docking 947 completed  at 8.1 v after 5.6 h playtime
+2020-03-24 00:57|[new_juicer.py.undock]---- Dismount 947 at 11.3 v after 3.0 h recharge
+2020-03-24 06:33|[new_juicer.py.dock]---- Docking 948 completed  at 8.1 v after 5.6 h playtime
+2020-03-24 09:26|[new_juicer.py.undock]---- Dismount 948 at 11.3 v after 2.9 h recharge
+2020-03-24 15:03|[new_juicer.py.dock]---- Docking 949 completed  at 8.1 v after 5.6 h playtime
+2020-03-24 17:55|[new_juicer.py.undock]---- Dismount 949 at 11.3 v after 2.9 h recharge
+2020-03-24 23:33|[new_juicer.py.dock]---- Docking 950 completed  at 8.1 v after 5.6 h playtime
+2020-03-25 02:28|[new_juicer.py.undock]---- Dismount 950 at 11.3 v after 2.9 h recharge
+2020-03-25 08:03|[new_juicer.py.dock]---- Docking 951 completed  at 8.1 v after 5.6 h playtime
+2020-03-25 10:56|[new_juicer.py.undock]---- Dismount 951 at 11.3 v after 2.9 h recharge
+2020-03-25 16:33|[new_juicer.py.dock]---- Docking 952 completed  at 8.1 v after 5.6 h playtime
+2020-03-25 17:28|[new_juicer.py.undock]---- Dismount 952 at 10.0 v after 0.9 h recharge
+2020-03-25 19:12|[new_juicer.py.dock]---- Docking 953 completed  at 8.1 v after 1.7 h playtime
+2020-03-25 22:08|[new_juicer.py.undock]---- Dismount 953 at 11.3 v after 2.9 h recharge
+2020-03-26 03:45|[new_juicer.py.dock]---- Docking 954 completed  at 8.1 v after 5.6 h playtime
+2020-03-26 06:38|[new_juicer.py.undock]---- Dismount 954 at 11.3 v after 2.9 h recharge
+2020-03-26 12:15|[new_juicer.py.dock]---- Docking 955 completed  at 8.1 v after 5.6 h playtime
+2020-03-26 15:05|[new_juicer.py.undock]---- Dismount 955 at 11.3 v after 2.8 h recharge
+2020-03-26 20:44|[new_juicer.py.dock]---- Docking 956 completed  at 8.1 v after 5.6 h playtime
+2020-03-26 23:39|[new_juicer.py.undock]---- Dismount 956 at 11.3 v after 2.9 h recharge
+2020-03-27 05:15|[new_juicer.py.dock]---- Docking 957 completed  at 8.1 v after 5.6 h playtime
+2020-03-27 06:38|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-03-27 08:11|[new_juicer.py.undock]---- Dismount 957 at 11.3 v after 2.9 h recharge
+2020-03-27 13:47|[new_juicer.py.dock]---- Docking 958 completed  at 8.1 v after 5.6 h playtime
+2020-03-27 16:37|[new_juicer.py.undock]---- Dismount 958 at 11.3 v after 2.8 h recharge
+2020-03-27 22:14|[new_juicer.py.dock]---- Docking 959 completed  at 8.1 v after 5.6 h playtime
+2020-03-28 01:10|[new_juicer.py.undock]---- Dismount 959 at 11.3 v after 2.9 h recharge
+2020-03-28 06:45|[new_juicer.py.dock]---- Docking 960 completed  at 8.1 v after 5.6 h playtime
+2020-03-28 09:40|[new_juicer.py.undock]---- Dismount 960 at 11.3 v after 2.9 h recharge
+2020-03-28 15:16|[new_juicer.py.dock]---- Docking 961 completed  at 8.1 v after 5.6 h playtime
+2020-03-28 18:08|[new_juicer.py.undock]---- Dismount 961 at 11.3 v after 2.9 h recharge
+2020-03-28 23:45|[new_juicer.py.dock]---- Docking 962 completed  at 8.1 v after 5.6 h playtime
+2020-03-29 02:40|[new_juicer.py.undock]---- Dismount 962 at 11.3 v after 2.9 h recharge
+2020-03-29 08:15|[new_juicer.py.dock]---- Docking 963 completed  at 8.1 v after 5.6 h playtime
+2020-03-29 11:11|[new_juicer.py.undock]---- Dismount 963 at 11.3 v after 2.9 h recharge
+2020-03-29 16:48|[new_juicer.py.dock]---- Docking 964 completed  at 8.1 v after 5.6 h playtime
+2020-03-29 19:40|[new_juicer.py.undock]---- Dismount 964 at 11.3 v after 2.9 h recharge
+2020-03-30 01:18|[new_juicer.py.dock]---- Docking 965 completed  at 8.1 v after 5.6 h playtime
+2020-03-30 01:23|[new_juicer.py.main]---- Docking Failure Possible
+2020-03-30 01:23|[new_juicer.py.undock]---- Dismount 965 at 7.8 v after 0.1 h recharge
+2020-03-30 01:24|[new_juicer.py.dock]---- Docking 966 completed  at 8.0 v after 0.0 h playtime
+2020-03-30 04:16|[new_juicer.py.undock]---- Dismount 966 at 11.3 v after 2.9 h recharge
+2020-03-30 09:55|[new_juicer.py.dock]---- Docking 967 completed  at 8.1 v after 5.7 h playtime
+2020-03-30 12:44|[new_juicer.py.undock]---- Dismount 967 at 11.3 v after 2.8 h recharge
+2020-03-30 18:23|[new_juicer.py.dock]---- Docking 968 completed  at 8.1 v after 5.6 h playtime
+2020-03-30 18:28|[new_juicer.py.main]---- Docking Failure Possible
+2020-03-30 18:28|[new_juicer.py.undock]---- Dismount 968 at 7.9 v after 0.1 h recharge
+2020-03-30 18:29|[new_juicer.py.dock]---- Docking 969 completed  at 8.0 v after 0.0 h playtime
+2020-03-30 21:21|[new_juicer.py.undock]---- Dismount 969 at 11.4 v after 2.9 h recharge
+2020-03-31 03:02|[new_juicer.py.dock]---- Docking 970 completed  at 8.1 v after 5.7 h playtime
+2020-03-31 05:49|[new_juicer.py.undock]---- Dismount 970 at 11.3 v after 2.8 h recharge
+2020-03-31 11:24|[new_juicer.py.dock]---- Docking 971 completed  at 8.1 v after 5.6 h playtime
+2020-03-31 14:13|[new_juicer.py.undock]---- Dismount 971 at 11.3 v after 2.8 h recharge
+2020-03-31 19:51|[new_juicer.py.dock]---- Docking 972 completed  at 8.1 v after 5.6 h playtime
+2020-03-31 22:39|[new_juicer.py.undock]---- Dismount 972 at 11.3 v after 2.8 h recharge
+2020-04-01 04:16|[new_juicer.py.dock]---- Docking 973 completed  at 8.1 v after 5.6 h playtime
+2020-04-01 07:03|[new_juicer.py.undock]---- Dismount 973 at 11.3 v after 2.8 h recharge
+2020-04-01 12:40|[new_juicer.py.dock]---- Docking 974 completed  at 8.1 v after 5.6 h playtime
+2020-04-01 15:32|[new_juicer.py.undock]---- Dismount 974 at 11.3 v after 2.9 h recharge
+2020-04-01 21:09|[new_juicer.py.dock]---- Docking 975 completed  at 8.1 v after 5.6 h playtime
+2020-04-02 00:01|[new_juicer.py.undock]---- Dismount 975 at 11.4 v after 2.9 h recharge
+2020-04-02 05:38|[new_juicer.py.dock]---- Docking 976 completed  at 8.1 v after 5.6 h playtime
+2020-04-02 08:26|[new_juicer.py.undock]---- Dismount 976 at 11.4 v after 2.8 h recharge
+2020-04-02 14:02|[new_juicer.py.dock]---- Docking 977 completed  at 8.1 v after 5.6 h playtime
+2020-04-02 16:53|[new_juicer.py.undock]---- Dismount 977 at 11.4 v after 2.9 h recharge
+2020-04-02 22:33|[new_juicer.py.dock]---- Docking 978 completed  at 8.1 v after 5.7 h playtime
+2020-04-03 01:24|[new_juicer.py.undock]---- Dismount 978 at 11.4 v after 2.9 h recharge
+2020-04-03 07:00|[new_juicer.py.dock]---- Docking 979 completed  at 8.1 v after 5.6 h playtime
+2020-04-03 07:45|[new_juicer.py.undock]---- Dismount 979 at 10.0 v after 0.8 h recharge
+2020-04-03 09:14|[new_juicer.py.dock]---- Docking 980 completed  at 8.1 v after 1.5 h playtime
+2020-04-03 12:07|[new_juicer.py.undock]---- Dismount 980 at 11.3 v after 2.9 h recharge
+2020-04-03 17:43|[new_juicer.py.dock]---- Docking 981 completed  at 8.1 v after 5.6 h playtime
+2020-04-03 20:40|[new_juicer.py.undock]---- Dismount 981 at 11.3 v after 3.0 h recharge
+2020-04-04 02:17|[new_juicer.py.dock]---- Docking 982 completed  at 8.1 v after 5.6 h playtime
+2020-04-04 03:06|[new_juicer.py.undock]---- Dismount 982 at 10.0 v after 0.8 h recharge
+2020-04-04 04:40|[new_juicer.py.dock]---- Docking 983 completed  at 8.1 v after 1.6 h playtime
+2020-04-04 05:31|[new_juicer.py.undock]---- Dismount 983 at 10.1 v after 0.9 h recharge
+2020-04-04 07:08|[new_juicer.py.dock]---- Docking 984 completed  at 8.1 v after 1.6 h playtime
+2020-04-04 10:00|[new_juicer.py.undock]---- Dismount 984 at 11.4 v after 2.9 h recharge
+2020-04-04 15:35|[new_juicer.py.dock]---- Docking 985 completed  at 8.1 v after 5.6 h playtime
+2020-04-04 18:28|[new_juicer.py.undock]---- Dismount 985 at 11.3 v after 2.9 h recharge
+2020-04-05 00:03|[new_juicer.py.dock]---- Docking 986 completed  at 8.1 v after 5.6 h playtime
+2020-04-05 02:52|[new_juicer.py.undock]---- Dismount 986 at 11.4 v after 2.8 h recharge
+2020-04-05 08:26|[new_juicer.py.dock]---- Docking 987 completed  at 8.1 v after 5.6 h playtime
+2020-04-05 08:31|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-05 08:31|[new_juicer.py.undock]---- Dismount 987 at 7.9 v after 0.1 h recharge
+2020-04-05 08:32|[new_juicer.py.dock]---- Docking 988 completed  at 7.9 v after 0.0 h playtime
+2020-04-05 11:28|[new_juicer.py.undock]---- Dismount 988 at 11.3 v after 3.0 h recharge
+2020-04-05 17:04|[new_juicer.py.dock]---- Docking 989 completed  at 8.1 v after 5.6 h playtime
+2020-04-05 19:49|[new_juicer.py.undock]---- Dismount 989 at 11.4 v after 2.8 h recharge
+2020-04-06 01:24|[new_juicer.py.dock]---- Docking 990 completed  at 8.1 v after 5.6 h playtime
+2020-04-06 04:18|[new_juicer.py.undock]---- Dismount 990 at 11.3 v after 2.9 h recharge
+2020-04-06 09:54|[new_juicer.py.dock]---- Docking 991 completed  at 8.1 v after 5.6 h playtime
+2020-04-06 12:47|[new_juicer.py.undock]---- Dismount 991 at 11.3 v after 2.9 h recharge
+2020-04-06 18:24|[new_juicer.py.dock]---- Docking 992 completed  at 8.1 v after 5.6 h playtime
+2020-04-06 21:16|[new_juicer.py.undock]---- Dismount 992 at 11.3 v after 2.9 h recharge
+2020-04-07 02:50|[new_juicer.py.dock]---- Docking 993 completed  at 8.1 v after 5.5 h playtime
+2020-04-07 05:44|[new_juicer.py.undock]---- Dismount 993 at 11.3 v after 2.9 h recharge
+2020-04-07 11:13|[new_juicer.py.dock]---- Docking 994 completed  at 8.1 v after 5.5 h playtime
+2020-04-07 11:39|[new_juicer.py.undock]---- Dismount 994 at 9.7 v after 0.4 h recharge
+2020-04-07 12:20|[new_juicer.py.dock]---- Docking 995 completed  at 8.1 v after 0.7 h playtime
+2020-04-07 15:11|[new_juicer.py.undock]---- Dismount 995 at 11.4 v after 2.9 h recharge
+2020-04-07 20:45|[new_juicer.py.dock]---- Docking 996 completed  at 8.1 v after 5.6 h playtime
+2020-04-07 23:38|[new_juicer.py.undock]---- Dismount 996 at 11.3 v after 2.9 h recharge
+2020-04-08 05:10|[new_juicer.py.dock]---- Docking 997 completed  at 8.1 v after 5.5 h playtime
+2020-04-08 07:47|[new_juicer.py.undock]---- Dismount 997 at 11.4 v after 2.6 h recharge
+2020-04-08 13:25|[new_juicer.py.dock]---- Docking 998 completed  at 8.1 v after 5.6 h playtime
+2020-04-08 16:18|[new_juicer.py.undock]---- Dismount 998 at 11.4 v after 2.9 h recharge
+2020-04-08 21:52|[new_juicer.py.dock]---- Docking 999 completed  at 8.1 v after 5.6 h playtime
+2020-04-09 00:46|[new_juicer.py.undock]---- Dismount 999 at 11.4 v after 2.9 h recharge
+2020-04-09 06:18|[new_juicer.py.dock]---- Docking 1000 completed  at 8.1 v after 5.5 h playtime
+2020-04-09 06:22|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-09 06:23|[new_juicer.py.undock]---- Dismount 1000 at 7.9 v after 0.1 h recharge
+2020-04-09 06:23|[new_juicer.py.dock]---- Docking 1001 completed  at 8.0 v after 0.0 h playtime
+2020-04-09 09:18|[new_juicer.py.undock]---- Dismount 1001 at 11.4 v after 2.9 h recharge
+2020-04-09 14:51|[new_juicer.py.dock]---- Docking 1002 completed  at 8.1 v after 5.6 h playtime
+2020-04-09 17:46|[new_juicer.py.undock]---- Dismount 1002 at 11.3 v after 2.9 h recharge
+2020-04-09 23:20|[new_juicer.py.dock]---- Docking 1003 completed  at 8.1 v after 5.6 h playtime
+2020-04-10 02:14|[new_juicer.py.undock]---- Dismount 1003 at 11.4 v after 2.9 h recharge
+2020-04-10 07:46|[new_juicer.py.dock]---- Docking 1004 completed  at 8.1 v after 5.5 h playtime
+2020-04-10 10:39|[new_juicer.py.undock]---- Dismount 1004 at 11.4 v after 2.9 h recharge
+2020-04-10 16:11|[new_juicer.py.dock]---- Docking 1005 completed  at 8.1 v after 5.5 h playtime
+2020-04-10 19:04|[new_juicer.py.undock]---- Dismount 1005 at 11.4 v after 2.9 h recharge
+2020-04-11 00:37|[new_juicer.py.dock]---- Docking 1006 completed  at 8.1 v after 5.5 h playtime
+2020-04-11 01:31|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.9v
+2020-04-11 03:32|[new_juicer.py.undock]---- Dismount 1006 at 11.3 v after 2.9 h recharge
+2020-04-11 09:03|[new_juicer.py.dock]---- Docking 1007 completed  at 8.1 v after 5.5 h playtime
+2020-04-11 09:39|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.9v
+2020-04-11 09:55|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.6v
+2020-04-11 09:55|[new_juicer.py.undock]---- Dismount 1007 at 9.6 v after 0.9 h recharge
+2020-04-11 10:48|[new_juicer.py.dock]---- Docking 1008 completed  at 8.1 v after 0.9 h playtime
+2020-04-11 13:36|[new_juicer.py.undock]---- Dismount 1008 at 11.4 v after 2.8 h recharge
+2020-04-11 19:09|[new_juicer.py.dock]---- Docking 1009 completed  at 8.1 v after 5.5 h playtime
+2020-04-11 22:02|[new_juicer.py.undock]---- Dismount 1009 at 11.4 v after 2.9 h recharge
+2020-04-12 03:35|[new_juicer.py.dock]---- Docking 1010 completed  at 8.1 v after 5.5 h playtime
+2020-04-12 03:39|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-12 03:39|[new_juicer.py.undock]---- Dismount 1010 at 7.8 v after 0.1 h recharge
+2020-04-12 03:40|[new_juicer.py.dock]---- Docking 1011 completed  at 8.1 v after 0.0 h playtime
+2020-04-12 06:36|[new_juicer.py.undock]---- Dismount 1011 at 11.4 v after 2.9 h recharge
+2020-04-12 12:09|[new_juicer.py.dock]---- Docking 1012 completed  at 8.1 v after 5.5 h playtime
+2020-04-12 15:05|[new_juicer.py.undock]---- Dismount 1012 at 11.4 v after 2.9 h recharge
+2020-04-12 20:38|[new_juicer.py.dock]---- Docking 1013 completed  at 8.1 v after 5.5 h playtime
+2020-04-12 23:34|[new_juicer.py.undock]---- Dismount 1013 at 11.3 v after 3.0 h recharge
+2020-04-13 05:06|[new_juicer.py.dock]---- Docking 1014 completed  at 8.1 v after 5.5 h playtime
+2020-04-13 07:56|[new_juicer.py.undock]---- Dismount 1014 at 11.4 v after 2.8 h recharge
+2020-04-13 13:28|[new_juicer.py.dock]---- Docking 1015 completed  at 8.1 v after 5.5 h playtime
+2020-04-13 13:55|[logMaintenance.py.main]** Shutdown to try DexterOS **
+2020-04-13 13:55|[logMaintenance.py.main]** carlData.json lost 4 chargeCycles - adjusted **
+2020-04-13 13:55|lifelog.dEmain execution: 858.45
+2020-04-13 17:38|------------ boot ------------
+2020-04-13 18:16|[new_juicer.py.undock]---- Dismount 1015 at 11.5 v after 0.6 h recharge
+2020-04-14 00:39|[new_juicer.py.dock]---- Docking 1016 completed  at 8.1 v after 6.4 h playtime
+2020-04-14 00:44|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-14 00:44|[new_juicer.py.undock]---- Dismount 1016 at 7.8 v after 0.1 h recharge
+2020-04-14 00:45|[new_juicer.py.dock]---- Docking 1017 completed  at 7.7 v after 0.0 h playtime
+2020-04-14 00:48|[new_juicer.py.safetyCheck]Safety Shutdown at  7.35 volts
+2020-04-14 00:48|lifelog.dEmain execution: 7.2
+2020-04-14 07:19|------------ boot ------------
+2020-04-14 07:22|[new_juicer.py.undock]---- Dismount 1017 at 9.9 v after 0.0 h recharge
+2020-04-14 07:31|[new_juicer.py.main]---- juicer.py restarted -add 0.2 hours
+2020-04-14 08:19|[new_juicer.py.dock]---- Docking 1018 completed  at 8.1 v after 0.7 h playtime
+2020-04-14 11:10|[new_juicer.py.undock]---- Dismount 1018 at 11.4 v after 2.8 h recharge
+2020-04-14 17:36|[new_juicer.py.dock]---- Docking 1019 completed  at 8.1 v after 6.4 h playtime
+2020-04-14 20:21|[new_juicer.py.undock]---- Dismount 1019 at 11.4 v after 2.7 h recharge
+2020-04-15 02:44|[new_juicer.py.dock]---- Docking 1020 completed  at 8.1 v after 6.4 h playtime
+2020-04-15 03:10|[new_juicer.py.undock]---- Dismount 1020 at 9.8 v after 0.4 h recharge
+2020-04-15 04:04|[new_juicer.py.dock]---- Docking 1021 completed  at 8.1 v after 0.9 h playtime
+2020-04-15 06:52|[new_juicer.py.undock]---- Dismount 1021 at 11.4 v after 2.8 h recharge
+2020-04-15 13:15|[new_juicer.py.dock]---- Docking 1022 completed  at 8.1 v after 6.4 h playtime
+2020-04-15 16:00|[new_juicer.py.undock]---- Dismount 1022 at 11.4 v after 2.8 h recharge
+2020-04-15 22:25|[new_juicer.py.dock]---- Docking 1023 completed  at 8.1 v after 6.4 h playtime
+2020-04-15 22:30|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-15 22:30|[new_juicer.py.undock]---- Dismount 1023 at 7.9 v after 0.1 h recharge
+2020-04-15 22:31|[new_juicer.py.dock]---- Docking 1024 completed  at 8.1 v after 0.0 h playtime
+2020-04-15 22:36|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-15 22:36|[new_juicer.py.undock]---- Dismount 1024 at 8.7 v after 0.1 h recharge
+2020-04-15 22:42|[new_juicer.py.dock]---- Docking 1025 completed  at 8.1 v after 0.1 h playtime
+2020-04-16 01:30|[new_juicer.py.undock]---- Dismount 1025 at 11.4 v after 2.8 h recharge
+2020-04-16 07:53|[new_juicer.py.dock]---- Docking 1026 completed  at 8.1 v after 6.4 h playtime
+2020-04-16 10:36|[new_juicer.py.undock]---- Dismount 1026 at 11.4 v after 2.7 h recharge
+2020-04-16 17:00|[new_juicer.py.dock]---- Docking 1027 completed  at 8.1 v after 6.4 h playtime
+2020-04-16 19:48|[new_juicer.py.undock]---- Dismount 1027 at 11.4 v after 2.8 h recharge
+2020-04-17 02:10|[new_juicer.py.dock]---- Docking 1028 completed  at 8.1 v after 6.4 h playtime
+2020-04-17 04:57|[new_juicer.py.undock]---- Dismount 1028 at 11.3 v after 2.8 h recharge
+2020-04-17 11:18|[new_juicer.py.dock]---- Docking 1029 completed  at 8.1 v after 6.3 h playtime
+2020-04-17 14:01|[new_juicer.py.undock]---- Dismount 1029 at 11.4 v after 2.7 h recharge
+2020-04-17 20:24|[new_juicer.py.dock]---- Docking 1030 completed  at 8.1 v after 6.4 h playtime
+2020-04-17 22:05|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.3v
+2020-04-17 22:35|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.0v
+2020-04-17 22:35|[new_juicer.py.undock]---- Dismount 1030 at 10.0 v after 2.2 h recharge
+2020-04-18 02:04|[new_juicer.py.dock]---- Docking 1031 completed  at 8.1 v after 3.5 h playtime
+2020-04-18 04:53|[new_juicer.py.undock]---- Dismount 1031 at 11.4 v after 2.8 h recharge
+2020-04-18 11:10|[new_juicer.py.dock]---- Docking 1032 completed  at 8.1 v after 6.3 h playtime
+2020-04-18 13:53|[new_juicer.py.undock]---- Dismount 1032 at 11.4 v after 2.7 h recharge
+2020-04-18 20:15|[new_juicer.py.dock]---- Docking 1033 completed  at 8.1 v after 6.4 h playtime
+2020-04-18 22:56|[new_juicer.py.undock]---- Dismount 1033 at 11.4 v after 2.7 h recharge
+2020-04-19 05:16|[new_juicer.py.dock]---- Docking 1034 completed  at 8.1 v after 6.3 h playtime
+2020-04-19 08:04|[new_juicer.py.undock]---- Dismount 1034 at 11.4 v after 2.8 h recharge
+2020-04-19 14:25|[new_juicer.py.dock]---- Docking 1035 completed  at 8.1 v after 6.3 h playtime
+2020-04-19 17:05|[new_juicer.py.undock]---- Dismount 1035 at 11.4 v after 2.7 h recharge
+2020-04-19 23:27|[new_juicer.py.dock]---- Docking 1036 completed  at 8.1 v after 6.4 h playtime
+2020-04-20 02:13|[new_juicer.py.undock]---- Dismount 1036 at 11.4 v after 2.8 h recharge
+2020-04-20 08:33|[new_juicer.py.dock]---- Docking 1037 completed  at 8.1 v after 6.3 h playtime
+2020-04-20 11:21|[new_juicer.py.undock]---- Dismount 1037 at 11.4 v after 2.8 h recharge
+2020-04-20 17:41|[new_juicer.py.dock]---- Docking 1038 completed  at 8.1 v after 6.3 h playtime
+2020-04-20 20:28|[new_juicer.py.undock]---- Dismount 1038 at 11.3 v after 2.8 h recharge
+2020-04-21 02:48|[new_juicer.py.dock]---- Docking 1039 completed  at 8.1 v after 6.3 h playtime
+2020-04-21 05:28|[new_juicer.py.undock]---- Dismount 1039 at 11.4 v after 2.7 h recharge
+2020-04-21 11:48|[new_juicer.py.dock]---- Docking 1040 completed  at 8.1 v after 6.3 h playtime
+2020-04-21 14:37|[new_juicer.py.undock]---- Dismount 1040 at 11.3 v after 2.8 h recharge
+2020-04-21 20:58|[new_juicer.py.dock]---- Docking 1041 completed  at 8.1 v after 6.3 h playtime
+2020-04-21 23:47|[new_juicer.py.undock]---- Dismount 1041 at 11.4 v after 2.8 h recharge
+2020-04-22 06:04|[new_juicer.py.dock]---- Docking 1042 completed  at 8.1 v after 6.3 h playtime
+2020-04-22 06:09|[new_juicer.py.main]---- Docking Failure Possible
+2020-04-22 06:09|[new_juicer.py.undock]---- Dismount 1042 at 7.8 v after 0.1 h recharge
+2020-04-22 06:10|[new_juicer.py.dock]---- Docking 1043 completed  at 7.9 v after 0.0 h playtime
+2020-04-22 09:03|[new_juicer.py.undock]---- Dismount 1043 at 11.4 v after 2.9 h recharge
+2020-04-22 11:19|lifelog.dEmain execution: 196
