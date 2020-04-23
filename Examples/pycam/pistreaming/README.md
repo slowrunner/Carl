@@ -69,7 +69,7 @@ window to get the correct resolution.
 
 ## PERFORMANCE
 
-Pi3B (1cm heatsink) in GoPiGo3 Robot
+Pi3B (5mm heatsink) in GoPiGo3 Robot
 Running Processes:
 - RPI-Monitor (every 30 seconds runs data getters causing load spikes)
 - Raspbian For Robots Web VNC Desktop
