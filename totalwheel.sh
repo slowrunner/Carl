@@ -16,7 +16,7 @@ totalMotionHrs=`(echo "scale=3; $totalMotion / 3600" | bc)`
 echo "Total Motion: " $totalMotion "sec" $totalMotionHrs "hrs"
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' life.log)`
 percentInMotion=`(echo "scale=2; $totalMotionHrs * 100.0 / $totalLife" | bc)`
-echo "Total Life: " $totalLife "  percentInMotion:" $percentInMotion
+echo "Total Life: " $totalLife "hrs   percentInMotion:" $percentInMotion
 # lifeThisYear=`(awk -F':' 'FNR > 6 {sum+=$3}END{print sum;}' life.log)`
 # echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
 # echo "Sessions (boot) this year: " `(grep -c "\- boot \-" life.log)`
