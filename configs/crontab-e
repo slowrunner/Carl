@@ -23,3 +23,5 @@
 @reboot /home/pi/Carl/plib/loglife.py&
 @reboot sleep 60 && /home/pi/Carl/nohup_juicer.sh
 @reboot sleep 60 && /home/pi/Carl/nohup_wheellog.sh
+@reboot sleep 90 && /home/pi/Carl/nohup_imulog.sh
+
