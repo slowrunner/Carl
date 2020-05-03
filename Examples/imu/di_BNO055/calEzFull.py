@@ -101,11 +101,13 @@ def main():
         imu.printCalStatus()
 
         while True:
-            readAndPrint(imu,cnt=1,delay=0.2)
+            readAndPrint(imu,cnt=1,delay=0.2,cr=True)
             if (imu.getExceptionCount() != exCnt):
                 exCnt = imu.getExceptionCount()
                 print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
-            if (abs(imu.safe_read_gyroscope()[2]) > 0.5): print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+            if ((abs(imu.safe_read_gyroscope()[2]) > 0.5) or \
+                (abs(imu.safe_read_linear_acceleration()[2]) > 1.0) ):
+                print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
 
 
     except KeyboardInterrupt:

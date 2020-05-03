@@ -187,3 +187,26 @@ wheel.log:
 2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9 motion:     2.3 sec
 2020-05-03 06:45|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.0 motion:     2.3 sec
 
+
+
+=========== Another Test =============
+ran calEzFull.py, then wheelBaseRotateTest.py
+Ended "over rotated" by half to one degree
+results seem much worse
+
+imu.log:
+2020-05-03 12:55|[imulog.py.logMotionStop]heading:   324.3  rotation:   186.4 motion:     2.3 sec errors: 92
+2020-05-03 12:56|[imulog.py.logMotionStop]heading:   149.6  rotation:   177.6 motion:     2.3 sec errors: 92
+2020-05-03 12:56|[imulog.py.logMotionStop]heading:   324.7  rotation:   182.8 motion:     2.3 sec errors: 92
+2020-05-03 12:56|[imulog.py.logMotionStop]heading:   148.5  rotation:   179.8 motion:     2.3 sec errors: 92
+2020-05-03 12:56|[imulog.py.logMotionStop]heading:   322.1  rotation:   180.4 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   150.7  rotation:   177.0 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   325.4  rotation:   184.7 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   150.1  rotation:   175.1 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   320.1  rotation:   183.3 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   150.2  rotation:   183.2 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   326.6  rotation:   183.8 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   147.1  rotation:   177.6 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   324.8  rotation:   183.2 motion:     2.3 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   148.7  rotation:   179.3 motion:     2.4 sec errors: 92
+2020-05-03 12:57|[imulog.py.logMotionStop]heading:   325.8  rotation:   189.2 motion:     2.3 sec errors: 92
