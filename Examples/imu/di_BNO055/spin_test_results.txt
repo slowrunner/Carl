@@ -1,0 +1,189 @@
+Spin Test Result
+
+Date: May 3, 2020
+
+Summary:
+1) Lined Carl's body up with floor board edge, facing "southerly"
+2) Commanded ten 180 degree turns with wheelBaseRotateTest.py
+- Robot ended up **"over rotated" by 3-4 degrees** (visual estimate)  
+- Program measured turns from encoders consistent 
+  Encoder Estimation: 179.3 degree turns
+  Under estimated 10x 180 degree turns by about 7 degrees numerically
+  Heading Error for 10x 180 degree turns about 10 degrees actual
+
+- imu measured turns
+  Measurement Average 179.3 deg
+  Under estimated 10x 180 turns by about 5 degrees numerically
+  Heading Error for 10x 180 degree turns by 8-9 degrees actual
+  Value Variation: Max, Min, Stdev: +0.5, -0.9, 0.45
+
+- wheel.log encoder measured
+  Measurement Average 178.3 deg
+  Under estimated 10x 180 turns by about 17 degrees numerically
+  Heading Error for 10x 180 turns about 20 degrees actual
+  Variation: Max, Min, Stdef: +1.0, -1.3, 0.61
+
+
+wheelBaseRotateTest.py
+
+Spin 180.0 Wheel Dia:64.00 Base:114.05 mm?  (? for help)
+?
+return  execute with stated values once
+aNNN.n  set default_turn to NNN.n
+bNNN.n  set wheel base width to NNN.n
+c       toggle check_motor_status (False)
+h       change default_turn to 180 deg
+f       change default_turn to 360 deg
+xN      execute spin N times
+sNNN    change motor dps to NNN
+wNN.n   set wheel diameter to NN.n
+bNNN.n  set wheel base to NNN.n
+?       print list of commands
+WHEEL_DIA:64.00
+WHEEL_BASE_WIDTH:114.0
+default_turn:180.0
+spin_speed:150
+
+Spin 180.0 Wheel Dia:64.00 Base:114.05 mm?  (? for help)
+x10
+
+Resetting Encoders
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 0 0
+Turn Processor Time:9.1ms Wall Time:2.2s
+Encoder Value: 320 -319
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:80.9 dps Wheel Rate:143.7 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 1 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 320 -319
+Turn Processor Time:9.4ms Wall Time:2.2s
+Encoder Value: 640 -638
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:80.9 dps Wheel Rate:143.6 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 2 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 640 -638
+Turn Processor Time:9.3ms Wall Time:2.2s
+Encoder Value: 960 -957
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:80.9 dps Wheel Rate:143.6 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 3 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 960 -957
+Turn Processor Time:8.6ms Wall Time:2.2s
+Encoder Value: 1280 -1276
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:81.0 dps Wheel Rate:143.7 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 4 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 1280 -1276
+Turn Processor Time:7.8ms Wall Time:2.2s
+Encoder Value: 1600 -1595
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:81.0 dps Wheel Rate:143.8 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 5 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 1600 -1595
+Turn Processor Time:8.9ms Wall Time:2.2s
+Encoder Value: 1920 -1914
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:80.9 dps Wheel Rate:143.7 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 6 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 1920 -1914
+Turn Processor Time:8.4ms Wall Time:2.2s
+Encoder Value: 2240 -2233
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:81.0 dps Wheel Rate:143.8 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 7 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 2240 -2233
+Turn Processor Time:9.1ms Wall Time:2.2s
+Encoder Value: 2560 -2552
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:80.8 dps Wheel Rate:143.4 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 8 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 2560 -2552
+Turn Processor Time:9.1ms Wall Time:2.2s
+Encoder Value: 2880 -2871
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:81.0 dps Wheel Rate:143.7 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 9 ^^^^
+
+===== Spin 180.0 WHEEL_DIAMETER:64.00 WHEEL_BASE_WIDTH:114.05 mm at 150 dps ========
+Encoder Values: 2880 -2871
+Turn Processor Time:8.9ms Wall Time:2.2s
+Encoder Value: 3200 -3190
+Delta Value: 320 319
+Delta Degrees: 179.6 179.0
+Accuracy: 99.8% 99.4%
+Spin Rate:81.0 dps Wheel Rate:143.7 dps (includes start/stop effect)
+=============
+ ^^^^ Turn 10 ^^^^
+
+
+===========================================
+imu.log:
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:    51.3  rotation:   178.2 motion:     2.5 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:   231.2  rotation:   179.5 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:    51.1  rotation:   179.8 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:   231.1  rotation:   179.5 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:    50.6  rotation:   179.4 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:   228.9  rotation:   178.4 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:    48.6  rotation:   179.7 motion:     2.4 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:   227.9  rotation:   178.9 motion:     2.3 sec errors: 67
+2020-05-03 06:44|[imulog.py.logMotionStop]heading:    48.2  rotation:   179.4 motion:     2.3 sec errors: 67
+2020-05-03 06:45|[imulog.py.logMotionStop]heading:   227.1  rotation:   178.9 motion:     2.3 sec errors: 67
+
+
+===========================================
+wheel.log:
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.4 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.3 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.3 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9 motion:     2.4 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.4 sec
+2020-05-03 06:44|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9 motion:     2.3 sec
+2020-05-03 06:45|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.0 motion:     2.3 sec
+
