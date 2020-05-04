@@ -120,8 +120,14 @@ def main():
                 exCnt = imu.getExceptionCount()
                 print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
 
-            # if rotation detected print time forcing last values to remain visible
-            if (abs(imu.safe_read_gyroscope()[2]) > 0.5): print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+            # if rotation or detected print time forcing last values to remain visible
+            # if (abs(imu.safe_read_gyroscope()[2]) > 0.5): print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+            # if (abs(imu.safe_read_linear_acceleration()[1]) > 0.5): print("\n    xx                                        ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+            if ((abs(imu.safe_read_gyroscope()[2]) > 0.5) or \
+                (abs(imu.safe_read_linear_acceleration()[1]) > 0.5) ):
+                print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+
+
 
         print("\n")
 
