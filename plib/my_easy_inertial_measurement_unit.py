@@ -60,6 +60,12 @@ ports = {
     "AD2": "GPG3_AD2"
 }
 
+'''
+IMU CALIBRATION FILE NAME
+'''
+IMU_CAL_FILENAME = "./imuCalData.json"
+
+
 class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
     '''
     Class for interfacing with the `InertialMeasurementUnit Sensor`_.
@@ -125,9 +131,9 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         try:
             self.BNO055._config_mode()
             calData = self.BNO055.get_calibration()
-            with open('calData.json', 'w') as outfile:
+            with open(IMU_CAL_FILENAME, 'w') as outfile:
                 json.dump(calData, outfile)
-            print("Wrote calData.json",calData)
+            print("Wrote {}:\n".format(IMU_CAL_FILENAME),calData)
         except:
             self.exceptionCount += 1
         finally:
@@ -138,7 +144,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
     def loadCalDataJSON(self):
         ifMutexAcquire(self.use_mutex)
         try:
-            with open('calData.json') as json_file:
+            with open(IMU_CAL_FILENAME) as json_file:
                 calData = json.load( json_file )
             # print("calData",calData)
         except:
@@ -153,7 +159,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         try:
             print("Switching to CONFIG_MODE")
             self.BNO055._config_mode()
-            print("Setting Calibration Data From calData.json File")
+            print("Setting Calibration Data From {} File".format(IMU_CAL_FILENAME))
             self.BNO055.set_calibration(calData)
             print("Setting NDOF Mode")
             self.BNO055.set_mode(BNO055.OPERATION_MODE_NDOF)
