@@ -6,19 +6,22 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
-# My Python example program of full calibration
-# Writes the calibration settings out to cal.json
-# and then reading the Dexter Industries IMU Sensor
+# Extended Python example program for the Dexter Industries IMU Sensor
 #
 # Usage:  Expand a console to be 192 chars wide (next line does not appear wrapped)
 # 3456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
-#
-# ./calEzFull.py  or python3 calEzFull.py
-#
-# To calibrate - rotate GoPiGo3 in the air through a lazy eight pattern
+# ./slowEzReads.py  or python3 slowEzReads.py
 #
 # Uses Alan's extended mutex protected EasyIMUSensor() class from my_easy_inertial_measurement_unit.py
-# to calibrate IMU and then print/overwrite a line of values 5 times a second.
+# to print/overwrite a line of values 5 times a second or print once per second without overwrite
+#
+# If an I2C exception occurs, the time will be printed
+# (Software I2C read exceptions will occur and must be tolerated.)
+#
+# If a rotation greater than 0.5 dps is seen, the time will be printed forcing the values to remain visible
+#
+# Ensure PORT ("AD1") and OVERWRITE (True) are desired values
+
 
 
 from __future__ import print_function
@@ -26,9 +29,25 @@ from __future__ import division
 
 import time
 from datetime import datetime as dt
-#from di_sensors.easy_inertial_measurement_unit import EasyIMUSensor
+
+import sys
+try:
+    sys.path.append('/home/pi/Carl/plib')
+    Carl = True
+except:
+    Carl = False
+# import easygopigo3 # import the EasyGoPiGo3 class
+# di_sensors EasyIMUSensor() class does not implement all the needed mutex protected methods
+# from di_sensors.easy_inertial_measurement_unit import EasyIMUSensor
+# so uses my_easy_inertial_measurement_unit.py
 from my_easy_inertial_measurement_unit import EasyIMUSensor
-import numpy as np
+
+# Port must be "AD1" or "AD2" to force software I2C that properly implements clock stretch
+PORT = "AD1"
+
+# to repeatedly overwrite readings line 5 times a second, set True
+# to list readings once per second without overwriting, set False
+OVERWRITE = True
 
 def readIMU(imu):
         # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
@@ -66,8 +85,11 @@ def printReadings(readingsMGAELT, cr = False):
         else:
             print(string_to_print, end='\r')
 
+# Read and Print values
+#
+# If cnt = 0, repeats until cntrl-C
 
-def readAndPrint(imu,cnt=1,delay=0.02,cr = False):
+def readAndPrint(imu,cnt=1,delay=0.01,cr = False):
     if cnt == 0:
         while True:
             printReadings(readIMU(imu),cr)
@@ -79,38 +101,44 @@ def readAndPrint(imu,cnt=1,delay=0.02,cr = False):
 
 
 def main():
-    IMUPORT = "AD1"   # Must be AD1 or AD2 only
+    print("\nReading the Dexter Industries IMU Sensor")
+    print("Using mutex-protected, exception-tolerant SW I2C on GoPiGo3 port {}\n".format(PORT))
+    print("Expand the window till this line fits")
+    for i in range(0,5):
+        print("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012")
+        time.sleep(2)
 
-    print("\nMy example program for full calibration (NDOF SYS, Gyros, magnetometers, Accels)")
-    print("\nand then reading the Dexter Industries IMU Sensor")
-    print("\nUsing mutex-protected, exception-tolerant SW I2C on GoPiGo3 port {}\n".format(IMUPORT))
-
-    imu = EasyIMUSensor(port = IMUPORT, use_mutex = True)
+    imu = EasyIMUSensor(port = PORT, use_mutex = True)
 
     time.sleep(1.0)  # allow for all measurements to initialize
 
+    # exception count will probably be zero at the start
     exCnt = imu.getExceptionCount()
 
     try:
-        imu.resetBNO055()
-
-        imu.printCalStatus()
-
-        imu.my_safe_calibrate()
-
-        imu.printCalStatus()
-
+        print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
         while True:
-            readAndPrint(imu,cnt=1,delay=0.2,cr=True)
+            if OVERWRITE:
+                # read and print/overwrite line of values 5 times per second
+                readAndPrint(imu,cnt=1,delay=0.2)
+            else:
+                # read and print new line of values 1 time per second
+                readAndPrint(imu,cnt=1,delay=1.0,cr = True)
+
+
             if (imu.getExceptionCount() != exCnt):
+                # when exception occurs print the count and time
                 exCnt = imu.getExceptionCount()
                 print("\n{}: Exception Count: {}".format(dt.now(),exCnt))
-            if ((abs(imu.safe_read_linear_acceleration()[2]) > 1.0) ):
-                print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
 
+            # if rotation detected print time forcing last values to remain visible
+            if (abs(imu.safe_read_gyroscope()[2]) > 0.5): print("\n                                              ** {} **\n".format(dt.now().strftime('%m-%d-%Y %H:%M:%S.%f')[:-3]))
+
+        print("\n")
 
     except KeyboardInterrupt:
         print("\nCntrl-C detected. Exiting..")
+        # break
 
 
 # Main loop
