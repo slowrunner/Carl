@@ -15,9 +15,11 @@ from __future__ import print_function
 from __future__ import division
 
 import time
+import sys
+sys.path.append("/home/pi/Carl/plib")
 from my_easy_inertial_measurement_unit import EasyIMUSensor
 import numpy as np
-# from di_sensors import BNO055
+from di_sensors import BNO055
 import json
 
 
@@ -315,7 +317,8 @@ def main():
     print("\nCalibration Program for the Dexter Industries IMU Sensor")
     print("    (Using SW I2C on GoPiGo3 port AD1)\n")
 
-    imu = InertialMeasurementUnit(bus = "GPG3_AD1")
+    # imu = InertialMeasurementUnit(bus = "GPG3_AD1")
+    imu = EasyIMUSensor(port = "AD1")
     # Note: HW I2C does not properly implement clock stretching
     #       and will result in invalid readings
 

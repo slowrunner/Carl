@@ -9,11 +9,13 @@
 # MY_INERTIAL_MEASUREMENT_UNIT
 #
 # modified to allow initializing the BNO055 to a mode other than the default, full NDOF operation
+# modified to use myBNO055 (to set self._mode)
 #
+
 from __future__ import print_function
 from __future__ import division
 
-from di_sensors import BNO055
+import myBNO055 as BNO055
 
 
 class InertialMeasurementUnit(object):

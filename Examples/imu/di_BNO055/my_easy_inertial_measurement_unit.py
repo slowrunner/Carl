@@ -10,10 +10,10 @@
 #
 
 # EASIER WRAPPERS FOR:
-# IMU SENSOR
-
+#   IMU SENSOR
 # MUTEX SUPPORT WHEN NEEDED
-#
+# Allow non NDOF modes
+
 """
 DI Methods Implemented (Unchanged)
  - EasyIMUSensor(port="AD1", use_mutex=False)
@@ -39,12 +39,13 @@ Expanded mutex protected Methods Implemented:
  - imu.safe_read_accelerometer()          returns the accels values x, y, z
  - imu.safe_read_linear_acceleration()    returns the linear accel values x, y, z
  - imu_safe_read_temperature()            returns the chip temp degC
-
+ - imu_safe_set_mode()                    change operation mode
+ - imu_sefe_get_mode()                    check current operation mode
 """
 
 # from di_sensors import inertial_measurement_unit
 import my_inertial_measurement_unit as inertial_measurement_unit
-from di_sensors import BNO055
+import myBNO055 as BNO055
 from math import atan2, pi
 from time import sleep
 import json
@@ -181,6 +182,42 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         print("\n")
         return status
 
+    def safe_get_mode(self):
+        ifMutexAcquire(self.use_mutex)
+        mode = self.BNO055._mode
+        ifMutexRelease(self.use_mutex)
+        return mode
+
+    def safe_set_mode(self, mode, verbose=True):
+        success = False
+        if verbose: print("Existing Mode:{}".format(self.safe_get_mode()))
+        ifMutexAcquire(self.use_mutex)
+
+        # Send a thow-away command and ignore any response or I2C errors
+        # just to make sure the BNO055 is in a good state and ready to accept
+        # commands (this seems to be necessary).
+        try:
+            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PAGE_ID, 0)
+        except IOError:
+            self.exceptionCount +=1
+            # pass on an I2C IOError
+            pass
+
+
+        try:
+            self.BNO055._config_mode()
+            self.BNO055.set_mode(mode)
+            success = True
+        except Exception as e:
+            print("set_mode exception:{}".format(str(e)))
+            self.exceptionCount +=1
+        finally:
+            ifMutexRelease(self.use_mutex)
+            if verbose:
+                print("Current Mode:{}".format(self.safe_get_mode()))
+                print("Returning success: {}".format(success))
+        return success
+
     def resetBNO055(self):
 
         ifMutexAcquire(self.use_mutex)
@@ -230,11 +267,9 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             print("set the unit selection bits")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_UNIT_SEL, initial_units)
 
-            print("set temperature source to gyroscope, as it seems to be more accurate.")
-            self.BNO055.i2c_bus.write_reg_8(BNO055.REG_TEMP_SOURCE, 0x01)
-
             print("restore mode")
             self.BNO055.set_mode(initial_mode)
+
         except:
             raise RuntimeError("BNO055 reset failure")
         finally:

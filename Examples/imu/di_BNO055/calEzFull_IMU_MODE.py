@@ -28,6 +28,7 @@ import time
 from datetime import datetime as dt
 #from di_sensors.easy_inertial_measurement_unit import EasyIMUSensor
 from my_easy_inertial_measurement_unit import EasyIMUSensor
+from di_sensors import BNO055
 import numpy as np
 
 def readIMU(imu):
@@ -85,6 +86,7 @@ def main():
     print("\nand then reading the Dexter Industries IMU Sensor")
     print("\nUsing mutex-protected, exception-tolerant SW I2C on GoPiGo3 port {}\n".format(IMUPORT))
 
+    # imu = EasyIMUSensor(port = IMUPORT, use_mutex = True, mode = BNO055.OPERATION_MODE_IMUPLUS)
     imu = EasyIMUSensor(port = IMUPORT, use_mutex = True)
 
     time.sleep(1.0)  # allow for all measurements to initialize
@@ -102,6 +104,18 @@ def main():
         imu.printCalStatus()
 
         imu.dumpCalDataJSON(verbose=True)
+
+        readAndPrint(imu,cnt=1)
+
+        print("\nSetting Mode to IMU_PLUS")
+        imu.safe_set_mode(BNO055.OPERATION_MODE_IMUPLUS,verbose=True)
+
+        imu.printCalStatus()
+
+        readAndPrint(imu,cnt=1)
+
+        print("\n\n\n")
+        time.sleep(5)
 
         while True:
             readAndPrint(imu,cnt=1,delay=0.2,cr=False)
