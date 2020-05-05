@@ -217,9 +217,12 @@ class BNO055(object):
         mode (default OPERATION_MODE_NDOF) -- The operation mode
         units (default 0) -- The value unit selection bits"""
 
+        print("BNO055 Instantiating on BUS {} with ADRESS {} to MODE {} using UNITS {}".format(bus, address, mode, units))
+
         # create an I2C bus object and set the address
         self.i2c_bus = di_i2c.DI_I2C(bus = bus, address = address)
 
+        # Save desired operation mode
         self._mode = mode
 
         # Send a thow-away command and ignore any response or I2C errors
@@ -270,9 +273,18 @@ class BNO055(object):
         # switch to normal operation mode
         self._operation_mode()
 
+        print("BNO055 Instantiation Complete")
+
+
     def _config_mode(self):
         # switch to configuration mode
-        self.set_mode(OPERATION_MODE_CONFIG)
+        #self.set_mode(OPERATION_MODE_CONFIG)
+        mode = OPERATION_MODE_CONFIG
+        print("config_mode: {}".format(mode))
+
+        self.i2c_bus.write_reg_8(REG_OPR_MODE, mode & 0xFF)
+        # delay for 30 milliseconds according to datasheet
+        time.sleep(0.03)
 
     def _operation_mode(self):
         # switch to operation mode (to read sensor data)
@@ -283,9 +295,13 @@ class BNO055(object):
 
         Keyword arguments:
         mode -- the operation mode. See BNO055 datasheet tables 3-3 and 3-5."""
+
+        print("set_mode: {}".format(mode))
+
         self.i2c_bus.write_reg_8(REG_OPR_MODE, mode & 0xFF)
         # delay for 30 milliseconds according to datasheet
         time.sleep(0.03)
+        self._mode = mode
 
     def get_revision(self):
         """Get revision numbers

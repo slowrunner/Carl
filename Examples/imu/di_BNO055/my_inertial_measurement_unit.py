@@ -32,9 +32,11 @@ class InertialMeasurementUnit(object):
 
         """
         try:
+            print("InertialMeasurementUnit INSTANTIATING ON BUS {} TO MODE {}".format(bus, mode))
             self.BNO055 = BNO055.BNO055(bus = bus, mode = mode)
         except RuntimeError:
             raise RuntimeError('Failed to initialize Dexter Industries IMU sensor')
+        print("InertialMeasurementUnit Instatiation Complete")
 
     def read_euler(self):
         """

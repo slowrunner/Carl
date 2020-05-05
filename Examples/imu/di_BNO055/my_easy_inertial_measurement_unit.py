@@ -99,7 +99,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
         ifMutexAcquire(self.use_mutex)
         try:
-            # print("INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {}".format(port, bus, use_mutex))
+            print("EasyIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {}".format(port, bus, use_mutex, mode))
             super(self.__class__, self).__init__(bus = bus, mode = mode)
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
@@ -117,6 +117,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             sleep(0.1)  # add a delay to let the IMU stabilize before control panel can pull from it
             ifMutexRelease(self.use_mutex)
+        print("EasyIMUSensor Instantiation Complete\n")
 
     def resetExceptionCount(self):
         self.exceptionCount = 0
@@ -190,7 +191,9 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
     def safe_set_mode(self, mode, verbose=True):
         success = False
-        if verbose: print("Existing Mode:{}".format(self.safe_get_mode()))
+        if verbose: 
+            print("\nEntering safe_set_mode()")
+            print("Existing Mode:{}".format(self.safe_get_mode()))
         ifMutexAcquire(self.use_mutex)
 
         # Send a thow-away command and ignore any response or I2C errors
@@ -205,8 +208,10 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
 
         try:
-            self.BNO055._config_mode()
+            # self.BNO055._config_mode()
+            # time.sleep(0.05)
             self.BNO055.set_mode(mode)
+            # time.sleep(0.05)
             success = True
         except Exception as e:
             print("set_mode exception:{}".format(str(e)))
@@ -215,11 +220,11 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             ifMutexRelease(self.use_mutex)
             if verbose:
                 print("Current Mode:{}".format(self.safe_get_mode()))
-                print("Returning success: {}".format(success))
+                print("safe_set_mode() Returning success: {}\n".format(success))
         return success
 
     def resetBNO055(self):
-
+        print("\nResetting BNO055")
         ifMutexAcquire(self.use_mutex)
         try:
             initial_mode = self.BNO055._mode
@@ -267,15 +272,17 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             print("set the unit selection bits")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_UNIT_SEL, initial_units)
 
-            print("restore mode")
+            print("restore mode {}".format(initial_mode))
             self.BNO055.set_mode(initial_mode)
+
+            print("current mode: {}".format(self.BNO055._mode))
 
         except:
             raise RuntimeError("BNO055 reset failure")
         finally:
             ifMutexRelease(self.use_mutex)
         sleep(1.0)
-        print("BNO055 Reset Complete")
+        print("BNO055 Reset Complete\n\n")
 
 
 
