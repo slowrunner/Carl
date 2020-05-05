@@ -42,10 +42,12 @@ Expanded mutex protected Methods Implemented:
 
 """
 
-from di_sensors import inertial_measurement_unit
+# from di_sensors import inertial_measurement_unit
+import my_inertial_measurement_unit as inertial_measurement_unit
 from di_sensors import BNO055
 from math import atan2, pi
 from time import sleep
+import json
 
 '''
 MUTEX HANDLING
@@ -76,7 +78,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
     also be functions that are more user-friendly than the latter.
     '''
 
-    def __init__(self, port="AD1", use_mutex=False):
+    def __init__(self, port="AD1", use_mutex=False, mode = BNO055.OPERATION_MODE_NDOF):
         """
         Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
@@ -97,7 +99,7 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         ifMutexAcquire(self.use_mutex)
         try:
             # print("INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {}".format(port, bus, use_mutex))
-            super(self.__class__, self).__init__(bus = bus)
+            super(self.__class__, self).__init__(bus = bus, mode = mode)
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
             if bus != "RPI_1SW":
@@ -125,18 +127,24 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         sysCalStat,gyroCalStat,accCalStat,magCalStat = self.my_safe_sgam_calibration_status()
         print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat))
 
-    def dumpCalDataJSON(self):
-        self.printCalStatus()
+    def dumpCalDataJSON(self,verbose=False):
+        if verbose:
+            self.printCalStatus()
         ifMutexAcquire(self.use_mutex)
         try:
+            if verbose: print("Entering IMU Config Mode")
             self.BNO055._config_mode()
+            if verbose: print("Reading Cal Data From IMU")
             calData = self.BNO055.get_calibration()
             with open(IMU_CAL_FILENAME, 'w') as outfile:
                 json.dump(calData, outfile)
-            print("Wrote {}:\n".format(IMU_CAL_FILENAME),calData)
-        except:
+            if verbose:
+                print("Wrote {}:\n".format(IMU_CAL_FILENAME),calData)
+        except Exception as e:
             self.exceptionCount += 1
+            if verbose:  print("Exception {} Occurred: {}".format(self.exceptionCount,str(e)))
         finally:
+            if verbose: print("Restoring NDOF Mode")
             self.BNO055.set_mode(BNO055.OPERATION_MODE_NDOF)
             ifMutexRelease(self.use_mutex)
         sleep(1.0)
@@ -177,8 +185,8 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
         ifMutexAcquire(self.use_mutex)
         try:
-            print("save initial mode")
             initial_mode = self.BNO055._mode
+            print("save initial mode: {}".format(initial_mode))
 
             print("save initial units")
             initial_units = self.BNO055.i2c_bus.read_8(BNO055.REG_UNIT_SEL)  # m/s**2, DegPerSec, degC
@@ -298,8 +306,10 @@ class EasyIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             ifMutexAcquire(self.use_mutex)
             try:
                 new_status = self.BNO055.get_calibration_status()[0]
-            except:
+            except Exception as e:
                 new_status = -1
+                print("get_calibration_status()[0] Exception {}".format(str(e)))
+                self.exceptionCount +=1
             finally:
                 ifMutexRelease(self.use_mutex)
             if new_status != status:
