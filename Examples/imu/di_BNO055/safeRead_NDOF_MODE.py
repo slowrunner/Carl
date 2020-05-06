@@ -31,7 +31,7 @@ from datetime import datetime as dt
 from my_safe_inertial_measurement_unit import SafeIMUSensor
 import myBNO055 as BNO055
 
-VERBOSITY = False
+VERBOSITY = True
 READING_DELAY = 0.5
 
 # import numpy as np

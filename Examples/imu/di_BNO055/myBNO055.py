@@ -498,7 +498,7 @@ class BNO055(object):
         return (x, y, z, x_sign, y_sign, z_sign)
 
     def set_axis_remap(self, x, y, z, x_sign=AXIS_REMAP_POSITIVE,
-           y_sign=AXIS_REMAP_POSITIVE, z_sign=AXIS_REMAP_POSITIVE):
+           y_sign=AXIS_REMAP_POSITIVE, z_sign=AXIS_REMAP_POSITIVE, verbose=False):
         """Set axis remap
 
         Keyword arguments:
@@ -512,7 +512,7 @@ class BNO055(object):
         See the get_axis_remap documentation and datasheet section 3.4 for more information
         """
         # Switch to configuration mode.
-        self._config_mode()
+        self._config_mode(verbose=verbose)
         # Set the axis remap register value.
         map_config = 0x00
         map_config |= (z & 0x03) << 4
@@ -526,7 +526,7 @@ class BNO055(object):
         sign_config |= z_sign & 0x01
         self.i2c_bus.write_reg_8(REG_AXIS_MAP_SIGN, sign_config)
         # Go back to normal operation mode.
-        self._operation_mode()
+        self._operation_mode(verbose=verbose)
 
     def _read_vector(self, reg, count = 3):
         # Read count number of 16-bit signed values starting from the provided

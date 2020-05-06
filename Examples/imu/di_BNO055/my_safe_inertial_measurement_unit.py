@@ -109,12 +109,14 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
             if bus != "RPI_1SW":
+                if verbose: print("Performing axis_remap for GoPiGo3 Configuration")
                 self.BNO055.set_axis_remap( BNO055.AXIS_REMAP_X,
                                         BNO055.AXIS_REMAP_Z,
                                         BNO055.AXIS_REMAP_Y,
                                         BNO055.AXIS_REMAP_POSITIVE,
                                         BNO055.AXIS_REMAP_NEGATIVE,
-                                        BNO055.AXIS_REMAP_POSITIVE)
+                                        BNO055.AXIS_REMAP_POSITIVE,verbose=verbose)
+                if verbose: print("Completed axis_remap")
 
         except Exception as e:
             print("Initiating error: "+str(e))

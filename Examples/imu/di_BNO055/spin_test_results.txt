@@ -1,7 +1,7 @@
 Spin Test Result
 
 Date: May 3, 2020
-
+Mode: NDOF  (Gyros, Mags, Accel)
 Summary:
 1) Lined Carl's body up with floor board edge, facing "southerly"
 2) Commanded ten 180 degree turns with wheelBaseRotateTest.py
