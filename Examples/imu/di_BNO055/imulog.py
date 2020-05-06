@@ -34,8 +34,8 @@ import datetime as dt
 from math import pi
 # import argparse
 import time
-from my_easy_inertial_measurement_unit import EasyIMUSensor
-
+from my_safe_inertial_measurement_unit import SafeIMUSensor
+import myBNO055 as BNO055
 
 # import cv2
 
@@ -189,7 +189,7 @@ def main():
         exit(1)
     if Carl:
         myconfig.setParameters(egpg)
-        egpg.imu = EasyIMUSensor(port = IMUPORT, use_mutex = True)
+        egpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex = True, mode=BNO055.OPERATION_MODE_IMUPLUS)
         time.sleep(1.0)  # allow measurements to init
     try:
 
