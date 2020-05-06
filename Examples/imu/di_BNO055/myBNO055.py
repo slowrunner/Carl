@@ -208,7 +208,7 @@ OPERATION_MODE_NDOF         = 0x0C
 
 class BNO055(object):
 
-    def __init__(self, bus = "RPI_1SW", address = ADDRESS_A, mode = OPERATION_MODE_NDOF, units = 0):
+    def __init__(self, bus = "RPI_1SW", address = ADDRESS_A, mode = OPERATION_MODE_NDOF, units = 0, verbose=False):
         """Initialize the sensor
 
         Keyword arguments:
@@ -217,7 +217,7 @@ class BNO055(object):
         mode (default OPERATION_MODE_NDOF) -- The operation mode
         units (default 0) -- The value unit selection bits"""
 
-        print("BNO055 Instantiating on BUS {} with ADRESS {} to MODE {} using UNITS {}".format(bus, address, mode, units))
+        if verbose: print("BNO055 Instantiating on BUS {} with ADRESS {} to MODE {} using UNITS {}".format(bus, address, mode, units))
 
         # create an I2C bus object and set the address
         self.i2c_bus = di_i2c.DI_I2C(bus = bus, address = address)
@@ -235,7 +235,7 @@ class BNO055(object):
             pass
 
         # switch to config mode
-        self._config_mode()
+        self._config_mode(verbose=verbose)
 
         self.i2c_bus.write_reg_8(REG_PAGE_ID, 0)
 
@@ -244,7 +244,7 @@ class BNO055(object):
             raise RuntimeError("BNO055 failed to respond")
 
         if self.i2c_bus.read_8(REG_TEMP_SOURCE) != 0x01:
-            # print("Doing init")
+            if verbose: print("Doing init")
 
             # reset the device using the reset command
             self.i2c_bus.write_reg_8(REG_SYS_TRIGGER, 0x20)
@@ -262,7 +262,7 @@ class BNO055(object):
             self.i2c_bus.write_reg_8(REG_TEMP_SOURCE, 0x01)
         else:
             pass
-            # print("Skipping init")
+            if verbose: print("Skipping init")
 
         # set the unit selection bits
         self.i2c_bus.write_reg_8(REG_UNIT_SEL, units)
@@ -271,32 +271,32 @@ class BNO055(object):
         self.i2c_bus.write_reg_8(REG_TEMP_SOURCE, 0x01)
 
         # switch to normal operation mode
-        self._operation_mode()
+        self._operation_mode(verbose=verbose)
 
-        print("BNO055 Instantiation Complete")
+        if verbose: print("BNO055 Instantiation Complete")
 
 
-    def _config_mode(self):
+    def _config_mode(self, verbose=False):
         # switch to configuration mode
         #self.set_mode(OPERATION_MODE_CONFIG)
         mode = OPERATION_MODE_CONFIG
-        print("config_mode: {}".format(mode))
+        if verbose: print("config_mode: {}".format(mode))
 
         self.i2c_bus.write_reg_8(REG_OPR_MODE, mode & 0xFF)
         # delay for 30 milliseconds according to datasheet
         time.sleep(0.03)
 
-    def _operation_mode(self):
+    def _operation_mode(self,verbose=False):
         # switch to operation mode (to read sensor data)
-        self.set_mode(self._mode)
+        self.set_mode(self._mode,verbose=verbose)
 
-    def set_mode(self, mode):
+    def set_mode(self, mode, verbose=False):
         """Set operation mode for the sensor
 
         Keyword arguments:
         mode -- the operation mode. See BNO055 datasheet tables 3-3 and 3-5."""
 
-        print("set_mode: {}".format(mode))
+        if verbose: print("set_mode: {}".format(mode))
 
         self.i2c_bus.write_reg_8(REG_OPR_MODE, mode & 0xFF)
         # delay for 30 milliseconds according to datasheet

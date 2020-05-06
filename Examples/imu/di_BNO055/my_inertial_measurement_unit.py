@@ -22,7 +22,7 @@ class InertialMeasurementUnit(object):
     """
     Class for interfacing with the `InertialMeasurementUnit Sensor`_.
     """
-    def __init__(self, bus = "RPI_1SW", mode = BNO055.OPERATION_MODE_NDOF):
+    def __init__(self, bus = "RPI_1SW", mode = BNO055.OPERATION_MODE_NDOF, verbose=False):
         """
         Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
@@ -32,11 +32,11 @@ class InertialMeasurementUnit(object):
 
         """
         try:
-            print("InertialMeasurementUnit INSTANTIATING ON BUS {} TO MODE {}".format(bus, mode))
-            self.BNO055 = BNO055.BNO055(bus = bus, mode = mode)
+            if verbose: print("InertialMeasurementUnit INSTANTIATING ON BUS {} TO MODE {}".format(bus, mode))
+            self.BNO055 = BNO055.BNO055(bus = bus, mode = mode, verbose = verbose)
         except RuntimeError:
             raise RuntimeError('Failed to initialize Dexter Industries IMU sensor')
-        print("InertialMeasurementUnit Instatiation Complete")
+        if verbose: print("InertialMeasurementUnit Instatiation Complete")
 
     def read_euler(self):
         """

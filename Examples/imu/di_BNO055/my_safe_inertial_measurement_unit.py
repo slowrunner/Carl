@@ -82,7 +82,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         Modes other than full fusion OPERATION_MODE_NDOF
     '''
 
-    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF):
+    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF, verbose = False):
         """
         Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
@@ -102,9 +102,9 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
         ifMutexAcquire(self.use_mutex)
         try:
-            print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {}".format(port, bus, use_mutex, mode))
+            if verbose: print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {}".format(port, bus, use_mutex, mode))
             # super(self.__class__, self).__init__(bus = bus, mode = mode)
-            super().__init__(bus = bus, mode = mode)
+            super().__init__(bus = bus, mode = mode, verbose = verbose)
 
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
@@ -122,7 +122,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             sleep(0.1)  # add a delay to let the IMU stabilize before control panel can pull from it
             ifMutexRelease(self.use_mutex)
-        print("SafeIMUSensor Instantiation Complete\n")
+        if verbose: print("SafeIMUSensor Instantiation Complete\n")
 
     def resetExceptionCount(self):
         self.exceptionCount = 0
@@ -194,7 +194,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         ifMutexRelease(self.use_mutex)
         return mode
 
-    def safe_set_mode(self, mode, verbose=True):
+    def safe_set_mode(self, mode, verbose=False):
         success = False
         if verbose: 
             print("\nEntering safe_set_mode()")
@@ -230,17 +230,18 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
                 print("safe_set_mode() Returning success: {}\n".format(success))
         return success
 
-    def resetBNO055(self):
-        print("\nResetting BNO055")
+    def resetBNO055(self,verbose=False):
+        if verbose: print("\nResetting BNO055")
         ifMutexAcquire(self.use_mutex)
         try:
             initial_mode = self.BNO055._mode
-            print("save initial mode: {}".format(initial_mode))
+            if verbose:
+                print("save initial mode: {}".format(initial_mode))
 
-            print("save initial units")
+                print("save initial units")
             initial_units = self.BNO055.i2c_bus.read_8(BNO055.REG_UNIT_SEL)  # m/s**2, DegPerSec, degC
 
-            print("Resetting BNO055")
+            if verbose: print("Resetting BNO055")
 
             # Send a thow-away command and ignore any response or I2C errors
             # just to make sure the BNO055 is in a good state and ready to accept
@@ -251,45 +252,45 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
                 # pass on an I2C IOError
                 pass
 
-            print("switch to config mode")
+            if verbose: print("switch to config mode")
             self.BNO055._config_mode()
 
-            print("write reset byte")
+            if verbose: print("write reset byte")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PAGE_ID, 0)
 
-            print("check the chip ID")
+            if verbose: print("check the chip ID")
             if BNO055.ID != self.BNO055.i2c_bus.read_8(BNO055.REG_CHIP_ID):
                 raise RuntimeError("BNO055 failed to respond")
 
-            print("reset the device using the reset command")
+            if verbose: print("reset the device using the reset command")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_SYS_TRIGGER, 0x20)
 
-            print("wait 650ms after reset for chip to be ready (recommended in datasheet)")
+            if verbose: print("wait 650ms after reset for chip to be ready (recommended in datasheet)")
             sleep(0.65)
 
-            print("set to normal power mode")
+            if verbose: print("set to normal power mode")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_PWR_MODE, BNO055.POWER_MODE_NORMAL)
 
-            print("default to internal oscillator")
+            if verbose: print("default to internal oscillator")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_SYS_TRIGGER, 0x00)
 
-            print("set temperature source to gyroscope, as it seems to be more accurate.")
+            if verbose: print("set temperature source to gyroscope, as it seems to be more accurate.")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_TEMP_SOURCE, 0x01)
 
-            print("set the unit selection bits")
+            if verbose: print("set the unit selection bits")
             self.BNO055.i2c_bus.write_reg_8(BNO055.REG_UNIT_SEL, initial_units)
 
-            print("restore mode {}".format(initial_mode))
+            if verbose: print("restore mode {}".format(initial_mode))
             self.BNO055.set_mode(initial_mode)
 
-            print("current mode: {}".format(self.BNO055._mode))
+            if verbose: print("current mode: {}".format(self.BNO055._mode))
 
         except:
             raise RuntimeError("BNO055 reset failure")
         finally:
             ifMutexRelease(self.use_mutex)
         sleep(1.0)
-        print("BNO055 Reset Complete\n\n")
+        if verbose: print("BNO055 Reset Complete\n\n")
 
 
 
