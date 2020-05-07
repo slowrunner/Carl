@@ -42,6 +42,7 @@ Expanded mutex protected Methods Implemented:
  - imu.safe_set_mode()                    change operation mode
  - imu.sefe_get_mode()                    check current operation mode
  - imu.safe_get_system_status()           opt run self test and return system status
+ - imu.safe_get_operation_mode()          returns operating mode of hardware
 """
 
 # from di_sensors import inertial_measurement_unit
@@ -82,12 +83,14 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         Modes other than full fusion OPERATION_MODE_NDOF
     '''
 
-    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF, verbose = False):
+    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF, verbose = False, init=True):
         """
         Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
         :param str port = "AD1": The port to which the IMU sensor gets connected to. Can also be connected to port ``"AD2"`` of a `GoPiGo3`_ robot or to any ``"I2C"`` port of any of our platforms. If you're passing an **invalid port**, then the sensor resorts to an ``"I2C"`` connection. Check the :ref:`hardware specs <hardware-interface-section>` for more information about the ports.
         :param bool use_mutex = True: Enables multiple threads/processes to access the same resource/device.
+        ;param const mode = BNO055.OPERATION_MODE_NDOF:  Default is full fusion mode using gyros, accellerometers, and magnetometers.
+        :param bool init = True: Enable/Disables chip initialization.  False creates software object but does not affect hardware configuration or mode.
         :raises RuntimeError: When the chip ID is incorrect. This happens when we have a device pointing to the same address, but it's not a `InertialMeasurementUnit Sensor`_.
         :raises ~exceptions.OSError: When the `InertialMeasurementUnit Sensor`_ is not reachable.
 
@@ -102,13 +105,13 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
         ifMutexAcquire(self.use_mutex)
         try:
-            if verbose: print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {}".format(port, bus, use_mutex, mode))
+            if verbose: print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {} INIT {}".format(port, bus, use_mutex, mode, init))
             # super(self.__class__, self).__init__(bus = bus, mode = mode)
-            super().__init__(bus = bus, mode = mode, verbose = verbose)
+            super().__init__(bus = bus, mode = mode, verbose = verbose, init=init)
 
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
-            if bus != "RPI_1SW":
+            if (bus != "RPI_1SW") and (init==True):
                 if verbose: print("Performing axis_remap for GoPiGo3 Configuration")
                 self.BNO055.set_axis_remap( BNO055.AXIS_REMAP_X,
                                         BNO055.AXIS_REMAP_Z,
@@ -641,3 +644,22 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             ifMutexRelease(self.use_mutex)
         return status
+
+    def safe_get_operation_mode(self):
+        """
+        Read chip operating mode
+
+        :returns: REG_OPR_MODE
+        :rtype: byte
+
+        """
+
+        ifMutexAcquire(self.use_mutex)
+        try:
+            op_mode = self.BNO055.get_operation_mode()
+        except Exception as e:
+            op_mode = 0  # config mode
+            self.exceptionCount += 1
+        finally:
+            ifMutexRelease(self.use_mutex)
+        return op_mode

@@ -6,22 +6,20 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
-# File: safeRead_IMU_MODE.py
+# File: noInitTest.py
 
 # Usage:  Expand a console to be 192 chars wide (next line does not appear wrapped)
 # 3456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 #
-# ./safeRead_IMU_MODE.py  or python3 safeRead_IMU_MODE.py
+# ./noInitTest.py  or python3 noInitTest.py
 #
 #
 # Uses Alan's extended mutex protected SafeIMUSensor() class from my_safe_inertial_measurement_unit.py
-# and my_inertial_measurement_unit.py that allows passing/setting BNO055.OPERATION_MODE_IMUPLUS
-# (Fusion using accelerometers and gyros only, no magnemometers)
-# to reset the BNO055, (sets heading, roll, pitch to 0,0,90)
+# and my_inertial_measurement_unit.py and myBNO055.py
+# to initialize the software object but does not alter the BNO055 hardware,
 # and then print/overwrite a line of values 5 times a second.
 #
-# Note leaves chip in IMUPLUS operation mode
-# (Fusion uses Only Gyros and Accels, no mags)
+# Note does not change the operation mode, regardless of value passed in.
 
 from __future__ import print_function
 from __future__ import division
@@ -37,6 +35,13 @@ import myBNO055 as BNO055
 
 VERBOSITY = True
 READING_DELAY = 0.5
+
+# Requested Mode
+# REQ_MODE = BNO055.OPERATION_MODE_NDOF
+REQ_MODE = BNO055.OPERATION_MODE_IMUPLUS
+
+
+op_mode_str = ["CONFIG", "ACCONLY", "MAGONLY", "GYRONLY", "ACCMAG", "ACCGYRO", "MAGGYRO", "AMG", "IMUPLUS", "COMPASS", "M4G", "NDOF_FMC_OFF", "NDOF"]
 
 def readIMU(imu):
         # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
@@ -89,11 +94,10 @@ def readAndPrint(imu,cnt=1,delay=0.02,cr = False):
 def main():
     IMUPORT = "AD1"   # Must be AD1 or AD2 only
 
-    print("\nSafe Reads of DI IMU (BNO055 chip) in IMUPLUS mode")
-    print("(Fusion based on Gyros, and Accels - no mags)")
+    print("\nSafe Reads of DI IMU (BNO055 chip) WITHOUT INITIALIZING HARDWARE")
     print("Using mutex-protected, exception-tolerant SW I2C on GoPiGo3 port {}\n".format(IMUPORT))
 
-    imu = SafeIMUSensor(port = IMUPORT, use_mutex = True, mode = BNO055.OPERATION_MODE_IMUPLUS, init = False, verbose = VERBOSITY)
+    imu = SafeIMUSensor(port = IMUPORT, use_mutex = True, mode = REQ_MODE, init=False, verbose = VERBOSITY)
 
     time.sleep(1.0)  # allow for all measurements to initialize
 
@@ -103,18 +107,16 @@ def main():
         imu.printCalStatus()
         # readAndPrint(imu,cnt=1,cr=True)
 
-        print("Not Resetting Chip")
-        """
-        print("\nRun System Self-Test: Success = (5,15,0)")
-        print("get_system_status:",imu.safe_get_system_status(run_self_test=True))
-        # or
-        print("\nGet System Status (no self test): Fusion running with no errors= (5,None,0)")
-        print("get_system_status:",imu.safe_get_system_status(run_self_test=False))
+        op_mode = imu.safe_get_operation_mode()
 
-        print("\n(Reset chip to Heading:0, Roll:0, Pitch:90)")
-        imu.resetBNO055(verbose=VERBOSITY)
-        imu.printCalStatus()
-        """
+        print("Current Operation Mode: {}-{} Requested Mode: {}-{}".format(op_mode_str[op_mode],op_mode, op_mode_str[REQ_MODE],REQ_MODE))
+        if (op_mode != REQ_MODE):
+            print("WARNING SENSOR IS NOT RUNNING IN REQUESTED MODE\n")
+
+        print("Not Resetting Chip")
+
+        print("\nGet System Status (no self test): Fusion with no errors will return (5,None,0)")
+        print("get_system_status:",imu.safe_get_system_status(run_self_test=False))
 
         print("\nReading every {} seconds".format(READING_DELAY))
         while True:
