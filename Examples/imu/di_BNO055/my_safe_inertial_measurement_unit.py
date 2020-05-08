@@ -4,18 +4,21 @@
 
 # https://www.dexterindustries.com
 #
-# Copyright (c) 2018 Dexter Industries
+# Copyright (c) 2020 Dexter Industries
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
 
-# EASIER WRAPPERS FOR:
-#   IMU SENSOR
-# MUTEX SUPPORT WHEN NEEDED
-# Allow non NDOF modes
-
 """
-DI Methods Implemented (Unchanged)
+  Modification and extensions by Alan McDonley
+
+  EASIER WRAPPERS FOR IMU SENSOR
+  MUTEX SUPPORT WHEN NEEDED
+  Allow non NDOF modes
+  Allow SW Obj init without HW initialization
+
+
+DI Methods Implemented (Unchanged from easy_inertial_measurement_unit.py)
  - imu.reconfig_bus()
  - imu.safe_calibrate()
  - imu.safe_calibration_status()
