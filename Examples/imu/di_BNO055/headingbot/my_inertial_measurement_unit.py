@@ -22,20 +22,18 @@ class InertialMeasurementUnit(object):
     """
     Class for interfacing with the `InertialMeasurementUnit Sensor`_.
     """
-    def __init__(self, bus = "RPI_1SW", mode = BNO055.OPERATION_MODE_NDOF, init = True, verbose=False):
+    def __init__(self, bus = "RPI_1SW", mode = BNO055.OPERATION_MODE_NDOF, verbose=False):
         """
         Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
         :param str bus = "RPI_1SW": The bus to which the distance sensor is connected to. By default, it's set to bus ``"RPI_1SW"``. Check the :ref:`hardware specs <hardware-interface-section>` for more information about the ports.
-        :param bool init = True:  Enables/Disables hardware initialization.  False creates software object but does not change hardware configuration or mode.
-        :param bool verbose = False: True provides additional console output of actions.
         :raises RuntimeError: When the chip ID is incorrect. This happens when we have a device pointing to the same address, but it's not a `InertialMeasurementUnit Sensor`_.
         :raises ~exceptions.OSError: When the `InertialMeasurementUnit Sensor`_ is not reachable.
 
         """
         try:
-            if verbose: print("InertialMeasurementUnit INSTANTIATING ON BUS {} TO MODE {} INIT {}".format(bus, mode, init))
-            self.BNO055 = BNO055.BNO055(bus = bus, mode = mode, init = init, verbose = verbose)
+            if verbose: print("InertialMeasurementUnit INSTANTIATING ON BUS {} TO MODE {}".format(bus, mode))
+            self.BNO055 = BNO055.BNO055(bus = bus, mode = mode, verbose = verbose)
         except RuntimeError:
             raise RuntimeError('Failed to initialize Dexter Industries IMU sensor')
         if verbose: print("InertialMeasurementUnit Instatiation Complete")
