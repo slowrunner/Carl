@@ -144,9 +144,12 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
     def getExceptionCount(self):
         return self.exceptionCount
 
-    def printCalStatus(self):
+    def printCalStatus(self, cr=True):
         sysCalStat,gyroCalStat,accCalStat,magCalStat = self.my_safe_sgam_calibration_status()
-        print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat))
+        if cr:
+            print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat))
+        else:
+            print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat),end="\r")
 
     def dumpCalDataJSON(self,verbose=False):
         if verbose:
@@ -365,7 +368,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             if new_status != status:
                 status = new_status
 
-    def my_safe_calibrate(self):
+    def my_safe_calibrate(self, verbose=False):
         """Once called, the method returns when the NDOF SYS of the `InertialMeasurementUnit Sensor`_ gets fully calibrated.
         Rotate the sensor in the air to two orthoganal directions of each axis.
 
@@ -383,6 +386,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             ifMutexAcquire(self.use_mutex)
             try:
                 new_status = self.BNO055.get_calibration_status()[0]
+                if verbose: print("Sys Status: {}".format(new_status),end='\r')
             except Exception as e:
                 new_status = -1
                 print("get_calibration_status()[0] Exception {}".format(str(e)))
