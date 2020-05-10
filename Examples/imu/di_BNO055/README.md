@@ -7,7 +7,7 @@ which uses the BNO055 chip in the NDOF mode (Fusion using Gyros, Accels, and Mag
 After exploring the three DI interface modules:
 - BNO055.py  # Hardware Interface Class BNO055()
 - inertial_measurement_unit.py  # IMU abstraction class InertialMeasurementUnit()
-- easy_inertial_measurement_unit.py  # multi-process/thread safe wrappers for most needed IMU functions
+- easy_inertial_measurement_unit.py  # multi-process/thread safe EasyIMUSensor() class with wrappers for most needed IMU functions
 
 The InertialMeasurmentUnit() and EasyIMUSensor() classes perform HW initialization in NDOF mode
 and offer calibration and value read methods.
