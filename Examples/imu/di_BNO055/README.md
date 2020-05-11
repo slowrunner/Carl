@@ -41,3 +41,7 @@ Example programs:
   logs datetime, IMU heading, delta heading, time in motion, and software error count when motion ends
 - noInitTest.py             # Test of SafeIMUSensor() Software only initialization
 
+# Usage:
+1) ./startIMU_IMUPLUS_Mode.py
+2) ./resetIMU.py  when bot is in reference direction (on dock and aligned with floor boards)
+3) ./safeReadIMU.py   anytime I want to check what the IMU thinks is the current heading.
