@@ -1,0 +1,9 @@
+IMU Docking Test Results
+
+
+2020-05-10 
+	21:56 On Dock - IMU in IMUPLUS mode, reset.  IMU: 0.0 Visual: 0
+	23:51 UnDocked- IMU: 1.5 	Visual: 0	Error: +1.5
+05-11	06:01 On Dock - IMU: 358.1 	Visual: +0	Error: -2
+	08:51 UnDocked- IMU: 0.0 	Visual: 2	Error: -2
+
