@@ -68,7 +68,7 @@ def main():
         imu.printCalStatus()
         """
 
-        print("\nReading every {} seconds".format(READING_DELAY))
+        print("\nReading every {} seconds starting at {}".format(READING_DELAY, dt.now().strftime('%m-%d-%Y %H:%M:%S')[:-3]))
         while True:
             imu.readAndPrint(cnt=1,delay=READING_DELAY,cr=False)
             if (imu.getExceptionCount() != exCnt):
