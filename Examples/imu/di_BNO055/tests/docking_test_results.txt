@@ -1,9 +1,144 @@
-IMU Docking Test Results
+# Test of IMU “Heading Estimation” vs Wheel Encoder “Heading Estimation” 
+  (by integrated rotations) after four “Undock - Dock” sequences:
 
 
+# Conditions:
+
+- 33 Hour test with 28 heading-affecting events:
+- Undock = Drive off dock, continued forward drive till 214 mm
+- Dock = two 180 turns, alignment correction, backing 200 mm, back onto dock, depth assurance)
+- IMU in IMUPLUS mode (Fusion using Gyros and Accels only - no mags)
+- Calibrated Wheel Dia. and Wheel Base Width to maximize turn (and distance)
+  command accuracy and encoder values accuracy.
+- All turns and driving executed at set_speed of 150dps
+- CCW errors/drift are negative. CW errors are positive values.
+ 
+# Results
+
+Heading Estimation Drift
+– Both exhibited CCW heading estimate drift
+– IMU -8 degrees total
+– Wheel Encoders -6 degrees total
+
+For 180 degree turns:
+– IMU exhibited -2.5 to +0.1 degree error
+– Wheel Encoders exhibited -1.5 to -0.1 degree error
+
+For Undocking
+– IMU average heading error was +0.6 deg,
+– Wheel Encoder average heading error was -0.2 degrees
+ 
+
+For Docking, (Two 180 turns, plus physical alignment deflectors, plus wheel slip backing assurance)
+– IMU average error was -2.6 deg,
+– Wheel Encoder ave error was -1.2
+ 
+
+For Undock-Dock pairs:
+– IMU -4 to +2 degree error averaging -2 degree
+– Wheel Encoders -1.5 to +1 degree error averaging -1.5 degree
+
+Across All Events:
+– IMU Heading differed from Wheel Encoder “Heading” by -3 to +1 degrees
+– IMU Rotation differed from Wheel Encoder Rotation by -2.5 to +1.3 degrees
+
+Noted:
+
+Bosch: “Move IMU away from power wires, encoder magnets, and motors”
+Bosch: “Use two BNO055 devices, one in NDOF and one in IMUPLUS”
+
+
+
+
+
+
+```
 2020-05-10 
 	21:56 On Dock - IMU in IMUPLUS mode, reset.  IMU: 0.0 Visual: 0
-	23:51 UnDocked- IMU: 1.5 	Visual: 0	Error: +1.5
-05-11	06:01 On Dock - IMU: 358.1 	Visual: +0	Error: -2
-	08:51 UnDocked- IMU: 0.0 	Visual: 2	Error: -2
+	23:51 UnDocked- IMU: 1.5        Visual: 0	Error: +1.5	Drift: +1.5	WEncHead:  0.8
+05-11	06:01 On Dock - IMU: 358.1      Visual: +0	Error: -2	Drift: -3.5	WEncHead:  359.7
+	08:51 UnDocked- IMU: 0.0        Visual: 2	Error: -2	Drift:  0	WEncHead:  0.3
+	15:02 On Dock - IMU: 354.8	Visual: 359	Error: -4	Drift: -2	WEncHead:  356.6
+	17:46 UnDocked- IMU: 355.7	Visual: 0	Error: -4	Drift:  0	WEncHead:  357.2
+	23:58 On Dock - IMU: 352.7	Visual: -0	Error: -7	Drift: -3	WEncHead:  355.2
+05-12	02:37 UnDocked- IMU: 353.9	Visual: 0	Error: -6	Drift: +1	WEncHead:  355.2
+	08:47 On Dock - IMU: 351.6	Visual: -0	Error: -8	Drift: -2	WEncHead:  353.8
+	11:30 UnDocked- IMU: 353.4	Visual: 0	Error: -7	Drift: +1	WEncHead:  354.4
+	17:42 Docked  - IMU: 348.8	Visual: -3	Error: -8	Drift: -1	WEncHead:  350.7
+```
 
+=== imu.log ====
+```
+2020-05-10 21:56|[logIMU.py.main]** resetIMU docked - visually 0 degrees **
+2020-05-10 23:51|[imulog.py.logMotionStop]heading:     1.5  rotation:     1.7 motion:     2.8 sec errors: 567
+2020-05-11 06:00|[imulog.py.logMotionStop]heading:   179.4  rotation:   177.9 motion:     2.4 sec errors: 593
+2020-05-11 06:00|[imulog.py.logMotionStop]heading:   179.5  rotation:     0.1 motion:     0.1 sec errors: 593
+2020-05-11 06:00|[imulog.py.logMotionStop]heading:   358.4  rotation:   178.8 motion:     2.4 sec errors: 593
+2020-05-11 06:01|[imulog.py.logMotionStop]heading:   358.0  rotation:    -0.7 motion:     2.7 sec errors: 593
+2020-05-11 06:01|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.3 sec errors: 593
+2020-05-11 06:01|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.1 sec errors: 593
+2020-05-11 06:01|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.1 motion:     0.4 sec errors: 593
+2020-05-11 08:51|[imulog.py.logMotionStop]heading:     0.0  rotation:     1.9 motion:     2.8 sec errors: 605
+2020-05-11 15:01|[imulog.py.logMotionStop]heading:   178.5  rotation:   178.5 motion:     2.4 sec errors: 630
+2020-05-11 15:02|[imulog.py.logMotionStop]heading:   358.3  rotation:   179.6 motion:     2.3 sec errors: 630
+2020-05-11 15:02|[imulog.py.logMotionStop]heading:   354.6  rotation:    -3.9 motion:     2.7 sec errors: 630
+2020-05-11 15:02|[imulog.py.logMotionStop]heading:   354.6  rotation:     0.0 motion:     0.3 sec errors: 630
+2020-05-11 15:02|[imulog.py.logMotionStop]heading:   354.8  rotation:     0.1 motion:     0.4 sec errors: 630
+2020-05-11 16:11|[imulog.py.logMotionStop]heading:   354.8  rotation:     0.1 motion:     0.1 sec errors: 636
+2020-05-11 17:46|[imulog.py.logMotionStop]heading:   355.7  rotation:     0.9 motion:     2.7 sec errors: 642
+2020-05-11 23:58|[imulog.py.logMotionStop]heading:   174.1  rotation:   178.4 motion:     2.4 sec errors: 676
+2020-05-11 23:58|[imulog.py.logMotionStop]heading:   353.4  rotation:   178.9 motion:     2.3 sec errors: 676
+2020-05-11 23:58|[imulog.py.logMotionStop]heading:   352.4  rotation:    -1.0 motion:     2.7 sec errors: 676
+2020-05-11 23:58|[imulog.py.logMotionStop]heading:   352.6  rotation:     0.1 motion:     0.3 sec errors: 676
+2020-05-11 23:58|[imulog.py.logMotionStop]heading:   352.7  rotation:     0.1 motion:     0.6 sec errors: 676
+2020-05-12 02:37|[imulog.py.logMotionStop]heading:   353.9  rotation:     1.2 motion:     2.8 sec errors: 690
+2020-05-12 08:46|[imulog.py.logMotionStop]heading:   171.9  rotation:   178.0 motion:     2.4 sec errors: 724
+2020-05-12 08:47|[imulog.py.logMotionStop]heading:   351.5  rotation:   179.6 motion:     2.4 sec errors: 724
+2020-05-12 08:47|[imulog.py.logMotionStop]heading:   351.7  rotation:     0.2 motion:     2.7 sec errors: 725
+2020-05-12 08:47|[imulog.py.logMotionStop]heading:   351.6  rotation:    -0.1 motion:     0.3 sec errors: 725
+2020-05-12 08:47|[imulog.py.logMotionStop]heading:   351.6  rotation:     0.0 motion:     0.4 sec errors: 725
+2020-05-12 11:30|[imulog.py.logMotionStop]heading:   353.4  rotation:     1.8 motion:     2.8 sec errors: 737
+2020-05-12 17:41|[imulog.py.logMotionStop]heading:   170.4  rotation:   178.6 motion:     2.4 sec errors: 773
+2020-05-12 17:42|[imulog.py.logMotionStop]heading:   350.8  rotation:   180.4 motion:     2.4 sec errors: 773
+2020-05-12 17:42|[imulog.py.logMotionStop]heading:   348.8  rotation:    -2.0 motion:     2.7 sec errors: 774
+2020-05-12 17:42|[imulog.py.logMotionStop]heading:   348.8  rotation:     0.0 motion:     0.3 sec errors: 774
+2020-05-12 17:42|[imulog.py.logMotionStop]heading:   348.8  rotation:     0.0 motion:     0.4 sec errors: 774
+```
+
+=== wheel.log ===
+```
+2020-05-10 23:51|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.8 motion:     2.8 sec
+2020-05-11 06:00|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7 motion:     2.3 sec
+2020-05-11 06:00|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-05-11 06:00|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.9 motion:     2.4 sec
+2020-05-11 06:01|[wheellog.py.logMotionStop]travel:  -206.6 rotation:    -0.6 motion:     2.7 sec
+2020-05-11 06:01|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.6 motion:     0.3 sec
+2020-05-11 06:01|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-05-11 06:01|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3 motion:     0.4 sec
+2020-05-11 08:51|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.6 motion:     2.8 sec
+2020-05-11 15:01|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.6 motion:     2.4 sec
+2020-05-11 15:02|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-05-11 15:02|[wheellog.py.logMotionStop]travel:  -215.3 rotation:    -1.4 motion:     2.8 sec
+2020-05-11 15:02|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0 motion:     0.4 sec
+2020-05-11 15:02|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6 motion:     0.4 sec
+2020-05-11 16:11|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-05-11 17:46|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.6 motion:     2.8 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.6 motion:     2.3 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -0.3 motion:     2.7 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:    -6.7 rotation:    -0.6 motion:     0.3 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:    -8.7 rotation:     0.3 motion:     0.4 sec
+2020-05-11 23:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-05-12 02:37|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6 motion:     2.7 sec
+2020-05-12 08:46|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-05-12 08:47|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.3 sec
+2020-05-12 08:47|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.3 motion:     2.7 sec
+2020-05-12 08:47|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.6 motion:     0.4 sec
+2020-05-12 08:47|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6 motion:     0.4 sec
+2020-05-12 11:30|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6 motion:     2.8 sec
+2020-05-12 17:41|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-05-12 17:42|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3 motion:     2.3 sec
+2020-05-12 17:42|[wheellog.py.logMotionStop]travel:  -208.3 rotation:    -0.6 motion:     2.8 sec
+2020-05-12 17:42|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3 motion:     0.3 sec
+2020-05-12 17:42|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0 motion:     0.4 sec
+```
