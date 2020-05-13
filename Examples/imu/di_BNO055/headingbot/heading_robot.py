@@ -32,11 +32,13 @@ import myBNO055 as BNO055
 from easygopigo3 import *
 
 MINIMUM_VOLTAGE = 8.5
-DEBUG = True
-MOTORS_SPEED = 40 # 250 see documentation
-# MAGNETIC_DECLINATION = 0 # 6.89  # Boynton Beach, FL  Original 0
+MOTORS_SPEED = 150 # 250 see documentation
 PORT = "AD1"  # Use "AD1" or "AD2" for clock-stretching software I2C
+ACCEPTED_MINIMUM_BY_DRIVERS = 1.0
+ACCEPTABLE_ERROR = 2.0
+ROTATIONAL_FACTOR = 0.4
 verbose = True
+DEBUG = True
 
 def getNorthPoint(imu):
     """
@@ -124,8 +126,9 @@ def orientate(trigger, simultaneous_launcher, sensor_queue):
         # Instantiate and Initialize Hardware in IMUPLUS mode
         imu = SafeIMUSensor(port = PORT, mode=BNO055.OPERATION_MODE_IMUPLUS, verbose=verbose)
         # resets heading zero direction to current position of the GoPiGo3 bot
+        imu.safe_resetBNO055(verbose=verbose)
+        imu.safe_axis_remap(verbose=verbose)
 
-        # imu.resetBNO055(verbose=verbose)
 
     except Exception as msg:
         print(str(msg))
@@ -262,10 +265,10 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
     direction_degrees = None
     move = False
-    acceptable_error_percent = 3 # original 8
+    acceptable_error = ACCEPTABLE_ERROR # original 8 percent 
     command = "stop"
-    rotational_factor = 0.30
-    accepted_minimum_by_drivers = 1 # original 6
+    rotational_factor = ROTATIONAL_FACTOR  # was 0.30
+    accepted_minimum_by_drivers = ACCEPTED_MINIMUM_BY_DRIVERS # original 6 degrees
     last_command = command
 
 
@@ -296,26 +299,39 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
             direction_degrees = 0.0
         elif command == "south":
             direction_degrees = 180.0
+        elif  command.isnumeric():
+            direction_degrees = int(command)
 
         # if a valid orientation was selected
         if direction_degrees is not None:
             # read data and calculate orientation
             heading = sensor_queue.get()
+            """
             if direction_degrees == 180.0:
                 heading_diff = (direction_degrees - abs(heading)) * (-1 if heading < 0 else 1)
-                error = abs(heading_diff / direction_degrees) * 100
+                # error = abs(heading_diff / direction_degrees) * 100
+                error  = abs(heading_diff)
             else:
                 heading_diff = direction_degrees - heading
-                error = abs(heading_diff / 180) * 100
+                # error = abs(heading_diff / 180) * 100
+                error = abs(heading_diff)
+            """
+            heading_diff = direction_degrees - heading
+            if (heading_diff > 180):
+                heading_diff -= 360.0
+            elif (heading_diff < -180):
+                heading_diff += 360.0
+            # else no correction needed
+            error = heading_diff    # will always be -180 to +180
+            #how_much_to_rotate = int(heading_diff * rotational_factor)
+            how_much_to_rotate = heading_diff * rotational_factor
 
-            how_much_to_rotate = int(heading_diff * rotational_factor)
-
-            if (DEBUG is True) and (abs(error) > acceptable_error_percent):
-                print("direction_degrees {:<3.0f} heading {:<3.0f} error {:<3.1f} heading_diff {:<3.1f}".format(direction_degrees, heading, error, heading_diff))
+            if (DEBUG is True) and (abs(error) >= acceptable_error):
+                print("direction_degrees {:<3.0f} heading {:<3.0f} error {:<3.1f}".format(direction_degrees, heading, error))
 
             # check if the heading isn't so far from the desired orientation
             # if it needs correction, then rotate the robot
-            if error >= acceptable_error_percent and abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
+            if abs(error) >= acceptable_error and abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
                 if DEBUG is True:
                     print("Turning {:.1f} degrees".format(how_much_to_rotate))
                     # sleep(1)

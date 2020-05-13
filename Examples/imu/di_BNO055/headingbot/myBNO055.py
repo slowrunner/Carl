@@ -208,71 +208,79 @@ OPERATION_MODE_NDOF         = 0x0C
 
 class BNO055(object):
 
-    def __init__(self, bus = "RPI_1SW", address = ADDRESS_A, mode = OPERATION_MODE_NDOF, units = 0, verbose=False):
-        """Initialize the sensor
+    def __init__(self, bus = "RPI_1SW", address = ADDRESS_A, mode = OPERATION_MODE_NDOF, units = 0, init = True, verbose=False):
+        """
+        Initialize the object and optionally the hardware sensor
 
         Keyword arguments:
         bus (default "RPI_1SW") -- The I2C bus
         address (default ADDRESS_A) -- The BNO055 I2C address
         mode (default OPERATION_MODE_NDOF) -- The operation mode
-        units (default 0) -- The value unit selection bits"""
+        units (default 0) -- The value unit selection bits
+        init (default True) -- False initializes software object only, does not alter hardware configuration.
+        """
 
-        if verbose: print("BNO055 Instantiating on BUS {} with ADRESS {} to MODE {} using UNITS {}".format(bus, address, mode, units))
+        if verbose: print("BNO055 Instantiating on BUS {} with ADRESS {} to MODE {} using UNITS {} HW INIT {}".format(bus, address, mode, units, init))
 
         # create an I2C bus object and set the address
         self.i2c_bus = di_i2c.DI_I2C(bus = bus, address = address)
 
-        # Save desired operation mode
-        self._mode = mode
 
-        # Send a thow-away command and ignore any response or I2C errors
-        # just to make sure the BNO055 is in a good state and ready to accept
-        # commands (this seems to be necessary after a hard power down).
-        try:
+        if init==True:
+
+            # Save desired operation mode
+            self._mode = mode
+            # Send a thow-away command and ignore any response or I2C errors
+            # just to make sure the BNO055 is in a good state and ready to accept
+            # commands (this seems to be necessary after a hard power down).
+            try:
+                self.i2c_bus.write_reg_8(REG_PAGE_ID, 0)
+            except IOError:
+                # pass on an I2C IOError
+                pass
+
+            # switch to config mode
+            self._config_mode(verbose=verbose)
+
             self.i2c_bus.write_reg_8(REG_PAGE_ID, 0)
-        except IOError:
-            # pass on an I2C IOError
-            pass
 
-        # switch to config mode
-        self._config_mode(verbose=verbose)
+            # check the chip ID
+            if ID != self.i2c_bus.read_8(REG_CHIP_ID):
+                raise RuntimeError("BNO055 failed to respond")
 
-        self.i2c_bus.write_reg_8(REG_PAGE_ID, 0)
+            if self.i2c_bus.read_8(REG_TEMP_SOURCE) != 0x01:
+                if verbose: print("Doing init")
 
-        # check the chip ID
-        if ID != self.i2c_bus.read_8(REG_CHIP_ID):
-            raise RuntimeError("BNO055 failed to respond")
+                # reset the device using the reset command
+                self.i2c_bus.write_reg_8(REG_SYS_TRIGGER, 0x20)
 
-        if self.i2c_bus.read_8(REG_TEMP_SOURCE) != 0x01:
-            if verbose: print("Doing init")
+                # wait 650ms after reset for chip to be ready (recommended in datasheet)
+                time.sleep(0.65)
 
-            # reset the device using the reset command
-            self.i2c_bus.write_reg_8(REG_SYS_TRIGGER, 0x20)
+                # set to normal power mode
+                self.i2c_bus.write_reg_8(REG_PWR_MODE, POWER_MODE_NORMAL)
 
-            # wait 650ms after reset for chip to be ready (recommended in datasheet)
-            time.sleep(0.65)
+                # default to internal oscillator
+                self.i2c_bus.write_reg_8(REG_SYS_TRIGGER, 0x00)
 
-            # set to normal power mode
-            self.i2c_bus.write_reg_8(REG_PWR_MODE, POWER_MODE_NORMAL)
+                # set temperature source to gyroscope, as it seems to be more accurate.
+                self.i2c_bus.write_reg_8(REG_TEMP_SOURCE, 0x01)
+            else:
+                pass
+                if verbose: print("Skipping init")
 
-            # default to internal oscillator
-            self.i2c_bus.write_reg_8(REG_SYS_TRIGGER, 0x00)
+            # set the unit selection bits
+            self.i2c_bus.write_reg_8(REG_UNIT_SEL, units)
 
             # set temperature source to gyroscope, as it seems to be more accurate.
             self.i2c_bus.write_reg_8(REG_TEMP_SOURCE, 0x01)
-        else:
-            pass
-            if verbose: print("Skipping init")
 
-        # set the unit selection bits
-        self.i2c_bus.write_reg_8(REG_UNIT_SEL, units)
+            # switch to normal operation mode
+            self._operation_mode(verbose=verbose)
 
-        # set temperature source to gyroscope, as it seems to be more accurate.
-        self.i2c_bus.write_reg_8(REG_TEMP_SOURCE, 0x01)
-
-        # switch to normal operation mode
-        self._operation_mode(verbose=verbose)
-
+        else:    # init = False
+            self._mode = self.get_operation_mode()
+            if verbose: print("Set _mode to:",self._mode)
         if verbose: print("BNO055 Instantiation Complete")
 
 
@@ -595,3 +603,11 @@ class BNO055(object):
 
         Returns the current temperature in degrees celsius."""
         return self.i2c_bus.read_8(REG_TEMP, signed = True)
+
+    def get_operation_mode(self):
+        """Read the operation mode
+
+        """
+        op_mode =self.i2c_bus.read_8(REG_OPR_MODE)
+        # print("op_mode: {:d}".format(op_mode))
+        return op_mode
