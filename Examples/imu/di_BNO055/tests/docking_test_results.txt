@@ -55,16 +55,16 @@ Bosch: “Use two BNO055 devices, one in NDOF and one in IMUPLUS”
 ```
 2020-05-10 
 	21:56 On Dock - IMU in IMUPLUS mode, reset.  IMU: 0.0 Visual: 0
-	23:51 UnDocked- IMU: 1.5        Visual: 0	Error: +1.5	Drift: +1.5	WEncHead:  0.8
-05-11	06:01 On Dock - IMU: 358.1      Visual: +0	Error: -2	Drift: -3.5	WEncHead:  359.7
-	08:51 UnDocked- IMU: 0.0        Visual: 2	Error: -2	Drift:  0	WEncHead:  0.3
-	15:02 On Dock - IMU: 354.8	Visual: 359	Error: -4	Drift: -2	WEncHead:  356.6
-	17:46 UnDocked- IMU: 355.7	Visual: 0	Error: -4	Drift:  0	WEncHead:  357.2
-	23:58 On Dock - IMU: 352.7	Visual: -0	Error: -7	Drift: -3	WEncHead:  355.2
-05-12	02:37 UnDocked- IMU: 353.9	Visual: 0	Error: -6	Drift: +1	WEncHead:  355.2
-	08:47 On Dock - IMU: 351.6	Visual: -0	Error: -8	Drift: -2	WEncHead:  353.8
-	11:30 UnDocked- IMU: 353.4	Visual: 0	Error: -7	Drift: +1	WEncHead:  354.4
-	17:42 Docked  - IMU: 348.8	Visual: -3	Error: -8	Drift: -1	WEncHead:  350.7
+	23:51 UnDocked- IMU: 1.5        Visual: 0	Error: +1.5	Drift: +1.5	WEncHead:  0.8		WEncErr: +1	WEncDrift:  +1 
+05-11	06:01 On Dock - IMU: 358.1      Visual: +0	Error: -2	Drift: -3.5	WEncHead:  359.7	WEncErr: -1	WEncDrift:  -2
+	08:51 UnDocked- IMU: 0.0        Visual: 2	Error: -2	Drift:  0	WEncHead:  0.3		WEncErr: -2	WEncDrift:  -1
+	15:02 On Dock - IMU: 354.8	Visual: 359	Error: -4	Drift: -2	WEncHead:  356.6	WEncErr: -2     WEncDrift:  0
+	17:46 UnDocked- IMU: 355.7	Visual: 0	Error: -4	Drift:  0	WEncHead:  357.2	WEncErr: -3	WEncDrift:  -1
+	23:58 On Dock - IMU: 352.7	Visual: -0	Error: -7	Drift: -3	WEncHead:  355.2	WEncErr: -4	WEncDrift:  -1
+05-12	02:37 UnDocked- IMU: 353.9	Visual: 0	Error: -6	Drift: +1	WEncHead:  355.2	WEncErr: -4	WEncDrift:  0
+	08:47 On Dock - IMU: 351.6	Visual: -0	Error: -8	Drift: -2	WEncHead:  353.8	WEncErr: -5.5	WEncDrift:  -1.5
+	11:30 UnDocked- IMU: 353.4	Visual: 0	Error: -7	Drift: +1	WEncHead:  354.4	WEncErr: -5.5	WEncDrift:  0
+	17:42 Docked  - IMU: 348.8	Visual: -3	Error: -8	Drift: -1	WEncHead:  350.7	WEncErr: -6	WEncDrift:  -0.5
 ```
 
 === imu.log ====
