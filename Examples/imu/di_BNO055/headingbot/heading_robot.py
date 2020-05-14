@@ -97,37 +97,6 @@ def my_turn_degrees(egpg, degrees, blocking=True, timeout = 60):
                 if (DEBUG is True) and (blocked_duration > timeout):
                     print("\n**my_turn_degrees() timeout occurred**")
 
-def getNorthPoint(imu):
-    """
-    Determines the heading of the north point.
-    This function doesn't take into account the declination.
-
-    :param imu: It's an InertialMeasurementUnit object.
-    :return: The heading of the north point measured in degrees. The north point is found at 0 degrees.
-
-    """
-
-    x, y, z = imu.read_magnetometer()
-
-    # using the x and z axis because the sensor is mounted vertically
-    # the sensor's top face is oriented towards the back of the robot
-    heading = -atan2(x, -z) * 180 / pi
-
-    # adjust it to 360 degrees range
-    if heading < 0:
-        heading += 360
-    elif heading > 360:
-        heading -= 360
-
-    # when the heading is towards the west the heading is negative
-    # when the heading is towards the east the heading is positive
-    if 180 < heading <= 360:
-        heading -= 360
-
-    heading += MAGNETIC_DECLINATION
-
-    return heading
-
 
 
 def statisticalNoiseReduction(values, std_factor_threshold = 2):
@@ -146,6 +115,8 @@ def statisticalNoiseReduction(values, std_factor_threshold = 2):
     valarray = np.array(values)
     mean = valarray.mean()
     standard_deviation = valarray.std()
+    if verbose:
+        print("                                     ** statisticalNoiseReduction: stdev: {}".format(standard_deviation))
     # just return if we only got constant values
     if standard_deviation == 0:
         return values
@@ -297,9 +268,11 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
     time_to_wait_in_queue = 0.1 # measured in
 
-    # try to connect to the GoPiGo3
+    # try to connect to the GoPiGo3 and imu
     try:
         egpg3_robot = EasyGoPiGo3(use_mutex=True)
+        # egpg3_robot.imu = SafeIMUSensor(port = PORT, mode=BNO055.OPERATION_MODE_IMUPLUS, verbose = True, noinit = True)
+
         if verbose:
             print("EasyGoPiGo3.WHEEL_DIAMETER: {} mm,  WHEEL_BASE_WIDTH: {} mm".format(egpg3_robot.WHEEL_DIAMETER, egpg3_robot.WHEEL_BASE_WIDTH))
     except IOError:
@@ -356,15 +329,19 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
             move = False
         elif command == "move":
             move = True
-        if command == "west":
+        if command == "270":
             # direction_degrees = -90.0
             direction_degrees = 270.0
-        elif command == "east":
+        elif command == "90":
             direction_degrees = 90.0
-        elif command == "north":
+        elif command == "0":
             direction_degrees = 0.0
-        elif command == "south":
+        elif command == "180":
             direction_degrees = 180.0
+        elif command == "reset":
+            # egpg3_robot.imu.safe_resetBNO055(verbose=verbose)
+            print("Reset call goes here")
+            direction_degrees = 0.0
         elif  command.isnumeric():
             direction_degrees = int(command)
 
@@ -423,7 +400,7 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
                 if DEBUG is True:
                     print("                           ** RobotControl() heading: {} error: {}".format(heading,error),end='\r')
 
-        # command for making the robot move of stop
+        # command for making the robot move forward or stop
         if move is False:
             egpg3_robot.stop()
         else:
@@ -451,12 +428,14 @@ def Main(trigger):
     motor_command_queue = queue.Queue(maxsize = 2) # queue for the keyboard commands
     sensor_queue = queue.Queue(maxsize = 1) # queue for the IMU sensor
     keyboard_refresh_rate = 20.0 # how many times a second the keyboard should update
-    available_commands = {"<LEFT>": "west",
-                          "<RIGHT>": "east",
-                          "<UP>": "north",
-                          "<DOWN>": "south",
+    available_commands = {"<LEFT>": "270",
+                          "<RIGHT>": "90",
+                          "<UP>": "0",
+                          "<DOWN>": "180",
                           "<SPACE>": "stop",
-                          "w": "move"} # the selectable options within the menu
+                          "w": "move"} 
+                          # "r": "reset"} # the selectable options within the menu
+
     menu_order = ["<LEFT>", "<RIGHT>", "<UP>", "<DOWN>", "<SPACE>", "w"] # and the order of these options
 
     print("   _____       _____ _  _____         ____  ")
@@ -466,7 +445,8 @@ def Main(trigger):
     print(" | |__| | (_) | |   | | |__| | (_) |  ___) |")
     print("  \_____|\___/|_|   |_|\_____|\___/  |____/ ")
     print("                                            ")
-
+    print("       HEADING ROBOT using BNO055 IMU       ")
+    print("    Acceptable Heading Error Setting: {}    ".format(ACCEPTABLE_ERROR))
     # starting the workers/threads
     orientate_thread = threading.Thread(target = orientate, args = (trigger, simultaneous_launcher, sensor_queue))
     robotcontrol_thread = threading.Thread(target = robotControl, args = (trigger, simultaneous_launcher, motor_command_queue, sensor_queue))
@@ -477,7 +457,7 @@ def Main(trigger):
     try:
         simultaneous_launcher.wait()
 
-        print("Press the following keys for moving/orientating the robot by the 4 cardinal points")
+        print("Press the following keys for moving/orientating the robot")
         for menu_command in menu_order:
             print("{:8} - {}".format(menu_command, available_commands[menu_command]))
     except threading.BrokenBarrierError:
