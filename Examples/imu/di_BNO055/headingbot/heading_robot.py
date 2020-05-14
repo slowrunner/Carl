@@ -34,11 +34,68 @@ from easygopigo3 import *
 MINIMUM_VOLTAGE = 8.5
 MOTORS_SPEED = 150 # 250 see documentation
 PORT = "AD1"  # Use "AD1" or "AD2" for clock-stretching software I2C
-ACCEPTED_MINIMUM_BY_DRIVERS = 1.0
-ACCEPTABLE_ERROR = 2.0
-ROTATIONAL_FACTOR = 0.4
-verbose = True
-DEBUG = True
+ACCEPTED_MINIMUM_BY_DRIVERS = 2.5  # that will move the robot
+ACCEPTABLE_ERROR = 1.0
+ROTATIONAL_FACTOR = 0.30
+verbose = False
+DEBUG = False
+
+def my_turn_degrees(egpg, degrees, blocking=True, timeout = 60):
+    #def turn_degrees(self, degrees, blocking=True):
+        """
+        TURN_DEGREES with TIMEOUT
+
+        Makes the `GoPiGo3`_ robot turn at a specific angle while staying in the same spot
+        :param float degrees: The angle in degress at which the `GoPiGo3`_ has to turn. For rotating the robot to the left, ``degrees`` has to negative, and make it turn to the right, ``degrees`` has to be positive.
+        :param boolean blocking = True: Set it as a blocking or non-blocking method.
+        ``blocking`` parameter can take the following values:
+             * ``True`` so that the method will wait for the `GoPiGo3`_ robot to finish moving.
+             * ``False`` so that the method will exit immediately while the `GoPiGo3`_ robot will continue moving.
+        :param integer timeout: If blocking is True, and target is not reached after timeout (60) seconds, method will be forced to exit
+
+        In order to better understand what does this method do, let's take a look at the following graphical representation.
+        .. image:: ../images/gpg3_robot.svg
+        In the image, we have multiple identifiers:
+             * The "*heading*": it represents the robot's heading. By default, "rotating" the robot by 0 degrees is going to make the robot stay in place.
+             * The "*wheel circle circumference*": this is the circle that's described by the 2 motors moving in opposite direction.
+             * The "*GoPiGo3*": the robot we're playing with. The robot's body isn't draw in this representation as it's not the main focus here.
+             * The "*wheels*": these are just the `GoPiGo3`_'s wheels - selfexplanatory.
+
+        The effect of this class method is that the `GoPiGo3`_ will rotate in the same spot (depending on ``degrees`` parameter), while the wheels will be describing a perfect circle.
+        So, in order to calculate how much the motors have to spin, we divide the *angle* (at which we want to rotate the robot) by 360 degrees and we get a float number between 0 and 1 (think of it as a percentage).
+        We then multiply this value with the *wheel circle circumference* (which is the circumference of the circle the robot's wheels describe when rotating in the same place).
+        At the end we get the distance each wheel has to travel in order to rotate the robot by ``degrees`` degrees.
+        """
+        # this is the method to use if you want the robot to turn 90 degrees
+        # or any other amount. This method is based on robot orientation
+        # and not wheel rotation
+        # the distance in mm that each wheel needs to travel
+        WheelTravelDistance = ((egpg.WHEEL_BASE_CIRCUMFERENCE * degrees) / 360)
+
+        # the number of degrees each wheel needs to turn
+        WheelTurnDegrees = ((WheelTravelDistance / egpg.WHEEL_CIRCUMFERENCE) *
+                            360)
+
+        # get the starting position of each motor
+        StartPositionLeft = egpg.get_motor_encoder(egpg.MOTOR_LEFT)
+        StartPositionRight = egpg.get_motor_encoder(egpg.MOTOR_RIGHT)
+
+        # Set each motor target
+        egpg.set_motor_position(egpg.MOTOR_LEFT,
+                                (StartPositionLeft + WheelTurnDegrees))
+        egpg.set_motor_position(egpg.MOTOR_RIGHT,
+                                (StartPositionRight - WheelTurnDegrees))
+
+        if blocking:
+            start_time = time.time()
+            blocked_duration = 0
+            while (blocked_duration < timeout) and egpg.target_reached(
+                    StartPositionLeft + WheelTurnDegrees,
+                    StartPositionRight - WheelTurnDegrees) is False:
+                time.sleep(0.1)
+                blocked_duration += time.time() - start_time
+                if (DEBUG is True) and (blocked_duration > timeout):
+                    print("\n**my_turn_degrees() timeout occurred**")
 
 def getNorthPoint(imu):
     """
@@ -197,7 +254,8 @@ def orientate(trigger, simultaneous_launcher, sensor_queue):
             try:
                 # heading_list.append(getNorthPoint(imu))
                 heading = imu.safe_read_euler()[0]
-                if verbose: print("heading: {:5.1f}".format(heading), end='\r')
+                # if verbose: print("heading: {:5.1f}".format(heading), end='\r')
+                print("heading: {:5.1f}".format(heading), end='\r')
                 heading_list.append(heading)
             except Exception as msg:
                 if verbose: print("Exception: {}".format(str(msg)))
@@ -219,6 +277,8 @@ def orientate(trigger, simultaneous_launcher, sensor_queue):
         try:
             sensor_queue.put(heading_avg, timeout = time_to_put_in_queue)
         except queue.Full:
+            if DEBUG is True:
+                print("Sensor Queue content {}".format(sensor_queue.queue))
             pass
 
 
@@ -239,7 +299,9 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
     # try to connect to the GoPiGo3
     try:
-        gopigo3_robot = EasyGoPiGo3(use_mutex=True)
+        egpg3_robot = EasyGoPiGo3(use_mutex=True)
+        if verbose:
+            print("EasyGoPiGo3.WHEEL_DIAMETER: {} mm,  WHEEL_BASE_WIDTH: {} mm".format(egpg3_robot.WHEEL_DIAMETER, egpg3_robot.WHEEL_BASE_WIDTH))
     except IOError:
         print("GoPiGo3 robot not detected")
         simultaneous_launcher.abort()
@@ -260,8 +322,8 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
     # if threads were successfully synchronized
     # then set the GoPiGo3 appropriately
     if not simultaneous_launcher.broken:
-        gopigo3_robot.stop()
-        gopigo3_robot.set_speed(MOTORS_SPEED)
+        egpg3_robot.stop()
+        egpg3_robot.set_speed(MOTORS_SPEED)
 
     direction_degrees = None
     move = False
@@ -273,7 +335,7 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
 
     # while CTRL-C is not pressed, the synchronization between threads didn't fail and while the batteries' voltage isn't too low
-    while not (trigger.is_set() or simultaneous_launcher.broken or gopigo3_robot.volt() <= MINIMUM_VOLTAGE):
+    while not (trigger.is_set() or simultaneous_launcher.broken or egpg3_robot.volt() <= MINIMUM_VOLTAGE):
         # read from the queue of the keyboard
         try:
             command = motor_command_queue.get(timeout = time_to_wait_in_queue)
@@ -281,9 +343,13 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
         except queue.Empty:
             pass
 
-        if (DEBUG is True) and (command != last_command):
-                print("Command: {}".format(command))
-                last_command = command
+        #if (DEBUG is True) and (command != last_command):
+        if (DEBUG is True):
+                # print("Command: {}".format(command))
+                print("                                                                                     ** RobotComand()  Command: {}".format(command))
+                # last_command = command
+                if command != last_command:
+                    last_command = command
 
         # make some selection depending on what every command represents
         if command == "stop":
@@ -331,25 +397,46 @@ def robotControl(trigger, simultaneous_launcher, motor_command_queue, sensor_que
 
             # check if the heading isn't so far from the desired orientation
             # if it needs correction, then rotate the robot
-            if abs(error) >= acceptable_error and abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
+#            if abs(error) >= acceptable_error and abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
+            if abs(error) >= acceptable_error:
+                if abs(error) <= (2.0 * accepted_minimum_by_drivers):
+                    if DEBUG is True:
+                        print("Changing how_much_to_rotate: {} to full error value: {}".format(how_much_to_rotate, error))
+                    how_much_to_rotate = error
+                if abs(how_much_to_rotate) >= accepted_minimum_by_drivers:
+                    if DEBUG is True:
+                        print("Turning {:.1f} degrees".format(how_much_to_rotate))
+                        # sleep(1)
+                    # egpg3_robot.turn_degrees(how_much_to_rotate, blocking = True)
+                    my_turn_degrees(egpg3_robot, how_much_to_rotate, blocking = True, timeout = 15)
+                else:
+                    if DEBUG is True:
+                        print("abs(how_much_to_rotate: {}) < accepted_minimum_by_drivers: {}".format(how_much_to_rotate, accepted_minimum_by_drivers))
+                        print("Changing how_much_to_rotate to +/- accepted_minimum_by_drivers")
+                    how_much_to_rotate = (-1 if how_much_to_rotate < 0 else 1) * accepted_minimum_by_drivers
+                    if DEBUG is True:
+                        print("Turning {:.1f} degrees".format(how_much_to_rotate))
+                        # sleep(1)
+                    # egpg3_robot.turn_degrees(how_much_to_rotate, blocking = True)
+                    my_turn_degrees(egpg3_robot, how_much_to_rotate, blocking = True, timeout = 5)
+            else:
                 if DEBUG is True:
-                    print("Turning {:.1f} degrees".format(how_much_to_rotate))
-                    # sleep(1)
-                gopigo3_robot.turn_degrees(how_much_to_rotate, blocking = True)
+                    print("                           ** RobotControl() heading: {} error: {}".format(heading,error),end='\r')
 
         # command for making the robot move of stop
         if move is False:
-            gopigo3_robot.stop()
+            egpg3_robot.stop()
         else:
-            gopigo3_robot.forward()
+            egpg3_robot.forward()
 
         sleep(0.001)
 
     # if the synchronization wasn't broken
     # then stop the motors in case they were running
     if not simultaneous_launcher.broken:
-        gopigo3_robot.stop()
-
+        egpg3_robot.stop()
+        if DEBUG is True:
+            print("                                    ** RobotControl()  stop() called at end of method")
 
 def Main(trigger):
     """
@@ -394,6 +481,8 @@ def Main(trigger):
         for menu_command in menu_order:
             print("{:8} - {}".format(menu_command, available_commands[menu_command]))
     except threading.BrokenBarrierError:
+        if DEBUG is True:
+            print("                         ** main() BrokenBarrierError **")
         pass
 
     # read the keyboard as long as the synchronization between threads wasn't broken
@@ -402,7 +491,8 @@ def Main(trigger):
         while not (trigger.is_set() or simultaneous_launcher.broken):
             period = 1 / keyboard_refresh_rate
             key = input_generator.send(period)
-
+            if DEBUG is True:
+                print("                                         [main] key: {}".format(key))
             if key in available_commands:
                 try:
                     motor_command_queue.put_nowait(available_commands[key])
