@@ -27,10 +27,12 @@ heading_robot architecture is based on the superb compass_robot example designed
 
 # Get The Code:
 
-cd ~
+```
+cd ~ 
 curl -LJO https://github.com/slowrunner/Carl/raw/master/Examples/imu/di_BNO055/headingbot/headingbot.tar.gz 
 tar -xzvf headingbot.tar.gz
 cd headingbot
+```
 
 # Usage:
 
