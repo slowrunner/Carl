@@ -1,7 +1,7 @@
 ## **HEADING ROBOT**
 
 heading_robot.py uses the Dexter Industries Inertial Measurement Unit (BNO055 chip) 
-in IMUPLUS mode (Fusion from Gyros and Accellerometers only, no magnetometers) to 
+in IMUPLUS mode (Fusion from Gyros and Accelerometers only, no magnetometers) to 
 orient the GoPiGo3 robot with respect to the orientation when the program is started as 0 degrees.
 
 ![Picture](Carl_IMU_Quarter_View.jpg)
