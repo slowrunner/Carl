@@ -20,11 +20,19 @@ These classes implement features above the DI IMU standard interface:
 - verbose options for greater visibility into IMU operations
 - di_i2c mutex protected access to more BNO055 methods
 
-
-heading_robot architecture was designed by Robert Lucian Chiriac
-
+heading_robot architecture is based on the superb compass_robot example designed by Robert Lucian Chiriac
 
 ![Picture](heading_robot.jpg)
+
+
+# Get The Code:
+
+```
+cd ~ 
+curl -LJO https://github.com/slowrunner/Carl/raw/master/Examples/imu/di_BNO055/headingbot/headingbot.tar.gz 
+tar -xzvf headingbot.tar.gz
+cd headingbot
+```
 
 # Usage:
 
@@ -32,6 +40,9 @@ heading_robot architecture was designed by Robert Lucian Chiriac
 2) Connect IMU to GoPiGo3's AD1 port
 3) Orient GoPiGo3 to some reference such as floor board joints or taped line on floor
 4) ./heading_robot.py
+
+![Picture](heading_bot_display.png)
+
 5) Press arrow keys for shortcut to 0, 90, 180, 270
    or enter a direction such as 45, then press return
 6) Watch for robot to complete re-orienting
@@ -39,6 +50,8 @@ heading_robot architecture was designed by Robert Lucian Chiriac
 8) Optionally press "f" key to make robot move forward, press "Space" key to stop
 9) Press ctrl-c to exit
 
-Initial orientations will be close to the measured heading, 
-but eventually will show effect of IMU drift.
-
+# Notes:
+- Initial orientations will be close to the measured heading, 
+  but eventually will show effect of IMU drift.
+- IMUPLUS mode is used because the motors, encoder magnets, and indoor magnetic fields
+  wreak havoc with the IMU in NDOF mode
