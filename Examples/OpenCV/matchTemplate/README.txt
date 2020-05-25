@@ -16,16 +16,19 @@ Notes:
   matchTemplate is a fairly slow function
   matchTemplate is very dependent on the template width being close to the matching image area width
 
-![Dock Sign Match 88% ](Examples/OpenCV/matchTemplate/matchTemplate_Target.jpg?raw=true)
+**Dock Sign Match 88%**
+<img src="matchTemplate_CarlSign.jpg" width="60%">
 
-![Not Dock Sign Match 41% ](Examples/OpenCV/matchTemplate/matchTemplate_not_CarlSign.jpg)
+**Not Dock Sign Match 41%**
+<img src="matchTemplate_not_CarlSign.jpg" width="60%">
 
 For comparison matching with Docking Sign Target at width=20 pixels:
 
 Dock Target Match was 72%
 Not Dock Target Match was 55%
 
-![Dock Sign Target Match 72% ](Examples/OpenCV/matchTemplate/matchTemplate_Target.jpg?raw=true)
+<img src="matchTemplate_Target.jpg" width="60%">
+
 
 
 
