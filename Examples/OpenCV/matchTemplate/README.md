@@ -8,7 +8,7 @@ USAGE:
   $ python matchTemplate_test.py    # run test without displaying images
   $ ./matchTemplate.py --display 1  # run test display images
   $ ./matchTemplate.py -n 2         # only test 2 frames
-```
+
 
 Result: 
   Frame taken from video at approach point to dock (17" camera to sign)
@@ -22,6 +22,7 @@ Result:
 Notes:
   matchTemplate is a fairly slow function
   matchTemplate is very dependent on the template width being close to the matching image area width
+```
 
 **Dock Sign Match 88%**
 <img src="./matchTemplate_CarlSign.jpg" width="60%">
