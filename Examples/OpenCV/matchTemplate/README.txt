@@ -16,6 +16,17 @@ Notes:
   matchTemplate is a fairly slow function
   matchTemplate is very dependent on the template width being close to the matching image area width
 
+![Dock Sign Match 88%] (matchTemplate_CarlSign.png?raw=true)
+
+![Not Dock Sign Match 41%] (matchTemplate_not_CarlSign.png)
+
+For comparison matching with Docking Sign Target at width=20 pixels:
+
+Dock Target Match was 72%
+Not Dock Target Match was 55%
+
+![Dock Sign Target Match 72%] (matchTemplate_Target.png?raw=true)
+
 
 
 
