@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 # USAGE
-# python matchTemplate_test.py
-# ./matchTemplate.py --display 1
+# python matchTemplate_test.py    execute test using 100 frames, cmdline output only
+# ./matchTemplate.py --display 1  show frame, test image, template, and result map
+# ./matchTemplate.py -n 40        test fps using 40 frames (default 100)
 
 # import the necessary packages
 from __future__ import print_function
@@ -20,7 +21,6 @@ TEMPLATE_FILENAME = "./DockingStationTemplate.jpg"
 
 # OpenCV MatchTemplate Settings
 # -----------------------------
-MAX_SEARCH_THRESHOLD = .96 # default=.97 Accuracy for best search result of search_rect in stream images
 MATCH_METHOD = 5
             # Valid MatchTemplate COMPARE_METHOD Int Values
             # ---------------------------------------------
@@ -31,7 +31,7 @@ MATCH_METHOD = 5
             # 4 = cv2.TM_CCOEFF = 4
             # 5 = cv2.TM_CCOEFF_NORMED = 5
             #
-            # For other comparison methods 
+            # For other comparison methods
             # see http://docs.opencv.org/3.1.0/d4/dc6/tutorial_py_template_matching.html
 
 
@@ -45,11 +45,12 @@ ap.add_argument("-d", "--display", type=int, default=-1,
 args = vars(ap.parse_args())
 show = args["display"]
 
-# read template file for template matching
-template_image = cv2.imread(TEMPLATE_FILENAME)
-template_image = cv2.cvtColor(template_image, cv2.COLOR_BGR2GRAY)
+# read template file for template matching and convert to grayscale
+template_image = cv2.imread(TEMPLATE_FILENAME,cv2.IMREAD_GRAYSCALE)
+
 # for DockingStationTargetTemplate
 # template_image = imutils.resize(template_image,width=20)
+
 # for DockingStationTemplate
 template_image = imutils.resize(template_image,width=80)
 
@@ -67,7 +68,12 @@ def check_image_match(full_image, small_image):
     match_result = cv2.matchTemplate( full_image, small_image, MATCH_METHOD)
     # Process result to return probabilities and Location of best and worst image match
     minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(match_result)  # find search rect match in new image
-    return maxLoc, maxVal
+    # for method TM_SQRDIFF or TM_SQDIFF_NORMED the minimum result is best match
+    # for all others maximum result value is best match
+    if MATCH_METHOD in [cv2.TM_SQDIFF, cv2.TM_SQDIFF_NORMED]:
+        return minLoc, minVal
+    else:
+        return maxLoc, maxVal
 
 
 
