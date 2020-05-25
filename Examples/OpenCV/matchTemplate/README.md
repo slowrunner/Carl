@@ -3,11 +3,12 @@
 
 Config:  RPi 3B 320x240 32fps source, MATCH_METHOD = 5 TM_CCOEFF_NORMED
 
+```
 USAGE:
   $ python matchTemplate_test.py    # run test without displaying images
   $ ./matchTemplate.py --display 1  # run test display images
   $ ./matchTemplate.py -n 2         # only test 2 frames
-
+```
 
 Result: 
   Frame taken from video at approach point to dock (17" camera to sign)
