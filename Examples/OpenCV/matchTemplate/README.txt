@@ -17,7 +17,7 @@ Notes:
   matchTemplate is very dependent on the template width being close to the matching image area width
 
 **Dock Sign Match 88%**
-<img src="matchTemplate_CarlSign.jpg" width="60%">
+<img src="./matchTemplate_CarlSign.jpg" width="60%">
 
 **Not Dock Sign Match 41%**
 <img src="matchTemplate_not_CarlSign.jpg" width="60%">
