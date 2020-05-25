@@ -24,16 +24,18 @@ Notes:
   matchTemplate is very dependent on the template width being close to the matching image area width
 ```
 
-**Dock Sign Match 88%**
+**Dock Sign Match 88%** 
+
 <img src="./matchTemplate_CarlSign.jpg" width="60%">
 
-**Not Dock Sign Match 41%**
+**Not Dock Sign Match 41%** 
+
 <img src="matchTemplate_not_CarlSign.jpg" width="60%">
 
 For comparison matching with Docking Sign Target at width=20 pixels:
 
-Dock Target Match was 72%
-Not Dock Target Match was 55%
+Dock Target Match was 72% 
+Not Dock Target Match was 55% 
 
 <img src="matchTemplate_Target.jpg" width="60%">
 
