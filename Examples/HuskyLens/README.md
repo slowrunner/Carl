@@ -1,5 +1,8 @@
 HuskyLens For GoPiGo3
 
+https://github.com/HuskyLens/HUSKYLENSPython
+
+WIKI: https://wiki.dfrobot.com/HUSKYLENS_V1.0_SKU_SEN0305_SEN0336  
 
 # HUSKYLENS INFO
 - I2C addr: 0x32  (50 decimal)
