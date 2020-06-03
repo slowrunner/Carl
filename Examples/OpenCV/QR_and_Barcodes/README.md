@@ -34,6 +34,8 @@ My result is less than impressive. I had this hope of reading 2x2 inch QR codes 
 - 320x240 gets 12 inches reliably
 - 640x320 gets 18-20 inches reliably
 - 1280x960 gets 24-29 inches reliably
+- 1296x730 (16:9) gets 27 inches reliably
+- 1920x1080 (16:9) gets 34 inches reliably (partial FOV)
 - 2560x1920 no recognitions at any distance
 - Best QR set reading was 11 out of 12 on the page, sometimes 6, sometimes 9…
 - Frame rate as high as 4 fps if none found

@@ -6,7 +6,7 @@
 # ./pyz_fps_test.py
 #    OPTIONS:
 #    -d (--display) 1
-#    -n (--numframes) 100
+#    -n (--numframes) 100  allows repeated decode while setting bot close or far
 
 # import the necessary packages
 from __future__ import print_function
@@ -31,12 +31,16 @@ import myimutils
 
 # CAMERA_RESOLUTION = (320, 240)
 # CAMERA_RESOLUTION = (640, 480)
-CAMERA_RESOLUTION = (1280, 960)
-# CAMERA_RESOLUTION = (2560, 1920)
+# CAMERA_RESOLUTION = (1280, 960)
+# CAMERA_RESOLUTION = (1296, 730)  # 1-49 fps 16:9 full FOV
+CAMERA_RESOLUTION = (1920, 1080)   # 1-30 fps partial FOV, works up to 34 inches
+# CAMERA_RESOLUTION = (2560, 1920)  # black frame for some reason
+# CAMERA_RESOLUTION = (2592, 1944)  # black frame for some reason
 CAMERA_BRIGHTNESS = 60  # 50 default
 CAMERA_CONTRAST =   60 # 60    # 0 default
 CAMERA_SHARPNESS =  25   # 0 default
-CAMERA_AWB_MODE =   'incandescent'
+# CAMERA_AWB_MODE =   'incandescent'
+CAMERA_AWB_MODE =   'auto'
 CAMERA_FRAMERATE =  10
 
 
