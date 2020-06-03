@@ -20,9 +20,9 @@ PyZBar:  https://pypi.org/project/pyzbar/
 
 My result is less than impressive. I had this hope of reading 2x2 inch QR codes from 8-10 feet away, but the best I can get is 24 inches.
 
-- Reliable at 18 inches (target to camera)
 - Processing:
-  - fixTiltOCV only  
+  - color video frame
+  - fixTiltOCV only  # fixes 1.5 degree camera tilt
 - Camera
   - CAMERA_RESOLUTION = (320,240) or (640, 480) or (1280, 960) or (2560, 1920)
   - CAMERA_BRIGHTNESS = 60  # 50 default
@@ -31,11 +31,13 @@ My result is less than impressive. I had this hope of reading 2x2 inch QR codes 
   - CAMERA_AWB_MODE = 'incandescent'
   - CAMERA_FRAMERATE = 32
 
+- 320x240 gets 12 inches reliably
 - 640x320 gets 18-20 inches reliably
 - 1280x960 gets 24-29 inches reliably
 - 2560x1920 no recognitions at any distance
 - Best QR set reading was 11 out of 12 on the page, sometimes 6, sometimes 9…
 - Frame rate as high as 4 fps if none found
+- Frame rate for single QR as high as 2 fps
 - Frame rate around 0.3 fps or 3 seconds per frame
 
 Interestingly this pyzbar seems to be the best way to go for now:
