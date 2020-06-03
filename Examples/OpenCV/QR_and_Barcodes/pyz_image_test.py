@@ -10,6 +10,18 @@ import sys
 import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
+import argparse
+
+
+# construct the argument parse and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", default="images/QR_Set.jpg",
+	help="Optional path to image file, default: images/QR_Set.jpg")
+args = vars(ap.parse_args())
+image_file = args["image"]
+
+
+
 
 # image
 def showImg(title,img):
@@ -40,7 +52,7 @@ def scanQRCode(img):
 
 # main program
 
-img=cv2.imread('pyz_image_test.jpg',cv2.IMREAD_COLOR)
+img=cv2.imread(image_file,cv2.IMREAD_COLOR)
 scanQRCode(img)
 showImg('QRCode detection',img)
 

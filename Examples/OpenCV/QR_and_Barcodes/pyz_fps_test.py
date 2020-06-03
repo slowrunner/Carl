@@ -25,12 +25,13 @@ from datetime import datetime
 import sys
 sys.path.append('/home/pi/Carl/plib')
 import camUtils
+import myimutils
 
 # CONSTANTS
 
-CAMERA_RESOLUTION = (320, 240)
+# CAMERA_RESOLUTION = (320, 240)
 # CAMERA_RESOLUTION = (640, 480)
-# CAMERA_RESOLUTION = (1280, 960)
+CAMERA_RESOLUTION = (1280, 960)
 # CAMERA_RESOLUTION = (2560, 1920)
 CAMERA_BRIGHTNESS = 60  # 50 default
 CAMERA_CONTRAST =   60 # 60    # 0 default
@@ -102,9 +103,14 @@ def processImage(image, show):
                 uniq_found_keep += (code,)
 
     if show > 0:
-        cv2.imshow("frame", image)
-        cv2.imshow("processed_frame", processed_frame)
-        cv2.imshow("annotated", annotated_frame)
+        percent = (640.0 / (CAMERA_RESOLUTION[0] * 2.0)) * 100.0
+        # print("C[0]",CAMERA_RESOLUTION[0],"percent",percent)
+        #cv2.imshow("frame", image)
+        myimutils.display("frame", image,percent)
+        #cv2.imshow("processed_frame", processed_frame)
+        myimutils.display("processed_frame", processed_frame, percent)
+        #cv2.imshow("annotated", annotated_frame)
+        myimutils.display("annotated", annotated_frame, percent)
         cv2.waitKey(1) & 0xFF
 
 # initialize the camera and stream
@@ -122,9 +128,11 @@ stream = camera.capture_continuous(rawCapture, format="bgr",
 	use_video_port=True)
 
 # allow the camera to warmup and start the FPS counter
-print("[INFO] sampling frames from `picamera` module...")
+print("pyz_fps_test: Camera starting")
 time.sleep(2.0)
+print("[INFO] sampling frame(s) from picamera res:{}".format(CAMERA_RESOLUTION))
 fps = FPS().start()
+
 
 # loop over some frames
 for (i, f) in enumerate(stream):
