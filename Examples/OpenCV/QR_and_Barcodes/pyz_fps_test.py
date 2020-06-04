@@ -109,7 +109,7 @@ def processImage(image, show):
     if show > 0:
         percent = (640.0 / (CAMERA_RESOLUTION[0] * 2.0)) * 100.0
         # print("C[0]",CAMERA_RESOLUTION[0],"percent",percent)
-        #cv2.imshow("frame", image)
+        cv2.imshow("full res frame", image)
         myimutils.display("frame", image,percent)
         #cv2.imshow("processed_frame", processed_frame)
         myimutils.display("processed_frame", processed_frame, percent)
