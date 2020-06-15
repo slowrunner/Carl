@@ -1,9 +1,10 @@
 #!/bin/bash
 #
-# totalwheel.sh    print total travel, rotation, travel time and segments of travel in wheel.log
+# wheelstats.sh    print total travel, rotation, travel time and segments of travel in wheel.log
 #
 # requires bc  (sudo apt-get install bc)
 #
+echo "WHEEL STATS"
 declare -i catchupSegmentss=1500
 totalTravel=`(awk -F'travel:' '{sum+=sqrt($2^2)}END{print sum;}' wheel.log)`
 totalTravelFt=`(echo "scale=1; $totalTravel / 304.8" | bc)`
