@@ -25,6 +25,8 @@ try:
     # import runLog
     import myconfig
     # import myimutils   # display(windowname, image, scale_percent=30)
+    import carlDataJson
+
     Carl = True
 except:
     Carl = False
@@ -55,6 +57,14 @@ MOTION_MOVING  = 2
 MOTION_STOP    = 3
 MOTION_UNKNOWN = 4
 
+DOCKING_UNKNOWN = 0
+NOTDOCKED = 1
+DOCKED = 2
+# DOCKREQUESTED = 3
+# UNDOCKREQUESTED = 4
+# CABLED = 5
+# printableDS = ["Unknown", "Not Docked", "Docked", "Manual Dock Requested", "Manual UnDock Requested", "Cabled"]
+
 # VARIABLES
 motion_state = MOTION_UNKNOWN
 strt_l_enc = 0
@@ -66,6 +76,8 @@ move_r_enc = 0
 strt_time  = 0
 stop_time  = 0
 motion_sec  = 0
+last_docking_state = DOCKING_UNKNOWN
+current_heading_estimate = 0
 
 # METHODS
 
@@ -152,14 +164,31 @@ def logMotion(egpg):
     print("motion_state: {} curr enc: ({},{}) strt enc: ({},{}) strt_time: {} motion_sec: {} ".format(motion_state,curr_l_enc,curr_r_enc,strt_l_enc,strt_r_enc,stop_time,motion_sec))
 
 def logMotionStop(egpg):
-    global motion_state, curr_l_enc, curr_r_enc, strt_l_enc, strt_r_enc, move_l_enc, move_r_enc, strt_time, stop_time, motion_sec
+    global motion_state, curr_l_enc, curr_r_enc, strt_l_enc, strt_r_enc, move_l_enc, move_r_enc, strt_time, stop_time, motion_sec, current_heading_estimate
 
     travel_mm = enc_to_dist_mm(egpg,move_l_enc,move_r_enc)
     rotate_deg = enc_to_angle_deg(egpg,move_l_enc,move_r_enc)
-    strToLog = "travel: {:> 7.1f} rotation: {:> 7.1f} motion: {:> 7.1f} sec".format(travel_mm,rotate_deg,motion_sec)
+    current_heading_estimate += rotate_deg
+    current_heading_estimate = current_heading_estimate % 360.0
+    strToLog = "travel: {:> 7.1f} rotation: {:> 7.1f}  motion: {:> 7.1f} sec  heading_est: {:>7.1f}".format(
+        travel_mm,rotate_deg,motion_sec,current_heading_estimate)
     print("{} move enc: ({},{}) {} ".format(time.ctime(stop_time),move_l_enc,move_r_enc,strToLog))
     # print(strToLog)
     wheelLog.info(strToLog)
+
+
+
+# docking_check()  checks for docking_state changing to DOCKED, resets heading estimate
+def docking_check():
+    global last_docking_state, current_heading_estimate
+    try:
+        current_docking_state = carlDataJson.getCarlData('dockingState')
+    except:
+        current_docking_state = DOCKING_UNKNOWN
+    if (current_docking_state != last_docking_state):
+        last_docking_state = current_docking_state
+        if (current_docking_state == DOCKED):
+            current_heading_estimate = 0.0
 
 # MAIN
 
@@ -212,6 +241,10 @@ def main():
             else:
                 # logMotion()
                 pass
+            # check docking status once per second
+            if (loopCount % 20 == 0):
+                docking_check()  # check current docking state
+
             time.sleep(loopSleep)
 
         # Do Something Once
