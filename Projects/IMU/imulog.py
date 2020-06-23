@@ -216,7 +216,7 @@ def docking_check(egpg):
         last_docking_state = current_docking_state
         if DEBUG: print("[imulog.py] current_docking_state {}".format(printableDS[current_docking_state]))
         if (current_docking_state == DOCKED):
-            egpg.imu.resetBNO055()
+            egpg.imu.safe_resetBNO055()
             curr_heading = egpg.imu.safe_read_euler()[0]
             logCurrentIMU(egpg,"imu reset")
 # MAIN

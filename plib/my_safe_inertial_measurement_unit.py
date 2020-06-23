@@ -4,18 +4,21 @@
 
 # https://www.dexterindustries.com
 #
-# Copyright (c) 2018 Dexter Industries
+# Copyright (c) 2020 Dexter Industries
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/DI_Sensors/blob/master/LICENSE.md
 #
 
-# EASIER WRAPPERS FOR:
-#   IMU SENSOR
-# MUTEX SUPPORT WHEN NEEDED
-# Allow non NDOF modes
-
 """
-DI Methods Implemented (Unchanged)
+  Modification and extensions by Alan McDonley
+
+  EASIER WRAPPERS FOR IMU SENSOR
+  MUTEX SUPPORT WHEN NEEDED
+  Allow non NDOF modes
+  Allow SW Obj init without HW initialization
+
+
+DI Methods Implemented (Unchanged from easy_inertial_measurement_unit.py)
  - imu.reconfig_bus()
  - imu.safe_calibrate()
  - imu.safe_calibration_status()
@@ -32,7 +35,8 @@ Expanded mutex protected Methods Implemented:
  - imu.dumpCalDataJSON()                  writes out calibration data to ./calData.json
  - imu.loadCalDataJSON()                  returns calibration data from file ./calData.json
  - imu.loadAndSetCalDataJSON()            Resets calibrarion from data in file ./calData.json
- - imu.resetBNO055()                      reset the IMU and print calibration status
+ - imu.safe_resetBNO055()                 reset the IMU and print calibration status
+ - imu.safe_axis_remap()                  remap axis for actual chip orientation (default GoPiGo3)
  - imu.my_safe_calibrate()                uses the NDOF SYS value instead of just mags value
  - imu.my_safe_sgam_calibration_status()  returns all four cal status: sys, gyro, accels, mags
  - imu.safe_read_gyroscope()              returns the gyroscope values x, y, z
@@ -42,6 +46,11 @@ Expanded mutex protected Methods Implemented:
  - imu.safe_set_mode()                    change operation mode
  - imu.sefe_get_mode()                    check current operation mode
  - imu.safe_get_system_status()           opt run self test and return system status
+ - imu.safe_get_operation_mode()          returns operating mode of hardware
+ - imu.safe_get_op_mode_str()             returns string name of hardware operating mode
+ - imu.safe_read_imu()                    returns tuple of all readings
+ - imu.safe_print_imu_readings()          prints tuple of all readings passed in
+ - imu.readAndPrint()                     read and print with options for num times, delay, and EOL
 """
 
 # from di_sensors import inertial_measurement_unit
@@ -68,6 +77,7 @@ ports = {
 IMU CALIBRATION FILE NAME
 '''
 IMU_CAL_FILENAME = "./imuCalData.json"
+OP_MODE_STRINGS = ["CONFIG", "ACCONLY", "MAGONLY", "GYRONLY", "ACCMAG", "ACCGYRO", "MAGGYRO", "AMG", "IMUPLUS", "COMPASS", "M4G", "NDOF_FMC_OFF", "NDOF"]
 
 
 class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
@@ -82,12 +92,13 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         Modes other than full fusion OPERATION_MODE_NDOF
     '''
 
-    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF, verbose = False):
-        """
-        Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
+    def __init__(self, port="AD1", use_mutex=True, mode = BNO055.OPERATION_MODE_NDOF, verbose = False, init=True):
+        """Constructor for initializing link with the `InertialMeasurementUnit Sensor`_.
 
         :param str port = "AD1": The port to which the IMU sensor gets connected to. Can also be connected to port ``"AD2"`` of a `GoPiGo3`_ robot or to any ``"I2C"`` port of any of our platforms. If you're passing an **invalid port**, then the sensor resorts to an ``"I2C"`` connection. Check the :ref:`hardware specs <hardware-interface-section>` for more information about the ports.
         :param bool use_mutex = True: Enables multiple threads/processes to access the same resource/device.
+        ;param const mode = BNO055.OPERATION_MODE_NDOF:  Default is full fusion mode using gyros, accellerometers, and magnetometers.
+        :param bool init = True: Enable/Disables chip initialization.  False creates software object but does not affect hardware configuration or mode.
         :raises RuntimeError: When the chip ID is incorrect. This happens when we have a device pointing to the same address, but it's not a `InertialMeasurementUnit Sensor`_.
         :raises ~exceptions.OSError: When the `InertialMeasurementUnit Sensor`_ is not reachable.
 
@@ -102,13 +113,13 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
         ifMutexAcquire(self.use_mutex)
         try:
-            if verbose: print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {}".format(port, bus, use_mutex, mode))
+            if verbose: print("SafeIMUSensor INSTANTIATING ON PORT {} OR BUS {} WITH MUTEX {} TO MODE {} INIT {}".format(port, bus, use_mutex, OP_MODE_STRINGS[mode], init))
             # super(self.__class__, self).__init__(bus = bus, mode = mode)
-            super().__init__(bus = bus, mode = mode, verbose = verbose)
+            super().__init__(bus = bus, mode = mode, verbose = verbose, init=init)
 
             # on GPG3 we ask that the IMU be at the back of the robot, facing outward
             # We do not support the IMU on GPG2  but leaving the if statement in case
-            if bus != "RPI_1SW":
+            if (bus != "RPI_1SW") and (init==True):
                 if verbose: print("Performing axis_remap for GoPiGo3 Configuration")
                 self.BNO055.set_axis_remap( BNO055.AXIS_REMAP_X,
                                         BNO055.AXIS_REMAP_Z,
@@ -126,15 +137,19 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             ifMutexRelease(self.use_mutex)
         if verbose: print("SafeIMUSensor Instantiation Complete\n")
 
+
     def resetExceptionCount(self):
         self.exceptionCount = 0
 
     def getExceptionCount(self):
         return self.exceptionCount
 
-    def printCalStatus(self):
+    def printCalStatus(self, cr=True):
         sysCalStat,gyroCalStat,accCalStat,magCalStat = self.my_safe_sgam_calibration_status()
-        print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat))
+        if cr:
+            print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat))
+        else:
+            print("BNO055 Calibration Status (sys,gyro,acc,mag): ({},{},{},{})".format(sysCalStat,gyroCalStat,accCalStat,magCalStat),end="\r")
 
     def dumpCalDataJSON(self,verbose=False):
         if verbose:
@@ -180,7 +195,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             self.BNO055.set_calibration(calData)
             print("Restoring Operation Mode")
             self.BNO055._operation_mode()
-            time.sleep(1.0)
+            sleep(1.0)
             status = True
         except:
             status = False
@@ -232,7 +247,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
                 print("safe_set_mode() Returning success: {}\n".format(success))
         return success
 
-    def resetBNO055(self,verbose=False):
+    def safe_resetBNO055(self,verbose=False):
         if verbose: print("\nResetting BNO055")
         ifMutexAcquire(self.use_mutex)
         try:
@@ -292,14 +307,29 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             ifMutexRelease(self.use_mutex)
         sleep(1.0)
-        if verbose: print("BNO055 Reset Complete\n\n")
+        if verbose: print("safe_resetBNO055 Complete\n\n")
 
+    # Remap Axis for actual orientation, Default: GoPiGo3 Point-Up, Chip-Toward Front
+    # Use safe_axis_remap after safe_resetBNO055()
+    def safe_axis_remap(self,x=BNO055.AXIS_REMAP_X, y=BNO055.AXIS_REMAP_Z, z=BNO055.AXIS_REMAP_Y, \
+                             xo=BNO055.AXIS_REMAP_POSITIVE, yo=BNO055.AXIS_REMAP_NEGATIVE, zo=BNO055.AXIS_REMAP_POSITIVE, \
+                             verbose=False):
+                if verbose:
+                    print("Performing safe_axis_remap()")
+                    if ((x==BNO055.AXIS_REMAP_X) and
+                       (y==BNO055.AXIS_REMAP_Z) and
+                       (z==BNO055.AXIS_REMAP_Y) and
+                       (xo==BNO055.AXIS_REMAP_POSITIVE) and
+                       (yo==BNO055.AXIS_REMAP_NEGATIVE) and
+                       (zo==BNO055.AXIS_REMAP_POSITIVE)):
+                        print("For GoPiGo3 Configuration: Point-Up, Chip-Toward Front")
+                self.BNO055.set_axis_remap( x,y,z, xo,yo,zo, verbose=verbose)
+                if verbose: print("Completed safe_axis_remap")
 
 
 
     def reconfig_bus(self):
-        """
-        Use this method when the `InertialMeasurementUnit Sensor`_ becomes unresponsive but it's still plugged into the board.
+        """Use this method when the `InertialMeasurementUnit Sensor`_ becomes unresponsive but it's still plugged into the board.
         There will be times when due to improper electrical contacts, the link between the sensor and the board gets disrupted - using this method restablishes the connection.
 
         .. note::
@@ -315,8 +345,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         ifMutexRelease(self.use_mutex)
 
     def safe_calibrate(self):
-        """
-        Once called, the method returns when the magnemometers of the `InertialMeasurementUnit Sensor`_ gets fully calibrated. Rotate the sensor in the air to help the sensor calibrate faster.
+        """Once called, the method returns when the magnemometers of the `InertialMeasurementUnit Sensor`_ gets fully calibrated. Rotate the sensor in the air to help the sensor calibrate faster.
 
         .. note::
            Also, this method is not used to trigger the process of calibrating the sensor (the IMU does that automatically),
@@ -339,9 +368,8 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             if new_status != status:
                 status = new_status
 
-    def my_safe_calibrate(self):
-        """
-        Once called, the method returns when the NDOF SYS of the `InertialMeasurementUnit Sensor`_ gets fully calibrated.
+    def my_safe_calibrate(self, verbose=False):
+        """Once called, the method returns when the NDOF SYS of the `InertialMeasurementUnit Sensor`_ gets fully calibrated.
         Rotate the sensor in the air to two orthoganal directions of each axis.
 
         .. note::
@@ -358,6 +386,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
             ifMutexAcquire(self.use_mutex)
             try:
                 new_status = self.BNO055.get_calibration_status()[0]
+                if verbose: print("Sys Status: {}".format(new_status),end='\r')
             except Exception as e:
                 new_status = -1
                 print("get_calibration_status()[0] Exception {}".format(str(e)))
@@ -368,8 +397,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
                 status = new_status
 
     def safe_calibration_status(self):
-        """
-        Returns the calibration level of the mags of the `InertialMeasurementUnit Sensor`_.
+        """Returns the calibration level of the mags of the `InertialMeasurementUnit Sensor`_.
 
         :returns: Calibration level of the mags. Range is **0-3** and **-1** is returned when the sensor can't be accessed.
         :rtype: int
@@ -385,8 +413,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return status
 
     def my_safe_sgam_calibration_status(self):
-        """
-        Returns the calibration levels of the `InertialMeasurementUnit Sensor`_.
+        """Returns the calibration levels of the `InertialMeasurementUnit Sensor`_.
 
         :returns: Calibration levels sysCal, gyroCal, accCal, magCal Range is **0-3** and **-1** is returned when the sensor can't be accessed.
         :rtype: int
@@ -406,8 +433,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
 
 
     def convert_heading(self, in_heading):
-        """
-        This method takes in a heading in degrees and return the name of the corresponding heading.
+        """This method takes in a heading in degrees and return the name of the corresponding heading.
         :param float in_heading: the value in degree that needs to be converted to a string.
 
         :return: The heading of the sensor as a string.
@@ -439,8 +465,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return(headings[heading_index])
 
     def safe_read_euler(self):
-        """
-        Read the absolute orientation.
+        """Read the absolute orientation.
 
         :returns: Tuple of euler angles in degrees of *heading*, *roll* and *pitch*.
         :rtype: (float,float,float)
@@ -461,8 +486,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return x,y,z
 
     def safe_read_gyroscope(self):
-        """
-        Read the gyro values.
+        """Read the gyro values.
 
         :returns: Tuple of angular rotation in degrees about *X*, *Y* and *Z* axis.
         :rtype: (float,float,float)
@@ -481,8 +505,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return x,y,z
 
     def safe_read_magnetometer(self):
-        """
-        Read the magnetometer values.
+        """Read the magnetometer values.
 
         :returns: Tuple containing X, Y, Z values in *micro-Teslas* units. You can check the X, Y, Z axes on the sensor itself.
         :rtype: (float,float,float)
@@ -503,8 +526,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return x,y,z
 
     def safe_read_accelerometer(self):
-        """
-        Read the accelerometer values.
+        """Read the accelerometer values.
 
         :returns: Tuple of acceleration in degrees along *X*, *Y* and *Z* axis (includes gravitational).
         :rtype: (float,float,float)
@@ -522,8 +544,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return x,y,z
 
     def safe_read_linear_acceleration(self):
-        """
-        Read the accelerometer values from movement without gravitational acceleration.
+        """Read the accelerometer values from movement without gravitational acceleration.
 
         :returns: Tuple of acceleration in degrees along *X*, *Y* and *Z* axis (includes gravitational).
         :rtype: (float,float,float)
@@ -541,8 +562,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return x,y,z
 
     def safe_read_temperature(self):
-        """
-        Read chip temperature
+        """Read chip temperature
 
         :returns: Tuple of temperature in degC
         :rtype: float
@@ -560,8 +580,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         return temp
 
     def safe_north_point(self):
-        """
-        Determines the heading of the north point.
+        """Determines the heading of the north point.
         This function doesn't take into account the declination.
 
         :return: The heading of the north point measured in degrees. The north point is found at **0** degrees.
@@ -641,3 +660,101 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
         finally:
             ifMutexRelease(self.use_mutex)
         return status
+
+    def safe_get_operation_mode(self):
+        """Read chip operating mode
+
+        :returns: REG_OPR_MODE
+        :rtype: byte
+
+        """
+
+        ifMutexAcquire(self.use_mutex)
+        try:
+            op_mode = self.BNO055.get_operation_mode()
+        except Exception as e:
+            op_mode = 0  # config mode
+            self.exceptionCount += 1
+        finally:
+            ifMutexRelease(self.use_mutex)
+        return op_mode
+
+
+    def safe_get_op_mode_str(self):
+
+        """Read chip operating mode
+        :returns: REG_OPR_MODE string name:
+
+             0=CONFIG
+             1=ACCONLY
+             2=MAGONLY
+             3=GYRONLY
+             4=ACCMAG
+             5=ACCGYRO
+             6=MAGGYRO
+             7=AMG
+             8=IMUPLUS
+             9=COMPASS
+             10=M4G
+             11=NDOF_FMC_OFF
+             12=NDOF
+        """
+        op_mode_str = OP_MODE_STRINGS[self.safe_get_operation_mode()]
+        return op_mode_str
+
+    def printHeading(self,cr = True):
+        euler = self.safe_read_euler()
+
+        string_to_print = "Heading: {:>5.1f} ".format(round(euler[0],1))
+        if cr:
+            print(string_to_print)
+        else:
+            print(string_to_print, end='\r')
+
+    def safe_readIMU(self):
+        # Read the magnetometer, gyroscope, accelerometer, euler, and temperature values
+        mag    = self.safe_read_magnetometer()
+        gyro   = self.safe_read_gyroscope()
+        accel  = self.safe_read_accelerometer()
+        euler  = self.safe_read_euler()
+        linacc = self.safe_read_linear_acceleration()
+        temp   = self.safe_read_temperature()
+        return [mag, gyro, accel, euler, linacc, temp]
+
+    def printReadings(self, readingsMGAELT, cr = False):
+        mag = readingsMGAELT[0]
+        gyro = readingsMGAELT[1]
+        accel = readingsMGAELT[2]
+        euler = readingsMGAELT[3]
+        linacc = readingsMGAELT[4]
+        temp = readingsMGAELT[5]
+
+        string_to_print = \
+                          "Euler Heading: {:>5.1f} Roll: {:>5.1f} Pitch: {:>5.1f} | " \
+                          "Linear Acc XYZ: {:>4.1f} {:>4.1f} {:>4.1f} | " \
+                          "Mag XYZ: {:>6.1f} {:>6.1f} {:>6.1f} | " \
+                          "Gyro XYZ: {:>6.1f} {:>6.1f} {:>6.1f} | " \
+                          "Accel XYZ: {:>6.1f} {:>6.1f} {:>6.1f} | " \
+                          "Temp: {:.1f}C".format(
+                                                    round(euler[0],1), round(euler[1],1), round(euler[2],1),
+                                                    round(linacc[0],1), round(linacc[1],1), round(linacc[2],1),
+                                                    mag[0], mag[1], mag[2],
+                                                    round(gyro[0],1), round(gyro[1],1), round(gyro[2],1),
+                                                    accel[0], round(accel[1],1), round(accel[2],1),
+                                                    temp)
+        if cr:
+            print(string_to_print)
+        else:
+            print(string_to_print, end='\r')
+
+
+    def readAndPrint(self,cnt=1,delay=0.02,cr = False):
+        if cnt == 0:
+            while True:
+                self.printReadings(self.safe_readIMU(),cr)
+                sleep(delay)
+        else:
+            for i in range(cnt):
+                self.printReadings(self.safe_readIMU(),cr)
+                sleep(delay)
+
