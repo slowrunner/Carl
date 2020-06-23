@@ -21,7 +21,8 @@ import sys
 sys.path.append('/home/pi/Carl/plib')
 import os
 from time import sleep, clock
-import easygopigo3 # import the GoPiGo3 class
+# import easygopigo3 # import the GoPiGo3 class
+import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
 import math
 import tiltpan
 import status
