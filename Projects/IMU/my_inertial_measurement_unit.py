@@ -14,6 +14,8 @@
 
 from __future__ import print_function
 from __future__ import division
+import sys
+sys.path.append('/home/pi/Carl/plib/')
 
 import myBNO055 as BNO055
 
