@@ -377,7 +377,7 @@ class SafeIMUSensor(inertial_measurement_unit.InertialMeasurementUnit):
            but its purpose is to block a given script until the sensor reports it has fully calibrated.
 
            If you wish to block your code until the sensor calibrates and still have control over your script, use
-           :py:meth:`my_easy_inertial_measurement_unit.EasyIMUSensor.my_safe_sgam_calibration_status` method along with a ``while`` loop to continuously check it.
+           :py:meth:`my_safe_inertial_measurement_unit.SafeIMUSensor.my_safe_sgam_calibration_status` method along with a ``while`` loop to continuously check it.
 
         """
 
