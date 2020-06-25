@@ -103,8 +103,9 @@ class TiltPan():
     def off(self):          # turn both servo PWM freq to 0 to stop holding position
       TiltPan.ps.gpg.set_servo(TiltPan.ps.portID, 0)
       TiltPan.ts.gpg.set_servo(TiltPan.ts.portID, 0)
-      TiltPan.tilt_position = UNKNOWN
-      TiltPan.pan_position = UNKNOWN
+      # With the servos off, the position may change without command
+      # TiltPan.tilt_position = UNKNOWN
+      # TiltPan.pan_position = UNKNOWN
 
     def tilt(self,tgt=None):
       if tgt != None: TiltPan.tilt_position = tgt
