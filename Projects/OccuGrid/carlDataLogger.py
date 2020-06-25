@@ -27,10 +27,12 @@ try:
     import myconfig
     import myimutils   # display(windowname, image, scale_percent=30)
     from my_safe_inertial_measurement_unit import SafeIMUSensor
+    import myBNO055 as BNO055
     from my_easygopigo3 import EasyGoPiGo3
     Carl = True
 except:
     Carl = False
+
 # import easygopigo3 # import the EasyGoPiGo3 class
 import os
 import numpy as np
@@ -45,95 +47,174 @@ ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
 # ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
-ap.add_argument("-fps", "--fps", type=int, default=5, help="video frames with data capture per second")
+ap.add_argument("-fps", "--fps", type=int, default=1, help="video frames with data capture per second")
 args = vars(ap.parse_args())
 print("carlDataLogger.py Started with args:",args)
 # filename = args['file']
 # loopFlag = args['loop']
 fps = args['fps']
+loopSleep = 1.0/fps
 
 # CONSTANTS
+DEBUG = True
+
 IMUPORT = "AD1"
+IMUMODE = BNO055.OPERATION_MODE_IMUPLUS
+DSPORT  = "RPI_1"  # ONLY HW I2C to keep I2C bus alive reliably
 
 # VARIABLES
 start_dt = dt.datetime.now()
 l_enc = 0
 r_enc = 0
+dl_enc = 0
+dr_enc = 0
+reading_dt = start_dt
+dReading_dt = 0
 imu_heading = 0
-fwd_range = 9999
+ds_range_mm = 9999
+pan_angle = 0
 data_f = None
+egpg = None
 
 
 
 # METHODS
 
 def do_setup():
-    global data_f
+    global egpg, data_f
+
     timestr = start_dt.strftime("%Y%m%d-%H%M%S")
     print("carlDataLogger started at {}".format(timestr))
+
+    # Instantiate my_easygopigo3.EasyGoPiGo3 object
+    try:
+        egpg = EasyGoPiGo3(use_mutex=True)
+        myconfig.setParameters(egpg)
+        egpg.reset_encoders()
+        if DEBUG: print("egpg initialized")
+    except Exception as e:
+        print("Unable to instantiate my_easygopigo3.EasyGoPiGo3 object")
+        print(e)
+        exit(1)
+
+    # Instantiate ToF Distance Sensor, add to egpg
+    try:
+        egpg.ds = egpg.init_distance_sensor(port=DSPORT)
+        if DEBUG: print("egpg.ds initialized")
+    except Exception as e:
+        print("Unable to instantiate DI distance_sensor")
+        print(e)
+        exit(1)
+
+    # Instantiate my_safe_inertial_measurement_unit.SafeIMUSensor for the DI IMU Sensor
+    try:
+        egpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex=True, mode=IMUMODE)
+        sleep(1.0)  # allow to settle
+        if DEBUG: print("egpg.imu initialized")
+    except Exception as e:
+        print("Unable to instantiate my_safe_inertial_measurement_unit.SafeIMUSensor")
+        print(e)
+        exit(1)
+
+    # Instantiate tilt-pan servos
+    try:
+        egpg.tp = tiltpan.TiltPan(egpg)
+        egpg.tp.tiltpan_center()
+        egpg.tp.off()  # turn off till we need
+        if DEBUG: print("egpg.tp initialized")
+
+    except Exception as e:
+        print("Unable to instantiate tiltpan servos")
+        print(e)
+        exit(1)
+
     try:
         os.mkdir(timestr, 0o777)
     except OSError:
         print("Could not create {}/".format(timestr))
         exit(1)
-    os.chdir(timestr)
-    data_f = open("Data.txt", 'w')
+    try:
+        os.chdir(timestr)
+        data_f = open("Data.txt", 'w')
+        headerStr = "{}              {: >7}  {: >7}   {: >7}  {: >6}  {}".format('timestr','l_enc','r_enc','imu_hdg','pan_ang','ds_mm')
+        print("writing: ",headerStr)
+        data_f.write(headerStr + '\n')
+    except Exception as e:
+        print("Could not open Data file")
+        print(e)
+        exit(1)
+
+    print("carlDataLogger.do_setup() complete")
+
+def readSensors():
+    global egpg,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm
+
+    prior_l_enc = l_enc
+    prior_r_enc = r_enc
+    prior_reading_dt = reading_dt
+
+    reading_dt = dt.datetime.now()
+
+    l_enc, r_enc = egpg.read_encoders()
+    imu_heading = egpg.imu.safe_read_euler()[0]
+    ds_range_mm = myDistSensor.adjustReadingInMMForError(egpg.ds.read_mm())
+    pan_angle = egpg.tp.get_pan_pos() - tiltpan.PAN_CENTER
+
+    dl_enc = l_enc - prior_l_enc
+    dr_enc = r_enc - prior_r_enc
+    dReading_dt = reading_dt - prior_reading_dt
 
 def do_teardown():
-    global data_f
+    global data_f,egpg
+
+    print("carlDataLogger: Begin do_teardown()")
 
     # close data file
     data_f.close()
+
+    if (egpg != None): egpg.stop()
+    sleep(1)
+
     print("carlDataLogger: Teardown complete")
+
+
+def writeData():
+    global data_f,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm
+
+    timestr = reading_dt.strftime("%Y%m%d-%H%M%S.%f")[:-3]
+    dataStr = "{}, {:> 7d}, {:> 7d}, {:> 7.1f}, {:> 6.1f}, {:> 7.0f}".format(timestr,l_enc,r_enc,imu_heading,pan_angle,ds_range_mm)
+    print("writing: ",dataStr)
+    data_f.write(dataStr + '\n')
 
 # MAIN
 
 def main():
 
-    if Carl: runLog.logger.info("Started")
-    try:
-        egpg = EasyGoPiGo3(use_mutex=True)
-    except Exception as e:
-        strToLog = "Could not instantiate an EasyGoPiGo3"
-        print(strToLog)
-        print("Exception:", str(e))
-        # if Carl: lifeLog.logger.info(strToLog)
-        exit(1)
-    if Carl:
-        myconfig.setParameters(egpg)
-        tp = tiltpan.TiltPan(egpg)
-        tp.tiltpan_center()
-        tp.off()
-        try:
-            egpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex=True, init=False)
-        except Exception as e:
-            strToLog = "Could not instantiate SafeIMUSensor"
-            print(strToLog)
-            print("Exception:",str(e))
-            exit(1)
-
+    runLog.logger.info("Started")
     do_setup()
 
     try:
         # Do Somthing in a Loop
-        loopSleep = 1 # second
         loopCount = 0
-        keepLooping = False
+        keepLooping = True
+
         while keepLooping:
             loopCount += 1
             # do something
+            readSensors()
+            writeData()
             sleep(loopSleep)
 
-        # Do Something Once
 
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
-       	    if (egpg != None): egpg.stop()           # stop motors
             print("\n*** Ctrl-C detected - Finishing up")
-            do_teardown()
-            sleep(1)
-    if (egpg != None): egpg.stop()
-    if Carl: runLog.logger.info("Finished")
+
+    finally:
+        do_teardown()
+        sleep(1)
+
+    runLog.logger.info("Finished")
     sleep(1)
 
 

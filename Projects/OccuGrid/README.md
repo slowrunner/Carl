@@ -27,3 +27,14 @@ Based on BigFaceRobotics Big Wheel Bot
       at 5 frames/second
 
 
+
+File: carlDataLogger.py [-fps 1]
+- Initializes bot and sensors
+- Creates directory ./<datetime>/
+- Opens ./<datetime>/Data.txt for recording sensor data 
+- Loops fps times per second
+  - reads sensors
+  - writes (timestamp precision is 1ms):
+    timestamp, l_enc, r_enc, imu_hdg, pan_ang, ds_mm
+  - adds frame from pycam to pycam.mp4
+- Stop recording data and video with ctrl-c
