@@ -39,7 +39,7 @@ import numpy as np
 import datetime as dt
 import argparse
 from time import sleep
-
+from imutils.video import VideoStream
 import cv2
 
 # ARGUMENT PARSER
@@ -47,12 +47,14 @@ ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
 # ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
-ap.add_argument("-fps", "--fps", type=int, default=1, help="video frames with data capture per second")
+ap.add_argument("-fps", "--fps", type=int, default=5, help="video frames with data capture per second")
+ap.add_argument("-d", "--display", default=False, action='store_true', help="optional display video")
 args = vars(ap.parse_args())
 print("carlDataLogger.py Started with args:",args)
 # filename = args['file']
 # loopFlag = args['loop']
 fps = args['fps']
+display = args['display']
 loopSleep = 1.0/fps
 
 # CONSTANTS
@@ -61,27 +63,42 @@ DEBUG = True
 IMUPORT = "AD1"
 IMUMODE = BNO055.OPERATION_MODE_IMUPLUS
 DSPORT  = "RPI_1"  # ONLY HW I2C to keep I2C bus alive reliably
+CODEC   = "MJPG"
+
+# NOTE: Carl has v1.3 PiCamera
+
+# PiCamera v1.3 Specifications
+# 5MP Sensor 2592x1944 pixels
+# 35mm f2.9 (FF DSLR equiv focal length)
+# Fixed Focus 1m - infinity
+# Full FoV = 53 x 41 degrees
+# Valid PiCamera v1.3 Resolutions
+IMAGEHEIGHT = 320  # 640  1024  1280  1296  1296  1920  2592
+IMAGEWIDTH  = 240  # 480   600   960   730   972  1080  1944
+# Aspect Ratio       4:3   4:3   4:3  16:9   4:3  16:9C  4:3
+#     C = Cropped FoV
 
 # VARIABLES
 start_dt = dt.datetime.now()
 l_enc = 0
 r_enc = 0
-dl_enc = 0
+dl_enc = 0     # delta since prior reading
 dr_enc = 0
 reading_dt = start_dt
-dReading_dt = 0
+dReading_dt = 0      # delta since prior reading
 imu_heading = 0
 ds_range_mm = 9999
 pan_angle = 0
-data_f = None
-egpg = None
-
+data_h = None        # handle to <dt>/Data.txt 
+egpg = None          # EasyGoPiGo3 object with bound sensor objects ds,imu,tp (TiltPan) (via "monkey-patching")
+video_h = None
+vs = None
 
 
 # METHODS
 
 def do_setup():
-    global egpg, data_f
+    global egpg, data_h, video_h, vs
 
     timestr = start_dt.strftime("%Y%m%d-%H%M%S")
     print("carlDataLogger started at {}".format(timestr))
@@ -135,14 +152,28 @@ def do_setup():
         exit(1)
     try:
         os.chdir(timestr)
-        data_f = open("Data.txt", 'w')
+        data_h = open("Data.txt", 'w')
         headerStr = "{}              {: >7}  {: >7}   {: >7}  {: >6}  {}".format('timestr','l_enc','r_enc','imu_hdg','pan_ang','ds_mm')
         print("writing: ",headerStr)
-        data_f.write(headerStr + '\n')
+        data_h.write(headerStr + '\n')
     except Exception as e:
         print("Could not open Data file")
         print(e)
         exit(1)
+
+    # Initialize picamera as videostream
+    try:
+        if DEBUG: print("Initializing PiCamera VideoStream")
+        vs = VideoStream(usePiCamera=True).start()
+        sleep(2)   # let camera warm up
+        fourcc = cv2.VideoWriter_fourcc(*CODEC)
+        #                            filename,      codec,  fps,    ( width, height ),      color
+        video_h = cv2.VideoWriter(timestr + '.avi', fourcc, fps, (IMAGEWIDTH, IMAGEHEIGHT), True)
+    except Exception as e:
+        print("Could not initialize video")
+        print(e)
+        exit(1)
+
 
     print("carlDataLogger.do_setup() complete")
 
@@ -164,27 +195,47 @@ def readSensors():
     dr_enc = r_enc - prior_r_enc
     dReading_dt = reading_dt - prior_reading_dt
 
+def captureFrame():
+    try:
+        frame = vs.read()
+        video_h.write(frame)
+        if display:
+            cv2.imshow("Frame Saved", frame)
+            cv2.waitKey(1)
+    except Exception as e:
+        print("captureFrame() Exception")
+        print(e)
+
+
 def do_teardown():
-    global data_f,egpg
+    global data_h,egpg
 
     print("carlDataLogger: Begin do_teardown()")
 
-    # close data file
-    data_f.close()
-
     if (egpg != None): egpg.stop()
     sleep(1)
+
+    # close data file
+    data_h.close()
+
+    # close video file 
+    vs.stop()
+    video_h.release()
+
+    # close any display windows
+    cv2.destroyAllWindows()
+
 
     print("carlDataLogger: Teardown complete")
 
 
 def writeData():
-    global data_f,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm
+    global data_h,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm
 
     timestr = reading_dt.strftime("%Y%m%d-%H%M%S.%f")[:-3]
     dataStr = "{}, {:> 7d}, {:> 7d}, {:> 7.1f}, {:> 6.1f}, {:> 7.0f}".format(timestr,l_enc,r_enc,imu_heading,pan_angle,ds_range_mm)
     print("writing: ",dataStr)
-    data_f.write(dataStr + '\n')
+    data_h.write(dataStr + '\n')
 
 # MAIN
 

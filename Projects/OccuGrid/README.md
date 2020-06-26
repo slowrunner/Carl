@@ -26,6 +26,8 @@ Based on BigFaceRobotics Big Wheel Bot
       write Arduino Data to datetime_str/Data.txt file
       at 5 frames/second
 
+Requirements:
+- install vlc to see .avi files
 
 
 File: carlDataLogger.py [-fps 1]
