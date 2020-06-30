@@ -1,13 +1,49 @@
 #!/usr/bin/env python3
 #
-# carlDataLogger.py
+# carlDataExplore.py
 
 """
 Documentation:
 
-    Records Camera at 320x240 at 5 fps to datetime_str/datetime.mp4
-    Records l_enc, r_enc, imu_heading, range for each frame
+    ToF Distance Sensor beam width 25 degrees (~25cm at 1 meter)
+    Ensure Carl is located at undock point
+    ( ./carlDataLogger.py -fps 1 -display   in a different window)
+    ./carlDataExplore.py
     Quits on Keyboard Interrupt
+
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 beam widths {-50 -25  0 +25 +50} degrees around heading
+        If no fwd obstruction within 1 meter, drives forward half meter, otherwise break
+    Save StartToRoomY distance (traveled + dist to obstruction)
+    Set Target Distance = half distance traveled
+    Turn 180 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no fwd obstruction within 1 meter, drives forward half meter or till target distance, otherwise break
+    Turn 90 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no obstruction within 1 meter, drives forward half meter, otherwise break
+    Turn 180 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no obstruction within 1 meter, drives forward half meter, otherwise break
+    Turn 90 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no fwd obstruction within 1 meter, drives forward half meter, otherwise break
+    Turn 90 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no obstruction within distance to original search line, drives forward to orig search line, otherwise break
+    Turn 90 CW
+    Repeat:
+        Sweeps distance sensor across FoV of picamera in 5 positions {-50 -25 0 +25 +50} degrees around heading
+        If no obstruction within distance 1 meter, drives forward half meter, otherwise break
+
+
+
+
 
 """
 
@@ -42,7 +78,6 @@ from time import sleep
 from imutils.video import VideoStream
 import imutils
 import cv2
-import signal
 
 # ARGUMENT PARSER
 ap = argparse.ArgumentParser()
@@ -248,17 +283,12 @@ def writeData():
     if DEBUG: print("writing: ",dataStr)
     data_h.write(dataStr + '\n')
 
-def handleSIGTERM():
-    raise SystemExit()
-    return
-
 # MAIN
 
 def main():
 
     runLog.logger.info("Started")
     do_setup()
-    signal.signal(signal.SIGTERM,handleSIGTERM)
 
     try:
         # Do Somthing in a Loop
@@ -277,9 +307,6 @@ def main():
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
             print("\n*** Ctrl-C detected - Finishing up")
-
-    except SystemExit:
-            print("\n*** SIGTERM detected - Finishing up")
 
     finally:
         do_teardown()

@@ -26,6 +26,12 @@ Based on BigFaceRobotics Big Wheel Bot
       write Arduino Data to datetime_str/Data.txt file
       at 5 frames/second
 
+Relevant Metrics:
+- Distance Sensor Beam Width: 25 deg, Max range 3000 mm
+- PiCam v1.3 Horizontal FoV: 53.5 degrees
+- GoPiGo3 (Carl) Spin Radius: 14cm ctr "axle" to corner
+                 Orbit Radius: 19cm ctr wheel to opposite corner
+
 Requirements:
 - install vlc to see .avi files
 
