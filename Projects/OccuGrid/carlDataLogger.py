@@ -248,9 +248,15 @@ def writeData():
     if DEBUG: print("writing: ",dataStr)
     data_h.write(dataStr + '\n')
 
-def handleSIGTERM():
+def handleSIGTERM(*argv):
     raise SystemExit()
     return
+
+
+
+def remoteControl():
+   return 0
+
 
 # MAIN
 
@@ -271,6 +277,7 @@ def main():
             readSensors()
             writeData()
             captureFrame()
+            remoteControl()
             sleep(loopSleep)
 
 

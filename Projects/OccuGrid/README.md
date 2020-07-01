@@ -31,6 +31,7 @@ Relevant Metrics:
 - PiCam v1.3 Horizontal FoV: 53.5 degrees
 - GoPiGo3 (Carl) Spin Radius: 14cm ctr "axle" to corner
                  Orbit Radius: 19cm ctr wheel to opposite corner
+- Occupancy Grid Size = 30cm to allow 360 degree spin inside cell
 
 Requirements:
 - install vlc to see .avi files
@@ -46,3 +47,11 @@ File: carlDataLogger.py [-fps 1]
     timestamp, l_enc, r_enc, imu_hdg, pan_ang, ds_mm
   - adds frame from pycam to pycam.mp4
 - Stop recording data and video with ctrl-c
+
+
+File: kbd_run_this.py
+- Tests kbd_easygopigo3.py (no data logging)
+
+File: kbd_easygopigo3.py 
+- Keyboard controlled EasyGoPiGo3 class with servo control keys
+
