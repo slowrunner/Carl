@@ -18,13 +18,15 @@ Based on BigFaceRobotics Big Wheel Bot
     - Left IR points fwd + 45 degrees
     - Right IR points fwd - 45 degrees
   - Big_Wheel_Pi.py
-    - loop
-      read cmd_data from HC05 Ultrasonic sensor,and remote buttons
+    - loop 
+```
+      read cmd_data from HC05 Ultrasonic sensor,and remote buttons 
       send cmd_data to Arduino 
       read Arduino Data
       save a video frame to datetime_str/datetime_str.avi
       write Arduino Data to datetime_str/Data.txt file
       at 5 frames/second
+```
 
 Relevant Metrics:
 - Distance Sensor Beam Width: 25 deg, Max range 3000 mm
@@ -70,6 +72,7 @@ MODIFICATIONS:
 
 
 OPERATION:
+```
    _____       _____ _  _____         ____  
   / ____|     |  __ (_)/ ____|       |___ \ 
  | |  __  ___ | |__) || |  __  ___     __) |
@@ -107,4 +110,4 @@ To move the motors, make sure you have a fresh set of batteries powering the GoP
 [key 0       ] :  Turn ON/OFF both eyes of the GoPiGo3
 [key <BACKSPACE>] :  Change the eyes' color on the go
 [key <ESC>   ] :  Exit
-
+```
