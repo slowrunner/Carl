@@ -49,9 +49,62 @@ File: carlDataLogger.py [-fps 1]
 - Stop recording data and video with ctrl-c
 
 
-File: kbd_run_this.py
+FILE: kbd_egpg3_run_this.py
 - Tests kbd_easygopigo3.py (no data logging)
 
-File: kbd_easygopigo3.py 
-- Keyboard controlled EasyGoPiGo3 class with servo control keys
+FILE: kbd_easygopigo3.py
+PURPOSE: Keyboard Controlled GoPiGo3 Class w/Servo Support
+USAGE: See / run    kbd_egpg3_run_this.py
+BASED ON:  Dexter/Projects/BasicRobotControl
+
+MODIFICATIONS:
+- Added servo control keys  4:left 12.5 degrees, 5:center + off, 6:right 12.5 degrees
+  (based on my TiltPan class)
+- Added status line under logo with WheelDia, WheelBaseWidth, Speed, and Voltage
+    e.g.    WD: 64.00  WBW: 114.05  SPD: 150  V: 10.7
+- Added methods for Arrow Keys 
+    Up: fwd 30cm, Dn: bwd 15cm, Left: Spin CCW 90, and Right: Spin CW 90
+- Changed <F3> to perform forward 90 degree turn (from one wheel revolution)
+- Added  <F5> Clockwise 180 degree spin
+- Changed color change key from <INSERT> to <BACKSPACE> (Mac has no insert key)
+
+
+OPERATION:
+   _____       _____ _  _____         ____  
+  / ____|     |  __ (_)/ ____|       |___ \ 
+ | |  __  ___ | |__) || |  __  ___     __) |
+ | | |_ |/ _ \|  ___/ | | |_ |/ _ \   |__ < 
+ | |__| | (_) | |   | | |__| | (_) |  ___) |
+  \_____|\___/|_|   |_|\_____|\___/  |____/ 
+                                            
+  WD: 64.00  WBW: 114.05  SPD: 150  V: 10.7
+                                            
+
+Press the following keys to run the features of the GoPiGo3.
+To move the motors, make sure you have a fresh set of batteries powering the GoPiGo3.
+
+[key w       ] :  Move the GoPiGo3 forward
+[key s       ] :  Move the GoPiGo3 backward
+[key a       ] :  Turn the GoPiGo3 to the left
+[key d       ] :  Turn the GoPiGo3 to the right
+[key <SPACE> ] :  Stop the GoPiGo3 from moving
+[key <UP>    ] :  Drive forward for 30 cm
+[key <DOWN>  ] :  Drive backward for 15cm
+[key <LEFT>  ] :  Spin Left/CCW 90 degrees
+[key <RIGHT> ] :  Spin Right/CW 90 degrees
+[key <F1>    ] :  Drive forward for 10 cm
+[key <F2>    ] :  Drive forward for 10 inches
+[key <F3>    ] :  Turn Right 90 degrees (only left wheel rotates)
+[key <F5>    ] :  Spin Right/CW 180 degrees
+[key 1       ] :  Turn ON/OFF left blinker of the GoPiGo3
+[key 2       ] :  Turn ON/OFF right blinker of the GoPiGo3
+[key 3       ] :  Turn ON/OFF both blinkers of the GoPiGo3
+[key 4       ] :  Rotate Servo Left 12.5 degrees
+[key 5       ] :  Center Servo
+[key 6       ] :  Rotate Servo Right 12.5 degrees
+[key 8       ] :  Turn ON/OFF left eye of the GoPiGo3
+[key 9       ] :  Turn ON/OFF right eye of the GoPiGo3
+[key 0       ] :  Turn ON/OFF both eyes of the GoPiGo3
+[key <BACKSPACE>] :  Change the eyes' color on the go
+[key <ESC>   ] :  Exit
 

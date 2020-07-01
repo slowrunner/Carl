@@ -1,8 +1,25 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
+FILE: kbd_easygopigo3.py
+PURPOSE: Keyboard Controlled GoPiGo3 Class w/Servo Support
+USAGE: See / run    kbd_egpg3_run_this.py
+BASED ON:  Dexter/Projects/BasicRobotControl
+
+MODIFICATIONS:
+- Added servo control keys  4:left 12.5 degrees, 5:center + off, 6:right 12.5 degrees
+  (based on my TiltPan class)
+- Added status line under logo with WheelDia, WheelBaseWidth, Speed, and Voltage
+    e.g.    WD: 64.00  WBW: 114.05  SPD: 150  V: 10.7
+- Added methods for Arrow Keys
+    Up: fwd 30cm, Dn: bwd 15cm, Left: Spin CCW 90, and Right: Spin CW 90
+- Changed <F3> to perform forward 90 degree turn (from one wheel revolution)
+- Added  <F5> Clockwise 180 degree spin
+- Changed color change key from <INSERT> to <BACKSPACE> (Mac has no insert key)
+
+NOTICES:
 GoPiGo3 for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
-Copyright (C) 2017  Dexter Industries
+Copyright (C) 2020  Dexter Industries / Modular Robotics
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -42,12 +59,18 @@ class GoPiGo3WithKeyboard(object):
     left_eye_on = False
     right_eye_on = False
 
+    # Speed for keyboarded gopigo3
+    SPEED_DPS = 150  # safe and accurate speed is 150, DEFAULT_SPEED is 300, NO_LIMIT_SPEED is 1000
+
     def __init__(self, use_mutex=True):
         """
         Instantiates the key-bindings between the GoPiGo3 and the keyboard's keys.
         Sets the order of the keys in the menu.
         """
         self.gopigo3 = easy.EasyGoPiGo3(use_mutex=use_mutex)
+
+        # change to a slower default speed
+        self.gopigo3.set_speed(self.SPEED_DPS)
 
         # monkey patch the tiltpan object onto the gopigo3kbd instance
         self.gopigo3.tp = tiltpan.TiltPan(self.gopigo3)
@@ -59,10 +82,14 @@ class GoPiGo3WithKeyboard(object):
         "d" : ["Turn the GoPiGo3 to the right", "right"],
         "<SPACE>" : ["Stop the GoPiGo3 from moving", "stop"],
 
-        "<F1>" : ["Drive forward for 30 cm", "forward30cm"],
-        "<F2>" : ["Drive backward for 15 cm", "backward15cm"],
+        "<UP>"    : ["Drive forward for 30 cm", "forward30cm"],
+        "<DOWN>"  : ["Drive backward for 15cm", "backward15cm"],
+        "<LEFT>"  : ["Spin Left/CCW 90 degrees", "spinCCW90"],
+        "<RIGHT>" : ["Spin Right/CW 90 degrees", "spinCW90"],
+
+        "<F1>" : ["Drive forward for 10 cm", "forward10cm"],
+        "<F2>" : ["Drive forward for 10 inches", "forward10in"],
         "<F3>" : ["Turn Right 90 degrees (only left wheel rotates)", "forwardturn90"],
-        "<F4>" : ["Spin Right/CW 90 degrees", "spinCW90"],
         "<F5>" : ["Spin Right/CW 180 degrees", "spinCW180"],
 
         "1" : ["Turn ON/OFF left blinker of the GoPiGo3", "leftblinker"],
@@ -77,11 +104,11 @@ class GoPiGo3WithKeyboard(object):
         "9" : ["Turn ON/OFF right eye of the GoPiGo3", "righteye"],
         "0" : ["Turn ON/OFF both eyes of the GoPiGo3", "eyes"],
 
-        "<INSERT>" : ["Change the eyes' color on the go", "eyescolor"],
+        "<BACKSPACE>" : ["Change the eyes' color on the go", "eyescolor"],
 
         "<ESC>" : ["Exit", "exit"],
         }
-        self.order_of_keys = ["w", "s", "a", "d", "<SPACE>", "<F1>", "<F2>", "<F3>", "<F4>", "<F5>", "1", "2", "3", "4", "5", "6", "8", "9", "0", "<INSERT>", "<ESC>"]
+        self.order_of_keys = ["w", "s", "a", "d", "<SPACE>", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "<F1>", "<F2>", "<F3>", "<F5>", "1", "2", "3", "4", "5", "6", "8", "9", "0", "<BACKSPACE>", "<ESC>"]
 
 
     def executeKeyboardJob(self, argument):
@@ -120,6 +147,9 @@ class GoPiGo3WithKeyboard(object):
         print(" | | |_ |/ _ \|  ___/ | | |_ |/ _ \   |__ < ")
         print(" | |__| | (_) | |   | | |__| | (_) |  ___) |")
         print("  \_____|\___/|_|   |_|\_____|\___/  |____/ ")
+        print("                                            ")
+        print("  WD:{:> 6.2f}  WBW:{:> 7.2f}  SPD:{:> 4.0f}  V:{:> 4.1f}".format(
+                self.gopigo3.WHEEL_DIAMETER, self.gopigo3.WHEEL_BASE_WIDTH, self.gopigo3.get_speed(), self.gopigo3.volt()))
         print("                                            ")
 
     def drawDescription(self):
@@ -164,6 +194,16 @@ class GoPiGo3WithKeyboard(object):
 
         return "moving"
 
+    def _gopigo3_command_forward10cm(self):
+        self.gopigo3.drive_cm(10)
+
+        return "path"
+
+    def _gopigo3_command_forward10in(self):
+        self.gopigo3.drive_inches(10)
+
+        return "path"
+
     def _gopigo3_command_forward30cm(self):
         self.gopigo3.drive_cm(30)
 
@@ -181,6 +221,11 @@ class GoPiGo3WithKeyboard(object):
 
     def _gopigo3_command_spinCW90(self):
         self.gopigo3.turn_degrees(90)
+
+        return "path"
+
+    def _gopigo3_command_spinCCW90(self):
+        self.gopigo3.turn_degrees(-90)
 
         return "path"
 
@@ -231,6 +276,7 @@ class GoPiGo3WithKeyboard(object):
 
     def _gopigo3_command_servoCenter(self):
         self.gopigo3.tp.center()
+        self.gopigo3.tp.off()
 
         return "static"
 
