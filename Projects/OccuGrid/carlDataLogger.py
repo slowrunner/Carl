@@ -5,10 +5,14 @@
 """
 Documentation:
 
-    Records Camera at 320x240 at 5 fps to datetime_str/datetime.mp4
-    Records l_enc, r_enc, imu_heading, range for each frame
-    Quits on Keyboard Interrupt
+    Records Camera at 320x240 at [-fps 4] to start_datetime_str/start_datetime_str.avi
+    Records datetime_str, l_enc, r_enc, imu_heading, servo angle, range for each frame to Data.txt
+    Uses kbd_easygopigo3.GoPiGo3WithKeyboard class to control the bot and pan servo mounted range sensor
+    Quits when Esc key pressed
 
+    USAGE:  ./carlDataLogger.py [-fps 4] [-d or --display] [--help]
+
+    Note: On RPi 3B, 4 fps is maximum for accurate interval data and video
 """
 
 # from __future__ import print_function # use python 3 syntax but make it compatible with python 2
@@ -28,7 +32,8 @@ try:
     import myimutils   # display(windowname, image, scale_percent=30)
     from my_safe_inertial_measurement_unit import SafeIMUSensor
     import myBNO055 as BNO055
-    from my_easygopigo3 import EasyGoPiGo3
+    # from my_easygopigo3 import EasyGoPiGo3
+    from kbd_easygopigo3 import GoPiGo3WithKeyboard
     Carl = True
 except:
     Carl = False
@@ -43,13 +48,16 @@ from imutils.video import VideoStream
 import imutils
 import cv2
 import signal
+# module for capturing keyboard input events
+from curtsies import Input
+
 
 # ARGUMENT PARSER
 ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
 # ap.add_argument("-l", "--loop", default=False, action='store_true', help="optional loop mode")
-ap.add_argument("-fps", "--fps", type=int, default=5, help="video frames with data capture per second")
+ap.add_argument("-fps", "--fps", type=int, default=4, help="video [4] frames with data capture per second")
 ap.add_argument("-d", "--display", default=False, action='store_true', help="optional display video")
 args = vars(ap.parse_args())
 print("carlDataLogger.py Started with args:",args)
@@ -57,7 +65,6 @@ print("carlDataLogger.py Started with args:",args)
 # loopFlag = args['loop']
 fps = args['fps']
 display = args['display']
-loopSleep = 1.0/fps
 
 # CONSTANTS
 DEBUG = False
@@ -92,35 +99,45 @@ dReading_dt = 0      # delta since prior reading
 imu_heading = 0
 ds_range_mm = 9999
 pan_angle = 0
-data_h = None        # handle to <dt>/Data.txt 
-egpg = None          # EasyGoPiGo3 object with bound sensor objects ds,imu,tp (TiltPan) (via "monkey-patching")
+data_h = None        # handle to <dt>/Data.txt
+# egpg = None          # EasyGoPiGo3 object with bound sensor objects ds,imu,tp (TiltPan) (via "monkey-patching")
+kegpg = None         # GoPiGo3WithKeyboard object with bound sensor objects ds,imu,tp (TiltPan) (via "monkey-patching")
 video_h = None
 vs = None
+rw_timing = 0.05 # initial guess for time to read sensors and write to Data.txt file
+kbdWaitTime = .001  # 
+# set loopSleep to make loop as close to the requested fps as possible
+loopSleep = ((1.0/fps)-rw_timing-kbdWaitTime) if ((1.0/fps) > (rw_timing+kbdWaitTime)) else 0.001
 
 
 # METHODS
 
 def do_setup():
-    global egpg, data_h, video_h, vs
+    global kegpg, data_h, video_h, vs
 
     timestr = start_dt.strftime("%Y%m%d-%H%M%S")
     print("carlDataLogger started at {}".format(timestr))
 
     # Instantiate my_easygopigo3.EasyGoPiGo3 object
     try:
-        egpg = EasyGoPiGo3(use_mutex=True)
-        myconfig.setParameters(egpg)
-        egpg.reset_encoders()
-        if DEBUG: print("egpg initialized")
+        # egpg = EasyGoPiGo3(use_mutex=True)
+        kegpg = GoPiGo3WithKeyboard(use_mutex=True)
+        # myconfig.setParameters(egpg)
+        myconfig.setParameters(kegpg.gopigo3)
+        # egpg.reset_encoders()
+        kegpg.gopigo3.reset_encoders()
+        if DEBUG: print("kegpg initialized")
     except Exception as e:
-        print("Unable to instantiate my_easygopigo3.EasyGoPiGo3 object")
+        # print("Unable to instantiate my_easygopigo3.EasyGoPiGo3 object")
+        print("Unable to instantiate kbd_easygopigo3.GoPiGo3WithKeyboard object")
         print(e)
         exit(1)
 
-    # Instantiate ToF Distance Sensor, add to egpg
+    # Instantiate ToF Distance Sensor, add to kegpg
     try:
-        egpg.ds = egpg.init_distance_sensor(port=DSPORT)
-        if DEBUG: print("egpg.ds initialized")
+        # egpg.ds = egpg.init_distance_sensor(port=DSPORT)
+        kegpg.ds = kegpg.gopigo3.init_distance_sensor(port=DSPORT)
+        if DEBUG: print("kegpg.ds initialized")
     except Exception as e:
         print("Unable to instantiate DI distance_sensor")
         print(e)
@@ -128,15 +145,17 @@ def do_setup():
 
     # Instantiate my_safe_inertial_measurement_unit.SafeIMUSensor for the DI IMU Sensor
     try:
-        egpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex=True, mode=IMUMODE)
+        # egpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex=True, mode=IMUMODE)
+        kegpg.imu = SafeIMUSensor(port = IMUPORT, use_mutex=True, mode=IMUMODE)
         sleep(1.0)  # allow to settle
-        if DEBUG: print("egpg.imu initialized")
+        if DEBUG: print("kegpg.imu initialized")
     except Exception as e:
         print("Unable to instantiate my_safe_inertial_measurement_unit.SafeIMUSensor")
         print(e)
         exit(1)
 
     # Instantiate tilt-pan servos
+    """  (Initialized by kbd_easygopigo3 as kegpg.tp)
     try:
         egpg.tp = tiltpan.TiltPan(egpg)
         egpg.tp.tiltpan_center()
@@ -147,7 +166,8 @@ def do_setup():
         print("Unable to instantiate tiltpan servos")
         print(e)
         exit(1)
-
+    """
+    # initialize new folder and data file
     try:
         os.mkdir(timestr, 0o777)
     except OSError:
@@ -182,10 +202,40 @@ def do_setup():
         exit(1)
 
 
+    # write logo and key commands menu
+    kegpg.drawLogo()
+    kegpg.drawDescription()
+    kegpg.drawMenu()
+    kegpg.result = "nothing"  # hold the last command result string
+    #     result will be one of "nothing", "moving", "path", "static", "exit"
+
+    # if manual_mode is set to true, then the robot
+    # moves for as long as the coresponding keys are pressed
+    # if manual_mode is set to False, then a key needs
+    # to be pressed once in order for the robot to start moving
+    kegpg.manual_mode = False
+
+    # set up a handler for ignoring the Ctrl+Z commands
+    signal.signal(signal.SIGTSTP, lambda signum, frame : print("Press <ESC> to quit"))
+
     print("carlDataLogger.do_setup() complete")
 
+def checkKbdForCmd(waitTime):
+    global kegpg
+
+    # if nothing captured in waitTime seconds returns None
+    key = kegpg.input_generator.send(waitTime)
+
+    # if key event captured, execute it
+    if key is not None:
+        kegpg.result = kegpg.executeKeyboardJob(key)
+        if kegpg.result == "exit":
+            raise KeyboardInterrupt
+    elif kegpg.manual_mode is True and kegpg.result == "moving":
+        kegpg.executeKeyboardJob("x")
+
 def readSensors():
-    global egpg,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm
+    global egpg,l_enc,r_enc,dl_enc,dr_enc,reading_dt,dReading_dt,imu_heading,pan_angle,ds_range_mm,kegpg
 
     prior_l_enc = l_enc
     prior_r_enc = r_enc
@@ -193,10 +243,10 @@ def readSensors():
 
     reading_dt = dt.datetime.now()
 
-    l_enc, r_enc = egpg.read_encoders()
-    imu_heading = egpg.imu.safe_read_euler()[0]
-    ds_range_mm = myDistSensor.adjustReadingInMMForError(egpg.ds.read_mm())
-    pan_angle = egpg.tp.get_pan_pos() - tiltpan.PAN_CENTER
+    l_enc, r_enc = kegpg.gopigo3.read_encoders()
+    imu_heading = kegpg.imu.safe_read_euler()[0]
+    ds_range_mm = myDistSensor.adjustReadingInMMForError(kegpg.ds.read_mm())
+    pan_angle = kegpg.tp.get_pan_pos() - tiltpan.PAN_CENTER
 
     dl_enc = l_enc - prior_l_enc
     dr_enc = r_enc - prior_r_enc
@@ -218,11 +268,11 @@ def captureFrame():
 
 
 def do_teardown():
-    global data_h,egpg,video_h,vs
+    global data_h,kegpg,video_h,vs
 
     print("carlDataLogger: Begin do_teardown()")
 
-    if (egpg != None): egpg.stop()
+    if (kegpg != None): kegpg.gopigo3.stop()
     sleep(1)
 
     # close data file
@@ -261,32 +311,44 @@ def remoteControl():
 # MAIN
 
 def main():
+    global kbdWaitTime, loopSleep, rw_timing
 
     runLog.logger.info("Started")
     do_setup()
-    signal.signal(signal.SIGTERM,handleSIGTERM)
+    # signal.signal(signal.SIGTERM,handleSIGTERM)
 
     try:
-        # Do Somthing in a Loop
         loopCount = 0
         keepLooping = True
-
-        while keepLooping:
-            loopCount += 1
-            # do something
-            readSensors()
-            writeData()
-            captureFrame()
-            remoteControl()
-            sleep(loopSleep)
+        with Input(keynames = "curtsies", sigint_event = True) as input_generator:
+            kegpg.input_generator = input_generator
+            while keepLooping:
+                dtRWStart = dt.datetime.now()
+                loopCount += 1
+                readSensors()
+                writeData()
+                captureFrame()
+                rw_timing = (dt.datetime.now() - dtRWStart).total_seconds()
+                if DEBUG: print("rw_timing: {:5.3f}".format(rw_timing))
+                dtKbdStart = dt.datetime.now()
+                checkKbdForCmd(kbdWaitTime)
+                kbd_timing = (dt.datetime.now() - dtKbdStart).total_seconds()
+                if DEBUG: print("kbd_timing: {:5.3f}".format(kbd_timing))
+                if kegpg.result == "exit":
+                    print("kegpg.result == exit")
+                    break
+                # set loopSleep to make loop as close to the requested fps as possible
+                loopSleep = ((1.0/fps)-rw_timing-kbdWaitTime) if ((1.0/fps) > (rw_timing+kbdWaitTime)) else 0.001
+                if DEBUG: print("loopSleep: {:5.3}".format(loopSleep))
+                sleep(loopSleep)
 
 
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
             print("\n*** Ctrl-C detected - Finishing up")
 
-    except SystemExit:
-            print("\n*** SIGTERM detected - Finishing up")
+    #except SystemExit:
+    #        print("\n*** SIGTERM detected - Finishing up")
 
     finally:
         do_teardown()

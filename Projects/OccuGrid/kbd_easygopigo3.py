@@ -6,7 +6,11 @@ PURPOSE: Keyboard Controlled GoPiGo3 Class w/Servo Support
 USAGE: See / run    kbd_egpg3_run_this.py
 BASED ON:  Dexter/Projects/BasicRobotControl
 
+NEW KEY BINDINGS:  To find new key labels run
+  python3 -m curtsies.events  (ctrl-z to quit)
+
 MODIFICATIONS:
+- Added monkeypatched tiltpan object (self.tp)
 - Added servo control keys  4:left 12.5 degrees, 5:center + off, 6:right 12.5 degrees
   (based on my TiltPan class)
 - Added status line under logo with WheelDia, WheelBaseWidth, Speed, and Voltage
@@ -16,6 +20,7 @@ MODIFICATIONS:
 - Changed <F3> to perform forward 90 degree turn (from one wheel revolution)
 - Added  <F5> Clockwise 180 degree spin
 - Changed color change key from <INSERT> to <BACKSPACE> (Mac has no insert key)
+- Changed drive(x) to non-blocking 
 
 NOTICES:
 GoPiGo3 for the Raspberry Pi: an open source robotics platform for the Raspberry Pi.
@@ -73,7 +78,7 @@ class GoPiGo3WithKeyboard(object):
         self.gopigo3.set_speed(self.SPEED_DPS)
 
         # monkey patch the tiltpan object onto the gopigo3kbd instance
-        self.gopigo3.tp = tiltpan.TiltPan(self.gopigo3)
+        self.tp = tiltpan.TiltPan(self.gopigo3)
 
         self.keybindings = {
         "w" : ["Move the GoPiGo3 forward", "forward"],
@@ -104,7 +109,7 @@ class GoPiGo3WithKeyboard(object):
         "9" : ["Turn ON/OFF right eye of the GoPiGo3", "righteye"],
         "0" : ["Turn ON/OFF both eyes of the GoPiGo3", "eyes"],
 
-        "<BACKSPACE>" : ["Change the eyes' color on the go", "eyescolor"],
+        "<BACKSPACE>" : ["<DELETE> Change both eyes' color", "eyescolor"],
 
         "<ESC>" : ["Exit", "exit"],
         }
@@ -150,14 +155,14 @@ class GoPiGo3WithKeyboard(object):
         print("                                            ")
         print("  WD:{:> 6.2f}  WBW:{:> 7.2f}  SPD:{:> 4.0f}  V:{:> 4.1f}".format(
                 self.gopigo3.WHEEL_DIAMETER, self.gopigo3.WHEEL_BASE_WIDTH, self.gopigo3.get_speed(), self.gopigo3.volt()))
-        print("                                            ")
+        # print("                                            ")
 
     def drawDescription(self):
         """
         Prints details related on how to operate the GoPiGo3.
         """
         print("\nPress the following keys to run the features of the GoPiGo3.")
-        print("To move the motors, make sure you have a fresh set of batteries powering the GoPiGo3.\n")
+        print("To move the motors, be sure to have fresh batteries\n")
 
     def drawMenu(self):
         """
@@ -195,42 +200,42 @@ class GoPiGo3WithKeyboard(object):
         return "moving"
 
     def _gopigo3_command_forward10cm(self):
-        self.gopigo3.drive_cm(10)
+        self.gopigo3.drive_cm(10,blocking=False)
 
         return "path"
 
     def _gopigo3_command_forward10in(self):
-        self.gopigo3.drive_inches(10)
+        self.gopigo3.drive_inches(10, blocking=False)
 
         return "path"
 
     def _gopigo3_command_forward30cm(self):
-        self.gopigo3.drive_cm(30)
+        self.gopigo3.drive_cm(30, blocking=False)
 
         return "path"
 
     def _gopigo3_command_backward15cm(self):
-        self.gopigo3.drive_cm(-15)
+        self.gopigo3.drive_cm(-15, blocking=False)
 
         return "path"
 
     def _gopigo3_command_forwardturn90(self):
-        self.gopigo3.orbit(90,self.gopigo3.WHEEL_BASE_WIDTH/20.0)
+        self.gopigo3.orbit(90,self.gopigo3.WHEEL_BASE_WIDTH/20.0, blocking=False)
 
         return "path"
 
     def _gopigo3_command_spinCW90(self):
-        self.gopigo3.turn_degrees(90)
+        self.gopigo3.turn_degrees(90, blocking=False)
 
         return "path"
 
     def _gopigo3_command_spinCCW90(self):
-        self.gopigo3.turn_degrees(-90)
+        self.gopigo3.turn_degrees(-90, blocking=False)
 
         return "path"
 
     def _gopigo3_command_spinCW180(self):
-        self.gopigo3.turn_degrees(180)
+        self.gopigo3.turn_degrees(180, blocking=False)
 
         return "path"
 
@@ -268,22 +273,22 @@ class GoPiGo3WithKeyboard(object):
 
 
     def _gopigo3_command_servoLeft(self):
-        curAngle = self.gopigo3.tp.get_pan_pos()
+        curAngle = self.tp.get_pan_pos()
         newAngle = curAngle - 12.5
-        self.gopigo3.tp.pan(newAngle)
+        self.tp.pan(newAngle)
 
         return "static"
 
     def _gopigo3_command_servoCenter(self):
-        self.gopigo3.tp.center()
-        self.gopigo3.tp.off()
+        self.tp.center()
+        self.tp.off()
 
         return "static"
 
     def _gopigo3_command_servoRight(self):
-        curAngle = self.gopigo3.tp.get_pan_pos()
+        curAngle = self.tp.get_pan_pos()
         newAngle = curAngle + 12.5
-        self.gopigo3.tp.pan(newAngle)
+        self.tp.pan(newAngle)
 
         return "static"
 
