@@ -13,18 +13,19 @@ from copy import deepcopy
 # ARGUMENT PARSER
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--folder", required=True, help="path to data folder")
-ap.add_argument("-s", "--size", type=int, default=300, help="optional map size [300] in cm")
+ap.add_argument("-o", "--outfile", required=False, default=None, help="optional write final path map to OUTFILE (.png best)")
+ap.add_argument("-s", "--size", type=int, default=400, help="optional map size [400] in cm")
 ap.add_argument("-v", "--verbose", default=False, action='store_true', help="optional verbose DEBUG mode")
 # ap.add_argument("-fps", "--fps", type=int, default=4, help="video [4] frames with data capture per second")
-ap.add_argument("-d", "--display", default=False, action='store_true', help="optional display video")
+ap.add_argument("-d", "--display", default=False, action='store_true', help="optional display path during analysis")
 args = vars(ap.parse_args())
 print("path_plot.py Started with args:",args)
 dataFolder = args['folder']
 # loopFlag = args['loop']
 display = args['display']  # default False  -d or --display to show map as it is built
 DEBUG = args['verbose']    # default False  -v or --verbose to set True
-
-MAP_SIZE_X_cm = args['size']   # default 300 -s or --size to change
+pathOutputFilename = args['outfile']   # if requested filename for path image - png gives better qual than jpg
+MAP_SIZE_X_cm = args['size']   # default 400 -s or --size to change
 MAP_SIZE_Y_cm = MAP_SIZE_X_cm  # always use square playing field
 
 START_Xr = MAP_SIZE_X_cm / 2.0     # will start in center left/right of map
@@ -138,13 +139,23 @@ def plotPath(dataFolder):
 
     scale = float(1) / 10  # 1 pixel = 10 mm
 
-    cv2.namedWindow("Path Map", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("Path Map", WINDOW_W, WINDOW_H)
-    cv2.waitKey(50)
+    if display:
+        cv2.namedWindow("Path Map", cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("Path Map", WINDOW_W, WINDOW_H)
+        cv2.waitKey(50)
 
     map_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    fontScale = 0.5
+    colorBlue = (255, 0 , 0)
+    colorRed  = (0,   0 , 255)
+    fontLineW = 2  # pixels
+    bottLft =  ( 5 , MAP_SIZE_Y_cm -5 )
+    bottRt  =  ( MAP_SIZE_X_cm -35 , MAP_SIZE_Y_cm -5)
+    cv2.putText(map_image, 'imu', bottLft, font, fontScale, colorRed, fontLineW, cv2.LINE_AA)
+    cv2.putText(map_image, 'enc', bottRt, font, fontScale, colorBlue, fontLineW, cv2.LINE_AA)
 
-    cv2.waitKey(50)
+    if display: cv2.waitKey(50)
 
     f = open("Data.txt", "r")
     lineCnt = 0
@@ -229,9 +240,12 @@ def plotPath(dataFolder):
         prev_robot = deepcopy(robot)
 
 
-        cv2.imshow("Path Map", map_image)
-        cv2.waitKey(10)
+        if display:
+            cv2.imshow("Path Map", map_image)
+            cv2.waitKey(10)
 
+    if (pathOutputFilename != None):
+        cv2.imwrite(pathOutputFilename, map_image)
     cv2.waitKey(0)
 
 if __name__ == '__main__': plotPath(dataFolder)
