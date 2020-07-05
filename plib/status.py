@@ -148,6 +148,8 @@ def main():
     # ### Create (protected) instance of EasyDistanceSensor
     if dsFlag:
         ds = myDistSensor.init(egpg)
+    else:
+        ds = None
 
     strStart = "Starting status.py at {0:0.2f}v".format(egpg.volt())
     print(strStart)
