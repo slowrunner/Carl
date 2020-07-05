@@ -1,4 +1,4 @@
-Occupancy Grid and Path Map
+# Occupancy Grid and Path Map
 
 # Based on BigFaceRobotics Big Wheel Bot
 - video: https://www.youtube.com/watch?v=LcqCLlF2qpE
