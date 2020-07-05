@@ -1,6 +1,6 @@
 Occupancy Grid and Path Map
 
-Based on BigFaceRobotics Big Wheel Bot
+# Based on BigFaceRobotics Big Wheel Bot
 - video: https://www.youtube.com/watch?v=LcqCLlF2qpE
 - code: https://github.com/BigFace83/Big-Wheel-Bot
 - brought down with "git clone https://github.com/BigFace83/Big-Wheel-Bot.git"
@@ -28,18 +28,29 @@ Based on BigFaceRobotics Big Wheel Bot
       at 5 frames/second
 ```
 
-GoPiGo3 Relevant Metrics:
+
+
+
+# GoPiGo3 Relevant Metrics:
 - Distance Sensor Beam Width: 25 deg, Max range 3000 mm
 - PiCam v1.3 Horizontal FoV: 53.5 degrees
 - GoPiGo3 (Carl) Spin Radius: 14cm ctr "axle" to corner
                  Orbit Radius: 19cm ctr wheel to opposite corner
 - Occupancy Grid Size = 30cm to allow GoPiGo3 360 degree spin inside cell
 
-Requirements:
+# Requirements:
 - install vlc to see .avi files
 
 
-File: carlDataLogger.py [-fps 4] [-d or --display] [--help]
+# FILE: carlDataLogger.py
+PURPOSE: Collect sensor data while user drives bot with keyboard
+USAGE: carlDataLogger.py [-h] [-fps FPS] [-d]
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -fps FPS, --fps FPS  video [4] frames with data capture per second
+  -d, --display        optional display video
+
 - Initializes keyboard controlled bot and sensors
 - Creates directory ./<start_datetime_str>/
 - Opens ./<start_datetime_str>/Data.txt for recording sensor data 
@@ -62,10 +73,13 @@ File: carlDataLogger.py [-fps 4] [-d or --display] [--help]
 - NOTE:   On RPi 3B, 4 fps is maximum for accurate interval data and video 
 
 
-FILE: kbd_egpg3_run_this.py
-- Tests kbd_easygopigo3.py (without data logging)
+# FILE: kbd_egpg3_run_this.py
+PURPOSE: Tests kbd_easygopigo3.py (without data logging)
+USAGE: ./kbd_egpg3_run_this.py
 
-FILE: kbd_easygopigo3.py
+
+
+# FILE: kbd_easygopigo3.py
 PURPOSE: Keyboard Controlled GoPiGo3 Class w/Servo Support
 USAGE: See / run    kbd_egpg3_run_this.py
 BASED ON:  Dexter/Projects/BasicRobotControl
@@ -124,3 +138,19 @@ To move the motors, make sure you have a fresh set of batteries powering the GoP
 [key <BACKSPACE>] :  Change the eyes' color on the go
 [key <ESC>   ] :  Exit
 ```
+
+
+# FILE: path_plot.py
+PURPOSE: Analyze Data.txt file to plot position/path estimate from imu and wheel encoders
+USAGE: path_plot.py [-h] -f FOLDER [-o OUTFILE] [-s SIZE] [-v] [-d]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FOLDER, --folder FOLDER
+                        path to data folder
+  -o OUTFILE, --outfile OUTFILE
+                        optional write final path map to OUTFILE (.png best)
+  -s SIZE, --size SIZE  optional map size [400] in cm
+  -v, --verbose         optional verbose DEBUG mode
+  -d, --display         optional display path during analysis
+

@@ -136,7 +136,7 @@ def do_setup():
     # Instantiate ToF Distance Sensor, add to kegpg
     try:
         # egpg.ds = egpg.init_distance_sensor(port=DSPORT)
-        kegpg.ds = kegpg.gopigo3.init_distance_sensor(port=DSPORT, use_mutex=True)
+        kegpg.ds = kegpg.gopigo3.init_distance_sensor(port=DSPORT) # use_mutex passed down from egpg.use_mutex
         if DEBUG: print("kegpg.ds initialized")
     except Exception as e:
         print("Unable to instantiate DI distance_sensor")

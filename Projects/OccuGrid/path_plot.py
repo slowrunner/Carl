@@ -50,6 +50,7 @@ class Robot(object):
         self.imu_offset = heading
         self.heading_imu = heading
         self.heading_enc = heading
+        self.traveled_mm = 0
 
     def __repr__(self):
         if DEBUG: print("__repr__ executing")
@@ -67,7 +68,8 @@ class Robot(object):
                'r_enc'               : self.r_enc ,
                'imu_offset'          : self.imu_offset ,
                'heading_imu'         : self.heading_imu ,
-               'heading_enc'         : self.heading_enc }
+               'heading_enc'         : self.heading_enc,
+               'traveled_mm'         : self.traveled_mm }
 
         return rs
 
@@ -86,7 +88,8 @@ class Robot(object):
             +  "\nr_enc:  {:8.0f}".format(self.r_enc) \
             +  "\nimu_offset: {:5.1f}".format(self.imu_offset) \
             +  "\nheading_imu: {:5.1f}".format(self.heading_imu) \
-            +  "\nheading_enc: {:5.1f}".format(self.heading_enc)
+            +  "\nheading_enc: {:5.1f}".format(self.heading_enc) \
+            +  "\ntraveled_mm: {:9.0f}".format(self.traveled_mm)
 
         return rstr
 
@@ -184,6 +187,7 @@ def plotPath(dataFolder):
 
         # compute distance travelled
         enc_dist_mm = enc_to_dist_mm(robot, prev_robot)
+        robot.traveled_mm += enc_dist_mm
         if DEBUG:
             if enc_dist_mm > 0: print("enc_dist_mm: {:4.1f}".format(enc_dist_mm))
 
@@ -230,8 +234,8 @@ def plotPath(dataFolder):
         cv2.line(map_image, (int(Xr),int(Yr)), (int(XDS),int(YDS)), (0,255,0), 1)
         '''
 
-        cv2.line(map_image, (int(prev_robot.Xr_imu),int(prev_robot.Yr_imu)), (int(robot.Xr_imu),int(robot.Yr_imu)), (0,0,255), 1)
-        cv2.line(map_image, (int(prev_robot.Xr_enc),int(prev_robot.Yr_enc)), (int(robot.Xr_enc),int(robot.Yr_enc)), (255,0,0), 1)
+        cv2.line(map_image, (int(prev_robot.Xr_imu),int(prev_robot.Yr_imu)), (int(robot.Xr_imu),int(robot.Yr_imu)), colorRed, 1)
+        cv2.line(map_image, (int(prev_robot.Xr_enc),int(prev_robot.Yr_enc)), (int(robot.Xr_enc),int(robot.Yr_enc)), colorBlue, 1)
 
         if DEBUG:
             print("prev_robot:",prev_robot)
