@@ -44,12 +44,14 @@
 
 # FILE: carlDataLogger.py
 PURPOSE: Collect sensor data while user drives bot with keyboard
+'''
 USAGE: carlDataLogger.py [-h] [-fps FPS] [-d]
 
 optional arguments:
   -h, --help           show this help message and exit
   -fps FPS, --fps FPS  video [4] frames with data capture per second
   -d, --display        optional display video
+'''
 
 - Initializes keyboard controlled bot and sensors
 - Creates directory ./<start_datetime_str>/
@@ -142,6 +144,7 @@ To move the motors, make sure you have a fresh set of batteries powering the GoP
 
 # FILE: path_plot.py
 PURPOSE: Analyze Data.txt file to plot position/path estimate from imu and wheel encoders
+'''
 USAGE: path_plot.py [-h] -f FOLDER [-o OUTFILE] [-s SIZE] [-v] [-d]
 
 optional arguments:
@@ -153,4 +156,5 @@ optional arguments:
   -s SIZE, --size SIZE  optional map size [400] in cm
   -v, --verbose         optional verbose DEBUG mode
   -d, --display         optional display path during analysis
+'''
 
