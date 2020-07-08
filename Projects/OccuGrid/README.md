@@ -1,4 +1,4 @@
-# Occupancy Grid and Path Map
+# GoPiGo3 Path Map and Occupancy Grid
 
 # Based on BigFaceRobotics Big Wheel Bot
 - video: https://www.youtube.com/watch?v=LcqCLlF2qpE
@@ -157,4 +157,14 @@ optional arguments:
   -v, --verbose         optional verbose DEBUG mode
   -d, --display         optional display path during analysis
 ```
+
+# FILE: sensorModel.py
+PURPOSE: provides occupancy probability map for: 
+             1) sensor with angular beam width, such as ultrasound or ToF IR Laser distance sensor
+             2) sensor with coherent beam, such as LIDAR
+
+USAGE:  import sensorModel
+        grid_map, occ = sensorModel.BeamModel(...)
+        see file for parameters and example usage
+
 
