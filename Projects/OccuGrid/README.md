@@ -170,3 +170,4 @@ USAGE:
     # see file for parameters and example usage
 ```
 
+![sensorModel.BeamModel()](VL53L0X_Sensor_Model.png?raw=true)
