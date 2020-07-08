@@ -160,11 +160,13 @@ optional arguments:
 
 # FILE: sensorModel.py
 PURPOSE: provides occupancy probability map for: 
-             1) sensor with angular beam width, such as ultrasound or ToF IR Laser distance sensor
-             2) sensor with coherent beam, such as LIDAR
+  - sensor with angular beam width, such as ultrasound or ToF IR Laser distance sensor
+  - sensor with coherent beam, such as LIDAR
 
-USAGE:  import sensorModel
-        grid_map, occ = sensorModel.BeamModel(...)
-        see file for parameters and example usage
-
+USAGE:  
+```
+    import sensorModel
+    grid_map, occ = sensorModel.BeamModel(...)
+    # see file for parameters and example usage
+```
 
