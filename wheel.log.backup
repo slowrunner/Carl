@@ -5154,3 +5154,1705 @@
 2020-06-08 02:31|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3 motion:     0.3 sec
 2020-06-08 02:31|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.6 motion:     0.5 sec
 2020-06-08 05:04|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.8 sec
+2020-06-08 11:04|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.4 sec
+2020-06-08 11:05|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.4 sec
+2020-06-08 11:05|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -1.1 motion:     2.8 sec
+2020-06-08 11:05|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.6 motion:     0.3 sec
+2020-06-08 11:05|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.8 motion:     0.4 sec
+2020-06-08 11:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-08 11:11|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-08 13:47|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.8 sec
+2020-06-08 19:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.4 sec
+2020-06-08 19:49|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6 motion:     2.4 sec
+2020-06-08 19:49|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -1.4 motion:     2.7 sec
+2020-06-08 19:50|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0 motion:     0.3 sec
+2020-06-08 19:50|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3 motion:     0.4 sec
+2020-06-08 22:28|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.8 sec
+2020-06-09 04:35|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4 motion:     2.4 sec
+2020-06-09 04:35|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6 motion:     2.4 sec
+2020-06-09 04:36|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -0.6 motion:     2.8 sec
+2020-06-09 04:36|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3 motion:     0.4 sec
+2020-06-09 04:36|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0 motion:     0.4 sec
+2020-06-09 07:13|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.7 sec
+2020-06-09 13:15|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-09 13:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4 motion:     2.4 sec
+2020-06-09 13:16|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.8 motion:     2.8 sec
+2020-06-09 13:16|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.0 motion:     0.3 sec
+2020-06-09 13:16|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3 motion:     0.4 sec
+2020-06-09 16:00|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-09 21:53|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.4 sec
+2020-06-09 21:54|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.3 sec
+2020-06-09 21:54|[wheellog.py.logMotionStop]travel:  -217.5 rotation:    -0.8 motion:     2.9 sec
+2020-06-09 21:54|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3 motion:     0.3 sec
+2020-06-09 21:54|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6 motion:     0.4 sec
+2020-06-10 00:31|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0 motion:     2.8 sec
+2020-06-10 05:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 05:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 05:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 05:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.3 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:07|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:07|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:07|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 06:20|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-10 06:20|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-10 06:21|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9 motion:     2.3 sec
+2020-06-10 06:21|[wheellog.py.logMotionStop]travel:  -222.0 rotation:    -0.8 motion:     2.9 sec
+2020-06-10 06:21|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3 motion:     0.3 sec
+2020-06-10 06:21|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0 motion:     0.4 sec
+2020-06-10 07:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-10 07:43|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0 motion:     2.8 sec
+2020-06-10 08:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:36|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:36|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 08:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 09:03|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-10 09:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-10 09:04|[wheellog.py.logMotionStop]travel:  -218.4 rotation:    -0.6 motion:     2.9 sec
+2020-06-10 09:04|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.8 motion:     0.4 sec
+2020-06-10 09:04|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6 motion:     0.3 sec
+2020-06-10 09:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 09:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 11:59|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0 motion:     2.7 sec
+2020-06-10 13:28|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 16:25|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.4 sec
+2020-06-10 16:25|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.4 sec
+2020-06-10 16:26|[wheellog.py.logMotionStop]travel:  -212.2 rotation:    -1.1 motion:     2.8 sec
+2020-06-10 16:26|[wheellog.py.logMotionStop]travel:    -7.0 rotation:     0.3 motion:     0.4 sec
+2020-06-10 16:26|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3 motion:     0.4 sec
+2020-06-10 19:21|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.7 sec
+2020-06-10 23:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-10 23:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-10 23:49|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -0.6 motion:     2.7 sec
+2020-06-10 23:49|[wheellog.py.logMotionStop]travel:    -5.0 rotation:    -0.6 motion:     0.3 sec
+2020-06-10 23:50|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     1.1 motion:     0.4 sec
+2020-06-10 23:50|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.0 motion:     0.2 sec
+2020-06-10 23:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-10 23:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 02:52|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0 motion:     2.8 sec
+2020-06-11 07:17|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-11 07:17|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.3 sec
+2020-06-11 07:17|[wheellog.py.logMotionStop]travel:  -206.6 rotation:    -0.6 motion:     2.6 sec
+2020-06-11 07:17|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0 motion:     0.3 sec
+2020-06-11 07:17|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0 motion:     0.4 sec
+2020-06-11 07:18|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-11 08:54|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-11 09:13|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-11 09:50|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 09:50|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 10:03|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 10:03|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 10:04|[wheellog.py.logMotionStop]travel:    -0.8 rotation:     0.8 motion:     0.2 sec
+2020-06-11 10:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 10:05|[wheellog.py.logMotionStop]travel:     0.3 rotation:    -0.3 motion:     0.2 sec
+2020-06-11 10:05|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-11 10:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 10:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 11:24|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-11 11:25|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.4 sec
+2020-06-11 11:25|[wheellog.py.logMotionStop]travel:  -216.7 rotation:    -1.7 motion:     2.9 sec
+2020-06-11 11:25|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0 motion:     0.4 sec
+2020-06-11 11:25|[wheellog.py.logMotionStop]travel:    -7.8 rotation:    -1.1 motion:     0.3 sec
+2020-06-11 11:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 12:12|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-11 13:21|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-11 13:21|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-11 13:21|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.8 motion:     2.8 sec
+2020-06-11 13:21|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3 motion:     0.3 sec
+2020-06-11 13:21|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0 motion:     0.4 sec
+2020-06-11 16:14|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0 motion:     2.8 sec
+2020-06-11 20:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-11 20:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.3 sec
+2020-06-11 20:39|[wheellog.py.logMotionStop]travel:  -208.9 rotation:     0.0 motion:     2.8 sec
+2020-06-11 20:39|[wheellog.py.logMotionStop]travel:    -5.3 rotation:    -0.3 motion:     0.3 sec
+2020-06-11 20:39|[wheellog.py.logMotionStop]travel:    -9.2 rotation:     0.8 motion:     0.4 sec
+2020-06-11 21:05|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.9 sec
+2020-06-11 21:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-11 21:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-11 21:33|[wheellog.py.logMotionStop]travel:  -212.8 rotation:    -1.1 motion:     2.8 sec
+2020-06-11 21:33|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3 motion:     0.3 sec
+2020-06-11 21:33|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0 motion:     0.4 sec
+2020-06-11 21:57|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.6 motion:     2.8 sec
+2020-06-11 22:12|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-11 22:12|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6 motion:     2.3 sec
+2020-06-11 22:12|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -0.3 motion:     2.8 sec
+2020-06-11 22:12|[wheellog.py.logMotionStop]travel:    -5.0 rotation:    -0.6 motion:     0.3 sec
+2020-06-11 22:12|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3 motion:     0.4 sec
+2020-06-11 22:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 22:31|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6 motion:     2.7 sec
+2020-06-11 22:48|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.3 sec
+2020-06-11 22:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4 motion:     2.3 sec
+2020-06-11 22:49|[wheellog.py.logMotionStop]travel:  -204.7 rotation:    -0.8 motion:     2.7 sec
+2020-06-11 22:49|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3 motion:     0.4 sec
+2020-06-11 22:49|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0 motion:     0.4 sec
+2020-06-11 22:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 23:16|[wheellog.py.logMotionStop]travel:   213.6 rotation:    -0.3 motion:     2.7 sec
+2020-06-11 23:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 23:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6 motion:     2.3 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4 motion:     2.4 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -0.8 motion:     2.7 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:    -4.7 rotation:     0.3 motion:     0.3 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -1.1 motion:     0.3 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-11 23:29|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-12 02:10|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-12 08:00|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-12 08:01|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-12 08:01|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -0.8 motion:     2.7 sec
+2020-06-12 08:01|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3 motion:     0.4 sec
+2020-06-12 08:01|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3 motion:     0.4 sec
+2020-06-12 08:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0 motion:     2.8 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.4 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -0.6 motion:     2.7 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:    -7.3 rotation:    -0.6 motion:     0.4 sec
+2020-06-12 08:06|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0 motion:     0.4 sec
+2020-06-12 10:47|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.8 sec
+2020-06-12 10:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2 motion:     2.4 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:  -211.4 rotation:    -1.4 motion:     2.7 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0 motion:     0.3 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 16:37|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0 motion:     0.3 sec
+2020-06-12 16:38|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 16:42|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.8 sec
+2020-06-12 16:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-12 16:43|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2 motion:     2.3 sec
+2020-06-12 16:43|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.1 motion:     2.8 sec
+2020-06-12 16:43|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3 motion:     0.3 sec
+2020-06-12 16:43|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.0 motion:     0.4 sec
+2020-06-12 17:43|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6 motion:     2.9 sec
+2020-06-12 18:48|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:  -208.3 rotation:    -0.6 motion:     2.6 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6 motion:     0.3 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3 motion:     0.4 sec
+2020-06-12 18:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-12 21:26|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.8 sec
+2020-06-13 03:16|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-13 03:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-13 03:17|[wheellog.py.logMotionStop]travel:  -211.4 rotation:    -0.3 motion:     2.7 sec
+2020-06-13 03:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -1.1 rotation:    -0.6 motion:     0.3 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -2.0 rotation:     0.3 motion:     0.3 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -2.0 rotation:     0.8 motion:     0.4 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    -0.3 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.0 motion:     0.4 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.0 motion:     0.2 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:    21.2 rotation:     0.0 motion:     0.7 sec
+2020-06-13 17:42|[wheellog.py.logMotionStop]travel:     1.4 rotation:     0.8 motion:     0.4 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.3 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -1.4 motion:     2.7 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.0 motion:     0.3 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-15 00:33|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6 motion:     0.4 sec
+2020-06-15 00:37|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-15 03:17|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0 motion:     2.8 sec
+2020-06-15 09:16|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.4 sec
+2020-06-15 09:17|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6 motion:     2.3 sec
+2020-06-15 09:17|[wheellog.py.logMotionStop]travel:  -208.6 rotation:    -0.8 motion:     2.7 sec
+2020-06-15 09:17|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6 motion:     0.3 sec
+2020-06-15 09:17|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0 motion:     0.4 sec
+2020-06-15 09:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-15 09:21|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.8 sec
+2020-06-15 09:22|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-15 09:22|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.4 sec
+2020-06-15 09:22|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -0.6 motion:     2.7 sec
+2020-06-15 09:22|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6 motion:     0.4 sec
+2020-06-15 09:22|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6 motion:     0.4 sec
+2020-06-15 09:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-15 09:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-15 11:42|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-15 15:33|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.2 motion:     2.3 sec
+2020-06-15 15:34|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.2 motion:     2.3 sec
+2020-06-15 15:34|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -1.4 motion:     2.8 sec
+2020-06-15 15:34|[wheellog.py.logMotionStop]travel:    -4.5 rotation:     0.0 motion:     0.3 sec
+2020-06-15 15:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-15 15:34|[wheellog.py.logMotionStop]travel:    -8.9 rotation:    -0.6 motion:     0.4 sec
+2020-06-15 18:16|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-16 00:13|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-16 00:13|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.3 sec
+2020-06-16 00:13|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.1 motion:     2.8 sec
+2020-06-16 00:13|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-16 07:06|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.6 motion:     0.3 sec
+2020-06-16 07:06|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3 motion:     0.4 sec
+2020-06-16 07:06|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6 motion:     0.3 sec
+2020-06-16 07:06|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.6 motion:     0.2 sec
+2020-06-16 07:06|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6 motion:     2.8 sec
+2020-06-16 09:50|[wheellog.py.logMotionStop]travel:   100.5 rotation:     1.1 motion:     0.9 sec
+2020-06-16 09:50|[wheellog.py.logMotionStop]travel:   -97.2 rotation:    -0.6 motion:     0.8 sec
+2020-06-16 09:50|[wheellog.py.logMotionStop]travel:   499.3 rotation:     0.0 motion:     6.2 sec
+2020-06-16 09:50|[wheellog.py.logMotionStop]travel:  -499.6 rotation:    -0.8 motion:     6.2 sec
+2020-06-16 09:51|[wheellog.py.logMotionStop]travel:    98.0 rotation:     0.8 motion:     0.8 sec
+2020-06-16 09:52|[wheellog.py.logMotionStop]travel:   -98.9 rotation:    -0.6 motion:     0.9 sec
+2020-06-16 09:52|[wheellog.py.logMotionStop]travel:   498.7 rotation:     1.1 motion:     3.2 sec
+2020-06-16 09:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-16 09:52|[wheellog.py.logMotionStop]travel:  -498.7 rotation:     0.0 motion:     6.2 sec
+2020-06-16 09:54|[wheellog.py.logMotionStop]travel:   100.0 rotation:     0.6 motion:     0.9 sec
+2020-06-16 09:55|[wheellog.py.logMotionStop]travel:  -100.0 rotation:    -0.6 motion:     1.4 sec
+2020-06-16 09:55|[wheellog.py.logMotionStop]travel:   -61.2 rotation:     0.3 motion:    11.6 sec
+2020-06-16 09:59|[wheellog.py.logMotionStop]travel:   100.3 rotation:     0.8 motion:     0.9 sec
+2020-06-16 09:59|[wheellog.py.logMotionStop]travel:   -97.2 rotation:    -1.1 motion:     0.8 sec
+2020-06-16 09:59|[wheellog.py.logMotionStop]travel:    42.4 rotation:     1.1 motion:     0.7 sec
+2020-06-16 09:59|[wheellog.py.logMotionStop]travel:   -20.4 rotation:     0.3 motion:     0.7 sec
+2020-06-16 10:41|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3 motion:     2.5 sec
+2020-06-16 13:03|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0 motion:     2.7 sec
+2020-06-16 14:39|[wheellog.py.logMotionStop]travel:    98.9 rotation:     0.0 motion:     2.0 sec
+2020-06-16 14:39|[wheellog.py.logMotionStop]travel:   -99.4 rotation:    -0.6 motion:     2.0 sec
+2020-06-16 14:39|[wheellog.py.logMotionStop]travel:    21.8 rotation:     0.6 motion:     0.5 sec
+2020-06-16 14:39|[wheellog.py.logMotionStop]travel:   -20.9 rotation:    -0.3 motion:     0.6 sec
+2020-06-16 14:40|[wheellog.py.logMotionStop]travel:    20.9 rotation:     0.3 motion:     0.5 sec
+2020-06-16 14:40|[wheellog.py.logMotionStop]travel:   -21.2 rotation:     0.0 motion:     0.6 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:    99.4 rotation:     0.0 motion:     2.0 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:   -99.4 rotation:    -0.6 motion:     2.0 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:    14.0 rotation:     0.6 motion:     0.5 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:   -19.0 rotation:     0.0 motion:     0.6 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:    21.2 rotation:     0.6 motion:     0.4 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:   -21.2 rotation:     0.0 motion:     0.6 sec
+2020-06-16 14:43|[wheellog.py.logMotionStop]travel:     0.8 rotation:    39.6 motion:     0.7 sec
+2020-06-16 14:44|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -38.4 motion:     0.6 sec
+2020-06-16 14:47|[wheellog.py.logMotionStop]travel:     0.8 rotation:     0.8 motion:     0.3 sec
+2020-06-16 18:52|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.4 sec
+2020-06-16 18:53|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7 motion:     2.4 sec
+2020-06-16 18:53|[wheellog.py.logMotionStop]travel:  -214.2 rotation:    -1.4 motion:     2.8 sec
+2020-06-16 18:53|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-17 08:27|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-17 08:27|[wheellog.py.logMotionStop]travel:    -7.0 rotation:     0.3 motion:     0.4 sec
+2020-06-17 08:27|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6 motion:     0.3 sec
+2020-06-17 08:27|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3 motion:     2.8 sec
+2020-06-17 14:16|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-17 14:16|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3 motion:     2.3 sec
+2020-06-17 14:16|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -1.4 motion:     2.7 sec
+2020-06-17 14:16|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6 motion:     0.3 sec
+2020-06-17 14:16|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3 motion:     0.4 sec
+2020-06-17 14:24|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.6 motion:     0.2 sec
+2020-06-17 16:45|[wheellog.py.logMotionStop]travel:   214.7 rotation:    -0.3 motion:     2.7 sec
+2020-06-17 22:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-17 22:40|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.2 motion:     2.4 sec
+2020-06-17 22:40|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -1.4 motion:     2.7 sec
+2020-06-17 22:40|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3 motion:     0.3 sec
+2020-06-17 22:40|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3 motion:     0.3 sec
+2020-06-17 22:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-18 01:14|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3 motion:     2.8 sec
+2020-06-18 07:05|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2 motion:     2.3 sec
+2020-06-18 07:06|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6 motion:     2.3 sec
+2020-06-18 07:06|[wheellog.py.logMotionStop]travel:  -208.6 rotation:    -1.4 motion:     2.8 sec
+2020-06-18 07:06|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3 motion:     0.3 sec
+2020-06-18 07:06|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3 motion:     0.4 sec
+2020-06-18 09:45|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.0 motion:     2.8 sec
+2020-06-18 10:54|[wheellog.py.logMotionStop]travel:   999.4 rotation:    -0.3 motion:    12.2 sec
+2020-06-18 15:35|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-18 15:35|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.4 sec
+2020-06-18 15:36|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.7 motion:     2.8 sec
+2020-06-18 15:36|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3 motion:     0.4 sec
+2020-06-18 15:36|[wheellog.py.logMotionStop]travel:   -10.6 rotation:     0.0 motion:     0.4 sec
+2020-06-18 18:10|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.0 motion:     2.9 sec
+2020-06-18 18:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-18 23:57|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.4 sec
+2020-06-18 23:57|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7 motion:     2.4 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -0.6 motion:     2.7 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6 motion:     0.3 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:    -8.9 rotation:    -0.6 motion:     0.4 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.2 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-18 23:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 02:35|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.6 motion:     2.8 sec
+2020-06-19 02:35|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 08:20|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7 motion:     2.4 sec
+2020-06-19 08:20|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9 motion:     2.4 sec
+2020-06-19 08:20|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -1.4 motion:     2.7 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.3 rotation:    -0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.8 rotation:    -0.8 motion:     0.3 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -2.8 rotation:     2.8 motion:     0.6 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.8 rotation:    -0.3 motion:     0.3 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.6 rotation:     0.0 motion:     0.7 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    -0.3 motion:     0.4 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.8 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    -0.3 motion:     0.5 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.7 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-19 09:14|[wheellog.py.logMotionStop]travel:    16.8 rotation:     0.6 motion:     0.6 sec
+2020-06-19 20:16|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.3 sec
+2020-06-19 20:16|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-19 20:16|[wheellog.py.logMotionStop]travel:  -207.8 rotation:    -1.1 motion:     2.7 sec
+2020-06-19 20:16|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3 motion:     0.3 sec
+2020-06-19 20:16|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3 motion:     0.4 sec
+2020-06-19 22:57|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0 motion:     2.8 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0 motion:     2.4 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6 motion:     2.3 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:  -212.2 rotation:     0.0 motion:     2.8 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:    -6.7 rotation:    -0.6 motion:     0.4 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6 motion:     0.3 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-20 04:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-20 07:31|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0 motion:     2.7 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0 motion:     2.4 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:     1.1 rotation:   177.9 motion:     2.3 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.1 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:  -209.2 rotation:    -0.8 motion:     2.6 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3 motion:     0.4 sec
+2020-06-20 13:27|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3 motion:     0.4 sec
+2020-06-20 16:05|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3 motion:     2.7 sec
+2020-06-20 22:02|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4 motion:     2.3 sec
+2020-06-20 22:03|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.2 motion:     2.3 sec
+2020-06-20 22:03|[wheellog.py.logMotionStop]travel:  -213.1 rotation:    -0.8 motion:     2.8 sec
+2020-06-20 22:04|[wheellog.py.logMotionStop]travel:    -7.3 rotation:     0.0 motion:     0.4 sec
+2020-06-20 22:04|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.8 motion:     0.4 sec
+2020-06-20 22:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-21 00:42|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0 motion:     2.8 sec
+2020-06-21 06:36|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2 motion:     2.4 sec
+2020-06-21 06:37|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7 motion:     2.3 sec
+2020-06-21 06:37|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.1 motion:     2.7 sec
+2020-06-21 06:37|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0 motion:     0.3 sec
+2020-06-21 06:37|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6 motion:     0.4 sec
+2020-06-21 06:37|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0 motion:     0.2 sec
+2020-06-21 08:20|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0 motion:     2.8 sec
+2020-06-21 10:58|[wheellog.py.logMotionStop]travel:   455.2 rotation:     0.6  motion:     5.6 sec  heading_est:     0.6
+2020-06-21 10:58|[wheellog.py.logMotionStop]travel:     0.3 rotation:    89.5  motion:     1.3 sec  heading_est:    90.1
+2020-06-21 10:58|[wheellog.py.logMotionStop]travel:   304.1 rotation:     0.8  motion:     3.8 sec  heading_est:    90.9
+2020-06-21 10:58|[wheellog.py.logMotionStop]travel:     0.6 rotation:    89.2  motion:     1.2 sec  heading_est:   180.1
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:   303.8 rotation:     0.6  motion:     3.9 sec  heading_est:   180.7
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:     0.6 rotation:    87.5  motion:     1.3 sec  heading_est:   268.2
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:   303.8 rotation:     0.6  motion:     3.9 sec  heading_est:   268.8
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:     0.0 rotation:    87.5  motion:     1.2 sec  heading_est:   356.3
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:   303.5 rotation:     0.3  motion:     3.9 sec  heading_est:   356.6
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:     0.6 rotation:    87.5  motion:     1.2 sec  heading_est:   444.2
+2020-06-21 10:59|[wheellog.py.logMotionStop]travel:  -152.2 rotation:    -0.3  motion:     2.0 sec  heading_est:   443.9
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:   456.0 rotation:     0.3  motion:     5.6 sec  heading_est:     0.3
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:     0.0 rotation:    89.2  motion:     1.3 sec  heading_est:    89.5
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:   304.1 rotation:     0.3  motion:     3.9 sec  heading_est:    89.8
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.4  motion:     1.2 sec  heading_est:   178.2
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:   304.4 rotation:     0.6  motion:     3.9 sec  heading_est:   178.7
+2020-06-21 11:03|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:   267.7
+2020-06-21 11:04|[wheellog.py.logMotionStop]travel:   304.4 rotation:     0.6  motion:     3.9 sec  heading_est:   268.2
+2020-06-21 11:04|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:   357.2
+2020-06-21 11:04|[wheellog.py.logMotionStop]travel:  -151.9 rotation:    -0.6  motion:     2.0 sec  heading_est:   356.6
+2020-06-21 12:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   535.1
+2020-06-21 12:27|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   713.8
+2020-06-21 12:27|[wheellog.py.logMotionStop]travel:  -218.4 rotation:    -1.1  motion:     2.8 sec  heading_est:   712.7
+2020-06-21 12:27|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.4 sec  heading_est:   712.7
+2020-06-21 12:27|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6  motion:     0.5 sec  heading_est:   712.1
+2020-06-21 15:00|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-21 17:28|[wheellog.py.logMotionStop]travel:   456.3 rotation:     0.6  motion:     5.7 sec  heading_est:     0.8
+2020-06-21 17:28|[wheellog.py.logMotionStop]travel:     0.6 rotation:    89.2  motion:     1.4 sec  heading_est:    90.1
+2020-06-21 17:28|[wheellog.py.logMotionStop]travel:   304.4 rotation:     0.6  motion:     3.9 sec  heading_est:    90.6
+2020-06-21 17:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:    89.5  motion:     1.4 sec  heading_est:   180.1
+2020-06-21 17:28|[wheellog.py.logMotionStop]travel:   304.4 rotation:     0.6  motion:     3.8 sec  heading_est:   180.7
+2020-06-21 17:29|[wheellog.py.logMotionStop]travel:     0.6 rotation:    89.2  motion:     1.4 sec  heading_est:   269.9
+2020-06-21 17:29|[wheellog.py.logMotionStop]travel:   304.7 rotation:     0.3  motion:     3.8 sec  heading_est:   270.2
+2020-06-21 17:29|[wheellog.py.logMotionStop]travel:     0.6 rotation:    88.7  motion:     1.2 sec  heading_est:   358.9
+2020-06-21 17:29|[wheellog.py.logMotionStop]travel:  -151.4 rotation:    -0.6  motion:     2.0 sec  heading_est:   358.3
+2020-06-21 20:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   176.5
+2020-06-21 20:49|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   355.5
+2020-06-21 20:50|[wheellog.py.logMotionStop]travel:  -213.6 rotation:    -0.8  motion:     2.7 sec  heading_est:   354.6
+2020-06-21 20:50|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   354.4
+2020-06-21 20:50|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.4
+2020-06-21 20:50|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6  motion:     0.4 sec  heading_est:   353.8
+2020-06-21 20:50|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:   353.8
+2020-06-21 23:25|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-22 05:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-06-22 05:16|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   357.5
+2020-06-22 05:17|[wheellog.py.logMotionStop]travel:  -214.7 rotation:    -1.4  motion:     2.8 sec  heading_est:   356.1
+2020-06-22 05:18|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.0  motion:     0.3 sec  heading_est:   356.1
+2020-06-22 05:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-06-22 05:18|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6  motion:     0.3 sec  heading_est:   355.5
+2020-06-22 05:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-06-22 07:46|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-22 13:37|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   177.9
+2020-06-22 13:37|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   356.9
+2020-06-22 13:37|[wheellog.py.logMotionStop]travel:  -207.5 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.1
+2020-06-22 13:37|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.8  motion:     0.3 sec  heading_est:   355.2
+2020-06-22 13:37|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0  motion:     0.4 sec  heading_est:   355.2
+2020-06-22 16:12|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-22 22:08|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-22 22:08|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.2
+2020-06-22 22:08|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.3
+2020-06-22 22:08|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-06-22 22:09|[wheellog.py.logMotionStop]travel:    -4.2 rotation:     0.3  motion:     0.4 sec  heading_est:   356.6
+2020-06-22 22:09|[wheellog.py.logMotionStop]travel:   -10.9 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-06-23 00:47|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-06-23 06:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-23 06:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   356.9
+2020-06-23 06:40|[wheellog.py.logMotionStop]travel:  -217.3 rotation:    -1.1  motion:     2.8 sec  heading_est:   355.8
+2020-06-23 06:41|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.5
+2020-06-23 06:41|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.2
+2020-06-23 06:41|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.2
+2020-06-23 06:41|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-23 09:12|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-06-23 15:05|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-06-23 15:05|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   358.3
+2020-06-23 15:06|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -1.7  motion:     2.7 sec  heading_est:   356.6
+2020-06-23 15:06|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-06-23 15:06|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.8  motion:     0.4 sec  heading_est:   355.5
+2020-06-23 15:06|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   355.8
+2020-06-23 15:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-23 17:38|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-23 23:32|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-06-23 23:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   358.3
+2020-06-23 23:33|[wheellog.py.logMotionStop]travel:  -213.9 rotation:    -0.6  motion:     2.8 sec  heading_est:   357.7
+2020-06-23 23:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-06-23 23:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-06-23 23:34|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.6  motion:     0.4 sec  heading_est:   358.3
+2020-06-23 23:34|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   357.7
+2020-06-24 00:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-24 00:13|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-24 01:42|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.2
+2020-06-24 01:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   356.9
+2020-06-24 01:42|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -1.1  motion:     2.7 sec  heading_est:   355.8
+2020-06-24 01:42|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   355.8
+2020-06-24 01:42|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-06-24 02:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-24 04:16|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-24 10:05|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   177.6
+2020-06-24 10:05|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7  motion:     2.4 sec  heading_est:   356.3
+2020-06-24 10:06|[wheellog.py.logMotionStop]travel:  -209.2 rotation:    -0.3  motion:     2.7 sec  heading_est:   356.1
+2020-06-24 10:06|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.3 sec  heading_est:   356.1
+2020-06-24 10:06|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.8
+2020-06-24 11:13|[wheellog.py.logMotionStop]travel:   213.6 rotation:    -0.3  motion:     2.8 sec  heading_est:   359.7
+2020-06-24 13:49|[wheellog.py.logMotionStop]travel:     1.1 rotation:   178.4  motion:     2.3 sec  heading_est:   178.2
+2020-06-24 13:49|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7  motion:     2.3 sec  heading_est:   356.9
+2020-06-24 13:49|[wheellog.py.logMotionStop]travel:  -206.9 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.1
+2020-06-24 13:49|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.8
+2020-06-24 13:49|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.4 sec  heading_est:   356.1
+2020-06-24 16:26|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-24 22:22|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.0
+2020-06-24 22:22|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.7
+2020-06-24 22:22|[wheellog.py.logMotionStop]travel:  -213.1 rotation:    -1.4  motion:     2.8 sec  heading_est:   356.3
+2020-06-24 22:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-06-24 22:23|[wheellog.py.logMotionStop]travel:    -7.3 rotation:     0.0  motion:     0.4 sec  heading_est:   356.3
+2020-06-24 22:23|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.3 sec  heading_est:   356.3
+2020-06-24 22:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-25 00:58|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-06-25 06:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-06-25 06:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.7
+2020-06-25 06:49|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.6
+2020-06-25 06:49|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.1
+2020-06-25 06:50|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.0  motion:     0.4 sec  heading_est:   356.1
+2020-06-25 07:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-25 09:24|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-25 14:25|[wheellog.py.logMotionStop]travel:   541.2 rotation:     0.6  motion:     6.7 sec  heading_est:     0.8
+2020-06-25 14:25|[wheellog.py.logMotionStop]travel:   372.5 rotation:   374.3  motion:     9.1 sec  heading_est:    15.1
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:   193.5 rotation:  -194.4  motion:     4.8 sec  heading_est:   180.7
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:   545.1 rotation:     0.6  motion:     6.7 sec  heading_est:   181.3
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:    84.1 rotation:   -84.5  motion:     2.3 sec  heading_est:    96.8
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:    46.6 rotation:     0.3  motion:     0.8 sec  heading_est:    97.1
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:    60.3 rotation:     0.0  motion:     1.0 sec  heading_est:    97.1
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:  -124.0 rotation:    -0.6  motion:     1.7 sec  heading_est:    96.5
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:    83.2 rotation:    83.6  motion:     2.3 sec  heading_est:   180.1
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:   -98.6 rotation:    -0.3  motion:     1.4 sec  heading_est:   179.9
+2020-06-25 14:26|[wheellog.py.logMotionStop]travel:     0.6 rotation:   358.0  motion:     2.3 sec  heading_est:   177.9
+2020-06-25 14:27|[wheellog.py.logMotionStop]travel:     0.6 rotation:   359.7  motion:     2.3 sec  heading_est:   177.6
+2020-06-25 15:15|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   356.9
+2020-06-25 15:15|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   175.6
+2020-06-25 15:16|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.8  motion:     2.7 sec  heading_est:   174.7
+2020-06-25 15:16|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.6  motion:     0.4 sec  heading_est:   175.3
+2020-06-25 15:16|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   175.0
+2020-06-25 15:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   175.0
+2020-06-25 17:03|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-06-25 17:49|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.9 sec  heading_est:     0.0
+2020-06-25 23:38|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-25 23:38|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   357.7
+2020-06-25 23:38|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -1.4  motion:     2.8 sec  heading_est:   356.3
+2020-06-25 23:38|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-06-25 23:38|[wheellog.py.logMotionStop]travel:    -7.3 rotation:    -0.6  motion:     0.4 sec  heading_est:   355.5
+2020-06-25 23:48|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-06-26 02:11|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-26 08:01|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.0
+2020-06-26 08:02|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.3
+2020-06-26 08:02|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.3  motion:     2.7 sec  heading_est:   358.0
+2020-06-26 08:02|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   357.5
+2020-06-26 08:02|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   357.2
+2020-06-26 10:38|[wheellog.py.logMotionStop]travel:   212.5 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-26 14:33|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-06-26 14:33|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.7
+2020-06-26 14:34|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -1.1  motion:     2.6 sec  heading_est:   356.6
+2020-06-26 14:34|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.6  motion:     0.3 sec  heading_est:   357.2
+2020-06-26 14:34|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   356.6
+2020-06-26 14:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.6
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6  motion:     2.9 sec  heading_est:     0.6
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   178.7
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   357.5
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:  -215.0 rotation:    -1.7  motion:     2.8 sec  heading_est:   355.8
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:    -6.4 rotation:     0.3  motion:     0.4 sec  heading_est:   356.1
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   355.5
+2020-06-26 14:39|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   355.8
+2020-06-26 15:26|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.6
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.3 sec  heading_est:   358.6
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.1  motion:     2.8 sec  heading_est:   357.5
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.3 sec  heading_est:   357.2
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:    -9.2 rotation:     0.3  motion:     0.4 sec  heading_est:   357.5
+2020-06-26 16:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-26 16:58|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-26 16:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-06-26 16:58|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.4 sec  heading_est:   355.8
+2020-06-26 16:59|[wheellog.py.logMotionStop]travel:  -207.8 rotation:    -1.1  motion:     2.7 sec  heading_est:   354.7
+2020-06-26 16:59|[wheellog.py.logMotionStop]travel:    -6.4 rotation:     0.3  motion:     0.3 sec  heading_est:   354.9
+2020-06-26 16:59|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.7
+2020-06-26 17:14|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-06-26 17:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-06-26 17:38|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   179.0
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   357.7
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:  -213.6 rotation:    -2.0  motion:     2.8 sec  heading_est:   355.8
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.4 sec  heading_est:   356.1
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   355.5
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-06-26 17:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-26 20:18|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-27 02:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-06-27 02:14|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.0  motion:     2.3 sec  heading_est:   355.8
+2020-06-27 02:14|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.8  motion:     2.7 sec  heading_est:   354.9
+2020-06-27 02:14|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   354.4
+2020-06-27 02:14|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.1
+2020-06-27 02:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-27 02:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-27 02:19|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-27 02:19|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-06-27 02:20|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.5
+2020-06-27 02:20|[wheellog.py.logMotionStop]travel:  -206.1 rotation:    -1.1  motion:     2.8 sec  heading_est:   356.3
+2020-06-27 02:20|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-06-27 02:20|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0  motion:     0.4 sec  heading_est:   356.1
+2020-06-27 02:25|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-27 02:31|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.4
+2020-06-27 02:31|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   356.9
+2020-06-27 02:31|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -1.4  motion:     2.8 sec  heading_est:   355.5
+2020-06-27 02:32|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-06-27 02:32|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   355.5
+2020-06-27 02:32|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.8  motion:     0.3 sec  heading_est:   354.7
+2020-06-27 05:07|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-27 11:01|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-06-27 11:01|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   358.0
+2020-06-27 11:01|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.8  motion:     2.9 sec  heading_est:   357.2
+2020-06-27 11:02|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.9
+2020-06-27 11:02|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.6
+2020-06-27 11:02|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-27 11:02|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-27 12:01|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-27 14:17|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-06-27 14:18|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.3
+2020-06-27 14:18|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -0.3  motion:     2.7 sec  heading_est:   358.0
+2020-06-27 14:18|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   357.5
+2020-06-27 14:18|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.2
+2020-06-27 16:53|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-27 22:48|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-27 22:49|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   356.6
+2020-06-27 22:49|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -1.4  motion:     2.7 sec  heading_est:   355.2
+2020-06-27 22:49|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   355.2
+2020-06-27 22:49|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6  motion:     0.4 sec  heading_est:   354.7
+2020-06-27 22:53|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-28 01:19|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:     0.3
+2020-06-28 01:25|[wheellog.py.logMotionStop]travel:   213.1 rotation:     0.3  motion:     2.8 sec  heading_est:     0.6
+2020-06-28 07:18|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.6
+2020-06-28 07:18|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   358.3
+2020-06-28 07:19|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -1.7  motion:     2.7 sec  heading_est:   356.6
+2020-06-28 07:19|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.3 sec  heading_est:   356.6
+2020-06-28 07:19|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   356.9
+2020-06-28 07:19|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.6
+2020-06-28 07:21|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-28 07:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-28 09:51|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-28 15:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-28 15:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.5
+2020-06-28 15:44|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.6
+2020-06-28 15:44|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-06-28 15:44|[wheellog.py.logMotionStop]travel:    -9.2 rotation:     0.3  motion:     0.4 sec  heading_est:   356.6
+2020-06-28 16:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-28 16:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-28 18:15|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-06-28 19:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.3
+2020-06-28 19:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.3
+2020-06-28 19:31|[wheellog.py.logMotionStop]travel:    -0.8 rotation:    -0.8  motion:     0.3 sec  heading_est:   359.4
+2020-06-28 19:31|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    -0.3  motion:     0.2 sec  heading_est:   359.2
+2020-06-28 19:31|[wheellog.py.logMotionStop]travel:     0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   359.4
+2020-06-28 19:31|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   359.4
+2020-06-28 19:32|[wheellog.py.logMotionStop]travel:     2.0 rotation:     2.0  motion:     0.3 sec  heading_est:     1.4
+2020-06-28 19:32|[wheellog.py.logMotionStop]travel:     0.6 rotation:     0.6  motion:     0.2 sec  heading_est:     2.0
+2020-06-28 19:32|[wheellog.py.logMotionStop]travel:    -1.1 rotation:    -1.1  motion:     0.2 sec  heading_est:     0.8
+2020-06-29 00:05|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.9
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   358.6
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:  -213.9 rotation:    -1.1  motion:     2.7 sec  heading_est:   357.5
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   357.5
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   357.5
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   357.7
+2020-06-29 00:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-29 02:39|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.3
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:  -213.9 rotation:    -1.7  motion:     2.7 sec  heading_est:   356.6
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.3 sec  heading_est:   356.6
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.6
+2020-06-29 08:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.6
+2020-06-29 11:01|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-29 16:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.3
+2020-06-29 16:43|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   356.9
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:  -206.6 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.3
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.0  motion:     0.3 sec  heading_est:   356.3
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:   356.3
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-06-29 16:44|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-06-29 19:16|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-06-30 01:07|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-06-30 01:07|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   358.0
+2020-06-30 01:07|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.2
+2020-06-30 01:08|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.2
+2020-06-30 01:08|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.6  motion:     0.3 sec  heading_est:   357.7
+2020-06-30 01:08|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-06-30 01:08|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-06-30 01:08|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-30 02:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-30 03:40|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-30 09:29|[wheellog.py.logMotionStop]travel:     0.8 rotation:    66.5  motion:     1.0 sec  heading_est:    66.5
+2020-06-30 09:36|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   245.2
+2020-06-30 09:36|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.0  motion:     2.4 sec  heading_est:    62.3
+2020-06-30 09:36|[wheellog.py.logMotionStop]travel:  -221.2 rotation:    -0.6  motion:     2.9 sec  heading_est:    61.7
+2020-06-30 09:36|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.3 sec  heading_est:    62.0
+2020-06-30 09:36|[wheellog.py.logMotionStop]travel:    -7.3 rotation:     0.0  motion:     0.3 sec  heading_est:    62.0
+2020-06-30 10:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-06-30 11:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-30 12:16|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-30 18:04|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-06-30 18:04|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   356.9
+2020-06-30 18:04|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -2.0  motion:     2.8 sec  heading_est:   354.9
+2020-06-30 18:04|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.4 sec  heading_est:   354.9
+2020-06-30 18:04|[wheellog.py.logMotionStop]travel:   -10.3 rotation:     0.3  motion:     0.5 sec  heading_est:   355.2
+2020-06-30 18:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-06-30 18:59|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-06-30 19:55|[wheellog.py.logMotionStop]travel:    98.3 rotation:     0.0  motion:     1.4 sec  heading_est:     0.0
+2020-06-30 20:16|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:     0.3
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.3  motion:     2.0 sec  heading_est:     0.0
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:  -148.6 rotation:    -0.6  motion:     2.0 sec  heading_est:   359.4
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:   172.9 rotation:     0.3  motion:     2.3 sec  heading_est:   359.7
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:  -249.1 rotation:    -1.1  motion:     3.2 sec  heading_est:   358.6
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:    48.9 rotation:     0.3  motion:     0.8 sec  heading_est:   358.9
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:    87.8
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   266.5
+2020-06-30 20:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.7  motion:     1.3 sec  heading_est:   355.2
+2020-06-30 20:23|[wheellog.py.logMotionStop]travel:   894.7 rotation:    90.3  motion:     7.3 sec  heading_est:    85.6
+2020-06-30 20:26|[wheellog.py.logMotionStop]travel:    89.4 rotation:    89.8  motion:     2.0 sec  heading_est:   175.3
+2020-06-30 21:06|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   354.1
+2020-06-30 21:07|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   171.7
+2020-06-30 21:07|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -0.3  motion:     2.8 sec  heading_est:   171.4
+2020-06-30 21:07|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   171.1
+2020-06-30 21:07|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   171.1
+2020-06-30 23:44|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-01 05:31|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-01 05:31|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   357.7
+2020-07-01 05:32|[wheellog.py.logMotionStop]travel:  -211.7 rotation:    -1.7  motion:     2.7 sec  heading_est:   356.1
+2020-07-01 05:32|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-01 05:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-01 05:33|[wheellog.py.logMotionStop]travel:    -7.0 rotation:     0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-01 05:33|[wheellog.py.logMotionStop]travel:    -8.9 rotation:    -0.6  motion:     0.4 sec  heading_est:   355.8
+2020-07-01 08:06|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-01 08:07|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:     0.6
+2020-07-01 08:07|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   -89.5  motion:     1.2 sec  heading_est:   271.1
+2020-07-01 08:07|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -89.5  motion:     1.3 sec  heading_est:   181.6
+2020-07-01 08:07|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   181.8
+2020-07-01 08:07|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:     0.0
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:     0.8
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.7 sec  heading_est:     1.1
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:     1.4
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:  -150.5 rotation:    -0.8  motion:     2.0 sec  heading_est:     0.6
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.3  motion:     2.0 sec  heading_est:     0.3
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:  -148.8 rotation:    -0.8  motion:     2.0 sec  heading_est:   359.4
+2020-07-01 08:09|[wheellog.py.logMotionStop]travel:  -149.7 rotation:    -0.6  motion:     2.0 sec  heading_est:   358.9
+2020-07-01 08:10|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -0.6  motion:     2.0 sec  heading_est:   358.3
+2020-07-01 08:10|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -1.1  motion:     2.0 sec  heading_est:   357.2
+2020-07-01 08:15|[wheellog.py.logMotionStop]travel:    99.7 rotation:     0.3  motion:     1.4 sec  heading_est:   357.5
+2020-07-01 08:15|[wheellog.py.logMotionStop]travel:    98.9 rotation:     0.6  motion:     1.4 sec  heading_est:   358.0
+2020-07-01 08:16|[wheellog.py.logMotionStop]travel:    99.1 rotation:     0.3  motion:     1.3 sec  heading_est:   358.3
+2020-07-01 08:16|[wheellog.py.logMotionStop]travel:  -148.0 rotation:    -1.1  motion:     1.9 sec  heading_est:   357.2
+2020-07-01 08:16|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.8  motion:     2.0 sec  heading_est:   356.4
+2020-07-01 13:51|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   174.5
+2020-07-01 13:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   353.5
+2020-07-01 13:52|[wheellog.py.logMotionStop]travel:  -206.4 rotation:    -1.4  motion:     2.6 sec  heading_est:   352.1
+2020-07-01 13:52|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   351.8
+2020-07-01 13:52|[wheellog.py.logMotionStop]travel:    -8.9 rotation:    -0.6  motion:     0.3 sec  heading_est:   351.3
+2020-07-01 13:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   351.3
+2020-07-01 14:32|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-01 16:04|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-01 16:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.3
+2020-07-01 16:05|[wheellog.py.logMotionStop]travel:  -214.7 rotation:    -0.3  motion:     2.8 sec  heading_est:   358.0
+2020-07-01 16:05|[wheellog.py.logMotionStop]travel:    -4.5 rotation:     0.0  motion:     0.3 sec  heading_est:   358.0
+2020-07-01 16:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   358.0
+2020-07-01 16:05|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   358.0
+2020-07-01 16:49|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-01 18:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.4 sec  heading_est:   178.4
+2020-07-01 18:26|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   356.6
+2020-07-01 18:26|[wheellog.py.logMotionStop]travel:  -213.9 rotation:    -1.1  motion:     2.8 sec  heading_est:   355.5
+2020-07-01 18:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-01 18:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-01 18:27|[wheellog.py.logMotionStop]travel:    -7.0 rotation:     0.3  motion:     0.4 sec  heading_est:   355.8
+2020-07-01 18:27|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.5
+2020-07-01 20:19|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-01 22:53|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-01 22:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   357.7
+2020-07-01 22:54|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.6
+2020-07-01 22:54|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-01 22:54|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.3
+2020-07-01 22:55|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-02 01:25|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-02 07:13|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-07-02 07:13|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.0
+2020-07-02 07:13|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.2
+2020-07-02 07:13|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   357.2
+2020-07-02 07:13|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.3 sec  heading_est:   357.2
+2020-07-02 09:50|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-02 11:40|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    88.9  motion:     1.3 sec  heading_est:    89.2
+2020-07-02 11:40|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   -88.4  motion:     1.3 sec  heading_est:     0.8
+2020-07-02 11:41|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -88.1  motion:     1.3 sec  heading_est:   272.7
+2020-07-02 11:41|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:     1.7
+2020-07-02 11:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:    89.2  motion:     1.3 sec  heading_est:    90.9
+2020-07-02 11:42|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   -88.9  motion:     1.3 sec  heading_est:     2.0
+2020-07-02 11:44|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     2.0
+2020-07-02 11:44|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.1  motion:     1.3 sec  heading_est:    90.1
+2020-07-02 11:44|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -88.1  motion:     1.3 sec  heading_est:     2.0
+2020-07-02 13:59|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     2.0
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:     2.2
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.7 sec  heading_est:     2.5
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:  -148.8 rotation:    -0.3  motion:     2.0 sec  heading_est:     2.2
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:  -150.2 rotation:    -0.6  motion:     2.0 sec  heading_est:     1.7
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -0.6  motion:     2.0 sec  heading_est:     1.1
+2020-07-02 14:05|[wheellog.py.logMotionStop]travel:  -147.4 rotation:    -0.6  motion:     2.0 sec  heading_est:     0.6
+2020-07-02 14:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 14:19|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:     0.8
+2020-07-02 14:19|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.3  motion:     3.7 sec  heading_est:     1.1
+2020-07-02 14:19|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.7 sec  heading_est:     1.7
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   181.0
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:    87.5  motion:     1.3 sec  heading_est:   268.5
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -89.8  motion:     1.4 sec  heading_est:   178.7
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:   178.7
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.7 sec  heading_est:   179.3
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:   179.6
+2020-07-02 14:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.4 sec  heading_est:   357.5
+2020-07-02 14:38|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.0  motion:     3.8 sec  heading_est:   357.5
+2020-07-02 14:39|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   357.7
+2020-07-02 14:39|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:   358.0
+2020-07-02 14:39|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:   358.3
+2020-07-02 14:39|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.3  motion:     2.0 sec  heading_est:   358.0
+2020-07-02 14:39|[wheellog.py.logMotionStop]travel:  -148.6 rotation:    -0.6  motion:     2.0 sec  heading_est:   357.5
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    88.4  motion:     1.3 sec  heading_est:    85.8
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.7  motion:     1.3 sec  heading_est:   174.5
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:   174.5
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:   588.7 rotation:     0.0  motion:     7.3 sec  heading_est:   174.5
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   353.8
+2020-07-02 14:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   353.8
+2020-07-02 14:45|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   353.8
+2020-07-02 14:46|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:   354.1
+2020-07-02 14:46|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.8 sec  heading_est:   354.6
+2020-07-02 14:46|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:   354.9
+2020-07-02 14:46|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.9 sec  heading_est:   355.5
+2020-07-02 14:47|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:   355.8
+2020-07-02 14:47|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:   356.0
+2020-07-02 14:47|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   174.5
+2020-07-02 14:47|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   175.0
+2020-07-02 14:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   175.0
+2020-07-02 14:48|[wheellog.py.logMotionStop]travel:   297.7 rotation:     0.6  motion:     3.8 sec  heading_est:   175.6
+2020-07-02 14:48|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:   175.6
+2020-07-02 14:48|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   175.9
+2020-07-02 14:48|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   176.4
+2020-07-02 14:49|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   176.7
+2020-07-02 14:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.4  motion:     1.3 sec  heading_est:   265.1
+2020-07-02 14:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:   354.1
+2020-07-02 14:54|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   354.3
+2020-07-02 14:54|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   354.6
+2020-07-02 14:54|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   355.2
+2020-07-02 14:54|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:   355.5
+2020-07-02 14:54|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   356.0
+2020-07-02 14:55|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.8 sec  heading_est:   356.6
+2020-07-02 14:55|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   175.6
+2020-07-02 14:55|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   175.9
+2020-07-02 14:56|[wheellog.py.logMotionStop]travel:   297.7 rotation:     0.6  motion:     3.8 sec  heading_est:   176.4
+2020-07-02 14:56|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   176.7
+2020-07-02 14:56|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.7 sec  heading_est:   177.3
+2020-07-02 14:56|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   177.8
+2020-07-02 14:57|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.7 sec  heading_est:   178.1
+2020-07-02 14:57|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.4  motion:     1.4 sec  heading_est:   266.5
+2020-07-02 14:57|[wheellog.py.logMotionStop]travel:     0.3 rotation:    87.8  motion:     1.3 sec  heading_est:   354.3
+2020-07-02 15:09|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   354.6
+2020-07-02 15:09|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:   355.4
+2020-07-02 15:09|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.3  motion:     3.8 sec  heading_est:   355.7
+2020-07-02 15:09|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:   356.0
+2020-07-02 15:09|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:   356.3
+2020-07-02 15:10|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:   356.6
+2020-07-02 15:10|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.0  motion:     3.8 sec  heading_est:   356.6
+2020-07-02 15:10|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:   357.1
+2020-07-02 15:11|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   175.9
+2020-07-02 15:11|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:   175.9
+2020-07-02 15:11|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.9 sec  heading_est:   176.4
+2020-07-02 15:11|[wheellog.py.logMotionStop]travel:   297.7 rotation:     0.6  motion:     3.8 sec  heading_est:   177.0
+2020-07-02 15:12|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:   177.3
+2020-07-02 15:12|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:   177.5
+2020-07-02 15:12|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.8 sec  heading_est:   178.1
+2020-07-02 15:12|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   178.4
+2020-07-02 15:12|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.8 sec  heading_est:   178.9
+2020-07-02 15:13|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:   267.9
+2020-07-02 15:13|[wheellog.py.logMotionStop]travel:     0.3 rotation:    87.3  motion:     1.2 sec  heading_est:   355.1
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   173.0
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2  motion:     2.5 sec  heading_est:   351.2
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   351.2
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:  -184.0 rotation:    -0.3  motion:     2.5 sec  heading_est:   350.9
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   350.4
+2020-07-02 15:23|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   350.1
+2020-07-02 15:54|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-02 16:01|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:     1.1
+2020-07-02 16:01|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:     1.7
+2020-07-02 16:01|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:     2.0
+2020-07-02 16:02|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:     2.8
+2020-07-02 16:02|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.9 sec  heading_est:     3.1
+2020-07-02 16:02|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.8 sec  heading_est:     3.6
+2020-07-02 16:02|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.7 sec  heading_est:     4.2
+2020-07-02 16:03|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3  motion:     2.4 sec  heading_est:   181.5
+2020-07-02 16:03|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.9 sec  heading_est:   182.1
+2020-07-02 16:03|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:   182.1
+2020-07-02 16:03|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.9 sec  heading_est:   182.7
+2020-07-02 16:03|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.7 sec  heading_est:   183.2
+2020-07-02 16:04|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   183.5
+2020-07-02 16:04|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:   183.8
+2020-07-02 16:04|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -88.9  motion:     1.3 sec  heading_est:    94.8
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:   188.2 rotation:     0.6  motion:     2.5 sec  heading_est:    95.4
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -88.9  motion:     1.3 sec  heading_est:     6.5
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:   -45.8 rotation:   -64.0  motion:     3.0 sec  heading_est:   302.5
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:   580.0 rotation:  -582.8  motion:    14.0 sec  heading_est:    79.7
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:   143.0 rotation:     0.0  motion:     2.0 sec  heading_est:    79.7
+2020-07-02 16:05|[wheellog.py.logMotionStop]travel:   267.2 rotation:   268.5  motion:     6.6 sec  heading_est:   348.2
+2020-07-02 16:06|[wheellog.py.logMotionStop]travel:   -96.1 rotation:    -0.6  motion:     1.4 sec  heading_est:   347.7
+2020-07-02 16:06|[wheellog.py.logMotionStop]travel:     7.5 rotation:    -7.6  motion:     0.4 sec  heading_est:   340.1
+2020-07-02 17:02|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   158.8
+2020-07-02 17:03|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   337.6
+2020-07-02 17:03|[wheellog.py.logMotionStop]travel:  -219.5 rotation:    -1.1  motion:     2.8 sec  heading_est:   336.4
+2020-07-02 17:04|[wheellog.py.logMotionStop]travel:    -5.3 rotation:    -0.3  motion:     0.3 sec  heading_est:   336.2
+2020-07-02 17:04|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   336.2
+2020-07-02 19:36|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.6  motion:     2.7 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.6
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.1 sec  heading_est:     0.8
+2020-07-02 20:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.8
+2020-07-03 01:22|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.6
+2020-07-03 01:23|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   358.3
+2020-07-03 01:23|[wheellog.py.logMotionStop]travel:  -214.7 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.5
+2020-07-03 01:23|[wheellog.py.logMotionStop]travel:    -7.3 rotation:     0.0  motion:     0.4 sec  heading_est:   357.5
+2020-07-03 01:23|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.0  motion:     0.4 sec  heading_est:   357.5
+2020-07-03 03:54|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   357.5
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:  -215.3 rotation:    -0.8  motion:     2.8 sec  heading_est:   356.6
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:    -5.3 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.3
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:   356.3
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   355.8
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.8
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-03 09:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-03 12:05|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-03 17:51|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.5 sec  heading_est:   179.6
+2020-07-03 17:51|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   357.7
+2020-07-03 17:51|[wheellog.py.logMotionStop]travel:  -212.8 rotation:    -1.1  motion:     2.8 sec  heading_est:   356.6
+2020-07-03 17:51|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.6
+2020-07-03 17:51|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-03 17:56|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-03 17:56|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.4 sec  heading_est:   177.9
+2020-07-03 17:57|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   356.6
+2020-07-03 17:57|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -1.1  motion:     2.7 sec  heading_est:   355.5
+2020-07-03 17:57|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.2
+2020-07-03 17:57|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     0.0  motion:     0.4 sec  heading_est:   355.2
+2020-07-03 18:37|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-03 19:29|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.0
+2020-07-03 19:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   357.5
+2020-07-03 19:30|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.3
+2020-07-03 19:31|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-07-03 19:31|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-03 19:31|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.3 sec  heading_est:   356.3
+2020-07-03 22:04|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-04 03:53|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-04 03:53|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   356.3
+2020-07-04 03:53|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.1  motion:     2.8 sec  heading_est:   355.2
+2020-07-04 03:53|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.3 sec  heading_est:   355.5
+2020-07-04 03:53|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.2
+2020-07-04 06:25|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-04 08:34|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.3  motion:     3.8 sec  heading_est:     0.6
+2020-07-04 08:34|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:     0.8
+2020-07-04 08:35|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:     0.8
+2020-07-04 08:35|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.6  motion:     3.7 sec  heading_est:     1.4
+2020-07-04 08:36|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:     1.7
+2020-07-04 08:37|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:     2.0
+2020-07-04 08:37|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   -88.4  motion:     1.2 sec  heading_est:   273.6
+2020-07-04 08:38|[wheellog.py.logMotionStop]travel:   298.2 rotation:     0.0  motion:     3.8 sec  heading_est:   273.6
+2020-07-04 08:38|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.8  motion:     3.7 sec  heading_est:   274.4
+2020-07-04 08:38|[wheellog.py.logMotionStop]travel:   299.9 rotation:     0.6  motion:     3.9 sec  heading_est:   275.0
+2020-07-04 08:38|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:   275.5
+2020-07-04 08:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:    89.2  motion:     1.4 sec  heading_est:     4.8
+2020-07-04 08:39|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:     5.3
+2020-07-04 08:40|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:     5.6
+2020-07-04 08:40|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:     5.9
+2020-07-04 08:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:    87.8  motion:     1.3 sec  heading_est:    93.7
+2020-07-04 08:41|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.3  motion:     3.8 sec  heading_est:    94.0
+2020-07-04 08:41|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -89.2  motion:     1.3 sec  heading_est:     4.8
+2020-07-04 08:42|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -87.5  motion:     1.2 sec  heading_est:   277.2
+2020-07-04 08:42|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -89.8  motion:     1.3 sec  heading_est:   187.4
+2020-07-04 08:42|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   187.7
+2020-07-04 08:43|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:   188.0
+2020-07-04 08:43|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   188.6
+2020-07-04 08:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:   277.5
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:  -149.7 rotation:    -0.6  motion:     2.0 sec  heading_est:   276.9
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:  -149.7 rotation:    -0.6  motion:     2.1 sec  heading_est:   276.4
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -0.6  motion:     2.0 sec  heading_est:   275.8
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.3  motion:     2.1 sec  heading_est:   275.5
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -0.6  motion:     2.0 sec  heading_est:   275.0
+2020-07-04 08:44|[wheellog.py.logMotionStop]travel:    -0.6 rotation:    88.7  motion:     1.2 sec  heading_est:     3.6
+2020-07-04 08:45|[wheellog.py.logMotionStop]travel:  -147.7 rotation:    -0.8  motion:     2.0 sec  heading_est:     2.8
+2020-07-04 08:45|[wheellog.py.logMotionStop]travel:  -149.1 rotation:    -1.1  motion:     2.0 sec  heading_est:     1.7
+2020-07-04 08:45|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.0 sec  heading_est:     0.8
+2020-07-04 08:45|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.1 sec  heading_est:   360.0
+2020-07-04 08:45|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.0 sec  heading_est:   359.2
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.0 sec  heading_est:   358.3
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:   -63.1 rotation:    -0.6  motion:     1.0 sec  heading_est:   357.8
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.1 sec  heading_est:   356.9
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.1 sec  heading_est:   356.1
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:  -150.2 rotation:    -0.6  motion:     2.1 sec  heading_est:   355.5
+2020-07-04 08:46|[wheellog.py.logMotionStop]travel:  -149.7 rotation:    -1.1  motion:     2.1 sec  heading_est:   354.4
+2020-07-04 08:47|[wheellog.py.logMotionStop]travel:  -149.7 rotation:    -0.6  motion:     2.0 sec  heading_est:   353.8
+2020-07-04 08:47|[wheellog.py.logMotionStop]travel:    -1.1 rotation:   -88.1  motion:     1.2 sec  heading_est:   265.7
+2020-07-04 08:47|[wheellog.py.logMotionStop]travel:    -1.1 rotation:   -89.2  motion:     1.3 sec  heading_est:   176.5
+2020-07-04 08:48|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -88.9  motion:     1.2 sec  heading_est:    87.6
+2020-07-04 08:48|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.4  motion:     1.2 sec  heading_est:   175.9
+2020-07-04 08:48|[wheellog.py.logMotionStop]travel:     0.0 rotation:    89.2  motion:     1.2 sec  heading_est:   265.2
+2020-07-04 08:49|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.7  motion:     1.2 sec  heading_est:   353.8
+2020-07-04 12:06|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   178.7
+2020-07-04 12:06|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3  motion:     2.3 sec  heading_est:   356.1
+2020-07-04 12:07|[wheellog.py.logMotionStop]travel:  -214.2 rotation:    -2.0  motion:     2.8 sec  heading_est:   354.1
+2020-07-04 12:07|[wheellog.py.logMotionStop]travel:    -6.7 rotation:    -0.6  motion:     0.4 sec  heading_est:   353.5
+2020-07-04 12:07|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   353.5
+2020-07-04 13:00|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-04 14:56|[wheellog.py.logMotionStop]travel:     1.1 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-07-04 14:57|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   356.3
+2020-07-04 14:57|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -1.1  motion:     2.8 sec  heading_est:   355.2
+2020-07-04 14:57|[wheellog.py.logMotionStop]travel:    -6.7 rotation:    -0.6  motion:     0.3 sec  heading_est:   354.7
+2020-07-04 14:57|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   354.7
+2020-07-04 15:58|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-04 17:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-04 17:11|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.7
+2020-07-04 17:11|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -0.6  motion:     2.7 sec  heading_est:   357.2
+2020-07-04 17:11|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-04 17:11|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.8  motion:     0.4 sec  heading_est:   356.6
+2020-07-04 19:50|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-05 01:38|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-07-05 01:38|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   358.3
+2020-07-05 01:39|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.1  motion:     2.8 sec  heading_est:   357.2
+2020-07-05 01:39|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-05 01:39|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   357.2
+2020-07-05 03:06|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-05 06:29|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-07-05 06:29|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   356.6
+2020-07-05 06:29|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.1
+2020-07-05 06:29|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.8
+2020-07-05 06:29|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-05 08:58|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-05 09:21|[wheellog.py.logMotionStop]travel:   297.7 rotation:     0.0  motion:     3.7 sec  heading_est:     0.3
+2020-07-05 09:26|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.0  motion:     3.8 sec  heading_est:     0.3
+2020-07-05 09:26|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:     0.6
+2020-07-05 09:27|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.8 sec  heading_est:     0.8
+2020-07-05 09:27|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.8 sec  heading_est:     0.8
+2020-07-05 09:27|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.8  motion:     3.7 sec  heading_est:     1.7
+2020-07-05 09:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     1.7
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.0  motion:     3.8 sec  heading_est:     1.7
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -88.7  motion:     1.3 sec  heading_est:   273.0
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   273.3
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:     0.0 rotation:   -88.7  motion:     1.2 sec  heading_est:   184.6
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.4  motion:     1.3 sec  heading_est:   273.0
+2020-07-05 09:28|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   273.3
+2020-07-05 09:29|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.0  motion:     3.9 sec  heading_est:   273.3
+2020-07-05 09:29|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   273.6
+2020-07-05 09:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.1  motion:     1.3 sec  heading_est:     1.7
+2020-07-05 09:30|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.8  motion:     3.8 sec  heading_est:     2.5
+2020-07-05 09:30|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.3  motion:     3.7 sec  heading_est:     2.8
+2020-07-05 09:30|[wheellog.py.logMotionStop]travel:     0.3 rotation:    88.9  motion:     1.3 sec  heading_est:    91.7
+2020-07-05 09:31|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:    92.3
+2020-07-05 09:31|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.9 sec  heading_est:    92.9
+2020-07-05 09:31|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.9 sec  heading_est:    93.2
+2020-07-05 09:32|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -89.5  motion:     1.3 sec  heading_est:     3.6
+2020-07-05 09:32|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.8  motion:     2.1 sec  heading_est:     2.8
+2020-07-05 09:32|[wheellog.py.logMotionStop]travel:  -150.2 rotation:    -0.6  motion:     2.0 sec  heading_est:     2.2
+2020-07-05 09:33|[wheellog.py.logMotionStop]travel:    -1.1 rotation:   -89.2  motion:     1.3 sec  heading_est:   273.0
+2020-07-05 09:33|[wheellog.py.logMotionStop]travel:    -0.6 rotation:   -88.7  motion:     1.3 sec  heading_est:   184.4
+2020-07-05 09:33|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:   184.6
+2020-07-05 09:33|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:   185.5
+2020-07-05 09:34|[wheellog.py.logMotionStop]travel:   298.0 rotation:     0.8  motion:     3.8 sec  heading_est:   186.3
+2020-07-05 09:34|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:   187.2
+2020-07-05 09:34|[wheellog.py.logMotionStop]travel:   298.8 rotation:     0.6  motion:     3.8 sec  heading_est:   187.7
+2020-07-05 09:35|[wheellog.py.logMotionStop]travel:     0.3 rotation:    89.5  motion:     1.3 sec  heading_est:   277.2
+2020-07-05 09:35|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.3  motion:     2.0 sec  heading_est:   276.9
+2020-07-05 09:35|[wheellog.py.logMotionStop]travel:  -149.4 rotation:    -0.8  motion:     2.0 sec  heading_est:   276.1
+2020-07-05 09:35|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.3  motion:     2.0 sec  heading_est:   275.8
+2020-07-05 09:36|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -89.5  motion:     1.3 sec  heading_est:   186.3
+2020-07-05 09:36|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.7 sec  heading_est:   186.6
+2020-07-05 09:36|[wheellog.py.logMotionStop]travel:     0.6 rotation:    88.7  motion:     1.3 sec  heading_est:   275.3
+2020-07-05 09:36|[wheellog.py.logMotionStop]travel:  -150.0 rotation:    -0.3  motion:     2.0 sec  heading_est:   275.0
+2020-07-05 09:37|[wheellog.py.logMotionStop]travel:    -0.8 rotation:   -89.5  motion:     1.3 sec  heading_est:   185.5
+2020-07-05 09:37|[wheellog.py.logMotionStop]travel:    -1.1 rotation:   -88.7  motion:     1.3 sec  heading_est:    96.8
+2020-07-05 09:37|[wheellog.py.logMotionStop]travel:   299.6 rotation:     0.3  motion:     3.8 sec  heading_est:    97.1
+2020-07-05 09:37|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.8 sec  heading_est:    97.7
+2020-07-05 09:38|[wheellog.py.logMotionStop]travel:   299.4 rotation:     0.6  motion:     3.9 sec  heading_est:    98.2
+2020-07-05 09:38|[wheellog.py.logMotionStop]travel:     0.3 rotation:    89.5  motion:     1.4 sec  heading_est:   187.7
+2020-07-05 09:38|[wheellog.py.logMotionStop]travel:     0.3 rotation:    89.5  motion:     1.3 sec  heading_est:   277.2
+2020-07-05 09:38|[wheellog.py.logMotionStop]travel:   299.1 rotation:     0.8  motion:     3.8 sec  heading_est:   278.1
+2020-07-05 09:38|[wheellog.py.logMotionStop]travel:   298.5 rotation:     0.8  motion:     3.8 sec  heading_est:   278.9
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:   298.2 rotation:     1.1  motion:     3.8 sec  heading_est:   280.0
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:    88.7  motion:     1.3 sec  heading_est:     8.7
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:    22.3 rotation:   -22.4  motion:     0.8 sec  heading_est:   346.3
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:    22.9 rotation:   -23.0  motion:     0.9 sec  heading_est:   323.2
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:    87.7 rotation:     0.0  motion:     1.3 sec  heading_est:   323.2
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:    25.7 rotation:    25.8  motion:     0.8 sec  heading_est:   349.1
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:  -269.5 rotation:    -0.8  motion:     3.6 sec  heading_est:   348.2
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:    19.3 rotation:    19.4  motion:     0.7 sec  heading_est:     7.6
+2020-07-05 09:39|[wheellog.py.logMotionStop]travel:   127.6 rotation:     0.8  motion:     1.8 sec  heading_est:     8.4
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:    19.3 rotation:   -19.4  motion:     0.7 sec  heading_est:   349.1
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:    20.1 rotation:    20.2  motion:     0.7 sec  heading_est:     9.3
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:    11.4 rotation:   -11.5  motion:     0.5 sec  heading_est:   357.8
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:  -150.2 rotation:    -0.6  motion:     2.0 sec  heading_est:   357.2
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:   -10.9 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-05 09:40|[wheellog.py.logMotionStop]travel:   -38.5 rotation:    -0.6  motion:     0.7 sec  heading_est:   356.4
+2020-07-05 10:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.4
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   174.5
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.3  motion:     2.3 sec  heading_est:   351.8
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:  -215.6 rotation:    -0.6  motion:     2.8 sec  heading_est:   351.3
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   351.3
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6  motion:     0.3 sec  heading_est:   350.7
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:    -7.3 rotation:     0.0  motion:     0.4 sec  heading_est:   350.7
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   350.7
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-05 14:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-05 16:12|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-05 20:24|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   178.7
+2020-07-05 20:24|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   356.6
+2020-07-05 20:25|[wheellog.py.logMotionStop]travel:  -212.2 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.1
+2020-07-05 20:25|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   356.1
+2020-07-05 20:25|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.8  motion:     0.4 sec  heading_est:   355.2
+2020-07-05 20:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.2
+2020-07-05 20:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-05 22:56|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-06 04:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.4 sec  heading_est:   177.9
+2020-07-06 04:41|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   356.6
+2020-07-06 04:41|[wheellog.py.logMotionStop]travel:  -213.6 rotation:    -1.4  motion:     2.8 sec  heading_est:   355.2
+2020-07-06 04:41|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   354.9
+2020-07-06 04:41|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.9
+2020-07-06 04:41|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   354.4
+2020-07-06 07:14|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   357.7
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:  -206.9 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.9
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:    -7.8 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.3
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:    -8.4 rotation:    -0.6  motion:     0.3 sec  heading_est:   355.8
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:   355.8
+2020-07-06 12:57|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-06 15:25|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.5 sec  heading_est:   358.0
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.2
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   357.2
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-06 21:08|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-06 21:12|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-06 23:42|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.8  motion:     2.8 sec  heading_est:     0.8
+2020-07-07 05:21|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   179.9
+2020-07-07 05:21|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   358.3
+2020-07-07 05:21|[wheellog.py.logMotionStop]travel:  -213.1 rotation:    -1.4  motion:     2.8 sec  heading_est:   356.9
+2020-07-07 05:21|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   356.9
+2020-07-07 05:21|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.6
+2020-07-07 05:22|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-07 05:22|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-07 07:51|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-07 13:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-07 13:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   357.2
+2020-07-07 13:33|[wheellog.py.logMotionStop]travel:  -208.6 rotation:    -0.3  motion:     2.7 sec  heading_est:   356.9
+2020-07-07 13:34|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.3
+2020-07-07 13:34|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-07 16:01|[wheellog.py.logMotionStop]travel:   213.1 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-07 21:38|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   177.9
+2020-07-07 21:38|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   356.3
+2020-07-07 21:39|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -0.6  motion:     2.7 sec  heading_est:   355.8
+2020-07-07 21:39|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-07 21:39|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     0.0  motion:     0.4 sec  heading_est:   355.5
+2020-07-07 21:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-07 21:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-08 00:07|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-08 05:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   178.7
+2020-07-08 05:49|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.5
+2020-07-08 05:49|[wheellog.py.logMotionStop]travel:  -212.8 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.3
+2020-07-08 05:49|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.3
+2020-07-08 05:49|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.5 sec  heading_est:   356.3
+2020-07-08 08:22|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-08 14:00|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   178.4
+2020-07-08 14:01|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   356.9
+2020-07-08 14:01|[wheellog.py.logMotionStop]travel:  -209.2 rotation:    -0.3  motion:     2.7 sec  heading_est:   356.6
+2020-07-08 14:01|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-08 14:01|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-08 16:35|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-08 22:09|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-08 22:10|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   358.6
+2020-07-08 22:10|[wheellog.py.logMotionStop]travel:  -207.5 rotation:    -0.8  motion:     2.8 sec  heading_est:   357.7
+2020-07-08 22:10|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-08 22:10|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     0.0  motion:     0.3 sec  heading_est:   357.5
+2020-07-08 22:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-09 00:39|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3  motion:     2.3 sec  heading_est:   356.3
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -1.4  motion:     2.7 sec  heading_est:   354.9
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.9
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   354.7
+2020-07-09 06:20|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0  motion:     0.4 sec  heading_est:   354.7
+2020-07-09 08:52|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-07-09 14:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.2
+2020-07-09 14:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   356.9
+2020-07-09 14:34|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -1.4  motion:     2.7 sec  heading_est:   355.5
+2020-07-09 14:34|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.2
+2020-07-09 14:34|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0  motion:     0.4 sec  heading_est:   355.2
+2020-07-09 17:04|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-09 22:42|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.4
+2020-07-09 22:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   356.6
+2020-07-09 22:43|[wheellog.py.logMotionStop]travel:  -206.9 rotation:    -0.3  motion:     2.6 sec  heading_est:   356.3
+2020-07-09 22:43|[wheellog.py.logMotionStop]travel:    -6.7 rotation:    -0.6  motion:     0.3 sec  heading_est:   355.8
+2020-07-09 22:43|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-09 22:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-10 01:12|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-10 06:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.3 sec  heading_est:   179.3
+2020-07-10 06:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   179.3
+2020-07-10 06:52|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.6
+2020-07-10 06:53|[wheellog.py.logMotionStop]travel:  -208.6 rotation:    -0.3  motion:     2.9 sec  heading_est:   358.3
+2020-07-10 06:53|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   358.0
+2020-07-10 06:53|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   357.5
+2020-07-10 06:53|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:   357.5
+2020-07-10 09:22|[wheellog.py.logMotionStop]travel:   213.1 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-10 14:59|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-10 14:59|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   357.5
+2020-07-10 15:00|[wheellog.py.logMotionStop]travel:  -208.3 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.9
+2020-07-10 15:00|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.3
+2020-07-10 15:00|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.8  motion:     0.4 sec  heading_est:   355.5
+2020-07-10 15:04|[wheellog.py.logMotionStop]travel:   213.1 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-10 15:05|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-10 15:05|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   356.9
+2020-07-10 15:05|[wheellog.py.logMotionStop]travel:  -205.3 rotation:    -0.3  motion:     2.7 sec  heading_est:   356.6
+2020-07-10 15:05|[wheellog.py.logMotionStop]travel:    -7.5 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.3
+2020-07-10 15:05|[wheellog.py.logMotionStop]travel:    -8.7 rotation:     0.3  motion:     0.4 sec  heading_est:   356.6
+2020-07-10 15:10|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-10 15:10|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   179.0
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   358.0
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -1.4  motion:     2.7 sec  heading_est:   356.6
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:    -9.2 rotation:     0.3  motion:     0.4 sec  heading_est:   357.2
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:    -1.7 rotation:     0.0  motion:     0.3 sec  heading_est:     0.0
+2020-07-10 15:11|[wheellog.py.logMotionStop]travel:    -0.3 rotation:    -0.3  motion:     0.2 sec  heading_est:   359.7
+2020-07-10 17:37|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.7 sec  heading_est:   359.7
+2020-07-10 23:19|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   178.2
+2020-07-10 23:19|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   356.1
+2020-07-10 23:20|[wheellog.py.logMotionStop]travel:  -214.2 rotation:    -1.4  motion:     2.8 sec  heading_est:   354.7
+2020-07-10 23:20|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.4 sec  heading_est:   354.9
+2020-07-10 23:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.9
+2020-07-10 23:20|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.7
+2020-07-10 23:20|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.7
+2020-07-11 01:50|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.3 sec  heading_est:   355.8
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:  -207.2 rotation:    -1.1  motion:     2.8 sec  heading_est:   354.7
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   354.4
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.4
+2020-07-11 07:38|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   353.8
+2020-07-11 10:14|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-07-11 16:11|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-11 16:11|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   356.9
+2020-07-11 16:12|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.3  motion:     2.7 sec  heading_est:   356.6
+2020-07-11 16:12|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.3
+2020-07-11 16:12|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-07-11 16:12|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.3
+2020-07-11 16:15|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-11 18:12|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-11 18:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-11 18:51|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-12 00:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-07-12 00:45|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   357.5
+2020-07-12 00:45|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -1.1  motion:     2.8 sec  heading_est:   356.3
+2020-07-12 00:45|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   356.3
+2020-07-12 00:45|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-12 01:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-12 02:48|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-12 03:26|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-12 09:18|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-12 09:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.4 sec  heading_est:   356.6
+2020-07-12 09:18|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.1
+2020-07-12 09:18|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.8
+2020-07-12 09:18|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-12 09:52|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-12 10:54|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   178.4
+2020-07-12 10:54|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   357.5
+2020-07-12 10:54|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -1.1  motion:     2.8 sec  heading_est:   356.3
+2020-07-12 10:54|[wheellog.py.logMotionStop]travel:    -5.0 rotation:    -0.6  motion:     0.3 sec  heading_est:   355.8
+2020-07-12 10:54|[wheellog.py.logMotionStop]travel:   -10.6 rotation:     0.0  motion:     0.4 sec  heading_est:   355.8
+2020-07-12 13:31|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   357.2
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:  -212.2 rotation:    -0.6  motion:     2.7 sec  heading_est:   356.6
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:    -7.0 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-12 18:51|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-12 18:56|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.3
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.3 sec  heading_est:   356.9
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -0.6  motion:     2.8 sec  heading_est:   356.3
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.8
+2020-07-12 18:57|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.8
+2020-07-12 19:02|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-12 19:02|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-12 19:03|[wheellog.py.logMotionStop]travel:     1.4 rotation:   177.6  motion:     2.3 sec  heading_est:   357.2
+2020-07-12 19:03|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.1
+2020-07-12 19:03|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -1.1  motion:     0.3 sec  heading_est:   354.9
+2020-07-12 19:03|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.4 sec  heading_est:   355.2
+2020-07-12 19:03|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.2
+2020-07-12 19:04|[wheellog.py.logMotionStop]travel:    -0.8 rotation:     0.8  motion:     0.2 sec  heading_est:     0.8
+2020-07-12 19:04|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.8
+2020-07-12 19:04|[wheellog.py.logMotionStop]travel:    -1.1 rotation:    -1.1  motion:     0.3 sec  heading_est:   359.7
+2020-07-12 19:25|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.9 sec  heading_est:   359.7
+2020-07-12 19:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.5 sec  heading_est:   178.4
+2020-07-12 19:29|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.2
+2020-07-12 19:29|[wheellog.py.logMotionStop]travel:  -215.0 rotation:    -1.7  motion:     2.8 sec  heading_est:   355.5
+2020-07-12 19:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-12 19:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-12 19:30|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.4 sec  heading_est:   355.8
+2020-07-12 19:30|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-12 19:31|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-12 22:02|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-07-13 03:46|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-07-13 03:47|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.6
+2020-07-13 03:47|[wheellog.py.logMotionStop]travel:  -213.1 rotation:    -0.8  motion:     2.8 sec  heading_est:   357.7
+2020-07-13 03:47|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   357.2
+2020-07-13 03:47|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-13 06:17|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-13 11:59|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-13 11:59|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.3
+2020-07-13 12:00|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.3  motion:     2.7 sec  heading_est:   358.0
+2020-07-13 12:00|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.7
+2020-07-13 12:00|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-13 14:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-13 14:29|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-13 20:13|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-13 20:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.0
+2020-07-13 20:14|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.9
+2020-07-13 20:14|[wheellog.py.logMotionStop]travel:    -6.4 rotation:     0.3  motion:     0.4 sec  heading_est:   357.2
+2020-07-13 20:14|[wheellog.py.logMotionStop]travel:    -9.2 rotation:     0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-13 20:14|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.5
+2020-07-13 22:47|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-14 04:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   178.4
+2020-07-14 04:29|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   356.9
+2020-07-14 04:29|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -1.4  motion:     2.7 sec  heading_est:   355.5
+2020-07-14 04:29|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.2
+2020-07-14 04:29|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-14 04:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.5
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:  -205.8 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.6
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.3 sec  heading_est:   356.6
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-14 04:34|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-07-14 04:39|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-14 04:45|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-14 04:46|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   357.5
+2020-07-14 04:46|[wheellog.py.logMotionStop]travel:  -210.0 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.3
+2020-07-14 04:47|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-07-14 04:47|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-14 04:47|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.8
+2020-07-14 07:20|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-14 13:03|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   178.7
+2020-07-14 13:03|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   357.2
+2020-07-14 13:04|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -0.8  motion:     2.8 sec  heading_est:   356.3
+2020-07-14 13:04|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.3 sec  heading_est:   356.3
+2020-07-14 13:04|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-14 15:31|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-14 21:10|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-07-14 21:10|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.6
+2020-07-14 21:10|[wheellog.py.logMotionStop]travel:  -212.8 rotation:     0.0  motion:     2.7 sec  heading_est:   358.6
+2020-07-14 21:10|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   358.3
+2020-07-14 21:10|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     0.0  motion:     0.4 sec  heading_est:   358.3
+2020-07-14 23:41|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-15 05:21|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-15 05:21|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.0
+2020-07-15 05:21|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.2
+2020-07-15 05:21|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.3 sec  heading_est:   357.2
+2020-07-15 05:21|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.8  motion:     0.4 sec  heading_est:   356.3
+2020-07-15 07:16|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-15 07:53|[wheellog.py.logMotionStop]travel:   215.0 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-15 09:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-15 13:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   178.4
+2020-07-15 13:29|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   356.6
+2020-07-15 13:29|[wheellog.py.logMotionStop]travel:  -212.8 rotation:    -1.7  motion:     2.7 sec  heading_est:   354.9
+2020-07-15 13:29|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.4 sec  heading_est:   354.9
+2020-07-15 13:29|[wheellog.py.logMotionStop]travel:   -10.3 rotation:     0.3  motion:     0.4 sec  heading_est:   355.2
+2020-07-15 13:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-15 15:59|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.7 sec  heading_est:     0.0
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.2
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   356.3
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:  -208.0 rotation:     0.3  motion:     2.6 sec  heading_est:   356.6
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.1
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.0  motion:     0.4 sec  heading_est:   356.1
+2020-07-15 21:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-16 00:06|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-16 05:44|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   179.0
+2020-07-16 05:44|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.0
+2020-07-16 05:45|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.2
+2020-07-16 05:46|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.9
+2020-07-16 05:46|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.6
+2020-07-16 06:40|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-16 08:42|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-16 08:42|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.6
+2020-07-16 08:43|[wheellog.py.logMotionStop]travel:  -215.9 rotation:    -1.4  motion:     2.8 sec  heading_est:   357.2
+2020-07-16 08:43|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.4 sec  heading_est:   357.2
+2020-07-16 08:43|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-16 08:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.9
+2020-07-16 11:15|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-16 16:55|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-16 16:55|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   357.2
+2020-07-16 16:55|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.8  motion:     2.8 sec  heading_est:   356.3
+2020-07-16 16:55|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   356.3
+2020-07-16 16:55|[wheellog.py.logMotionStop]travel:    -7.8 rotation:    -0.6  motion:     0.4 sec  heading_est:   355.8
+2020-07-16 19:25|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-17 01:04|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-17 01:05|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.9
+2020-07-17 01:05|[wheellog.py.logMotionStop]travel:  -210.0 rotation:     0.0  motion:     2.7 sec  heading_est:   358.9
+2020-07-17 01:05|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   358.9
+2020-07-17 01:05|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   358.9
+2020-07-17 03:37|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-17 09:10|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-17 09:10|[wheellog.py.logMotionStop]travel:     1.1 rotation:   177.3  motion:     2.3 sec  heading_est:   356.3
+2020-07-17 09:10|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -1.4  motion:     2.8 sec  heading_est:   354.9
+2020-07-17 09:10|[wheellog.py.logMotionStop]travel:    -6.4 rotation:     0.3  motion:     0.3 sec  heading_est:   355.2
+2020-07-17 09:10|[wheellog.py.logMotionStop]travel:    -9.5 rotation:     0.0  motion:     0.5 sec  heading_est:   355.2
+2020-07-17 09:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-07-17 09:54|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-17 11:42|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-17 17:17|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-17 17:17|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   357.5
+2020-07-17 17:18|[wheellog.py.logMotionStop]travel:  -211.4 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.6
+2020-07-17 17:18|[wheellog.py.logMotionStop]travel:    -4.2 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.3
+2020-07-17 17:18|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-17 17:22|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6  motion:     2.8 sec  heading_est:     0.6
+2020-07-17 17:23|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.9
+2020-07-17 17:23|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   358.9
+2020-07-17 17:23|[wheellog.py.logMotionStop]travel:  -210.3 rotation:    -1.4  motion:     2.8 sec  heading_est:   357.5
+2020-07-17 17:23|[wheellog.py.logMotionStop]travel:    -5.9 rotation:     0.3  motion:     0.4 sec  heading_est:   357.7
+2020-07-17 17:23|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-17 17:24|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-17 17:28|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-17 17:28|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-17 17:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.3 sec  heading_est:   358.6
+2020-07-17 17:29|[wheellog.py.logMotionStop]travel:  -216.4 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.7
+2020-07-17 17:29|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-07-17 17:30|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-07-17 17:30|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.4 sec  heading_est:   357.7
+2020-07-17 17:30|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.8  motion:     0.3 sec  heading_est:   356.9
+2020-07-17 19:28|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-07-17 19:52|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-17 20:06|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.3 sec  heading_est:   357.2
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:  -214.2 rotation:    -0.3  motion:     2.8 sec  heading_est:   356.9
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:    -5.9 rotation:    -0.8  motion:     0.3 sec  heading_est:   356.1
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.1
+2020-07-18 01:46|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.3 sec  heading_est:   356.1
+2020-07-18 01:51|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-18 01:51|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   178.7
+2020-07-18 01:52|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.5
+2020-07-18 01:52|[wheellog.py.logMotionStop]travel:  -208.9 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.3
+2020-07-18 01:52|[wheellog.py.logMotionStop]travel:    -4.7 rotation:    -0.3  motion:     0.3 sec  heading_est:   356.1
+2020-07-18 01:52|[wheellog.py.logMotionStop]travel:    -7.8 rotation:     0.0  motion:     0.4 sec  heading_est:   356.1
+2020-07-18 04:28|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.4 sec  heading_est:   356.9
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.8  motion:     2.8 sec  heading_est:   356.1
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.6  motion:     0.4 sec  heading_est:   356.6
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.6
+2020-07-18 10:06|[wheellog.py.logMotionStop]travel:    -9.8 rotation:     0.3  motion:     0.5 sec  heading_est:   356.9
+2020-07-18 12:39|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-18 18:17|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.3 sec  heading_est:   178.2
+2020-07-18 18:18|[wheellog.py.logMotionStop]travel:     0.0 rotation:   177.9  motion:     2.3 sec  heading_est:   356.1
+2020-07-18 18:18|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -0.6  motion:     2.7 sec  heading_est:   355.5
+2020-07-18 18:18|[wheellog.py.logMotionStop]travel:    -5.6 rotation:    -0.6  motion:     0.4 sec  heading_est:   354.9
+2020-07-18 18:18|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.7
+2020-07-18 20:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.2 sec  heading_est:     0.0
+2020-07-18 20:48|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.3
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -0.6  motion:     2.7 sec  heading_est:   357.7
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:    -6.1 rotation:     0.0  motion:     0.4 sec  heading_est:   357.7
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-07-19 02:24|[wheellog.py.logMotionStop]travel:    -8.4 rotation:     0.0  motion:     0.4 sec  heading_est:   357.7
+2020-07-19 02:29|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-19 02:30|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-19 02:30|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   358.0
+2020-07-19 02:30|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.9
+2020-07-19 02:30|[wheellog.py.logMotionStop]travel:    -5.0 rotation:     0.0  motion:     0.3 sec  heading_est:   356.9
+2020-07-19 02:30|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.9
+2020-07-19 03:24|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   357.5
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -2.0  motion:     2.8 sec  heading_est:   355.5
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.2
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.9
+2020-07-19 04:22|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   354.9
+2020-07-19 04:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-19 06:50|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-19 12:26|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.4 sec  heading_est:   178.4
+2020-07-19 12:26|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   178.4
+2020-07-19 12:26|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   357.7
+2020-07-19 12:27|[wheellog.py.logMotionStop]travel:  -207.8 rotation:    -0.6  motion:     2.7 sec  heading_est:   357.2
+2020-07-19 12:27|[wheellog.py.logMotionStop]travel:    -5.0 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.6
+2020-07-19 12:27|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-19 14:55|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-19 20:32|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-19 20:33|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   357.7
+2020-07-19 20:33|[wheellog.py.logMotionStop]travel:  -211.4 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.9
+2020-07-19 20:33|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   356.9
+2020-07-19 20:33|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.6
+2020-07-19 20:33|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.6
+2020-07-19 23:03|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-20 04:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-07-20 04:39|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.6
+2020-07-20 04:39|[wheellog.py.logMotionStop]travel:  -213.3 rotation:    -1.7  motion:     2.7 sec  heading_est:   356.9
+2020-07-20 04:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.9
+2020-07-20 04:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.9
+2020-07-20 04:40|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   356.9
+2020-07-20 04:40|[wheellog.py.logMotionStop]travel:    -0.3 rotation:     0.3  motion:     0.2 sec  heading_est:   357.2
+2020-07-20 04:40|[wheellog.py.logMotionStop]travel:    -7.8 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.6
+2020-07-20 07:05|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-20 12:39|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-20 12:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   358.0
+2020-07-20 12:40|[wheellog.py.logMotionStop]travel:  -208.3 rotation:    -0.6  motion:     2.7 sec  heading_est:   357.5
+2020-07-20 12:40|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.8  motion:     0.4 sec  heading_est:   356.6
+2020-07-20 12:40|[wheellog.py.logMotionStop]travel:    -8.7 rotation:     0.3  motion:     0.4 sec  heading_est:   356.9
+2020-07-20 15:08|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-20 20:42|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.6
+2020-07-20 20:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   358.9
+2020-07-20 20:43|[wheellog.py.logMotionStop]travel:  -209.7 rotation:    -0.3  motion:     2.7 sec  heading_est:   358.6
+2020-07-20 20:43|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   358.3
+2020-07-20 20:43|[wheellog.py.logMotionStop]travel:    -8.9 rotation:    -0.6  motion:     0.3 sec  heading_est:   357.7
+2020-07-20 20:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   357.7
+2020-07-20 23:10|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-21 04:42|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.3  motion:     2.3 sec  heading_est:   177.6
+2020-07-21 04:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   176.5  motion:     2.3 sec  heading_est:   354.1
+2020-07-21 04:43|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -1.4  motion:     2.7 sec  heading_est:   352.7
+2020-07-21 04:43|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.6  motion:     0.4 sec  heading_est:   353.2
+2020-07-21 04:43|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   353.0
+2020-07-21 07:12|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-21 09:22|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.3
+2020-07-21 12:45|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-21 12:45|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   357.5
+2020-07-21 12:45|[wheellog.py.logMotionStop]travel:  -217.5 rotation:    -0.8  motion:     2.8 sec  heading_est:   356.6
+2020-07-21 12:45|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.3 sec  heading_est:   356.9
+2020-07-21 12:45|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   356.9
+2020-07-21 15:10|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-21 20:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-21 20:43|[wheellog.py.logMotionStop]travel:     0.3 rotation:   177.6  motion:     2.3 sec  heading_est:   356.6
+2020-07-21 20:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.6
+2020-07-21 20:44|[wheellog.py.logMotionStop]travel:  -210.6 rotation:    -1.1  motion:     2.7 sec  heading_est:   355.5
+2020-07-21 20:45|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   355.5
+2020-07-21 20:45|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   355.5
+2020-07-21 20:45|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.6  motion:     0.4 sec  heading_est:   356.1
+2020-07-21 23:12|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-22 04:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-22 04:44|[wheellog.py.logMotionStop]travel:    -0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   358.0
+2020-07-22 04:44|[wheellog.py.logMotionStop]travel:  -214.2 rotation:    -1.4  motion:     2.8 sec  heading_est:   356.6
+2020-07-22 04:45|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   356.6
+2020-07-22 04:45|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.3
+2020-07-22 07:12|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-22 11:48|[wheellog.py.logMotionStop]travel:   538.7 rotation:     0.3  motion:     6.6 sec  heading_est:     0.6
+2020-07-22 11:50|[wheellog.py.logMotionStop]travel:   365.8 rotation:     0.0  motion:     4.6 sec  heading_est:     0.6
+2020-07-22 11:51|[wheellog.py.logMotionStop]travel:  1607.1 rotation: -1614.7  motion:    38.5 sec  heading_est:   185.8
+2020-07-22 11:59|[wheellog.py.logMotionStop]travel:    26.2 rotation:    26.4  motion:     0.9 sec  heading_est:   212.2
+2020-07-22 12:00|[wheellog.py.logMotionStop]travel:    94.1 rotation:    94.6  motion:     2.4 sec  heading_est:   306.8
+2020-07-22 12:01|[wheellog.py.logMotionStop]travel:    94.7 rotation:    95.1  motion:     2.5 sec  heading_est:    41.9
+2020-07-22 12:01|[wheellog.py.logMotionStop]travel:    96.1 rotation:    96.5  motion:     2.5 sec  heading_est:   138.4
+2020-07-22 12:05|[wheellog.py.logMotionStop]travel:    62.6 rotation:    62.8  motion:     1.7 sec  heading_est:   201.2
+2020-07-22 12:10|[wheellog.py.logMotionStop]travel:    93.8 rotation:    94.3  motion:     2.4 sec  heading_est:   295.5
+2020-07-22 12:11|[wheellog.py.logMotionStop]travel:    73.7 rotation:    74.1  motion:     2.0 sec  heading_est:     9.6
+2020-07-22 12:12|[wheellog.py.logMotionStop]travel:   100.8 rotation:   101.3  motion:     2.6 sec  heading_est:   110.9
+2020-07-22 12:12|[wheellog.py.logMotionStop]travel:    93.8 rotation:    94.3  motion:     2.4 sec  heading_est:   205.2
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:     1.1 rotation:   177.9  motion:     2.3 sec  heading_est:    23.0
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:    23.0
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   201.2
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -0.3  motion:     2.8 sec  heading_est:   200.9
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:    -5.0 rotation:    -0.6  motion:     0.3 sec  heading_est:   200.4
+2020-07-22 12:40|[wheellog.py.logMotionStop]travel:   -10.1 rotation:     0.0  motion:     0.4 sec  heading_est:   200.4
+2020-07-22 15:08|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-22 20:40|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   178.4
+2020-07-22 20:40|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.3 sec  heading_est:   357.5
+2020-07-22 20:40|[wheellog.py.logMotionStop]travel:  -208.0 rotation:    -1.4  motion:     2.7 sec  heading_est:   356.1
+2020-07-22 20:40|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.6  motion:     0.3 sec  heading_est:   356.6
+2020-07-22 20:40|[wheellog.py.logMotionStop]travel:   -10.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   356.1
+2020-07-22 21:31|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-22 23:04|[wheellog.py.logMotionStop]travel:   214.7 rotation:    -0.3  motion:     2.8 sec  heading_est:   359.7
+2020-07-23 04:34|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   178.7
+2020-07-23 04:35|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   357.2
+2020-07-23 04:35|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -1.1  motion:     2.8 sec  heading_est:   356.1
+2020-07-23 04:35|[wheellog.py.logMotionStop]travel:    -4.5 rotation:     0.0  motion:     0.3 sec  heading_est:   356.1
+2020-07-23 04:35|[wheellog.py.logMotionStop]travel:    -9.8 rotation:    -0.3  motion:     0.3 sec  heading_est:   355.8
+2020-07-23 07:00|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-23 12:26|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.3
+2020-07-23 12:26|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.6
+2020-07-23 12:27|[wheellog.py.logMotionStop]travel:  -211.4 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.7
+2020-07-23 12:27|[wheellog.py.logMotionStop]travel:    -6.4 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-23 12:27|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.3 sec  heading_est:   356.9
+2020-07-23 12:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.9
+2020-07-23 14:55|[wheellog.py.logMotionStop]travel:   214.5 rotation:     0.6  motion:     2.7 sec  heading_est:     0.6
+2020-07-23 20:23|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.4 sec  heading_est:   179.9
+2020-07-23 20:23|[wheellog.py.logMotionStop]travel:     0.0 rotation:   179.0  motion:     2.4 sec  heading_est:   358.9
+2020-07-23 20:23|[wheellog.py.logMotionStop]travel:  -210.8 rotation:    -1.4  motion:     2.8 sec  heading_est:   357.5
+2020-07-23 20:23|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.0  motion:     0.3 sec  heading_est:   357.5
+2020-07-23 20:23|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.3 sec  heading_est:   357.2
+2020-07-23 22:52|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.9 sec  heading_est:     0.3
+2020-07-24 04:34|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-24 04:35|[wheellog.py.logMotionStop]travel:     0.6 rotation:   177.9  motion:     2.4 sec  heading_est:   356.9
+2020-07-24 04:35|[wheellog.py.logMotionStop]travel:  -211.7 rotation:     0.0  motion:     2.7 sec  heading_est:   356.9
+2020-07-24 04:35|[wheellog.py.logMotionStop]travel:    -6.1 rotation:    -0.6  motion:     0.4 sec  heading_est:   356.3
+2020-07-24 04:35|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:   356.3
+2020-07-24 04:35|[wheellog.py.logMotionStop]travel:    -9.2 rotation:    -0.3  motion:     0.4 sec  heading_est:   356.1
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.7  motion:     2.4 sec  heading_est:   179.0
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   358.0
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:  -209.4 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.9
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.3 sec  heading_est:   357.2
+2020-07-24 04:40|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   357.2
+2020-07-24 04:43|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-24 07:20|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-24 13:05|[wheellog.py.logMotionStop]travel:     0.8 rotation:   178.2  motion:     2.4 sec  heading_est:   178.4
+2020-07-24 13:05|[wheellog.py.logMotionStop]travel:     0.8 rotation:   177.6  motion:     2.3 sec  heading_est:   356.1
+2020-07-24 13:05|[wheellog.py.logMotionStop]travel:  -212.0 rotation:    -1.4  motion:     2.8 sec  heading_est:   354.7
+2020-07-24 13:06|[wheellog.py.logMotionStop]travel:    -5.3 rotation:     0.3  motion:     0.4 sec  heading_est:   354.9
+2020-07-24 13:06|[wheellog.py.logMotionStop]travel:    -9.5 rotation:    -0.6  motion:     0.4 sec  heading_est:   354.4
+2020-07-24 15:39|[wheellog.py.logMotionStop]travel:   213.3 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
+2020-07-24 21:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   178.4
+2020-07-24 21:25|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.4 sec  heading_est:   356.9
+2020-07-24 21:26|[wheellog.py.logMotionStop]travel:  -212.8 rotation:    -1.7  motion:     2.7 sec  heading_est:   355.2
+2020-07-24 21:27|[wheellog.py.logMotionStop]travel:    -3.9 rotation:     0.0  motion:     0.4 sec  heading_est:   355.2
+2020-07-24 21:27|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   354.9
+2020-07-24 21:27|[wheellog.py.logMotionStop]travel:     0.0 rotation:     0.0  motion:     0.1 sec  heading_est:     0.0
+2020-07-24 23:54|[wheellog.py.logMotionStop]travel:   213.6 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-25 05:23|[wheellog.py.logMotionStop]travel:     0.6 rotation:   179.0  motion:     2.4 sec  heading_est:   179.3
+2020-07-25 05:23|[wheellog.py.logMotionStop]travel:     0.3 rotation:   179.3  motion:     2.3 sec  heading_est:   358.6
+2020-07-25 05:24|[wheellog.py.logMotionStop]travel:  -212.5 rotation:    -0.8  motion:     2.7 sec  heading_est:   357.7
+2020-07-25 05:24|[wheellog.py.logMotionStop]travel:    -6.7 rotation:     0.0  motion:     0.4 sec  heading_est:   357.7
+2020-07-25 05:24|[wheellog.py.logMotionStop]travel:   -10.3 rotation:    -0.3  motion:     0.4 sec  heading_est:   357.5
+2020-07-25 06:38|[wheellog.py.logMotionStop]travel:   214.2 rotation:     0.3  motion:     2.7 sec  heading_est:     0.3
+2020-07-25 07:58|[wheellog.py.logMotionStop]travel:     0.0 rotation:   178.4  motion:     2.3 sec  heading_est:   178.7
+2020-07-25 07:58|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.7  motion:     2.3 sec  heading_est:   357.5
+2020-07-25 07:59|[wheellog.py.logMotionStop]travel:  -211.1 rotation:    -1.1  motion:     2.7 sec  heading_est:   356.3
+2020-07-25 07:59|[wheellog.py.logMotionStop]travel:    -5.6 rotation:     0.6  motion:     0.3 sec  heading_est:   356.9
+2020-07-25 07:59|[wheellog.py.logMotionStop]travel:    -8.9 rotation:     0.0  motion:     0.4 sec  heading_est:   356.9
+2020-07-25 10:31|[wheellog.py.logMotionStop]travel:   214.7 rotation:     0.3  motion:     2.8 sec  heading_est:     0.3
+2020-07-25 16:03|[wheellog.py.logMotionStop]travel:     0.3 rotation:   178.2  motion:     2.4 sec  heading_est:   178.4
+2020-07-25 16:04|[wheellog.py.logMotionStop]travel:     0.6 rotation:   178.4  motion:     2.3 sec  heading_est:   356.9
+2020-07-25 16:04|[wheellog.py.logMotionStop]travel:  -206.4 rotation:    -0.8  motion:     2.7 sec  heading_est:   356.1
+2020-07-25 16:04|[wheellog.py.logMotionStop]travel:    -8.1 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.8
+2020-07-25 16:04|[wheellog.py.logMotionStop]travel:    -8.7 rotation:    -0.3  motion:     0.4 sec  heading_est:   355.5
+2020-07-26 00:15|[wheellog.py.logMotionStop]travel:   213.9 rotation:     0.0  motion:     2.8 sec  heading_est:     0.0
