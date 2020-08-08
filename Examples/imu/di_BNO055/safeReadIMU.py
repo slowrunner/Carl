@@ -27,14 +27,24 @@ import time
 from datetime import datetime as dt
 from my_safe_inertial_measurement_unit import SafeIMUSensor
 import myBNO055 as BNO055
+import argparse
 
 
 VERBOSITY = True
-READING_DELAY = 0.5
+# READING_DELAY = 0.5
 
 
 
 def main():
+
+    # ARGUMENT PARSER
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-n", "--num", type=int, default=2, help="optional times to read per second")
+    args = vars(ap.parse_args())
+    # print("Started with args:",args)
+    READING_DELAY = 1.0 / args['num']
+
+
     IMUPORT = "AD1"   # Must be AD1 or AD2 only
 
     print("\nSafe Reads of DI IMU (BNO055 chip)")
