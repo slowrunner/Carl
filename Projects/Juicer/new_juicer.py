@@ -77,8 +77,9 @@ lastChangeRule = "0" # startup
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
 dockingDistanceInMM = 212# 90  # (measures about 85 to undock position after 90+3mm dismount)
-dockingApproachDistanceInMM = 375 # 263  # 263 to sign, 266 to wall 
-maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
+dockingApproachDistanceInMM = 375 # 263  # 263 to sign, 266 to wall
+# Next value is subrtracted from backing distance to allaw drive_cm to always be short a little
+maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
 
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
@@ -593,7 +594,8 @@ def dock(egpg,ds,tp):
         backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM -maxApproachDistanceMeasurementErrorInMM ) / 10.0
         print("**** BACKING ONTO DOCK %.0f mm" % (backingDistanceInCM * 10.0))
         speak.whisper("Backing onto dock")
-        egpg.drive_cm( backingDistanceInCM,True)
+        # sometimes the "wait for encoders" blocking will never happen.  Backing takes about 3 seconds, so timeout after 5 seconds.
+        egpg.drive_cm( backingDistanceInCM,blocking=True,timeout=5)
         sleep(1)
         print("**** Backing for a bit to account for measurement errors")
         egpg.backward()
