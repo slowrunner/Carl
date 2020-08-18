@@ -12,8 +12,8 @@ grammar command;
 <name> = 
 	<person>	|
 	pogo		|
-	raspberry pi	|
-	carl		|
+	raspberry pi 	|
+        carl            |
 	go pi go [ three ]	|
 	facebook ;
 
@@ -182,28 +182,29 @@ grammar command;
 	what can you do		;
 
 <datetime_question> =
-	what ( day | date ) is it [ today ]	|
-	what time is it [ now ]		;
+	what day is it [ today ]	|
+	what time is it [ now ];
 
 
 
 
 public <command> =
-	<datetime_question>	|
+	[ <robot_name> ] (<datetime_question>	|
 	<ability_question>	|
 	<wx_question>		|
 	<location_question>	|
 	<greeting>		|
-	<robot_greeting>	|
+//	<robot_greeting>	|
 	<farewell>		|
-	<robot_farewell>	|
+//	<robot_farewell>	|
 	<cli_command>		|
 	<imperative>		|
 	<non_modifiable_imperative>	|
 	<modified_imperative>	|
 	<value_question>	|
 	<question>		|
-	<time_question>		;;
+	<time_question>) [ <robot_name> ]		;;
+
 
 
 
