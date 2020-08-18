@@ -52,7 +52,9 @@ from time import sleep
 #
 # requires egpg.ds be initialized
 # quit_follow = False
-# pan to 45 right  - pan(135)
+# get distWall75
+# get distWall55
+
 # if distance less than 11 inches, turn left till 11.5, (or 45 degrees)
 # if distance more than 12 inches, turn right till 11.5 (or 45 degrees)
 # if initial conditions not met, set quit_follow

@@ -1,9 +1,0 @@
-<ssml>
-
-
-<sub alias="Cute and Real Lovable">CARL</sub>
-
-This is supposed to replace C A R L with Cute and Real Lovable. 
-Do you hear CARL?
-
-</ssml>

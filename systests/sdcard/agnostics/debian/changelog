@@ -1,0 +1,23 @@
+agnostics (0.4) buster; urgency=medium
+
+  * Wait for specified PID while test is running
+
+ -- Simon Long <simon@raspberrypi.com>  Sun, 03 May 2020 18:42:14 +0100
+
+agnostics (0.3) buster; urgency=medium
+
+  * Restrict memory usage in SD card test
+
+ -- Simon Long <simon@raspberrypi.com>  Fri, 24 Apr 2020 10:38:54 +0100
+
+agnostics (0.2) buster; urgency=medium
+
+  * Correct version of GTK in dependencies
+
+ -- Simon Long <simon@raspberrypi.org>  Wed, 26 Feb 2020 08:16:20 +0000
+
+agnostics (0.1) buster; urgency=low
+
+  * Initial release
+
+ -- Simon Long <simon@raspberrypi.org>  Tue, 18 Feb 2020 13:14:25 +0000

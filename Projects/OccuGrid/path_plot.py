@@ -195,7 +195,8 @@ def plotPath(dataFolder):
         d_enc_heading = enc_to_angle_deg(robot, prev_robot)
 
         # compute rotation according to imu
-        d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)/2
+        # d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)/2
+        d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)
 
         # compute new encoder heading
         robot.heading_enc = (prev_robot.heading_enc + d_enc_heading) % 360.0

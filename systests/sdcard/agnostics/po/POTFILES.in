@@ -1,0 +1,5 @@
+[encoding: UTF-8]
+src/agnostics.c
+[type: gettext/glade] data/agnostics.ui
+# files added by intltool-prepare
+data/agnostics.desktop.in

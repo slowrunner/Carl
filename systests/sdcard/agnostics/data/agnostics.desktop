@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Raspberry Pi Diagnostics
+Name[en_GB]=Raspberry Pi Diagnostics
+GenericName=Raspberry Pi Diagnostics
+GenericName[en_GB]=Raspberry Pi Diagnostics
+Comment=Test the Raspberry Pi hardware
+Comment[en_GB]=Test the Raspberry Pi hardware
+Icon=rpi
+Exec=agnostics
+NotShowIn=GNOME;XFCE;
+StartupNotify=true
+Categories=Utility;

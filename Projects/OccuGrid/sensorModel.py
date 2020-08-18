@@ -51,6 +51,13 @@ import math
 #####################################################################################################################################
 def BeamModel(occmap, Xr, Yr, Xmap_Xr0, Ymap_Yr0, Rangle, BeamWidth_deg, SensorDist, SensorMax, thickness, scale, debug=False):
 
+    if debug:
+        print("\nBeamModel(): ")
+        print("   Xr,Yr: {} {}  Xmap_Xr0,Ymap_Yr0: {} {}".format(Xr,Yr,Xmap_Xr0,Ymap_Yr0))
+        print("   Rangle: {} BeamWidth: {} Range: {}  Max: {}".format(Rangle,BeamWidth_deg,SensorDist,SensorMax))
+        print("   Thickness: {} scale: {}".format(thickness,scale))
+        print("\n")
+
     # Rotate GoPiGo3 Map Coords 0 deg up to computation frame 0 degrees is to right
     Rangle = (Rangle - 90) % 360.0
     if debug: print("Sensor Heading in computation frame: {:5.1f} deg".format(Rangle))

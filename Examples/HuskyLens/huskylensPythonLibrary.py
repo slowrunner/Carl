@@ -44,17 +44,51 @@
 ###             *idVal is an integer
 ###             => Return the arrow with id of idVal
 ###
+###        command_request_algorithm(algorithm_string)
+###             *algorithm_string is one of:
+###                "ALGORITHM_FACE_RECOGNITION"
+###                "ALGORITHM_OBJECT_TRACKING"
+###                "ALGORITHM_OBJECT_RECOGNITION"
+###                "ALGORITHM_LINE_TRACKING"
+###                "ALGORITHM_COLOR_RECOGNITION"
+###                "ALGORITHM_TAG_RECOGNITION"
+###                "ALGORITHM_OBJECT_CLASSIFICATION"
+###             => Returns 2e/ Knock Received
 ###
-### Example code
+###        command_request_learn(idVal)
+###             *idVal is an integer
+###             => learn object/color/face/tag with id of idVal
+###
+###        command_request_forget()
+###             => forget the objects/colors/faces/tags
+###
+###
+### Example code 
 '''
+# USAGE: python3 example.py
+
+import time
+from huskylensPythonLibrary import HuskyLensLibrary
+
+# setup HuskyLensLibrary object with I2C interface
 huskyLens = HuskyLensLibrary("I2C","",address=0x32)
+
+print("Commanding Face Recognition Mode")
 huskyLens.command_request_algorthim("ALGORITHM_FACE_RECOGNITION")
-while(true):
-    data=huskyLens.command_request_blocks()
-    x=0
-    for i in data:
-        x=x+1
-        print("Face {} data: {}".format(x,i)
+
+# loop getting faces
+while True:
+    try:
+        time.sleep(1)
+        data=huskyLens.command_request_blocks()
+        x=0
+        for i in data:
+            x += 1
+            print("Face {}: [ctr_x,ctr_y,w,h,id] {}".format(x,i)
+    except KeyboardInterrupt:
+        break
+    except Exception as e:
+        print("Exception:",str(e))
 '''
 
 
@@ -63,8 +97,11 @@ import time
 import serial
 import smbus
 
+
+DEBUG = False
+
 commandHeaderAndAddress = "55AA11"
-algorthimsByteID = {
+algorithmsByteID = {
     "ALGORITHM_OBJECT_TRACKING": "0100",
     "ALGORITHM_FACE_RECOGNITION": "0000",
     "ALGORITHM_OBJECT_RECOGNITION": "0200",
@@ -130,7 +167,7 @@ class HuskyLensLibrary:
                         byteString+=bytes([(self.huskylensSer.read_byte(self.address))])
                     for i in range(int(byteString[3])+1):
                         byteString+=bytes([(self.huskylensSer.read_byte(self.address))])
-        
+
         commandSplit = self.splitCommandToParts(byteString.hex())
         return commandSplit[4]
 
@@ -146,8 +183,11 @@ class HuskyLensLibrary:
                     byteString=b''
                     for i in range(5):
                         byteString+=bytes([(self.huskylensSer.read_byte(self.address))])
+                    if DEBUG: print("processReturnData: byteString:",byteString)
                     for i in range(int(byteString[3])+1):
                         byteString+=bytes([(self.huskylensSer.read_byte(self.address))])                    
+                    if DEBUG: print("processReturnData: byteString:",byteString)
+
                 commandSplit = self.splitCommandToParts(byteString.hex())
                 if(commandSplit[3] == "2e"):
                     return "Knock Recieved"
@@ -173,7 +213,7 @@ class HuskyLensLibrary:
             except:
                  print("Read error")
                  return []
-                
+
     def command_request_knock(self):
         cmd = self.cmdToBytes(commandHeaderAndAddress+"002c3c")
         self.writeToHuskyLens(cmd)
@@ -236,12 +276,30 @@ class HuskyLensLibrary:
         self.writeToHuskyLens(cmd)
         return self.processReturnData()
 
-    def command_request_algorthim(self, alg):
-        if alg in algorthimsByteID:
-            cmd = commandHeaderAndAddress+"022d"+algorthimsByteID[alg]
+    def command_request_algorithm(self, alg):
+        if alg in algorithmsByteID:
+            cmd = commandHeaderAndAddress+"022d"+algorithmsByteID[alg]
             cmd += self.calculateChecksum(cmd)
             cmd = self.cmdToBytes(cmd)
             self.writeToHuskyLens(cmd)
             return self.processReturnData()
         else:
             print("INCORRECT ALGORITHIM NAME")
+
+    def command_request_learn(self, idVal):
+        idVal = "{:04x}".format(idVal)
+        idVal = idVal[2:]+idVal[0:2]
+        cmd = commandHeaderAndAddress+"022F"+idVal
+        cmd += self.calculateChecksum(cmd)
+        cmd = self.cmdToBytes(cmd)
+        self.writeToHuskyLens(cmd)
+        return self.processReturnData()
+
+    def command_request_forget(self):
+        cmd = commandHeaderAndAddress+"0230"
+        # cmd = self.cmdToBytes(commandHeaderAndAddress+"0230")
+        cmd += self.calculateChecksum(cmd)
+        cmd = self.cmdToBytes(cmd)
+        self.writeToHuskyLens(cmd)
+        return self.processReturnData()
+

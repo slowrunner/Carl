@@ -8,6 +8,7 @@ from math import pi
 import argparse
 import json
 from copy import deepcopy
+from sensorModel import BeamModel
 
 """
 FILE:      myOcc_Grid.py
@@ -44,17 +45,29 @@ pathOutIMUFilename = args['outIMUfile']   # if requested filename for IMU occ gr
 pathOutENCFilename = args['outENCfile']   # if requested filename for Encoders occ grid image - png gives better qual than jpg
 MAP_SIZE_X_cm = args['size']   # default 400 -s or --size to change
 MAP_SIZE_Y_cm = MAP_SIZE_X_cm  # always use square playing field
+CELL_SIZE = 10
+cellSize = CELL_SIZE
 
-START_Xr = MAP_SIZE_X_cm / 2.0     # will start in center left/right of map
-START_Yr = MAP_SIZE_Y_cm / 4.0 * 3 # will start in 1/4 up from bottom of map
+# START_Xr = MAP_SIZE_X_cm / 2.0     # will start in center left/right of map
+# START_Yr = MAP_SIZE_Y_cm / 4.0 * 3 # will start in 1/4 up from bottom of map
+Xmap_Xr0 = MAP_SIZE_X_cm / 2.0     # will start in center left/right of map
+Ymap_Yr0 = MAP_SIZE_Y_cm / 4.0 * 3 # will start in 1/4 up from bottom of map
+
+
 
 WINDOW_H = 600  # window size in pixels
 WINDOW_W = 600  # pixels
 
 ROBOT_CONFIG_FILE = "/home/pi/Dexter/gpg3_config.json"
 
+SCALE = 1.0/10.0   # each pixel is 1 centimeter and sensor return is in millimeters
+DS_MAX_RANGE = 3000 # mm reading when nothing within max distance sensor range
+DS_BEAM_WIDTH = 25.0  # degrees total angle
+
+
+
 class Robot(object):
-    def __init__(self,  x: int = 0, y: int = 0, heading: float = 0.0, enc_l: int = 0, enc_r: int = 0,  config_file_path=ROBOT_CONFIG_FILE, frame: int = 0):
+    def __init__(self,  x: int = 0, y: int = 0, heading: float = 0.0, enc_l: int = 0, enc_r: int = 0,  pan_angle: float=0.0, config_file_path=ROBOT_CONFIG_FILE, frame: int = 0):
         if (config_file_path != None): 
             self.load_robot_constants(config_file_path)
         self.frame = frame
@@ -67,6 +80,7 @@ class Robot(object):
         self.imu_offset = heading
         self.heading_imu = heading
         self.heading_enc = heading
+        self.pan_angle = pan_angle
         self.traveled_mm = 0
 
     def __repr__(self):
@@ -86,6 +100,7 @@ class Robot(object):
                'imu_offset'          : self.imu_offset ,
                'heading_imu'         : self.heading_imu ,
                'heading_enc'         : self.heading_enc,
+               'pan_angle'           : self.pan_angle,
                'traveled_mm'         : self.traveled_mm }
 
         return rs
@@ -106,6 +121,7 @@ class Robot(object):
             +  "\nimu_offset: {:5.1f}".format(self.imu_offset) \
             +  "\nheading_imu: {:5.1f}".format(self.heading_imu) \
             +  "\nheading_enc: {:5.1f}".format(self.heading_enc) \
+            +  "\npan_angle:   {:5.1f}".format(self.pan_angle) \
             +  "\ntraveled_mm: {:9.0f}".format(self.traveled_mm)
 
         return rstr
@@ -146,13 +162,10 @@ def enc_to_angle_deg(robot,prev_robot):
 
 def plotOccGrid(dataFolder):
 
-    robot = Robot(START_Xr, START_Yr,frame=0)
-    prev_robot = Robot(START_Xr, START_Yr, frame= -1)
+    robot = Robot(0,0,frame=0)
+    prev_robot = Robot(0,0, frame= -1)
 
     os.chdir(dataFolder) #Path to data folder
-
-    #  Distance Sensor Beam Width is 25 degrees
-    ds_beam = 25.0
 
     scale = float(1) / 10  # 1 pixel = 10 mm
 
@@ -163,9 +176,10 @@ def plotOccGrid(dataFolder):
         cv2.resizeWindow("Encoder Grid", WINDOW_W, WINDOW_H)
         cv2.waitKey(50)
 
-    map_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
-    imu_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
-    enc_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
+    imu_map_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
+    enc_map_image = np.zeros((MAP_SIZE_X_cm,MAP_SIZE_Y_cm,3),np.uint8)
+    imu_image = np.full((MAP_SIZE_X_cm,MAP_SIZE_Y_cm),0,np.single)
+    enc_image = np.full((MAP_SIZE_X_cm,MAP_SIZE_Y_cm),0,np.single)
 
     # font = cv2.FONT_HERSHEY_SIMPLEX
     # fontScale = 0.5
@@ -181,28 +195,44 @@ def plotOccGrid(dataFolder):
 
     f = open("Data.txt", "r")
     lineCnt = 0
+    prev_mylist = []
+
     for line in f:
         lineCnt += 1
         if lineCnt == 1:
             if DEBUG: print("header: {}".format(line))
             continue
-        if DEBUG: print("data  : {}".format(line))
-        robot.frame = lineCnt
+        print("data[{}]: {}".format(lineCnt,line))
 
         # mylist = [int(x) for x in line.split(',')]
         mylist = [item for item in line.split(',')]
 
         # dt, l_enc, r_enc, imu_heading, pan_angle, ds_mm
         #  0    1      2        3           4         5
+
+        if (mylist[1:] == prev_mylist[1:]):
+            print("skipping")
+            continue
+        else:
+            prev_mylist = mylist
+
+        robot.frame = lineCnt
+
         robot.heading_imu = float(mylist[3])
 
         robot.l_enc = int(mylist[1])
         robot.r_enc = int(mylist[2])
+        robot.pan_angle = float(mylist[4])
 
         if lineCnt == 2:    # first data line
             robot.imu_offset = robot.heading_imu
             prev_robot = deepcopy(robot)
             prev_robot.frame = 1
+
+        if (robot == prev_robot):
+            print("Skipping: No Change Detected")
+            continue
+
 
         # compute distance travelled
         enc_dist_mm = enc_to_dist_mm(robot, prev_robot)
@@ -214,16 +244,13 @@ def plotOccGrid(dataFolder):
         d_enc_heading = enc_to_angle_deg(robot, prev_robot)
 
         # compute rotation according to imu
-        d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)/2
+        #d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)/2
+        d_imu_heading = (robot.heading_imu - prev_robot.heading_imu)
 
         # compute new encoder heading
         robot.heading_enc = (prev_robot.heading_enc + d_enc_heading) % 360.0
 
-        # Fsonar = mylist[3]*10
-        Fsonar = 0
-        # Rsonar = mylist[4]*10
-        Rsonar = 0
-        DS = int(mylist[5])
+        ds_range_mm = int(mylist[5])
 
 
         robot.Xr_imu = prev_robot.Xr_imu + float((math.cos(math.radians((prev_robot.heading_imu + d_imu_heading)-90-robot.imu_offset)) * enc_dist_mm * scale))
@@ -233,8 +260,16 @@ def plotOccGrid(dataFolder):
         robot.Yr_enc = prev_robot.Yr_enc + float((math.sin(math.radians((prev_robot.heading_enc + d_enc_heading)-90)) * enc_dist_mm * scale))
 
 
-        cv2.line(imu_image, (int(prev_robot.Xr_imu),int(prev_robot.Yr_imu)), (int(robot.Xr_imu),int(robot.Yr_imu)), colorRed, 1)
-        cv2.line(enc_image, (int(prev_robot.Xr_enc),int(prev_robot.Yr_enc)), (int(robot.Xr_enc),int(robot.Yr_enc)), colorBlue, 1)
+        cv2.line(imu_map_image, (int(prev_robot.Xr_imu),int(prev_robot.Yr_imu)), (int(robot.Xr_imu),int(robot.Yr_imu)), colorRed, 1)
+        cv2.line(enc_map_image, (int(prev_robot.Xr_enc),int(prev_robot.Yr_enc)), (int(robot.Xr_enc),int(robot.Yr_enc)), colorBlue, 1)
+
+        ds_sensor_angle = robot.heading_imu - robot.imu_offset + robot.pan_angle
+        # imuBeam_log, occ = BeamModel(imu_image, robot.Xr_imu, robot.Yr_imu, Xmap_Xr0, Ymap_Yr0, ds_sensor_angle, DS_BEAM_WIDTH, ds_range_mm, DS_MAX_RANGE, cellSize, SCALE, debug=DEBUG)
+        # imu_image = np.add(imu_image, imuBeam_log)
+
+        ds_sensor_angle = robot.heading_enc + robot.pan_angle
+        # encBeam_log, occ = BeamModel(enc_image, robot.Xr_enc, robot.Yr_enc, Xmap_Xr0, Ymap_Yr0, ds_sensor_angle, DS_BEAM_WIDTH, ds_range_mm, DS_MAX_RANGE, cellSize, SCALE, debug=DEBUG)
+        # enc_image = np.add(enc_image, encBeam_log)
 
         if DEBUG:
             print("prev_robot:",prev_robot)
@@ -244,14 +279,14 @@ def plotOccGrid(dataFolder):
 
 
         if display:
-            cv2.imshow("IMU Grid", imu_image)
-            cv2.imshow("Encoder Grid", enc_image)
+            cv2.imshow("IMU Grid", imu_map_image)
+            cv2.imshow("Encoder Grid", enc_map_image)
             cv2.waitKey(10)
 
     if (pathOutIMUFilename != None):
-        cv2.imwrite(pathOutIMUFilename, imu_image)
+        cv2.imwrite(pathOutIMUFilename, imu_map_image)
     if (pathOutENCFilename != None):
-        cv2.imwrite(pathOutENCFilename, imu_image)
+        cv2.imwrite(pathOutENCFilename, enc_map_image)
 
     cv2.waitKey(0)
 
