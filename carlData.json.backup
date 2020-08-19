@@ -1,1 +1,1 @@
-{"chargeCycles": 1185, "dockingState": 1, "chargingState": 1, "chargeConditioning": 4, "lastDocking": "---- Docking 1185 completed  at 8.1 v after 5.8 h playtime", "lastDismount": "---- Dismount 1185 at 11.2 v after 2.6 h recharge"}
+{"chargingState": 2, "lastDismount": "---- Dismount 1426 at 11.2 v after 2.4 h recharge", "chargeConditioning": 0, "chargeCycles": 1424, "lastDocking": "---- Docking 1427 completed  at 8.1 v after 5.1 h playtime", "dockingState": 2}
