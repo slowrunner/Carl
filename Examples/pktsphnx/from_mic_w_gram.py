@@ -76,9 +76,11 @@ class SpeechDetector:
         # Get sample rate from capture device
         p = pyaudio.PyAudio()
         self.RATE = int(p.get_device_info_by_index(self.CAPTURE_DEV_INDEX)['defaultSampleRate'])
-        print("\n\n*** Mic sample rate:",self.RATE)
+        print("\n\n*** Mic default sample rate:",self.RATE)
 
         self.RATE = 16000
+
+        print("*** Using {} sample rate".format(self.RATE))
 
         self.SILENCE_LIMIT = 1  # Silence limit in seconds. The max ammount of seconds where
                            # only silence is recorded. When this time passes the

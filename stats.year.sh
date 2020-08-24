@@ -1,17 +1,20 @@
 #!/bin/bash
 #
-# stats.year.sh    print total hours and sessions of life in life.log.year.1
+# stats.year.sh    print total hours and sessions of life in life.log.year.2
 #
 # requires bc  (sudo apt-get install bc)
 #
-fn='life.log.year.1'
+# fn: life.log file to use for statistics
+fn='life.log.year.2'
 # declare -i newBattsAtCycle=233
 #
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' life.log
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' $fn)`
 echo "Total Life: " $totalLife "hrs"
 lifeThisYear=`(awk -F':' 'FNR > 6 {sum+=$3}END{print sum;}' $fn)`
+pctOfYear=`(echo "scale=1; $lifeThisYear * 100 / 8760 " | bc)`
 echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
+echo "Operational: " $pctOfYear"% of year"
 # echo "Sessions (boot) this year: " `(grep -c "\- boot \-" $fn)`
 bootedThisYr=`(grep "\- boot \-" $fn | sort -u -k1,1 | wc -l)`
 echo "Days Booted This Year: " $bootedThisYr
