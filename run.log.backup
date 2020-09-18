@@ -1,0 +1,2335 @@
+2019-06-26 09:07|[runLog.py.main]---- runLog.main()  executed
+2019-06-26 09:07|[runLog.py.testfunc]---- runLog.py testfunc() executed
+2019-06-26 09:10|[carl_template.py.main]Started
+2019-06-26 09:10|[carl_template.py.main]Finished
+2019-06-26 09:36|[servoscan.py.main]Starting servoscan.py at 8.42v
+2019-06-26 09:36|[servoscan.py.main]Exiting  servoscan.py at 8.59v
+2019-06-26 09:59|[status.py.main]Starting status.py at 8.29v
+2019-06-26 09:59|[status.py.main]Exiting  status.py at 8.55v
+2019-06-26 10:16|[carl_template.py.main]Started
+2019-06-26 10:17|[carl_template.py.main]Finished
+2019-06-26 10:21|[status.py.main]Starting status.py at 8.30v
+2019-06-26 10:22|[status.py.main]Exiting  status.py at 8.47v
+2019-06-26 10:22|[status.py.main]Starting status.py at 8.25v
+2019-06-26 10:22|[status.py.main]Exiting  status.py at 8.47v
+2019-06-26 10:25|[status.py.main]Starting status.py at 8.28v
+2019-06-26 15:26|[scan360.py.main]Starting scan360.py at 8.39v
+2019-06-26 15:27|[scan360.py.main]Starting scan360.py at 8.39v
+2019-06-26 15:28|[scan360.py.main]Starting scan360.py at 8.37v
+2019-06-26 15:29|[scan360.py.main]Starting scan360.py at 8.38v
+2019-06-26 15:29|[scan360.py.main]Starting scan360.py at 8.37v
+2019-06-26 17:33|[status.py.main]Exiting  status.py at 9.20v
+2019-06-26 18:12|[status.py.main]Starting status.py at 8.84v
+2019-06-26 18:47|[status.py.main]Exiting  status.py at 8.72v
+2019-06-26 19:05|[status.py.main]Starting status.py at 8.46v
+2019-06-26 23:25|[status.py.main]Exiting  status.py at 8.53v
+2019-06-27 09:21|[status.py.main]Starting status.py at 8.69v
+2019-06-27 09:34|[status.py.main]Exiting  status.py at 8.64v
+2019-06-27 09:47|[status.py.main]Starting status.py at 8.47v
+2019-06-27 11:03|[status.py.main]Exiting  status.py at 9.47v
+2019-06-27 11:46|[status.py.main]Starting status.py at 8.69v
+2019-06-27 12:03|[status.py.main]Exiting  status.py at 8.56v
+2019-06-28 15:16|[status.py.main]Starting status.py at 9.90v
+2019-06-28 15:17|[status.py.main]Exiting  status.py at 10.01v
+2019-07-06 17:15|[motion_detect.py.<module>]Started
+2019-07-06 17:30|[motion_detect.py.<module>]Exit
+2019-07-07 11:29|[findDock.py.main]Started
+2019-07-07 11:31|[findDock.py.main]Started
+2019-07-07 11:31|[findDock.py.main]Finished
+2019-07-07 11:38|[findDock.py.main]Started
+2019-07-07 11:44|[findDock.py.main]Started
+2019-07-07 11:45|[findDock.py.main]Finished
+2019-07-07 12:19|[findDock.py.main]Started
+2019-07-07 12:19|[findDock.py.findDock]Capturing Image
+2019-07-07 12:19|[findDock.py.findDock]Turning 53 degrees to heading 27
+2019-07-07 12:20|[findDock.py.findDock]Capturing Image
+2019-07-07 12:20|[findDock.py.findDock]Turning 53 degrees to heading 79
+2019-07-07 12:20|[findDock.py.findDock]Capturing Image
+2019-07-07 12:20|[findDock.py.findDock]Turning 53 degrees to heading 131
+2019-07-07 12:20|[findDock.py.findDock]Capturing Image
+2019-07-07 12:20|[findDock.py.findDock]Turning 53 degrees to heading 183
+2019-07-07 12:20|[findDock.py.findDock]Capturing Image
+2019-07-07 12:20|[findDock.py.findDock]Turning 53 degrees to heading 235
+2019-07-07 12:20|[findDock.py.findDock]Capturing Image
+2019-07-07 12:20|[findDock.py.findDock]Turning 53 degrees to heading 287
+2019-07-07 12:21|[findDock.py.findDock]Capturing Image
+2019-07-07 12:21|[findDock.py.findDock]foundDock returning False
+2019-07-07 12:21|[findDock.py.main]Finished
+2019-07-07 12:38|[findDock.py.main]Started
+2019-07-07 12:38|[findDock.py.findDock]Capturing Image
+2019-07-07 12:38|[findDock.py.findDock]Turning 52 degrees to heading 78
+2019-07-07 12:38|[findDock.py.findDock]Capturing Image
+2019-07-07 12:38|[findDock.py.findDock]Turning 52 degrees to heading 130
+2019-07-07 12:39|[findDock.py.findDock]Capturing Image
+2019-07-07 12:39|[findDock.py.findDock]Turning 52 degrees to heading 182
+2019-07-07 12:39|[findDock.py.findDock]Capturing Image
+2019-07-07 12:39|[findDock.py.findDock]Turning 52 degrees to heading 234
+2019-07-07 12:39|[findDock.py.findDock]Capturing Image
+2019-07-07 12:39|[findDock.py.findDock]Turning 52 degrees to heading 286
+2019-07-07 12:39|[findDock.py.findDock]Capturing Image
+2019-07-07 12:39|[findDock.py.findDock]Turning 52 degrees to heading 338
+2019-07-07 12:39|[findDock.py.findDock]Capturing Image
+2019-07-07 12:39|[findDock.py.findDock]foundDock returning False
+2019-07-07 12:40|[findDock.py.main]Finished
+2019-07-07 13:26|[findDock.py.main]Started
+2019-07-07 13:26|[findDock.py.findDock]Capturing Image
+2019-07-07 13:26|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-07 13:26|[findDock.py.findDock]Capturing Image
+2019-07-07 13:27|[findDock.py.findDock]Turning 52 degrees to heading 104
+2019-07-07 13:27|[findDock.py.findDock]Capturing Image
+2019-07-07 13:27|[findDock.py.findDock]Turning 52 degrees to heading 156
+2019-07-07 13:27|[findDock.py.findDock]Capturing Image
+2019-07-07 13:27|[findDock.py.findDock]Turning 52 degrees to heading 208
+2019-07-07 13:27|[findDock.py.findDock]Capturing Image
+2019-07-07 13:27|[findDock.py.findDock]Turning 52 degrees to heading 260
+2019-07-07 13:27|[findDock.py.findDock]Capturing Image
+2019-07-07 13:27|[findDock.py.findDock]Turning 52 degrees to heading 312
+2019-07-07 13:27|[findDock.py.findDock]Capturing Image
+2019-07-07 13:28|[findDock.py.findDock]foundDock returning False
+2019-07-07 13:28|[findDock.py.main]Finished
+2019-07-07 21:52|[findDock.py.main]Started
+2019-07-07 21:52|[findDock.py.findDock]Capturing Image
+2019-07-07 21:53|[findDock.py.main]Started
+2019-07-07 21:53|[findDock.py.findDock]Capturing Image
+2019-07-07 21:56|[findDock.py.main]Started
+2019-07-07 21:56|[findDock.py.findDock]Capturing Image
+2019-07-07 21:57|[findDock.py.main]Started
+2019-07-07 21:57|[findDock.py.findDock]Capturing Image
+2019-07-07 21:58|[findDock.py.main]Started
+2019-07-07 21:58|[findDock.py.findDock]Capturing Image
+2019-07-07 21:59|[findDock.py.findDock]Turning 54 degrees to heading 54
+2019-07-07 21:59|[findDock.py.findDock]Capturing Image
+2019-07-07 21:59|[findDock.py.findDock]Turning 54 degrees to heading 108
+2019-07-07 21:59|[findDock.py.findDock]Capturing Image
+2019-07-07 21:59|[findDock.py.findDock]Turning 54 degrees to heading 162
+2019-07-07 21:59|[findDock.py.findDock]Capturing Image
+2019-07-07 22:01|[findDock.py.findDock]Turning 54 degrees to heading 216
+2019-07-07 22:01|[findDock.py.findDock]Capturing Image
+2019-07-07 22:01|[findDock.py.findDock]Turning 54 degrees to heading 270
+2019-07-07 22:01|[findDock.py.findDock]Capturing Image
+2019-07-07 22:02|[findDock.py.findDock]Turning 54 degrees to heading 324
+2019-07-07 22:02|[findDock.py.findDock]Capturing Image
+2019-07-07 22:02|[findDock.py.findDock]findDock returning False
+2019-07-07 22:02|[findDock.py.main]Finished
+2019-07-07 22:05|[findDock.py.main]Started
+2019-07-07 22:05|[findDock.py.findDock]Capturing Image
+2019-07-07 22:06|[findDock.py.findDock]Found LEDs
+2019-07-07 22:11|[findDock.py.main]Started
+2019-07-07 22:11|[findDock.py.findDock]Capturing Image
+2019-07-07 22:12|[findDock.py.main]Started
+2019-07-07 22:12|[findDock.py.findDock]Capturing Image
+2019-07-07 22:13|[findDock.py.findDock]Turning 54 degrees to heading 54
+2019-07-07 22:13|[findDock.py.findDock]Capturing Image
+2019-07-07 22:13|[findDock.py.findDock]Turning 54 degrees to heading 108
+2019-07-07 22:13|[findDock.py.findDock]Capturing Image
+2019-07-07 22:14|[findDock.py.findDock]Turning 54 degrees to heading 162
+2019-07-07 22:14|[findDock.py.findDock]Capturing Image
+2019-07-07 22:14|[findDock.py.main]Finished
+2019-07-07 22:27|[findDock.py.main]Started
+2019-07-07 22:27|[findDock.py.findDock]Capturing Image
+2019-07-07 22:28|[findDock.py.main]Finished
+2019-07-07 22:29|[findDock.py.main]Started
+2019-07-07 22:29|[findDock.py.findDock]Capturing Image
+2019-07-07 22:34|[findDock.py.findDock]Turning 56 degrees to heading 56
+2019-07-07 22:34|[findDock.py.findDock]Capturing Image
+2019-07-07 22:34|[findDock.py.main]Finished
+2019-07-07 22:35|[findDock.py.main]Started
+2019-07-07 22:35|[findDock.py.findDock]Capturing Image
+2019-07-07 22:35|[findDock.py.findDock]Found LEDs
+2019-07-07 22:35|[findDock.py.findDock]find Dock returning True
+2019-07-07 22:35|[findDock.py.main]Finished
+2019-07-07 22:39|[findDock.py.main]Started
+2019-07-07 22:39|[findDock.py.findDock]Capturing Image
+2019-07-07 22:40|[findDock.py.main]Finished
+2019-07-07 22:42|[findDock.py.main]Started
+2019-07-07 22:42|[findDock.py.findDock]Capturing Image
+2019-07-07 22:43|[findDock.py.findDock]Turning 56 degrees to heading 56
+2019-07-07 22:43|[findDock.py.findDock]Capturing Image
+2019-07-07 22:43|[findDock.py.findDock]Found LEDs
+2019-07-07 22:43|[findDock.py.findDock]find Dock returning True
+2019-07-07 22:43|[findDock.py.main]Finished
+2019-07-07 23:07|[findDock.py.main]Started
+2019-07-07 23:07|[findDock.py.findDock]Capturing Image
+2019-07-07 23:07|[findDock.py.main]Started
+2019-07-07 23:08|[findDock.py.findDock]Capturing Image
+2019-07-07 23:09|[findDock.py.findDock]Turning 56 degrees to heading 56
+2019-07-07 23:09|[findDock.py.findDock]Capturing Image
+2019-07-07 23:09|[findDock.py.findDock]Turning 56 degrees to heading 112
+2019-07-07 23:09|[findDock.py.findDock]Capturing Image
+2019-07-07 23:09|[findDock.py.findDock]Turning 56 degrees to heading 168
+2019-07-07 23:09|[findDock.py.findDock]Capturing Image
+2019-07-07 23:11|[findDock.py.main]Finished
+2019-07-07 23:14|[findDock.py.main]Started
+2019-07-07 23:14|[findDock.py.findDock]Capturing Image
+2019-07-07 23:16|[findDock.py.main]Finished
+2019-07-07 23:16|[findDock.py.main]Started
+2019-07-07 23:16|[findDock.py.findDock]Capturing Image
+2019-07-07 23:22|[findDock.py.main]Finished
+2019-07-07 23:23|[findDock.py.main]Started
+2019-07-07 23:23|[findDock.py.findDock]Capturing Image
+2019-07-07 23:24|[findDock.py.findDock]Turning 56 degrees to heading 56
+2019-07-07 23:24|[findDock.py.findDock]Capturing Image
+2019-07-07 23:24|[findDock.py.findDock]Turning 56 degrees to heading 111
+2019-07-07 23:24|[findDock.py.findDock]Capturing Image
+2019-07-07 23:24|[findDock.py.findDock]Turning 56 degrees to heading 166
+2019-07-07 23:24|[findDock.py.findDock]Capturing Image
+2019-07-07 23:25|[findDock.py.findDock]Found LEDs
+2019-07-07 23:25|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:25|[findDock.py.main]Finished
+2019-07-07 23:31|[findDock.py.main]Started
+2019-07-07 23:31|[findDock.py.findDock]Capturing Image
+2019-07-07 23:31|[findDock.py.findDock]Found LEDs
+2019-07-07 23:31|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:31|[findDock.py.main]Finished
+2019-07-07 23:32|[findDock.py.main]Started
+2019-07-07 23:32|[findDock.py.findDock]Capturing Image
+2019-07-07 23:32|[findDock.py.findDock]Found LEDs
+2019-07-07 23:33|[findDock.py.main]Started
+2019-07-07 23:33|[findDock.py.findDock]Capturing Image
+2019-07-07 23:33|[findDock.py.findDock]Found LEDs
+2019-07-07 23:33|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:33|[findDock.py.main]Finished
+2019-07-07 23:44|[findDock.py.main]Started
+2019-07-07 23:44|[findDock.py.findDock]Capturing Image
+2019-07-07 23:44|[findDock.py.findDock]Turning 51 degrees to heading 51
+2019-07-07 23:44|[findDock.py.findDock]Capturing Image
+2019-07-07 23:45|[findDock.py.findDock]Found LEDs
+2019-07-07 23:45|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:45|[findDock.py.main]Finished
+2019-07-07 23:45|[findDock.py.main]Started
+2019-07-07 23:45|[findDock.py.findDock]Capturing Image
+2019-07-07 23:46|[findDock.py.findDock]Found LEDs
+2019-07-07 23:46|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:46|[findDock.py.main]Finished
+2019-07-07 23:47|[findDock.py.main]Started
+2019-07-07 23:47|[findDock.py.findDock]Capturing Image
+2019-07-07 23:48|[findDock.py.findDock]Found LEDs
+2019-07-07 23:48|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:48|[findDock.py.main]Finished
+2019-07-07 23:52|[findDock.py.main]Started
+2019-07-07 23:52|[findDock.py.findDock]Capturing Image
+2019-07-07 23:53|[findDock.py.findDock]Found LEDs
+2019-07-07 23:53|[findDock.py.findDock]find Dock returning True
+2019-07-07 23:53|[findDock.py.main]Finished
+2019-07-07 23:53|[findDock.py.main]Started
+2019-07-07 23:53|[findDock.py.findDock]Capturing Image
+2019-07-07 23:54|[findDock.py.findDock]Turning 51 degrees to heading 51
+2019-07-07 23:54|[findDock.py.findDock]Capturing Image
+2019-07-07 23:54|[findDock.py.main]Finished
+2019-07-07 23:55|[findDock.py.main]Started
+2019-07-07 23:55|[findDock.py.findDock]Capturing Image
+2019-07-07 23:55|[findDock.py.findDock]Turning 51 degrees to heading 51
+2019-07-07 23:55|[findDock.py.findDock]Capturing Image
+2019-07-07 23:55|[findDock.py.findDock]Turning 51 degrees to heading 103
+2019-07-07 23:55|[findDock.py.findDock]Capturing Image
+2019-07-07 23:56|[findDock.py.findDock]Turning 51 degrees to heading 154
+2019-07-07 23:56|[findDock.py.findDock]Capturing Image
+2019-07-07 23:56|[findDock.py.findDock]Turning 51 degrees to heading 206
+2019-07-07 23:56|[findDock.py.findDock]Capturing Image
+2019-07-07 23:56|[findDock.py.findDock]Turning 51 degrees to heading 257
+2019-07-07 23:56|[findDock.py.findDock]Capturing Image
+2019-07-07 23:56|[findDock.py.findDock]Turning 51 degrees to heading 308
+2019-07-07 23:56|[findDock.py.findDock]Capturing Image
+2019-07-07 23:56|[findDock.py.findDock]Not Found. Turning 52 degrees to heading 360
+2019-07-07 23:56|[findDock.py.findDock]find Dock returning False
+2019-07-07 23:56|[findDock.py.main]Finished
+2019-07-07 23:59|[findDock.py.main]Started
+2019-07-07 23:59|[findDock.py.findDock]Capturing Image
+2019-07-07 23:59|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-07 23:59|[findDock.py.findDock]Capturing Image
+2019-07-07 23:59|[findDock.py.findDock]Turning 52 degrees to heading 103
+2019-07-07 23:59|[findDock.py.findDock]Capturing Image
+2019-07-07 23:59|[findDock.py.findDock]Turning 52 degrees to heading 155
+2019-07-07 23:59|[findDock.py.findDock]Capturing Image
+2019-07-07 23:59|[findDock.py.findDock]Turning 52 degrees to heading 207
+2019-07-07 23:59|[findDock.py.findDock]Capturing Image
+2019-07-08 00:00|[findDock.py.findDock]Turning 52 degrees to heading 258
+2019-07-08 00:00|[findDock.py.findDock]Capturing Image
+2019-07-08 00:00|[findDock.py.findDock]Turning 52 degrees to heading 310
+2019-07-08 00:00|[findDock.py.findDock]Capturing Image
+2019-07-08 00:00|[findDock.py.findDock]Not Found. Turning 50 degrees to heading 360
+2019-07-08 00:00|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:00|[findDock.py.main]Finished
+2019-07-08 00:02|[findDock.py.main]Started
+2019-07-08 00:02|[findDock.py.findDock]Capturing Image
+2019-07-08 00:02|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:02|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Turning 52 degrees to heading 104
+2019-07-08 00:03|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Turning 52 degrees to heading 156
+2019-07-08 00:03|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Turning 52 degrees to heading 208
+2019-07-08 00:03|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Turning 52 degrees to heading 260
+2019-07-08 00:03|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Turning 52 degrees to heading 311
+2019-07-08 00:03|[findDock.py.findDock]Capturing Image
+2019-07-08 00:03|[findDock.py.findDock]Not Found. Turning 49 degrees to heading 360
+2019-07-08 00:03|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:03|[findDock.py.main]Finished
+2019-07-08 00:05|[findDock.py.main]Started
+2019-07-08 00:05|[findDock.py.findDock]Capturing Image
+2019-07-08 00:06|[findDock.py.main]Started
+2019-07-08 00:06|[findDock.py.findDock]Capturing Image
+2019-07-08 00:06|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:06|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Turning 52 degrees to heading 104
+2019-07-08 00:07|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Turning 52 degrees to heading 156
+2019-07-08 00:07|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Turning 52 degrees to heading 208
+2019-07-08 00:07|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Turning 52 degrees to heading 260
+2019-07-08 00:07|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Turning 52 degrees to heading 312
+2019-07-08 00:07|[findDock.py.findDock]Capturing Image
+2019-07-08 00:07|[findDock.py.findDock]Not Found. Turning 48 degrees to heading 360
+2019-07-08 00:07|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:07|[findDock.py.main]Finished
+2019-07-08 00:08|[findDock.py.main]Started
+2019-07-08 00:08|[findDock.py.findDock]Capturing Image
+2019-07-08 00:08|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:08|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Turning 52 degrees to heading 104
+2019-07-08 00:09|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Turning 52 degrees to heading 156
+2019-07-08 00:09|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Turning 52 degrees to heading 208
+2019-07-08 00:09|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Turning 52 degrees to heading 260
+2019-07-08 00:09|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Turning 52 degrees to heading 313
+2019-07-08 00:09|[findDock.py.findDock]Capturing Image
+2019-07-08 00:09|[findDock.py.findDock]Not Found. Turning 47 degrees to heading 360
+2019-07-08 00:09|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:09|[findDock.py.main]Finished
+2019-07-08 00:12|[findDock.py.main]Started
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 00:12|[findDock.py.findDock]Capturing Image
+2019-07-08 00:12|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 00:12|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:12|[findDock.py.main]Finished
+2019-07-08 00:13|[findDock.py.main]Started
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Found LEDs
+2019-07-08 00:13|[findDock.py.findDock]find Dock returning True
+2019-07-08 00:13|[findDock.py.main]Finished
+2019-07-08 00:13|[findDock.py.main]Started
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:13|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 00:13|[findDock.py.findDock]Capturing Image
+2019-07-08 00:14|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 00:14|[findDock.py.findDock]Capturing Image
+2019-07-08 00:14|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 00:14|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:14|[findDock.py.main]Finished
+2019-07-08 00:15|[findDock.py.main]Started
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 00:16|[findDock.py.findDock]Capturing Image
+2019-07-08 00:16|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 00:16|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:16|[findDock.py.main]Finished
+2019-07-08 00:17|[findDock.py.main]Started
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 00:17|[findDock.py.findDock]Capturing Image
+2019-07-08 00:17|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 00:17|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:17|[findDock.py.main]Finished
+2019-07-08 00:19|[findDock.py.main]Started
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 00:19|[findDock.py.findDock]Capturing Image
+2019-07-08 00:19|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 00:19|[findDock.py.findDock]find Dock returning False
+2019-07-08 00:20|[findDock.py.main]Finished
+2019-07-08 16:00|[findDock.py.main]Started
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:01|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:01|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:01|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:01|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:01|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 16:01|[findDock.py.findDock]Capturing Image
+2019-07-08 16:02|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 16:02|[findDock.py.findDock]Capturing Image
+2019-07-08 16:02|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 16:02|[findDock.py.findDock]find Dock returning False
+2019-07-08 16:02|[findDock.py.main]Finished
+2019-07-08 16:19|[findDock.py.main]Started
+2019-07-08 16:19|[findDock.py.findDock]Capturing Image
+2019-07-08 16:19|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 16:19|[findDock.py.findDock]Capturing Image
+2019-07-08 16:20|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 16:20|[findDock.py.findDock]Capturing Image
+2019-07-08 16:20|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 16:20|[findDock.py.findDock]Capturing Image
+2019-07-08 16:21|[findDock.py.findDock]Found LEDs
+2019-07-08 16:21|[findDock.py.findDock]find Dock returning True
+2019-07-08 16:21|[findDock.py.main]Finished
+2019-07-08 16:47|[findDock.py.main]Started
+2019-07-08 16:47|[findDock.py.findDock]Capturing Image
+2019-07-08 16:48|[findDock.py.main]Started
+2019-07-08 16:48|[findDock.py.findDock]Capturing Image
+2019-07-08 16:49|[findDock.py.findDock]Found LEDs
+2019-07-08 16:49|[findDock.py.findDock]find Dock returning True
+2019-07-08 16:49|[findDock.py.main]Finished
+2019-07-08 16:50|[findDock.py.main]Started
+2019-07-08 16:50|[findDock.py.findDock]Capturing Image
+2019-07-08 16:50|[findDock.py.findDock]Found LEDs
+2019-07-08 16:50|[findDock.py.findDock]find Dock returning True
+2019-07-08 16:50|[findDock.py.main]Finished
+2019-07-08 16:56|[findDock.py.main]Started
+2019-07-08 16:56|[findDock.py.findDock]Capturing Image
+2019-07-08 16:56|[findDock.py.findDock]Found LEDs
+2019-07-08 16:58|[findDock.py.main]Started
+2019-07-08 16:58|[findDock.py.findDock]Capturing Image
+2019-07-08 16:58|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 16:58|[findDock.py.findDock]Capturing Image
+2019-07-08 16:58|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 16:58|[findDock.py.findDock]Capturing Image
+2019-07-08 16:58|[findDock.py.findDock]Found LEDs
+2019-07-08 16:59|[findDock.py.findDock]find Dock returning True
+2019-07-08 16:59|[findDock.py.main]Finished
+2019-07-08 17:11|[findDock.py.main]Started
+2019-07-08 17:11|[findDock.py.findDock]Capturing Image
+2019-07-08 17:11|[findDock.py.findDock]Found LEDs
+2019-07-08 17:12|[findDock.py.findDock]find Dock returning True
+2019-07-08 17:12|[findDock.py.main]Finished
+2019-07-08 17:19|[findDock.py.main]Started
+2019-07-08 17:19|[findDock.py.findDock]Capturing Image
+2019-07-08 17:19|[findDock.py.findDock]Found LEDs
+2019-07-08 17:19|[findDock.py.findDock]find Dock returning True
+2019-07-08 17:19|[findDock.py.main]Finished
+2019-07-08 17:27|[findDock.py.main]Started
+2019-07-08 17:27|[findDock.py.findDock]Capturing Image
+2019-07-08 17:27|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 17:27|[findDock.py.findDock]Capturing Image
+2019-07-08 17:28|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 17:28|[findDock.py.findDock]Capturing Image
+2019-07-08 17:28|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 17:28|[findDock.py.findDock]Capturing Image
+2019-07-08 17:28|[findDock.py.findDock]Found LEDs
+2019-07-08 17:28|[findDock.py.findDock]find Dock returning True
+2019-07-08 17:32|[findDock.py.main]Finished
+2019-07-08 17:32|[findDock.py.main]Started
+2019-07-08 17:33|[findDock.py.findDock]Capturing Image
+2019-07-08 17:33|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 17:33|[findDock.py.findDock]Capturing Image
+2019-07-08 17:33|[findDock.py.findDock]Found LEDs
+2019-07-08 17:33|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:20|[findDock.py.main]Finished
+2019-07-08 20:21|[findDock.py.main]Started
+2019-07-08 20:21|[findDock.py.findDock]Capturing Image
+2019-07-08 20:21|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 20:21|[findDock.py.findDock]Capturing Image
+2019-07-08 20:21|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 20:21|[findDock.py.findDock]Capturing Image
+2019-07-08 20:21|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 20:21|[findDock.py.findDock]Capturing Image
+2019-07-08 20:21|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 20:21|[findDock.py.findDock]Capturing Image
+2019-07-08 20:21|[findDock.py.findDock]Found LEDs
+2019-07-08 20:21|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:22|[findDock.py.main]Finished
+2019-07-08 20:25|[findDock.py.main]Started
+2019-07-08 20:25|[findDock.py.findDock]Capturing Image
+2019-07-08 20:25|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 20:25|[findDock.py.findDock]Capturing Image
+2019-07-08 20:25|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 20:25|[findDock.py.findDock]Capturing Image
+2019-07-08 20:25|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 20:25|[findDock.py.findDock]Capturing Image
+2019-07-08 20:25|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 20:25|[findDock.py.findDock]Capturing Image
+2019-07-08 20:26|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 20:26|[findDock.py.findDock]Capturing Image
+2019-07-08 20:26|[findDock.py.findDock]Found LEDs
+2019-07-08 20:26|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:27|[findDock.py.main]Finished
+2019-07-08 20:28|[findDock.py.main]Started
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:28|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:28|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:28|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:28|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:28|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 20:28|[findDock.py.findDock]Capturing Image
+2019-07-08 20:29|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 20:29|[findDock.py.findDock]Capturing Image
+2019-07-08 20:29|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 20:29|[findDock.py.findDock]find Dock returning False
+2019-07-08 20:29|[findDock.py.main]Finished
+2019-07-08 20:29|[findDock.py.main]Started
+2019-07-08 20:29|[findDock.py.findDock]Capturing Image
+2019-07-08 20:29|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 20:29|[findDock.py.findDock]Capturing Image
+2019-07-08 20:29|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 20:30|[findDock.py.findDock]Capturing Image
+2019-07-08 20:30|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 20:30|[findDock.py.findDock]Capturing Image
+2019-07-08 20:30|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 20:30|[findDock.py.findDock]Capturing Image
+2019-07-08 20:30|[findDock.py.findDock]Turning 52 degrees to heading 262
+2019-07-08 20:30|[findDock.py.findDock]Capturing Image
+2019-07-08 20:30|[findDock.py.findDock]Turning 52 degrees to heading 314
+2019-07-08 20:30|[findDock.py.findDock]Capturing Image
+2019-07-08 20:30|[findDock.py.findDock]Not Found. Turning 46 degrees to heading 360
+2019-07-08 20:30|[findDock.py.findDock]find Dock returning False
+2019-07-08 20:30|[findDock.py.main]Finished
+2019-07-08 20:33|[findDock.py.main]Started
+2019-07-08 20:33|[findDock.py.findDock]Capturing Image
+2019-07-08 20:33|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-08 20:33|[findDock.py.findDock]Capturing Image
+2019-07-08 20:33|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-08 20:33|[findDock.py.findDock]Capturing Image
+2019-07-08 20:33|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-08 20:33|[findDock.py.findDock]Capturing Image
+2019-07-08 20:33|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-08 20:33|[findDock.py.findDock]Capturing Image
+2019-07-08 20:33|[findDock.py.findDock]Found LEDs
+2019-07-08 20:34|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:34|[findDock.py.main]Finished
+2019-07-08 20:34|[findDock.py.main]Started
+2019-07-08 20:34|[findDock.py.findDock]Capturing Image
+2019-07-08 20:34|[findDock.py.findDock]Found LEDs
+2019-07-08 20:34|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:35|[findDock.py.main]Finished
+2019-07-08 20:35|[findDock.py.main]Started
+2019-07-08 20:35|[findDock.py.findDock]Capturing Image
+2019-07-08 20:35|[findDock.py.findDock]Found LEDs
+2019-07-08 20:36|[findDock.py.findDock]find Dock returning True
+2019-07-08 20:36|[findDock.py.main]Finished
+2019-07-09 13:26|[findDock.py.main]Started
+2019-07-09 13:26|[findDock.py.findDock]Capturing Image
+2019-07-09 13:26|[findDock.py.findDock]Found LEDs
+2019-07-09 13:27|[findDock.py.main]Started
+2019-07-09 13:27|[findDock.py.findDock]Capturing Image
+2019-07-09 13:27|[findDock.py.findDock]Found LEDs
+2019-07-09 13:30|[findDock.py.main]Started
+2019-07-09 13:31|[findDock.py.findDock]Capturing Image
+2019-07-09 13:31|[findDock.py.findDock]Found LEDs
+2019-07-09 13:32|[findDock.py.main]Started
+2019-07-09 13:32|[findDock.py.findDock]Capturing Image
+2019-07-09 13:32|[findDock.py.findDock]Found LEDs
+2019-07-09 13:32|[findDock.py.findDock]Turning -17 degrees to face probable dock
+2019-07-09 13:32|[findDock.py.findDock]find Dock returning True
+2019-07-09 13:33|[findDock.py.main]Finished
+2019-07-09 13:34|[findDock.py.main]Started
+2019-07-09 13:35|[findDock.py.findDock]Capturing Image
+2019-07-09 13:35|[findDock.py.findDock]Found LEDs
+2019-07-09 14:17|[findDock.py.main]Started
+2019-07-09 14:17|[findDock.py.findDock]Capturing Image
+2019-07-09 14:17|[findDock.py.findDock]Found LEDs
+2019-07-09 14:17|[findDock.py.findDock]Turning -18 degrees to face probable dock
+2019-07-09 14:17|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:17|[findDock.py.main]Finished
+2019-07-09 14:18|[findDock.py.main]Started
+2019-07-09 14:18|[findDock.py.findDock]Capturing Image
+2019-07-09 14:18|[findDock.py.findDock]Found LEDs
+2019-07-09 14:18|[findDock.py.findDock]Turning 5 degrees to face probable dock
+2019-07-09 14:18|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:39|[findDock.py.main]Finished
+2019-07-09 14:43|[findDock.py.main]Started
+2019-07-09 14:43|[findDock.py.findDock]Capturing Image
+2019-07-09 14:43|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-09 14:43|[findDock.py.findDock]Capturing Image
+2019-07-09 14:44|[findDock.py.main]Finished
+2019-07-09 14:44|[findDock.py.main]Started
+2019-07-09 14:45|[findDock.py.findDock]Capturing Image
+2019-07-09 14:45|[findDock.py.findDock]Found LEDs
+2019-07-09 14:45|[findDock.py.findDock]Turning -3 degrees to face probable dock
+2019-07-09 14:45|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:45|[findDock.py.main]Finished
+2019-07-09 14:45|[findDock.py.main]Started
+2019-07-09 14:45|[findDock.py.findDock]Capturing Image
+2019-07-09 14:45|[findDock.py.findDock]Found LEDs
+2019-07-09 14:45|[findDock.py.findDock]Turning -4 degrees to face probable dock
+2019-07-09 14:45|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:46|[findDock.py.main]Finished
+2019-07-09 14:46|[findDock.py.main]Started
+2019-07-09 14:46|[findDock.py.findDock]Capturing Image
+2019-07-09 14:47|[findDock.py.findDock]Found LEDs
+2019-07-09 14:47|[findDock.py.findDock]Turning -2 degrees to face probable dock
+2019-07-09 14:47|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:49|[findDock.py.main]Finished
+2019-07-09 14:49|[findDock.py.main]Started
+2019-07-09 14:49|[findDock.py.findDock]Capturing Image
+2019-07-09 14:49|[findDock.py.findDock]Found LEDs
+2019-07-09 14:49|[findDock.py.findDock]Turning -4 degrees to face probable dock
+2019-07-09 14:49|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:50|[findDock.py.main]Finished
+2019-07-09 14:50|[findDock.py.main]Started
+2019-07-09 14:51|[findDock.py.findDock]Capturing Image
+2019-07-09 14:51|[findDock.py.findDock]Found LEDs
+2019-07-09 14:51|[findDock.py.findDock]Turning -4 degrees to face probable dock
+2019-07-09 14:51|[findDock.py.findDock]find Dock returning True
+2019-07-09 14:59|[findDock.py.main]Finished
+2019-07-09 15:04|[findDock.py.main]Started
+2019-07-09 15:04|[findDock.py.findDock]Capturing Image
+2019-07-09 15:04|[findDock.py.findDock]Found LEDs
+2019-07-09 15:04|[findDock.py.findDock]Turning -4 degrees to face probable dock
+2019-07-09 15:04|[findDock.py.findDock]find Dock returning True
+2019-07-09 15:12|[findDock.py.main]Finished
+2019-07-09 15:21|[findDock.py.main]Started
+2019-07-09 15:21|[findDock.py.findDock]Capturing Image
+2019-07-09 15:21|[findDock.py.findDock]Found LEDs
+2019-07-09 15:22|[findDock.py.findDock]Turning 2 degrees to face probable dock
+2019-07-09 15:22|[findDock.py.findDock]find Dock returning True
+2019-07-09 15:22|[findDock.py.main]Finished
+2019-07-09 15:23|[findDock.py.main]Started
+2019-07-09 15:23|[findDock.py.findDock]Capturing Image
+2019-07-09 15:23|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-09 15:23|[findDock.py.findDock]Capturing Image
+2019-07-09 15:23|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-09 15:23|[findDock.py.findDock]Capturing Image
+2019-07-09 15:23|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-09 15:23|[findDock.py.findDock]Capturing Image
+2019-07-09 15:23|[findDock.py.findDock]Found LEDs
+2019-07-09 15:23|[findDock.py.findDock]Turning 7 degrees to face probable dock
+2019-07-09 15:23|[findDock.py.findDock]find Dock returning True
+2019-07-09 15:24|[findDock.py.main]Finished
+2019-07-09 15:24|[findDock.py.main]Started
+2019-07-09 15:24|[findDock.py.findDock]Capturing Image
+2019-07-09 15:24|[findDock.py.findDock]Found LEDs
+2019-07-09 15:24|[findDock.py.findDock]Turning 32 degrees to face probable dock
+2019-07-09 15:24|[findDock.py.findDock]find Dock returning True
+2019-07-09 15:24|[findDock.py.main]Finished
+2019-07-09 15:25|[findDock.py.main]Started
+2019-07-09 15:25|[findDock.py.findDock]Capturing Image
+2019-07-09 15:25|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-09 15:25|[findDock.py.findDock]Capturing Image
+2019-07-09 15:25|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-09 15:25|[findDock.py.findDock]Capturing Image
+2019-07-09 15:25|[findDock.py.findDock]Found LEDs
+2019-07-09 15:25|[findDock.py.findDock]Turning -20 degrees to face probable dock
+2019-07-09 15:25|[findDock.py.findDock]find Dock returning True
+2019-07-09 15:29|[findDock.py.main]Finished
+2019-07-09 15:29|[findDock.py.main]Started
+2019-07-09 15:30|[findDock.py.main]Finished
+2019-07-09 15:30|[findDock.py.main]Started
+2019-07-09 15:30|[findDock.py.main]Finished
+2019-07-09 15:31|[findDock.py.main]Started
+2019-07-09 15:31|[findDock.py.main]Finished
+2019-07-09 15:31|[findDock.py.main]Started
+2019-07-09 15:32|[findDock.py.main]Finished
+2019-07-09 15:32|[findDock.py.main]Started
+2019-07-09 15:32|[findDock.py.main]Finished
+2019-07-09 15:33|[findDock.py.main]Started
+2019-07-09 15:34|[findDock.py.main]Finished
+2019-07-09 15:34|[findDock.py.main]Started
+2019-07-09 15:34|[findDock.py.main]Finished
+2019-07-09 15:35|[findDock.py.main]Started
+2019-07-09 15:45|[findDock.py.main]Finished
+2019-07-09 15:54|[findDock.py.main]Started
+2019-07-09 15:55|[findDock.py.main]Finished
+2019-07-09 16:00|[findDock.py.main]Started
+2019-07-09 16:01|[findDock.py.main]Finished
+2019-07-09 16:01|[findDock.py.main]Started
+2019-07-09 16:02|[findDock.py.main]Finished
+2019-07-09 16:02|[findDock.py.main]Started
+2019-07-09 16:03|[findDock.py.main]Finished
+2019-07-09 16:03|[findDock.py.main]Started
+2019-07-09 16:03|[findDock.py.main]Finished
+2019-07-09 16:04|[findDock.py.main]Started
+2019-07-09 16:05|[findDock.py.main]Finished
+2019-07-09 16:05|[findDock.py.main]Started
+2019-07-09 16:05|[findDock.py.main]Finished
+2019-07-09 19:42|[findDock.py.main]Started
+2019-07-09 19:43|[findDock.py.main]Finished
+2019-07-09 20:00|[findDock.py.main]Started
+2019-07-09 20:01|[findDock.py.main]Finished
+2019-07-09 20:06|[findDock.py.main]Started
+2019-07-09 20:06|[findDock.py.main]Finished
+2019-07-09 20:13|[findDock.py.main]Started
+2019-07-09 20:13|[findDock.py.main]Finished
+2019-07-09 20:15|[findDock.py.main]Started
+2019-07-09 20:16|[status.py.main]Starting status.py at 9.47v
+2019-07-09 20:16|[findDock.py.main]Finished
+2019-07-09 20:16|[findDock.py.main]Started
+2019-07-09 20:17|[findDock.py.main]Finished
+2019-07-09 20:17|[findDock.py.main]Started
+2019-07-09 20:17|[findDock.py.main]Finished
+2019-07-09 20:18|[findDock.py.main]Started
+2019-07-09 20:18|[findDock.py.main]Finished
+2019-07-09 20:19|[findDock.py.main]Started
+2019-07-09 20:19|[findDock.py.main]Finished
+2019-07-09 20:20|[findDock.py.main]Started
+2019-07-09 20:20|[findDock.py.main]Finished
+2019-07-09 20:21|[findDock.py.main]Started
+2019-07-09 20:21|[findDock.py.main]Finished
+2019-07-09 20:25|[findDock.py.main]Started
+2019-07-09 20:26|[findDock.py.main]Started
+2019-07-09 20:26|[findDock.py.main]Finished
+2019-07-09 20:27|[findDock.py.main]Started
+2019-07-09 20:27|[findDock.py.main]Finished
+2019-07-09 20:33|[findDock.py.main]Started
+2019-07-09 20:33|[findDock.py.main]Finished
+2019-07-09 20:40|[findDock.py.main]Started
+2019-07-09 20:40|[findDock.py.main]Finished
+2019-07-09 23:27|[status.py.main]Exiting  status.py at 9.24v
+2019-07-10 07:38|[wheelDiaDriveTest.py.<module>]Started
+2019-07-10 07:40|[wheelBaseRotateTest.py.<module>]Started
+2019-07-10 07:40|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:41|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:42|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-07-10 07:47|[wheelDiaDriveTest.py.<module>]Started
+2019-07-10 07:54|[findDock.py.main]Started
+2019-07-10 07:55|[findDock.py.main]Finished
+2019-07-10 07:55|[findDock.py.main]Started
+2019-07-10 07:56|[findDock.py.main]Finished
+2019-07-10 07:56|[findDock.py.main]Started
+2019-07-10 07:56|[findDock.py.main]Finished
+2019-07-10 07:57|[findDock.py.main]Started
+2019-07-10 07:57|[findDock.py.main]Finished
+2019-07-10 07:57|[findDock.py.main]Started
+2019-07-10 07:58|[findDock.py.main]Finished
+2019-07-10 07:58|[findDock.py.main]Started
+2019-07-10 07:59|[findDock.py.main]Finished
+2019-07-10 07:59|[findDock.py.main]Started
+2019-07-10 07:59|[findDock.py.main]Finished
+2019-07-10 08:00|[findDock.py.main]Started
+2019-07-10 08:00|[findDock.py.main]Finished
+2019-07-10 08:00|[findDock.py.main]Started
+2019-07-10 08:01|[findDock.py.main]Finished
+2019-07-10 08:01|[findDock.py.main]Started
+2019-07-10 08:02|[findDock.py.main]Finished
+2019-07-10 08:14|[findDock.py.main]Started
+2019-07-10 08:15|[findDock.py.main]Finished
+2019-07-10 08:15|[findDock.py.main]Started
+2019-07-10 08:16|[findDock.py.main]Finished
+2019-07-10 08:16|[findDock.py.main]Started
+2019-07-10 08:16|[findDock.py.main]Finished
+2019-07-10 08:17|[findDock.py.main]Started
+2019-07-10 08:17|[findDock.py.main]Finished
+2019-07-10 08:18|[findDock.py.main]Started
+2019-07-10 10:02|[findDock.py.main]Started
+2019-07-10 10:03|[findDock.py.main]Finished
+2019-07-10 10:03|[findDock.py.main]Started
+2019-07-10 10:04|[findDock.py.main]Finished
+2019-07-10 10:04|[findDock.py.main]Started
+2019-07-10 10:05|[findDock.py.main]Finished
+2019-07-10 10:05|[findDock.py.main]Started
+2019-07-10 10:06|[findDock.py.main]Finished
+2019-07-10 10:07|[findDock.py.main]Started
+2019-07-10 10:08|[findDock.py.main]Finished
+2019-07-10 10:08|[findDock.py.main]Started
+2019-07-10 10:09|[findDock.py.main]Finished
+2019-07-10 20:03|[findDock.py.main]Started
+2019-07-10 20:03|[findDock.py.main]Finished
+2019-07-10 20:04|[findDock.py.main]Started
+2019-07-10 20:04|[findDock.py.main]Finished
+2019-07-10 20:04|[findDock.py.main]Started
+2019-07-10 20:05|[findDock.py.main]Finished
+2019-07-10 20:06|[findDock.py.main]Started
+2019-07-10 20:07|[findDock.py.main]Finished
+2019-07-10 20:08|[findDock.py.main]Started
+2019-07-10 20:09|[findDock.py.main]Finished
+2019-07-10 20:13|[findDock.py.main]Started
+2019-07-10 20:14|[findDock.py.main]Finished
+2019-07-10 20:14|[findDock.py.main]Started
+2019-07-10 20:16|[findDock.py.main]Finished
+2019-07-10 20:16|[findDock.py.main]Started
+2019-07-10 20:16|[findDock.py.main]Finished
+2019-07-11 11:15|[findDock.py.main]Started
+2019-07-11 11:16|[findDock.py.main]Started
+2019-07-11 11:17|[findDock.py.main]Finished
+2019-07-11 11:17|[findDock.py.main]Started
+2019-07-11 11:17|[findDock.py.main]Finished
+2019-07-11 11:19|[findDock.py.main]Started
+2019-07-11 11:19|[findDock.py.main]Finished
+2019-07-11 11:19|[findDock.py.main]Started
+2019-07-11 11:20|[findDock.py.main]Finished
+2019-07-11 11:20|[findDock.py.main]Started
+2019-07-11 11:20|[findDock.py.main]Finished
+2019-07-11 11:21|[findDock.py.main]Started
+2019-07-11 11:21|[findDock.py.main]Finished
+2019-07-11 11:21|[findDock.py.main]Started
+2019-07-11 11:22|[findDock.py.main]Finished
+2019-07-11 11:22|[findDock.py.main]Started
+2019-07-11 11:23|[findDock.py.main]Finished
+2019-07-11 11:23|[findDock.py.main]Started
+2019-07-11 11:23|[findDock.py.main]Finished
+2019-07-11 11:24|[findDock.py.main]Started
+2019-07-11 11:25|[findDock.py.main]Finished
+2019-07-11 11:25|[findDock.py.main]Started
+2019-07-11 11:26|[findDock.py.main]Finished
+2019-07-11 12:10|[findDock.py.main]Started
+2019-07-11 12:10|[findDock.py.main]Finished
+2019-07-11 12:30|[findDock.py.main]Started
+2019-07-11 12:31|[findDock.py.main]Finished
+2019-07-11 14:07|[findDock.py.main]Started
+2019-07-11 14:08|[findDock.py.main]Finished
+2019-07-11 14:09|[findDock.py.main]Started
+2019-07-11 14:10|[findDock.py.main]Finished
+2019-07-11 14:10|[findDock.py.main]Started
+2019-07-11 14:11|[status.py.main]Starting status.py at 9.31v
+2019-07-11 14:12|[findDock.py.main]Finished
+2019-07-11 14:12|[status.py.main]Exiting  status.py at 9.36v
+2019-07-11 14:24|[findDock.py.main]Started
+2019-07-11 14:24|[findDock.py.main]Finished
+2019-07-11 14:54|[findDock.py.main]Started
+2019-07-11 14:54|[status.py.main]Starting status.py at 9.15v
+2019-07-11 14:55|[findDock.py.main]Finished
+2019-07-11 14:55|[findDock.py.main]Started
+2019-07-11 14:56|[findDock.py.main]Finished
+2019-07-11 14:57|[findDock.py.main]Started
+2019-07-11 14:57|[findDock.py.main]Finished
+2019-07-11 14:58|[findDock.py.main]Started
+2019-07-11 14:59|[findDock.py.main]Finished
+2019-07-11 14:59|[findDock.py.main]Started
+2019-07-11 15:00|[findDock.py.main]Finished
+2019-07-11 15:01|[status.py.main]Exiting  status.py at 9.29v
+2019-07-11 15:02|[findDock.py.main]Started
+2019-07-11 15:03|[findDock.py.main]Finished
+2019-07-11 15:09|[findDock.py.main]Started
+2019-07-11 15:09|[findDock.py.main]Starting findDock() at 15:09:19
+2019-07-11 15:09|[findDock.py.findDock]Capturing Image
+2019-07-11 15:09|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-11 15:09|[findDock.py.findDock]Capturing Image
+2019-07-11 15:09|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-11 15:09|[findDock.py.findDock]Capturing Image
+2019-07-11 15:09|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-11 15:09|[findDock.py.findDock]Capturing Image
+2019-07-11 15:09|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-11 15:09|[findDock.py.findDock]Capturing Image
+2019-07-11 15:10|[findDock.py.findDock]Found LEDs
+2019-07-11 15:10|[findDock.py.findDock]Turning 1 degrees to face probable dock
+2019-07-11 15:10|[findDock.py.findDock]find Dock returning True
+2019-07-11 15:10|[findDock.py.main]Finished
+2019-07-11 15:15|[findDock.py.main]Started
+2019-07-11 15:15|[findDock.py.main]Starting findDock() at 15:15:32
+2019-07-11 15:15|[findDock.py.findDock]Capturing Image
+2019-07-11 15:15|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-11 15:15|[findDock.py.findDock]Capturing Image
+2019-07-11 15:15|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-11 15:15|[findDock.py.findDock]Capturing Image
+2019-07-11 15:15|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-11 15:16|[findDock.py.findDock]Capturing Image
+2019-07-11 15:16|[findDock.py.findDock]Turning 52 degrees to heading 210
+2019-07-11 15:16|[findDock.py.findDock]Capturing Image
+2019-07-11 15:16|[findDock.py.findDock]Found LEDs
+2019-07-11 15:16|[findDock.py.findDock]Turning -20 degrees to face probable dock
+2019-07-11 15:16|[findDock.py.findDock]find Dock returning True
+2019-07-11 15:16|[findDock.py.main]On Position
+2019-07-11 15:16|[findDock.py.main]Finished
+2019-07-11 21:06|[findDock.py.main]Started
+2019-07-11 21:06|[findDock.py.main]Starting findDock() at 21:06:36
+2019-07-11 21:07|[findDock.py.main]Finished
+2019-07-12 07:45|[findDock.py.main]Started
+2019-07-12 07:45|[findDock.py.main]Starting findDock() at 07:45:16
+2019-07-12 07:46|[findDock.py.main]Finished
+2019-07-12 07:47|[findDock.py.main]Started
+2019-07-12 07:47|[findDock.py.main]Starting findDock() at 07:47:29
+2019-07-12 07:47|[findDock.py.main]Finished
+2019-07-12 07:48|[findDock.py.main]Started
+2019-07-12 07:48|[findDock.py.main]Starting findDock() at 07:48:29
+2019-07-12 07:49|[findDock.py.main]Finished
+2019-07-12 07:49|[findDock.py.main]Started
+2019-07-12 07:49|[findDock.py.main]Starting findDock() at 07:49:47
+2019-07-12 07:50|[findDock.py.main]Finished
+2019-07-12 07:51|[findDock.py.main]Started
+2019-07-12 07:51|[findDock.py.main]Starting findDock() at 07:51:04
+2019-07-12 07:51|[findDock.py.main]Finished
+2019-07-12 07:58|[GCO.py.main]Starting GCO.py
+2019-07-12 07:59|[GCO.py.main]Exiting GCO.py
+2019-07-12 07:59|[GCO.py.main]Starting GCO.py
+2019-07-12 08:00|[GCO.py.main]Exiting GCO.py
+2019-07-12 08:00|[GCO.py.main]Starting GCO.py
+2019-07-12 08:05|[GCO.py.main]Exiting GCO.py
+2019-07-12 10:35|[wallAngle.py.main]Starting wallAngle.py at 9.29v
+2019-07-12 10:48|[wallAngle.py.main]Starting wallAngle.py at 9.26v
+2019-07-12 10:48|[wallAngle.py.main]Starting wallAngle.py at 9.25v
+2019-07-12 10:48|[wallAngle.py.main]Starting wallAngle.py at 9.26v
+2019-07-12 10:49|[wallAngle.py.main]Starting wallAngle.py at 9.25v
+2019-07-12 10:49|[wallAngle.py.main]Starting wallAngle.py at 9.29v
+2019-07-12 10:49|[wallAngle.py.main]Starting wallAngle.py at 9.27v
+2019-07-12 10:50|[wallAngle.py.main]Starting wallAngle.py at 9.20v
+2019-07-12 10:50|[wallAngle.py.main]Starting wallAngle.py at 9.23v
+2019-07-12 10:51|[wallAngle.py.main]Starting wallAngle.py at 9.25v
+2019-07-12 10:51|[wallAngle.py.main]Starting wallAngle.py at 9.24v
+2019-07-12 11:05|[wallAngle.py.main]Starting wallAngle.py at 9.22v
+2019-07-12 11:28|[wallAngle.py.main]Starting wallAngle.py at 9.12v
+2019-07-12 11:32|[wallAngle.py.main]Starting wallAngle.py at 9.13v
+2019-07-12 11:34|[wallAngle.py.main]Starting wallAngle.py at 9.13v
+2019-07-12 11:35|[wallAngle.py.main]Starting wallAngle.py at 9.12v
+2019-07-12 11:44|[wallAngle.py.main]Starting wallAngle.py at 9.06v
+2019-07-12 18:25|[wallAngle.py.main]Starting wallAngle.py at 9.44v
+2019-07-12 18:27|[wallAngle.py.main]Starting wallAngle.py at 9.42v
+2019-07-12 18:31|[wallAngle.py.main]Starting wallAngle.py at 9.42v
+2019-07-12 18:35|[wallAngle.py.main]Starting wallAngle.py at 9.40v
+2019-07-12 18:36|[wallAngle.py.main]Starting wallAngle.py at 9.41v
+2019-07-12 18:36|[wallAngle.py.main]Starting wallAngle.py at 9.40v
+2019-07-12 18:36|[wallAngle.py.main]Starting wallAngle.py at 9.40v
+2019-07-12 18:37|[wallAngle.py.main]Starting wallAngle.py at 9.40v
+2019-07-12 18:37|[wallAngle.py.main]Starting wallAngle.py at 9.40v
+2019-07-12 18:38|[wallAngle.py.main]Starting wallAngle.py at 9.39v
+2019-07-12 18:38|[wallAngle.py.main]Starting wallAngle.py at 9.41v
+2019-07-12 18:39|[wallAngle.py.main]Starting wallAngle.py at 9.37v
+2019-07-12 18:39|[wallAngle.py.main]Starting wallAngle.py at 9.39v
+2019-07-13 00:24|[wallAngle.py.main]Starting wallAngle.py at 10.82v
+2019-07-13 00:25|[wallAngle.py.main]Starting wallAngle.py at 10.83v
+2019-07-13 00:26|[wallAngle.py.main]Starting wallAngle.py at 10.78v
+2019-07-13 01:23|[wallAngle.py.main]Starting wallAngle.py at 11.01v
+2019-07-13 01:32|[wallAngle.py.main]Starting wallAngle.py at 11.07v
+2019-07-13 01:33|[wallAngle.py.main]Starting wallAngle.py at 11.10v
+2019-07-13 01:33|[wallAngle.py.main]Starting wallAngle.py at 10.85v
+2019-07-13 01:34|[wallAngle.py.main]Starting wallAngle.py at 11.11v
+2019-07-13 01:34|[wallAngle.py.main]Starting wallAngle.py at 11.12v
+2019-07-13 01:35|[wallAngle.py.main]Starting wallAngle.py at 11.12v
+2019-07-13 01:35|[wallAngle.py.main]Starting wallAngle.py at 11.09v
+2019-07-13 01:46|[wallAngle.py.main]Starting wallAngle.py at 11.28v
+2019-07-13 01:46|[wallAngle.py.main]Exiting  wallAngle.py at 11.27v
+2019-07-13 01:46|[wallAngle.py.main]Starting wallAngle.py at 11.28v
+2019-07-13 01:46|[wallAngle.py.main]Starting wallAngle.py at 11.27v
+2019-07-13 10:37|[servoscan.py.main]Starting servoscan.py at 9.40v
+2019-07-13 10:39|[servoscan.py.main]Starting servoscan.py at 9.37v
+2019-07-13 10:43|[servoscan.py.main]Starting servoscan.py at 9.39v
+2019-07-13 10:50|[scan360.py.main]Starting scan360.py at 9.35v
+2019-07-13 10:50|[scan360.py.main]Starting scan360.py at 9.38v
+2019-07-13 10:53|[scan360.py.main]Starting scan360.py at 9.35v
+2019-07-13 10:54|[scan360.py.main]Starting scan360.py at 9.37v
+2019-07-13 11:03|[GCO.py.main]Starting GCO.py
+2019-07-13 11:07|[GCO.py.main]Starting GCO.py
+2019-07-13 11:11|[GCO.py.main]Exiting GCO.py
+2019-07-13 11:12|[servoscan.py.main]Starting servoscan.py at 9.31v
+2019-07-13 11:13|[servoscan.py.main]Exiting  servoscan.py at 9.41v
+2019-07-13 11:15|[servoscan.py.main]Starting servoscan.py at 9.34v
+2019-07-13 11:16|[servoscan.py.main]Exiting  servoscan.py at 9.40v
+2019-07-13 11:17|[GCO.py.main]Starting GCO.py
+2019-07-13 11:19|[GCO.py.main]Exiting GCO.py
+2019-07-13 11:21|[GCO.py.main]Starting GCO.py
+2019-07-13 11:24|[GCO.py.main]Exiting GCO.py
+2019-07-13 11:24|[servoscan.py.main]Starting servoscan.py at 9.32v
+2019-07-13 11:24|[servoscan.py.main]Exiting  servoscan.py at 9.35v
+2019-07-13 12:02|[status.py.main]Starting status.py at 9.32v
+2019-07-13 12:42|[status.py.main]Exiting  status.py at 9.33v
+2019-07-13 12:47|[servoscan.py.main]Starting servoscan.py at 9.24v
+2019-07-13 12:48|[servoscan.py.main]Starting servoscan.py at 9.23v
+2019-07-13 12:48|[servoscan.py.main]Exiting  servoscan.py at 9.24v
+2019-07-13 13:30|[servoscan.py.main]Starting servoscan.py at 9.17v
+2019-07-13 13:30|[servoscan.py.main]Exiting  servoscan.py at 9.23v
+2019-07-13 13:34|[servoscan.py.main]Starting servoscan.py at 9.18v
+2019-07-13 13:34|[servoscan.py.main]Exiting  servoscan.py at 9.20v
+2019-07-13 13:35|[servoscan.py.main]Starting servoscan.py at 9.18v
+2019-07-13 13:37|[servoscan.py.main]Exiting  servoscan.py at 8.99v
+2019-07-13 13:37|[servoscan.py.main]Starting servoscan.py at 9.15v
+2019-07-13 13:40|[GCO.py.main]Starting GCO.py
+2019-07-13 13:41|[GCO.py.main]Exiting GCO.py
+2019-07-13 13:42|[GCO.py.main]Starting GCO.py
+2019-07-13 13:43|[GCO.py.main]Exiting GCO.py
+2019-07-13 13:46|[GCO.py.main]Starting GCO.py
+2019-07-13 13:46|[GCO.py.main]Exiting GCO.py
+2019-07-13 13:50|[status.py.main]Starting status.py at 9.17v
+2019-07-13 13:51|[status.py.main]Exiting  status.py at 9.20v
+2019-07-13 13:51|[GCO.py.main]Starting GCO.py
+2019-07-13 13:52|[GCO.py.main]Exiting GCO.py
+2019-07-13 14:09|[scan360.py.main]Starting scan360.py at 9.06v
+2019-07-13 14:13|[GCO.py.main]Starting GCO.py
+2019-07-13 14:14|[GCO.py.main]Exiting GCO.py
+2019-07-13 14:14|[scan360.py.main]Starting scan360.py at 9.03v
+2019-07-13 14:16|[status.py.main]Starting status.py at 9.05v
+2019-07-13 14:16|[status.py.main]Exiting  status.py at 9.11v
+2019-07-13 14:31|[wallAngle.py.main]Starting wallAngle.py at 8.99v
+2019-07-13 14:31|[wallAngle.py.main]Exiting  wallAngle.py at 9.03v
+2019-07-13 14:31|[wallAngle.py.main]Starting wallAngle.py at 9.02v
+2019-07-13 14:31|[wallAngle.py.main]Exiting  wallAngle.py at 9.01v
+2019-07-13 14:33|[wallAngle.py.main]Starting wallAngle.py at 8.99v
+2019-07-13 14:33|[wallAngle.py.main]Exiting  wallAngle.py at 9.01v
+2019-07-13 14:34|[wallAngle.py.main]Starting wallAngle.py at 8.99v
+2019-07-13 14:34|[wallAngle.py.main]Exiting  wallAngle.py at 8.99v
+2019-07-13 14:37|[wallAngle.py.main]Starting wallAngle.py at 8.98v
+2019-07-13 14:37|[wallAngle.py.main]Exiting  wallAngle.py at 9.02v
+2019-07-13 14:37|[wallAngle.py.main]Starting wallAngle.py at 8.98v
+2019-07-13 14:37|[wallAngle.py.main]Exiting  wallAngle.py at 9.00v
+2019-07-13 14:37|[wallAngle.py.main]Starting wallAngle.py at 8.95v
+2019-07-13 14:38|[wallAngle.py.main]Exiting  wallAngle.py at 9.01v
+2019-07-13 15:38|[servoscan.py.main]Starting servoscan.py at 8.17v
+2019-07-13 15:40|[servoscan.py.main]Starting servoscan.py at 8.04v
+2019-07-13 15:42|[servoscan.py.main]Exiting  servoscan.py at 8.09v
+2019-07-13 20:29|[findDock.py.main]Started
+2019-07-13 20:29|[findDock.py.main]Starting findDock() at 20:29:29
+2019-07-13 20:29|[findDock.py.findDock]Capturing Image
+2019-07-13 20:29|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-13 20:29|[findDock.py.findDock]Capturing Image
+2019-07-13 20:29|[findDock.py.findDock]Turning 52 degrees to heading 105
+2019-07-13 20:29|[findDock.py.findDock]Capturing Image
+2019-07-13 20:29|[findDock.py.findDock]Turning 52 degrees to heading 157
+2019-07-13 20:30|[findDock.py.findDock]Capturing Image
+2019-07-13 20:30|[findDock.py.findDock]Found LEDs
+2019-07-13 20:30|[findDock.py.findDock]Turning 20 degrees to face probable dock
+2019-07-13 20:30|[findDock.py.findDock]find Dock returning True
+2019-07-13 20:30|[findDock.py.main]On Position
+2019-07-13 20:30|[findDock.py.main]Finished
+2019-07-13 21:19|[findDock.py.main]Started
+2019-07-13 21:19|[findDock.py.main]Starting findDock() at 21:19:26
+2019-07-13 21:20|[findDock.py.main]Started
+2019-07-13 21:20|[findDock.py.main]Starting findDock() at 21:20:11
+2019-07-13 21:21|[findDock.py.main]Started
+2019-07-13 21:21|[findDock.py.main]Starting findDock() at 21:21:16
+2019-07-13 21:23|[findDock.py.main]Started
+2019-07-13 21:23|[findDock.py.main]Starting findDock() at 21:23:32
+2019-07-13 21:25|[findDock.py.main]Started
+2019-07-13 21:25|[findDock.py.main]Starting findDock() at 21:25:53
+2019-07-13 21:27|[findDock.py.main]Started
+2019-07-13 21:27|[findDock.py.main]Starting findDock() at 21:27:59
+2019-07-13 21:44|[findDock.py.main]Started
+2019-07-13 21:44|[findDock.py.main]Starting findDock() at 21:44:05
+2019-07-13 21:46|[findDock.py.main]Started
+2019-07-13 21:46|[findDock.py.main]Starting findDock() at 21:46:09
+2019-07-13 21:46|[findDock.py.main]Started
+2019-07-13 21:46|[findDock.py.main]Starting findDock() at 21:46:44
+2019-07-13 21:53|[findDock.py.main]Started
+2019-07-13 21:53|[findDock.py.main]Starting findDock() at 21:53:57
+2019-07-13 21:55|[findDock.py.main]Started
+2019-07-13 21:55|[findDock.py.main]Starting findDock() at 21:55:03
+2019-07-13 21:55|[findDock.py.main]Started
+2019-07-13 21:55|[findDock.py.main]Starting findDock() at 21:55:32
+2019-07-13 21:57|[findDock.py.main]Started
+2019-07-13 21:58|[findDock.py.main]Starting findDock() at 21:58:00
+2019-07-13 21:59|[findDock.py.main]Started
+2019-07-13 21:59|[findDock.py.main]Starting findDock() at 21:59:13
+2019-07-13 21:59|[findDock.py.main]Finished
+2019-07-13 21:59|[findDock.py.main]Started
+2019-07-13 21:59|[findDock.py.main]Starting findDock() at 21:59:49
+2019-07-13 22:00|[findDock.py.main]Finished
+2019-07-13 22:00|[findDock.py.main]Started
+2019-07-13 22:00|[findDock.py.main]Starting findDock() at 22:00:41
+2019-07-13 22:01|[findDock.py.main]Finished
+2019-07-13 22:01|[findDock.py.main]Started
+2019-07-13 22:01|[findDock.py.main]Starting findDock() at 22:01:47
+2019-07-13 22:02|[findDock.py.main]Finished
+2019-07-14 07:51|[findDock.py.main]Started
+2019-07-14 07:51|[findDock.py.main]Starting findDock() at 07:51:20
+2019-07-14 07:51|[findDock.py.main]Finished
+2019-07-14 07:51|[findDock.py.main]Started
+2019-07-14 07:51|[findDock.py.main]Starting findDock() at 07:51:58
+2019-07-14 07:52|[findDock.py.main]Finished
+2019-07-14 07:58|[findDock.py.main]Started
+2019-07-14 07:58|[findDock.py.main]Starting findDock() at 07:58:35
+2019-07-14 07:59|[findDock.py.main]Finished
+2019-07-14 07:59|[findDock.py.main]Started
+2019-07-14 07:59|[findDock.py.main]Starting findDock() at 07:59:17
+2019-07-14 08:00|[findDock.py.main]Finished
+2019-07-14 08:00|[findDock.py.main]Started
+2019-07-14 08:00|[findDock.py.main]Starting findDock() at 08:00:42
+2019-07-14 08:01|[findDock.py.main]Finished
+2019-07-14 08:02|[findDock.py.main]Started
+2019-07-14 08:02|[findDock.py.main]Starting findDock() at 08:02:17
+2019-07-14 08:02|[findDock.py.main]Finished
+2019-07-14 08:03|[findDock.py.main]Started
+2019-07-14 08:03|[findDock.py.main]Starting findDock() at 08:03:24
+2019-07-14 08:03|[findDock.py.main]Finished
+2019-07-14 08:11|[findDock.py.main]Started
+2019-07-14 08:11|[findDock.py.main]Starting findDock() at 08:11:10
+2019-07-14 08:11|[findDock.py.main]Finished
+2019-07-14 08:12|[findDock.py.main]Started
+2019-07-14 08:12|[findDock.py.main]Starting findDock() at 08:12:55
+2019-07-14 08:13|[findDock.py.main]Finished
+2019-07-14 08:14|[findDock.py.main]Started
+2019-07-14 08:14|[findDock.py.main]Starting findDock() at 08:14:23
+2019-07-14 08:14|[findDock.py.main]Finished
+2019-07-14 08:15|[findDock.py.main]Started
+2019-07-14 08:15|[findDock.py.main]Starting findDock() at 08:15:15
+2019-07-14 08:15|[findDock.py.main]Finished
+2019-07-14 08:16|[findDock.py.main]Started
+2019-07-14 08:16|[findDock.py.main]Starting findDock() at 08:16:32
+2019-07-14 08:16|[findDock.py.main]Finished
+2019-07-14 08:21|[findDock.py.main]Started
+2019-07-14 08:21|[findDock.py.main]Starting findDock() at 08:21:59
+2019-07-14 08:22|[findDock.py.main]Finished
+2019-07-14 08:22|[findDock.py.main]Started
+2019-07-14 08:22|[findDock.py.main]Starting findDock() at 08:22:37
+2019-07-14 08:23|[findDock.py.main]Finished
+2019-07-14 08:23|[findDock.py.main]Started
+2019-07-14 08:23|[findDock.py.main]Starting findDock() at 08:23:22
+2019-07-14 08:23|[findDock.py.main]Finished
+2019-07-14 08:32|[findDock.py.main]Started
+2019-07-14 08:32|[findDock.py.main]Starting findDock() at 08:32:54
+2019-07-14 08:33|[findDock.py.main]Finished
+2019-07-14 08:33|[findDock.py.main]Started
+2019-07-14 08:33|[findDock.py.main]Starting findDock() at 08:33:19
+2019-07-14 08:33|[findDock.py.main]Finished
+2019-07-14 08:34|[findDock.py.main]Started
+2019-07-14 08:34|[findDock.py.main]Starting findDock() at 08:34:07
+2019-07-14 08:34|[findDock.py.main]Finished
+2019-07-14 08:34|[findDock.py.main]Started
+2019-07-14 08:34|[findDock.py.main]Starting findDock() at 08:34:28
+2019-07-14 08:34|[findDock.py.main]Finished
+2019-07-14 08:35|[findDock.py.main]Started
+2019-07-14 08:35|[findDock.py.main]Starting findDock() at 08:35:15
+2019-07-14 08:35|[findDock.py.main]Finished
+2019-07-14 08:44|[findDock.py.main]Started
+2019-07-14 08:44|[findDock.py.main]Starting findDock() at 08:44:15
+2019-07-14 08:44|[findDock.py.main]Finished
+2019-07-14 08:57|[findDock.py.main]Started
+2019-07-14 08:57|[findDock.py.main]Starting findDock() at 08:57:21
+2019-07-14 08:57|[findDock.py.main]Finished
+2019-07-14 08:57|[findDock.py.main]Started
+2019-07-14 08:57|[findDock.py.main]Starting findDock() at 08:57:40
+2019-07-14 08:57|[findDock.py.main]Finished
+2019-07-14 08:58|[findDock.py.main]Started
+2019-07-14 08:58|[findDock.py.main]Starting findDock() at 08:58:07
+2019-07-14 08:58|[findDock.py.main]Finished
+2019-07-14 08:58|[findDock.py.main]Started
+2019-07-14 08:58|[findDock.py.main]Starting findDock() at 08:58:41
+2019-07-14 08:59|[findDock.py.main]Finished
+2019-07-14 10:30|[readDistSensor.py.<module>]Starting readDistSensor
+2019-07-14 10:37|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 10:40|[readDistSensor.py.<module>]Starting readDistSensor
+2019-07-14 10:43|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 10:45|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 10:48|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 10:51|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:01|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:04|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:08|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:09|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:10|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:17|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:21|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:24|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:25|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:30|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:34|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:40|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:43|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:45|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:46|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:51|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:52|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 11:57|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:04|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:07|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:10|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:13|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:14|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:14|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:15|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:51|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:52|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:54|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:56|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:57|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 12:58|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:02|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:03|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:09|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:11|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:21|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:22|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:23|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:24|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:24|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:25|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:26|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:26|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:27|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:31|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:37|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:38|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:39|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:40|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:41|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:43|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:44|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 13:49|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 15:11|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:22|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:23|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:23|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:24|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:25|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:26|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:28|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:30|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:42|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 16:59|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 17:05|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 17:11|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 17:29|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 17:30|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 17:40|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 18:12|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 18:14|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 18:15|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 18:16|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 21:23|[readDistSensor.py.<module>]Starting readDistSensor
+2019-07-14 21:35|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 21:52|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 21:54|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 21:57|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 21:58|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:00|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:01|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:03|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:05|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:07|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:08|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:09|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:09|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:10|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:12|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:14|[readDistSensor2.py.<module>]Starting readDistSensor
+2019-07-14 22:16|[readDistSensor.py.<module>]Starting readDistSensor
+2019-07-14 22:21|[findDock.py.main]Started
+2019-07-14 22:21|[findDock.py.main]Starting findDock() at 22:21:38
+2019-07-14 22:22|[findDock.py.main]Finished
+2019-07-14 22:23|[findDock.py.main]Started
+2019-07-14 22:23|[findDock.py.main]Starting findDock() at 22:23:08
+2019-07-14 22:23|[findDock.py.main]Finished
+2019-07-14 22:23|[findDock.py.main]Started
+2019-07-14 22:23|[findDock.py.main]Starting findDock() at 22:23:39
+2019-07-14 22:23|[findDock.py.main]Finished
+2019-07-14 22:25|[findDock.py.main]Started
+2019-07-14 22:25|[findDock.py.main]Starting findDock() at 22:25:51
+2019-07-14 22:26|[findDock.py.main]Finished
+2019-07-14 22:27|[findDock.py.main]Started
+2019-07-14 22:27|[findDock.py.main]Starting findDock() at 22:27:20
+2019-07-14 22:28|[findDock.py.main]Finished
+2019-07-15 07:06|[findDock.py.main]Started
+2019-07-15 07:06|[findDock.py.main]Starting findDock() at 07:06:06
+2019-07-15 07:06|[findDock.py.main]Finished
+2019-07-15 10:15|[findDock.py.main]Started
+2019-07-15 10:15|[findDock.py.main]Starting findDock() at 10:15:04
+2019-07-15 10:15|[findDock.py.main]Finished
+2019-07-15 10:16|[findDock.py.main]Started
+2019-07-15 10:16|[findDock.py.main]Starting findDock() at 10:16:05
+2019-07-15 10:16|[findDock.py.main]Started
+2019-07-15 10:16|[findDock.py.main]Starting findDock() at 10:16:20
+2019-07-15 10:16|[findDock.py.findDock]Capturing Image
+2019-07-15 10:16|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-15 10:16|[findDock.py.findDock]Capturing Image
+2019-07-15 10:16|[findDock.py.findDock]Found LEDs
+2019-07-15 10:16|[findDock.py.findDock]Turning -11 degrees to face probable dock
+2019-07-15 10:16|[findDock.py.findDock]find Dock returning True
+2019-07-15 10:16|[findDock.py.main]Facing Dock at staging distance
+2019-07-15 10:17|[findDock.py.main]Pending Action: TURN -71 Parallel to wall, DRIVE 8.2 inches
+2019-07-15 10:17|[findDock.py.main]Pending Action: TURN 90 deg
+2019-07-15 10:17|[findDock.py.main]Facing Dock at staging distance
+2019-07-15 10:17|[findDock.py.main]Finished
+2019-07-15 10:27|[findDock.py.main]Started
+2019-07-15 10:27|[findDock.py.main]Starting findDock() at 10:27:03
+2019-07-15 10:27|[findDock.py.findDock]Capturing Image
+2019-07-15 10:27|[findDock.py.findDock]Turning 52 degrees to heading 52
+2019-07-15 10:27|[findDock.py.findDock]Capturing Image
+2019-07-15 10:27|[findDock.py.findDock]Found LEDs
+2019-07-15 10:27|[findDock.py.findDock]Turning -13 degrees to face probable dock
+2019-07-15 10:27|[findDock.py.findDock]find Dock returning True
+2019-07-15 10:27|[findDock.py.main]Pending Action: FORWARD 27.3 inches
+2019-07-15 10:27|[findDock.py.main]Facing Dock at staging distance
+2019-07-15 10:27|[findDock.py.main]Pending Action: TURN -72 Parallel to wall, DRIVE 7.2 inches
+2019-07-15 10:28|[findDock.py.main]Pending Action: TURN 90 deg to face dock
+2019-07-15 10:28|[findDock.py.main]ON POSITION FOR DOCKING APPROACH
+2019-07-15 10:28|[findDock.py.main]Finished
+2019-07-15 10:32|[findDock.py.main]Started
+2019-07-15 10:32|[findDock.py.main]Starting findDock() at 10:32:07
+2019-07-15 10:32|[findDock.py.findDock]Capturing Image
+2019-07-15 10:32|[findDock.py.findDock]Found LEDs
+2019-07-15 10:32|[findDock.py.findDock]Turning 2 degrees to face probable dock
+2019-07-15 10:32|[findDock.py.findDock]find Dock returning True
+2019-07-15 10:32|[findDock.py.main]Pending Action: FORWARD 11.0 inches
+2019-07-15 10:32|[findDock.py.main]Facing Dock at staging distance
+2019-07-15 10:32|[findDock.py.main]Pending Action: Scan for angle from wall
+2019-07-15 10:32|[findDock.py.main]Pending Action: TURN 69 Parallel to wall, DRIVE 9.1 inches
+2019-07-15 10:32|[findDock.py.main]Pending Action: TURN -90 deg to face dock
+2019-07-15 10:33|[findDock.py.main]ON POSITION FOR DOCKING APPROACH
+2019-07-15 10:33|[findDock.py.main]Finished
+2019-07-15 10:47|[findDock.py.main]Started
+2019-07-15 10:47|[findDock.py.main]Starting findDock() at 10:47:06
+2019-07-15 10:48|[findDock.py.main]Started
+2019-07-15 10:48|[findDock.py.main]Starting findDock() at 10:48:39
+2019-07-15 10:49|[findDock.py.main]Finished
+2019-07-15 10:55|[findDock.py.main]Started
+2019-07-15 10:55|[findDock.py.main]Starting findDock() at 10:55:16
+2019-07-15 10:55|[findDock.py.main]Finished
+2019-07-15 11:05|[findDock.py.main]Started
+2019-07-15 11:05|[findDock.py.main]Starting findDock() at 11:05:28
+2019-07-15 11:05|[findDock.py.main]Finished
+2019-07-15 11:13|[findDock.py.main]Started
+2019-07-15 11:13|[findDock.py.main]Starting findDock() at 11:13:06
+2019-07-15 11:13|[findDock.py.main]Finished
+2019-07-18 15:16|[blurring.py.main]Started
+2019-07-18 15:17|[blurring.py.main]Started
+2019-07-18 15:17|[blurring.py.main]Finished
+2019-07-18 15:21|[blurring.py.main]Started
+2019-07-18 15:22|[blurring.py.main]Started
+2019-07-18 15:24|[blurring.py.main]Finished
+2019-07-18 15:34|[blurring.py.main]Started
+2019-07-18 15:35|[blurring.py.main]Finished
+2019-07-18 16:10|[blurring.py.main]Started
+2019-07-18 16:11|[blurring.py.main]Finished
+2019-07-18 16:11|[blurring.py.main]Started
+2019-07-18 16:14|[blurring.py.main]Finished
+2019-07-18 16:57|[threshold.py.main]Started
+2019-07-18 16:58|[threshold.py.main]Started
+2019-07-18 16:58|[threshold.py.main]Started
+2019-07-18 17:02|[threshold.py.main]Finished
+2019-07-18 17:02|[threshold.py.main]Started
+2019-07-18 17:03|[threshold.py.main]Finished
+2019-07-22 09:55|[contour_only.py.main]Started
+2019-07-22 09:59|[contour_only.py.main]Started
+2019-07-22 10:02|[contour_only.py.main]Started
+2019-07-22 10:06|[contour_only.py.main]Started
+2019-07-22 10:06|[contour_only.py.main]Started
+2019-07-22 10:13|[contour_only.py.main]Started
+2019-07-22 10:14|[contour_only.py.main]Finished
+2019-07-22 10:24|[contour_only.py.main]Started
+2019-07-22 10:25|[contour_only.py.main]Started
+2019-07-22 10:26|[contour_only.py.main]Finished
+2019-07-25 16:06|[myrobot.py.main]Started
+2019-07-25 16:06|[myrobot.py.main]Started
+2019-07-25 16:07|[myrobot.py.main]Started
+2019-07-25 16:08|[myrobot.py.main]Started
+2019-07-25 16:08|[myrobot.py.main]Finished
+2019-07-25 16:10|[myrobot.py.main]Started
+2019-07-25 16:10|[myrobot.py.main]Finished
+2019-07-25 16:17|[myrobot.py.main]Started
+2019-07-25 16:17|[myrobot.py.main]Finished
+2019-07-25 16:21|[myrobot.py.main]Started
+2019-07-25 16:21|[myrobot.py.main]Finished
+2019-07-25 16:24|[myrobot.py.main]Started
+2019-07-25 16:24|[myrobot.py.main]Finished
+2019-07-25 16:27|[myrobot.py.main]Started
+2019-07-25 16:27|[myrobot.py.main]Finished
+2019-07-25 16:39|[reader.py.main]Started
+2019-07-25 16:40|[reader.py.main]Started
+2019-07-25 16:43|[reader.py.main]Started
+2019-07-25 16:45|[reader.py.main]Started
+2019-07-25 16:46|[reader.py.main]Finished
+2019-07-25 16:50|[reader.py.main]Started
+2019-07-25 16:50|[writer.py.main]Started
+2019-07-25 16:53|[writer.py.main]Started
+2019-07-25 16:53|[writer.py.main]Finished
+2019-07-25 16:54|[writer.py.main]Started
+2019-07-25 16:54|[writer.py.main]Finished
+2019-07-25 16:54|[reader.py.main]Started
+2019-07-25 16:54|[writer.py.main]Started
+2019-07-25 16:54|[writer.py.main]Finished
+2019-07-25 16:56|[reader.py.main]Finished
+2019-07-25 17:12|[myrobot.py.main]Started
+2019-07-25 17:12|[myrobot.py.main]Finished
+2019-07-25 19:39|[followLight.py.main]Started
+2019-07-25 20:12|[followLight.py.main]Started
+2019-07-25 20:23|[followLight.py.main]Started
+2019-07-25 20:33|[followLight.py.main]Started
+2019-07-25 20:36|[followLight.py.main]Finished
+2019-07-25 20:42|[followLight.py.main]Started
+2019-07-25 20:44|[followLight.py.main]Finished
+2019-07-26 10:28|[followLight.py.main]Started
+2019-07-26 10:31|[followLight.py.main]Finished
+2019-07-26 10:34|[followLight.py.main]Started
+2019-07-26 10:35|[followLight.py.main]Finished
+2019-07-26 10:40|[followLight.py.main]Started
+2019-07-26 10:41|[followLight.py.main]Finished
+2019-07-26 10:42|[followLight.py.main]Started
+2019-07-26 10:44|[followLight.py.main]Finished
+2019-07-26 10:45|[followLight.py.main]Started
+2019-07-26 10:47|[followLight.py.main]Started
+2019-07-26 10:49|[followLight.py.main]Finished
+2019-07-26 10:50|[followLight.py.main]Started
+2019-07-26 10:51|[followLight.py.main]Finished
+2019-07-26 10:53|[followLight.py.main]Started
+2019-07-26 10:55|[followLight.py.main]Finished
+2019-07-26 10:58|[followLight.py.main]Started
+2019-07-26 11:00|[followLight.py.main]Finished
+2019-07-26 11:06|[followLight.py.main]Started
+2019-07-26 11:07|[followLight.py.main]Finished
+2019-07-26 15:13|[followLight.py.main]Started
+2019-07-26 15:15|[followLight.py.main]Finished
+2019-07-26 15:20|[followLight.py.main]Started
+2019-07-26 15:24|[followLight.py.main]Finished
+2019-07-26 15:26|[followLight.py.main]Started
+2019-07-26 15:27|[followLight.py.main]Finished
+2019-07-26 15:44|[followLight.py.main]Started
+2019-07-26 15:47|[followLight.py.main]Started
+2019-07-26 15:51|[followLight.py.main]Finished
+2019-07-26 15:57|[followLight.py.main]Started
+2019-07-26 15:58|[followLight.py.main]Finished
+2019-07-26 16:01|[followLight.py.main]Started
+2019-07-26 16:02|[followLight.py.main]Finished
+2019-07-26 16:08|[followLight.py.main]Started
+2019-07-26 16:09|[followLight.py.main]Finished
+2019-07-26 16:30|[followLight.py.main]Started
+2019-07-26 16:32|[followLight.py.main]Started
+2019-07-26 16:34|[followLight.py.main]Started
+2019-07-26 16:43|[followLight.py.main]Finished
+2019-07-26 17:12|[followLight.py.main]Started
+2019-07-26 17:13|[followLight.py.main]Finished
+2019-07-26 17:14|[followLight.py.main]Started
+2019-07-26 17:18|[followLight.py.main]Finished
+2019-07-26 17:19|[followLight.py.main]Started
+2019-07-26 17:19|[followLight.py.main]Finished
+2019-07-26 17:22|[followLight.py.main]Started
+2019-07-26 17:24|[followLight.py.main]Finished
+2019-07-26 18:05|[followLight.py.main]Started
+2019-07-26 18:06|[followLight.py.main]Finished
+2019-07-26 18:06|[followLight.py.main]Started
+2019-07-26 18:07|[followLight.py.main]Finished
+2019-07-26 18:09|[followLight.py.main]Started
+2019-07-26 18:16|[followLight.py.main]Finished
+2019-07-26 18:17|[followLight.py.main]Started
+2019-07-26 18:22|[followLight.py.main]Finished
+2019-07-27 00:22|[play_game.py.main]Started
+2019-07-27 00:22|[play_game.py.main]Finished
+2019-07-27 00:23|[play_game.py.main]Started
+2019-07-27 00:23|[play_game.py.main]Finished
+2019-07-27 00:24|[play_game.py.main]Started
+2019-07-27 00:25|[play_game.py.main]Finished
+2019-07-27 00:26|[play_game.py.main]Started
+2019-07-27 00:26|[play_game.py.main]Finished
+2019-07-27 00:29|[play_game.py.main]Started
+2019-07-27 00:29|[play_game.py.main]Finished
+2019-08-03 09:28|[driving.py.main]Started
+2019-08-03 09:31|[driving.py.main]Started
+2019-08-03 09:33|[driving.py.main]Finished
+2019-08-03 09:46|[driving.py.main]Started
+2019-08-03 09:48|[driving.py.main]Started
+2019-08-03 09:51|[driving.py.main]Finished
+2019-08-03 09:57|[driving.py.main]Started
+2019-08-03 10:00|[driving.py.main]Finished
+2019-08-03 10:11|[driving.py.main]Started
+2019-08-03 10:11|[driving.py.main]Started
+2019-08-03 10:13|[driving.py.main]Finished
+2019-08-03 10:14|[driving.py.main]Started
+2019-08-03 10:17|[driving.py.main]Finished
+2019-08-03 10:28|[driving.py.main]Started
+2019-08-03 10:30|[driving.py.main]Finished
+2019-08-03 10:34|[driving.py.main]Started
+2019-08-03 10:35|[driving.py.main]Finished
+2019-08-03 10:37|[driving.py.main]Started
+2019-08-03 10:38|[driving.py.main]Finished
+2019-08-03 10:39|[driving.py.main]Started
+2019-08-03 10:40|[driving.py.main]Finished
+2019-08-03 10:41|[driving.py.main]Started
+2019-08-03 10:42|[driving.py.main]Finished
+2019-08-03 10:45|[driving.py.main]Started
+2019-08-03 10:47|[driving.py.main]Finished
+2019-08-04 09:20|[watershed.py.main]Started
+2019-08-04 09:20|[watershed.py.main]Finished
+2019-08-04 09:20|[watershed.py.main]Started
+2019-08-04 09:23|[watershed.py.main]Started
+2019-08-04 09:25|[watershed.py.main]Started
+2019-08-04 09:25|[watershed.py.main]Finished
+2019-08-04 10:00|[watershed.py.main]Started
+2019-08-04 10:23|[watershed.py.main]Finished
+2019-08-04 10:24|[watershed.py.main]Started
+2019-08-04 10:24|[watershed.py.main]Finished
+2019-08-04 10:25|[watershed.py.main]Started
+2019-08-04 10:25|[watershed.py.main]Finished
+2019-08-04 10:25|[watershed.py.main]Started
+2019-08-04 10:26|[watershed.py.main]Finished
+2019-08-05 11:21|[status.py.main]Starting status.py at 9.18v
+2019-08-05 11:23|[status.py.main]Exiting  status.py at 9.23v
+2019-08-05 11:24|[status.py.main]Starting status.py at 9.23v
+2019-08-05 11:25|[status.py.main]Exiting  status.py at 9.31v
+2019-08-05 11:39|[status.py.main]Starting status.py at 9.24v
+2019-08-05 11:39|[status.py.main]Exiting  status.py at 9.28v
+2019-08-07 20:39|[status.py.main]Starting status.py at 9.41v
+2019-08-07 23:30|[status.py.main]Exiting  status.py at 9.18v
+2019-08-07 23:52|[status.py.main]Starting status.py at 8.99v
+2019-08-07 23:53|[status.py.main]Exiting  status.py at 9.04v
+2019-08-07 23:53|[status.py.main]Starting status.py at 9.04v
+2019-08-08 00:01|[status.py.main]Exiting  status.py at 9.07v
+2019-08-11 16:01|[lanes.py.main]Started
+2019-08-11 16:01|[lanes.py.main]Finished
+2019-08-11 16:22|[lanes.py.main]Started
+2019-08-11 16:23|[lanes.py.main]Finished
+2019-08-11 16:32|[lanes.py.main]Started
+2019-08-11 16:35|[lanes.py.main]Started
+2019-08-11 16:35|[lanes.py.main]Finished
+2019-08-11 16:47|[lanes.py.main]Started
+2019-08-11 16:47|[lanes.py.main]Finished
+2019-08-11 16:53|[lanes.py.main]Started
+2019-08-11 16:53|[lanes.py.main]Finished
+2019-08-11 18:05|[lanes.py.main]Started
+2019-08-11 18:05|[lanes.py.main]Finished
+2019-08-11 18:42|[lanes.py.main]Started
+2019-08-11 18:47|[lanes.py.main]Started
+2019-08-11 18:48|[lanes.py.main]Finished
+2019-08-11 19:01|[lanes.py.main]Started
+2019-08-11 19:02|[lanes.py.main]Started
+2019-08-11 19:03|[lanes.py.main]Started
+2019-08-11 22:33|[lanes.py.main]Finished
+2019-08-11 22:54|[lanes.py.main]Started
+2019-08-11 22:58|[lanes.py.main]Finished
+2019-08-11 22:59|[lanes.py.main]Started
+2019-08-11 22:59|[lanes.py.main]Finished
+2019-08-11 23:13|[lanes.py.main]Started
+2019-08-11 23:17|[lanes.py.main]Finished
+2019-08-11 23:43|[lanes.py.main]Started
+2019-08-11 23:44|[lanes.py.main]Started
+2019-08-11 23:44|[lanes.py.main]Started
+2019-08-11 23:46|[lanes.py.main]Started
+2019-08-11 23:46|[lanes.py.main]Finished
+2019-08-11 23:46|[lanes.py.main]Started
+2019-08-11 23:47|[lanes.py.main]Finished
+2019-08-12 10:24|[lanes.py.main]Started
+2019-08-12 10:25|[lanes.py.main]Started
+2019-08-12 10:28|[lanes.py.main]Started
+2019-08-12 10:29|[lanes.py.main]Finished
+2019-08-12 10:39|[lanes.py.main]Started
+2019-08-12 10:40|[lanes.py.main]Finished
+2019-08-12 13:42|[lanes.py.main]Started
+2019-08-12 13:44|[lanes.py.main]Started
+2019-08-12 13:45|[lanes.py.main]Started
+2019-08-12 13:46|[lanes.py.main]Finished
+2019-08-12 13:50|[lanes.py.main]Started
+2019-08-12 13:50|[lanes.py.main]Finished
+2019-08-12 13:51|[lanes.py.main]Started
+2019-08-12 13:51|[lanes.py.main]Finished
+2019-08-12 13:52|[lanes.py.main]Started
+2019-08-12 13:52|[lanes.py.main]Finished
+2019-08-12 13:54|[lanes.py.main]Started
+2019-08-12 13:54|[lanes.py.main]Finished
+2019-08-12 13:55|[lanes.py.main]Started
+2019-08-12 13:55|[lanes.py.main]Finished
+2019-08-12 14:17|[lanes.py.main]Started
+2019-08-12 14:17|[lanes.py.main]Finished
+2019-08-12 14:18|[lanes.py.main]Started
+2019-08-12 14:18|[lanes.py.main]Finished
+2019-08-12 15:19|[lanes.py.main]Started
+2019-08-12 15:23|[lanes.py.main]Started
+2019-08-12 15:28|[lanes.py.main]Started
+2019-08-12 15:35|[lanes.py.main]Started
+2019-08-12 15:35|[lanes.py.main]Finished
+2019-08-12 15:36|[lanes.py.main]Started
+2019-08-12 15:36|[lanes.py.main]Finished
+2019-08-12 15:41|[lanes.py.main]Started
+2019-08-12 15:41|[lanes.py.main]Finished
+2019-08-12 15:43|[lanes.py.main]Started
+2019-08-12 15:44|[lanes.py.main]Finished
+2019-08-12 15:45|[lanes.py.main]Started
+2019-08-12 15:45|[lanes.py.main]Finished
+2019-08-12 15:58|[lanes.py.main]Started
+2019-08-12 15:59|[lanes.py.main]Started
+2019-08-12 16:01|[lanes.py.main]Finished
+2019-08-12 16:05|[lanes.py.main]Started
+2019-08-12 16:09|[lanes.py.main]Started
+2019-08-12 16:10|[lanes.py.main]Started
+2019-08-12 16:14|[lanes.py.main]Started
+2019-08-12 16:14|[lanes.py.main]Finished
+2019-08-12 16:16|[lanes.py.main]Started
+2019-08-12 16:16|[lanes.py.main]Finished
+2019-08-12 16:16|[lanes.py.main]Started
+2019-08-12 16:16|[lanes.py.main]Finished
+2019-08-12 16:17|[lanes.py.main]Started
+2019-08-12 16:18|[lanes.py.main]Finished
+2019-08-12 16:18|[lanes.py.main]Started
+2019-08-12 16:18|[lanes.py.main]Finished
+2019-08-12 16:19|[lanes.py.main]Started
+2019-08-12 16:23|[lanes.py.main]Finished
+2019-08-12 16:45|[lanes.py.main]Started
+2019-08-12 19:24|[multiproc.py.main]Started
+2019-08-12 19:24|[multiproc.py.main]Finished
+2019-08-12 19:24|[multiproc.py.main]Started
+2019-08-12 19:25|[multiproc.py.main]Finished
+2019-08-12 19:26|[multiproc.py.main]Started
+2019-08-12 19:27|[multiproc.py.main]Finished
+2019-08-13 09:04|[multiproc.py.main]Started
+2019-08-13 09:05|[multiproc.py.main]Finished
+2019-08-13 09:05|[multiproc.py.main]Started
+2019-08-13 09:05|[multiproc.py.main]Finished
+2019-08-13 09:12|[multiproc.py.main]Started
+2019-08-13 09:12|[multiproc.py.main]Finished
+2019-08-13 09:14|[multiproc.py.main]Started
+2019-08-13 09:14|[multiproc.py.main]Finished
+2019-08-13 09:19|[multiproc.py.main]Started
+2019-08-13 09:19|[multiproc.py.main]Finished
+2019-08-13 09:21|[multiproc.py.main]Started
+2019-08-13 09:24|[multiproc.py.main]Started
+2019-08-13 09:24|[multiproc.py.main]Finished
+2019-08-13 09:29|[multiproc.py.main]Started
+2019-08-13 09:29|[multiproc.py.main]Finished
+2019-08-13 09:32|[multiproc.py.main]Started
+2019-08-13 09:32|[multiproc.py.main]Finished
+2019-08-13 09:34|[multiproc.py.main]Started
+2019-08-13 09:37|[multiproc.py.main]Started
+2019-08-13 09:40|[multiproc.py.main]Started
+2019-08-13 09:40|[multiproc.py.main]Finished
+2019-08-13 09:41|[multiproc.py.main]Started
+2019-08-13 09:42|[multiproc.py.main]Finished
+2019-08-13 09:47|[lanes.py.main]Started
+2019-08-13 09:47|[lanes.py.main]Finished
+2019-08-13 09:49|[multiproc.py.main]Started
+2019-08-13 09:49|[multiproc.py.main]Finished
+2019-08-13 09:51|[multiproc.py.main]Started
+2019-08-13 09:55|[multiproc.py.main]Started
+2019-08-13 09:57|[multiproc.py.main]Started
+2019-08-13 10:01|[multiproc.py.main]Started
+2019-08-13 10:01|[multiproc.py.main]Finished
+2019-08-13 10:04|[multiproc.py.main]Started
+2019-08-13 10:04|[multiproc.py.main]Finished
+2019-08-13 10:09|[multiproc.py.main]Started
+2019-08-13 10:09|[multiproc.py.main]Finished
+2019-08-13 10:11|[multiproc.py.main]Started
+2019-08-13 10:14|[multiproc.py.main]Started
+2019-08-13 10:17|[multiproc.py.main]Started
+2019-08-13 10:29|[multiproc.py.main]Started
+2019-08-13 10:38|[multiproc.py.main]Started
+2019-08-13 10:39|[multiproc.py.main]Started
+2019-08-13 10:50|[lanes.py.main]Started
+2019-08-13 11:05|[multiproc.py.main]Started
+2019-08-13 11:05|[multiproc.py.main]Finished
+2019-08-13 11:07|[multiproc.py.main]Started
+2019-08-13 11:07|[multiproc.py.main]Finished
+2019-08-13 11:13|[multiproc.py.main]Started
+2019-08-13 11:14|[multiproc.py.main]Finished
+2019-08-13 11:15|[multiproc.py.main]Started
+2019-08-13 11:15|[multiproc.py.main]Finished
+2019-08-13 11:16|[multiproc.py.main]Started
+2019-08-13 11:16|[multiproc.py.main]Finished
+2019-08-13 11:18|[multiproc.py.main]Started
+2019-08-13 11:19|[multiproc.py.main]Started
+2019-08-13 11:19|[multiproc.py.main]Finished
+2019-08-13 11:23|[lanes.py.main]Started
+2019-08-13 11:23|[lanes.py.main]Finished
+2019-08-13 11:24|[lanes.py.main]Started
+2019-08-13 11:27|[lanes.py.main]Started
+2019-08-13 11:30|[lanes.py.main]Started
+2019-08-13 11:31|[lanes.py.main]Started
+2019-08-13 11:32|[lanes.py.main]Started
+2019-08-13 11:33|[lanes.py.main]Finished
+2019-08-13 11:33|[multiproc.py.main]Started
+2019-08-13 11:33|[multiproc.py.main]Finished
+2019-08-13 11:36|[multiprocvga.py.main]Started
+2019-08-13 11:36|[multiprocvga.py.main]Finished
+2019-08-13 22:20|[single-thread.py.main]Started
+2019-08-13 22:22|[single-thread.py.main]Started
+2019-08-13 22:25|[single-thread.py.main]Started
+2019-08-13 22:27|[single-thread.py.main]Finished
+2019-08-13 22:28|[single-thread.py.main]Started
+2019-08-13 22:29|[single-thread.py.main]Finished
+2019-08-13 22:41|[single-thread.py.main]Started
+2019-08-13 22:42|[single-thread.py.main]Finished
+2019-08-13 22:43|[single-thread.py.main]Started
+2019-08-13 22:44|[single-thread.py.main]Started
+2019-08-13 22:44|[single-thread.py.main]Finished
+2019-08-14 10:15|[single-thread.py.main]Started
+2019-08-14 10:17|[single-thread.py.main]Started
+2019-08-14 10:17|[single-thread.py.main]Finished
+2019-08-14 13:10|[single-thread.py.main]Started
+2019-08-14 13:12|[single-thread.py.main]Started
+2019-08-14 13:14|[single-thread.py.main]Started
+2019-08-14 13:15|[single-thread.py.main]Started
+2019-08-14 13:18|[single-thread.py.main]Started
+2019-08-14 13:18|[single-thread.py.main]Finished
+2019-08-14 13:19|[single-thread.py.main]Started
+2019-08-14 13:20|[single-thread.py.main]Finished
+2019-08-14 13:20|[single-thread.py.main]Started
+2019-08-14 13:21|[single-thread.py.main]Finished
+2019-08-14 13:22|[single-thread.py.main]Started
+2019-08-14 13:22|[single-thread.py.main]Finished
+2019-08-14 13:23|[single-thread.py.main]Started
+2019-08-14 13:23|[single-thread.py.main]Finished
+2019-08-14 13:24|[single-thread.py.main]Started
+2019-08-14 13:24|[single-thread.py.main]Finished
+2019-08-14 13:26|[single-thread.py.main]Started
+2019-08-14 13:26|[single-thread.py.main]Finished
+2019-08-14 13:31|[single-thread.py.main]Started
+2019-08-14 13:31|[single-thread.py.main]Finished
+2019-08-14 13:32|[single-thread.py.main]Started
+2019-08-14 13:33|[single-thread.py.main]Finished
+2019-08-14 13:33|[single-thread.py.main]Started
+2019-08-14 13:34|[single-thread.py.main]Finished
+2019-08-14 13:35|[single-thread.py.main]Started
+2019-08-14 13:35|[single-thread.py.main]Finished
+2019-08-14 13:36|[single-thread.py.main]Started
+2019-08-14 13:37|[single-thread.py.main]Started
+2019-08-14 13:37|[single-thread.py.main]Finished
+2019-08-14 13:38|[single-thread.py.main]Started
+2019-08-14 13:38|[single-thread.py.main]Finished
+2019-08-14 13:39|[single-thread.py.main]Started
+2019-08-14 13:39|[single-thread.py.main]Finished
+2019-08-14 13:40|[single-thread.py.main]Started
+2019-08-14 13:40|[single-thread.py.main]Finished
+2019-08-14 13:41|[single-thread.py.main]Started
+2019-08-14 13:42|[single-thread.py.main]Finished
+2019-08-14 13:43|[single-thread.py.main]Started
+2019-08-14 13:43|[single-thread.py.main]Finished
+2019-08-14 13:45|[single-thread.py.main]Started
+2019-08-14 13:46|[single-thread.py.main]Finished
+2019-08-14 13:46|[single-thread.py.main]Started
+2019-08-14 13:46|[single-thread.py.main]Finished
+2019-08-14 14:02|[single-thread.py.main]Started
+2019-08-14 14:03|[single-thread.py.main]Finished
+2019-08-14 14:05|[single-thread.py.main]Started
+2019-08-14 14:06|[single-thread.py.main]Finished
+2019-08-14 14:07|[single-thread.py.main]Started
+2019-08-14 14:08|[single-thread.py.main]Finished
+2019-08-14 18:39|[motion_detect.py.<module>]Started
+2019-08-14 21:18|[motion_detect.py.<module>]Exit
+2019-08-23 09:08|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:08|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:12|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:13|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:23|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:24|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:24|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 09:28|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:28|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:30|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:30|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 09:30|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:32|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:33|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:34|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:37|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:39|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:44|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:44|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 09:50|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:50|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 09:57|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:58|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 09:58|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:02|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:03|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:06|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:07|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:09|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:10|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:17|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:17|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:18|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:18|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:21|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:21|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:23|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:23|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:26|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:28|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:28|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:29|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:29|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:33|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-23 10:35|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-23 10:37|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-24 00:25|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-24 00:26|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-24 18:57|[status.py.main]Starting status.py at 8.99v
+2019-08-24 18:58|[status.py.main]Exiting  status.py at 9.05v
+2019-08-24 19:53|[status.py.main]Starting status.py at 8.69v
+2019-08-24 19:53|[status.py.main]Exiting  status.py at 8.75v
+2019-08-24 19:53|[status.py.main]Starting status.py at 8.69v
+2019-08-24 19:54|[status.py.main]Exiting  status.py at 8.76v
+2019-08-24 19:55|[status.py.main]Starting status.py at 8.68v
+2019-08-24 19:56|[status.py.main]Exiting  status.py at 8.70v
+2019-08-24 19:56|[status.py.main]Starting status.py at 8.68v
+2019-08-24 19:56|[status.py.main]Exiting  status.py at 8.70v
+2019-08-24 19:59|[status.py.main]Starting status.py at 8.64v
+2019-08-24 19:59|[status.py.main]Exiting  status.py at 8.71v
+2019-08-24 20:02|[status.py.main]Starting status.py at 8.61v
+2019-08-24 20:02|[status.py.main]Exiting  status.py at 8.69v
+2019-08-25 00:05|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-25 00:24|[captureLightValues.py.<module>]Starting captureLightValues.py
+2019-08-25 00:30|[captureLightValues.py.<module>]Exiting  captureLightValue.py
+2019-08-25 10:53|[status.py.main]Starting status.py at 10.15v
+2019-08-25 10:53|[status.py.main]Exiting  status.py at 10.30v
+2019-08-27 12:03|[status.py.main]Starting status.py at 9.42v
+2019-08-27 12:05|[status.py.main]Exiting  status.py at 9.59v
+2019-08-27 12:07|[status.py.main]Starting status.py at 9.51v
+2019-09-03 01:06|[status.py.main]Starting status.py at 8.30v
+2019-09-03 01:07|[status.py.main]Exiting  status.py at 8.47v
+2019-09-03 01:07|[status.py.main]Starting status.py at 8.86v
+2019-09-03 01:08|[status.py.main]Exiting  status.py at 8.96v
+2019-09-03 01:14|[status.py.main]Starting status.py at 8.65v
+2019-09-03 01:29|[status.py.main]Exiting  status.py at 8.72v
+2019-09-03 12:18|[status.py.main]Starting status.py at 9.59v
+2019-09-03 12:26|[status.py.main]Exiting  status.py at 9.53v
+2019-09-11 08:39|[volt_test.py.main]Started
+2019-09-11 08:43|[volt_test.py.main]Started
+2019-09-11 08:43|[volt_test.py.main]Finished
+2019-09-11 08:43|[volt_test.py.main]Started
+2019-09-11 08:44|[volt_test.py.main]Finished
+2019-09-11 08:53|[volt_test.py.main]Started
+2019-09-11 08:54|[volt_test.py.main]Started
+2019-09-11 08:56|[volt_test.py.main]Started
+2019-09-11 08:56|[volt_test.py.main]Finished
+2019-09-11 08:58|[volt_test.py.main]Started
+2019-09-11 08:58|[volt_test.py.main]Finished
+2019-09-11 09:00|[volt_test.py.main]Started
+2019-09-11 09:00|[volt_test.py.main]Finished
+2019-10-20 14:04|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 14:10|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 14:14|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 14:14|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 14:15|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 14:15|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:41|[wheelDiaDriveTest.py.<module>]Started
+2019-10-20 17:44|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 17:44|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:45|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:46|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:47|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:47|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:48|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:49|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:49|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:49|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:50|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:50|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:50|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:50|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:51|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:51|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:51|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:51|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:51|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:52|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:52|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:52|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:52|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:54|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:56|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 17:58|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:01|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:01|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:03|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:05|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:07|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:09|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:12|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:16|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:18|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:21|[wheelBaseRotateTest.py.<module>]Started
+2019-10-20 18:21|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:22|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:22|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:22|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:22|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:23|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:23|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:23|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:23|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:23|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:24|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:24|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:25|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:26|[wheelBaseRotateTest.py.<module>]Exit
+2019-10-20 18:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:27|[wheelDiaDriveTest.py.<module>]Started
+2020-01-26 10:31|[wheelBaseRotateTest.py.<module>]Started
+2020-01-26 10:32|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:32|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:33|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:39|[wheelBaseRotateTest.py.<module>]Started
+2020-01-26 10:40|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:55|[wheelBaseRotateTest.py.<module>]Started
+2020-01-26 10:55|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:58|[wheelBaseRotateTest.py.<module>]Started
+2020-01-26 10:58|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 10:59|[wheelBaseRotateTest.py.<module>]Exit
+2020-01-26 11:00|[wheelDiaDriveTest.py.<module>]Started
+2020-01-26 11:05|[wheelDiaDriveTest.py.<module>]Started
+2020-02-05 17:58|[lanes.py.main]Started
+2020-02-05 17:58|[lanes.py.main]Started
+2020-02-05 17:59|[lanes.py.main]Started
+2020-02-05 18:08|[lanes.py.main]Started
+2020-02-05 18:08|[lanes.py.main]Finished
+2020-02-05 18:10|[lanes.py.main]Started
+2020-02-05 18:10|[lanes.py.main]Finished
+2020-02-05 18:11|[lanes.py.main]Started
+2020-02-05 18:12|[lanes.py.main]Finished
+2020-02-07 21:38|[robo_chat.py.main]Started
+2020-02-07 21:43|[robo_chat.py.main]Finished
+2020-02-07 21:55|[robo_chat.py.main]Started
+2020-02-07 21:57|[robo_chat.py.main]Finished
+2020-02-07 22:03|[carl_chat.py.main]Started
+2020-02-07 22:05|[carl_chat.py.main]Finished
+2020-02-07 22:06|[carl_chat.py.main]Started
+2020-02-07 22:10|[carl_chat.py.main]Finished
+2020-02-08 11:10|[carl_chat.py.main]Started
+2020-02-08 11:14|[carl_chat.py.main]Finished
+2020-02-08 11:22|[carl_chat.py.main]Started
+2020-02-08 11:23|[carl_chat.py.main]Finished
+2020-02-08 11:25|[carl_chat.py.main]Started
+2020-02-08 11:25|[carl_chat.py.main]Finished
+2020-02-11 21:10|[adaptive_threshold.py.main]Started
+2020-02-11 21:10|[adaptive_threshold.py.main]Finished
+2020-02-11 21:14|[contour_only.py.main]Started
+2020-02-11 21:14|[contour_only.py.main]Finished
+2020-02-11 21:15|[contour_only.py.main]Started
+2020-02-11 21:16|[contour_only.py.main]Finished
+2020-02-11 21:22|[threshold.py.main]Started
+2020-02-11 21:23|[threshold.py.main]Finished
+2020-02-11 21:25|[watershed.py.main]Started
+2020-02-11 21:26|[watershed.py.main]Finished
+2020-02-11 21:26|[watershed.py.main]Started
+2020-02-11 21:27|[watershed.py.main]Finished
+2020-02-11 21:28|[watershed.py.main]Started
+2020-02-11 21:28|[watershed.py.main]Finished
+2020-02-11 21:29|[watershed.py.main]Started
+2020-02-11 21:30|[watershed.py.main]Finished
+2020-02-21 09:19|[findDock.py.main]Started
+2020-02-21 09:19|[findDock.py.main]Starting findDock() at 09:19:39
+2020-02-21 09:20|[findDock.py.main]Finished
+2020-02-21 09:20|[findDock.py.main]Started
+2020-02-21 09:20|[findDock.py.main]Starting findDock() at 09:20:22
+2020-02-21 09:21|[findDock.py.main]Finished
+2020-02-21 09:21|[findDock.py.main]Started
+2020-02-21 09:21|[findDock.py.main]Starting findDock() at 09:21:53
+2020-02-21 09:22|[findDock.py.main]Finished
+2020-02-21 09:22|[findDock.py.main]Started
+2020-02-21 09:22|[findDock.py.main]Starting findDock() at 09:22:38
+2020-02-21 09:23|[findDock.py.main]Finished
+2020-02-21 09:24|[findDock.py.main]Started
+2020-02-21 09:24|[findDock.py.main]Starting findDock() at 09:24:39
+2020-02-21 09:25|[findDock.py.main]Finished
+2020-02-21 09:26|[findDock.py.main]Started
+2020-02-21 09:26|[findDock.py.main]Starting findDock() at 09:26:19
+2020-02-21 09:26|[findDock.py.main]Finished
+2020-02-21 09:26|[findDock.py.main]Started
+2020-02-21 09:26|[findDock.py.main]Starting findDock() at 09:26:38
+2020-02-21 09:27|[findDock.py.main]Finished
+2020-02-21 09:27|[findDock.py.main]Started
+2020-02-21 09:27|[findDock.py.main]Starting findDock() at 09:27:19
+2020-02-21 09:27|[findDock.py.main]Finished
+2020-04-23 23:11|[motion_detect.py.<module>]Started
+2020-04-23 23:12|[motion_detect.py.<module>]Exit
+2020-04-23 23:14|[motion_detect.py.<module>]Started
+2020-04-23 23:15|[motion_detect.py.<module>]Exit
+2020-05-03 06:14|[wheelBaseRotateTest.py.<module>]Started
+2020-05-03 06:17|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:17|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:18|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:18|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:20|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:20|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:20|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:21|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:21|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:21|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:21|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:21|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:22|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:22|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:24|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:25|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:25|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:25|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:26|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:27|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:27|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:27|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:28|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:29|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:29|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:29|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:29|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:30|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:30|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:31|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:33|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:33|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:34|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:34|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:34|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:34|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:35|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:36|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:37|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:37|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:38|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:38|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:38|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:39|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:39|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:39|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:40|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:40|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:41|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:42|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:42|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:42|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:42|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 06:45|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 08:20|[wheelBaseRotateTest.py.<module>]Started
+2020-05-03 08:23|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 12:06|[wheelBaseRotateTest.py.<module>]Started
+2020-05-03 12:08|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 12:55|[wheelBaseRotateTest.py.<module>]Started
+2020-05-03 12:55|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 12:56|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-03 12:57|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-05 01:17|[wheelBaseRotateTest.py.<module>]Started
+2020-05-05 01:17|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-05 01:19|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-05 09:11|[wheelBaseRotateTest.py.<module>]Started
+2020-05-05 09:13|[wheelBaseRotateTest.py.<module>]Exit
+2020-05-06 11:51|[wheelBaseRotateTest.py.<module>]Started
+2020-05-06 11:52|[wheelBaseRotateTest.py.<module>]Exit
+2020-06-24 09:37|[carlDataLogger.py.main]Started
+2020-06-24 09:39|[carlDataLogger.py.main]Started
+2020-06-24 09:54|[carlDataLogger.py.main]Started
+2020-06-24 09:54|[carlDataLogger.py.main]Finished
+2020-06-24 09:54|[carlDataLogger.py.main]Started
+2020-06-24 09:54|[carlDataLogger.py.main]Finished
+2020-06-25 11:51|[carlDataLogger.py.main]Started
+2020-06-25 11:59|[carlDataLogger.py.main]Started
+2020-06-25 12:01|[carlDataLogger.py.main]Started
+2020-06-25 12:06|[carlDataLogger.py.main]Started
+2020-06-25 12:06|[carlDataLogger.py.main]Started
+2020-06-25 12:10|[carlDataLogger.py.main]Started
+2020-06-25 12:12|[carlDataLogger.py.main]Started
+2020-06-25 12:12|[carlDataLogger.py.main]Finished
+2020-06-25 12:15|[carlDataLogger.py.main]Started
+2020-06-25 12:15|[carlDataLogger.py.main]Finished
+2020-06-25 12:16|[carlDataLogger.py.main]Started
+2020-06-25 12:16|[carlDataLogger.py.main]Finished
+2020-06-25 13:46|[carlDataLogger.py.main]Started
+2020-06-25 13:46|[carlDataLogger.py.main]Finished
+2020-06-25 13:49|[carlDataLogger.py.main]Started
+2020-06-25 13:52|[carlDataLogger.py.main]Started
+2020-06-25 13:52|[carlDataLogger.py.main]Finished
+2020-06-25 13:54|[carlDataLogger.py.main]Started
+2020-06-25 13:55|[carlDataLogger.py.main]Started
+2020-06-25 13:55|[carlDataLogger.py.main]Finished
+2020-06-25 13:57|[carlDataLogger.py.main]Started
+2020-06-25 13:57|[carlDataLogger.py.main]Finished
+2020-06-25 14:03|[carlDataLogger.py.main]Started
+2020-06-25 14:03|[carlDataLogger.py.main]Finished
+2020-06-25 14:07|[carlDataLogger.py.main]Started
+2020-06-25 14:07|[carlDataLogger.py.main]Finished
+2020-06-25 14:09|[carlDataLogger.py.main]Started
+2020-06-25 14:09|[carlDataLogger.py.main]Finished
+2020-06-25 14:12|[carlDataLogger.py.main]Started
+2020-06-25 14:13|[carlDataLogger.py.main]Finished
+2020-06-25 14:14|[carlDataLogger.py.main]Started
+2020-06-25 14:14|[carlDataLogger.py.main]Finished
+2020-06-25 14:17|[carlDataLogger.py.main]Started
+2020-06-25 14:17|[carlDataLogger.py.main]Finished
+2020-06-25 14:18|[carlDataLogger.py.main]Started
+2020-06-25 14:19|[carlDataLogger.py.main]Finished
+2020-06-25 14:22|[carlDataLogger.py.main]Started
+2020-06-25 14:22|[carlDataLogger.py.main]Finished
+2020-06-25 14:23|[carlDataLogger.py.main]Started
+2020-06-25 14:23|[carlDataLogger.py.main]Finished
+2020-06-25 14:25|[carlDataLogger.py.main]Started
+2020-06-25 14:27|[carlDataLogger.py.main]Finished
+2020-06-25 14:30|[carlDataLogger.py.main]Started
+2020-06-25 14:31|[carlDataLogger.py.main]Finished
+2020-06-26 09:39|[carlDataLogger.py.main]Started
+2020-06-26 09:41|[carlDataLogger.py.main]Started
+2020-06-26 09:41|[carlDataLogger.py.main]Finished
+2020-06-26 09:41|[carlDataLogger.py.main]Started
+2020-06-26 09:42|[carlDataLogger.py.main]Finished
+2020-06-26 09:56|[carlDataLogger.py.main]Started
+2020-06-26 10:00|[carlDataLogger.py.main]Started
+2020-06-26 10:00|[carlDataLogger.py.main]Finished
+2020-06-26 10:04|[carlDataLogger.py.main]Started
+2020-06-26 10:05|[carlDataLogger.py.main]Finished
+2020-06-26 10:14|[carlDataLogger.py.main]Started
+2020-06-26 10:14|[carlDataLogger.py.main]Finished
+2020-06-26 10:15|[carlDataLogger.py.main]Started
+2020-06-26 10:17|[carlDataLogger.py.main]Finished
+2020-06-26 10:20|[carlDataLogger.py.main]Started
+2020-06-26 10:21|[carlDataLogger.py.main]Finished
+2020-06-26 10:26|[carlDataLogger.py.main]Started
+2020-06-26 10:27|[carlDataLogger.py.main]Finished
+2020-06-26 10:37|[carlDataLogger.py.main]Started
+2020-06-26 10:39|[carlDataLogger.py.main]Started
+2020-06-26 10:46|[carlDataLogger.py.main]Started
+2020-06-26 10:46|[carlDataLogger.py.main]Finished
+2020-06-26 10:53|[carlDataLogger.py.main]Started
+2020-06-26 10:55|[carlDataLogger.py.main]Finished
+2020-06-26 11:02|[carlDataLogger.py.main]Started
+2020-06-26 11:03|[carlDataLogger.py.main]Finished
+2020-06-26 11:05|[carlDataLogger.py.main]Started
+2020-06-26 11:11|[carlDataLogger.py.main]Finished
+2020-06-26 14:08|[carlDataLogger.py.main]Started
+2020-06-26 14:08|[carlDataLogger.py.main]Finished
+2020-06-26 14:10|[carlDataLogger.py.main]Started
+2020-06-26 14:10|[carlDataLogger.py.main]Finished
+2020-06-26 14:14|[carlDataLogger.py.main]Started
+2020-06-26 14:14|[carlDataLogger.py.main]Finished
+2020-06-26 14:28|[carlDataLogger.py.main]Started
+2020-06-26 14:30|[carlDataLogger.py.main]Finished
+2020-06-26 14:32|[carlDataLogger.py.main]Started
+2020-06-26 14:33|[carlDataLogger.py.main]Finished
+2020-06-26 14:38|[carlDataLogger.py.main]Started
+2020-06-26 14:39|[carlDataLogger.py.main]Finished
+2020-06-26 14:56|[carlDataLogger.py.main]Started
+2020-06-26 14:57|[carlDataLogger.py.main]Finished
+2020-06-26 15:12|[carlDataLogger.py.main]Started
+2020-06-26 16:26|[carlDataLogger.py.main]Started
+2020-06-26 16:26|[carlDataLogger.py.main]Finished
+2020-06-26 16:27|[carlDataLogger.py.main]Started
+2020-06-26 16:27|[carlDataLogger.py.main]Finished
+2020-06-26 16:36|[carlDataLogger.py.main]Started
+2020-06-26 16:36|[carlDataLogger.py.main]Finished
+2020-06-26 16:37|[carlDataLogger.py.main]Started
+2020-06-26 16:38|[carlDataLogger.py.main]Finished
+2020-06-26 16:41|[carlDataLogger.py.main]Started
+2020-06-26 16:41|[carlDataLogger.py.main]Finished
+2020-06-26 16:43|[carlDataLogger.py.main]Started
+2020-06-26 16:43|[carlDataLogger.py.main]Finished
+2020-06-26 16:44|[carlDataLogger.py.main]Started
+2020-06-26 16:45|[carlDataLogger.py.main]Finished
+2020-06-26 16:46|[carlDataLogger.py.main]Started
+2020-06-26 16:47|[carlDataLogger.py.main]Finished
+2020-06-26 16:52|[carlDataLogger.py.main]Started
+2020-06-26 16:52|[carlDataLogger.py.main]Finished
+2020-06-26 17:04|[carlDataLogger.py.main]Started
+2020-06-26 17:05|[carlDataLogger.py.main]Finished
+2020-06-26 17:12|[carlDataLogger.py.main]Started
+2020-06-26 17:13|[carlDataLogger.py.main]Finished
+2020-06-30 08:53|[carlDataLogger.py.main]Started
+2020-06-30 08:54|[carlDataLogger.py.main]Started
+2020-06-30 08:57|[carlDataLogger.py.main]Started
+2020-06-30 09:02|[carlDataLogger.py.main]Started
+2020-06-30 09:03|[carlDataLogger.py.main]Finished
+2020-06-30 09:03|[carlDataLogger.py.main]Started
+2020-06-30 09:07|[carlDataLogger.py.main]Started
+2020-06-30 09:16|[carlDataLogger.py.main]Started
+2020-06-30 09:20|[carlDataLogger.py.main]Started
+2020-06-30 09:20|[carlDataLogger.py.main]Finished
+2020-06-30 09:22|[carlDataLogger.py.main]Started
+2020-06-30 09:22|[carlDataLogger.py.main]Finished
+2020-06-30 09:22|[carlDataLogger.py.main]Started
+2020-06-30 09:23|[carlDataLogger.py.main]Finished
+2020-06-30 09:23|[carlDataLogger.py.main]Started
+2020-06-30 09:28|[carlDataLogger.py.main]Started
+2020-06-30 09:28|[carlDataLogger.py.main]Finished
+2020-06-30 09:28|[carlDataLogger.py.main]Started
+2020-07-02 10:48|[carlDataLogger.py.main]Started
+2020-07-02 10:50|[carlDataLogger.py.main]Started
+2020-07-02 10:53|[carlDataLogger.py.main]Started
+2020-07-02 11:20|[carlDataLogger.py.main]Started
+2020-07-02 11:30|[carlDataLogger.py.main]Started
+2020-07-02 11:40|[carlDataLogger.py.main]Started
+2020-07-02 11:40|[carlDataLogger.py.main]Started
+2020-07-02 11:41|[carlDataLogger.py.main]Finished
+2020-07-02 11:42|[carlDataLogger.py.main]Started
+2020-07-02 11:42|[carlDataLogger.py.main]Finished
+2020-07-02 11:44|[carlDataLogger.py.main]Started
+2020-07-02 11:44|[carlDataLogger.py.main]Finished
+2020-07-02 13:59|[carlDataLogger.py.main]Started
+2020-07-02 13:59|[carlDataLogger.py.main]Finished
+2020-07-02 14:00|[carlDataLogger.py.main]Started
+2020-07-02 14:00|[carlDataLogger.py.main]Finished
+2020-07-02 14:04|[carlDataLogger.py.main]Started
+2020-07-02 14:05|[carlDataLogger.py.main]Finished
+2020-07-02 14:18|[carlDataLogger.py.main]Started
+2020-07-02 14:21|[carlDataLogger.py.main]Finished
+2020-07-02 14:37|[carlDataLogger.py.main]Started
+2020-07-02 14:40|[carlDataLogger.py.main]Finished
+2020-07-02 14:45|[carlDataLogger.py.main]Started
+2020-07-02 14:49|[carlDataLogger.py.main]Finished
+2020-07-02 14:53|[carlDataLogger.py.main]Started
+2020-07-02 14:57|[carlDataLogger.py.main]Finished
+2020-07-02 15:08|[carlDataLogger.py.main]Started
+2020-07-02 15:13|[carlDataLogger.py.main]Finished
+2020-07-02 16:00|[carlDataLogger.py.main]Started
+2020-07-02 16:06|[carlDataLogger.py.main]Finished
+2020-07-04 08:34|[carlDataLogger.py.main]Started
+2020-07-04 08:49|[carlDataLogger.py.main]Finished
+2020-07-05 09:02|[status.py.main]Starting status.py at 11.00v
+2020-07-05 09:06|[status.py.main]Starting status.py at 10.83v
+2020-07-05 09:06|[status.py.main]Exiting  status.py at 10.83v
+2020-07-05 09:08|[status.py.main]Starting status.py at 10.78v
+2020-07-05 09:10|[carlDataLogger.py.main]Started
+2020-07-05 09:21|[carlDataLogger.py.main]Started
+2020-07-05 09:21|[carlDataLogger.py.main]Finished
+2020-07-05 09:22|[status.py.main]Exiting  status.py at 10.46v
+2020-07-05 09:25|[status.py.main]Starting status.py at 10.35v
+2020-07-05 09:26|[carlDataLogger.py.main]Started
+2020-07-05 09:40|[carlDataLogger.py.main]Finished
+2020-07-05 09:44|[status.py.main]Exiting  status.py at 9.95v
+2020-07-05 10:35|[status.py.main]Starting status.py at 9.41v
+2020-07-05 12:27|[status.py.main]Exiting  status.py at 9.29v
+2020-07-28 10:17|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:18|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 10:19|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:19|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 10:19|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:22|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 10:24|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:25|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 10:49|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:50|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 10:55|[carl_motion_hibye.py.<module>]Started
+2020-07-28 10:55|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:01|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:04|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:04|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:13|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:13|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:14|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:15|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:20|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:22|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:31|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:31|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:31|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:32|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:35|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:36|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:37|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:39|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:39|[carl_motion_hibye.py.<module>]Started
+2020-07-28 11:41|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 11:43|[carl_motion_hibye.py.<module>]Started
+2020-07-28 13:09|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 17:27|[carl_motion_hibye.py.<module>]Started
+2020-07-28 17:29|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 17:30|[carl_motion_hibye.py.<module>]Started
+2020-07-28 17:41|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 17:43|[carl_motion_hibye.py.<module>]Started
+2020-07-28 17:48|[carl_motion_hibye.py.<module>]Exit
+2020-07-28 17:50|[carl_motion_hibye.py.<module>]Started
+2020-07-28 22:52|[carl_motion_hibye.py.<module>]Exit
+2020-08-02 16:41|[lanes.py.main]Started
+2020-08-02 16:41|[lanes.py.main]Finished
+2020-08-02 16:44|[carl_dock_lanes.py.main]Started
+2020-08-02 16:44|[carl_dock_lanes.py.main]Started
+2020-08-02 16:44|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:45|[carl_dock_lanes.py.main]Started
+2020-08-02 16:45|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:51|[carl_dock_lanes.py.main]Started
+2020-08-02 16:52|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:52|[carl_dock_lanes.py.main]Started
+2020-08-02 16:52|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:53|[carl_dock_lanes.py.main]Started
+2020-08-02 16:53|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:54|[carl_dock_lanes.py.main]Started
+2020-08-02 16:54|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:54|[carl_dock_lanes.py.main]Started
+2020-08-02 16:55|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:56|[carl_dock_lanes.py.main]Started
+2020-08-02 16:57|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:58|[carl_dock_lanes.py.main]Started
+2020-08-02 16:58|[carl_dock_lanes.py.main]Finished
+2020-08-02 16:59|[carl_dock_lanes.py.main]Started
+2020-08-02 17:00|[carl_dock_lanes.py.main]Finished
+2020-08-02 17:01|[carl_dock_lanes.py.main]Started
+2020-08-02 17:01|[carl_dock_lanes.py.main]Finished
