@@ -34,7 +34,7 @@ tp = tiltpan.TiltPan(egpg)
 
 tp.tiltpan_center()
 tp.tilt(tiltpan.TILT_CENTER)  # -90 to +90
-tp..pan(tiltpan.PAN_CENTER)
+tp.pan(tiltpan.PAN_CENTER)
 print tp.get_pan_pos(), tp.get_tilt_pos()
 tp.tiltpan.off()
 
