@@ -1,0 +1,103 @@
+Clock speeds: CPU: 1200 - Core: 400 - RAM: 450
+System rootfs drive (/) has been detected as /dev/mmcblk0p2 (mmcblk0p2)
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  725k  100  725k    0     0  1794k      0 --:--:-- --:--:-- --:--:-- 1792k
+System:    Host: Carl Kernel: 4.14.98-v7+ armv7l bits: 32 compiler: gcc v: 4.9.3 Console: tty 0 
+           Distro: Raspbian GNU/Linux 9 (stretch) 
+Machine:   Type: ARM Device System: Raspberry Pi 3 Model B Rev 1.2 details: BCM2835 rev: a22082 serial: 00000000395aab86 
+CPU:       Info: Quad Core model: ARMv7 v7l variant: cortex-a53 bits: 32 type: MCP arch: v7l rev: 4 
+           features: Use -f option to see features bogomips: 307 
+           Speed: 1200 MHz min/max: 600/1200 MHz Core speeds (MHz): 1: 1200 2: 1200 3: 1200 4: 1200 
+Graphics:  Device-1: bcm2708-fb driver: bcm2708_fb v: kernel bus ID: N/A 
+           Device-2: bcm2835-hdmi driver: N/A bus ID: N/A 
+           Display: server: X.org 1.19.2 driver: fbturbo tty: 152x55 
+           Message: Advanced graphics data unavailable in console for root. 
+Network:   Device-1: Standard Microsystems SMSC9512/9514 Fast Ethernet Adapter type: USB driver: smsc95xx bus ID: 1-1.1:3 
+           IF: eth0 state: down mac: xxxx
+           Device-2: Belkin F7D2102 802.11n N300 Micro Wireless Adapter v3000 [Realtek RTL8192CU] type: USB driver: rtl8192cu 
+           bus ID: 1-1.5:5 
+           IF: wlan1 state: up mac: xxxx 
+           IF-ID-1: wlan0 state: up mac: xxxx 
+Drives:    Local Storage: total: 29.72 GiB used: 9.69 GiB (32.6%) 
+           ID-1: /dev/mmcblk0 model: SC32G size: 29.72 GiB 
+           Message: No Optical or Floppy data was found. 
+Partition: ID-1: / size: 29.09 GiB used: 9.66 GiB (33.2%) fs: ext4 dev: /dev/mmcblk0p2 
+           ID-2: /boot size: 41.7 MiB used: 22.1 MiB (53.1%) fs: vfat dev: /dev/mmcblk0p1 
+Info:      Processes: 383 Uptime: 1h 17m Memory: 1003.7 MiB used: 353.8 MiB (35.2%) gpu: 128.0 MiB Init: systemd runlevel: 5 
+           Compilers: gcc: 6.3.0 Packages: 1749 Shell: Sudo v: 1.8.19p1 inxi: 3.1.08 
+Card CSD status register: MID: 3 OID: SD PNM: SC32G PRV: 8.0 MDATE: 5/2020
+Card SCR status register: SD Physical Version Specification: 5
+MicroSD information: Clock Speed: 50.0 - Manufacturer: SanDisk - Model: SC32G - Vendor: SD - Product: SD - HW Version: 0x8 - FW Version: 0x0 - Date Manufactured: 05/2020
+Class: A1 Class 10 U1
+Running HDParm tests ...
+/dev/mmcblk0p2:
+ Timing O_DIRECT cached reads:    44 MB in  2.00 seconds =  21.95 MB/sec
+ Timing O_DIRECT disk reads:  66 MB in  3.00 seconds =  21.99 MB/sec
+HDParm: 21.99 MB/s - HDParmCached: 21.95 MB/s
+Running dd tests ...
+81920+0 records in
+81920+0 records out
+335544320 bytes (336 MB, 320 MiB) copied, 18.8479 s, 17.8 MB/s
+DD Write Speed: 17.8 MB/s
+Running fio write test ...
+Running fio read test ...
+FIO results - 4k RandWrite: 705 IOPS (2820 KB/s) - 4k RandRead: 2364 IOPS (9458 KB/s)
+Running iozone test ...
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.429 $
+		Compiled for 32 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa.
+
+	Run began: Sun Oct 18 15:35:18 2020
+
+	Auto Mode
+	Include fsync in write timing
+	O_DIRECT feature enabled
+	File size set to 81920 kB
+	Record Size 4 kB
+	Command line used: iozone -a -e -I -i 0 -i 1 -i 2 -s 80M -r 4k
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+           81920       4     3370     3616     7961     8028     8244     2379                                                          
+
+iozone test complete.
+RandRead: 8244 - RandWrite: 2379 - Read: 7961 - Write: 3370
+
+================
+
+Description: SanDisk Ultra 32GB microSD on Pi 3B GoPiGo3 robot running Raspbian For Robots Stretch             
+(Optional) Enter alias to use on benchmark results.  Leave blank for completely anonymous.
+Alias (leave blank for Anonymous): tovli
+
+
+     Category                  Test                      Result     
+HDParm                    Disk Read                 21.99 MB/s               
+HDParm                    Cached Disk Read          21.95 MB/s               
+DD                        Disk Write                17.8 MB/s                
+FIO                       4k random read            2364 IOPS (9458 KB/s)    
+FIO                       4k random write           705 IOPS (2820 KB/s)     
+IOZone                    4k read                   7961 KB/s                
+IOZone                    4k write                  3370 KB/s                
+IOZone                    4k random read            8244 KB/s                
+IOZone                    4k random write           2379 KB/s                
+
+                          Score: 1028                                        
+
+Compare with previous benchmark results at:
+https://storage.jamesachambers.com/ 
+
