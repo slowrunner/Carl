@@ -4814,3 +4814,145 @@
 2020-09-11 19:13|[imulog.py.logMotionStop]heading:   357.5  rotation:     0.1 motion:     0.4 sec errors: 2357
 2020-09-11 19:13|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 2357  imu reset
 2020-09-11 20:34|[imulog.py.logMotionStop]heading:     0.0  rotation:     0.0 motion:     0.1 sec errors: 2358
+2020-10-18 14:18|[imulog.py.logCurrentIMU]heading:     0.0  rotation:     0.0 motion:     0.0 sec errors: 0  imulog started
+2020-10-18 14:20|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 0  imu reset
+2020-10-18 14:21|[imulog.py.logMotionStop]heading:     1.9  rotation:     2.0 motion:     2.7 sec errors: 0
+2020-10-18 16:25|[imulog.py.logMotionStop]heading:   180.8  rotation:   179.0 motion:     2.5 sec errors: 13
+2020-10-18 16:25|[imulog.py.logMotionStop]heading:   356.9  rotation:   176.5 motion:     2.4 sec errors: 13
+2020-10-18 16:26|[imulog.py.logMotionStop]heading:   357.0  rotation:     0.1 motion:     2.8 sec errors: 13
+2020-10-18 16:26|[imulog.py.logMotionStop]heading:   357.0  rotation:     0.0 motion:     0.3 sec errors: 13
+2020-10-18 16:26|[imulog.py.logMotionStop]heading:   357.0  rotation:     0.0 motion:     0.3 sec errors: 13
+2020-10-18 16:26|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 13  imu reset
+2020-10-18 16:28|[imulog.py.logMotionStop]heading:   359.9  rotation:     0.0 motion:     0.2 sec errors: 13
+2020-10-18 19:13|[imulog.py.logMotionStop]heading:     2.6  rotation:     2.6 motion:     2.7 sec errors: 32
+2020-10-19 01:32|[imulog.py.logMotionStop]heading:   178.6  rotation:   176.1 motion:     2.4 sec errors: 61
+2020-10-19 01:33|[imulog.py.logMotionStop]heading:   357.6  rotation:   178.8 motion:     2.3 sec errors: 61
+2020-10-19 01:33|[imulog.py.logMotionStop]heading:   356.5  rotation:    -1.2 motion:     2.8 sec errors: 61
+2020-10-19 01:33|[imulog.py.logMotionStop]heading:   356.5  rotation:     0.0 motion:     0.4 sec errors: 61
+2020-10-19 01:33|[imulog.py.logMotionStop]heading:   356.6  rotation:     0.1 motion:     0.3 sec errors: 61
+2020-10-19 01:33|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 61  imu reset
+2020-10-19 04:20|[imulog.py.logMotionStop]heading:     2.5  rotation:     2.6 motion:     2.8 sec errors: 74
+2020-10-19 10:34|[imulog.py.logMotionStop]heading:   179.9  rotation:   177.5 motion:     2.4 sec errors: 102
+2020-10-19 10:34|[imulog.py.logMotionStop]heading:   359.4  rotation:   179.0 motion:     2.3 sec errors: 102
+2020-10-19 10:34|[imulog.py.logMotionStop]heading:   357.6  rotation:    -1.7 motion:     2.7 sec errors: 102
+2020-10-19 10:34|[imulog.py.logMotionStop]heading:   357.7  rotation:     0.1 motion:     0.3 sec errors: 102
+2020-10-19 10:34|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.2 motion:     0.3 sec errors: 102
+2020-10-19 10:35|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 102  imu reset
+2020-10-19 10:39|[imulog.py.logMotionStop]heading:     2.8  rotation:     2.8 motion:     2.9 sec errors: 103
+2020-10-19 10:39|[imulog.py.logMotionStop]heading:   181.0  rotation:   178.2 motion:     2.4 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.9  rotation:   178.2 motion:     2.4 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.0  rotation:    -0.9 motion:     2.8 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.1 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.4 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.1 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.1 motion:     0.3 sec errors: 103
+2020-10-19 10:40|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.0 motion:     0.1 sec errors: 103
+2020-10-19 10:40|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 103  imu reset
+2020-10-19 10:42|[imulog.py.logMotionStop]heading:     0.0  rotation:     0.0 motion:     0.1 sec errors: 103
+2020-10-19 13:30|[imulog.py.logMotionStop]heading:     2.5  rotation:     2.5 motion:     2.8 sec errors: 118
+2020-10-19 19:48|[imulog.py.logMotionStop]heading:   180.2  rotation:   177.8 motion:     2.4 sec errors: 165
+2020-10-19 19:49|[imulog.py.logMotionStop]heading:     0.6  rotation:   180.2 motion:     2.3 sec errors: 165
+2020-10-19 19:49|[imulog.py.logMotionStop]heading:   358.6  rotation:    -1.6 motion:     2.8 sec errors: 165
+2020-10-19 19:49|[imulog.py.logMotionStop]heading:   358.6  rotation:     0.0 motion:     0.3 sec errors: 165
+2020-10-19 19:49|[imulog.py.logMotionStop]heading:   358.6  rotation:     0.0 motion:     0.1 sec errors: 165
+2020-10-19 19:49|[imulog.py.logMotionStop]heading:   358.7  rotation:     0.2 motion:     0.3 sec errors: 165
+2020-10-19 19:49|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 165  imu reset
+2020-10-19 19:54|[imulog.py.logMotionStop]heading:   359.9  rotation:     0.0 motion:     0.1 sec errors: 165
+2020-10-19 22:39|[imulog.py.logMotionStop]heading:     2.2  rotation:     2.2 motion:     2.8 sec errors: 179
+2020-10-20 04:55|[imulog.py.logMotionStop]heading:   181.6  rotation:   179.6 motion:     2.4 sec errors: 208
+2020-10-20 04:55|[imulog.py.logMotionStop]heading:     1.3  rotation:   179.8 motion:     2.3 sec errors: 208
+2020-10-20 04:56|[imulog.py.logMotionStop]heading:   357.9  rotation:    -3.2 motion:     2.7 sec errors: 208
+2020-10-20 04:56|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.1 motion:     0.3 sec errors: 208
+2020-10-20 04:56|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.2 motion:     0.4 sec errors: 208
+2020-10-20 04:56|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.0 motion:     0.1 sec errors: 208
+2020-10-20 04:56|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 208  imu reset
+2020-10-20 05:09|[imulog.py.logMotionStop]heading:     1.1  rotation:     1.2 motion:     2.7 sec errors: 208
+2020-10-20 05:32|[imulog.py.logMotionStop]heading:   178.8  rotation:   177.6 motion:     2.3 sec errors: 212
+2020-10-20 05:32|[imulog.py.logMotionStop]heading:   356.8  rotation:   178.2 motion:     2.4 sec errors: 212
+2020-10-20 05:32|[imulog.py.logMotionStop]heading:   358.1  rotation:     1.4 motion:     2.7 sec errors: 212
+2020-10-20 05:32|[imulog.py.logMotionStop]heading:   357.9  rotation:    -0.1 motion:     0.3 sec errors: 212
+2020-10-20 05:32|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.0 motion:     0.3 sec errors: 212
+2020-10-20 05:32|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 212  imu reset
+2020-10-20 08:22|[imulog.py.logMotionStop]heading:     2.1  rotation:     2.2 motion:     2.8 sec errors: 233
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   177.9  rotation:   177.8 motion:     2.4 sec errors: 268
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   357.7  rotation:   179.8 motion:     2.4 sec errors: 268
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   358.5  rotation:     1.1 motion:     2.8 sec errors: 268
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   358.4  rotation:     0.0 motion:     0.1 sec errors: 268
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   358.3  rotation:    -0.1 motion:     0.4 sec errors: 268
+2020-10-20 14:44|[imulog.py.logMotionStop]heading:   358.2  rotation:    -0.1 motion:     0.4 sec errors: 268
+2020-10-20 14:44|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 268  imu reset
+2020-10-20 17:30|[imulog.py.logMotionStop]heading:     2.3  rotation:     2.4 motion:     2.9 sec errors: 285
+2020-10-20 23:47|[imulog.py.logMotionStop]heading:   179.6  rotation:   177.4 motion:     2.4 sec errors: 313
+2020-10-20 23:48|[imulog.py.logMotionStop]heading:   359.4  rotation:   179.8 motion:     2.3 sec errors: 313
+2020-10-20 23:48|[imulog.py.logMotionStop]heading:   357.6  rotation:    -1.9 motion:     2.7 sec errors: 313
+2020-10-20 23:48|[imulog.py.logMotionStop]heading:   357.7  rotation:     0.1 motion:     0.3 sec errors: 313
+2020-10-20 23:48|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.2 motion:     0.3 sec errors: 313
+2020-10-20 23:48|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 313  imu reset
+2020-10-21 02:31|[imulog.py.logMotionStop]heading:     1.2  rotation:     1.4 motion:     2.9 sec errors: 332
+2020-10-21 08:48|[imulog.py.logMotionStop]heading:   178.8  rotation:   177.6 motion:     2.4 sec errors: 383
+2020-10-21 08:48|[imulog.py.logMotionStop]heading:   357.4  rotation:   178.6 motion:     2.4 sec errors: 383
+2020-10-21 08:48|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.6 motion:     2.6 sec errors: 383
+2020-10-21 08:48|[imulog.py.logMotionStop]heading:   357.8  rotation:     0.0 motion:     0.4 sec errors: 383
+2020-10-21 08:48|[imulog.py.logMotionStop]heading:   357.8  rotation:     0.0 motion:     0.3 sec errors: 383
+2020-10-21 08:48|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 383  imu reset
+2020-10-21 11:33|[imulog.py.logMotionStop]heading:     2.1  rotation:     2.2 motion:     2.8 sec errors: 399
+2020-10-21 17:50|[imulog.py.logMotionStop]heading:   178.9  rotation:   177.9 motion:     2.4 sec errors: 432
+2020-10-21 17:50|[imulog.py.logMotionStop]heading:   357.2  rotation:   178.1 motion:     2.4 sec errors: 432
+2020-10-21 17:51|[imulog.py.logMotionStop]heading:   357.5  rotation:     0.1 motion:     2.7 sec errors: 432
+2020-10-21 17:51|[imulog.py.logMotionStop]heading:   357.5  rotation:     0.0 motion:     0.1 sec errors: 432
+2020-10-21 17:51|[imulog.py.logMotionStop]heading:   357.6  rotation:     0.1 motion:     0.4 sec errors: 432
+2020-10-21 17:51|[imulog.py.logMotionStop]heading:   357.6  rotation:     0.1 motion:     0.3 sec errors: 432
+2020-10-21 17:51|[imulog.py.logMotionStop]heading:   357.6  rotation:     0.0 motion:     0.1 sec errors: 432
+2020-10-21 17:51|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 432  imu reset
+2020-10-21 20:36|[imulog.py.logMotionStop]heading:     1.1  rotation:     1.1 motion:     2.8 sec errors: 447
+2020-10-22 02:51|[imulog.py.logMotionStop]heading:   179.3  rotation:   178.3 motion:     2.4 sec errors: 488
+2020-10-22 02:52|[imulog.py.logMotionStop]heading:   359.2  rotation:   179.8 motion:     2.3 sec errors: 488
+2020-10-22 02:52|[imulog.py.logMotionStop]heading:   357.7  rotation:    -1.5 motion:     2.8 sec errors: 488
+2020-10-22 02:52|[imulog.py.logMotionStop]heading:   357.8  rotation:     0.1 motion:     0.3 sec errors: 488
+2020-10-22 02:52|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.2 motion:     0.3 sec errors: 488
+2020-10-22 02:52|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 488  imu reset
+2020-10-22 05:36|[imulog.py.logMotionStop]heading:     1.1  rotation:     1.2 motion:     2.9 sec errors: 500
+2020-10-22 11:56|[imulog.py.logMotionStop]heading:   177.9  rotation:   176.9 motion:     2.4 sec errors: 525
+2020-10-22 11:58|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 525  imu reset
+2020-10-22 13:13|[imulog.py.logCurrentIMU]heading:     0.0  rotation:     0.0 motion:     0.0 sec errors: 0  imulog started
+2020-10-22 13:13|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 0  imu reset
+2020-10-22 15:40|[imulog.py.logMotionStop]heading:     3.1  rotation:     3.2 motion:     2.7 sec errors: 11
+2020-10-22 22:01|[imulog.py.logMotionStop]heading:   176.8  rotation:   176.0 motion:     2.4 sec errors: 45
+2020-10-22 22:01|[imulog.py.logMotionStop]heading:   355.4  rotation:   178.4 motion:     2.4 sec errors: 45
+2020-10-22 22:02|[imulog.py.logMotionStop]heading:   355.1  rotation:    -0.5 motion:     2.8 sec errors: 45
+2020-10-22 22:02|[imulog.py.logMotionStop]heading:   355.1  rotation:     0.0 motion:     0.1 sec errors: 45
+2020-10-22 22:02|[imulog.py.logMotionStop]heading:   355.1  rotation:     0.1 motion:     0.3 sec errors: 45
+2020-10-22 22:02|[imulog.py.logMotionStop]heading:   355.2  rotation:     0.1 motion:     0.3 sec errors: 45
+2020-10-22 22:02|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 45  imu reset
+2020-10-23 00:47|[imulog.py.logMotionStop]heading:     1.2  rotation:     1.2 motion:     2.8 sec errors: 57
+2020-10-23 07:07|[imulog.py.logMotionStop]heading:   180.0  rotation:   178.9 motion:     2.4 sec errors: 82
+2020-10-23 07:08|[imulog.py.logMotionStop]heading:   359.0  rotation:   179.0 motion:     2.4 sec errors: 82
+2020-10-23 07:08|[imulog.py.logMotionStop]heading:   356.9  rotation:    -2.0 motion:     2.8 sec errors: 82
+2020-10-23 07:08|[imulog.py.logMotionStop]heading:   356.9  rotation:     0.0 motion:     0.3 sec errors: 82
+2020-10-23 07:08|[imulog.py.logMotionStop]heading:   357.0  rotation:     0.2 motion:     0.3 sec errors: 82
+2020-10-23 07:08|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 82  imu reset
+2020-10-23 07:20|[imulog.py.logMotionStop]heading:   359.9  rotation:     0.0 motion:     0.2 sec errors: 82
+2020-10-23 08:08|[imulog.py.logMotionStop]heading:     1.0  rotation:     1.0 motion:     2.8 sec errors: 88
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   177.9  rotation:   176.9 motion:     2.4 sec errors: 102
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   356.2  rotation:   178.2 motion:     2.3 sec errors: 102
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   358.1  rotation:     1.8 motion:     2.7 sec errors: 102
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   358.1  rotation:     0.1 motion:     0.1 sec errors: 102
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.0 motion:     0.3 sec errors: 102
+2020-10-23 10:25|[imulog.py.logMotionStop]heading:   358.2  rotation:     0.2 motion:     0.3 sec errors: 102
+2020-10-23 10:25|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 102  imu reset
+2020-10-23 13:09|[imulog.py.logMotionStop]heading:     1.8  rotation:     1.9 motion:     2.8 sec errors: 115
+2020-10-23 19:31|[imulog.py.logMotionStop]heading:   177.9  rotation:   176.2 motion:     2.4 sec errors: 150
+2020-10-23 19:32|[imulog.py.logMotionStop]heading:   357.2  rotation:   179.3 motion:     2.4 sec errors: 150
+2020-10-23 19:32|[imulog.py.logMotionStop]heading:   358.1  rotation:     1.0 motion:     2.7 sec errors: 150
+2020-10-23 19:32|[imulog.py.logMotionStop]heading:   357.9  rotation:     0.0 motion:     0.3 sec errors: 150
+2020-10-23 19:32|[imulog.py.logMotionStop]heading:   358.0  rotation:     0.1 motion:     0.4 sec errors: 150
+2020-10-23 19:32|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 150  imu reset
+2020-10-23 21:10|[imulog.py.logMotionStop]heading:     2.4  rotation:     2.4 motion:     2.9 sec errors: 157
+2020-10-24 00:59|[imulog.py.logMotionStop]heading:   179.8  rotation:   177.4 motion:     2.4 sec errors: 182
+2020-10-24 01:00|[imulog.py.logMotionStop]heading:   359.4  rotation:   179.9 motion:     2.3 sec errors: 182
+2020-10-24 01:00|[imulog.py.logMotionStop]heading:   358.0  rotation:    -1.2 motion:     2.7 sec errors: 182
+2020-10-24 01:00|[imulog.py.logMotionStop]heading:   357.8  rotation:     0.0 motion:     0.3 sec errors: 182
+2020-10-24 01:00|[imulog.py.logMotionStop]heading:   357.8  rotation:     0.1 motion:     0.3 sec errors: 182
+2020-10-24 01:00|[imulog.py.logCurrentIMU]heading:   359.9  rotation:     0.0 motion:     0.0 sec errors: 182  imu reset
+2020-10-24 01:00|[imulog.py.logMotionStop]heading:   359.9  rotation:     0.0 motion:     0.1 sec errors: 182
+2020-10-24 03:41|[imulog.py.logMotionStop]heading:     1.9  rotation:     2.0 motion:     2.7 sec errors: 193
