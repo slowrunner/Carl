@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
-# lifeLog.py   log to Carl's /home/pi/Carl/life.log
+# lifeLog.py   allow user scripts to 
+#              log to Carl's /home/pi/Carl/life.log
 #
 # Formats message as:
 # YYYY-MM-DD HH:MM|[<script.py>.<funcName>]<message>
@@ -14,7 +15,7 @@
 #    def somefunc():
 #        strToLog = "message"
 #        lifeLog.logger.info(strToLog)  or
-#        lifeLog.logger.info("message") or
+#        lifeLog.logger.info("message") 
 #
 
 from __future__ import print_function
@@ -23,15 +24,10 @@ import sys
 import logging
 
 
-
-
 # create logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-# Uncomment the following to test lifeLog.py locally
-# loghandler = logging.FileHandler('/home/pi/Carl/Projects/LifeLog/test_life.log')
-# Uncomment the following in plib
 loghandler = logging.FileHandler('/home/pi/Carl/life.log')
 
 logformatter = logging.Formatter('%(asctime)s|[%(filename)s.%(funcName)s]%(message)s',"%Y-%m-%d %H:%M")
@@ -48,9 +44,6 @@ def testfunc():
 # test main 
 def main():
 
-    strToLog = "---- lifeLog.main()  executed"
-    logger.info(strToLog)
-    print("lifeLog.py main() logged:",strToLog)
     testfunc()
 
 
