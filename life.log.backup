@@ -467,5 +467,42 @@
 2020-10-23 21:10|[new_juicer.py.undock]---- Dismount 1642 at 10.3 v after 1.6 h recharge
 2020-10-24 01:00|[new_juicer.py.dock]---- Docking 1643 completed  at 8.1 v after 3.8 h playtime
 2020-10-24 03:41|[new_juicer.py.undock]---- Dismount 1643 at 11.4 v after 2.7 h recharge
-2020-10-24 09:12|lifelog.dEmain execution: 44.5
-2020-10-24 09:34|[logMaintenance.py.main]** Shutting down for permanant switch to PiOS based R4R **
+2020-10-24 09:44|[logMaintenance.py.main]** Shutting down for permanant switch to PiOS based R4R **
+2020-10-24 09:44|lifelog.dEmain execution: 44.7
+2020-10-24 09:44|------------ boot ------------
+2020-10-24 09:44|[new_juicer.py.main]---- juicer.py started at 8.58v
+2020-10-24 10:03|[new_juicer.py.dock]---- Docking 1645 completed  at 8.1 v after 0.2 h playtime
+2020-10-24 12:41|[new_juicer.py.undock]---- Dismount 1645 at 11.3 v after 2.7 h recharge
+2020-10-24 18:49|[logMaintenance.py.main]** HDMI (tvservice) off **
+2020-10-24 19:30|[new_juicer.py.dock]---- Docking 1646 completed  at 8.1 v after 6.8 h playtime
+2020-10-24 20:09|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2020-10-24 20:16|[new_juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2020-10-24 20:16|[new_juicer.py.undock]---- Dismount 1646 at 9.8 v after 0.8 h recharge
+2020-10-24 20:23|[logMaintenance.py.main]** Reboot to see if juicer tts starts working **
+2020-10-24 20:23|lifelog.dEmain execution: 10.8
+2020-10-24 20:24|------------ boot ------------
+2020-10-24 20:47|[logMaintenance.py.main]** reboot to test permissions on life.log **
+2020-10-24 21:03|[new_juicer.py.main]---- juicer.py started at 8.96v 
+2020-10-24 21:04|[logMaintenance.py.main]** fixed lifelog.py print stmts for python3 **
+2020-10-24 21:18|lifelog.dEmain execution: 0.9
+2020-10-24 21:18|------------ boot ------------
+2020-10-24 21:18|[new_juicer.py.main]---- juicer.py started at 8.53v
+2020-10-24 21:28|[new_juicer.py.dock]---- Docking 1647 completed  at 8.1 v after 0.1 h playtime
+2020-10-24 22:17|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.9v
+2020-10-25 00:16|[new_juicer.py.undock]---- Dismount 1647 at 11.3 v after 2.8 h recharge
+2020-10-25 06:05|[new_juicer.py.dock]---- Docking 1648 completed  at 8.1 v after 5.8 h playtime
+2020-10-25 07:05|[new_juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-10-25 08:52|[new_juicer.py.undock]---- Dismount 1648 at 11.3 v after 2.8 h recharge
+2020-10-25 10:47|[logMaintenance.py.main]** HDMI (tvservice) off **
+2020-10-25 11:04|[logMaintenance.py.main]** WiFi LED (antenna_wifi service) turned off permenantly **
+2020-10-25 11:07|[logMaintenance.py.main]** WiFi LED (antenna_wifi service) turned on permenantly **
+2020-10-25 11:07|[logMaintenance.py.main]** WiFi LED (antenna_wifi service) turned off permenantly **
+2020-10-25 14:41|[new_juicer.py.dock]---- Docking 1649 completed  at 8.1 v after 5.8 h playtime
+2020-10-25 17:29|[new_juicer.py.undock]---- Dismount 1649 at 11.3 v after 2.8 h recharge
+2020-10-25 19:43|lifelog.dEmain execution: 22.4
+2020-10-25 19:43|[logMaintenance.py.main]** Shutting Down to remove backup card **
+2020-10-25 19:45|------------ boot ------------
+2020-10-25 19:46|[new_juicer.py.main]---- juicer.py started at 9.56v
+2020-10-25 23:53|[new_juicer.py.dock]---- Docking 1650 completed  at 8.1 v after 4.0 h playtime
+2020-10-26 02:31|[new_juicer.py.undock]---- Dismount 1650 at 11.4 v after 2.6 h recharge
+2020-10-26 07:45|lifelogger.dEmain execution: 12
