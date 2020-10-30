@@ -32,7 +32,8 @@ from num2words import num2words
 from subprocess import call
 import subprocess
 
-cmd_beg= 'espeak'
+# use the supported version of espeak espeak-ng
+cmd_beg= 'espeak-ng'
 cmd_end= ' 2>/dev/null' # To dump the std errors to /dev/null
 
 
@@ -53,4 +54,4 @@ for i in range(x,-1,-1): # To count numbers down from the entered number till ze
 	#call([cmd_beg+cmd+cmd_end], shell=True)
 	#phrase = phrase.replace("'","")
 	#phrase = phrase.replace('"',' quote ')
-	subprocess.check_output(['espeak -ven+f3 -s200 "%s"' %  cmd], stderr=subprocess.STDOUT, shell=True)
+	subprocess.check_output(['espeak-ng -ven+f3 -s200 "%s"' %  cmd], stderr=subprocess.STDOUT, shell=True)

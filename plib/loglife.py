@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
-# lifelog.py   digital entity
+# loglife.py   digital entity to log each hour of life
+#              to /home/pi/Carl/life.log
 #
 # with sudo crontab -e
 #      @reboot /home/pi/Carl/plib/loglife.py&
@@ -23,7 +24,6 @@ loghandler = logging.FileHandler('/home/pi/Carl/life.log')
 logformatter = logging.Formatter('%(asctime)s|%(message)s',"%Y-%m-%d %H:%M")
 loghandler.setFormatter(logformatter)
 logger.addHandler(loghandler)
-#logger.info('-------------')
 
 debugLevel = 0
 
@@ -33,7 +33,7 @@ debugLevel = 0
 _funcToRun=None
 
 def signal_handler(signal, frame):
-  if debugLevel: print '\n** Control-C Detected'
+  if debugLevel: print('\n** Control-C Detected')
   if (_funcToRun != None):
      _funcToRun()
   sys.exit(0)     # raise SystemExit exception
@@ -58,7 +58,7 @@ class digitalEntity():
   def __init__(self,dEname,tSleep=defaultSleep):     #run about once a minute 
     # SINGLETON TEST 
     if (digitalEntity.pHandle!=None): 
-        if debugLevel: print "Second digitalEntity, not starting"
+        if debugLevel: print("Second digitalEntity, not starting")
         return None
 
     # INITIALIZE CLASS INSTANCE
@@ -68,7 +68,7 @@ class digitalEntity():
     digitalEntity.pHandle = multiprocessing.Process(name=dEname, target=self.dEmain, 
                                                args=(tSleep,))
     digitalEntity.pHandle.start()
-    if debugLevel: print "%s.digitalEntity told to start" % dEname
+    if debugLevel: print("%s.digitalEntity told to start" % dEname)
   #end init()
 
   # digitalEntity main process
@@ -76,13 +76,13 @@ class digitalEntity():
     myname = multiprocessing.current_process().name
     time.sleep(60)  # wait for network date time sync
     logger.info("------------ boot ------------")
-    if debugLevel: print "%s.dEmain started with tSleep=%f" % (myname,tSleep)
+    if debugLevel: print("%s.dEmain started with tSleep=%f" % (myname,tSleep))
     # logger.info('%s.dEmain started',myname)
     i=0
     while True:
         time.sleep(tSleep)
         i+=1
-        if debugLevel: print "%s.dEmain execution %i" % (myname,i)
+        if debugLevel: print("%s.dEmain execution %i" % (myname,i))
         logger.info('%s.dEmain execution: %i',myname, i )
 
 
@@ -90,11 +90,11 @@ class digitalEntity():
 
   def cancel(self):
      myname = multiprocessing.current_process().name
-     if debugLevel: print "%s.cancel() called" % myname
+     if debugLevel: print("%s.cancel() called" % myname)
      logger.info('%s.cancel() called',myname)
-     if debugLevel: print "\nWaiting for %s dE.workerThread to quit\n" % self.pHandle.name
+     if debugLevel: print("\nWaiting for %s dE.workerThread to quit\n" % self.pHandle.name)
      self.pHandle.join()
-     if debugLevel: print "%s.cancel() complete" % myname
+     if debugLevel: print("%s.cancel() complete" % myname)
 
 
 # ##### digitalEntity tt ######
@@ -102,18 +102,18 @@ class digitalEntity():
 
 def main():
 
-  tt=digitalEntity(dEname="lifelog",tSleep=3600)  #create
+  tt=digitalEntity(dEname="lifelogger",tSleep=3600)  #create
   set_cntl_c_handler(tt.cancel)
 
   try:
     while True:
-      if debugLevel: print "\n lifelog.py: main()"
+      if debugLevel: print("\n loglife.py: main()")
       time.sleep(3600)
     #end while
   except SystemExit:
-    if debugLevel: print "lifelog.py: Bye Bye"
+    if debugLevel: print("loglife.py: Bye Bye")
   except:
-    if debugLevel: print "Exception Raised"
+    if debugLevel: print("Exception Raised")
     traceback.print_exc()
 
 if __name__ == "__main__":
