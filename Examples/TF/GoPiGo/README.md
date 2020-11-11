@@ -24,8 +24,8 @@ git clone https://github.com/tensorflow/examples --depth 1
 cd examples/lite/examples/image_classification/raspberry_pi
 bash download.sh /home/pi/Carl/Examples/TF/models
 
-python3 classify_picamera.py  \
- --model /home/pi/Carl/Examples/TF/models/mobilenet_v1_1.0_224_quant.tflite  \
+python3 classify_picamera.py  \\
+ --model /home/pi/Carl/Examples/TF/models/mobilenet_v1_1.0_224_quant.tflite  \\
  --labels /home/pi/Carl/Examples/TF/models//labels_mobilenet_quant_v1_224.txt
 
 BUT it assumes you have an HDMI display attached ..
@@ -34,7 +34,10 @@ BUT it assumes you have an HDMI display attached ..
 created gpg_classify_picamera.py to print obj to the command-line if prob > 0.6,
 created shortcut run_it.sh
 
-pi@Carl:~/Carl/Examples/TF/examples/lite/examples/image_classification/raspberry_pi $ ./run_it.sh 
+Moved the example to ~/Carl/Examples/TF/GoPiGo/  
+
+```
+pi@Carl:~/Carl/Examples/TF/GoPiGo/ $ ./run_it.sh 
 analog clock 0.71 310.1ms
 analog clock 0.60 309.5ms
 analog clock 0.62 309.8ms
@@ -53,4 +56,4 @@ turnstile 0.79 309.8ms
 Exiting
 Finally
 
-Moved the example to ~/Carl/Examples/TF/GoPiGo/  
+```
