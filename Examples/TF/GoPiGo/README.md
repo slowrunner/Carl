@@ -24,9 +24,11 @@ git clone https://github.com/tensorflow/examples --depth 1
 cd examples/lite/examples/image_classification/raspberry_pi
 bash download.sh /home/pi/Carl/Examples/TF/models
 
-python3 classify_picamera.py  \\
- --model /home/pi/Carl/Examples/TF/models/mobilenet_v1_1.0_224_quant.tflite  \\
+```
+python3 classify_picamera.py  \
+ --model /home/pi/Carl/Examples/TF/models/mobilenet_v1_1.0_224_quant.tflite  \
  --labels /home/pi/Carl/Examples/TF/models//labels_mobilenet_quant_v1_224.txt
+```
 
 BUT it assumes you have an HDMI display attached ..
 
