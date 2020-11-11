@@ -9,22 +9,25 @@ Requirements:
 
 https://www.tensorflow.org/lite/guide/python
 
-(For Pi OS 10 which has Python 3.7)
+(For Pi OS 10 which has Python 3.7) 
+```
 pip3 install https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.5.0-cp37-cp37m-linux_armv7l.whl
-
+```
 
 == image classification example for Raspberry Pi
 
 https://github.com/tensorflow/examples/tree/master/lite/examples/image_classification/raspberry_pi
 
-clone TF examples
+Clone TF examples
+
+```
 mkdir ~/Carl/Examples/TF
 mkdir ~/Carl/Examples/TF/models
 git clone https://github.com/tensorflow/examples --depth 1
 cd examples/lite/examples/image_classification/raspberry_pi
 bash download.sh /home/pi/Carl/Examples/TF/models
 
-```
+
 python3 classify_picamera.py  \
  --model /home/pi/Carl/Examples/TF/models/mobilenet_v1_1.0_224_quant.tflite  \
  --labels /home/pi/Carl/Examples/TF/models//labels_mobilenet_quant_v1_224.txt
@@ -33,7 +36,7 @@ python3 classify_picamera.py  \
 BUT it assumes you have an HDMI display attached ..
 
 
-created gpg_classify_picamera.py to print obj to the command-line if prob > 0.6,
+created gpg_classify_picamera.py to print obj to the command-line if prob > 0.6, 
 created shortcut run_it.sh
 
 Moved the example to ~/Carl/Examples/TF/GoPiGo/  
