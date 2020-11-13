@@ -33,10 +33,24 @@ python3 classify_picamera.py  \
  --labels /home/pi/Carl/Examples/TF/models//labels_mobilenet_quant_v1_224.txt
 ```
 
-BUT it assumes you have an HDMI display attached ..
+BUT that version assumes you have an HDMI display attached ..
 
 
-created gpg_classify_picamera.py to print obj to the command-line if prob > 0.6, 
+Created gpg_classify_picamera.py 
+ - modified to print result to the command-line if confidence greater than setting, 
+ - option --confidence to set minimum confidence level (default 0.6)
+ - option --preview to show annotated image on HDMI display (default is not to)
+ - option --save  to save annotated image (to ./tagged/<label>-<date>-<time>.jpg)
+
+```
+Usage: ./gpg_classify_picamera.py \
+        --model  <models_path>/mobilenet_v1_1.0_224_quant.tflite \
+        --labels <models_path>/labels_mobilenet_quant_v1_224.txt \
+       [--preview y  \ ]   # optional flag to show preview on HDMI monitor
+       [--confidence 0.x \] # optional (default 0.6) set minimum confidence required
+       [--save y ]  # option to save annotated image to ./tagged/<label>-<date>-<time>.jpg
+```
+
 created shortcut run_it.sh
 
 Moved the example to ~/Carl/Examples/TF/GoPiGo/  
