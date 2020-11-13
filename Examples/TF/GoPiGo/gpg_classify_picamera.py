@@ -123,7 +123,7 @@ def main():
         if (prob > confidence):
                 print("%s %.2f %.1fms" % (labels[label_id],prob,elapsed_ms))
                 if save_tagged_image:
-                    fname = "%s-" % labels[label_id] + datetime.now().strftime("%Y%m%d-%H%M%S") + ".jpg"
+                    fname = "tagged/%s-" % labels[label_id].replace(" ","_") + datetime.now().strftime("%Y%m%d-%H%M%S") + ".jpg"
                     camera.capture(fname)
                     time.sleep(2)
 
