@@ -81,7 +81,7 @@ dockingApproachDistanceInMM = 375 # 263  # 263 to sign, 266 to wall
 # Next value is subrtracted from backing distance to allaw drive_cm to always be short a little
 maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
-
+dismountBlockedInMM = 375  # 270 mm minimum 
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
 
 
@@ -461,7 +461,7 @@ def undock(egpg,ds,tp, rule="310c"):
          speak.whisper("Initiating dismount.")
          sleep(5)
          distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
-         if (distanceForwardInMM > (dockingDistanceInMM * 4.0)):
+         if (distanceForwardInMM > dismountBlockedInMM):
              print("**** Dismounting")
              speak.whisper("Dismounting")
              egpg.set_speed(150)

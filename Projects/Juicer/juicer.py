@@ -21,7 +21,8 @@ import sys
 sys.path.append('/home/pi/Carl/plib')
 import os
 from time import sleep, clock
-import easygopigo3 # import the GoPiGo3 class
+# import easygopigo3 # import the GoPiGo3 class
+import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
 import math
 import tiltpan
 import status
@@ -75,11 +76,12 @@ lastChangeRule = "0" # startup
 
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
-dockingDistanceInMM = 90  # (measures about 85 to undock position after 90+3mm dismount)
-dockingApproachDistanceInMM = 263  # 263 to sign, 266 to wall 
-maxApproachDistanceMeasurementErrorInMM = 6  #  +/-5 typical max and min 
+dockingDistanceInMM = 212# 90  # (measures about 85 to undock position after 90+3mm dismount)
+dockingApproachDistanceInMM = 375 # 263  # 263 to sign, 266 to wall
+# Next value is subrtracted from backing distance to allaw drive_cm to always be short a little
+maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
-
+dismountBlockedInMM = 375  # 270 mm minimum 
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
 
 
@@ -439,6 +441,8 @@ def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
           speak.shout("WARNING, WARNING, SHUTTING DOWN NOW")
           print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
           print ("Shutdown at ", dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
+          strToLog = "Safety Shutdown at  {:.2f} volts".format(vBatt)
+          lifeLog.logger.info(strToLog)
           sleep(1)
           os.system("sudo shutdown -h now")
           sys.exit(0)
@@ -457,7 +461,7 @@ def undock(egpg,ds,tp, rule="310c"):
          speak.whisper("Initiating dismount.")
          sleep(5)
          distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
-         if (distanceForwardInMM > (dockingDistanceInMM * 4.0)):
+         if (distanceForwardInMM > dismountBlockedInMM):
              print("**** Dismounting")
              speak.whisper("Dismounting")
              egpg.set_speed(150)
@@ -590,7 +594,8 @@ def dock(egpg,ds,tp):
         backingDistanceInCM =  -1.0 * (dockingDistanceInMM + appErrorInMM -maxApproachDistanceMeasurementErrorInMM ) / 10.0
         print("**** BACKING ONTO DOCK %.0f mm" % (backingDistanceInCM * 10.0))
         speak.whisper("Backing onto dock")
-        egpg.drive_cm( backingDistanceInCM,True)
+        # sometimes the "wait for encoders" blocking will never happen.  Backing takes about 3 seconds, so timeout after 5 seconds.
+        egpg.drive_cm( backingDistanceInCM,blocking=True,timeout=5)
         sleep(1)
         print("**** Backing for a bit to account for measurement errors")
         egpg.backward()
@@ -644,7 +649,12 @@ def manualDockingCompleted():
     dtLastDockingStateChange = dtNow
     possibleEarlyTrickleVolts = 0       # reset any prior detections
 
-def dockingTest(egpg,ds,numTests = 30):
+# Docking Test
+#
+# Place Carl on Dock, then 
+# initiate with:  ./juicer.py test  (uncomment dockingTest in main)
+# 
+def dockingTest(egpg,ds,tp,numTests = 30):
     global dockingState,chargingState
 
     print("\n**** DOCKING TEST INITIATED ****")
@@ -751,8 +761,8 @@ def main():
     # ./juicer.py test   to perform undock/docking tests
     if (len(sys.argv)>1):
         if (sys.argv[1] == "test"):
-            # dockingTest(egpg,ds,numTests = 5)
-            manualDockingTest(egpg,ds,tp)
+            dockingTest(egpg,ds,tp,numTests = 5)
+            # manualDockingTest(egpg,ds,tp)
 
     try:
         #  loop
@@ -761,7 +771,7 @@ def main():
             loopCount += 1
             compute(egpg)
             chargingStatus()
-            if ((loopCount % 5) == 1 ):
+            if ((loopCount % 15) == 1 ):  # loop is 2s, so once every 30s print values
                 status.printStatus(egpg,ds)
                 printValues()
             safetyCheck(egpg)
