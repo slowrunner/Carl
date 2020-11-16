@@ -10,12 +10,14 @@ This module performs the following:
 1) Maintains last one minute and last 5 minute battery voltage peak,mean,min stats 
 2) Maintains charging status of Unknown, Charging, Trickling, Not Charging 
 3) Detect charging status transitions by empirical rules for 
-   8x AA NiMH cells with 
-   Tenergy 1025 6-12v peaking charger on 1A 
-   or Tenergy 1005 7.2-12v "RC Battery Charger" on 1.8A setting 
+ - 8x AA NiMH cells with 
+ - Tenergy 1025 6-12v peaking charger on 1A 
+ - or Tenergy 1005 7.2-12v "RC Battery Charger" on 1.8A setting 
 4) Safety Shutdown if average battery voltage falls below 7.1v 
 5) Records important events to ~/Carl/life.log 
 6) Maintains docking count and docking state in /home/pi/Carl/carlData.json 
+7) Records detailed measurements and status in juicer.out 
+8) Moves prior juicer.out to juicer.out.bak on startup
 
 # Required Elements:
 
