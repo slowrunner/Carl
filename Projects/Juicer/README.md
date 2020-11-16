@@ -1,10 +1,10 @@
 ## juicer.py </br>   
 
 juicer.py manages Carl's batteries by 
-detecting current power mode of Charging, Trickle Charging, or Discharging, 
-and taking required actions of Dock, UnDock, Request Manual Assistance 
-or Shut Down (for memory card safety), 
-based on a set of rules for mode transitions. 
+ - detecting current power mode of Charging, Trickle Charging, or Discharging, 
+ - and taking required actions of Dock, UnDock, Request Manual Assistance 
+ - or Shut Down (for memory card safety), 
+ - a set of rules for mode transitions. 
 
 This module performs the following: 
 1) Maintains last one minute and last 5 minute battery voltage peak,mean,min stats 
@@ -12,7 +12,8 @@ This module performs the following:
 3) Detect charging status transitions by empirical rules for 
  - 8x AA NiMH cells with 
  - Tenergy 1025 6-12v peaking charger on 1A 
- - or Tenergy 1005 7.2-12v "RC Battery Charger" on 1.8A setting 
+ - or Tenergy 1005 7.2-12v "RC Battery Charger" on 1.8A setting
+ - based on docking state, charging mode, voltage readings, and durations 
 4) Safety Shutdown if average battery voltage falls below 7.1v 
 5) Records important events to ~/Carl/life.log 
 6) Maintains docking count and docking state in /home/pi/Carl/carlData.json 
