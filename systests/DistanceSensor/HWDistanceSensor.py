@@ -19,13 +19,16 @@ import time
 # instantiate the distance object
 my_sensor = EasyDistanceSensor(use_mutex=True, port='RPI_1')
 
+print("Testing HW I2C using EasyDistanceSensor(use_mutx=True)")
+
 count = 0
 # and read the sensor iteratively
 try:
   while True:
     count +=1
     read_distance = my_sensor.read_mm()
-    print("{} {}:distance from object: {} mm".format(time.strftime("%H:%M:%S"),count,read_distance))
+    if (count%10) == 1:
+        print("{} {}:distance from object: {} mm".format(time.strftime("%H:%M:%S"),count,read_distance))
 
     time.sleep(0.1)
 except KeyboardInterrupt:
