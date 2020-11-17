@@ -1,3 +1,47 @@
+HW vs SW I2C Notes
+
+=== Nov 2020 Investigation ===
+PiOS based Raspbian For Robots 17 Oct 2020 beta release
+No Change to DI_Sensors from 17Feb2019 version
+
+Test1: Regular Operation on beta OS release
+- Distance Sensor in HW I2C mode
+- IMU in SW I2C mode
+- Running: juicer, imulog, wheellog, lifelog
+- imulog (SW I2C) failed after 26 hours
+- juicer detected fatal I2C failure on HW I2C after 95 hours operation
+
+Test2: Regular Operation w/o using SW I2C/IMU on beta OS
+- Distance Sensor in HW I2C mode
+- imulog invocation prevented in crontab-e
+- Running: juicer, wheellog, lifelog and numerous TensorFlow Lite gpg_classify_picamera.py
+- (No USB WiFi dongle - giving 8.3h "playtime" vs 6.4h with)
+- No fatal errors detected in 115 hours
+
+Test3: Add HW I2C stress on Distance Sensor
+- Distance Sensor in HW I2C mode
+- imulog invocation prevented in crontab-e
+- Running: juicer, wheellog, lifelog and numerous TensorFlow Lite gpg_classify_picamera.py
+- Running: HWDistanceSensor.py
+- (No USB WiFi dongle - giving 8.3h "playtime" vs 6.4h with)
+- No fatal errors detected in 22 hrs, 328k extra HW I2C readings of distance sensor
+
+Test4: Add SW I2C traffic 
+- Distance Sensor in HW I2C mode
+- imulog invocation prevented in crontab-e
+- Running: juicer, wheellog, lifelog and numerous TensorFlow Lite gpg_classify_picamera.py invocations
+- Running: SW_I2C_Stress_with_IMU.py
+- (No USB WiFi dongle - giving 8.3h "playtime" vs 6.4h with)
+ 
+
+=== June 27 2019 Investigation ===
+
+Stretch based Raspbian For Robots 5 Apr 2019 release
+17Feb2019 version DI_Sensors/Python/di_sensors/distance_sensor.py  "Switch to di_i2c and default to RPI_1SW"
+(I performed DI software update on 22June2019)
+
+
+
 
 SW I2C Runs:
 
