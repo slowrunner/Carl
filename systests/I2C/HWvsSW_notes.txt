@@ -29,8 +29,15 @@ Test3: Add HW I2C stress on Distance Sensor
 Test4: Add SW I2C traffic 
 - Distance Sensor in HW I2C mode
 - imulog invocation prevented in crontab-e
-- Running: juicer, wheellog, lifelog and numerous TensorFlow Lite gpg_classify_picamera.py invocations
-- Running: SW_I2C_Stress_with_IMU.py
+- Running: juicer, wheellog, lifelog, status.py perfoms distance sensor readings every six seconds
+- Running: SW_I2C_Stress_with_IMU.py  - over 1 million reads with 62 soft errors, no hard failures
+- (No USB WiFi dongle - giving 8.3h "playtime" vs 6.4h with)
+
+Test5: Add SW I2C traffic 
+- Distance Sensor in HW I2C mode
+- imulog invocation prevented in crontab-e
+- Running: juicer, wheellog, lifelog, 
+- Running: SW_I2C_Stress_with_IMU.py (10 readings / second), HWDistanceSensor.py (10 readings / second)
 - (No USB WiFi dongle - giving 8.3h "playtime" vs 6.4h with)
  
 
