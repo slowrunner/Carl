@@ -50,6 +50,7 @@ import myDistSensor
 import lifeLog
 import runLog
 import argparse
+from my_safe_inertial_measurement_unit import SafeIMUSensor
 
 # (8cells x 1.09) - 0.6 GoPiGo3 reverse protect diode
 LOW_BATTERY_V = 8.1  
@@ -87,6 +88,10 @@ def getUptime():
     res = os.popen('uptime').readline()
     return res.replace("\n", "")
 
+def getRoomTemp(imu):
+    roomTemp = (imu.safe_read_temperature() * 9.0/5.0 + 32.0) - 0.7
+    return roomTemp
+
 
 def printStatus(egpg, ds):
     print("\n********* CARL Basic STATUS *****")
@@ -100,6 +105,7 @@ def printStatus(egpg, ds):
     lifeM = (lifeRem-lifeH)*60
     print("Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM))
     print("Processor Temp: %s" % getCPUtemperature())
+    print("Estimated Room Temp: %.1F" % getRoomTemp(egpg.imu))
     print("Clock Frequency: %s" % getClockFreq())
     print("%s" % getThrottled())
     if ds is not None:
@@ -124,6 +130,7 @@ def main():
     # #### Create a mutex protected instance of EasyGoPiGo3 base class
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     myconfig.setParameters(egpg)
+    egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True, init = False)
 
     batteryLowCount = 0
     warningCount = 0
