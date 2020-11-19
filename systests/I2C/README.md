@@ -5,6 +5,8 @@ Suite consists of:
 - SW_I2C_Stress_with_IMU.py   requests set of four DI IMU I2C-mutex-protected component readings roughly 10 times a second
 - test_HW_and_SW_I2C.sh       starts both test programs as background processes, with known log file names
 - monitor_HW_and_SW_logs.sh   tails both test logs with {uptime, processor temperature, and soft I2C error count} in a loop
+- Also SWDistanceSensor.py - tests Distance Sensor using SW I2C (This use to fail quickly - have not tried it lately.)
+
 
 REQUIREMENTS:
 - GoPiGo3
@@ -31,8 +33,17 @@ NOTES:
   - HW_I2C_during_SW_I2C_Stress.log  logs every tenth distance reading
   - SW_I2C_Stress.log                logs every tenth set of four component readings
 
+
+# RESULT
 On my (unaspirated) Pi3B, the tests result:
+
 - 0.8 to 1.0 15 minute usage (4 = all four cores busy)
-- around 55 degC 
+- around 55 degC
 - approximately 10 HW and 10 (x4) SW I2C requests every 2-3 seconds
 - roughly 16 soft SW I2C errors in a combined 3.2 million HW and SW I2C readings
+- **No fatal / hard I2C errors in 24/7 testing for 9 days with over 5 million combined I2C readings**
+ 
+Can bring it down with:
+
+curl https://github.com/slowrunner/Carl/raw/master/systests/I2C/testsuite.tgz
+
