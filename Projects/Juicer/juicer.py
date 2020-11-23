@@ -83,6 +83,7 @@ maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
 dismountBlockedInMM = 375  # 270 mm minimum 
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
+maxChargeTime = (4 * 60 * 60)    # was 3.5h on Tenergy 1025 - trying 4.0h for Tenergy 1005 0.9A setting
 
 
 # load chargeConditioning and chargeCycles/dockingCount
@@ -258,7 +259,7 @@ def chargingStatus(dtNow=None):
                            lifeLog.logger.info(logMsg)
                            print(logMsg)
                            possibleEarlyTrickleVolts = shortMeanVolts
-               elif  (lastChangeInSeconds >  12600):        # max charge time is around 3.5h
+               elif  (lastChangeInSeconds >  maxChargeTime):        # max charge time is around 3.5-4.0h
                        chargingValue = TRICKLING
                        lastChangeRule = "230c"
                        logMsg = "--- Probable TRICKLE not detected {:.1f}v".format(shortMeanVolts)

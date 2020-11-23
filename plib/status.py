@@ -51,6 +51,7 @@ import lifeLog
 import runLog
 import argparse
 from my_safe_inertial_measurement_unit import SafeIMUSensor
+import carlDataJson as carlData
 
 # (8cells x 1.09) - 0.6 GoPiGo3 reverse protect diode
 LOW_BATTERY_V = 8.1  
@@ -92,6 +93,13 @@ def getRoomTemp(imu):
     roomTemp = (imu.safe_read_temperature() * 9.0/5.0 + 32.0) - 0.7
     return roomTemp
 
+def getChargingState():
+    printableCS = ["Unknown", "Not Charging", "Charging", "Trickle Charging"]
+    return printableCS[carlData.getCarlData('chargingState')]
+
+def getDockingState():
+    printableDS = ["Unknown", "Not Docked", "Docked", "Manual Dock Requested", "Manual UnDock Requested", "Cabled"]
+    return printableDS[carlData.getCarlData('dockingState')]
 
 def printStatus(egpg, ds):
     print("\n********* CARL Basic STATUS *****")
@@ -105,9 +113,14 @@ def printStatus(egpg, ds):
     lifeM = (lifeRem-lifeH)*60
     print("Estimated Life Remaining: %d h %.0f m" % (lifeH, lifeM))
     print("Processor Temp: %s" % getCPUtemperature())
-    print("Estimated Room Temp: %.1F" % getRoomTemp(egpg.imu))
+    try:
+        print("Estimated Room Temp: %.1F" % getRoomTemp(egpg.imu))
+    except Exception:  #no imu defined by user of printStatus
+        pass
     print("Clock Frequency: %s" % getClockFreq())
     print("%s" % getThrottled())
+    print("Docking State: {}".format(getDockingState()))
+    print("Charging State: {}".format(getChargingState()))
     if ds is not None:
         dist = myDistSensor.adjustReadingInMMForError(ds.read_mm()) / 25.4
         if dist < 90:
