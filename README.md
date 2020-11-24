@@ -11,9 +11,10 @@ Carl Specs:
   * 1.2 GHz Max
   * Four Cores
   * 1GB Memory
-  * Onboard WiFi (Sometimes Flakey..)
+  * Onboard WiFi
 
 - OS: Raspbian For Robots
+  * version: 17 Oct 2020 (beta) PiOS based
  
 - Control Interfaces: 
   * ssh over WiFi
@@ -33,11 +34,12 @@ Carl Specs:
   
 - Sensors (Added):
   * DI Distance Sensor (VL53L0X Infrared Time-Of-Flight)
-    About 4% accuracy to 7.5 feet (2.3m) 
+    25 deg beam width, About 4% accuracy to 7.5 feet (2.3m) 
     Mounted on Tilt/Pan
   * Pi-Camera v1.3
   * USB Microphone
-  * (Planned: Battery_Current - ACS712 to "Grove" AD Port)
+  * DI Inertial Measurement Unit (BNO055 9DOF Fusion IMU)
+    also provides ambient temperature 
   
 - Actuators/Effectors (GoPiGo3 Intrinsic)
   * Wheel Motors
@@ -47,33 +49,34 @@ Carl Specs:
 
 - Actuators/Effectors 
   * Two Servo Tilt/Pan Assembly
-  * USB Wired Audio Speaker (draws 50mA)
-  * USB WiFi Dongle 
+  * MonkMakes 2.5W Audio Speaker (draws 9.5mA 5v at idle)
+  * [USB WiFi Dongle draws additonal 100mA at 5v] 
   
 - Available GoPiGo3 Ports
   * I2C: Distance Sensor
   * I2C: Unused
   * Grove Analog/Digital I/O AD1: Unused
-  * Grove Analog/Digital I/O AD2: Unused
+  * Grove Analog/Digital I/O AD2: Unused (pwr/gnd for speaker)
   * SERVO1: Pan Servo
   * SERVO2: Tilt Servo
 
-- Power Source: 8x 2800mAH NiMH AA cells (EBL)
+- Power Source: 8x 2000mAH NiMH AA cells (Eneloop)
   * Cliff at 7.4v (0.925 volts / cell)
-  * Cycling to 15% capacity (8.5v) for max cycles
+  * Cycling to 8.1v allows two missed docking before safety shutdown
   * cycleConditioning to 7.9v four times to treat NiMH battery memory 
     when play-time drops off 10%
-  * Charging at 1A
+  * Charging at 0.9A for 4 hours ( 92degF max battery temp )
+  * Provides around 8 hours "playtime"
   
-- Run Time:  up to 9 hours 
-  * "Thinking" 6 hours using 8.5v "max cycles" limit
-  * Cycle Conditioning 7 hours to 7.9v 
-  * "Wandering" 2-3 hours to 8.5v recharge point
-  * About 8 hours to 7.4v voltage cliff
+- Run Time: 8 to 8.5 hours max 
+  * "Thinking" 8 hours using 8.1v "need to dock" limit
+  * "Wandering" 2-4 hours to 8.1v recharge point
+  * About 9 hours to 7.4v voltage cliff
 
 - Recharger:  
-  * Tenergy 6-12v Delta-Minus-V Peaking Charger
-  * Set at 1A (Selectable 1A or 2A max rate)
+  * Tenergy 1005 7.2-12v Delta-Minus-V Peaking Charger
+  * Set at 0.9A (Selectable 0.9A or 1.8A max rate)
+    (1.8A rate causes 130degF max battery temp!)
 
 - Physical:
   * 41.5 Ounces Total
