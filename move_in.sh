@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cp life.log.backup life.log
-cp juicer.backup juicer.out
+cp juicer.out.backup juicer.out
 cp wheel.log.backup wheel.log
 cp imu.log.backup imu.log
 cp run.log.backup run.log
