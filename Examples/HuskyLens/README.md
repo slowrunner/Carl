@@ -85,7 +85,11 @@ pi@Carl:~/Carl $ sudo i2cdetect -y 1
 # Bring Software to Raspbian For Robots RPi
 mkdir Carl/Examples/HuskyLens
 cd HuskyLens
-git clone https://github.com/HuskyLens/HUSKYLENSPython.git
+wget https://github.com/HuskyLens/HUSKYLENSPython/archive/master.zip
+unzip master.zip
+cp  HUSKYLENSPython-master/HUSKYLENS/* .
+
+
 
 
 # API Returns:
@@ -134,3 +138,55 @@ command_request_knock()
     => Returns "Knock Recieved" on success
 
 
+# === HuskyLens Firmware Update on Raspberry Pi (from 0.4.7stable to 0.5.1norm) ===
+$ mkdir HuskyLens
+$ cd HuskyLens
+$ wget https://github.com/HuskyLens/HUSKYLENSUploader/archive/master.zip
+$ unzip master.zip
+$ cd HuskyLensUploader-master
+
+$ sudo python3 kflash.py -b 2000000 HUSKYLENSWithModelV0.5.1Norm.kfpkg 
+[INFO] COM Port Auto Detected, Selected  /dev/ttyUSB0 
+[INFO] Default baudrate is 115200 , later it may be changed to the value you set. 
+[INFO] Trying to Enter the ISP Mode... 
+
+[INFO] Greeting Message Detected, Start Downloading ISP 
+Downloading ISP: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Booting From 0x80000000 
+[INFO] Wait For 0.3 second for ISP to Boot 
+[INFO] Boot to Flashmode Successfully 
+[INFO] Selected Baudrate:  2000000 
+[INFO] Selected Flash:  On-Board 
+[INFO] Extracting KFPKG ...  
+[INFO] Writing HuskyLens.bin into 0x00000000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing HuskyLensBootUp.bin into 0x005da000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c60000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c62000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c64000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c66000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c68000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c6a000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c6c000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing clearFlash.bin into 0x00c6e000 
+ownloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing detect.kmodel into 0x00600000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing key_point.kmodel into 0x0065f000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing feature.kmodel into 0x00680000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing mobilenetv1_1.0.kmodel into 0x001bb000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Writing object_detect.bin into 0x009d4000 
+Downloading: |██████████████████████████████████████████████████| 100.0% Complete
+[INFO] Rebooting... 
+pi@deskpi:~/DeskPi/Projects/HuskyLens/HUSKYLENSUploader-master $ 
