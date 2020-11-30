@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # runLog.py   log to Carl's /home/pi/Carl/run.log
 #
@@ -17,12 +17,7 @@
 #        runLog.logger.info("message") or
 #
 
-from __future__ import print_function
-
-import sys
 import logging
-
-
 
 
 # create logger
@@ -36,23 +31,7 @@ loghandler.setFormatter(logformatter)
 logger.addHandler(loghandler)
 
 
-
-def testfunc():
-    strToLog = "---- runLog.py testfunc() executed"
-    logger.info(strToLog)
-    print("runLog.py testfunc() logged:",strToLog)
-
-# test main 
-def main():
-
-    strToLog = "---- runLog.main()  executed"
-    logger.info(strToLog)
-    print("runLog.py main() logged:",strToLog)
-    testfunc()
-
-
-if __name__ == "__main__":
-    main()
+# to test run Carl/systests/utils/test_runLog.py
 
 
 
