@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # center.py    Center Tilt and Pan Servos
 #
@@ -16,9 +16,10 @@ import tiltpan
 from time import sleep
 import easygopigo3
 import myconfig
+import runLog
 
 # ##### MAIN ######
-
+@runLog.logRun
 def main():
   egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
   myconfig.setParameters(egpg)

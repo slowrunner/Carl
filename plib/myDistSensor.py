@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # myDistSensor.py    DISTANCE SENSOR 
 #
@@ -27,6 +27,9 @@ correctedDistance = myDistSensor.adjustReadingInMMForError(ds.read_mm())
 
 import easygopigo3
 import numpy as np
+import sys
+sys.path.append('/home/pi/Carl/plib')
+import runLog
 
 # ### MEASURED DATA POINTS
 Y1 = 100  # actual
@@ -60,6 +63,7 @@ def init(egpg):
 
 
 # #### MAIN ####
+@runLog.logRun
 def main():
     import tiltpan
     import myconfig
@@ -83,7 +87,7 @@ def main():
     sleep(5)
     print("Taking Measurement")
     mDl=[]
-    for i in xrange(0,100):
+    for i in range(0,100):
         mDl+=[ds.read_mm()]
         sleep(0.1)
     measuredDistance = np.mean(mDl)

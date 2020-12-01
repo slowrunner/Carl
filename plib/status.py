@@ -174,7 +174,8 @@ def main():
     strStart = "Starting status.py at {0:0.2f}v".format(egpg.volt())
     print(strStart)
     if loopFlag:
-        runLog.logger.info(strStart)
+        # runLog.logger.info(strStart)
+        runLog.entry(strStart)
 
     # print ("Starting status loop at %.2f volts" % battery.volts())
     try:
@@ -209,7 +210,8 @@ def main():
     except SystemExit:
         strToLog = "Exiting  status.py at {0:0.2f}v".format(egpg.volt())
         if loopFlag:
-            runLog.logger.info(strToLog)
+            # runLog.logger.info(strToLog)
+            runLog.entry(strToLog)
         print(strToLog)
         time.sleep(1)
 

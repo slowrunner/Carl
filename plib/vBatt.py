@@ -17,5 +17,6 @@ for i in [1,2,3]:
     x += [egpg.volt()]
 out = mean(x)
 if out < 7:
-    runlog.logger.info("vBatt low: {} volts".format(out))
+    # runlog.logger.info("vBatt low: {} volts".format(out))
+    runlog.entry("vBatt low: {} volts".format(out))
 print(out)

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 ## File: printMaps.py
@@ -60,6 +60,11 @@ import math
 from math import pi, radians, degrees, cos, sin
 import numpy as np
 import random
+import sys
+sys.path.append('/home/pi/Carl/plib')
+import runLog
+
+
 
 debug = False                  # True to print all raw values
 
@@ -526,6 +531,7 @@ def createTestWallOnLeft():
 
 
 # ******* TEST MAIN *****
+@runLog.logRun
 def main():
 
     print("***** TEST printmaps.py *******")

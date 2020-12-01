@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # speak.py   Speaker utilities
 #            includes protection from quotes and apostrophes in phrase
@@ -19,6 +19,8 @@
 
 import subprocess
 import sys
+sys.path.append('/home/pi/Carl/plib')
+import runLog
 import time
 debug = False
 import math
@@ -99,6 +101,7 @@ def whisper(phrase,vol=50,anytime=True):
     # say_flite(phrase,vol,anytime=False)
 
 # ##### MAIN ####
+@runLog.logRun
 def main():
     global debug
     # say("hello from speak dot p y test main")

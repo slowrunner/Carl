@@ -71,8 +71,9 @@ def translateMm(egpg=None,dist_mm=1.0,debug=False):
     if debug: print("backing {:.1f} cm {:.1f} inches".format(backup_cm, backup_cm/2.54))
     egpg.drive_cm(dist=backup_cm,blocking=True)
 
+@runLog.logRun
 def main():
-    if Carl: runLog.logger.info("Started")
+    # if Carl: runLog.logger.info("Started")
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     if Carl:
         myconfig.setParameters(egpg)   # configure custom wheel dia and base
@@ -121,7 +122,7 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    if Carl: runLog.logger.info("Finished")
+    # if Carl: runLog.logger.info("Finished")
     sleep(1)
 
 

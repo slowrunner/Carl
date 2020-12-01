@@ -22,7 +22,7 @@ try:
     # import battery
     # import myDistSensor
     # import lifeLog
-    # import runLog
+    import runLog
     import myconfig
     # import myimutils   # display(windowname, image, scale_percent=30)
     import carlDataJson
@@ -191,7 +191,7 @@ def docking_check():
             current_heading_estimate = 0.0
 
 # MAIN
-
+@runLog.logRun
 def main():
     global motion_state, curr_l_enc, curr_r_enc, strt_l_enc, strt_r_enc, move_l_enc, move_r_enc, strt_time, stop_time, motion_sec
 

@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
-# test program for run.log utils
+# test program for run.log utils WITH PYTHON2 programs
 #    @runLog.logRun decorator
 #    runLog.entry(msg)
 

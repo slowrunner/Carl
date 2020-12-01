@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 #
 # scan360(Method to spin and collect distance sensor readings on the way around
@@ -146,12 +146,12 @@ def spin_and_scan(egpg, distance_sensor, tp, degrees=360, speed=50):
 
 
 
-
 def main():
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True) # Create an instance of the EasyGoPiGo3 class
     myconfig.setParameters(egpg)
 
-    runLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
+    # runLog.logger.info("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
+    runLog.entry("Starting scan360.py at {0:0.2f}v".format(egpg.volt()))
     ds = myDistSensor.init(egpg)
     tp = tiltpan.TiltPan(egpg)
 
@@ -174,10 +174,10 @@ def main():
 
         except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
        	    egpg.stop()           # stop motors
-            runLog.logger.info("Exiting  scan360.py at {0:0.2f}v".format(egpg.volt()))
 
             print("Ctrl-C detected - Finishing up")
     egpg.stop()
+    runLog.entry("Exiting  scan360.py at {0:0.2f}v".format(egpg.volt()))
 
 if __name__ == "__main__":
 	main()

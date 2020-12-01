@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # tiltpan.py    Tilt and Pan Servo Management Class
 #
@@ -50,6 +50,7 @@ from __future__ import division
 import sys
 sys.path
 sys.path.append('/home/pi/Carl/plib')
+import runLog
 
 from time import sleep
 import signal
@@ -180,6 +181,7 @@ def handle_ctlc():
   tp.tiltpan_center()
   print("tiltpan.py: handle_ctlc() executed")
 
+@runLog.logRun
 def main():
   global tp
   try:
