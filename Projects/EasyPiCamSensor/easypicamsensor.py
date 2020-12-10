@@ -16,7 +16,7 @@
 
   light_left() # return average intensity across left half of sensor
 
-  color() # returns estimate of dominant color of central area of sensor
+  color() # returns estimate of color of central area of sensor
 
   last_motion() # returns time, direction, magnitude of last motion over theshold
 
@@ -45,19 +45,9 @@ stream_width = 320
 stream_height = 240
 stream_framerate = 3
 
-# colors from https://www.rapidtables.com/web/color/RGB_Color.html
-"""
-color_rgb = ( ( 0 , 0 , 0 , "Black"),
-              (120,105, 30, "Brown"),
-              (255, 0 , 0 , "Red"),
-              (255,165, 0 , "Orange"),
-              (255,255, 0 , "Yellow"),
-              ( 0 ,128, 0 , "Green"),
-              ( 0 , 0 ,255, "Blue"),
-              (128, 0 ,128, "Violet"),
-              (128,128,128, "Gray"),
-              (255,255,255, "White") )
-"""
+# colors from https://github.com/slowrunner/Carl/blob/master/Projects/EasyPiCamSensor/Target_Colors.pdf
+# printed on matte paper captured in diffuse sunlight through window.
+# Useful Color Calculator: https://www.rapidtables.com/convert/color/index.html
 
 color_rgb = ( ( 55, 48, 65, "Black"),
               (145, 88, 55, "Brown"),
@@ -181,7 +171,7 @@ class EasyPiCamSensor():
 
         self.use_mutex = use_mutex
         self._light_ave_intensity = 999
-        self._dominant_color = (999 , 999, 999)
+        self._dominant_colors = []
         self._color = "unknown"
 
         print("Initializing PiCam Video Stream")
@@ -230,10 +220,7 @@ class EasyPiCamSensor():
         try:
             image = self.stream.read()
             h,w,rgb = image.shape
-            # print("h:{}, w:{}, rgb:{}".format(h,w,rgb))
-            # print("image[ {}, {} ] {} ".format(h/2, w/2, tuple(image[0, 0]) ))
             center_pixel = tuple(image[ int(h/2), int(w/2) ])
-            # print("center_pixel:", center_pixel)
             self._color = nearest_color(center_pixel)
             # print("nearest rgb color", self._color)
             # print("center_pixel[:]:",center_pixel[:])
