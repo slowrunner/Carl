@@ -8,6 +8,7 @@
 #     which returns a center pixel color estimate
 
 # Talks using espeak-ng via the espeakng Python module
+
 try:
     import easypicamsensor
 except:
@@ -34,7 +35,6 @@ def main():
 
     current = epcs.color()   # get average image light intensity now
     last = current
-
     print_w_date_time(current)
 
     while  True:
@@ -44,7 +44,6 @@ def main():
             if (current != last):
                 # new color estimate
                 last = current
-                print_w_date_time(current)
 
                 alert = "Is that {}?".format(current)
                 print_w_date_time(alert)
@@ -54,8 +53,8 @@ def main():
             time.sleep(1)    # wait between checks
         except KeyboardInterrupt:
             alert = "Sure.  Exiting stage right."
-            time_now = time.strftime("%Y-%m-%d %H:%M:%S")
-            print("\n{} {}".format(time_now, alert))
+            print("\n")  # move to new line after ^C
+            print_w_date_time(alert)
             tts.say(alert)
             time.sleep(2)
             exit(0)
