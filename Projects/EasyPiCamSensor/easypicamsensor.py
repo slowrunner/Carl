@@ -39,16 +39,16 @@ import datetime as dt
 # import matplotlib.pyplot as mplplt
 import colorsys
 from PIL import Image
-
+import io
 
 PROG_NAME = os.path.basename(__file__)
 
 IMAGE_DIMS = (320,240)
 stream_width = 320
 stream_height = 240
-stream_framerate = 24
-QUEUE_SIZE = 10  # number of consecutive frames to analyse
-THRESHOLD = 4.0  # minimum average motion required 
+stream_framerate = 10
+QUEUE_SIZE = 3  # (10) number of consecutive frames to analyse for motion
+THRESHOLD = 1.0  # (4.0) minimum average motion required
 
 
 
@@ -259,13 +259,17 @@ class PiGestureStream:
         """
         while True:
             try:
+                stream = io.BytesIO()    # stream to hold jpeg frames
                 self.camera.wait_recording(1)
+                stream.truncate(0)
+                self.camera.capture(stream, format='jpeg', use_video_port=True)
+                stream.seek(0)
+                jpeg_image = Image.open(stream)
+                self.frame = np.asarray(jpeg_image)
                 ifMutexAcquire(self.use_mutex)
-                # self.frame = f.array
-                # self.rawCapture.truncate(0)
-                # self.set_color()
-                # self.set_light_ave_intensity()
-                # self.set_light_left_right()
+                self.set_color()
+                self.set_light_ave_intensity()
+                self.set_light_left_right()
                 ifMutexRelease(self.use_mutex)
 
             except Exception as e:
