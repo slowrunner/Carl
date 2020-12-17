@@ -5,24 +5,23 @@
 """
   DOCUMENTATION:
 
-  This class allows simplified access to the Pi Camera as a sensor
+  Python Class to treat the PiCamera as a unified family of robot sensors
 
   light() # return average intensity across entire sensor (0.0 pitch black to 100.0 blinding light)
 
   light.max() # return [max_intensity, percent_width, percent_height], value and relative location in image
   Maybe horizontal angle would be more directly useful?
 
-  light_right() # return average intensity across right half of sensor
-
-  light_left() # return average intensity across left half of sensor
+  light_left_right() # return average intensity across left half and right half of sensor
 
   color() # returns estimate of color of central area of sensor
 
-  last_motion() # returns time, direction, magnitude of last motion over theshold
+  motion_dt_x_y() # returns time of first motion left/right and/or up/down since last method call
 
-  pause() # minimize processing and battery load
+  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
 
-  resume() # use after pause()
+  get_image()  # returns RGB numpy image array
+
 
   Motion Detection and camera stream based on https://github.com/waveform80/picamera_demos/blob/master/gesture_detect.py
 
