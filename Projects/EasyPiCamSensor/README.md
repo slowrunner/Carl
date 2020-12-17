@@ -13,7 +13,8 @@ including:
 
 Refresh rate is roughly 10 values per second.
 
-Python Requirements:
+Python Requirements (Stock ModRobotics Rasbian_For_Robots):
+- Python3
 - ModRobotics di_sensors.easy_mutex 
 - picamera
 - threading
@@ -22,8 +23,24 @@ Python Requirements:
 - numpy
 - (Does not use/require OpenCV)
 
+# API
 
-EasyPiCamSensor Examples:
+-  epcs = easypicamsensor.EasyPiCamSensor(use_mutex=True)   # Create sensor object
+
+-  light() # return average intensity across entire sensor (0.0 pitch black to 100.0 blinding light)
+
+-  light_left_right() # return average intensity across left half and right half of sensor
+
+-  color() # returns estimate of color of central area of sensor
+
+-  motion_dt_x_y() # returns time of first motion left/right and/or up/down since last method call
+
+-  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
+
+-  get_image()  # returns RGB numpy image array
+
+
+# EasyPiCamSensor Example Programs:
 
 - i_see_color.py uses EasyPiCamSensor.color() and optionally espeakng TTS to report estimate color seen
   * Target_Colors.pdf provides color samples that match the default sensor color table 
@@ -43,19 +60,4 @@ EasyPiCamSensor Examples:
 
 - face_the_light.py uses EasyPiCamSensor.light() and the GoPiGo3 robot to find and face brightest light source
 
-# API
-
--  epcs = easypicamsensor.EasyPiCamSensor(use_mutex=True)   # Create sensor object
-
--  light() # return average intensity across entire sensor (0.0 pitch black to 100.0 blinding light)
-
--  light_left_right() # return average intensity across left half and right half of sensor
-
--  color() # returns estimate of color of central area of sensor
-
--  motion_dt_x_y() # returns time of first motion left/right and/or up/down since last method call
-
--  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
-
--  get_image()  # returns RGB numpy image array
 
