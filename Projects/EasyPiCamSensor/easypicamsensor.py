@@ -422,6 +422,21 @@ class EasyPiCamSensor():
             ifMutexRelease(self.use_mutex)
         return fn
 
+    def get_image(self):
+        ifMutexAcquire(self.use_mutex)
+        try:
+            image = self.stream.get_frame()
+            # pilimage = Image.fromarray(image)
+        except Exception as e:
+            print("get_image() failed")
+            print(str(e))
+            # pilimage = None
+            image = None
+        finally:
+            ifMutexRelease(self.use_mutex)
+        return image
+
+
 
     def pause(self):
         ifMutexAcquire(self.use_mutex)
