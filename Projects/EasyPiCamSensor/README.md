@@ -24,7 +24,8 @@ Python Requirements:
 EasyPiCamSensor Examples:
 
 - i_see_color.py uses EasyPiCamSensor.color() and optionally espeakng TTS to report estimate color seen
-  * Target_Colors.pdf provides color samples that match the default sensor color table
+  * Target_Colors.pdf provides color samples that match the default sensor color table 
+
 ![Target Color Samples](Graphics/Target_Colors_Tiny.png?raw=true)
 
 - light_commentary.py uses EasyPiCamSensor.light() to report relative light increase and decrease
