@@ -30,7 +30,7 @@ EasyPiCamSensor Examples:
 - light_commentary.py uses EasyPiCamSensor.light() to report relative light increase and decrease
 - i_see_motion.py  uses EasyPiCamSensor.motion() to report left, right, up, or down motion seen
 - i_see_colors_in_motion.py demonstrates color and motion detection with image save to file
-![Color and Motion Detect With Image Save](Graphics/motion_capture.jpg?raw=true)
+![Color and Motion Detect With Image Save](Graphics/motion_capture.jpg)
 
 - braitenberg2B.py  uses EasyPiCamSensor.light_left_right() to implement Braitenberg Vehicle 2B 
   * (with adjustable gain and obstacle inhibition) 
