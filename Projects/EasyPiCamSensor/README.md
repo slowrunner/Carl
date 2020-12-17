@@ -1,3 +1,5 @@
+**(IN-PROGRESS)**
+
 # Easy PiCamera Sensor Class For GoPiGo3 Robots
 
 Python3 Class to treat the PiCamera as a unified family of GoPiGo3 robot sensors 
