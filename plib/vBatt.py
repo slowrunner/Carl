@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 # print GoPiGo3 battery voltage
-import easygopigo3
+# Uses the "no init" version of EasyGoPiGo3() class
+
+import sys
+sys.path.append('/home/pi/Carl/plib')
+
+import noinit_easygopigo3
 from time import sleep
 from statistics import mean
-import myconfig
-import sys
 import runLog
 
-egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
-myconfig.setParameters(egpg)
+egpg = noinit_easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 
 x = []
 
