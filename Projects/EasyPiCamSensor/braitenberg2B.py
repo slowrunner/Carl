@@ -48,9 +48,9 @@
 
 
 # CONFIGURATIONS:
-max_speed = 150   # speed when a light sensor reports maximum light (100)
+max_speed = 150    # speed when a light sensor reports maximum light (100)
 obstacle_limit_cm =  20  # stop completely if obstacle within limit distance
-
+stimulus_bias = 20  # add to both sides
 
 # IMPORTS
 import sys
@@ -109,12 +109,15 @@ def print_w_date_time(alert,event_time=None):
 #    gain 2: difference in 10, difference out 20
 #            output values:  left 35, right 15 
 def amplify_diff(left,right,amplifier):
-    amp_diff = (left - right) * (amplifier-1.0)/2.0  # gain of 1 gives zero amplification
+    amp_diff = (left - right) * (amplifier-1.0) / 2.0  # gain of 1 gives zero amplification
     left_out = (left + amp_diff)
     right_out = (right - amp_diff)
+    if left_out < 0: left_out = 0
+    if right_out < 0: right_out = 0
     return left_out,right_out
 
-
+def apply_bias(left,right,bias):
+    return left+bias,right+bias
 
 # ** MAIN **
 
@@ -141,7 +144,7 @@ def main():
     egpg.epcs = easypicamsensor.EasyPiCamSensor()  # creates 320x240 10FPS sensor
 
 
-    # set max speed each time allows for multiple egpg programs running
+    # set max speed 
     egpg.set_speed(max_speed)
 
     # save current sensor view to file
@@ -156,13 +159,25 @@ def main():
 
     try:
         while True:
+            # Sense distance to any obstacle in front
             distance_ahead_in_cm = egpg.ds.read()
+
+            # Perform Braitenberg Vehicle 2B LOOP:
+            # Check forward path is clear
             while distance_ahead_in_cm > obstacle_limit_cm:
-                time.sleep(0.1)  # allow for a new reading (sensors are 10 FPS)
+
+                # No obstruction
+
+                # Read (virtual) left and right light sensors
                 left_light,right_light = egpg.epcs.light_left_right()
-                # Amplify the difference between the light values
+
+                # Apply requested amplification to the difference between the light values
                 left_stimulus,right_stimulus = amplify_diff(left_light,right_light,gain)
 
+                # Apply bias
+                left_stimulus, right_stimulus = apply_bias(left_stimulus,right_stimulus,stimulus_bias)
+
+                # Report input values and response values
                 alert = "light -    left: {:>5.1f} right: {:>5.1f} dist: {}".format(
                                   left_light,right_light,distance_ahead_in_cm)
                 print_w_date_time(alert)
@@ -172,23 +187,29 @@ def main():
                 print("\n")
 
                 if left_light > right_light:
-                    alert = "left brighter"
+                    alert = "left"
                 else:
-                    alert = "right brighter"
+                    alert = "right"
                 if verbose: egpg.tts.say(alert)
 
-                # set max speed each time allows for multiple egpg programs running
+                # set max speed each time allows for multiple egpg programs initializing speed
                 # egpg.set_speed(max_speed)
+                # time.sleep(0.1)
 
-                # direct connect left light to right wheel, right light to left wheel
-                # (with difference amplifier)
+                # Braitenberg Vehicle 2B definition:
+                # Connect left light to right wheel, right light to left wheel
+                # (This implementation adds configurable difference amplifier)
                 egpg.steer(right_stimulus,left_stimulus)
+
+                # Display what bot is seeing for -s option
                 if show:
                     img_cnt += 1
-                    if (img_cnt % 20) == 1:
+                    if (img_cnt % 30) == 1:
                         img = egpg.epcs.get_image()
                         imgplot = plt.imshow(img)
                         plt.pause(0.0001)
+
+                # Sense distance to any obstacle in front
                 distance_ahead_in_cm = egpg.ds.read()
 
             # obstruction seen
@@ -198,18 +219,31 @@ def main():
             if verbose: egpg.tts.say(alert)
             time.sleep(2)
     except KeyboardInterrupt:
+        # Stop vehicle loop and prepare to exit
+
+        # Stop all forward motion immediately
         egpg.stop()
+
+        # Report exiting
         alert = "Sure.  Exiting Braitenberg2B.py"
         print("\n")  # move to new line after ^C
         print_w_date_time(alert)
         if verbose: 
            alert = "Sure.  Exiting Braitenberg Vehicle 2 B."
            egpg.tts.say(alert)
+
+        # save final sensor view to file
+        egpg.epcs.save_image_to_file('final_braitenburg2B.jpg')
+
+        # Close any open image view windows
         if show:
            plt.close('all')
-        # save current sensor view to file
-        egpg.epcs.save_image_to_file('end_braitenburg2B.jpg')
+
+        # Allow everything to stop/close/finish
         time.sleep(2)
+
+        # EXIT MAIN and braitenberg2B.py
+# END MAIN()
 
 
 

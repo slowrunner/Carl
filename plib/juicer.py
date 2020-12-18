@@ -34,6 +34,8 @@ import myDistSensor
 import lifeLog
 import myconfig
 import carlDataJson as cd
+import runLog
+
 
 # constants
 PLAYTIME_LIMIT = 8.1
@@ -76,12 +78,13 @@ lastChangeRule = "0" # startup
 
 dockingState = UNKNOWN
 dtLastDockingStateChange = dtStart
-dockingDistanceInMM = 212# 90  # (measures about 85 to undock position after 90+3mm dismount)
-dockingApproachDistanceInMM = 375 # 263  # 263 to sign, 266 to wall
+# Distance from rear castor docked position to rear castor undocked position
+dockingDistanceInMM = 280 # 90  # (measures about 85 to undock position after 90+3mm dismount)
+dockingApproachDistanceInMM = 444 # 375 # 263  # 263 to sign, 266 to wall
 # Next value is subrtracted from backing distance to allaw drive_cm to always be short a little
 maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
-dismountBlockedInMM = 375  # 270 mm minimum 
+dismountBlockedInMM = dockingApproachDistanceInMM # 375  # 270 mm minimum 
 possibleEarlyTrickleVolts = 0    # voltage first detect possible early trickling
 maxChargeTime = (4 * 60 * 60)    # was 3.5h on Tenergy 1025 - trying 4.0h for Tenergy 1005 0.9A setting
 
@@ -456,7 +459,8 @@ def undock(egpg,ds,tp, rule="310c"):
     printValues()
     tp.tiltpan_center()
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(ds.read_mm())
-    if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
+    # if ( (distanceForwardInMM > (dockingDistanceInMM * 2.0)) and \
+    if ( (distanceForwardInMM > dismountBlockedInMM) and \
          (dockingState == DOCKED) ):
          print("\n**** INITIATING DISMOUNT ****")
          speak.whisper("Initiating dismount.")
@@ -731,7 +735,7 @@ def manualDockingTest(egpg,ds,tp,numTests = 1):
     dock(egpg,ds,tp)
     lastChangeRule = "Testing"
 
-
+@runLog.logRun
 def main():
     global dockingState,chargingState,dtLastDockingStateChange,chargeConditioning
 

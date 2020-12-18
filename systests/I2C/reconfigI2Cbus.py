@@ -28,7 +28,7 @@ def main():
         imu = EasyIMUSensor(port = PORT, use_mutex = True)
     except Exception as e:
         print("EasyIMUSensor() instantiation failed")
-        print(str(e)
+        print(str(e))
 
     time.sleep(1.0)  # allow chip to initialize
 

@@ -50,7 +50,8 @@ args = vars(ap.parse_args())
 
 
 # CONSTANTS
-
+cv2_data = cv2.data
+print("Using OpenCV Data from ",cv2_data)
 
 # VARIABLES
 
@@ -60,7 +61,7 @@ args = vars(ap.parse_args())
 def detect_faces(image_in):
     image_copy = image_in.copy()
     image_gray = cv2.cvtColor(image_copy, cv2.COLOR_BGR2GRAY)
-    face_cascade = cv2.CascadeClassifier("/home/pi/Carl/Examples/OpenCV/opencv-3.4.4/data/haarcascades/haarcascade_frontalface_default.xml")
+    face_cascade = cv2.CascadeClassifier(cv2_data+"haarcascades/haarcascade_frontalface_default.xml")
     faces = face_cascade.detectMultiScale(image_gray, scaleFactor=1.1, minNeighbors=5)
     for (x, y, w, h) in faces:
         cv2.rectangle(image_copy, (x, y), (x+w, y+h), (0, 255, 0), 2)
