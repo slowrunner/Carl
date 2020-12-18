@@ -791,4 +791,230 @@
 2020-11-24 01:04|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
 2020-11-24 01:12|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
 2020-11-24 01:12|[juicer.py.undock]---- Dismount 1736 at 10.8 v after 4.1 h recharge
-2020-11-24 08:24|lifelogger.dEmain execution: 330
+2020-11-24 09:18|[juicer.py.dock]---- Docking 1737 completed  at 8.1 v after 8.1 h playtime
+2020-11-24 11:24|lifelogger.dEmain execution: 333
+2020-11-24 11:26|[logMaintenance.py.main]** Reboot to debug rpi-monitor **
+2020-11-24 11:27|------------ boot ------------
+2020-11-24 11:28|[juicer.py.main]---- juicer.py started at 10.39v
+2020-11-24 11:31|[juicer.py.undock]---- Dismount 1738 at 10.3 v after 2.2 h recharge
+2020-11-24 12:14|lifelogger.dEmain execution: 0.8
+2020-11-24 12:14|[logMaintenance.py.main]** reboot to try rpimonitor **
+2020-11-24 12:15|------------ boot ------------
+2020-11-24 12:15|[juicer.py.main]---- juicer.py started at 9.95v
+2020-11-24 12:18|lifelogger.dEmain execution: 0.1
+2020-11-24 12:18|------------ boot ------------
+2020-11-24 12:18|[juicer.py.main]---- juicer.py started at 9.90v
+2020-11-24 16:28|[juicer.py.dock]---- Docking 1739 completed  at 8.1 v after 5.1 h playtime
+2020-11-24 20:12|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-11-24 20:22|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-11-24 20:22|[juicer.py.undock]---- Dismount 1739 at 10.7 v after 3.9 h recharge
+2020-11-24 20:39|lifelogger.dEmain execution: 8.35
+2020-11-24 20:39|[logMaintenance.py.main]** Rebooting to clear rpi-monitor **
+2020-11-24 20:40|------------ boot ------------
+2020-11-24 20:40|[juicer.py.main]---- juicer.py started at 10.18v
+2020-11-25 03:51|[juicer.py.dock]---- Docking 1740 completed  at 8.1 v after 7.1 h playtime
+2020-11-25 07:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2020-11-25 07:51|[juicer.py.undock]---- Dismount 1740 at 11.1 v after 4.0 h recharge
+2020-11-25 10:17|lifelogger.dEmain execution: 13.65
+2020-11-25 10:17|[logMaintenance.py.main]** Reboot trying rpimonitor **
+2020-11-25 10:20|------------ boot ------------
+2020-11-25 10:20|[juicer.py.main]---- juicer.py started at 9.59v
+2020-11-25 15:51|[juicer.py.dock]---- Docking 1741 completed  at 8.1 v after 8.0 h playtime
+2020-11-25 19:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2020-11-25 19:51|[juicer.py.undock]---- Dismount 1741 at 11.3 v after 4.0 h recharge
+2020-11-26 04:04|[juicer.py.dock]---- Docking 1742 completed  at 8.1 v after 8.2 h playtime
+2020-11-26 08:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2020-11-26 08:04|[juicer.py.undock]---- Dismount 1742 at 11.4 v after 4.0 h recharge
+2020-11-26 16:20|[juicer.py.dock]---- Docking 1743 completed  at 8.1 v after 8.2 h playtime
+2020-11-26 20:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2020-11-26 20:20|[juicer.py.undock]---- Dismount 1743 at 11.0 v after 4.0 h recharge
+2020-11-27 04:25|[juicer.py.dock]---- Docking 1744 completed  at 8.1 v after 8.1 h playtime
+2020-11-27 08:15|[juicer.py.undock]---- Dismount 1744 at 11.3 v after 3.8 h recharge
+2020-11-27 16:25|[juicer.py.dock]---- Docking 1745 completed  at 8.1 v after 8.2 h playtime
+2020-11-27 20:25|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2020-11-27 20:26|[juicer.py.undock]---- Dismount 1745 at 10.9 v after 4.0 h recharge
+2020-11-28 04:19|[juicer.py.dock]---- Docking 1746 completed  at 8.1 v after 7.9 h playtime
+2020-11-28 08:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2020-11-28 08:20|[juicer.py.undock]---- Dismount 1746 at 11.0 v after 4.0 h recharge
+2020-11-28 16:18|[juicer.py.dock]---- Docking 1747 completed  at 8.1 v after 8.0 h playtime
+2020-11-28 20:18|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2020-11-28 20:18|[juicer.py.undock]---- Dismount 1747 at 11.5 v after 4.0 h recharge
+2020-11-29 04:33|[juicer.py.dock]**** Dock Approach Error (25mm too far from dock)
+2020-11-29 04:33|[juicer.py.dock]---- Manual Docking 1747 requested  at 8.1 v after 8.2 h playtime
+2020-11-29 04:44|[juicer.py.safetyCheck]Safety Shutdown at  7.32 volts
+2020-11-29 04:44|[logMaintenance.py.main]** chair must have bumped Carl **
+2020-11-29 04:44|lifelogger.dEmain execution: 90.4
+2020-11-29 10:20|------------ boot ------------
+2020-11-29 10:21|[juicer.py.main]---- juicer.py started at 9.29v
+2020-11-29 10:28|[juicer.py.dock]---- Docking 1748 completed  at 8.1 v after 0.1 h playtime
+2020-11-29 14:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2020-11-29 14:30|[juicer.py.undock]---- Dismount 1748 at 11.5 v after 4.0 h recharge
+2020-11-29 22:48|[juicer.py.dock]---- Docking 1749 completed  at 8.1 v after 8.3 h playtime
+2020-11-30 02:40|[juicer.py.undock]---- Dismount 1749 at 11.3 v after 3.9 h recharge
+2020-11-30 10:55|[juicer.py.dock]---- Docking 1750 completed  at 8.1 v after 8.2 h playtime
+2020-11-30 14:55|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2020-11-30 14:56|[juicer.py.undock]---- Dismount 1750 at 11.1 v after 4.0 h recharge
+2020-11-30 23:05|[juicer.py.dock]**** Dock Approach Error
+2020-11-30 23:05|[juicer.py.dock]---- Manual Docking 1750 requested  at 8.1 v after 8.1 h playtime
+2020-11-30 23:07|[juicer.py.manualDockingCompleted]---- Docking 1751 (manual) at 8.2 v and 8.2 h playtime
+2020-12-01 02:52|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-01 03:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.7v
+2020-12-01 03:08|[juicer.py.undock]---- Dismount 1751 at 10.7 v after 4.0 h recharge
+2020-12-01 11:05|[juicer.py.dock]---- Docking 1752 completed  at 8.1 v after 7.9 h playtime
+2020-12-01 15:05|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2020-12-01 15:06|[juicer.py.undock]---- Dismount 1752 at 11.2 v after 4.0 h recharge
+2020-12-01 23:20|[juicer.py.dock]---- Docking 1753 completed  at 8.1 v after 8.2 h playtime
+2020-12-02 03:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2020-12-02 03:20|[juicer.py.undock]---- Dismount 1753 at 11.6 v after 4.0 h recharge
+2020-12-02 09:53|[logMaintenance.py.main]** Reboot after apt-get upgrade **
+2020-12-02 09:53|lifelogger.dEmain execution: 71.55
+2020-12-02 09:53|------------ boot ------------
+2020-12-02 09:53|[juicer.py.main]---- juicer.py started at 9.18v
+2020-12-02 09:57|[logMaintenance.py.main]** Stopped juicer - New Docking Guide **
+2020-12-02 11:01|[juicer.py.main]---- juicer.py started at 8.61v
+2020-12-02 11:03|[logMaintenance.py.main]** executing juicer.py test **
+2020-12-02 11:03|[juicer.py.main]---- juicer.py started at 9.57v
+2020-12-02 11:03|[juicer.py.undock]---- Dismount 1753 at 8.9 v after 0.0 h recharge
+2020-12-02 11:04|[juicer.py.dock]---- Docking 1754 completed  at 9.5 v after 0.0 h playtime
+2020-12-02 11:05|[juicer.py.undock]---- Dismount 1754 at 8.9 v after 0.0 h recharge
+2020-12-02 11:06|[juicer.py.dock]---- Docking 1755 completed  at 9.5 v after 0.0 h playtime
+2020-12-02 11:07|[juicer.py.undock]---- Dismount 1755 at 8.9 v after 0.0 h recharge
+2020-12-02 11:08|[juicer.py.dock]---- Docking 1756 completed  at 9.5 v after 0.0 h playtime
+2020-12-02 11:09|[juicer.py.undock]---- Dismount 1756 at 8.9 v after 0.0 h recharge
+2020-12-02 11:09|[juicer.py.dock]---- Docking 1757 completed  at 9.5 v after 0.0 h playtime
+2020-12-02 11:10|[juicer.py.undock]---- Dismount 1757 at 9.0 v after 0.0 h recharge
+2020-12-02 11:11|[juicer.py.dock]---- Docking 1758 completed  at 9.6 v after 0.0 h playtime
+2020-12-02 11:15|[juicer.py.main]---- juicer.py started at 9.20v
+2020-12-02 11:19|[logMaintenance.py.main]** running plib/juicer with new docking guide **
+2020-12-02 14:49|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-02 15:06|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-02 15:06|[juicer.py.undock]---- Dismount 1753 at 10.7 v after 3.8 h recharge
+2020-12-02 16:33|[juicer.py.main]---- juicer.py restarted at 9.71v
+2020-12-02 22:46|[juicer.py.dock]---- Docking 1755 completed  at 8.1 v after 7.7 h playtime
+2020-12-03 02:26|[juicer.py.undock]---- Dismount 1755 at 11.4 v after 3.7 h recharge
+2020-12-03 10:37|[juicer.py.dock]---- Docking 1756 completed  at 8.1 v after 8.2 h playtime
+2020-12-03 14:21|[juicer.py.undock]---- Dismount 1756 at 11.4 v after 3.7 h recharge
+2020-12-03 22:26|[juicer.py.dock]---- Docking 1757 completed  at 8.1 v after 8.1 h playtime
+2020-12-04 02:22|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-04 02:33|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.7v
+2020-12-04 02:34|[juicer.py.undock]---- Dismount 1757 at 10.7 v after 4.1 h recharge
+2020-12-04 10:17|[juicer.py.dock]---- Docking 1758 completed  at 8.1 v after 7.7 h playtime
+2020-12-04 10:54|[face_in_image.py.main]Started
+2020-12-04 14:10|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-04 14:18|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-04 14:18|[juicer.py.undock]---- Dismount 1758 at 10.7 v after 4.0 h recharge
+2020-12-04 22:00|[juicer.py.dock]---- Docking 1759 completed  at 8.1 v after 7.7 h playtime
+2020-12-05 01:51|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-05 02:01|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-05 02:01|[juicer.py.undock]---- Dismount 1759 at 10.8 v after 4.0 h recharge
+2020-12-05 09:52|[juicer.py.dock]---- Docking 1760 completed  at 8.1 v after 7.8 h playtime
+2020-12-05 13:48|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-05 13:53|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2020-12-05 13:53|[juicer.py.undock]---- Dismount 1760 at 10.9 v after 4.0 h recharge
+2020-12-05 21:45|[juicer.py.dock]---- Docking 1761 completed  at 8.1 v after 7.9 h playtime
+2020-12-06 01:28|[juicer.py.undock]---- Dismount 1761 at 11.4 v after 3.7 h recharge
+2020-12-06 09:30|[juicer.py.dock]---- Docking 1762 completed  at 8.1 v after 8.0 h playtime
+2020-12-06 10:31|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2020-12-06 10:55|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2020-12-06 10:55|[juicer.py.undock]---- Dismount 1762 at 9.8 v after 1.4 h recharge
+2020-12-06 12:48|[juicer.py.dock]---- Docking 1763 completed  at 8.1 v after 1.9 h playtime
+2020-12-06 16:42|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-06 16:49|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-06 16:49|[juicer.py.undock]---- Dismount 1763 at 10.8 v after 4.0 h recharge
+2020-12-07 00:34|[juicer.py.dock]---- Docking 1764 completed  at 8.1 v after 7.7 h playtime
+2020-12-07 04:28|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-07 04:35|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-07 04:36|[juicer.py.undock]---- Dismount 1764 at 10.8 v after 4.0 h recharge
+2020-12-07 12:14|[juicer.py.dock]---- Docking 1765 completed  at 8.1 v after 7.6 h playtime
+2020-12-07 16:08|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-07 16:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-07 16:17|[juicer.py.undock]---- Dismount 1765 at 10.8 v after 4.1 h recharge
+2020-12-08 00:10|[juicer.py.dock]---- Docking 1766 completed  at 8.1 v after 7.9 h playtime
+2020-12-08 03:55|[juicer.py.undock]---- Dismount 1766 at 11.3 v after 3.8 h recharge
+2020-12-08 12:17|[juicer.py.dock]---- Docking 1767 completed  at 8.1 v after 8.4 h playtime
+2020-12-08 16:13|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-08 16:29|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-08 16:30|[juicer.py.undock]---- Dismount 1767 at 10.7 v after 4.2 h recharge
+2020-12-09 00:10|[juicer.py.dock]---- Docking 1768 completed  at 8.1 v after 7.7 h playtime
+2020-12-09 04:05|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-09 04:22|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-09 04:22|[juicer.py.undock]---- Dismount 1768 at 10.7 v after 4.2 h recharge
+2020-12-09 11:51|[juicer.py.dock]---- Docking 1769 completed  at 8.1 v after 7.5 h playtime
+2020-12-09 15:41|[juicer.py.undock]---- Dismount 1769 at 11.4 v after 3.8 h recharge
+2020-12-09 23:58|[juicer.py.dock]---- Docking 1770 completed  at 8.1 v after 8.3 h playtime
+2020-12-10 03:41|[juicer.py.undock]---- Dismount 1770 at 11.4 v after 3.7 h recharge
+2020-12-10 11:45|[juicer.py.dock]---- Docking 1771 completed  at 8.1 v after 8.0 h playtime
+2020-12-10 13:52|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.4v
+2020-12-10 14:24|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.1v
+2020-12-10 14:24|[juicer.py.undock]---- Dismount 1771 at 10.1 v after 2.7 h recharge
+2020-12-10 18:52|[juicer.py.dock]---- Docking 1772 completed  at 8.1 v after 4.5 h playtime
+2020-12-10 22:39|[juicer.py.undock]---- Dismount 1772 at 11.4 v after 3.8 h recharge
+2020-12-11 06:48|[juicer.py.dock]---- Docking 1773 completed  at 8.1 v after 8.1 h playtime
+2020-12-11 10:41|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-11 10:58|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-11 10:58|[juicer.py.undock]---- Dismount 1773 at 10.6 v after 4.2 h recharge
+2020-12-11 18:28|[juicer.py.dock]---- Docking 1774 completed  at 8.1 v after 7.5 h playtime
+2020-12-11 22:22|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-11 22:31|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-11 22:32|[juicer.py.undock]---- Dismount 1774 at 10.8 v after 4.1 h recharge
+2020-12-12 06:25|[juicer.py.dock]---- Docking 1775 completed  at 8.1 v after 7.9 h playtime
+2020-12-12 10:19|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-12 10:35|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-12 10:36|[juicer.py.undock]---- Dismount 1775 at 10.7 v after 4.2 h recharge
+2020-12-12 18:14|[juicer.py.dock]---- Docking 1776 completed  at 8.1 v after 7.6 h playtime
+2020-12-12 22:15|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2020-12-12 22:15|[juicer.py.undock]---- Dismount 1776 at 11.0 v after 4.0 h recharge
+2020-12-13 06:10|[juicer.py.dock]---- Docking 1777 completed  at 8.1 v after 7.9 h playtime
+2020-12-13 10:07|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-13 10:10|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2020-12-13 10:11|[juicer.py.undock]---- Dismount 1777 at 10.9 v after 4.0 h recharge
+2020-12-13 17:41|[juicer.py.dock]---- Docking 1778 completed  at 8.1 v after 7.5 h playtime
+2020-12-13 21:23|[juicer.py.undock]---- Dismount 1778 at 11.4 v after 3.7 h recharge
+2020-12-14 05:36|[juicer.py.dock]---- Docking 1779 completed  at 8.1 v after 8.2 h playtime
+2020-12-14 09:22|[juicer.py.undock]---- Dismount 1779 at 11.4 v after 3.8 h recharge
+2020-12-14 17:25|[juicer.py.dock]---- Docking 1780 completed  at 8.1 v after 8.0 h playtime
+2020-12-14 21:07|[juicer.py.undock]---- Dismount 1780 at 11.4 v after 3.7 h recharge
+2020-12-15 05:11|[juicer.py.dock]---- Docking 1781 completed  at 8.1 v after 8.1 h playtime
+2020-12-15 09:05|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-15 09:15|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-15 09:15|[juicer.py.undock]---- Dismount 1781 at 10.7 v after 4.1 h recharge
+2020-12-15 16:49|[juicer.py.dock]---- Docking 1782 completed  at 8.1 v after 7.6 h playtime
+2020-12-15 20:30|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-15 20:50|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2020-12-15 20:51|[juicer.py.undock]---- Dismount 1782 at 10.6 v after 4.0 h recharge
+2020-12-15 22:47|lifelogger.dEmain execution: 324.9
+2020-12-15 22:47|[logMaintenance.py.main]** Braitenburg2B.py reading dist sensor killed I2C bus **
+2020-12-15 22:49|------------ boot ------------
+2020-12-15 22:49|[juicer.py.main]---- juicer.py started at 9.58v
+2020-12-15 22:53|[logMaintenance.py.main]** warm boot (sudo reboot) did not restore I2C **
+2020-12-15 22:53|lifelogger.dEmain execution: 0.1
+2020-12-15 22:55|------------ boot ------------
+2020-12-15 22:56|[juicer.py.main]---- juicer.py started at 9.64v
+2020-12-16 04:26|[juicer.py.dock]---- Docking 1783 completed  at 8.1 v after 6.6 h playtime
+2020-12-16 08:19|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-16 08:30|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-16 08:30|[juicer.py.undock]---- Dismount 1783 at 10.8 v after 4.1 h recharge
+2020-12-16 09:13|[logMaintenance.py.main]** Braitenberg2b.py distance sensor again killed I2C **
+2020-12-16 09:16|lifelogger.dEmain execution: 10.4
+2020-12-16 09:17|------------ boot ------------
+2020-12-16 09:17|[juicer.py.main]---- juicer.py started at 9.93v add 0.8 hr
+2020-12-16 16:17|[juicer.py.dock]---- Docking 1784 completed  at 8.1 v after 6.9 h playtime
+2020-12-16 20:03|[juicer.py.undock]---- Dismount 1784 at 11.3 v after 3.8 h recharge
+2020-12-17 04:02|[juicer.py.dock]---- Docking 1785 completed  at 8.1 v after 8.0 h playtime
+2020-12-17 07:55|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2020-12-17 08:03|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2020-12-17 08:03|[juicer.py.undock]---- Dismount 1785 at 10.8 v after 4.0 h recharge
+2020-12-17 16:14|[logMaintenance.py.main]** Juicer was off for testing - ran batt down **
+2020-12-17 16:14|lifelogger.dEmain execution: 30.95
+2020-12-17 16:14|------------ boot ------------
+2020-12-17 16:14|[juicer.py.main]---- juicer.py started at 9.21v
+2020-12-17 16:14|[juicer.py.dock]---- Manual Docking 1796 after 8.2 h playtime
+2020-12-17 19:42|[logMaintenance.py.main]** Manual Undock - trickle charge not detected **
+2020-12-17 20:29|lifelogger.dEmain execution: 4.25
+2020-12-17 20:29|[logMaintenance.py.main]** Again I2C dead - shutting down for cold boot **
+2020-12-17 20:31|------------ boot ------------
+2020-12-17 20:31|[juicer.py.main]---- juicer.py started at 10.11v add 1h
+2020-12-17 20:34|[logMaintenance.py.main]** Killed imulog to test braitenberg vehicle **
+2020-12-18 04:05|[juicer.py.dock]---- Docking 1787 completed  at 8.1 v after 7.5 h playtime
+2020-12-18 07:51|[juicer.py.undock]---- Dismount 1787 at 11.4 v after 3.8 h recharge
+2020-12-18 09:31|lifelogger.dEmain execution: 13

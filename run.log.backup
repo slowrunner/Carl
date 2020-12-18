@@ -62,3 +62,170 @@
 2020-11-23 16:38|[status.py.main]Exiting  status.py at 9.64v
 2020-11-23 17:02|[status.py.main]Starting status.py at 9.55v
 2020-11-24 08:53|[status.py.main]Exiting  status.py at 8.63v
+2020-11-24 10:38|[status.py.main]Starting status.py at 10.85v
+2020-11-24 11:02|[status.py.main]Exiting  status.py at 10.95v
+2020-11-24 13:46|[status.py.main]Starting status.py at 9.61v
+2020-11-24 18:56|[status.py.main]Exiting  status.py at 10.43v
+2020-11-29 22:01|[status.py.main]Starting status.py at 8.88v
+2020-11-29 22:01|[status.py.main]Exiting  status.py at 8.82v
+2020-11-30 20:02|test_runLog.py.main: Started
+2020-11-30 20:02|test_runLog.py.test_entry_logging: executed
+2020-11-30 20:02|test_runLog.py.main: Finished
+2020-11-30 20:26|plib/status.py.main: Starting status.py at 9.36v
+2020-11-30 20:26|plib/status.py.main: Exiting  status.py at 9.44v
+2020-11-30 20:30|driving.py.main: Started
+2020-11-30 20:31|driving.py.main: Finished
+2020-11-30 22:26|test_runLog.py.main: Started
+2020-11-30 22:26|test_runLog.py.test_entry_from_func: executed
+2020-11-30 22:26|test_runLog.py.main: test entry from main()
+2020-11-30 22:26|test_runLog.py.main: Finished
+2020-11-30 22:28|utils/test_runLog.py.main: Started
+2020-11-30 22:28|utils/test_runLog.py.test_entry_from_func: executed
+2020-11-30 22:28|utils/test_runLog.py.main: test entry from main()
+2020-11-30 22:28|utils/test_runLog.py.main: Finished
+2020-11-30 22:33|plib/test_runLog.py.main: Started
+2020-11-30 22:33|plib/test_runLog.py.test_entry_from_func: executed
+2020-11-30 22:33|plib/test_runLog.py.main: test entry from main()
+2020-11-30 22:33|plib/test_runLog.py.main: Finished
+2020-11-30 22:34|plib/scan360.py.main: Starting scan360.py at 8.69v
+2020-11-30 22:46|plib/center.py.main: Started
+2020-11-30 22:46|plib/center.py.main: Finished
+2020-11-30 22:49|plib/scan360.py.main: Starting scan360.py at 8.42v
+2020-11-30 22:49|plib/scan360.py.main: Exiting  scan360.py at 8.42v
+2020-11-30 22:53|plib/myDistSensor.py.main: Started
+2020-11-30 22:55|plib/myDistSensor.py.main: Started
+2020-11-30 22:56|plib/myDistSensor.py.main: Finished
+2020-11-30 22:58|plib/tiltpan.py.main: Started
+2020-11-30 22:59|plib/tiltpan.py.main: Finished
+2020-11-30 23:01|plib/speak.py.main: Started
+2020-11-30 23:01|plib/speak.py.main: Finished
+2020-11-30 23:04|plib/printmaps.py.main: Started
+2020-11-30 23:04|plib/printmaps.py.main: Finished
+2020-11-30 23:11|(python2).unknown: Started
+2020-11-30 23:11|unknown.unknown: executed
+2020-11-30 23:11|unknown.unknown: test entry from main()
+2020-11-30 23:11|(python2).unknown: Finished
+2020-11-30 23:20|test_runLog.py.main: Started
+2020-11-30 23:20|test_runLog.py.test_entry_from_func: executed
+2020-11-30 23:20|test_runLog.py.main: test entry from main()
+2020-11-30 23:20|test_runLog.py.main: Finished
+2020-11-30 23:20|(python2).main: Started
+2020-11-30 23:20|(python2?).main: executed
+2020-11-30 23:20|(python2?).main: test entry from main()
+2020-11-30 23:20|(python2).main: Finished
+2020-11-30 23:25|./test_runLog_python2.py.main: Started
+2020-11-30 23:25|./test_runLog_python2.py.main: executed
+2020-11-30 23:25|./test_runLog_python2.py.main: test entry from main()
+2020-11-30 23:25|./test_runLog_python2.py.main: Finished
+2020-11-30 23:27|test_runLog.py.main: Started
+2020-11-30 23:27|test_runLog.py.test_entry_from_func: executed
+2020-11-30 23:27|test_runLog.py.main: test entry from main()
+2020-11-30 23:27|test_runLog.py.main: Finished
+2020-12-02 09:42|plib/status.py.main: Starting status.py at 9.04v
+2020-12-02 09:42|plib/status.py.main: Exiting  status.py at 9.15v
+2020-12-02 09:44|plib/status.py.main: Starting status.py at 9.14v
+2020-12-02 09:51|plib/status.py.main: Exiting  status.py at 9.23v
+2020-12-02 09:53|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-02 09:57|plib/status.py.main: Starting status.py at 9.17v
+2020-12-02 10:16|plib/status.py.main: Exiting  status.py at 9.13v
+2020-12-02 10:36|plib/status.py.main: Starting status.py at 8.93v
+2020-12-02 10:37|Started
+2020-12-02 10:37|Starting findDock() at 10:37:56
+2020-12-02 10:38|Finished
+2020-12-02 10:38|Started
+2020-12-02 10:38|Starting findDock() at 10:38:37
+2020-12-02 10:39|Finished
+2020-12-02 10:39|Started
+2020-12-02 10:39|Starting findDock() at 10:39:26
+2020-12-02 10:39|Finished
+2020-12-02 10:41|Started
+2020-12-02 10:41|Starting findDock() at 10:41:15
+2020-12-02 10:41|Finished
+2020-12-02 10:42|Started
+2020-12-02 10:42|Starting findDock() at 10:42:23
+2020-12-02 10:43|Finished
+2020-12-02 11:52|plib/status.py.main: Exiting  status.py at 10.74v
+2020-12-02 15:45|appr_dock.py.main: Started
+2020-12-02 15:46|appr_dock.py.main: Started
+2020-12-02 15:47|appr_dock.py.main: Started
+2020-12-02 15:47|appr_dock.py.approach_dock: Distance to docking approach point 2e+02 centimeters over limit, exiting
+2020-12-02 16:14|appr_dock.py.main: Started
+2020-12-02 16:14|appr_dock.py.approach_dock: Distance to docking approach point 2e+02 centimeters over limit, exiting
+2020-12-02 16:16|appr_dock.py.main: Started
+2020-12-02 16:16|appr_dock.py.approach_dock: Distance to docking approach point 153 centimeters over limit, exiting
+2020-12-02 16:18|appr_dock.py.main: Started
+2020-12-02 16:18|appr_dock.py.approach_dock: Distance to docking approach point 149 centimeters over limit, exiting
+2020-12-02 16:18|appr_dock.py.main: Finished
+2020-12-02 16:18|appr_dock.py.main: Started
+2020-12-02 16:18|appr_dock.py.approach_dock: Distance to docking approach point 113 centimeters over limit, exiting
+2020-12-02 16:18|appr_dock.py.main: Finished
+2020-12-02 16:19|appr_dock.py.main: Started
+2020-12-02 16:19|appr_dock.py.approach_dock: Driving 114 centimeters
+2020-12-02 16:19|appr_dock.py.approach_dock: Driving final 221 millimeters to docking approach point
+2020-12-02 16:19|appr_dock.py.approach_dock: At approach point facing dock
+2020-12-02 16:19|appr_dock.py.main: Finished
+2020-12-02 16:21|appr_dock.py.main: Started
+2020-12-02 16:21|appr_dock.py.approach_dock: Driving 63 centimeters
+2020-12-02 16:22|appr_dock.py.approach_dock: Driving final 32 millimeters to docking approach point
+2020-12-02 16:22|appr_dock.py.approach_dock: At approach point facing dock
+2020-12-02 16:22|appr_dock.py.main: Finished
+2020-12-02 16:33|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-02 16:38|/home/pi/Carl/plib/imulog.py.main: Started
+2020-12-02 18:35|findDock.py.main: Started
+2020-12-02 18:35|findDock.py.main: Starting findDock() at 18:35:13
+2020-12-02 18:35|findDock.py.main: Finished
+2020-12-02 18:35|findDock.py.main: Started
+2020-12-02 18:35|findDock.py.main: Starting findDock() at 18:35:41
+2020-12-02 18:36|findDock.py.main: Finished
+2020-12-02 18:36|appr_dock.py.main: Started
+2020-12-02 18:36|appr_dock.py.approach_dock: Driving 19 centimeters
+2020-12-02 18:37|appr_dock.py.approach_dock: Driving final 11 millimeters to docking approach point
+2020-12-02 18:37|appr_dock.py.approach_dock: At approach point facing dock
+2020-12-02 18:37|appr_dock.py.main: Finished
+2020-12-02 18:37|findDock.py.main: Started
+2020-12-02 18:37|findDock.py.main: Starting findDock() at 18:37:32
+2020-12-02 18:38|findDock.py.main: Finished
+2020-12-02 18:38|findDock.py.main: Started
+2020-12-02 18:38|findDock.py.main: Starting findDock() at 18:38:36
+2020-12-02 18:39|findDock.py.main: Finished
+2020-12-02 18:39|findDock.py.main: Started
+2020-12-02 18:39|findDock.py.main: Starting findDock() at 18:39:48
+2020-12-02 18:39|findDock.py.main: Finished
+2020-12-02 18:40|findDock.py.main: Started
+2020-12-02 18:40|findDock.py.main: Starting findDock() at 18:40:04
+2020-12-02 18:40|findDock.py.main: Finished
+2020-12-02 18:40|findDock.py.main: Started
+2020-12-02 18:40|findDock.py.main: Starting findDock() at 18:40:29
+2020-12-02 18:41|findDock.py.main: Finished
+2020-12-02 18:41|findDock.py.main: Started
+2020-12-02 18:41|findDock.py.main: Starting findDock() at 18:41:32
+2020-12-02 18:42|findDock.py.main: Finished
+2020-12-02 18:43|findDock.py.main: Started
+2020-12-02 18:43|findDock.py.main: Starting findDock() at 18:43:36
+2020-12-02 18:44|findDock.py.main: Finished
+2020-12-03 14:24|findDock.py.main: Started
+2020-12-03 14:24|findDock.py.main: Starting findDock() at 14:24:02
+2020-12-03 14:24|findDock.py.main: findDock() reports success
+2020-12-03 14:24|findDock.py.main: Finished
+2020-12-03 14:35|findDock.py.main: Started
+2020-12-03 14:35|findDock.py.main: Starting findDock() at 14:35:40
+2020-12-03 14:50|findDock.py.main: findDock() reports failure
+2020-12-03 14:50|findDock.py.main: Finished
+2020-12-05 20:00|Started
+2020-12-05 20:01|Exit
+2020-12-15 22:49|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-15 22:49|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-15 22:50|/home/pi/Carl/plib/imulog.py.main: Started
+2020-12-15 22:56|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-15 22:56|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-15 22:56|/home/pi/Carl/plib/imulog.py.main: Started
+2020-12-16 09:17|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-16 09:17|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-16 09:17|/home/pi/Carl/plib/imulog.py.main: Started
+2020-12-17 16:14|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-17 16:14|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-17 16:15|/home/pi/Carl/plib/imulog.py.main: Started
+2020-12-17 20:23|Starting backAlittleTest.py
+2020-12-17 20:31|/home/pi/Carl/plib/juicer.py.main: Started
+2020-12-17 20:31|/home/pi/Carl/plib/wheellog.py.main: Started
+2020-12-17 20:32|/home/pi/Carl/plib/imulog.py.main: Started
