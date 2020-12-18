@@ -194,7 +194,8 @@ def findDock(egpg):
 
         image1 = camUtils.captureOCV()
         image = camUtils.fixTiltOCV(image1)
-        if viewFlag: cv2.imshow("Corrected View at heading: {:.0f} degrees".format(currentHeading),image)
+        if viewFlag:
+            cv2.imshow("Corrected View at heading: {:.0f} degrees".format(currentHeading),image)
 
         # mask off the top of image - no LEDs up there
         topMasked = topMask(image)
@@ -389,9 +390,8 @@ def navToStagingPoint(egpg,ds,tp):
 
 
 # MAIN
-
+@runLog.logRun
 def main():
-    if Carl: runLog.logger.info("Started")
     try:
         egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
         ds = myDistSensor.init(egpg)
@@ -411,7 +411,8 @@ def main():
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         strToLog ="Starting findDock() at {}".format(timeStrNow)
         print(strToLog)
-        runLog.logger.info(strToLog)
+#        runLog.logger.info(strToLog)
+        runLog.entry(strToLog)
         if verbose: speak.say(strToLog)
 
         foundDock = findDock(egpg)
@@ -420,21 +421,27 @@ def main():
         timeStrNow = dtNow.strftime("%H:%M:%S")[:8]
         if foundDock:
            print("findDock() reports success at {}".format(timeStrNow))
+           alert = "findDock() reports success"
+           speak.say(alert)
+           runLog.entry(alert)
            # cv2.waitKey(0)
+
+           """
            stagedForDocking = navToStagingPoint(egpg,ds,tp)
            if stagedForDocking == False:
                strToLog = "navToStagingPoint() reports failure at {}".format(timeStrNow)
                print(strToLog)
                if verbose:
                    speak.say(strToLog)
-                   runLog.logger.info(strToLog)
+                   runLog.entry(strToLog)
+           """
         else:
            strToLog = "findDock() reports failure at {}".format(timeStrNow)
            print(strToLog)
+           runLog.entry("findDock() reports failure")
            if verbose:
                speak.say(strToLog)
-               runLog.logger.info(strToLog)
-           stagedForDocking = False
+           # stagedForDocking = False
 
 
     except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
@@ -442,7 +449,6 @@ def main():
             print("\n*** Ctrl-C detected - Finishing up")
             sleep(1)
     if (egpg != None): egpg.stop()
-    if Carl: runLog.logger.info("Finished")
     sleep(1)
 
 
