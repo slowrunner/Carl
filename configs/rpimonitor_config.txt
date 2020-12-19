@@ -87,6 +87,10 @@ Bookmark Page
 Click Options, click autorefresh this page
 
 
+=== to see rpi-monitor log (default is /dev/null so may not exist)
+tail /var/log/rpimonitor.log
+
+
 === to see RPI-Monitor collected Battery voltage database rows
 
 https://oss.oetiker.ch/rrdtool/index.en.html
