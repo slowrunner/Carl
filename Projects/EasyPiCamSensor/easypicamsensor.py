@@ -78,9 +78,12 @@ color_hsv = ( ( 0 , 0 , 0 , "Black"),
               ( 0 , 0 ,100, "White") )
 
 def normalize_0_to_255(val):
-    n = val/2.55  # (value div 255) times 100
-    if n<0: n = 0.0
-    if n>100: n = 100.0
+    if val >= 255:
+        n = 100.0
+    if val < 0: 
+        n = 0.0
+    else:
+        n = val/2.55  # (value div 255) times 100
     return n
 
 def nearest_color(query, subjects=color_rgb ):
@@ -232,6 +235,7 @@ class PiGestureStream:
         self.thread.daemon = True
         self.thread.start()
         sleep(5)  # let camera warm up
+        self.camera.exposure_mode = 'off'
         return self
 
     def update(self):
