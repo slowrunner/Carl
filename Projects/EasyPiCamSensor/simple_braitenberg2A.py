@@ -117,9 +117,9 @@ def main():
                 print_w_date_time(alert)
 
                 if left_light > right_light:
-                    alert = "left"
+                    alert = "turning right"
                 else:
-                    alert = "right"
+                    alert = "turning left"
                 print_w_date_time(alert)
                 print("\n")
 
