@@ -19,12 +19,10 @@
 from __future__ import print_function
 from __future__ import division
 
-# get EasyGoPiGo3.steer() that uses self.speed instead of self.NO_LIMIT_SPEED
-# import noinit_easygopigo3 as easygopigo3
 import easygopigo3
 from math import pi
 import time
-
+import sys
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 
