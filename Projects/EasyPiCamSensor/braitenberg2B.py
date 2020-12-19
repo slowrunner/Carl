@@ -5,7 +5,7 @@
 # USAGE:  ./braitenberg2B.py         Implements Braitenberg Vehicle 2b (with obstacle inhibition)
 #         ./braitenberg2B.py -h      Show help message and exit
 #         ./braitenberg2B.py -v      Robot provides spoken commentary on current stimulus and response
-#         ./braitenberg2B.py -g 2    Amplify light difference (default is 1.5)
+#         ./braitenberg2B.py -g 2    Amplify light difference (default is 1.0)
 #         ./braitenberg2B.py -s      Show image from PiCamera in window
 
 #          usage: braitenberg2B.py [-h] [-v] [-g GAIN] [-s]
@@ -13,7 +13,7 @@
 #          optional arguments:
 #            -h, --help                 show this help message and exit
 #            -v, --verbose              optional speak results
-#            -g GAIN, --gain GAIN       light difference amplification gain [1.5] 
+#            -g GAIN, --gain GAIN       light difference amplification gain [1.0] 
 #            -s, --show                 show image from PiCamera in window
 
 
@@ -30,7 +30,8 @@
 #         More light left -> right wheel turns faster -> turns towards the left, closer to the light
 
 #     This simulation implements a light difference amplification when optional gain > 1.0
-#         The default gain of 1.5 gave the most reliable light seeking success for my GoPiGo3
+#         For my GoPiGo3, the default gain of 1.0 gave a reliable light seeking behavior 
+#         that speeds up as it gets closer to the light
 
 #     The following rule is not part of the Vehicle 2B definition - Added for vehicle protection:
 #         If the vehicle is too close to an obstacle, all motion is inhibited.
@@ -50,7 +51,7 @@
 # CONFIGURATIONS:
 max_speed = 150    # speed when a light sensor reports maximum light (100)
 obstacle_limit_cm =  20  # stop completely if obstacle within limit distance
-stimulus_bias = 20  # add to both sides
+stimulus_bias = 0  # add to both sides
 
 # IMPORTS
 import sys
@@ -71,9 +72,11 @@ except:
     print("Please run: pip3 install espeakng")
     exit(1)
 try:
+    # requires an easygopigo3.py with corrected steer(l,r) method
     import easygopigo3
-except:
+except Exception as e:
     print("This program must be run on a GoPiGo3")
+    print(str(e))
     exit(1)
 
 import time
@@ -86,7 +89,7 @@ import matplotlib.image as mplimg
 # ARGUMENT PARSER (to add optional -v or --verbose to speak results using TTS
 ap = argparse.ArgumentParser()
 ap.add_argument("-v","--verbose", default=False, action='store_true',help="optional speak results")
-ap.add_argument("-g","--gain", default=1.5, type=float, help="light difference amplification gain [1.5]")
+ap.add_argument("-g","--gain", default=1.0, type=float, help="light difference amplification gain [1.0]")
 ap.add_argument("-s","--show", default=False, action='store_true',help="show PiCam image in window")
 args = vars(ap.parse_args())
 verbose = args['verbose']
