@@ -58,6 +58,9 @@ Python Requirements (Stock ModRobotics Rasbian_For_Robots):
   * on a ModRobotics GoPiGo3 with ModRobotics Distance Sensor
 ![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png?raw=true)
 
+- simple_braitenberg2A.py uses EasyPiCamSensor.light_left_right() to implement Braitenberg Vehicle 2a
+  that "dislikes light" (with obstacle inhibition)
+
 - face_the_light.py uses EasyPiCamSensor.light() and the GoPiGo3 robot to find and face brightest light source
 
 
