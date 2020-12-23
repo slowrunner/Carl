@@ -368,23 +368,34 @@ class PiGestureStream:
         return latch_motion_time,motion_x,motion_y
 
     def set_light_max(self):
+        debug=False
         try:
             npgimage = np.array(Image.fromarray(self.frame).convert('L'))
+            if debug:
+                pilimage = Image.fromarray(npgimage)
+                pilimage.save("grayscaled.jpg")
             pixMax = npgimage.max()
-            print ("Light Max: {}".format(pixMax))
+            if debug: print ("Light Max: {}".format(pixMax))
+            threshold = int(pixMax - 3)
             [r,c] = np.where(npgimage == pixMax)
+            if debug:
+                print("set_light_max(): {} points above threshold {}".format(np.size(r), threshold))
+                print("r:",r)
+                print("c:",c)
             ave_r = int(np.average(r))
             ave_c = int(np.average(c))
-            print("set_light_max(): brightest spot ({},{})".format(ave_r,ave_c))
+            if debug: print("set_light_max(): brightest spot ({},{})".format(ave_r,ave_c))
             width = npgimage.shape[1]
-            print("set_light_max(): image width:",width)
+            if debug: print("set_light_max(): image width:",width)
             h_angle_from_centerline = hAngle(ave_c, width, DEFAULT_H_FOV)
-            print("set_light_max(): angle to brightest spot {:.1f}".format(h_angle_from_centerline))
-            self._light_max_deg_val = (h_angle_from_centerline, pixMax)
+            if debug: print("set_light_max(): angle to brightest spot {:.1f}".format(h_angle_from_centerline))
+            max_intensity = normalize_0_to_255(pixMax)
+            if debug: print("set_light_max(): max_intensity: {:.1f}".format(max_intensity))
+            self._light_max_deg_val = (h_angle_from_centerline, max_intensity)
         except Exception as e:
             print("easypicamsensor.set_light_max(): {}".format(str(e)))
             traceback.print_exc()
-            self._light_max = 999
+            self._light_max_deg_val = (999,999)
 
 
     def get_light_max_ang_val(self):
@@ -499,7 +510,7 @@ def main():
     print("motion_dt_x_y() returns: {} {} {}".format(motion_dt, motion_x, motion_y))
     print("color() returns: {}".format(epcs.color()))
     h_angle, max_val =  epcs.max_ang_val()
-    print("max_ang_val() returns: {:.1f} degrees value: {} ".format(h_angle,max_val))
+    print("max_ang_val() returns: {:.1f} degrees value: {:.1f} ".format(h_angle,max_val))
     print("saved capture to {}".format(epcs.save_image_to_file()))
     print("\nDone")
 
