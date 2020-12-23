@@ -105,6 +105,39 @@ def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
     xAngle = np.rad2deg( np.arctan( abs(dCtr) / Base ))
     return (leftRight * xAngle)
 
+def crop_center(img,cropx,cropy):
+    # numpy image crop
+    # y,x,c = img.shape
+    # startx = x//2 - cropx//2
+    # starty = y//2 - cropy//2
+    # central_image = img[starty:starty+cropy, startx:startx+cropx, :]
+
+    # PIL image crop
+    w, h = img.size
+    left  = (w - cropx)/2
+    top   = (h - cropy)/2
+    right = (w + cropx)/2
+    bot   = (h + cropy)/2
+    central_image = img.crop((left, top, right, bot))
+
+    return central_image
+
+
+# PIL Image based
+def getrgb(channel):
+    '''
+    channel is a tuple containing each band.
+    Average each band and return as a tuple
+    Averages are cast into int as we don't need to be that precise
+    '''
+    rgb=[]
+    avgrgb=[] # average rgb
+    for i in range(3):
+        rgb.append(list(channel[i].getdata()))
+        avgrgb.append(int(sum(rgb[i])/len(rgb[i])))
+        # print ("avg rgb:{}".format(avgrgb[i]))
+    return (avgrgb[0],avgrgb[1],avgrgb[2])
+
 
 #------------ MY GESTURE DETECTOR ------------------------------------------------------------------
 # The analyse method of this class is run on every frame of video
@@ -283,26 +316,34 @@ class PiGestureStream:
         if self.thread is not None:
             self.thread.join()
 
-    def set_color(self,verbose=False):
+    def set_color(self,verbose=True):
         try:
             # image = self.stream.get_frame()
             image = self.frame
+            # numpy image array method
             h,w,rgb = image.shape
             center_pixel = tuple(image[ int(h/2), int(w/2) ])
             center_pixel_hsv = colorsys.rgb_to_hsv(*center_pixel)
             center_pixel_hsv = (int(center_pixel_hsv[0]*360), int(center_pixel_hsv[1]*100), center_pixel_hsv[2])
             if verbose: print("**** center_pixel - rgb:{} hsv: {}".format(center_pixel, center_pixel_hsv))
-            # print("nearest hsv color", nearest_color(center_pixel_hsv,color_hsv))
+            if verbose: print("nearest hsv color", nearest_color(center_pixel_hsv,color_hsv))
             # self.mutex.acquire()
             self._color = nearest_color(center_pixel)
-            # print("nearest rgb color", self._color)
-            # print("center_pixel[:]:",center_pixel[:])
+            if verbose: print("nearest rgb color", self._color)
+            if verbose: print("center_pixel[:]:",center_pixel[:])
 
+            # PIL image array method
+            pilimage = Image.fromarray(np.uint8(image)).convert('RGB')
+            central_pixs = crop_center(pilimage,6,6)      # get a 7x7 portion from the image
+            central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
+            ave_central_rgb = getrgb(central_rgb_channels)
+            if verbose: print("ave_central_rgb:",ave_central_rgb)
+            central_color = nearest_color(ave_central_rgb)
+            if verbose: print("nearest central color",central_color)
+            self._color = central_color
         except Exception as e:
             print("easypicamsensor.set_color(): {}".format(str(e)))
-            pass
-        finally:
-            # self.mutex.release()
+            traceback.print_exc()
             pass
 
     def get_color(self):
