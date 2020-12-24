@@ -39,6 +39,7 @@ import colorsys
 from PIL import Image, ImageOps
 import io
 import traceback
+import csv
 
 PROG_NAME = os.path.basename(__file__)
 
@@ -77,6 +78,25 @@ color_hsv = ( ( 0 , 0 , 0 , "Black"),
               (300,100, 50, "Violet"),
               ( 0 , 0 , 50, "Gray"),
               ( 0 , 0 ,100, "White") )
+
+# DEFAULT_COLORS by RGB (0-255) and HSV (H:0-359.9 SV:0.0-100 ) values
+# [
+# ['color', (R,G, B), (h s v)],
+# ...
+# ]
+DEFAULT_COLORS_RGB_HSV = [
+['Black' , ( 55,  48,  65), (  0,   0,   0)],
+['Brown' , (145,  88,  55), ( 30, 100,  59)],
+['Red'   , (190,  35,  55), (  0, 100, 100)],
+['Orange', (160,  85,  70), ( 30,  60,  90)],
+['Yellow', (140, 120,   0), ( 60, 100, 100)],
+['Green' , ( 80, 145,  50), (120, 100,  50)],
+['Blue'  , (  0,  90, 200), (240, 100, 100)],
+['Violet', (120,  80, 140), (300, 100,  50)],
+['White' , (110, 110, 140), (  0,   0, 100)]
+]
+
+colors_rgb_hsv = []
 
 def normalize_0_to_255(val):
     if val >= 255:
@@ -316,7 +336,7 @@ class PiGestureStream:
         if self.thread is not None:
             self.thread.join()
 
-    def set_color(self,verbose=True):
+    def set_color(self,verbose=False):
         try:
             # image = self.stream.get_frame()
             image = self.frame
@@ -334,7 +354,7 @@ class PiGestureStream:
 
             # PIL image array method
             pilimage = Image.fromarray(np.uint8(image)).convert('RGB')
-            central_pixs = crop_center(pilimage,6,6)      # get a 7x7 portion from the image
+            central_pixs = crop_center(pilimage,6,6)      # get a 6x6 portion from the image
             central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
             ave_central_rgb = getrgb(central_rgb_channels)
             if verbose: print("ave_central_rgb:",ave_central_rgb)
@@ -462,7 +482,8 @@ class EasyPiCamSensor():
 
         self._dominant_colors = []
         self.verbose = verbose
-
+        self.colors_rgb_hsv = []
+        self.read_colors()
         if self.verbose: print("Initializing PiCam Video Stream")
         self.stream = PiGestureStream(verbose=verbose)
         self.stream.start()
@@ -526,8 +547,49 @@ class EasyPiCamSensor():
         return image
 
 
+    def save_colors(self,data=None,path='config_easypicamsensor.csv'):
+        """
+        Write data to a CSV file path
+        """
+        if data is None: data = self.colors_rgb_hsv
 
+        with open(path, "w") as csv_file:
+            writer = csv.writer(csv_file, delimiter=',')
+            for line in data:
+                writer.writerow(line)
 
+    def read_colors(self,data=None,path='config_easypicamsensor.csv'):
+        '''
+        read color definition from CSV file
+        '''
+        if data is None: data = self.colors_rgb_hsv
+
+        try:
+            with open(path,"r") as csv_file:
+                reader = csv.reader(csv_file,delimiter=',')
+                for row in reader:
+                    self.colors_rgb_hsv.append([row[0],eval(row[1]),eval(row[2])])
+        except:
+            print("config_easypicamsensor.csv not found - using DEFAULT_COLORS_RGB_HSV.")
+            self.colors_rgb_hsv = DEFAULT_COLORS_RGB_HSV
+
+    def print_colors(self,data=None):
+        """
+        print color_rgb_hsv data for inclusion as new DEFAULT_COLORS_RGB_HSV
+        """
+        if data is None: 
+            data = self.colors_rgb_hsv
+            print('colors_rgb_hsv = [')
+        i = 1
+        rows = len(data)
+        for row in data:
+            print("    [{:<8s},({:>3.0f},{:>3.0f},{:>3.0f}),({:>3.0f},{:>3.0f},{:>3.0f})]".format(
+                "'"+str(row[0])+"'",row[1][0],row[1][1],row[1][2],
+                                        row[2][0],row[2][1],row[2][2] ),end='')
+            if i < rows:
+                print(",")   # and a newline
+            i += 1
+        print("]\n")
 
 
 # ------- TEST MAIN -----
@@ -543,6 +605,12 @@ def main():
     except KeyboardInterrupt:
         print("\n^C Detected, Exiting")
         exit(0)
+
+    print("colors:")
+    epcs.print_colors()
+
+    print("saving colors to config_easypicamsensor.csv.test")
+    epcs.save_colors(path="config_easypicamsensor.csv.test")
 
     print("light() returns: {:0.1f}".format(epcs.light()))
     light_left,light_right = epcs.light_left_right()
