@@ -54,6 +54,21 @@ QUEUE_SIZE = 3  # (10) number of consecutive frames to analyse for motion
 THRESHOLD = 1.0  # (4.0) minimum average motion required
 
 
+# ===== Utility Methods ====
+
+def normalize_0_to_255(val):
+    if val >= 255:
+        n = 100.0
+    if val < 0: 
+        n = 0.0
+    else:
+        n = val/2.55  # (value div 255) times 100
+    return n
+
+
+
+
+# ===== numpy image based color code ======
 
 # colors from https://github.com/slowrunner/Carl/blob/master/Projects/EasyPiCamSensor/Target_Colors.pdf
 # printed on matte paper captured in diffuse sunlight through window.
@@ -81,6 +96,28 @@ color_hsv = ( ( 0 , 0 , 0 , "Black"),
               ( 0 , 0 , 50, "Gray"),
               ( 0 , 0 ,100, "White") )
 
+def nearest_color(query, subjects=color_rgb ):
+    estimate = min( subjects  , key = lambda subject: sum( (s - q) ** 2 for s, q in zip( subject, query ) ) )
+    return estimate[3]
+
+
+
+def dominant_color(image):
+    print("not implemented yet")
+
+
+# hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV)
+#             returns horizontal angle off center in degrees
+def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
+    Base = (hRes/2) / np.tan( np.deg2rad( hFOV/2 ))
+    dCtr = targetPixel - (hRes // 2)
+    leftRight = np.sign(dCtr)    # negative = left, positive = right of center
+    xAngle = np.rad2deg( np.arctan( abs(dCtr) / Base ))
+    return (leftRight * xAngle)
+
+
+#  ====== PIL Image based color code ======
+
 # DEFAULT_COLORS by RGB (0-255) and HSV (H:0-359.9 SV:0.0-100 ) values
 # [
 # ['color', (R,G, B), (h s v)],
@@ -100,48 +137,6 @@ DEFAULT_COLORS_RGB_HSV = [
 
 colors_rgb_hsv = []
 
-def normalize_0_to_255(val):
-    if val >= 255:
-        n = 100.0
-    if val < 0: 
-        n = 0.0
-    else:
-        n = val/2.55  # (value div 255) times 100
-    return n
-
-def nearest_color(query, subjects=color_rgb ):
-    estimate = min( subjects  , key = lambda subject: sum( (s - q) ** 2 for s, q in zip( subject, query ) ) )
-    return estimate[3]
-
-
-def distance2color(incolor,basecolor):
-    '''
-    calculate the distance between one rgb tuple and another one
-    '''
-    return math.sqrt((incolor[0] - basecolor[0])**2 + (incolor[1] - basecolor[1])**2 + (incolor[2] - basecolor[2])**2)
-
-def distance2hsv(incolor,basecolor):
-    '''
-    calculate the distance between one hue and another hue
-    '''
-    diff = abs( (incolor[0] - basecolor[0]) )
-
-    # print ("hue difference is {}".format(diff))
-    return (diff)
-
-def dominant_color(image):
-    print("not implemented yet")
-
-
-# hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV)
-#             returns horizontal angle off center in degrees
-def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
-    Base = (hRes/2) / np.tan( np.deg2rad( hFOV/2 ))
-    dCtr = targetPixel - (hRes // 2)
-    leftRight = np.sign(dCtr)    # negative = left, positive = right of center
-    xAngle = np.rad2deg( np.arctan( abs(dCtr) / Base ))
-    return (leftRight * xAngle)
-
 def crop_center(img,cropx,cropy):
     # numpy image crop
     # y,x,c = img.shape
@@ -160,7 +155,8 @@ def crop_center(img,cropx,cropy):
     return central_image
 
 
-# PIL Image based
+
+
 def getrgb(channel):
     '''
     channel is a tuple containing each band.
@@ -174,6 +170,89 @@ def getrgb(channel):
         avgrgb.append(int(sum(rgb[i])/len(rgb[i])))
         # print ("avg rgb:{}".format(avgrgb[i]))
     return (avgrgb[0],avgrgb[1],avgrgb[2])
+
+def gethsv(channel):
+
+    hsv=[]
+    avghsv=[] #average hsv
+    for i in range(3):
+        hsv.append(list(channel[i].getdata()))
+        # avghsv.append(sum(hsv[i])/(255.0*len(hsv[i])))
+        if i == 0:
+            ave = 360 * (sum(hsv[i])/(255.0*len(hsv[i])))
+        else:
+            ave = 100.0 * (sum(hsv[i])/(255.0*len(hsv[i])))
+        avghsv.append( ave )
+    print ("gethsv: avg hsv: ({}, {}, {})".format(avghsv[0]),avghsv[1],avghsv[2])
+    return ((avghsv[0],avghsv[1],avghsv[2]))
+
+
+def distance2rgb(incolor,basecolor):
+    '''
+    calculate the distance between one rgb tuple and another one
+    '''
+    return math.sqrt((incolor[0] - basecolor[0])**2 + (incolor[1] - basecolor[1])**2 + (incolor[2] - basecolor[2])**2)
+
+
+def distance2hsv(incolor,basecolor):
+    '''
+    calculate the distance between one hue and another hue
+    problem is white, black, and red all have hue near 0/360
+        white = 0, 100,   0
+        black = 0,   0,   0
+        red   = 0, 100, 100
+    When hue is near 0/360, use distance from all three values
+    '''
+    problem_threshold_lower = 5  # if hue is less than 5 or greater than 350-5 (355)
+    problem_threshold_upper = 360 - problem_threshold_lower 
+    if (incolor[0] < problem_threshold_lower) or (incolor[0] > problem_threshold_upper) :
+        diff = math.sqrt((incolor[0] - basecolor[0])**2 + (incolor[1] - basecolor[1])**2 + (incolor[2] - basecolor[2])**2)
+    else:
+        diff = abs( (incolor[0] - basecolor[0]) )
+
+    print ("distance2hsv(): color difference is {}".format(diff))
+    return (diff)
+
+def nearest_rgbcolor_dist(inrgb,color_table=DEFAULT_COLORS_RGB_HSV):
+    '''
+    return as string name of, and distance from, the closest known color
+    based the RGB values in the known color table
+    inrgb is an average RGB tuple
+    '''
+
+    studycolor = []  # list of all distances from known colors
+    for color in color_table:
+        colorBeingEvaluated = color[0]
+        rgbBeingEvaluated = color[1]   # rgb tuple
+        distance = distance2rgb(incolor,rgbBeingEvaluated)
+        print("nearest_rgbcolor_dist(): color {} distance {}".format(colorBeingEvaluated, distance))
+        studycolor.append(distance)
+    color_table_estimate = color_table[studycolor.index(min(studycolor))]
+    color_estimate = color_table_estimate[0]
+    color_estimate_distance = min(studycolor)
+    print("nearest_rgbcolor_dist(): color estimate: {} distance: {}".format(color_estimate,color_estimate_distance))
+
+    return color_estimate,color_estimate_distance
+
+def nearest_hsvcolor_dist(inhsv,color_table=DEFAULT_COLORS_RGB_HSV):
+    '''
+    returns a string name of, and distance from, the closest known color 
+    based on hsv distance (hue if for h not near 0/360, and whole hsv near 0/360)
+    inhsv is a HSV tuple
+    '''
+    studycolor = []  # list of all distances from known colors
+    for color in color_table:
+        colorBeingEvaluated = color[0]
+        hsvBeingEvaluated = color[2]   # hsv tuple
+        distance = distance2hsv(inhsv,hsvBeingEvaluated)
+        print("nearest_hsvcolor_dist(): color {} distance {}".format(colorBeingEvaluated, distance))
+        studycolor.append(distance)
+    color_table_estimate = color_table[studycolor.index(min(studycolor))]
+    color_estimate = color_table_estimate[0]
+    color_estimate_distance = min(studycolor)
+    print("nearest_hsvcolor_dist(): color estimate: {} distance: {}".format(color_estimate,color_estimate_distance))
+
+    return color_estimate,color_estimate_distance
 
 
 #------------ MY GESTURE DETECTOR ------------------------------------------------------------------
