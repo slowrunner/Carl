@@ -40,6 +40,8 @@ from PIL import Image, ImageOps
 import io
 import traceback
 import csv
+import json
+
 
 PROG_NAME = os.path.basename(__file__)
 
@@ -111,6 +113,21 @@ def nearest_color(query, subjects=color_rgb ):
     estimate = min( subjects  , key = lambda subject: sum( (s - q) ** 2 for s, q in zip( subject, query ) ) )
     return estimate[3]
 
+
+def distance2color(incolor,basecolor):
+    '''
+    calculate the distance between one rgb tuple and another one
+    '''
+    return math.sqrt((incolor[0] - basecolor[0])**2 + (incolor[1] - basecolor[1])**2 + (incolor[2] - basecolor[2])**2)
+
+def distance2hsv(incolor,basecolor):
+    '''
+    calculate the distance between one hue and another hue
+    '''
+    diff = abs( (incolor[0] - basecolor[0]) )
+
+    # print ("hue difference is {}".format(diff))
+    return (diff)
 
 def dominant_color(image):
     print("not implemented yet")
@@ -547,31 +564,37 @@ class EasyPiCamSensor():
         return image
 
 
-    def save_colors(self,data=None,path='config_easypicamsensor.csv'):
+    def save_colors(self,data=None,path='config_easypicamsensor.json'):
         """
         Write data to a CSV file path
         """
         if data is None: data = self.colors_rgb_hsv
 
-        with open(path, "w") as csv_file:
-            writer = csv.writer(csv_file, delimiter=',')
-            for line in data:
-                writer.writerow(line)
+        # with open(path, "w") as csv_file:
+        #     writer = csv.writer(csv_file, delimiter=',')
+        #     for line in data:
+        #         writer.writerow(line)
 
-    def read_colors(self,data=None,path='config_easypicamsensor.csv'):
+        self.save_config("colors_rgb_hsv",data,path)
+
+
+    def read_colors(self,dataname="colors_rgb_hsv",path='config_easypicamsensor.json'):
         '''
-        read color definition from CSV file
+        read color definition from config file
         '''
-        if data is None: data = self.colors_rgb_hsv
 
         try:
-            with open(path,"r") as csv_file:
-                reader = csv.reader(csv_file,delimiter=',')
-                for row in reader:
-                    self.colors_rgb_hsv.append([row[0],eval(row[1]),eval(row[2])])
-        except:
-            print("config_easypicamsensor.csv not found - using DEFAULT_COLORS_RGB_HSV.")
+            self.colors_rgb_hsv = self.get_config(dataname,path)
+        except Exception as e:
+            print("read_colors() Exception:")
+            print(str(e))
+            traceback.print_exc()
+        if  not self.colors_rgb_hsv:
+            print("{} not found in {}".format(dataname,path))
+            print("Using DEFAULT_COLORS_RGB_HSV.")
             self.colors_rgb_hsv = DEFAULT_COLORS_RGB_HSV
+
+
 
     def print_colors(self,data=None):
         """
@@ -580,6 +603,9 @@ class EasyPiCamSensor():
         if data is None: 
             data = self.colors_rgb_hsv
             print('colors_rgb_hsv = [')
+        else:
+            print('[')
+
         i = 1
         rows = len(data)
         for row in data:
@@ -590,6 +616,31 @@ class EasyPiCamSensor():
                 print(",")   # and a newline
             i += 1
         print("]\n")
+
+    def save_config(self,dataname, datavalue, path='config_easypicamsensor.json'):
+        lConfigData = {}
+        try:
+            lConfigData = self.get_config()
+            if lConfigData == None:
+               lConfigData = {}
+            lConfigData[dataname] = datavalue
+
+            with open(path,'w') as outfile:
+                json.dump( lConfigData, outfile )
+        except:
+            return False
+        return True
+
+    def get_config(self,dataname=None,path='config_easypicamsensor.json'):
+        try:
+            with open(path,'r') as infile:
+                lConfigData = json.load(infile)
+                if (dataname == None):
+                    return lConfigData
+                else:
+                    return lConfigData[dataname]
+        except:
+            return None
 
 
 # ------- TEST MAIN -----
@@ -609,8 +660,14 @@ def main():
     print("colors:")
     epcs.print_colors()
 
-    print("saving colors to config_easypicamsensor.csv.test")
-    epcs.save_colors(path="config_easypicamsensor.csv.test")
+    print("saving colors to config_easypicamsensor.json.test")
+    epcs.save_colors(path="config_easypicamsensor.json.test")
+
+    print("reading colors from config_easypicamsensor.json.test")
+    epcs.read_colors(path="config_easypicamsensor.json.test")
+    print("colors:")
+    epcs.print_colors()
+
 
     print("light() returns: {:0.1f}".format(epcs.light()))
     light_left,light_right = epcs.light_left_right()
