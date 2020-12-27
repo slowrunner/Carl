@@ -9,10 +9,13 @@
 
 # Talks using espeak-ng via the espeakng Python module
 
+import traceback
+
 try:
     import easypicamsensor
 except:
     print("Could not locate easypicamsensor.py")
+    traceback.print_exc()
     exit(1)
 
 try:
@@ -33,24 +36,25 @@ def main():
     epcs = easypicamsensor.EasyPiCamSensor()  # creates 320x240 10FPS sensor
     tts= espeakng.Speaker()   # set up default text-to-speech object
 
-    current = epcs.color()   # get average image light intensity now
+    current = epcs.color()   # get initial color
     last = current
     print_w_date_time(current)
 
     while  True:
         try:
-            # current = epcs.color(verbose=True)
-            current = epcs.color()
+            # current = epcs.color()  # returns only the color
+            current,dist,method = epcs.color_dist_method()  # returns the color, distance from nearest color, and method
             if (current != last):
                 # new color estimate
                 last = current
-
+                alert = "New color: {} dist: {} method: {}".format(current,dist,method)
+                print_w_date_time(alert)
                 alert = "Is that {}?".format(current)
                 print_w_date_time(alert)
                 tts.say(alert)
 
 
-            time.sleep(1)    # wait between checks
+            time.sleep(2)    # wait between checks
         except KeyboardInterrupt:
             alert = "Sure.  Exiting stage right."
             print("\n")  # move to new line after ^C

@@ -222,7 +222,6 @@ def nearest_rgbcolor_dist(inrgb,color_table=DEFAULT_COLORS_RGB_HSV):
     based the RGB values in the known color table
     inrgb is an average RGB tuple
     '''
-    _debug=True
 
 
     studycolor = []  # list of all distances from known colors
@@ -248,7 +247,6 @@ def nearest_hsvcolor_dist(inhsv,color_table=DEFAULT_COLORS_RGB_HSV):
     based on hsv distance (hue if for h not near 0/360, and whole hsv near 0/360)
     inhsv is a HSV tuple
     '''
-    _debug=True
 
     studycolor = []  # list of all distances from known colors
     for color in color_table:
@@ -384,6 +382,10 @@ class PiGestureStream:
         self.pilframe = None
         self.stopped = False
         self._color = "unknown"
+        self._color_rgb = "unknown"
+        self._color_dist_rgb = "999"
+        self._color_hsv = "unknown"
+        self._color_dist_hsv = 999
         self._light_ave_intensity = 999
         self._light_left_ave_intensity = 999
         self._light_right_ave_intensity = 999
@@ -476,6 +478,8 @@ class PiGestureStream:
             central_color = nearest_color(ave_central_rgb)
             if _debug: print("nearest central color",central_color)
             pil_nearest_rgb_color, pil_nearest_rgb_dist = nearest_rgbcolor_dist(ave_central_rgb,self.colors_rgb_hsv)
+            self._color_rgb = pil_nearest_rgb_color
+            self._color_dist_rgb = pil_nearest_rgb_dist
 
             central_hsv_channels = central_pixs.convert('HSV').split()
             ave_central_hsv = get_ave_hsv(central_hsv_channels)
@@ -483,22 +487,8 @@ class PiGestureStream:
             central_color = nearest_color(ave_central_hsv,color_hsv)
             if _debug: print("nearest central color",central_color)
             pil_nearest_hsv_color, pil_nearest_hsv_dist = nearest_hsvcolor_dist(ave_central_hsv,self.colors_rgb_hsv)
-
-
-            # Choose color estimate
-            if pil_nearest_rgb_color == pil_nearest_hsv_color:
-                self._color = pil_nearest_rgb_color
-                self._color_dist = pil_nearest_rgb_dist
-                self._color_method = 'Both'
-            elif pil_nearest_rgb_dist <= (pil_nearest_hsv_dist * 1.5):
-                self._color = pil_nearest_rgb_color
-                self._color_dist = pil_nearest_rgb_dist
-                self._color_method = 'RGB'
-            else:
-                self._color = pil_nearest_hsv_color
-                self._color_dist = pil_nearest_hsv_dist
-                self._color_method = 'HSV'
-
+            self._color_hsv = pil_nearest_hsv_color
+            self._color_dist_hsv = pil_nearest_hsv_dist
 
         except Exception as e:
             print("easypicamsensor.set_color(): {}".format(str(e)))
@@ -507,23 +497,28 @@ class PiGestureStream:
 
     def get_color(self):
         try:
-            self.mutex.acquire()
-            color = self._color
-            self.mutex.release()
+            color = self._color_rgb
         except Exception as e:
             print("easypicamsensor.get_color() Exception:" + str(e))
 
         return color
 
-    def get_color_dist_method(self):
-        try:
-            self.mutex.acquire()
-            color  = self._color
-            dist   = self._color_dist
-            method = self._color_method
-            self.mutex.release()
-        except Exception as e:
-            print("easypicamsensor.get_color_dist_method() Exception:" + str(e))
+    def get_color_dist_method(self,method="RGB"):
+        if (method == "RGB"):
+            color  = self._color_rgb
+            dist   = self._color_dist_rgb
+        elif (method == "HSV"):
+            color  = self._color_hsv
+            dist   = self._color_dist_hsv
+        else:    # method == "BEST" or anything but {"RGB" | "HSV"}
+            if (self._color_dist_rgb >= self._color_dist_hsv):
+                color  = self._color_rgb
+                dist   = self._color_dist_rgb
+                method = "RGB"
+            else:
+                color  = self._color_hsv
+                dist   = self._color_dist_hsv
+                method = "HSV"
 
         return color,dist,method
 
@@ -531,7 +526,7 @@ class PiGestureStream:
         try:
             image = self.npframe
             pixAverage = np.average(image[...,1])
-            # print ("Light Meter pixAverage: {:.1f}".format(pixAverage))
+            if _debug: print ("Light Meter pixAverage: {:.1f}".format(pixAverage))
             self._light_ave_intensity = normalize_0_to_255(pixAverage)
         except Exception as e:
             print("easypicamsensor.light(): {}".format(str(e)))
@@ -540,9 +535,7 @@ class PiGestureStream:
 
     def get_light(self):
         try:
-            self.mutex.acquire()
             light = self._light_ave_intensity
-            self.mutex.release()
         except Exception as e:
             print("easypicamsensor.get_light() Exception:" + str(e))
         return light
@@ -560,27 +553,16 @@ class PiGestureStream:
             pass
 
     def get_light_left_right(self):
-        try:
-            self.mutex.acquire()
-            light_left = self._light_left_ave_intensity
-            light_right = self._light_right_ave_intensity
-            self.mutex.release()
-        except Exception as e:
-            print("easypicamsensor.get_light_left_right() Exception:" + str(e))
+        light_left = self._light_left_ave_intensity
+        light_right = self._light_right_ave_intensity
         return light_left,light_right
 
     # read current latched motion state, and reset to none
     def get_motion_dt_x_y(self):
-        try:
-            self.mutex.acquire()
-            latch_motion_time,motion_x,motion_y = self.gesture_detector.get_motion_latch()
-            self.mutex.release()
-        except Exception as e:
-            print("easypicamsensor.get_motion_dt_x_y() Exception:" + str(e))
+        latch_motion_time,motion_x,motion_y = self.gesture_detector.get_motion_latch()
         return latch_motion_time,motion_x,motion_y
 
     def set_light_max(self):
-        debug=_debug
         try:
             npgimage = np.array(Image.fromarray(self.npframe).convert('L'))
             if _debug:
@@ -611,51 +593,80 @@ class PiGestureStream:
 
 
     def get_light_max_ang_val(self):
-        try:
-            hangle_deg,max_val = self._light_max_deg_val
-        except Exception as e:
-            print("easypicamsensor.get_light_max() Exception:" + str(e))
-            hangle_deg = 999
-            max_val = 999
+        hangle_deg,max_val = self._light_max_deg_val
         return hangle_deg,max_val
 
     def learn_color(self,color_name):
         _debug = True
-        pilimage = self.pilframe
-        central_pixs = crop_center(pilimage,6,6)      # get a 6x6 portion from the image
-        central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
-        ave_central_rgb = get_ave_rgb(central_rgb_channels)
-        if _debug: print("ave_central_rgb:",ave_central_rgb)
+        try:
+            pilimage = self.pilframe
+            central_pixs = crop_center(pilimage,6,6)      # get a 6x6 portion from the image
+            central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
+            ave_central_rgb = get_ave_rgb(central_rgb_channels)
+            if _debug: print("ave_central_rgb:",ave_central_rgb)
 
-        central_hsv_channels = central_pixs.convert('HSV').split()
-        ave_central_hsv = get_ave_hsv(central_hsv_channels)
-        if _debug: print("ave_central_hsv: ({:.3f},{:.3f},{:.3f})".format(ave_central_hsv[0],ave_central_hsv[1],ave_central_hsv[2]))
+            central_hsv_channels = central_pixs.convert('HSV').split()
+            ave_central_hsv = get_ave_hsv(central_hsv_channels)
+            if _debug: print("ave_central_hsv: ({:.3f},{:.3f},{:.3f})".format(ave_central_hsv[0],ave_central_hsv[1],ave_central_hsv[2]))
 
-        status = None
-        for i in range(len(self.colors_rgb_hsv)):
-            if color_name in self.colors_rgb_hsv[i]:
-                old_color = self.colors_rgb_hsv[i]
+            status = None
+            for i in range(len(self.colors_rgb_hsv)):
+                if color_name in self.colors_rgb_hsv[i]:
+                    old_color = self.colors_rgb_hsv[i]
+                    new_color = [color_name, ave_central_rgb, ave_central_hsv]
+                    self.colors_rgb_hsv[i] = new_color
+                    status = "Replaced {}".format(color_name)
+
+            if status is None:
+                old_color = []
                 new_color = [color_name, ave_central_rgb, ave_central_hsv]
-                self.colors_rgb_hsv[i] = new_color
-                status = "Replaced {}".format(color_name)
+                self.colors_rgb_hsv.append(new_color)
+                status = "Added    {}".format(color_name)
 
-        if status is None:
-            old_color = []
-            new_color = [color_name, ave_central_rgb, ave_central_hsv]
-            self.colors_rgb_hsv.append(new_color)
-            status = "Added    {}".format(color_name)
-
-        if _debug:
-            if old_color:
-                print("learn_color({}) replaced:".format(color_name))
-                print("       {}".format(old_color))
-                print("  with {}".format(new_color))
-            else:
-                print("learn_color({}) added:".format(color_name))
-                print("       {}".format(new_color))
-            print("colors_rgb_hsv:",self.colors_rgb_hsv)
-
+            if _debug:
+                if old_color:
+                    print("learn_color({}) replaced:".format(color_name))
+                    print("       {}".format(old_color))
+                    print("  with {}".format(new_color))
+                else:
+                    print("learn_color({}) added:".format(color_name))
+                    print("       {}".format(new_color))
+                print("colors_rgb_hsv:",self.colors_rgb_hsv)
+        except Exception as e:
+            print("learn_color({}): Exception: {}".format(color_name,str(e)))
+            traceback.print_exc()
         return status
+
+    def delete_color(self,color_name):
+        _debug = True
+
+        try:
+            old_color = None
+            status = "Color {} not found".format(color_name)
+            for i in range(len(self.colors_rgb_hsv)):
+                if color_name in self.colors_rgb_hsv[i]:
+                    old_color = self.colors_rgb_hsv[i]
+                    del self.colors_rgb_hsv[i]
+                    status = "Deleted {}".format(color_name)
+
+            if _debug:
+                if old_color:
+                    print("delete_color({}) deleted {}".format(color_name,old_color))
+        except Exception as e:
+            status = "delete_color({}): Exception: {}".format(color_name,str(e))
+            print(status)
+        return status
+
+    def known_color(self,color_name):
+        found = False
+        try:
+            for i in range(len(self.colors_rgb_hsv)):
+                if color_name in self.colors_rgb_hsv[i]:
+                    found = True
+        except Exception as e:
+            print("known_color({}): Exception: {}".format(color_name,str(e)))
+        return found
+
 
 class EasyPiCamSensor():
     '''
@@ -756,7 +767,6 @@ class EasyPiCamSensor():
         '''
         read color definition from config file
         '''
-        _debug=True
         try:
             self.stream.colors_rgb_hsv = self.get_config(dataname,path)
             if _debug: print("read colors from {}".format(path))
@@ -792,6 +802,18 @@ class EasyPiCamSensor():
             i += 1
         print("]\n")
 
+    def known_color(self,color_name):
+        '''
+        Check for color in known color table
+        '''
+        return self.stream.known_color(color_name)
+
+    def delete_color(self,color_name):
+        '''
+        Delete color, if it exists, from known color table
+        '''
+        return self.stream.delete_color(color_name)
+
     def save_config(self,dataname, datavalue, path='config_easypicamsensor.json'):
         lConfigData = {}
         try:
@@ -817,25 +839,29 @@ class EasyPiCamSensor():
         except:
             return None
 
-    def learn_colors(self):
+    def learn_colors(self,tts_prompts=False):
         '''
-        With TTS prompting
+        With optional TTS prompting
         '''
-        tts = espeakng.Speaker()
+        if tts_prompts:
+            tts = espeakng.Speaker()
         color_name = "TBD"
         while color_name != "":
-            alert = "Enter Color Name To Learn or Return to abort: "
-            tts.say(alert)
+            alert = "Enter Color Name To Learn or just Return to abort: "
+            if tts_prompts: tts.say(alert)
             color_name = input(alert)
             if color_name != "":
+                alert = "Press Return when ready to learn {}".format(color_name)
+                print(alert)
+                if tts_prompts: tts.say(alert)
                 status = self.stream.learn_color(color_name)
                 print(status)
+                if tts_prompts: tts.say(status)
             else:
-                alert = "Learn color aborted"
+                alert = "Learn colors aborted"
                 print(alert)
-                tts.say(alert)
+                if tts_prompts: tts.say(alert)
                 break
-        return color_name
 
 
 # ------- TEST MAIN -----
@@ -878,6 +904,18 @@ def main():
     print("reading colors from config_easypicamsensor.json.test")
     epcs.read_colors(path="config_easypicamsensor.json.test")
     print("colors:")
+    epcs.print_colors()
+
+    print('Check if "Gray" exists')
+    if epcs.known_color("Gray"):
+        print("Gray exists in colors_rgb_hsv list")
+    else:
+        print("Gray not found in colors_rgb_hsv list")
+
+    print("Test delete Gray")
+    status = epcs.delete_color("Gray")
+    print(status)
+
     epcs.print_colors()
 
     print("\nDone")
