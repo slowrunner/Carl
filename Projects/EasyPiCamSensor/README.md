@@ -8,20 +8,21 @@ including:
 - Left, Front, Right Light Intensity (0-100)
 - Motion Detector (Left, Right, Up, Down)
 - Color Detector With Color Table ReLearning 
-  (Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, White) 
+  (Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, White)
+- Maximum Intensity area horizontal angle from center and value (0-100)  
 - 320x240 RGB image save to JPEG file or retrieve as numpy array
 
-Refresh rate is roughly 10 values per second.
+Refresh rate is roughly 10 per second.
 
 # To Bring Down To Your GoPiGo
 wget https://github.com/slowrunner/Carl/raw/master/Projects/EasyPiCamSensor/EasyPiCamSensor.tgz 
 tar -xzvf EasyPiCamSensor.tgz
 
 
+# Requirements
 
 Python Requirements (Stock ModRobotics Rasbian_For_Robots):
 - Python3
-- ModRobotics di_sensors.easy_mutex 
 - picamera
 - threading
 - colorsys
@@ -29,9 +30,13 @@ Python Requirements (Stock ModRobotics Rasbian_For_Robots):
 - numpy
 - (Does not use/require OpenCV)
 
+Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct,rt_pct) method
+- For use with the Braitenberg Vehicle examples 
+- The current ModRobotics easygopigo3.py steer() method has a problem. 
+
 # API
 
--  epcs = easypicamsensor.EasyPiCamSensor(use_mutex=True)   # Create sensor object
+-  epcs = easypicamsensor.EasyPiCamSensor()   # Create sensor object
 
 -  light() # return average intensity across entire sensor (0.0 pitch black to 100.0 blinding light)
 
@@ -39,34 +44,69 @@ Python Requirements (Stock ModRobotics Rasbian_For_Robots):
 
 -  color() # returns estimate of color of central area of sensor
 
+-  color_dist_method() # returns nearest color with distance and method ("RGB" or "HSV") used 
+
 -  motion_dt_x_y() # returns time of first motion left/right and/or up/down since last method call
 
 -  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
 
 -  get_image()  # returns RGB numpy image array
 
+-  learn_colors() # learn one or more colors with optional TTS prompting
+
+-  print_colors() # print the current color table
+
+-  known_color(color_name) # returns True if color_name is in the current color table
+
+-  save_colors() # save color table in config_easypicamsensor.json file
+
+-  read_colors()  # reads color table from config_easypicamsensor.json file
+
 
 # EasyPiCamSensor Example Programs:
 
-- i_see_color.py uses EasyPiCamSensor.color() and optionally espeakng TTS to report estimate color seen
+- i_see_color.py 
+  * Uses EasyPiCamSensor.color() and optionally espeakng TTS to report estimate color seen
   * Target_Colors.pdf provides color samples that match the default sensor color table 
     (Print on matte photo paper for best results)
 
 ![Target Color Samples](Graphics/Target_Colors_Tiny.png?raw=true)
 
-- light_commentary.py uses EasyPiCamSensor.light() to report relative light increase and decrease
-- i_see_motion.py  uses EasyPiCamSensor.motion() to report left, right, up, or down motion seen
-- i_see_colors_in_motion.py demonstrates color and motion detection with image save to file
+- i_see_light.py
+  * Comments when someone turns a room light on or off
+
+- i_see_motion.py
+  * Reports first motion and datatime since last report
+  * Recognizes left or right, up or down motion
+
+- i_see_colors_in_motion.py
+  * Reports last motion and color 
+
 ![Color and Motion Detect With Image Save](Graphics/motion_capture.jpg)
 
-- braitenberg2B.py  uses EasyPiCamSensor.light_left_right() to implement Braitenberg Vehicle 2B 
-  * (with adjustable gain and obstacle inhibition) 
-  * on a ModRobotics GoPiGo3 with ModRobotics Distance Sensor
+- face_the_light.py
+  * Turns GoPiGo3 robot to face the brightest area in room
+
+- braitenberg2B.py
+  * implements Braitenberg Vehicle 2B "loves light"
+  * Uses left and right light intensity as stimulus for the opposite side wheel
+  * Implementation adds obstacle inhibition of forward motion for vehicle protection
+
 ![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png?raw=true)
 
-- simple_braitenberg2A.py uses EasyPiCamSensor.light_left_right() to implement Braitenberg Vehicle 2a
-  that "dislikes light" (with obstacle inhibition)
+- simple_braitenberg2A.py
+  * implements Braitenberg Vehicle 2A "loves the dark"
+  * Uses left and right light intensity as stimulus for the same side wheel
+  * Implementation adds obstacle inhibition of forward motion for vehicle protection
 
-- face_the_light.py uses EasyPiCamSensor.light() and the GoPiGo3 robot to find and face brightest light source
+- teach_me_colors.py
+  * Allows adding or re-learning one or more colors 
+
+- delete_a_color.py
+  * Allows testing and easily deleting a poor performing color from the config_easypicamsensor.json file
+
+
+
+
 
 
