@@ -97,7 +97,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 ![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png?raw=true)
 
-![GoPiGo3 "Carl" w/EasyPiCamSensor Braitenberg Vehicle 2B](https://vimeo.com/493585330)
+[Video: GoPiGo3 "Carl" w/EasyPiCamSensor Braitenberg Vehicle 2B](https://vimeo.com/493585330)
 
 - simple_braitenberg2A.py
   * implements Braitenberg Vehicle 2A "loves the dark"
