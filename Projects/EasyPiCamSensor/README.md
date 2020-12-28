@@ -49,7 +49,10 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  motion_dt_x_y() # returns time of first motion left|right and/or up|down since last method call
 
--  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
+-  motion_dt_x_y_npimage() # returns details and image of first motion left|right and/or up|down  
+   since last method call
+
+-  save_image_to_file(npimage=None,fn="capture.jpg")  # saves passed or last frame to file encoded as JPEG
 
 -  get_image()  # returns RGB numpy image array
 
@@ -77,13 +80,15 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 - i_see_light.py
   * Comments when someone turns a room light on or off
 
-- i_see_motion.py
+- i_see_motion.py [-h] [-v]
   * Reports first motion and datatime since last report
   * Recognizes left or right, up or down motion
+  * Option [-v] adds TTS reports
 
 - i_see_colors_in_motion.py [-h] [-v]
   * Prints and optionally [-v] speaks last motion and color 
-  * Saves image of motion to motion_capture.jpg
+  * Saves image of motion to motion_capture-YYYY-MM-DD_HH_MM_SS.jpg
+  * Note: Image may not catch a fast moving object 
 
 ![Color and Motion Detect With Image Save](Graphics/motion_capture.jpg)
 
