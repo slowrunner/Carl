@@ -68,6 +68,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 - i_see_color.py 
   * Uses EasyPiCamSensor.color() and optionally espeakng TTS to report estimate color seen
+  * User selects either RGB or HSV color matching method (RGB is much better than HSV)
   * Target_Colors.pdf provides color samples that match the default sensor color table 
     (Print on matte photo paper for best results)
 
