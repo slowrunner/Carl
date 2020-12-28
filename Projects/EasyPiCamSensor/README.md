@@ -96,6 +96,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
   * Implementation adds obstacle inhibition of forward motion for vehicle protection
 
 ![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png?raw=true)
+![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png)
 
 [Video: GoPiGo3 "Carl" w/EasyPiCamSensor Braitenberg Vehicle 2B](https://vimeo.com/493585330)
 
