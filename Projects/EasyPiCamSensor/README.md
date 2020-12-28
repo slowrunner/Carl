@@ -15,9 +15,10 @@ including:
 Refresh rate is roughly 10 per second.
 
 # To Bring Down To Your GoPiGo
+```
 wget https://github.com/slowrunner/Carl/raw/master/Projects/EasyPiCamSensor/EasyPiCamSensor.tgz 
 tar -xzvf EasyPiCamSensor.tgz
-
+```
 
 # Requirements
 
