@@ -97,6 +97,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
   * Implementation adds obstacle inhibition of forward motion for vehicle protection
   * Option [-v] narrates with Text-To-Speech
   * Option [-g N.n] introduces stimulus amplification with given gain.  [Default 1.0]
+
 ![Braitenberg Vehicle 2B using EasyPiCamSensor.light_left_right()](Graphics/Braitenberg2b_Light_Value_Stimulus.png)
 
 [Video: GoPiGo3 "Carl" w/EasyPiCamSensor Braitenberg Vehicle 2B](https://vimeo.com/493585330)
