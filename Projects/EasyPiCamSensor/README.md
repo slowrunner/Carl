@@ -13,6 +13,12 @@ including:
 
 Refresh rate is roughly 10 values per second.
 
+# To Bring Down To Your GoPiGo
+wget https://github.com/slowrunner/Carl/raw/master/Projects/EasyPiCamSensor/EasyPiCamSensor.tgz 
+tar -xzvf EasyPiCamSensor.tgz
+
+
+
 Python Requirements (Stock ModRobotics Rasbian_For_Robots):
 - Python3
 - ModRobotics di_sensors.easy_mutex 
