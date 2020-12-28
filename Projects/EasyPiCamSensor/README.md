@@ -124,7 +124,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 # Credits
 
-- Color sensing based on work of CleoQc of Dexter Industries (now ModRobotics)  
+- Color sensing based on work of Nicole Parrot  
   https://github.com/CleoQc/GoPiGoColorDetection
 
 - Motion / Gesture Detection based on the work of Dave Jones at https://github.com/waveform80/picamera_demos
