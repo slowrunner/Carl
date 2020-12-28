@@ -25,6 +25,16 @@
 
   Motion Detection and camera stream based on https://github.com/waveform80/picamera_demos/blob/master/gesture_detect.py
 
+
+  Note: The color table colors_hsv_rgb[] can be saved in a JSON config file file,
+        which will be read whenever easypicamsensor.EasyPiCamSensor() object is created.
+        The color_table is stored and read with RGB and HSV lists (not tuples).
+
+        Using print_colors() will print out the color table with color tuples (because it is easier to read).
+        If the user wishes to change the DEFAULT_COLORS_RGB_HSV[] array to be values from config_easypicamsensor.json,
+            use the test main() which will read the config_easypicamsensor.json, and call print_colors().
+            Copy the color lines into easypicamsensor.py after DEFAULT_COLORS_RGB_HSV = [
+
 """
 import numpy as np
 import os
@@ -127,16 +137,16 @@ def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
 # ...
 # ]
 DEFAULT_COLORS_RGB_HSV = [
-['Black' , ( 55,  48,  65), (  0,   0,   0)],
-['Brown' , (145,  88,  55), ( 30, 100,  59)],
-['Red'   , (190,  35,  55), (  0, 100, 100)],
-['Orange', (160,  85,  70), ( 30,  60,  90)],
-['Yellow', (140, 120,   0), ( 60, 100, 100)],
-['Green' , ( 80, 145,  50), (120, 100,  50)],
-['Blue'  , (  0,  90, 200), (240, 100, 100)],
-['Violet', (120,  80, 140), (300, 100,  50)],
-['White' , (110, 110, 140), (  0,   0, 100)]
-]
+    ['Black' ,( 44, 58, 78),(214, 43, 31)],
+    ['Brown' ,(190,182,159),( 44, 16, 75)],
+    ['Red'   ,(240, 85,111),(349, 64, 94)],
+    ['Orange',(244,233,242),(313,  5, 96)],
+    ['Yellow',(245,249,150),( 62, 40, 98)],
+    ['Green' ,(  0,184,120),(158,100, 72)],
+    ['Blue'  ,(  0,154,245),(202,100, 96)],
+    ['Violet',(132,188,245),(210, 46, 96)],
+    ['White' ,(188,249,245),(176, 24, 98)]
+    ]
 
 colors_rgb_hsv = []
 
@@ -597,10 +607,10 @@ class PiGestureStream:
         return hangle_deg,max_val
 
     def learn_color(self,color_name):
-        _debug = True
         try:
             pilimage = self.pilframe
-            central_pixs = crop_center(pilimage,6,6)      # get a 6x6 portion from the image
+            central_pixs = crop_center(pilimage,32,24)      # get a small portion from the center of the image
+            central_pixs.save(color_name+".jpg")
             central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
             ave_central_rgb = get_ave_rgb(central_rgb_channels)
             if _debug: print("ave_central_rgb:",ave_central_rgb)
@@ -638,8 +648,6 @@ class PiGestureStream:
         return status
 
     def delete_color(self,color_name):
-        _debug = True
-
         try:
             old_color = None
             status = "Color {} not found".format(color_name)
@@ -702,8 +710,8 @@ class EasyPiCamSensor():
         color = self.stream.get_color()
         return color
 
-    def color_dist_method(self):
-        color,dist,method = self.stream.get_color_dist_method()
+    def color_dist_method(self,method="RGB"):
+        color,dist,method = self.stream.get_color_dist_method(method)
         return color,dist,method
 
 
@@ -775,7 +783,7 @@ class EasyPiCamSensor():
             print(str(e))
             traceback.print_exc()
         if  not self.stream.colors_rgb_hsv:
-            print("{} not found in {}".format(dataname,path))
+            print("{} or {} not found".format(path,dataname))
             print("Using DEFAULT_COLORS_RGB_HSV.")
             self.stream.colors_rgb_hsv = DEFAULT_COLORS_RGB_HSV
 
@@ -800,7 +808,7 @@ class EasyPiCamSensor():
             if i < rows:
                 print(",")   # and a newline
             i += 1
-        print("]\n")
+        print("\n    ]")
 
     def known_color(self,color_name):
         '''
@@ -879,11 +887,11 @@ def main():
         print("\n^C Detected, Exiting")
         exit(0)
 
-    print("colors:")
+    print("Loaded colors: Tests loading from config_easypicamsensor.json if exists")
     epcs.print_colors()
 
 
-
+    # === TEST "updated every frame" methods
     print("light() returns: {:0.1f}".format(epcs.light()))
     light_left,light_right = epcs.light_left_right()
     print("light_left_right() returns: {:0.1f},{:0.1f}".format(light_left,light_right))
@@ -894,29 +902,37 @@ def main():
     print("color_dist_method(): returns {} {} {}".format(color,dist,method))
     h_angle, max_val =  epcs.max_ang_val()
     print("max_ang_val() returns: {:.1f} degrees value: {:.1f} ".format(h_angle,max_val))
+
+    # === TEST Utilities
     print("saved capture to {}".format(epcs.save_image_to_file()))
 
+    print("Test learn_colors() by adding a Gray, for testing delete_color('Gray') next")
     epcs.learn_colors()
-    epcs.print_colors()
-    print("saving colors to config_easypicamsensor.json.test")
-    epcs.save_colors(path="config_easypicamsensor.json.test")
+    epcs.print_colors()   # print the new table with learned colors
 
+    print("saving colors to config_easypicamsensor.json.test")  # test saving colors
+    epcs.save_colors(path="config_easypicamsensor.json.test")
+    print("NOTE:  .test at the end - does not overwrite existing config_easypicamsensor.json")
+
+    # Test reading colors from a named file
     print("reading colors from config_easypicamsensor.json.test")
     epcs.read_colors(path="config_easypicamsensor.json.test")
-    print("colors:")
+    print("colors:")         # print the colors read from the just written file
     epcs.print_colors()
 
+    # Test known_color utility
     print('Check if "Gray" exists')
     if epcs.known_color("Gray"):
         print("Gray exists in colors_rgb_hsv list")
     else:
         print("Gray not found in colors_rgb_hsv list")
 
+    # Test delete_color()
     print("Test delete Gray")
     status = epcs.delete_color("Gray")
     print(status)
 
-    epcs.print_colors()
+    epcs.print_colors()  # show colors after deleting Gray
 
     print("\nDone")
 

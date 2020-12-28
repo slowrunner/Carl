@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
-# file: light_commentary.py
+# file: i_see_light.py
 
-# Comment when someone turns a room light on or off
+# Usage:  ./i_see_light.py
+
+# Comments when someone turns a room light on or off
+# IF has not spoken in the last 10 seconds
 
 # Uses Pi Camera via the EasyPiCamSensor class light() method
 #     which returns average light intensity value of 0-100
 
 # Talks using espeak-ng via the espeakng Python module
+
 try:
     import easypicamsensor
 except:
@@ -33,7 +37,7 @@ tts= espeakng.Speaker()   # set up default text-to-speech object
 
 current_intensity = epcs.light()   # get average image light intensity now
 last_intensity = current_intensity
-think_before_talking_again = 15    # wait 15 seconds before talking again
+think_before_talking_again = 10    # wait 10 seconds before talking again
 just_said_something = 0
 threshold = 7    # required intensity change before commenting
 
