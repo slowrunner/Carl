@@ -117,7 +117,12 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
   * Allows testing and easily deleting a poor performing color from the config_easypicamsensor.json file
 
 
+# Credits
 
+- Color sensing based on work of CleoQc of Dexter Industries (now ModRobotics)  
+  https://github.com/CleoQc/GoPiGoColorDetection
+
+- Motion / Gesture Detection based on the work of Dave Jones at https://github.com/waveform80/picamera_demos
 
 
 
