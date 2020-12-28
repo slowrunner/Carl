@@ -82,6 +82,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 - i_see_colors_in_motion.py
   * Reports last motion and color 
+  * Saves image of motion to motion_capture.jpg
 
 ![Color and Motion Detect With Image Save](Graphics/motion_capture.jpg)
 
