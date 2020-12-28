@@ -47,7 +47,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  color_dist_method() # returns nearest color with distance and method ("RGB" or "HSV") used 
 
--  motion_dt_x_y() # returns time of first motion left/right and/or up/down since last method call
+-  motion_dt_x_y() # returns time of first motion left|right and/or up|down since last method call
 
 -  save_image_to_file(fn="capture.jpg")  # saves last image to file encoded as JPEG
 
