@@ -57,7 +57,9 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 # API
 
--  epcs = easypicamsensor.EasyPiCamSensor()   # Create sensor object
+-  epcs = easypicamsensor.EasyPiCamSensor()   
+   *  Create and start Easy Pi Camera Sensor object
+   *  Read values from config_easypicamsensor.json if exists
 
 -  light() # return average intensity across entire sensor (0.0 pitch black to 100.0 blinding light)
 
