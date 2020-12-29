@@ -1,4 +1,3 @@
-**(IN-PROGRESS)**
 
 # Easy PiCamera Sensor Class For GoPiGo3 Robots
 
