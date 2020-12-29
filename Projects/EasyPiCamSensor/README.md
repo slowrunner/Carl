@@ -172,8 +172,8 @@ This code comes with no warranty of correct function.
 If you think it should do something it doesn't,  
 or shouldn't do something it does,  
 you should know this was a learning experience for me,  
-It is not a product.  I am not interested in maintaining it.
+**It is not a product.  I am not interested in maintaining it for you!**
 
-If you know how to make it better, create a pull request.  
+**If you know how to make it better, create a pull request.**  
 Perhaps I will learn how to merge other people's code.
 
