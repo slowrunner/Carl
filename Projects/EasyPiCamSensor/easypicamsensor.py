@@ -711,16 +711,20 @@ class PiCamSensor:
 
 class EasyPiCamSensor():
     '''
-    Class for interfacing with the Pi Camera as a basic light sensor
+    Class for interfacing with the Pi Camera as a basic light, color, and motion sensor
     '''
 
-    def __init__(self):
+    def __init__(self, resolution=(stream_width, stream_height),
+                 framerate=stream_framerate,
+                 rotation=0,
+                 hflip=False, vflip=False):
+
         """
         Constructor for initializing the Pi Camera as a basic sensor
         """
 
         if _debug: print("EasyPiCamSensor(): Initializing PiCam Video Stream")
-        self.picamsensor = PiCamSensor()
+        self.picamsensor = PiCamSensor(resolution=resolution, framerate=framerate, rotation=rotation, hflip=hflip, vflip=vflip)
         self.read_colors()    # get color table from config_easypicamsensor.json or DEFAULT_COLORS_RGB_HSV
         self.picamsensor.start()
 
