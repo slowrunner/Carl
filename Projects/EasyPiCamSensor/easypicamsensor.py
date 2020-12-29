@@ -35,6 +35,25 @@
             use the test main() which will read the config_easypicamsensor.json, and call print_colors().
             Copy the color lines into easypicamsensor.py after DEFAULT_COLORS_RGB_HSV = [
 
+  ARCHITECTURE:
+
+  The EasyPiCamSensor class encapsulates  
+  - PiCamSensor class:  
+    * Creates a thread to run PiCamSensor.update() roughly 10 times per second  
+      - PiCamSensor.update() computes average light intensity for the left half, the whole, and the right half of a camera image  
+        and estimates what color is present in the central portion of the image by matching RGB values to a table of colors,  
+        and estimates what color is present in the central portion of the image by matching HSV values to a table of colors,  
+        and computes the horizontal angle from centerline to an thresholded area of brightest pixels  
+    * Starts a PiCamera class object which will capture video frames at 10fps  
+    * Creates MyGestureDetector for the PiCamera object to analyze motion using three consecutive frames  
+      - When MyGestureDetector.analyze() finds new motion it latches the direction of motion and the time it occurred  
+        (reading the latched motion clears the latch, ready to hold the next motion event that will occur)
+
+   EasyPiCamSensor <-- PiCamSensor <-- PiCamera  
+                                          ^  
+                                          |  
+                                   <-- MyGestureDetector  
+
 """
 import numpy as np
 import os
@@ -279,7 +298,7 @@ def nearest_hsvcolor_dist(inhsv,color_table=DEFAULT_COLORS_RGB_HSV):
 
 #------------ MY GESTURE DETECTOR ------------------------------------------------------------------
 # The analyse method of this class is run on every frame of video
-# by the camera object
+# by the camera sensor object
 class MyGestureDetector(PiMotionAnalysis):
     def __init__(self, camera):
         super(MyGestureDetector, self).__init__(camera)
@@ -341,19 +360,19 @@ class MyGestureDetector(PiMotionAnalysis):
         self.reset_motion_latch()
         return data_dict
 
-#------------------- Pi Gesture Stream -----------------------------------------------------------
-# Creates a Pi Camera Stream that will
-# - starts the camera in auto exposure mode to adjust to the current lighting
+#------------------- Pi Camera Sensor -----------------------------------------------------------
+# Creates a Pi Camera Sensor that will
+# - start the camera in auto exposure mode to adjust to the current lighting
 # - turns off auto exposure after 5 seconds "warm-up"
 # - run MyGestureDetector on each frame
-# - starts a thread to analyze a camera frame roughly 10 times per second
-class PiGestureStream:
+# - starts a thread to run PiCamSensor.update() on camera frames roughly 10 times per second
+class PiCamSensor:
     '''
     Create a picamera in memory video stream and
     start an update() thread to get a frame, and maintain analysis variables
     _color: from {"Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "White"}
     _light_ave_intensity: from {0-100, 999 unknown}
-    _light_max:  
+    _light_max:
 
     to which mutex protected access is provided by:
     get_color()
@@ -380,10 +399,6 @@ class PiGestureStream:
         self.camera.hflip = hflip
         self.camera.vflip = vflip
         self.camera.rotation = rotation
-        # self.rawCapture = PiRGBArray(self.camera, size=resolution)
-        # self.stream = self.camera.capture_continuous(self.rawCapture,
-        #                                              format="rgb",
-        #                                              use_video_port=True)
 
         self.gesture_detector = MyGestureDetector(self.camera)
         # replace os.devnull, the output parm, to get the actual frames
@@ -475,7 +490,6 @@ class PiGestureStream:
 
     def set_color(self):
         try:
-            # image = self.stream.get_npframe()
             image = self.npframe
             # numpy image array method
             h,w,rgb = image.shape
@@ -723,42 +737,41 @@ class EasyPiCamSensor():
         Constructor for initializing the Pi Camera as a basic sensor
         """
 
-        self._dominant_colors = []
         if _debug: print("EasyPiCamSensor(): Initializing PiCam Video Stream")
-        self.stream = PiGestureStream()
-        self.read_colors()
-        self.stream.start()
+        self.picamsensor = PiCamSensor()
+        self.read_colors()    # get color table from config_easypicamsensor.json or DEFAULT_COLORS_RGB_HSV
+        self.picamsensor.start()
 
     def motion_dt_x_y(self):
-        motion_dt,motion_x,motion_y = self.stream.get_motion_dt_x_y()
+        motion_dt,motion_x,motion_y = self.picamsensor.get_motion_dt_x_y()
         return motion_dt,motion_x, motion_y
 
     def motion_dt_x_y_npimage(self):
-        motion_dt,motion_x,motion_y,motion_image = self.stream.get_motion_dt_x_y_npimage()
+        motion_dt,motion_x,motion_y,motion_image = self.picamsensor.get_motion_dt_x_y_npimage()
         return motion_dt,motion_x, motion_y, motion_image
 
     def light(self):
-        light_ave_intensity = self.stream.get_light()
+        light_ave_intensity = self.picamsensor.get_light()
         return light_ave_intensity
 
 
     def light_left_right(self):
-        light_left,light_right = self.stream.get_light_left_right()
+        light_left,light_right = self.picamsensor.get_light_left_right()
         return light_left,light_right
 
 
     def color(self):
-        color = self.stream.get_color()
+        color = self.picamsensor.get_color()
         return color
 
     def color_dist_method(self,method="RGB"):
-        color,dist,method = self.stream.get_color_dist_method(method)
+        color,dist,method = self.picamsensor.get_color_dist_method(method)
         return color,dist,method
 
 
 
     def max_ang_val(self):
-        return self.stream.get_light_max_ang_val()
+        return self.picamsensor.get_light_max_ang_val()
 
 
 
@@ -766,14 +779,14 @@ class EasyPiCamSensor():
     def save_image_to_file(self,npimage=None,fn='capture.jpg'):
         if (npimage is None):
             try:
-                self.stream.mutex.acquire()
-                npimage = self.stream.get_npframe()
+                self.picamsensor.mutex.acquire()
+                npimage = self.picamsensor.get_npframe()
             except Exception as e:
                 print("save_image_to_file(): get_npframe failed")
                 print(str(e))
                 fn=None
             finally:
-                self.stream.mutex.release()
+                self.picamsensor.mutex.release()
 
         if fn is not None:
             try:
@@ -788,7 +801,7 @@ class EasyPiCamSensor():
     def get_image(self):
         try:
             # self.mutex.acquire()
-            image = self.stream.get_npframe()
+            image = self.picamsensor.get_npframe()
         except Exception as e:
             print("easypicamsensor.get_image() failed")
             print(str(e))
@@ -803,7 +816,7 @@ class EasyPiCamSensor():
         """
         Write data to a CSV file path
         """
-        if data is None: data = self.stream.colors_rgb_hsv
+        if data is None: data = self.picamsensor.colors_rgb_hsv
 
         self.save_config("colors_rgb_hsv",data,path)
 
@@ -813,16 +826,16 @@ class EasyPiCamSensor():
         read color definition from config file
         '''
         try:
-            self.stream.colors_rgb_hsv = self.get_config(dataname,path)
+            self.picamsensor.colors_rgb_hsv = self.get_config(dataname,path)
             if _debug: print("read colors from {}".format(path))
         except Exception as e:
             print("read_colors() Exception:")
             print(str(e))
             traceback.print_exc()
-        if  not self.stream.colors_rgb_hsv:
+        if  not self.picamsensor.colors_rgb_hsv:
             print("{} or {} not found".format(path,dataname))
             print("Using DEFAULT_COLORS_RGB_HSV.")
-            self.stream.colors_rgb_hsv = DEFAULT_COLORS_RGB_HSV
+            self.picamsensor.colors_rgb_hsv = DEFAULT_COLORS_RGB_HSV
 
 
 
@@ -831,7 +844,7 @@ class EasyPiCamSensor():
         print color_rgb_hsv data for inclusion as new DEFAULT_COLORS_RGB_HSV
         """
         if data is None: 
-            data = self.stream.colors_rgb_hsv
+            data = self.picamsensor.colors_rgb_hsv
             print('colors_rgb_hsv = [')
         else:
             print('[')
@@ -851,13 +864,13 @@ class EasyPiCamSensor():
         '''
         Check for color in known color table
         '''
-        return self.stream.known_color(color_name)
+        return self.picamsensor.known_color(color_name)
 
     def delete_color(self,color_name):
         '''
         Delete color, if it exists, from known color table
         '''
-        return self.stream.delete_color(color_name)
+        return self.picamsensor.delete_color(color_name)
 
     def save_config(self,dataname, datavalue, path='config_easypicamsensor.json'):
         lConfigData = {}
@@ -899,7 +912,7 @@ class EasyPiCamSensor():
                 alert = "Press Return when ready to learn {}".format(color_name)
                 print(alert)
                 if tts_prompts: tts.say(alert)
-                status = self.stream.learn_color(color_name)
+                status = self.picamsensor.learn_color(color_name)
                 print(status)
                 if tts_prompts: tts.say(status)
             else:
@@ -912,7 +925,7 @@ class EasyPiCamSensor():
 
     # gather all "by-frame" data into a dictionary
     def get_all_data(self):
-        data_dict = self.stream.all_data()
+        data_dict = self.picamsensor.all_data()
         return data_dict
 
     def print_all_data(self,data_dict):

@@ -35,6 +35,26 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 - For use with the Braitenberg Vehicle examples 
 - The current ModRobotics easygopigo3.py steer() method has a problem. 
 
+# ARCHITECTURE
+```
+  The EasyPiCamSensor class encapsulates  
+  - PiCamSensor class:  
+    * Creates a thread to run PiCamSensor.update() roughly 10 times per second  
+      - PiCamSensor.update() computes average light intensity for the left half, the whole, and the right half of a camera image  
+        and estimates what color is present in the central portion of the image by matching RGB values to a table of colors,  
+        and estimates what color is present in the central portion of the image by matching HSV values to a table of colors,  
+        and computes the horizontal angle from centerline to an thresholded area of brightest pixels  
+    * Starts a PiCamera class object which will capture video frames at 10fps  
+    * Creates MyGestureDetector for the PiCamera object to analyze motion using three consecutive frames  
+      - When MyGestureDetector.analyze() finds new motion it latches the direction of motion and the time it occurred  
+        (reading the latched motion clears the latch, ready to hold the next motion event that will occur)
+
+   EasyPiCamSensor <-- PiCamSensor <-- PiCamera  
+                                          ^  
+                                          |  
+                                   <-- MyGestureDetector  
+```
+
 # API
 
 -  epcs = easypicamsensor.EasyPiCamSensor()   # Create sensor object
