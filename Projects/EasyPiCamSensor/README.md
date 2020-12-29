@@ -66,8 +66,21 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  read_colors()  # reads color table from config_easypicamsensor.json file
 
+-  get_all_data()  # returns dict with all "by-frame" data
+
+-  print_all_data()  # convenience prints dict returned by get_all_data()
+
 
 # EasyPiCamSensor Example Programs:
+
+- read_sensor.py
+  * Reads all "by-frame" data from sensor 10 times per second and pretty prints with headings every 15 readings
+
+```
+xmove ymov     latch_move_time      l_x  l_y       frame_time        color   rgb   dist    hsv    dist  left   whole  right  maxAng   val
+ none none 2020-12-29 00:26:04.60  left none 2020-12-29 00:26:09.10  Black  Black  64.53  Brown  14.24  24.98  18.48  11.99 (-23.94, 80.78)
+ none none                         none none 2020-12-29 00:26:09.20  Black  Black  63.73  Brown  14.90  24.98  18.48  11.99 (-23.94, 81.57)
+```
 
 - i_see_color.py [-h] [-v]
   * Uses EasyPiCamSensor.color() and optionally [-v] espeakng TTS to report estimate color seen
