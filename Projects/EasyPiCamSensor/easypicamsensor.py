@@ -102,7 +102,6 @@ import espeakng
 
 PROG_NAME = os.path.basename(__file__)
 
-IMAGE_DIMS = (320,240)
 DEFAULT_H_FOV = 55.5  # horizontal FOV of PiCamera v1.13
 stream_width = 320
 stream_height = 240
@@ -721,6 +720,8 @@ class EasyPiCamSensor():
 
         """
         Constructor for initializing the Pi Camera as a basic sensor
+
+        Note: rotation: Valid values are 0, 90, 180, and 270 only.
         """
 
         if _debug: print("EasyPiCamSensor(): Initializing PiCam Video Stream")
