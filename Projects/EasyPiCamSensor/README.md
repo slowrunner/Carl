@@ -88,7 +88,8 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 -  delete_color(color_name) # removes a color from the (local copy) EasyPiCamSensor object color table  
    (must then call save_colors() to make it permanantly gone)  
 
--  save_colors() # save color table in config_easypicamsensor.json file
+-  save_colors(path="config_easypicamsensor.json") # save color table in file [default: config_easypicamsensor.json]
+   (Probably a good idea to save to a .json.test file to protect the existing config file; So use responsibly.)
 
 -  read_colors()  # reads color table from config_easypicamsensor.json file
 
