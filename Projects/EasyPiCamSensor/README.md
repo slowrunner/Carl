@@ -106,6 +106,12 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  read_colors()  # reads color table from config_easypicamsensor.json file
 
+-  save_config(dataname,datavalue,path="config_easypicamsensor.json")   # save a value or variable in the conf file  
+     e.g:  epcs.save_config("vflip",True) for later retrieval with vflip = epcs.get_config("vflip")  
+           epcs.save_config("my_color_array",my_color_array) for later retrieval with my_color_array = epcs.get_config("my_color_array")
+
+-  get_config(dataname=None,path="config_easypicamsensor.json")  # retrieve a value or entire config dictionaryfrom config file if exists
+
 -  get_all_data()  # returns dict with all "by-frame" data
 
 -  print_all_data()  # convenience prints dict returned by get_all_data()

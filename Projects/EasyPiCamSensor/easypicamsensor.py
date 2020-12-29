@@ -49,6 +49,12 @@
 
     read_colors() # reads color table from config_easypicamsensor.json file
 
+    get_config(dataname=None,path="config_easypicamsensor.json")  # retrieves variable or entire dictionary from config file if exists
+
+    save_config(dataname,datavalue,path="config_easypicamsensor.json")   # save a value or variable in the conf file
+        e.g:  epcs.save_config("vflip",True) for later retrieval with vflip = epcs.get_config("vflip")
+        e.g:  epcs.save_config("my_color_array",my_color_array) for later retrieval with my_color_array = epcs.get_config("my_color_array")
+
     get_all_data() # returns dict with all "by-frame" data
 
     print_all_data() # convenience prints dict returned by get_all_data()
@@ -864,6 +870,11 @@ class EasyPiCamSensor():
 
 
     def save_config(self,dataname, datavalue, path='config_easypicamsensor.json'):
+        '''
+        Save a datavalue into json config file with string dataname
+        e.g:  epcs.save_config("vflip",True) for later retrieval with vflip = epcs.get_config("vflip")
+        '''
+
         lConfigData = {}
         try:
             lConfigData = self.get_config()
