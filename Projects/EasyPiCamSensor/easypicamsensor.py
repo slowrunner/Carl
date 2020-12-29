@@ -914,8 +914,8 @@ class EasyPiCamSensor():
             color_name = input(alert)
             if color_name != "":
                 alert = "Press Return when ready to learn {}".format(color_name)
-                print(alert)
                 if tts_prompts: tts.say(alert)
+                input(alert)
                 status = self.picamsensor.learn_color(color_name)
                 print(status)
                 if tts_prompts: tts.say(status)
