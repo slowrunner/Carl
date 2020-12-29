@@ -63,24 +63,28 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  light_left_right() # return average intensity across left half and right half of sensor
 
--  color() # returns estimate of color of central area of sensor
+-  color() # returns estimate of color of central area of sensor using "RGB" method
 
--  color_dist_method() # returns nearest color with distance and method ("RGB" or "HSV") used 
+-  color_dist_method(method="RGB") # returns nearest color with distance and method ("RGB" or "HSV") used 
 
 -  motion_dt_x_y() # returns time of first motion left|right and/or up|down since last method call
 
--  motion_dt_x_y_npimage() # returns details and image of first motion left|right and/or up|down  
-   since last method call
+-  motion_dt_x_y_npimage() # returns details and image of first motion left|right and/or up|down since last method call
+
+-  max_ang_val()  # returns the horizontal angle from centerline (+/- half FOV, left negative) of bright area and max intensity (0-100)  
 
 -  save_image_to_file(npimage=None,fn="capture.jpg")  # saves passed or last frame to file encoded as JPEG
 
 -  get_image()  # returns RGB numpy image array
 
--  learn_colors() # learn one or more colors with optional TTS prompting
+-  learn_colors(tts_prompsts=False) # learn one or more colors with optional TTS prompting
 
 -  print_colors() # print the current color table
 
 -  known_color(color_name) # returns True if color_name is in the current color table
+
+-  delete_color(color_name) # removes a color from the (local copy) EasyPiCamSensor object color table  
+   (must then call save_colors() to make it permanantly gone)  
 
 -  save_colors() # save color table in config_easypicamsensor.json file
 
