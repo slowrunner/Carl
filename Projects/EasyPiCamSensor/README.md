@@ -21,7 +21,7 @@ tar -xzvf EasyPiCamSensor.tgz
 
 # Requirements
 
-Python Requirements (All come in the stock ModRobotics Rasbian_For_Robots):  
+Python Requirements (**All come in the stock ModRobotics Rasbian_For_Robots**):  
 - Python3
 - picamera
 - threading
@@ -38,10 +38,11 @@ Python Requirements (All come in the stock ModRobotics Rasbian_For_Robots):
 - time
 - io
 - builtins
+- (Does not use/require OpenCV)
 
 Other Requirements:  
-- (Does not use/require OpenCV)
-- (Sensor does not require GoPiGo3; Some examples do.)  
+- GoPiGo3 for some example programs
+- (Sensor does not require GoPiGo3)  
 
 Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct,rt_pct) method  
 - For use with the Braitenberg Vehicle examples  
