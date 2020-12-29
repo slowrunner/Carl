@@ -104,10 +104,11 @@ def main():
                 alert = "I think I see {}?".format(current)
                 print_w_date_time(alert)
                 print("\n")
-                if verbose: tts.say(alert)
+                if verbose:
+                    tts.say(alert)
+                    time.sleep(2)
 
-
-            time.sleep(2)    # wait between checks
+            time.sleep(0.2)    # wait between checks
         except KeyboardInterrupt:
             break
 

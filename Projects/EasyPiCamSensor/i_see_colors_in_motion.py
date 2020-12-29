@@ -59,7 +59,7 @@ def main():
     while  True:
         try:
             # get current motion sensor state (and reset it to 'none')
-            motion_dt,motion_x,motion_y = epcs.motion_dt_x_y()
+            motion_dt,motion_x,motion_y,motion_image = epcs.motion_dt_x_y_npimage()
             if (motion_dt is not None):
                 # motion seen
                 move_color = epcs.color()
@@ -72,7 +72,8 @@ def main():
                 print_w_date_time(alert,motion_dt)
                 if verbose: tts.say(alert)
                 print("Sleeping for 5 seconds")
-                epcs.save_image_to_file("motion_capture.jpg")
+                str_event_time = motion_dt.strftime("-%Y-%m-%d_%H_%M_%S")
+                epcs.save_image_to_file(npimage=motion_image,fn="motion_capture"+str_event_time+".jpg")
                 time.sleep(5) # wait for a while after seeing motion
                 epcs.motion_dt_x_y()  # throw away any motion while waiting
                 alert = "Watching for motion and colors again"
