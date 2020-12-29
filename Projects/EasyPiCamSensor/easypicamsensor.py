@@ -316,10 +316,6 @@ class MyGestureDetector(PiMotionAnalysis):
              #                self._latch_move_time, self._latch_x_move, self._latch_y_move))
 
 
-        # Update the display
-        # if (self._x_move != 'none') or (self._y_move != 'none'):
-        #    print('MyGestureDetector.analyse(): %s %s' % (self._x_move, self._y_move))
-
     # forget any remembered motion
     def reset_motion_latch(self):
         self._latch_x_move = 'none'
@@ -334,7 +330,16 @@ class MyGestureDetector(PiMotionAnalysis):
         self.reset_motion_latch()
         return lmt, lxm, lym
 
-
+    # return a dictionary with all "by-frame" data
+    def all_data(self):
+        data_dict = {}
+        data_dict["x_move"] = self._x_move
+        data_dict["y_move"] = self._y_move
+        data_dict["latch_move_time"] = self._latch_move_time
+        data_dict["latch_x_move"] = self._latch_x_move
+        data_dict["latch_y_move"] = self._latch_y_move
+        self.reset_motion_latch()
+        return data_dict
 
 #------------------- Pi Gesture Stream -----------------------------------------------------------
 # Creates a Pi Camera Stream that will
@@ -390,6 +395,7 @@ class PiGestureStream:
         self.thread = None   # Initialize thread
         self.npframe = None
         self.pilframe = None
+        self._dt_frame = None
         self.stopped = False
         self._color = "unknown"
         self._color_rgb = "unknown"
@@ -402,6 +408,7 @@ class PiGestureStream:
         self._light_max_deg_val = (999,999)
         self.mutex = Lock()
         self.colors_rgb_hsv = []
+        self._latch_move_npimage = None
 
     def start(self):
         ''' start the thread to read frames from the video stream'''
@@ -417,11 +424,12 @@ class PiGestureStream:
         while True:
             try:
                 stream = io.BytesIO()    # stream to hold jpeg frames
-                self.camera.wait_recording(1)
+                self.camera.wait_recording(0.025)
                 stream.truncate(0)
                 self.camera.capture(stream, format='jpeg', use_video_port=True)
                 stream.seek(0)
                 jpeg_image = Image.open(stream)
+                self._dt_frame = dt.datetime.now()
                 self.npframe = np.asarray(jpeg_image)
                 self.pilframe = jpeg_image.convert('RGB')
                 # pilimage = Image.fromarray(np.uint8(image)).convert('RGB')
@@ -431,7 +439,10 @@ class PiGestureStream:
                 self.set_light_ave_intensity()
                 self.set_light_left_right()
                 self.set_light_max()
+                if (self.gesture_detector._latch_move_time is not None) and (self._latch_move_npimage is None):
+                    self._latch_move_npimage = self.npframe
                 self.mutex.release()
+
 
             except Exception as e:
                 print("during or after update(),wait_recording() Exception")
@@ -537,7 +548,7 @@ class PiGestureStream:
             image = self.npframe
             pixAverage = np.average(image[...,1])
             if _debug: print ("Light Meter pixAverage: {:.1f}".format(pixAverage))
-            self._light_ave_intensity = normalize_0_to_255(pixAverage)
+            self._light_ave_intensity = round(normalize_0_to_255(pixAverage),2)
         except Exception as e:
             print("easypicamsensor.light(): {}".format(str(e)))
             self._light_ave_intensity = 999
@@ -556,8 +567,8 @@ class PiGestureStream:
             left_half,right_half = np.hsplit(image,2)
             left_half_ave = np.average(left_half[...,1])
             right_half_ave = np.average(right_half[...,1])
-            self._light_left_ave_intensity = normalize_0_to_255(left_half_ave)
-            self._light_right_ave_intensity = normalize_0_to_255(right_half_ave)
+            self._light_left_ave_intensity = round(normalize_0_to_255(left_half_ave),2)
+            self._light_right_ave_intensity = round(normalize_0_to_255(right_half_ave),2)
         except:
             print("easypicamsensor.set_light_left_right(): {}".format(str(e)))
             pass
@@ -567,10 +578,23 @@ class PiGestureStream:
         light_right = self._light_right_ave_intensity
         return light_left,light_right
 
-    # read current latched motion state, and reset to none
+    # read current latched motion state, (throw away image) and reset to none
     def get_motion_dt_x_y(self):
         latch_motion_time,motion_x,motion_y = self.gesture_detector.get_motion_latch()
+        motion_image = self.get_motion_image()  # reset the latched image
         return latch_motion_time,motion_x,motion_y
+
+    # read current latched motion image and reset to None
+    def get_motion_image(self):
+        motion_image = self._latch_move_npimage
+        self._latch_move_npimage = None
+        return motion_image
+
+    # read current latched motion state with latched motion npimage and reset to none
+    def get_motion_dt_x_y_npimage(self):
+        latch_motion_time,motion_x,motion_y = self.gesture_detector.get_motion_latch()
+        motion_image = self.get_motion_image()  # get any image and reset to None
+        return latch_motion_time,motion_x,motion_y,motion_image
 
     def set_light_max(self):
         try:
@@ -591,9 +615,9 @@ class PiGestureStream:
             if _debug: print("set_light_max(): brightest spot ({},{})".format(ave_r,ave_c))
             width = npgimage.shape[1]
             if _debug: print("set_light_max(): image width:",width)
-            h_angle_from_centerline = hAngle(ave_c, width, DEFAULT_H_FOV)
+            h_angle_from_centerline = round(hAngle(ave_c, width, DEFAULT_H_FOV),2)
             if _debug: print("set_light_max(): angle to brightest spot {:.1f}".format(h_angle_from_centerline))
-            max_intensity = normalize_0_to_255(pixMax)
+            max_intensity = round(normalize_0_to_255(pixMax),2)
             if _debug: print("set_light_max(): max_intensity: {:.1f}".format(max_intensity))
             self._light_max_deg_val = (h_angle_from_centerline, max_intensity)
         except Exception as e:
@@ -675,6 +699,19 @@ class PiGestureStream:
             print("known_color({}): Exception: {}".format(color_name,str(e)))
         return found
 
+    def all_data(self):
+        data_dict = self.gesture_detector.all_data()
+        data_dict["dt_frame"] = self._dt_frame
+        data_dict["color"] = self._color
+        data_dict["color_rgb"] = self._color_rgb
+        data_dict["color_dist_rgb"] = self._color_dist_rgb
+        data_dict["color_hsv"] = self._color_hsv
+        data_dict["color_dist_hsv"] = self._color_dist_hsv
+        data_dict["light_ave_intensity"] = self._light_ave_intensity
+        data_dict["light_left_ave_intensity"] = self._light_left_ave_intensity
+        data_dict["light_right_ave_intensity"] = self._light_right_ave_intensity
+        data_dict["light_max_deg_val"] = self._light_max_deg_val
+        return data_dict
 
 class EasyPiCamSensor():
     '''
@@ -695,6 +732,10 @@ class EasyPiCamSensor():
     def motion_dt_x_y(self):
         motion_dt,motion_x,motion_y = self.stream.get_motion_dt_x_y()
         return motion_dt,motion_x, motion_y
+
+    def motion_dt_x_y_npimage(self):
+        motion_dt,motion_x,motion_y,motion_image = self.stream.get_motion_dt_x_y_npimage()
+        return motion_dt,motion_x, motion_y, motion_image
 
     def light(self):
         light_ave_intensity = self.stream.get_light()
@@ -722,20 +763,21 @@ class EasyPiCamSensor():
 
 
 
-    def save_image_to_file(self,fn='capture.jpg'):
-        try:
-            self.stream.mutex.acquire()
-            image = self.stream.get_npframe()
-        except Exception as e:
-            print("save_image_to_file(): get_npframe failed")
-            print(str(e))
-            fn=None
-        finally:
-            self.stream.mutex.release()
+    def save_image_to_file(self,npimage=None,fn='capture.jpg'):
+        if (npimage is None):
+            try:
+                self.stream.mutex.acquire()
+                npimage = self.stream.get_npframe()
+            except Exception as e:
+                print("save_image_to_file(): get_npframe failed")
+                print(str(e))
+                fn=None
+            finally:
+                self.stream.mutex.release()
 
         if fn is not None:
             try:
-                pilimage = Image.fromarray(image)
+                pilimage = Image.fromarray(npimage)
                 pilimage.save(fn)
             except Exception as e:
                 print("easypicamerasensor.save_image_to_file({}) failed".format(fn))
@@ -762,11 +804,6 @@ class EasyPiCamSensor():
         Write data to a CSV file path
         """
         if data is None: data = self.stream.colors_rgb_hsv
-
-        # with open(path, "w") as csv_file:
-        #     writer = csv.writer(csv_file, delimiter=',')
-        #     for line in data:
-        #         writer.writerow(line)
 
         self.save_config("colors_rgb_hsv",data,path)
 
@@ -872,6 +909,16 @@ class EasyPiCamSensor():
                 break
 
 
+
+    # gather all "by-frame" data into a dictionary
+    def get_all_data(self):
+        data_dict = self.stream.all_data()
+        return data_dict
+
+    def print_all_data(self,data_dict):
+        for n,v in data_dict.items():
+            print("{:<25s} = {}".format(n,str(v)))
+
 # ------- TEST MAIN -----
 def main():
     print("\nStarting EasyPiCamSensor Test Main")
@@ -933,6 +980,11 @@ def main():
     print(status)
 
     epcs.print_colors()  # show colors after deleting Gray
+
+    print("get_all_data():")
+    all_data_dict = epcs.get_all_data()
+    epcs.print_all_data(all_data_dict)
+
 
     print("\nDone")
 
