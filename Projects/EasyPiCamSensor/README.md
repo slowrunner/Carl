@@ -77,7 +77,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  get_image()  # returns RGB numpy image array
 
--  learn_colors(tts_prompsts=False) # learn one or more colors with optional TTS prompting
+-  learn_colors(tts_prompts=False) # learn one or more colors with optional TTS prompting
 
 -  print_colors() # print the current color table
 
