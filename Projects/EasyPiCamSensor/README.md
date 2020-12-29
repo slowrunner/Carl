@@ -1,7 +1,7 @@
 
 # Easy PiCamera Sensor Class For GoPiGo3 Robots
 
-Python3 Class to treat the PiCamera as a unified family of GoPiGo3 robot sensors 
+Python3 Class to treat the PiCamera as a unified family of sensors useful in robot programs 
 
 including:
 - Left, Front, Right Light Intensity (0-100)
@@ -21,17 +21,30 @@ tar -xzvf EasyPiCamSensor.tgz
 
 # Requirements
 
-Python Requirements (Stock ModRobotics Rasbian_For_Robots):
+Python Requirements (All come in the stock ModRobotics Rasbian_For_Robots):  
 - Python3
 - picamera
 - threading
 - colorsys
 - PIL  
 - numpy
-- (Does not use/require OpenCV)
+- espeakng
+- math
+- json
+- traceback
+- datetime
+- os
+- PIL  (Python Image Lib)
+- time
+- io
+- builtins
 
-Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct,rt_pct) method
-- For use with the Braitenberg Vehicle examples 
+Other Requirements:  
+- (Does not use/require OpenCV)
+- (Sensor does not require GoPiGo3; Some examples do.)  
+
+Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct,rt_pct) method  
+- For use with the Braitenberg Vehicle examples  
 - The current ModRobotics easygopigo3.py steer() method has a problem. 
 
 # ARCHITECTURE
