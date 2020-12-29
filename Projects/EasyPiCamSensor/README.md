@@ -197,3 +197,5 @@ you should know this was a learning experience for me,
 **If you know how to make it better, create a pull request.**  
 Perhaps I will learn how to merge other people's code.
 
+- I should have investigated http://www.brucelindbloom.com/index.html?ColorDifferenceCalcHelp.html  
+  for better color distance calculation.
