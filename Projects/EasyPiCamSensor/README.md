@@ -23,21 +23,6 @@ tar -xzvf EasyPiCamSensor.tgz
 
 Python Requirements (**All come in the stock ModRobotics Rasbian_For_Robots**):  
 - Python3
-- picamera
-- threading
-- colorsys
-- PIL  
-- numpy
-- espeakng
-- math
-- json
-- traceback
-- datetime
-- os
-- PIL  (Python Image Lib)
-- time
-- io
-- builtins
 - (Does not use/require OpenCV)
 
 Other Requirements:  
