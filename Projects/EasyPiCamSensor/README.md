@@ -185,22 +185,24 @@ right   up 2020-12-31 22:24:06.92 right   up 2020-12-31 22:24:06.93  Black ( 17,
 
 - Motion / Gesture Detection based on the work of Dave Jones at https://github.com/waveform80/picamera_demos
 
-# DISCLAIMER
+# DISCLAIMERS
 
-First, Thank you for trying my EasyPiCamSensor.
+First, Thank you for trying my EasyPiCamSensor.  
 
 There are certainly more elegant ways of doing this.  
-This is the best I could do with my limited understanding of Python and the Pi Camera.
+This is the best I could do with my limited understanding of Python and the Pi Camera.  
 
 This code comes with no warranty of correct function.  
 
 If you think it should do something it doesn't,  
 or shouldn't do something it does,  
 you should know this was a learning experience for me,  
-**It is not a product.  I am not interested in maintaining it for you!**
+**It is not a product.  I am not interested in maintaining it for you!**  
+
+**No connection to DexterIndustries or ModRobotics.  Do Not Ask Them For Support!**  
 
 **If you know how to make it better, create a pull request.**  
 Perhaps I will learn how to merge other people's code.
 
-- I should probably have investigated http://www.brucelindbloom.com/index.html?ColorDifferenceCalcHelp.html  
+I should probably have investigated http://www.brucelindbloom.com/index.html?ColorDifferenceCalcHelp.html  
   for a better color distance calculation.
