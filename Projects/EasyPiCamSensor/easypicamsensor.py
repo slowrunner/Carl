@@ -31,7 +31,7 @@
 
     max_ang_val() # returns the horizontal angle from centerline (+/- half FOV, left negative) of bright area and max intensity (0-100)
 
-    save_image_to_file(npimage=None,fn="capture.jpg") # saves passed or last frame to file encoded as JPEG
+    save_image_to_file(fn="capture.jpg",npimage=None) # saves passed or last frame to file encoded as JPEG
 
     get_image() # returns RGB numpy image array
 
@@ -769,7 +769,7 @@ class EasyPiCamSensor():
         return color
 
 
-    def color_values_dist_method(self,method="RGB"):
+    def color_values_dist_method(self,method="BEST"):
         color,values,dist,method = self.picamsensor.get_color_values_dist_method(method)
         return color,values,dist,method
 
@@ -778,7 +778,7 @@ class EasyPiCamSensor():
         return self.picamsensor.get_light_max_ang_val()
 
 
-    def save_image_to_file(self,npimage=None,fn='capture.jpg'):
+    def save_image_to_file(self,fn='capture.jpg',npimage=None):
         if (npimage is None):
             try:
                 self.picamsensor.mutex.acquire()

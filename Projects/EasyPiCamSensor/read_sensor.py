@@ -34,6 +34,10 @@ def main():
     print_w_date_time("Starting")
     print_w_date_time("Warming Up The Camera")
     epcs = easypicamsensor.EasyPiCamSensor()  # creates 320x240 10FPS sensor
+    print("Expand command window till to show the following line without wrap, then press Return")
+    print("xmove ymov     latch_move_time     l_x   l_y       frame_time         rgb  (   values  )  dist    hsv  (       values       )   dist  left   whole  right (maxAng   val )")
+    go = input()
+
     print_w_date_time("Starting Loop")
     linecount = 0
     while True:
