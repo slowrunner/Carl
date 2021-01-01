@@ -21,9 +21,9 @@
 
     light_left_right() # return average intensity across left half and right half of sensor
 
-    color() # returns estimate of color of central area of sensor using "RGB" method
+    color() # returns best estimate of color of central area of sensor using "BEST" method
 
-    color_dist_method(method="RGB") # returns nearest color with distance and method ("RGB" or "HSV") used
+    color_values_dist_method(method="BEST") # returns nearest color with distance and method ("RGB" or "HSV") used
 
     motion_dt_x_y() # returns time of first motion left|right and/or up|down since last method call
 
@@ -147,15 +147,15 @@ def hAngle(targetPixel, hRes, hFOV=DEFAULT_H_FOV):
 # ...
 # ]
 DEFAULT_COLORS_RGB_HSV = [
-    ['Black' ,( 44, 58, 78),(214, 43, 31)],
-    ['Brown' ,(190,182,159),( 44, 16, 75)],
-    ['Red'   ,(240, 85,111),(349, 64, 94)],
-    ['Orange',(244,233,242),(313,  5, 96)],
-    ['Yellow',(245,249,150),( 62, 40, 98)],
-    ['Green' ,(  0,184,120),(158,100, 72)],
-    ['Blue'  ,(  0,154,245),(202,100, 96)],
-    ['Violet',(132,188,245),(210, 46, 96)],
-    ['White' ,(188,249,245),(176, 24, 98)]
+    ['Black' ,(  0,  0,  0),(  0,  0,  0)],
+    ['Brown' ,( 99, 81, 36),( 43, 63, 39)],
+    ['Red'   ,(129, 25, 24),(134, 81, 51)],
+    ['Orange',(111,106, 97),( 41, 12, 44)],
+    ['Yellow',(130,135,  1),( 62, 99, 53)],
+    ['Green' ,( 10, 81, 19),(127, 87, 32)],
+    ['Blue'  ,( 27, 60, 91),(209, 70, 36)],
+    ['Violet',( 91, 83,105),(261, 21, 41)],
+    ['White' ,(123,142,136),(161, 13, 56)]
     ]
 
 
@@ -394,11 +394,12 @@ class PiCamSensor:
         self.pilframe = None
         self._dt_frame = None
         self.stopped = False
-        self._color = "unknown"
         self._color_rgb = "unknown"
         self._color_dist_rgb = "999"
+        self._color_ave_rgb = (0,0,0)
         self._color_hsv = "unknown"
         self._color_dist_hsv = 999
+        self._color_ave_rgb = (0,0.0)
         self._light_ave_intensity = 999
         self._light_left_ave_intensity = 999
         self._light_right_ave_intensity = 999
@@ -480,16 +481,16 @@ class PiCamSensor:
             pilimage = self.pilframe
             central_pixs = crop_center(pilimage,6,6)      # get a 6x6 portion from the image
             central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
-            ave_central_rgb = get_ave_rgb(central_rgb_channels)
-            if _debug: print("ave_central_rgb:",ave_central_rgb)
-            pil_nearest_rgb_color, pil_nearest_rgb_dist = nearest_rgbcolor_dist(ave_central_rgb,self.colors_rgb_hsv)
+            self._color_ave_rgb = get_ave_rgb(central_rgb_channels)
+            if _debug: print("color_ave_rgb:",self._color_ave_rgb)
+            pil_nearest_rgb_color, pil_nearest_rgb_dist = nearest_rgbcolor_dist(self._color_ave_rgb,self.colors_rgb_hsv)
             self._color_rgb = pil_nearest_rgb_color
             self._color_dist_rgb = pil_nearest_rgb_dist
 
             central_hsv_channels = central_pixs.convert('HSV').split()
-            ave_central_hsv = get_ave_hsv(central_hsv_channels)
-            if _debug: print("ave_central_hsv: ({:.1f},{:.1f},{:.1f})".format(ave_central_hsv[0],ave_central_hsv[1],ave_central_hsv[2]))
-            pil_nearest_hsv_color, pil_nearest_hsv_dist = nearest_hsvcolor_dist(ave_central_hsv,self.colors_rgb_hsv)
+            self._color_ave_hsv = get_ave_hsv(central_hsv_channels)
+            if _debug: print("color_ave_hsv: ({:.1f},{:.1f},{:.1f})".format(self._color_ave_hsv[0],self._color_ave_hsv[1],self._color_ave_hsv[2]))
+            pil_nearest_hsv_color, pil_nearest_hsv_dist = nearest_hsvcolor_dist(self._color_ave_hsv,self.colors_rgb_hsv)
             self._color_hsv = pil_nearest_hsv_color
             self._color_dist_hsv = pil_nearest_hsv_dist
 
@@ -501,31 +502,37 @@ class PiCamSensor:
 
     def get_color(self):
         try:
-            color = self._color_rgb
+            color,values,dist,method = self.get_color_values_dist_method("BEST")
         except Exception as e:
             print("easypicamsensor.get_color() Exception:" + str(e))
-
         return color
 
 
-    def get_color_dist_method(self,method="RGB"):
+    def get_color_values_dist_method(self,method="BEST"):
         if (method == "RGB"):
             color  = self._color_rgb
             dist   = self._color_dist_rgb
+            values = self._color_ave_rgb
         elif (method == "HSV"):
             color  = self._color_hsv
             dist   = self._color_dist_hsv
+            values = self._color_ave_hsv
         else:    # method == "BEST" or anything but {"RGB" | "HSV"}
-            if (self._color_dist_rgb >= self._color_dist_hsv):
+            if ((self._color_rgb == 'Black') or \
+                (self._color_rgb == 'White') or \
+                (self._color_rgb == 'Red')   or \
+                (self._color_rgb == 'Brown')  ):
                 color  = self._color_rgb
                 dist   = self._color_dist_rgb
+                values = self._color_ave_rgb
                 method = "RGB"
             else:
                 color  = self._color_hsv
                 dist   = self._color_dist_hsv
+                values = self._color_ave_hsv
                 method = "HSV"
 
-        return color,dist,method
+        return color,values,dist,method
 
 
     def set_light_ave_intensity(self):
@@ -623,34 +630,34 @@ class PiCamSensor:
         return hangle_deg,max_val
 
 
-    def learn_color(self,color_name):
+    def learn_color(self,color_name,debug=_debug):
         try:
             pilimage = self.pilframe
             central_pixs = crop_center(pilimage,32,24)      # get a small portion from the center of the image
             central_pixs.save(color_name+".jpg")
             central_rgb_channels = central_pixs.split()  # split into three images, one for each R,G,B
-            ave_central_rgb = get_ave_rgb(central_rgb_channels)
-            if _debug: print("ave_central_rgb:",ave_central_rgb)
+            self._color_ave_rgb = get_ave_rgb(central_rgb_channels)
+            if debug: print("color_ave_rgb: ",self._color_ave_rgb)
 
             central_hsv_channels = central_pixs.convert('HSV').split()
-            ave_central_hsv = get_ave_hsv(central_hsv_channels)
-            if _debug: print("ave_central_hsv: ({:.3f},{:.3f},{:.3f})".format(ave_central_hsv[0],ave_central_hsv[1],ave_central_hsv[2]))
+            self._color_ave_hsv = get_ave_hsv(central_hsv_channels)
+            if debug: print("color_ave_hsv: ({:.3f},{:.3f},{:.3f})".format(self._color_ave_hsv[0],self._color_ave_hsv[1],self._color_ave_hsv[2]))
 
             status = None
             for i in range(len(self.colors_rgb_hsv)):
                 if color_name in self.colors_rgb_hsv[i]:
                     old_color = self.colors_rgb_hsv[i]
-                    new_color = [color_name, ave_central_rgb, ave_central_hsv]
+                    new_color = [color_name, self._color_ave_rgb, self._color_ave_hsv]
                     self.colors_rgb_hsv[i] = new_color
                     status = "Replaced {}".format(color_name)
 
             if status is None:
                 old_color = []
-                new_color = [color_name, ave_central_rgb, ave_central_hsv]
+                new_color = [color_name, self._color_ave_rgb, self._color_ave_hsv]
                 self.colors_rgb_hsv.append(new_color)
-                status = "Added    {}".format(color_name)
+                status = "Added {} ".format(color_name)
 
-            if _debug:
+            if debug:
                 if old_color:
                     print("learn_color({}) replaced:".format(color_name))
                     print("       {}".format(old_color))
@@ -698,11 +705,12 @@ class PiCamSensor:
     def all_data(self):
         data_dict = self.gesture_detector.all_data()
         data_dict["dt_frame"] = self._dt_frame
-        data_dict["color"] = self._color
         data_dict["color_rgb"] = self._color_rgb
         data_dict["color_dist_rgb"] = self._color_dist_rgb
+        data_dict["color_ave_rgb"] = self._color_ave_rgb
         data_dict["color_hsv"] = self._color_hsv
         data_dict["color_dist_hsv"] = self._color_dist_hsv
+        data_dict["color_ave_hsv"] = self._color_ave_hsv
         data_dict["light_ave_intensity"] = self._light_ave_intensity
         data_dict["light_left_ave_intensity"] = self._light_left_ave_intensity
         data_dict["light_right_ave_intensity"] = self._light_right_ave_intensity
@@ -761,9 +769,9 @@ class EasyPiCamSensor():
         return color
 
 
-    def color_dist_method(self,method="RGB"):
-        color,dist,method = self.picamsensor.get_color_dist_method(method)
-        return color,dist,method
+    def color_values_dist_method(self,method="RGB"):
+        color,values,dist,method = self.picamsensor.get_color_values_dist_method(method)
+        return color,values,dist,method
 
 
     def max_ang_val(self):
@@ -901,7 +909,7 @@ class EasyPiCamSensor():
             return None
 
 
-    def learn_colors(self,tts_prompts=False):
+    def learn_colors(self,tts_prompts=False,debug=_debug):
         '''
         With optional TTS prompting
         '''
@@ -916,7 +924,7 @@ class EasyPiCamSensor():
                 alert = "Press Return when ready to learn {}".format(color_name)
                 if tts_prompts: tts.say(alert)
                 input(alert)
-                status = self.picamsensor.learn_color(color_name)
+                status = self.picamsensor.learn_color(color_name,debug)
                 print(status)
                 if tts_prompts: tts.say(status)
             else:
@@ -968,8 +976,8 @@ def main():
     motion_dt,motion_x,motion_y = epcs.motion_dt_x_y()
     print("motion_dt_x_y() returns: {} {} {}".format(motion_dt, motion_x, motion_y))
     print("color() returns: {}".format(epcs.color()))
-    color,dist,method = epcs.color_dist_method()
-    print("color_dist_method(): returns {} {} {}".format(color,dist,method))
+    color,values,dist,method = epcs.color_values_dist_method()
+    print("color_values_dist_method(): returns {} {} {} {}".format(color,values,dist,method))
     h_angle, max_val =  epcs.max_ang_val()
     print("max_ang_val() returns: {:.1f} degrees value: {:.1f} ".format(h_angle,max_val))
 
