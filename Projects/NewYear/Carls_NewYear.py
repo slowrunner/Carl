@@ -33,8 +33,15 @@ LOW_BATTERY_V = 7.6   # 8cells x 1.1375 - 0.6 GoPiGo3 voltage drop
 
 def closeToMidnight():
     d = datetime.now()
+    y = int(d.strftime("%Y"))+1  # compute new year
+
     minuteBefore = d.replace(hour=23, minute=59, second=0, microsecond=0)
-    minuteAfter = d.replace(year=2019, month=1, day=1, hour=0, minute=0, second=0)
+    minuteAfter = d.replace(year=y, month=1, day=1, hour=0, minute=0, second=0)
+
+    # Uncomment to check date times
+    # print("minuteBefore: {}".format(minuteBefore))
+    # print("minuteAfter : {}".format(minuteAfter))
+
     if d > minuteBefore and d < minuteAfter:
         print("close to midnight")
         return True
