@@ -28,7 +28,7 @@ Python Requirements (**All come in the stock ModRobotics Rasbian_For_Robots**):
 Other Requirements:  
 - GoPiGo3 for some example programs
 - (Sensor does not require GoPiGo3)  
-- Not thread-safe (camera does not allow multiple streams)
+- Not mulit-processing-safe (camera does not allow multiple streams)
 
 Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct,rt_pct) method  
 - For use with the Braitenberg Vehicle examples  
