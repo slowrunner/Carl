@@ -70,7 +70,13 @@ def main():
         tts.say(alert)
         time.sleep(2)
 
-    alert = "For RGB, Enter 1 or just press Return"
+    alert = "For 'Best', Just press Return"
+    print(alert)
+    if verbose:
+        tts.say(alert)
+        time.sleep(3)
+
+    alert = "For RGB, Enter 1"
     print(alert)
     if verbose:
         tts.say(alert)
@@ -82,11 +88,13 @@ def main():
         tts.say(alert)
 
     try:
-        selection = input("Color Match Method [RGB]: ")
+        selection = input("Color Match Method [Best]: ")
     except KeyboardInterrupt:
         selection = "EXIT"
 
     if (selection == '') or (selection == "1"):
+        match_method = "BEST"
+    elif (selection == "1"):
         match_method = "RGB"
     elif (selection == "2"):
         match_method = "HSV"
@@ -95,11 +103,18 @@ def main():
     while  (selection != "EXIT"):
         try:
             # current = epcs.color()  # returns only the color
-            current,dist,method = epcs.color_dist_method(method=match_method)  # returns the color, distance from nearest color, and method
+            current_rgb,values_rgb,dist_rgb,method_rgb = epcs.color_values_dist_method("RGB")  # returns the color, distance from nearest color, and method
+            current_hsv,values_hsv,dist_hsv,method_hsv = epcs.color_values_dist_method("HSV")  # returns the color, distance from nearest color, and method
+            current_best,values_best,dist_best,method_best = epcs.color_values_dist_method("BEST")  # returns the color, distance from nearest color, and method
+            current,values,dist,method = epcs.color_values_dist_method(method=match_method)  # returns the color, distance from nearest color, and method
             if (current != last):
                 # new color estimate
                 last = current
-                alert = "New color: {} dist: {} method: {}".format(current,dist,method)
+                alert = "RGB  color: {} values: {} dist: {} method: {}".format(current_rgb,values_rgb,dist_rgb,method_rgb)
+                print_w_date_time(alert)
+                alert = "HSV  color: {} values: {} dist: {} method: {}".format(current_hsv,values_hsv,dist_hsv,method_hsv)
+                print_w_date_time(alert)
+                alert = "BEST color: {} values: {} dist: {} method: {}".format(current_best,values_best,dist_best,method_best)
                 print_w_date_time(alert)
                 alert = "I think I see {}?".format(current)
                 print_w_date_time(alert)

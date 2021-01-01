@@ -53,8 +53,11 @@ def main():
             if verbose: tts.say(alert)
             color_name = input(alert)
             if epcs.known_color(color_name):
-                current,dist,method = epcs.color_dist_method()  # returns the color, distance from nearest color, and method
-                alert = "Color Estimate: {} dist: {} method: {}".format(current,dist,method)
+                alert = "Hold {} in front of camera and press Return. ".format(color_name)
+                if verbose: tts.say(alert)
+                go = input(alert)
+                current,values,dist,method = epcs.color_values_dist_method()  # returns the color, distance from nearest color, and method
+                alert = "Color Estimate: {} values: {} dist: {} method: {}".format(current,values,dist,method)
                 print(alert)
                 alert = "Delete {}? ".format(color_name)
                 if verbose: tts.say(alert)

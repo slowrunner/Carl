@@ -33,6 +33,8 @@ except:
 import time
 import argparse
 
+_debug = False
+
 
 # ARGUMENT PARSER (to add optional -v or --verbose to speak results using TTS
 ap = argparse.ArgumentParser()
@@ -55,8 +57,8 @@ def main():
             if verbose: tts.say(alert)
             print("\n")
             go = input(alert)
-            current,dist,method = epcs.color_dist_method()  # returns the color, distance from nearest color, and method
-            alert = "Color Estimate: {} dist: {} method: {}".format(current,dist,method)
+            current,values,dist,method = epcs.color_values_dist_method()  # returns the color, distance from nearest color, and method
+            alert = "Color Estimate: {} values: {} dist: {} method: {}".format(current,values,dist,method)
             print(alert)
             alert = "Is that {}? ".format(current)
             if verbose: tts.say(alert)
@@ -67,7 +69,7 @@ def main():
                 print("Current Color Table")
                 epcs.print_colors()
 
-                epcs.learn_colors()
+                epcs.learn_colors(debug=_debug)
 
             time.sleep(1)    # wait between checks
         except KeyboardInterrupt:

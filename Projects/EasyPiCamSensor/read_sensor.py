@@ -40,24 +40,26 @@ def main():
         try:
             linecount += 1
             if ((linecount % 15)==1):
-                print("xmove ymov     latch_move_time      l_x  l_y       frame_time        color   rgb   dist    hsv    dist  left   whole  right  maxAng   val")
+                print("xmove ymov     latch_move_time     l_x   l_y       frame_time         rgb  (   values  )  dist    hsv  (       values       )   dist  left   whole  right (maxAng   val )")
             rd = epcs.get_all_data()   # get all updated-by-frame data in a dictionary
-            readings_line = "{:>5s} {:>4s} {:>22s} {:>5s} {:>4s} {:>22s} {:>6s} {:>6s} {:>6.2f} {:>6s} {:>6.2f} {:>6.2f} {:>6.2f} {:>6.2f} ({:>6.2f},{:>6.2f})".format(
+            readings_line = "{:>5s} {:>4s} {:>22s} {:>5s} {:>4s} {:>22s} {:>6s} ({:>3d},{:>3d},{:3d}) {:>6.2f} {:>6s} ({:>6.2f},{:>6.2f},{:>6.2f}) {:>6.2f} {:>6.2f} {:>6.2f} {:>6.2f} ({:>6.2f},{:>6.2f})".format(
                            rd["x_move"],
                                   rd["y_move"],
                                          str(rd["latch_move_time"])[:-4],
                                                  rd["latch_x_move"],
                                                         rd["latch_y_move"],
                                                                str(rd["dt_frame"])[:-4],
-                                                                       rd["color"],
                                                                              rd["color_rgb"],
-                                                                                     rd["color_dist_rgb"],
+                                                                                   rd["color_ave_rgb"][0], rd["color_ave_rgb"][1], rd["color_ave_rgb"][2],
+                                                                                       rd["color_dist_rgb"],
                                                                                              rd["color_hsv"],
-                                                                                                     rd["color_dist_hsv"],
+                                                                                                   rd["color_ave_hsv"][0], rd["color_ave_hsv"][1], rd["color_ave_hsv"][2],
+                                                                                                        rd["color_dist_hsv"],
                                                                                                                  rd["light_left_ave_intensity"],
                                                                                                                         rd["light_ave_intensity"],
                                                                                                                              rd["light_right_ave_intensity"],
-                                                                                                                                    rd["light_max_deg_val"][0],rd["light_max_deg_val"][1]) 
+                                                                                                                                      rd["light_max_deg_val"][0],
+                                                                                                                                            rd["light_max_deg_val"][1] )
             print(readings_line)
             time.sleep(0.1)    # wait between checks
         except KeyboardInterrupt:

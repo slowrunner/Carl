@@ -80,7 +80,7 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
 
 -  color() # returns estimate of color of central area of sensor using "RGB" method
 
--  color_dist_method(method="RGB") # returns nearest color with distance and method ("RGB" or "HSV") used 
+-  color_values_dist_method(method="BEST") # returns nearest color with distance and method ("RGB" or "HSV") used 
 
 -  motion_dt_x_y() # returns time of first motion left|right and/or up|down since last method call
 
@@ -123,14 +123,22 @@ Note:  The tgz contains a version of easygopigo3.py with a working steer(lft_pct
   * Reads all "by-frame" data from sensor 10 times per second and pretty prints with headings every 15 readings
 
 ```
-xmove ymov     latch_move_time      l_x  l_y       frame_time        color   rgb   dist    hsv    dist  left   whole  right  maxAng   val
- none none 2020-12-29 00:26:04.60  left none 2020-12-29 00:26:09.10  Black  Black  64.53  Brown  14.24  24.98  18.48  11.99 (-23.94, 80.78)
- none none                         none none 2020-12-29 00:26:09.20  Black  Black  63.73  Brown  14.90  24.98  18.48  11.99 (-23.94, 81.57)
+pi@Carl:~/Carl/Projects/EasyPiCamSensor $ ./read_sensor.py 
+2020-12-31 22:23:59 read_sensor: Starting
+2020-12-31 22:23:59 read_sensor: Warming Up The Camera
+config_easypicamsensor.json or colors_rgb_hsv not found
+Using DEFAULT_COLORS_RGB_HSV.
+2020-12-31 22:24:04 read_sensor: Starting Loop
+xmove ymov     latch_move_time     l_x   l_y       frame_time         rgb  (   values  )  dist    hsv  (       values       )   dist  left   whole  right (maxAng   val )
+ none none                         none none 2020-12-31 22:24:06.83  Brown ( 89, 66, 41)  18.71 Orange ( 30.51, 56.53, 35.05)  10.49  23.80  18.01  12.23 ( 16.49, 99.22)
+right   up 2020-12-31 22:24:06.92 right   up 2020-12-31 22:24:06.93  Black ( 17, 12,  7)  21.95 Orange ( 30.71, 59.80,  6.87)  10.29  17.63  13.70   9.76 (  7.12, 98.82)
+ none   up 2020-12-31 22:24:07.02  none   up 2020-12-31 22:24:07.03  Brown ( 78, 57, 35)  31.91 Orange ( 29.45, 56.74, 30.87)  11.55  13.78  15.58  17.38 ( 16.49, 99.22)
+ left   up 2020-12-31 22:24:07.12  left   up 2020-12-31 22:24:07.14  Brown ( 88, 65, 39)  19.65 Orange ( 30.55, 56.93, 34.85)  10.45  22.96  20.50  18.03 ( 16.49, 99.22)
 ```
 
 - i_see_color.py [-h] [-v]
-  * Uses EasyPiCamSensor.color() and optionally [-v] espeakng TTS to report estimate color seen
-  * User selects either RGB or HSV color matching method (RGB is much better than HSV)
+  * Uses EasyPiCamSensor.color_values_dist_method() and optionally [-v] espeakng TTS to report estimate color seen
+  * User selects BEST,  RGB or HSV color matching method (BEST returns RBG for some colors, HSV for others)
   * Target_Colors.pdf provides color samples that match the default sensor color table 
     (Print on matte photo paper for best results)
 
@@ -175,20 +183,26 @@ xmove ymov     latch_move_time      l_x  l_y       frame_time        color   rgb
   * (Does not use TTS)
 
 - teach_me_colors.py
-  * Allows adding or re-learning one or more colors 
+  * Allows adding or re-learning one or more colors
+  * Outputs to config_easypicamsensor.json.new
+  * (Copy to config_easypicamsensor.json for use) 
 
 - delete_a_color.py
-  * Allows testing and easily deleting a poor performing color from the config_easypicamsensor.json file
+  * Allows testing and easily deleting a poor performing color
+  * Outputs to config_easypicamsensor.json.new file
+  * (Copy to config_easypicamsensor.json for use) 
 
 
 # Credits
 
-- Color sensing based on work of Nicole Parrot  
+- Color sensing code based on work of Nicole Parrot  
   https://github.com/CleoQc/GoPiGoColorDetection
 
 - Motion / Gesture Detection based on the work of Dave Jones at https://github.com/waveform80/picamera_demos
 
 # DISCLAIMER
+
+First, Thank you for trying my EasyPiCamSensor.
 
 There are certainly more elegant ways of doing this.  
 This is the best I could do with my limited understanding of Python and the Pi Camera.
@@ -203,5 +217,5 @@ you should know this was a learning experience for me,
 **If you know how to make it better, create a pull request.**  
 Perhaps I will learn how to merge other people's code.
 
-- I should have investigated http://www.brucelindbloom.com/index.html?ColorDifferenceCalcHelp.html  
-  for better color distance calculation.
+- I should probably have investigated http://www.brucelindbloom.com/index.html?ColorDifferenceCalcHelp.html  
+  for a better color distance calculation.
