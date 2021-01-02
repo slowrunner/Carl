@@ -87,15 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# for kalliope
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-
-# for espeak?
-PA_ALSA_PLUGHW=1
-export PA_ALSA_PLUGHW
-
 # some more ls aliases
 #alias ll='ls -l'
 #alias la='ls -A'
@@ -120,5 +111,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# ========= BEGIN - ADDED FOR CARL ======
+# Added for OpenCV import error undefined symbol: __atomic_fetch_add_8
+export LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1
+
+# for Google Cloud API
+export GOOGLE_APPLICATION_CREDENTIALS="/home/pi/Carl/Examples/GoogleCloud/google.cloud.cred.json"
+
+# ========= END   - ADDED FOR CARL ======
+
 xhost + >/dev/null 2>&1
 
