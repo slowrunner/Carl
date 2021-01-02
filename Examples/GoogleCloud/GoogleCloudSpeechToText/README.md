@@ -88,9 +88,9 @@ JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unloc
 
 
 
-**hello Carl**
-**what you doing**
-**goodbye**
+hello Carl
+what you doing
+goodbye
 
 
 ^C
