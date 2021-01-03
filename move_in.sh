@@ -11,3 +11,7 @@ sudo cp configs/etc.asound.conf.PiOS /etc/asound.conf
 sudo cp /usr/share/alsa/alsa.conf /usr/share/alsa/alsa.conf.bak
 sudo cp configs/usr.share.alsa.alsa.conf /usr/share/alsa/alsa.conf
 cp configs/home.pi.dot.asoundrc.PiOS /home/pi/.asoundrc
+cp configs/home_pi_dot_bashrc /home/pi/.bashrc
+source /home/pi/bashrc
+echo " "
+echo "Note: Need to manually restore ~/Carl/Examples/GoogleCloud/google.cloud.cred.json"

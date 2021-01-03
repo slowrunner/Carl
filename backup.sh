@@ -8,4 +8,5 @@ cp carlData.json carlData.json.backup
 cp juicer.out juicer.out.backup
 echo "backed up life, wheel, imu, run, juicer logs and carlData.json"
 ls -al *.backup
-
+echo " "
+echo "Note: Does not backup google.cloud.cred.json"
