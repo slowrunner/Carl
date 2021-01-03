@@ -73,6 +73,7 @@ rm *.gz
 
 or
 
+```
 pi@Carl:~/Carl/Examples/DeepSpeech $ deepspeech --model models/deepspeech-0.9.3-models.tflite --scorer models/deepspeech-0.9.3-models.scorer --audio audio/2830-3980-0043.wav 
 Loading model from file deepspeech-0.9.3-models.tflite
 TensorFlow: v2.3.0-6-g23ad988
@@ -83,6 +84,7 @@ Loaded scorer in 0.0224s.
 Running inference.
 experience proves this
 Inference took 11.949s for 1.975s audio file.
+```
 
 # Example - Microphone With Voice Activity Detection (VAD) Streaming
 
