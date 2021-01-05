@@ -112,3 +112,11 @@ curl -L0 --output requirements.txt https://github.com/mozilla/DeepSpeech-example
 ```
 
 
+# Example - Using PicoVoice Porcupine Wake Word Engine with DeepSpeech ASR
+
+See 
+- https://github.com/AIWintermuteAI/DeepSpeech_RaspberryPi4_Hotword
+- https://www.hackster.io/dmitrywat/offline-speech-recognition-on-raspberry-pi-4-with-respeaker-c537e7
+
+
+
