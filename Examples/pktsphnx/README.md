@@ -11,7 +11,7 @@ I don't want to mess up my system unknowingly by trying to get the now obsolete 
 
 I am investigating Vosk from Alpha Cephai next:
 
-[u][Vosk, is available from Alpha Cephai](https://alphacephei.com/en/#opensource)[/u]
+[Vosk, is available from Alpha Cephai](https://alphacephei.com/en/#opensource)
 
 
 ==== Install pocketsphinx-python ===
