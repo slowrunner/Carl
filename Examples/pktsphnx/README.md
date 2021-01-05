@@ -1,15 +1,31 @@
 README.md
 
-==== Install pocketsphinx-python ===
-(perhaps should try without libpulse-dev?)
+UPDATE January 2021: PiOS replaced ALSA with PulseAudio as default sound system  
+and the following installation instructions fail with:
+```
+deps/sphinxbase/src/libsphinxad/ad_alsa.c:76:10: fatal error: alsa/asoundlib.h: No such file or directory
+     #include <alsa/asoundlib.h>
+              ^~~~~~~~~~~~~~~~~~
+```
+I don't want to mess up my system unknowingly by trying to get the now obsolete pocketsphinx working.
 
+I am investigating Vosk from Alpha Cephai next:
+
+[u][Vosk, is available from Alpha Cephai](https://alphacephei.com/en/#opensource)[/u]
+
+
+==== Install pocketsphinx-python ===
+
+```
 sudo apt-get install swig libpulse-dev
 sudo pip install pocketsphinx
+```
 
 (USB mic ALSA device 2 with capture set at 81%)
 
 
 Files in this repo:
+carl_wakeup_mic.py   respond to spoken "Carl Wake Up"
 example.py           reco from wav file in distribution
 from_file.py         reco from passed filename  -f
 from_mic_keyword.py  keyword reco from mic
