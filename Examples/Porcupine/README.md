@@ -67,6 +67,14 @@ Listening {
 ^CStopping ...
 
 ```
+# Run Carl Responding to Porcupine Wake Word
+
+```
+./carl_porcupine_mic.py
+```
+
+Carl says "Yes. I heard you" when he hears the wake word "porcupine" spoken or whispered.
+
 
 # To See Default Keywords
 
