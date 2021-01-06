@@ -26,13 +26,13 @@ Usage:
 
 
 
-# simple_test.py
+# test_simple.py
 - Performs recognition from 16k 16bit file  
 - Record samples with record_16k_16bit.sh <filename.wav>, press CTRL-C to end recording  
-
+- From https://github.com/alphacep/vosk-api/blob/master/python/example/test_simple.py
 Usage: 
 ```
-./simple_test.py my_test.wav
+./test_simple.py my_test.wav
 ```
 
 # carl_test_microphone.py
@@ -44,74 +44,73 @@ Usage:
 ./carl_test_microphone.py
 ```
 
-
-# carl_wake_up.wav
-- recorded with Carl on floor
-- Spoken toward wall not toward bot
+# carl_test_file.py  and carl_wake_up.wav
+- Recognition from file using entire given language model
+- Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_simple.py
+- carl_wake_up.wav 
+  - recorded with Carl on floor
+  - Spoken toward wall not toward bot
+  - Result on RPi3B: 10.5 seconds to decode 2.2 second file 4.8x real-time
 
 Execution:
 ```
-$ ./test_simple.py carl_wake_up.wav 
-LOG (VoskAPI:ReadDataFiles():vosk/model.cc:192) Decoding params beam=10 max-active=3000 lattice-beam=2
-LOG (VoskAPI:ReadDataFiles():vosk/model.cc:195) Silence phones 1:2:3:4:5:6:7:8:9:10
-LOG (VoskAPI:RemoveOrphanNodes():nnet-nnet.cc:948) Removed 0 orphan nodes.
-LOG (VoskAPI:RemoveOrphanComponents():nnet-nnet.cc:847) Removing 0 orphan components.
-LOG (VoskAPI:CompileLooped():nnet-compile-looped.cc:345) Spent 0.227804 seconds in looped compilation.
-LOG (VoskAPI:ReadDataFiles():vosk/model.cc:219) Loading i-vector extractor from model/ivector/final.ie
-LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:183) Computing derived variables for iVector extractor
-LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:204) Done.
-LOG (VoskAPI:ReadDataFiles():vosk/model.cc:242) Loading HCL and G from model/graph/HCLr.fst model/graph/Gr.fst
-LOG (VoskAPI:ReadDataFiles():vosk/model.cc:264) Loading winfo model/graph/phones/word_boundary.int
-{
-  "partial" : ""
-}
-{
-  "partial" : ""
-}
-{
-  "partial" : ""
-}
-{
-  "partial" : ""
-}
-{
-  "partial" : ""
-}
-{
-  "partial" : ""
-}
-{
-  "partial" : "carl wake"
-}
-{
-  "partial" : "carl wake up"
-}
-{
-  "partial" : "carl wake up"
-}
-{
-  "partial" : "carl wake up"
-}
-{
-  "partial" : "carl wake up"
-}
-{
-  "result" : [{
-      "conf" : 0.278673,
-      "end" : 1.110000,
-      "start" : 0.690000,
-      "word" : "carl"
-    }, {
-      "conf" : 1.000000,
-      "end" : 1.410000,
-      "start" : 1.110000,
-      "word" : "wake"
-    }, {
-      "conf" : 1.000000,
-      "end" : 1.650000,
-      "start" : 1.410000,
-      "word" : "up"
-    }],
-  "text" : "carl wake up"
-}
+$ time ./carl_test_file.py carl_wake_up.wav 
+Starting File Decode
+result words: 3
+ 0.28 carl
+ 1.00 wake
+ 1.00 up
+Done
+
+
+real	0m10.482s
+user	0m10.170s
+sys	0m0.495s
 ```
+
+# carl_numbers_file.py and carl_numbers_01234567890.wav
+- Demonstrates recognition using word lists
+- Recognition from audio file containing numbers 
+- and optionally beginning with "carl numbers"
+- Using the word list '["oh one two three four five six seven eight nine zero", "carl numbers", "[unk]"]'
+- Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_words.py  
+- carl_numbers_0123456789.wav 
+  - Recorded on Carl "far-field" using record_16k_16bit.sh
+  - On Carl's RPi3B 12 second file is decoded in 8.5 seconds or 0.7x real-time
+- test_10001_9oh21oh_01803.wav
+  - test.wav from https://github.com/alphacep/vosk-api/tree/master/python/example
+  - high quality recording
+  - On Carl's RPi3B 8 second file is decoded in 7 seconds or 0.89x real-time
+
+Usage:
+```
+./carl_numbers_file.py <file.wav>
+./carl_numbers_file.py carl_numbers_01234567890.wav
+./carl_numbers_file.py test_10001_9oh21oh_01803.wav
+```  
+
+Execution:
+```
+time ./carl_numbers_file.py carl_numbers_0123456789oh.wav 
+result words: 13
+ 1.00 carl
+ 1.00 numbers
+ 1.00 zero
+ 1.00 one
+ 1.00 two
+ 1.00 three
+ 1.00 four
+ 1.00 five
+ 1.00 six
+ 1.00 seven
+ 1.00 eight
+ 1.00 nine
+ 1.00 oh
+Done
+
+real	0m8.538s
+user	0m8.437s
+sys	0m0.429s
+```
+
+
