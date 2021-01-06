@@ -2,12 +2,17 @@
 
 # FILE: carl_test_microphone.py
 
+# Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_microphone.py
 # Modified to tell pyaudio to use input_device_index=1
+# Turned Initialization Logging off
+# (Audio system warnings cannot be surpressed)
+# Turned partial and "Final" results off
+# Added pretty printing of result
+# Added CTRL-C handler to quit cleanly
 
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
-import json
-
+from voskprint import printResult
 
 if not os.path.exists("model"):
     print ("Please download the model from https://alphacephei.com/vosk/models and unpack as 'model' in the current folder.")
@@ -34,10 +39,8 @@ while True:
         if rec.AcceptWaveform(data):
             res = rec.Result()
             # print(res)
-            jres = json.loads(res)
-            result_text = jres["text"]
-            print("Text: {}".format(result_text))
-            print("Listening Again ...")
+            printResult(res)
+            print("\nListening Again ...")
         else:
             # print(rec.PartialResult())
             pass

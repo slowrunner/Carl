@@ -10,22 +10,9 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 import sys
 import os
 import wave
-import json
+from voskprint import printResult
 
 SetLogLevel(-1)  # set to 0 to see initialization log
-
-
-
-def printResult(res):
-    jres = json.loads(res)
-    jresult=jres["result"]
-    # print(jresult)
-
-    num_words = len(jresult)
-    print("result words:",num_words)
-
-    for i in range(num_words):
-        print("{:>5.2f} {:<s}".format(jresult[i]["conf"],jresult[i]["word"]))
 
 
 if not os.path.exists("model"):

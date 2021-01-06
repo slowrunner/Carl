@@ -15,7 +15,7 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 import sys
 import os
 import wave
-import json
+from voskprint import printResult
 
 # Comment out to see logging
 SetLogLevel(-1)
@@ -30,17 +30,6 @@ wf = wave.open(sys.argv[1], "rb")
 if wf.getnchannels() != 1 or wf.getsampwidth() != 2 or wf.getcomptype() != "NONE":
     print ("Audio file must be WAV format mono PCM.")
     exit (1)
-
-def printResult(res):
-    jres = json.loads(res)
-    jresult=jres["result"]
-    # print(jresult)
-
-    num_words = len(jresult)
-    print("result words:",num_words)
-
-    for i in range(num_words):
-        print("{:>5.2f} {:<s}".format(jresult[i]["conf"],jresult[i]["word"]))
 
 model = Model("model")
 
