@@ -14,6 +14,7 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
 from voskprint import printResult
 
+
 if not os.path.exists("model"):
     print ("Please download the model from https://alphacephei.com/vosk/models and unpack as 'model' in the current folder.")
     exit (1)
@@ -26,6 +27,7 @@ model = Model("model")
 rec = KaldiRecognizer(model, 16000)
 
 p = pyaudio.PyAudio()
+
 # Carl needs to use input_device_index 1
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 1)
 stream.start_stream()
@@ -39,7 +41,7 @@ while True:
         if rec.AcceptWaveform(data):
             res = rec.Result()
             # print(res)
-            printResult(res)
+            text = printResult(res)
             print("\nListening Again ...")
         else:
             # print(rec.PartialResult())

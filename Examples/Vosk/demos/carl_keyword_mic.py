@@ -13,6 +13,11 @@
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
 from voskprint import printResult
+import datetime as dt
+import json
+import sys
+sys.path.append("/home/pi/Carl/plib")
+import speak
 
 if not os.path.exists("model"):
     print ("Please download the model from https://alphacephei.com/vosk/models and unpack as 'model' in the current folder.")
@@ -20,11 +25,19 @@ if not os.path.exists("model"):
 
 import pyaudio
 
+def print_w_date_time(alert,event_time=None):
+    if event_time is None: event_time = dt.datetime.now()
+    str_event_time = event_time.strftime("%Y-%m-%d %H:%M:%S")
+    print("{} {}".format(str_event_time,alert))
+
+
+
 SetLogLevel(-1)
 
-keywords = '["wake up carl"]]'
+keywords = '["wake up carl","[unk]"]'
 model = Model("model")
 rec = KaldiRecognizer(model, 16000, keywords)
+
 
 p = pyaudio.PyAudio()
 # Carl needs to use input_device_index 1
@@ -40,7 +53,10 @@ while True:
         if rec.AcceptWaveform(data):
             res = rec.Result()
             # print(res)
-            printResult(res)
+            text = printResult(res)
+            if text == "wake up carl":
+                # speak.say("oh kay")
+                print_w_date_time("Wake Phrase Heard")
             print("\nListening Again ...")
         else:
             # print(rec.PartialResult())
@@ -48,4 +64,4 @@ while True:
     except KeyboardInterrupt:
         # print(rec.FinalResult())
         break
-print("\nExiting carl_test_microphone.py")
+print("\nExiting carl_keyword_mic.py")

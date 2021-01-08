@@ -12,7 +12,7 @@ Text: carl wake up
 Usage:
 from voskprint import printResult
 
-printResult(rec.Result())
+text = printResult(rec.Result())
 printResult(rec.FinalResult())
 
 """
@@ -20,6 +20,7 @@ import json
 
 def printResult(res):
     jres = json.loads(res)
+    result_text = ""
     if "result" in jres:
         jresult=jres["result"]
         # print(jresult)
@@ -31,4 +32,4 @@ def printResult(res):
             print("{:>5.2f} {:<s}".format(jresult[i]["conf"],jresult[i]["word"]))
         result_text = jres["text"]
         print("Text: {}".format(result_text))
-
+    return result_text
