@@ -27,12 +27,12 @@ python3 simple_hotword.py
 - Make sample directory for \<speaker\>/\<mic\>
 ```
 mkdir samples
-mkdir samples/alan
+mkdir samples/speaker1
 ```  
 
 - Record multiple "carl" "hey carl" "carl listen" samples
-- Use name format "\<speaker\>_\<mic\>_\<phrase\>"  
-  e.g.  "alan_akira_carl_listen"  
+- Use name format "\<phrase\>" or "\<speaker\>_\<mic\>-\<phrase\>"  
+  e.g.  "carl_listen"  or  "s1_m1-carl_listen"  
 - If restarting, enter starting sample number instead of 1)
 
 USAGE:  ./r.sh "\<speaker_mic_phrase\>" \<starting_sample_number\>  
