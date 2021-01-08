@@ -14,18 +14,30 @@ cd nyumaya_audio_recognition/examples/python
 python3 simple_hotword.py
 ```
 
+# === Performance ===
+- Processor Load: +0.1 15 minute average (10% of one core)
+- Far-field recognition of normal voice and whisper (in quiet room)
+- Hotword recognized over background speech  
+  (spoken at same volume as background TV news) 
+- Occasional false recognition from room conversations  
+  (3 per hour with TV news in background)
+- Onboard TTS does not trigger false hotword detections
 
-# === Record Hotword Samples
+# === Record Hotword Samples  r.sh
 - Make sample directory for \<speaker\>/\<mic\>
 ```
 mkdir samples
 mkdir samples/alan
-mkdir samples/alan/mic_kinobo_akira
-cd samples/alan/mic_kinobo_akira
 ```  
 
-- Record multiple "carl" "hey carl" "carl listen" samples  
-  (if restarting, enter starting sample number instead of 1)
+- Record multiple "carl" "hey carl" "carl listen" samples
+- Use name format "\<speaker\>_\<mic\>_\<phrase\>"  
+  e.g.  "alan_akira_carl_listen"  
+- If restarting, enter starting sample number instead of 1)
+
+USAGE:  ./r.sh "\<speaker_mic_phrase\>" \<starting_sample_number\>  
+
+EXECUTION:  
 ``` 
 $ ~/Carl/Examples/nyumaya/r.sh "carl" 1     
 Sample Record Tool
