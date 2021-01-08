@@ -20,7 +20,8 @@ python3 simple_hotword.py
 - Hotword recognized over background speech  
   (spoken at same volume as background TV news) 
 - Occasional false recognition from room conversations  
-  (3 per hour with TV news in background)
+  * 1-4 per hour with TV news as background
+  * 3-38 per hour with normal volume conversations as background
 - Onboard TTS does not trigger false hotword detections
 
 # === Record Hotword Samples  r.sh
@@ -32,7 +33,7 @@ mkdir samples/speaker1
 
 - Record multiple "carl" "hey carl" "carl listen" samples
 - Use name format "\<phrase\>" or "\<speaker\>_\<mic\>-\<phrase\>"  
-  e.g.  "carl_listen"  or  "s1_m1-carl_listen"  
+  e.g.  "carl_listen"  or  "s1-m1-carl_listen"  
 - If restarting, enter starting sample number instead of 1)
 
 USAGE:  ./r.sh "\<speaker_mic_phrase\>" \<starting_sample_number\>  
