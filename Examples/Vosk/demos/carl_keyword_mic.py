@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 
-# FILE: carl_test_microphone.py
+# FILE: carl_keyword_mic.py
 
-# Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_microphone.py
+# Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_words.py
 # Modified to tell pyaudio to use input_device_index=1
 # Turned Initialization Logging off
 # (Audio system warnings cannot be surpressed)
 # Turned partial and "Final" results off
 # Added pretty printing of result
 # Added CTRL-C handler to quit cleanly
+# Uses a word list containing '["wake up carl", "[unk]"]'
+# If result is "wake up carl" the time key phrase recognized is printed
+#     and carl says "ok"
+
+# USAGE:
+# ./carl_keyword_mic.py
+
+# Adds about 40% of one core 15min load and 30-100% 1min load
+# Reduces "playtime" from 8.3h to 6.9h or about 1.5 hours
+# From decreased playtime, estimate additional battery load of 75mA
 
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
@@ -55,7 +65,7 @@ while True:
             # print(res)
             text = printResult(res)
             if text == "wake up carl":
-                # speak.say("oh kay")
+                speak.say("oh kay")
                 print_w_date_time("Wake Phrase Heard")
             print("\nListening Again ...")
         else:

@@ -40,7 +40,7 @@ Usage:
 ```
 from voskprint import printResult
 
-printResult(rec.Result())
+text = printResult(rec.Result())
 printResult(rec.FinalResult())
 ```
 
@@ -181,4 +181,46 @@ user	0m8.437s
 sys	0m0.429s
 ```
 
+
+# carl_keyword_mic.py
+
+- Based on https://github.com/alphacep/vosk-api/blob/master/python/example/test_words.py  
+  and https://github.com/alphacep/vosk-api/blob/master/python/example/test_microphone.py  
+- Modified to use microphone and tells pyaudio to use input_device_index=1  
+- Turned Initialization Logging off  
+  (Audio system warnings cannot be surpressed)  
+- Turned partial and "Final" results off  
+- Added pretty printing of result  
+- Added CTRL-C handler to quit cleanly  
+- Uses a word list containing '["wake up carl", "[unk]"]'  
+- If resulting text is "wake up carl", the time the key phrase recognized is printed  
+  and carl says "ok"  
+
+USAGE:  
+```
+$  ./carl_keyword_mic.py
+```  
+
+- Adds about 40% of one core 15min load and 30-100% 1min load
+- Reduces "playtime" from 8.3h to 6.9h or about 1.5 hours 
+- From decreased playtime, estimate additional battery load of 75mA
+
+Execution:  
+```
+$ ./carl_keyword_mic.py 
+.
+(ALSA warnings)
+.
+Listening ...
+Result: 3 words
+ 1.00 wake
+ 1.00 up
+ 1.00 carl
+Text: wake up carl
+2021-01-07 21:13:34 Wake Phrase Heard
+
+Listening Again ...
+^C
+Exiting carl_keyword_mic.py
+```
 
