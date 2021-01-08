@@ -103,6 +103,7 @@ class PorcupineDemo(Thread):
 
             pa = pyaudio.PyAudio()
 
+            print("porcupine.frame_length: ", porcupine.frame_length)
             audio_stream = pa.open(
                 rate=porcupine.sample_rate,
                 channels=1,
