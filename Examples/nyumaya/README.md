@@ -16,7 +16,7 @@ python3 simple_hotword.py
 
 
 # === Record Hotword Samples
-- Make sample directory for <speaker>/<mic>
+- Make sample directory for \<speaker\>/\<mic\>
 ```
 mkdir samples
 mkdir samples/alan
@@ -24,7 +24,7 @@ mkdir samples/alan/mic_kinobo_akira
 cd samples/alan/mic_kinobo_akira
 ```  
 
-- Record multiple "carl" "hey carl" "carl listen" samples
+- Record multiple "carl" "hey carl" "carl listen" samples  
   (if restarting, enter starting sample number instead of 1)
 ``` 
 $ ~/Carl/Examples/nyumaya/r.sh "carl" 1     
