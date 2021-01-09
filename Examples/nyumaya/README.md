@@ -60,3 +60,42 @@ Playing WAVE 'carl_3.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 
 Press Return - Say: carl^C
 ```
+
+
+# ==== Fix Carl's Version ====
+- Because models and engine versions must match, Carl must fix his versions
+```
+cp -r nyumaya_audio_recognition-master nyumaya_engine_carl
+```
+- Carl's programs should be structured:
+```
+#!/usr/bin/env python3
+
+# Imports
+import sys
+import argparse
+
+# Carl Specific Paths
+nyumaya_engine_carl = "/home/pi/Carl/Examples/nyumaya/nyumaya_engine_carl"
+nyumaya_carl_libpath = nyumaya_engine_carl + '/lib/rpi/armv7/libnyumaya_premium.so'
+
+# Tell Python where to find engine
+sys.path.append(nyumaya_engine_carl+'/python/src')
+
+
+
+
+def main:
+	parser = argparse.ArgumentParser()
+
+	parser.add_argument(
+		'--libpath', type=str,
+		# default=default_libpath,
+		default=nyumaya_carl_libpath,
+		help='Path to Platform specific nyumaya_lib.')
+
+	FLAGS, unparsed = parser.parse_known_args()
+	print("FLAGS:",FLAGS)
+
+	detectKeywords(FLAGS.libpath)
+```
