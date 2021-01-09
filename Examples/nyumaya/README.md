@@ -20,7 +20,7 @@ python3 simple_hotword.py
 - Far-field recognition of normal voice and whisper (in quiet room)
 - Hotword recognized over background speech  
   (spoken at same volume as background TV news) 
-- Occasional false recognition from room conversations  
+- Occasional false recognition from room conversations (Sensitivity 0.6)
   * 1-4 per hour with TV news as background
   * 3-38 per hour with normal volume conversations as background
 - Onboard TTS does not trigger false hotword detections
