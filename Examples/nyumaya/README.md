@@ -15,7 +15,8 @@ python3 simple_hotword.py
 ```
 
 # === Performance ===
-- Processor Load: +0.1 15 minute average (10% of one core)
+- Processor Load: +0.1 15 minute average (10% of one core)  
+  (cost of 0.4 hours playtime or about 20-25mA battery load)
 - Far-field recognition of normal voice and whisper (in quiet room)
 - Hotword recognized over background speech  
   (spoken at same volume as background TV news) 
