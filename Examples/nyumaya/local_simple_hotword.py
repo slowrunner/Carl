@@ -11,7 +11,7 @@ import argparse
 import sys
 import datetime
 
-nyumaya_engine_carl = "/home/pi/Carl/Examples/nyumaya/nyumaya_engine_carl"
+nyumaya_engine_carl = "/home/pi/Carl/nyumaya_engine_carl"
 nyumaya_carl_libpath = nyumaya_engine_carl + '/lib/rpi/armv7/libnyumaya_premium.so'
 
 #sys.path.append('../../python/src')
@@ -33,7 +33,7 @@ def detectKeywords(libpath):
 	# keywordIdMarvin = detector.addModel('../../models/Hotword/marvin_v1.2.0.premium',0.6)
 	# keywordIdAlexa = detector.addModel('../../models/Hotword/alexa_v1.2.0.premium',0.6)
 
-	keywordIdMarvin = detector.addModel('nyumaya_engine_carl/models/Hotword/marvin_v1.2.0.premium',0.6)
+	keywordIdMarvin = detector.addModel(nyumaya_engine_carl+'/models/Hotword/marvin_v1.2.0.premium',0.6)
 	# keywordIdMarvin = detector.addModel('nyumaya_models_carl/Hotword/hey_carl_v1.2.0.premium',0.6)
 
 	bufsize = detector.getInputDataSize()

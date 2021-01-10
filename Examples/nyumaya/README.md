@@ -37,26 +37,26 @@ mkdir samples/speaker1
   e.g.  "carl_listen"  or  "s1-m1-carl_listen"  
 - If restarting, enter starting sample number instead of 1)
 
-USAGE:  ./r.sh "\<speaker_mic_phrase\>" \<starting_sample_number\>  
+USAGE:  ./r.sh "\<spkrN-micN-key_word_phrase\>" \<starting_sample_number\>  
 
 EXECUTION:  
 ``` 
 $ ~/Carl/Examples/nyumaya/r.sh "carl" 1     
 Sample Record Tool
 Press Return - Say: carl
-Recording WAVE 'carl_1.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Recording WAVE 'carl-01.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 Sample carl_1.wav written
-Playing WAVE 'carl_1.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Playing WAVE 'carl-01.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 
 Press Return - Say: carl
-Recording WAVE 'carl_2.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Recording WAVE 'carl-02.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 Sample carl_2.wav written
-Playing WAVE 'carl_2.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Playing WAVE 'carl-02.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 
 Press Return - Say: carl
-Recording WAVE 'carl_3.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Recording WAVE 'carl-03.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 Sample carl_3.wav written
-Playing WAVE 'carl_3.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Playing WAVE 'carl-03.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
 
 Press Return - Say: carl^C
 ```
@@ -65,7 +65,7 @@ Press Return - Say: carl^C
 # ==== Fix Carl's Version ====
 - Because models and engine versions must match, Carl must fix his versions
 ```
-cp -r nyumaya_audio_recognition-master nyumaya_engine_carl
+cp -r nyumaya_audio_recognition-master ~/Carl/nyumaya_engine_carl
 ```
 - Test local fixed version with local_simple_hotword.py
   ( modified examples/python/simple_hotword.py to use local, fixed version )

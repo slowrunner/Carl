@@ -10,7 +10,7 @@ import sys
 import datetime
 import time
 
-nyumaya_engine_carl = "/home/pi/Carl/Examples/nyumaya/nyumaya_engine_carl"
+nyumaya_engine_carl = "/home/pi/Carl/nyumaya_engine_carl"
 # This is the libpath to pass to detectKeywords(hotword.nyumaya_libpath)
 nyumaya_libpath = nyumaya_engine_carl + '/lib/rpi/armv7/libnyumaya_premium.so'
 
