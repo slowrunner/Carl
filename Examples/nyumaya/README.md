@@ -67,35 +67,65 @@ Press Return - Say: carl^C
 ```
 cp -r nyumaya_audio_recognition-master nyumaya_engine_carl
 ```
-- Carl's programs should be structured:
+- Test local fixed version with local_simple_hotword.py
+  ( modified examples/python/simple_hotword.py to use local, fixed version )
+```
+./local_simple_hotword.py
+Say: "Marvin"
+...
+Say: "Marvin"
+...
+Press CTRL-C
+```
+
+# ==== Setup the local Nyumaya Hotword Engine for Carl programs
+```
+cp hotword.py ~/Carl/plib
+```
+
+
+
+# ==== EXAMPLE: carl_hotword.py
+- Demonstrates how Carl's programs should be structured:
+ 
 ```
 #!/usr/bin/env python3
 
-# Imports
+# FILE: carl_hotword.py
+
+# Demonstrates using the Nyumaya Hotword engine
+# via ~/Carl/plib/hotword.py
+
+
 import sys
-import argparse
+sys.path.append('/home/pi/Carl/plib')
+import hotword
+import time
 
-# Carl Specific Paths
-nyumaya_engine_carl = "/home/pi/Carl/Examples/nyumaya/nyumaya_engine_carl"
-nyumaya_carl_libpath = nyumaya_engine_carl + '/lib/rpi/armv7/libnyumaya_premium.so'
+def main():
 
-# Tell Python where to find engine
-sys.path.append(nyumaya_engine_carl+'/python/src')
+	while True:
+		detected = hotword.detectKeywords()
+		if detected == "Exit":
+			break
+		# Hotword was detected, Do something
 
-
-
-
-def main:
-	parser = argparse.ArgumentParser()
-
-	parser.add_argument(
-		'--libpath', type=str,
-		# default=default_libpath,
-		default=nyumaya_carl_libpath,
-		help='Path to Platform specific nyumaya_lib.')
-
-	FLAGS, unparsed = parser.parse_known_args()
-	print("FLAGS:",FLAGS)
-
-	detectKeywords(FLAGS.libpath)
+		# Since not doing anything in this demo program:
+		#   Wait at least 0.1s for AudiostreamSource thread to die off
+		#   before calling detectKeywords() again
+		time.sleep(0.1)
+if __name__ == '__main__': main()
 ```
+
+
+# ---- EXAMPLE: carl_hotword_eyes.py
+
+- Demonstrates setting Carl's eyes to display status  
+  - light blue: waiting for keyword "Marvin"  
+    (later "Carl", "Hey Carl", "Carl Listen" )  
+  - bright blue: simulates waiting for voice command mode  
+  - light green: simulates performing voice command  
+  - light red:   simulates voice command rejected  
+
+
+

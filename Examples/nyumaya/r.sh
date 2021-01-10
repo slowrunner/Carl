@@ -2,7 +2,7 @@
 
 echo "Sample Record Tool"
 if [ "$#" -ne 2 ]; then
-    echo "Usage: ./r.sh 'phrase' <first file number>"
+    echo "Usage: ./r.sh 'spkrN-micN-<key_word_phrase>' <first file number>"
     exit 2
 fi
 
@@ -11,7 +11,8 @@ phrase="$1"
 # echo "phrase = $phrase"
 while :
 do
-    fname="$phrase$()_$i.wav"
+    istr=$(printf "%02d" $i)
+    fname="$phrase$()-$istr.wav"
     # echo "fname = $fname"
     echo " "
     read -p "Press Return - Say: $phrase" x
