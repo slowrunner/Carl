@@ -27,7 +27,7 @@ def main():
 	while True:
 		try:
 
-			text = vcommand.getVoiceCommand(printResults=True)  # use to print word confidences
+			text = vcommand.getVoiceCommand(printResults=True,timeout=15)  # use to print word confidences
 			# text = vcommand.getVoiceCommand()                   # normal use
 			if text != "":
 				vcommand.print_w_date_time("Voice Command: " + text)
@@ -35,7 +35,10 @@ def main():
 				break
 			else:
 				vcommand.doVoiceCommand(text)
-
+				# Normally would exit and go back to hotword reco, 
+				# but reset the turn start time to test timeouts
+				if text == "TimeOut":
+					vcommand.reset_turn_start()
 		except KeyboardInterrupt:
 			break
 	print("\nExiting test_vcommand_commands.py")

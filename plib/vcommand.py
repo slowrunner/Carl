@@ -11,7 +11,7 @@
       (Audio system warnings cannot be surpressed)
     - Sets partial result off
     - Adds CTRL-C handler return "Exit"
-
+    - Keeps track of time since last command, returns "TimeOut" if too long
 
 
 
@@ -132,16 +132,32 @@ cmd_keywords = '["battery voltage", \
 model = Model(vosk_model_path)
 vosk_rate = 16000
 
+dt_turn_start = None
 
+def reset_turn_start():
+	global dt_turn_start
+	dt_turn_start = dt.datetime.now()
+
+def seconds_since_turn_start():
+	global dt_turn_start
+	dtNow = dt.datetime.now()
+	ssts = (dtNow-dt_turn_start).total_seconds()
+	# print("seconds_since_turn_start(): ",ssts)
+	return ssts
 
 # getVoiceCommand()
 """
     get a voice command or ctrl-c
 
-    Returns:  voice command string or "KeyboardInterrupt"
+    Returns:
+        - voice command string of in vocabulary words recognized
+        - "KeyboardInterrupt"
+        - "TimeOut" if past timeout parameter [default 60 seconds]
+          since last command recognized
 """
 
-def getVoiceCommand(model=model, rate=vosk_rate, commands=cmd_keywords, printResults=False):
+def getVoiceCommand(model=model, rate=vosk_rate, commands=cmd_keywords, printResults=False, timeout=60):
+	global dt_turn_start
 	try:
 		rec = KaldiRecognizer(model, vosk_rate, commands)
 
@@ -165,10 +181,17 @@ def getVoiceCommand(model=model, rate=vosk_rate, commands=cmd_keywords, printRes
 					if printResults:
 						printResult(res)
 					text = getText(res)
+					if text != "": reset_turn_start()
 					# print_w_date_time("Keyword Phrase Heard: " + text)
 					break
 				else:
 					# print(rec.PartialResult())
+					if dt_turn_start is None:
+						reset_turn_start()
+
+					elif (seconds_since_turn_start() > timeout):
+						text = "TimeOut"
+						break
 					pass
 			except KeyboardInterrupt:
 				res =rec.FinalResult()
