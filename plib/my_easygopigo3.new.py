@@ -56,13 +56,13 @@ mutex = Mutex(debug=False)
 
 hardware_connected = True
 try:
-    import noinit_gopigo3 as gopigo3
+    import my_gopigo3 as gopigo3
 except ImportError:
     hardware_connected = False
-    print("Cannot import noinit_gopigo3 library")
+    print("Cannot import my_gopigo3 library")
 except Exception as e:
     hardware_connected = False
-    print("Unknown issue while importing noinit_gopigo3")
+    print("Unknown issue while importing my_gopigo3")
     print(e)
 
 # try:
