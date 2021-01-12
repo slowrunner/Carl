@@ -15,47 +15,53 @@ sys.path.append('/home/pi/Carl/plib')
 
 import tiltpan
 from time import sleep
+import easygopigo3
+
 
 # ##### MAIN ######
 
 def main():
+
+        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+	egpg.tp = tiltpan.TiltPan(egpg)
+
         print("tiltpan centered")
-        tiltpan.tiltpan_center()
+        egpg.tp.tiltpan_center()
         sleep(5)
         print("pan(45)")
-        tiltpan.pan(45)
+        egpg.tp.pan(45)
         sleep(5)
         print("pan(135)")
-        tiltpan.pan(135)
+        egpg.tp.pan(135)
         sleep(5)
         print("pan(PAN_CENTER)")
-        tiltpan.pan(tiltpan.PAN_CENTER)
+        egpg.tp.pan(tiltpan.PAN_CENTER)
         print("tilt(45)")
-        tiltpan.tilt(45)
+        egpg.tp.tilt(45)
         sleep(5)
         print("tilt(-45)")
-        tiltpan.tilt(-45)
+        egpg.tp.tilt(-45)
         sleep(5)
         print("tilt(TILT_CENTER)")
-        tiltpan.tilt(tiltpan.TILT_CENTER)
+        egpg.tp.tilt(tiltpan.TILT_CENTER)
 
-        tiltpan.tiltpan_center()
+        egpg.tp.tiltpan_center()
         print('UP too far')
-        tiltpan.tilt(90)
-        print("tilt_position:",tiltpan.tilt_position)
+        egpg.tp.tilt(90)
+        print("tilt_position:",egpg.tp.tilt_position)
         sleep(5)
         print('DOWN too far')
-        tiltpan.tilt(-90)
-        print("tilt_position:",tiltpan.tilt_position)
+        egpg.tp.tilt(-90)
+        print("tilt_position:",egpg.tp.tilt_position)
         sleep(5)
         print("YES")
-        tiltpan.nod_yes()
+        egpg.tp.nod_yes()
         sleep(2)
         print("NO")
-        tiltpan.nod_no()
+        egpg.tp.nod_no()
         sleep(2)
         print("IDK")
-        tiltpan.nod_IDK()
+        egpg.tp.nod_IDK()
         sleep(2)
 
 if __name__ == "__main__":

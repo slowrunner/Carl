@@ -34,9 +34,13 @@
        import sys
         sys.path.append('/home/pi/Carl/plib')
         import vcommand
+	import my_easygopigo3
+
+	egpg = my_easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)  # noinit because juicer is running
+
 	while True:
-	        # vcmd = vcommand.getVoiceCommand(printResult=True)  # to print confidence for each word
-	        vcmd = vcommand.getVoiceCommand()
+	        # vcmd = vcommand.getVoiceCommand(egpg, printResult=True)  # to print confidence for each word
+	        vcmd = vcommand.getVoiceCommand(egpg)
 		if vcommand.isExitRequest(vcmd):
 			break
 		else:
@@ -52,7 +56,9 @@ import json
 import sys
 sys.path.append("/home/pi/Carl/plib")
 import speak
-
+import my_easygopigo3
+import status
+import tiltpan
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
 if not os.path.exists(vosk_model_path):
@@ -126,6 +132,12 @@ cmd_keywords = '["battery voltage", \
 		"go to sleep", \
 		"wake up", \
 		"whats the weather like long quiet", \
+		"charging state", \
+		"up time", \
+		"turn around", \
+		"nod yes",  \
+		"nod no", \
+		"nod i dont know", \
 		"[unk]"]'
 
 # path to the language model (from vosk-model-small-en-us-0.15)
@@ -231,7 +243,7 @@ verbose  = True
     - ignores actions with no handlers
 """
 
-def doVoiceCommand(command=""):
+def doVoiceCommand(egpg, command=""):
 		global sleeping, verbose
 		try:
 
@@ -247,8 +259,26 @@ def doVoiceCommand(command=""):
 				else:
 					print("\n*** SLEEPING")
 			elif command == "battery voltage":
-				print("\n*** Command " + command + " not implemented yet")
-
+				vBatt = egpg.volt()
+				print("\n*** Command " + command )
+				response = "Battery: {:.1f} volts".format(vBatt)
+				print(response)
+				if verbose:
+					speak.say(response)
+			elif command == "charging state":
+				charging_state = status.getChargingState()
+				print("\n*** Command " + command )
+				response = "Charging State: {}".format(charging_state)
+				print(response)
+				if verbose:
+					speak.say(response)
+			elif command == "up time":
+				value = status.getUptime()
+				print("\n*** Command " + command )
+				response = " {} ".format(value)
+				print(response)
+				if verbose:
+					speak.say(response)
 			elif isExitRequest(command):
 				print("\n*** Command: " + command + "has no action programmed")
 
@@ -279,6 +309,31 @@ def doVoiceCommand(command=""):
 				print("\n*** oh. I remember you")
 				if verbose:
 					speak.say("oh. I remember you")
+
+			elif command == "turn around":
+				print("\n*** turning 180")
+				if verbose:
+					speak.say("ok. turning 180")
+				egpg.turn_degrees(180.0)
+
+			elif command == "nod yes":
+				print("\n*** nodding yes")
+				if verbose:
+					speak.say("yes")
+				egpg.tp.nod_yes()
+
+			elif command == "nod no":
+				print("\n*** nodding no")
+				if verbose:
+					speak.say("No")
+				egpg.tp.nod_no()
+
+			elif command == "nod i dont know":
+				print("\n*** nodding I Don't Know")
+				if verbose:
+					speak.say("I Dont know.")
+				egpg.tp.nod_IDK()
+
 
 			elif command == "":
 				pass
