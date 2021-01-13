@@ -1,4 +1,24 @@
 #!/usr/bin/env python3
+
+"""
+  FILE: easygopigo3_plib.py (or plib/easygopigo3.py when released for Carl)
+
+  Changes from ~/Dexter/GoPiGo3/Software/Python/easygopigo3.py
+
+  - drive_cm(): added timeout option with 60s default
+    (added for juicer)
+
+  - EasyGoPiGo3(): added noinit option with False default
+    (added for IMU, RPI-Monitor vBatt, vcommand ...)
+
+  - steer(): modified to work, (use self.speed instead of NO_LIMIT_SPEED)
+
+  - env: changed to python3
+
+  - imports plib/gopigo3.py for noinit feature
+  
+"""
+
 from __future__ import print_function
 from __future__ import division
 # from builtins import input
@@ -23,26 +43,30 @@ except Exception as e:
     print("Importing di_sensors error: {}".format(e))
 
 try:
-    from di_sensors import easy_line_follower, easy_distance_sensor
+    from di_sensors import easy_line_follower, easy_distance_sensor, easy_light_color_sensor, inertial_measurement_unit
     di_sensors_available = True
 except ImportError as err:
     di_sensors_available = False
-    print(str(err))
+    print("Importing di_sensors error: {}".format(err))
 except Exception as err:
     di_sensors_available = False
-    print(str(err))
+    print("Importing di_sensors error: {}".format(err))
 
 mutex = Mutex(debug=False)
 
 hardware_connected = True
 try:
+    # easysensors.Servo checks isInstance(x, gopigo3.GoPiGo3)
+    # so my version of gopigo3 must be named gopigo3.py in plib/
+    # search local first, then plib, then everywhere else
+    sys.path.insert(1,"/home/pi/Carl/plib")
     import gopigo3
 except ImportError:
     hardware_connected = False
-    print("Cannot import gopigo3 library")
+    print("plib/easygopigo.py: Cannot import a gopigo3 library")
 except Exception as e:
     hardware_connected = False
-    print("Unknown issue while importing gopigo3")
+    print("plib/easygopigo.py: Unknown issue while importing gopigo3")
     print(e)
 
 # try:
@@ -81,6 +105,7 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
 
     With this class you can do the following things with your `GoPiGo3`_:
 
+     * Connect to the robot when another program has already initialized the hardware
      * Drive your robot in any number of directions.
      * Have precise control over the direction of the robot.
      * Set the speed of the robot.
@@ -95,12 +120,12 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
 
     """
 
-    def __init__(self, config_file_path="/home/pi/Dexter/gpg3_config.json", use_mutex=False):
+    def __init__(self, config_file_path="/home/pi/Dexter/gpg3_config.json", use_mutex=False, noinit=False):
         """
         This constructor sets the variables to the following values:
 
         :param str config_file_path = "/home/pi/Dexter/gpg3_config.json": Path to JSON config file that stores the wheel diameter and wheel base width for the GoPiGo3.
-        :param bool use_mutex = False: When using multiple threads/processes that access the same resource/device, mutex has to be enabled.
+        :param boolean use_mutex = False: When using multiple threads/processes that access the same resource/device, mutex has to be enabled.
         :var int speed = 300: The speed of the motors should go between **0-1000** DPS.
         :var tuple(int,int,int) left_eye_color = (0,255,255): Set Dex's left eye color to **turqoise**.
         :var tuple(int,int,int) right_eye_color = (0,255,255): Set Dex's right eye color to **turqoise**.
@@ -118,7 +143,10 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
 
         """
         try:
-            super(self.__class__, self).__init__()
+            if sys.version_info[0] < 3:
+                super(self.__class__, self).__init__(noinit=noinit)
+            else:
+                super().__init__(noinit=noinit)
         except IOError as e:
             print("FATAL ERROR:\nGoPiGo3 is not detected.")
             raise e
@@ -139,7 +167,7 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
         self.sensor_2 = None
         self.DEFAULT_SPEED = 300
         self.NO_LIMIT_SPEED = 1000
-        self.set_speed(self.DEFAULT_SPEED)
+        if noinit == False: self.set_speed(self.DEFAULT_SPEED)
         self.left_eye_color = (0, 255, 255)
         self.right_eye_color = (0, 255, 255)
         self.use_mutex = use_mutex
@@ -530,8 +558,9 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
              Setting both ``left_percent`` and ``right_percent`` to **0** will stop the GoPiGo from moving.
 
         """
-        self.set_motor_dps(self.MOTOR_LEFT, self.NO_LIMIT_SPEED * left_percent / 100)
-        self.set_motor_dps(self.MOTOR_RIGHT, self.NO_LIMIT_SPEED * right_percent / 100)
+        # Modified by Alan McDonley to WORK!! was percent of NO_LIMIT_SPEED
+        self.set_motor_dps(self.MOTOR_LEFT, self.speed * left_percent / 100)
+        self.set_motor_dps(self.MOTOR_RIGHT, self.speed * right_percent / 100)
 
 
     def orbit(self, degrees, radius_cm=0, blocking=True, timeout=60):
@@ -1189,6 +1218,77 @@ class EasyGoPiGo3(gopigo3.GoPiGo3):
 
         return d
 
+    def init_light_color_sensor(self, port = "I2C", led_state=True):
+        """
+
+        Initialises a :py:class:`~di_sensors.easy_light_color_sensor.EasyLightColorSensor` object and then returns it.
+
+        :param str port = "I2C": The options for this parameter are ``"I2C"`` by default, ``"AD1"``, or ``"AD2"``.
+        :param boolean led_state = False: Turns the onboard LED on or off. It's best to have it on in order to detect color, and off in order to detect light value.
+        :returns: An instance of the :py:class:`~di_sensors.easy_light_color_sensor.EasyLightColorSensor` class and with the port set to ``port``'s value.
+        :raises ImportError: When the :py:mod:`di_sensors` module can't be found. Check the `DI-Sensors`_ documentation on how to install the libraries.
+
+        The ports are mapped to the following :ref:`hardware-ports-section`.
+
+        The ``use_mutex`` parameter of the :py:meth:`~easygopigo3.EasyGoPiGo3.__init__` constructor is passed down to the constructor of :py:class:`~di_sensors.easy_light_color_sensor.EasyLightColorSensor` class.
+
+        .. tip::
+
+             | The sensor can be connected to any of the I2C ports.
+             | You can connect different I2C devices simultaneously provided that:
+
+                * The I2C devices have different addresses.
+                * The I2C devices are recognizeable by the `GoPiGo3`_ platform.
+            
+             | If the devices share the same address, like two light/color sensors for example, you can still use them with the GoPiGo3 provided at least one is connected via the ``"AD1"``, or ``"AD2"``, port.
+
+        """
+        if di_sensors_available is False:
+            raise ImportError("di_sensors library not available")
+        
+        try:
+            lc = easy_light_color_sensor.EasyLightColorSensor(port=port, led_state=led_state, use_mutex=self.use_mutex)
+        except Exception as e:
+            # print(e)
+            lc = None
+
+        return lc  
+
+    def init_imu_sensor(self, port = "I2C"):
+        """
+
+        Initialises a :py:class:`~di_sensors.easy_inertial_measurement_unit.EasyIMUSensor` object and then returns it.
+
+        :param str port = "AD1": The options for this parameter are ``"AD1"`` by default, ``"AD2"``.
+        :returns: An instance of the :py:class:`~di_sensors.easy_inertial_measurement_unit.EasyIMUSensor` class and with the port set to ``port``'s value.
+        :raises ImportError: When the :py:mod:`di_sensors` module can't be found. Check the `DI-Sensors`_ documentation on how to install the libraries.
+
+        The ports are mapped to the following :ref:`hardware-ports-section`.
+
+        The ``use_mutex`` parameter of the :py:meth:`~easygopigo3.EasyGoPiGo3.__init__` constructor is passed down to the constructor of :py:class:`~di_sensors.easy_inertial_measurement_unit.EasyIMUSensor` class.
+
+        .. tip::
+
+             | The sensor can be connected to any of the I2C ports.
+             | You can connect different I2C devices simultaneously provided that:
+
+                * The I2C devices have different addresses.
+                * The I2C devices are recognizeable by the `GoPiGo3`_ platform.
+            
+             | If the devices share the same address, like two IMU sensors for example, you can still use them with the GoPiGo3 provided at least one is connected via the ``"AD1"``, or ``"AD2"``, port.
+
+        """
+
+        if di_sensors_available is False:
+            raise ImportError("di_sensors library not available")
+        
+        try:
+            imu = easy_inertial_measurement_unit.EasyIMUSensor(port=port, use_mutex=self.use_mutex)
+        except Exception as e:
+            # print(e)
+            imu = None
+
+        return imu        
 
     def init_dht_sensor(self, sensor_type = 0):
         """
