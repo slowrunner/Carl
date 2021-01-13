@@ -453,7 +453,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				distance = 1
 			if ("backward" in action_request) or ("negative" in action_request):
 				distance = distance * -1
-			speak_print("Preparing to execute drive_cm({}}".format(distance))
+			print_speak("Preparing to execute drive_cm({})".format(distance))
 			egpg.drive_cm(distance)
 
 
@@ -473,7 +473,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				distance = 1
 			if ("backward" in action_request) or ("negative" in action_request):
 				distance = distance * -1
-			speak_print("Preparing to execute drive_inches({}}".format(distance))
+			print_speak("Preparing to execute drive_inches({})".format(distance))
 			egpg.drive_inches(distance)
 
 
@@ -492,7 +492,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				angle = 5
 			if ("counter" in action_request) or ("negative" in action_request):
 				angle = angle * -1
-			speak_print("Preparing to execute turn_degrees({}}".format(angle))
+			print_speak("Preparing to execute turn_degrees({})".format(angle))
 			egpg.turn_degrees(angle)
 
 
