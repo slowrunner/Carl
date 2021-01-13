@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #
-# tiltpan_test.py    test plib/tiltpan.py
+# my_tiltpan_test.py    test plib/tiltpan.py
+#                       with plib/easygopigo3.py
 #
 
 #
@@ -10,18 +11,20 @@ from __future__ import division
 # import the modules
 
 import sys
-sys.path.append('/home/pi/Carl/plib')  # use DI easygopigo3
+# insert plib after current directory, before every place else
+sys.path.insert(1,'/home/pi/Carl/plib')
 
-import tiltpan
 from time import sleep
-import easygopigo3
+import easygopigo3  # uses plib/easygopigo3.py
+import tiltpan
 
 
 # ##### MAIN ######
 
 def main():
-        print("Test using DI easygopigo3")
-        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+        print("Test using plib versions of easygopigo3 and gopigo3")
+
+        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True,noinit=True)
 	egpg.tp = tiltpan.TiltPan(egpg)
 
         print("tiltpan centered")
