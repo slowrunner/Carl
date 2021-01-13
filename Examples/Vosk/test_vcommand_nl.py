@@ -1,40 +1,36 @@
 #!/usr/bin/env python3
 
 """
-  FILE: test_vcommand_commands.py
+  FILE: test_vcommand_nl.py
 
   USAGE:
-    ./test_vcommand_commands.py
-    Say one of
-    - battery voltage
-    - exit voice command mode
-    - be quiet
-    - you can talk now
-    - go to sleep
-    - wake up
+    ./test_vcommand_nl.py
+    Say phrase
 
 """
 import datetime as dt
 import sys
 import time
 
+# Use local, then plib, then system stuff
 sys.path.insert(1,"/home/pi/Carl/plib")
 import vcommand
 
 def main():
 
-	print("Starting test_vcommand_commands.py")
+	print("Starting test_vcommand_nl.py")
 	while True:
 		try:
 
-			text = vcommand.getVoiceCommand(printResults=True,timeout=15)  # use to print word confidences
-			# text = vcommand.getVoiceCommand()                   # normal use
+			text = vcommand.getVoiceNL(printResults=True,timeout=15)  # use to print word confidences
+			# text = vcommand.getVoiceNL()                   # normal use
 			if text != "":
-				vcommand.print_w_date_time("Voice Command: " + text)
+				vcommand.print_w_date_time("Phrase Heard: " + text)
 			if vcommand.isExitRequest(text):
 				break
 			else:
-				vcommand.doVoiceAction(text,cmd_mode=True)
+				print("Phrase Heard: ", text)
+				# vcommand.doVoiceNLU(text)
 				# Normally would exit and go back to hotword reco, 
 				# but reset the turn start time to test timeouts
 				if text == "TimeOut":

@@ -3,6 +3,7 @@
 
 """
    getVoiceCommand()
+   getVoiceNL()
 
    Provides Carl programs easy access to the Vosk-API voice recognition engine
    and the downloaded language model in ~/Carl/vosk-api/model
@@ -12,7 +13,8 @@
     - Sets partial result off
     - Adds CTRL-C handler return "Exit"
     - Keeps track of time since last command, returns "TimeOut" if too long
-
+    - getVoiceCommand() uses word lists
+    - getVoiceNL() uses RPI small language model
 
 
    isExitRequest(command)
@@ -22,25 +24,35 @@
 
 
 
-   doVoiceCommand()
+   doVoiceAction(action_reqeust, cmd_mode)
 
-   Provides Carl programs a command interpreter
-
+   Provides Carl programs a command and natural language action handler
 
 
 
 
    Usage:
        import sys
-        sys.path.append('/home/pi/Carl/plib')
+        sys.path.index(1,'/home/pi/Carl/plib')  # add plib/ after local and before DI files
         import vcommand
+
+	# voice command loop
 	while True:
 	        # vcmd = vcommand.getVoiceCommand(printResult=True)  # to print confidence for each word
 	        vcmd = vcommand.getVoiceCommand()
 		if vcommand.isExitRequest(vcmd):
 			break
 		else:
-			vcommand.doVoiceCommand(vcmd)
+			vcommand.doVoiceAction(vcmd)
+
+	# or natural language loop
+	while True:
+		# phrase = vcommand.getVoiceNL(printResult=True)  # to print confidence for each word
+		vphrase = vcommand.getVoiceNL()
+		if vcommand.isExitRequest(vphrase):
+			break
+		else:
+			vcommand.doVoiceAction(vphrase)
 
 
 """
@@ -49,9 +61,15 @@ from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
 import datetime as dt
 import json
+import traceback
+import ast
+
 import sys
-sys.path.append("/home/pi/Carl/plib")
+sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI 
 import speak
+import status
+import tiltpan
+import carlDataJson
 
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
@@ -119,13 +137,31 @@ SetLogLevel(-1)
 
   Set of interpretable commands
 """
-cmd_keywords = '["battery voltage", \
+cmd_keywords = '["list commands", \
 		"exit voice command mode", \
 		"be quiet", \
 		"you can talk now", \
 		"go to sleep", \
 		"wake up", \
 		"whats the weather like long quiet", \
+		"up time", \
+		"time since boot", \
+		"time off dock", \
+		"time recharging", \
+		"last playtime", \
+		"last charge", \
+		"natural language mode", \
+		\
+		"battery voltage", \
+		"turn around", \
+		"charging state", \
+		"nod yes",  \
+		"nod no", \
+		"nod i dont know", \
+		"drive centimeters forward backward negative two five ten one hundred", \
+		"drive inches forward backward negative two six twelve twenty four thirty six", \
+		"turn degrees counter clockwise negative fifteen thirty forty five ninety", \
+		\
 		"[unk]"]'
 
 # path to the language model (from vosk-model-small-en-us-0.15)
@@ -208,9 +244,74 @@ def getVoiceCommand(model=model, rate=vosk_rate, commands=cmd_keywords, printRes
 	return text
 
 
+# getVoiceNL()
+"""
+    get a phrase using language model or ctrl-c
+
+    Returns:
+        - phrase string of words recognized
+        - "KeyboardInterrupt"
+        - "TimeOut" if past timeout parameter [default 60 seconds]
+          since last phrase recognized
+"""
+
+def getVoiceNL(model=model, rate=vosk_rate, printResults=False, timeout=60):
+	global dt_turn_start
+	try:
+		rec = KaldiRecognizer(model, vosk_rate)
+
+
+		p = pyaudio.PyAudio()
+		# Carl needs to use input_device_index 1
+		stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 1)
+		stream.start_stream()
+
+		jres = None
+
+		print("\nListening ...")
+		while True:
+			try:
+				data = stream.read(4000,exception_on_overflow=False)
+				if len(data) == 0:
+					break
+				if rec.AcceptWaveform(data):
+					res = rec.Result()
+					# print(res)
+					if printResults:
+						printResult(res)
+					text = getText(res)
+					if text != "": reset_turn_start()
+					# print_w_date_time("Keyword Phrase Heard: " + text)
+					break
+				else:
+					# print(rec.PartialResult())
+					if dt_turn_start is None:
+						reset_turn_start()
+
+					elif (seconds_since_turn_start() > timeout):
+						text = "TimeOut"
+						break
+					pass
+			except KeyboardInterrupt:
+				res =rec.FinalResult()
+				# print("getVoiceNL: KeyboardInterrupt - FinalResult:",res)
+				text = "KeyboardInterrupt"
+				break
+		stream.stop_stream()
+		stream.close()
+	except KeyboardInterrupt:
+		# print("getVoiceNL outer try KeyboardInterrupt")
+		text = "KeyboardInterrupt"
+
+	# print("getVoiceNL: Returning",text)
+	return text
+
+
+
+
 def isExitRequest(command=""):
 	try:
-		if (command == "exit voice command mode") or (command == "KeyboardInterrupt"):
+		if ("exit" in command) or ("KeyboardInterrupt" in command):
 			return_val = True
 		else:
 			return_val = False
@@ -218,73 +319,194 @@ def isExitRequest(command=""):
 		return_val = True
 	return return_val
 
-# Voice Command State variables
+# doVoice Command or NL State variables
 
 sleeping = False
 verbose  = True
 
-"""
-    doVoiceCommand(command_string)
 
-    processes voice commands
-    - performs action if handler exists
-    - ignores actions with no handlers
-"""
+def print_speak(response):
+	print("\n*** ",end="")
+	print(response)
+	if verbose:
+		speak.say(response)
 
-def doVoiceCommand(command=""):
-		global sleeping, verbose
-		try:
 
-			if command != "": 
-				print_w_date_time("doVoiceCommand: " + command)
+def doVoiceAction(action_request, egpg=None, cmd_mode=True):
+	global sleeping,verbose
 
-			if sleeping:
-				if command == "wake up":
-					print("\n*** Terminating Sleep Mode")
-					sleeping = False
-					if verbose:
-						speak.say("I'm awake now")
-				else:
-					print("\n*** SLEEPING")
-			elif command == "battery voltage":
-				print("\n*** Command " + command + " not implemented yet")
+	try:
+		if action_request == "TimeOut":
+			print("\n*** doVoiceAction() ignoring TimeOut")
+			return
 
-			elif isExitRequest(command):
-				print("\n*** Command: " + command + "has no action programmed")
+		if action_request == "":
+			print("\n*** doVoiceAction() ignoring empty action request")
+			return
+		else:
+			print("\n*** doVoiceAction() processing: [ " + action_request + " ]")
 
-			elif command == "be quiet":
-				if verbose:
-					print("\n*** Entering Quiet Mode")
-					verbose = False
-				else:
-					print("\n*** Already in Quiet Mode")
 
-			elif command == "you can talk now":
-				if verbose:
-					print("\n*** Not in Quiet Mode")
-					speak.say("I was not in quiet mode")
-				else:
-					print("\n*** Terminating Quiet Mode")
-					speak.say("Let's talk shall we?")
-					verbose = True
-
-			elif command == "go to sleep":
-				print("\n*** Entering Sleep Mode - (Listening only for \"Wake Up\)" )
-				sleeping = True
-
-			elif command == "wake up":
-				print("\n*** Was not sleeping." )
-
-			elif command == "whats the weather like long quiet":
-				print("\n*** oh. I remember you")
-				if verbose:
-					speak.say("oh. I remember you")
-
-			elif command == "":
-				pass
+		if sleeping:
+			if "wake up" in action_request:
+				sleeping = False
+				response = "Terminating Sleep Mode"
+				print_speak(response)
+				response = "I'm awake now"
+				print_speak(response)
+				return
 			else:
-				print("\n*** Command: " + command + " has no action programmed")
-				pass
-		except KeyboardInterrupt:
-			pass
+				print("\n*** SLEEPING")
+				print("\n*** Ignoring [ " + action_request + " ]")
+				return
 
+
+		# Voice Action Only - No egpg required
+		if "go to sleep" in action_request:
+			print_speak("Entering Sleep Mode - Listening only for \'Wake Up\' " )
+			sleeping = True
+
+		elif "wake up" in action_request:
+			print_speak("Already Awake!")
+
+		elif ("up time" in action_request) or \
+			("since boot" in action_request):
+			value = status.getUptime()  # *** Up 11 day  11 hours 25:12 up 11 day minutes
+			days = value[value.index("up")+2 : value.index("day")-1]
+			rest_of_value = value[value.index(",")+1 :]
+			hours = rest_of_value[:rest_of_value.index(":")]
+			minutes = rest_of_value[rest_of_value.index(":")+1:rest_of_value.index(",")]
+			response = " Up {} days {} hours {} minutes since boot".format(days,hours,minutes)
+			print_speak(response)
+
+		elif "be quiet" in action_request:
+			if verbose:
+				response = "Entering Quiet Mode"
+				print_speak(response)
+				verbose = False
+			else:
+				print("\n*** Already in Quiet Mode")
+
+		elif "you can talk" in action_request:
+			if verbose:
+				print_speak("I was not in quiet mode")
+			else:
+				verbose = True
+				print_speak("Terminating Quiet Mode")
+				print_speak("Let's talk shall we?")
+
+		elif ("weather" in action_request) and ("long quiet" in action_request):
+			print_speak("oh. I remember you")
+
+
+		elif ("list commands" in action_request):
+			print("voice commands")
+			for x in ast.literal_eval(cmd_keywords):
+				if x != "[unk]": print_speak(x)
+
+		# elif ("off dock" in action_request):  # "time off dock"
+
+		# elif ("recharging" in action_request):  # "time recharging"
+
+		# Robot Actions - Need egpg
+
+		elif egpg is None:
+			print_speak(" {} requires GoPiGo3, none passed".format(action_request))
+
+		elif "battery voltage" in action_request:
+			vBatt = egpg.volt()
+			response = "Battery: {:.1f} volts".format(vBatt)
+			print_speak(response)
+
+		elif "charging state" in action_request:
+			charging_state = status.getChargingState()
+			response = "Charging State: {}".format(charging_state)
+			print_speak(response)
+
+		elif "turn around" in action_request:
+			print_speak("turning 180")
+			egpg.turn_degrees(180.0)
+
+		elif "nod yes" in action_request:
+			print_speak("nodding yes")
+			egpg.tp.nod_yes()
+
+		elif "nod no" in action_request:
+			print_speak("nodding no")
+			egpg.tp.nod_no()
+
+		elif ("nod" in action_request) and ("i dont know" in action_request):
+			print_speak("nodding I Don't Know")
+			egpg.tp.nod_IDK()
+
+		# drive centimeters forward backward negative  2 5 10 100
+		elif ("drive" in action_request) and ("centimeters" in action_request):
+			if "two" in action_request:
+				distance = 2
+			elif "five" in action_request:
+				distance = 5
+			elif "ten" in action_request:
+				distance = 10
+			elif "one hundred" in action_request:
+				distance = 100
+			else:
+				distance = 1
+			if ("backward" in action_request) or ("negative" in action_request):
+				distance = distance * -1
+			speak_print("Preparing to execute drive_cm({}}".format(distance))
+			egpg.drive_cm(distance)
+
+
+		# drive inches forward backward negative  2 6 12 24 36
+		elif ("drive" in action_request) and ("inches" in action_request):
+			if "two" in action_request:
+				distance = 2
+			elif "six" in action_request:
+				distance = 6
+			elif "twelve" in action_request:
+				distance = 12
+			elif "twenty four" in action_request:
+				distance = 24
+			elif "thirty six" in action_request:
+				distance = 36
+			else:
+				distance = 1
+			if ("backward" in action_request) or ("negative" in action_request):
+				distance = distance * -1
+			speak_print("Preparing to execute drive_inches({}}".format(distance))
+			egpg.drive_inches(distance)
+
+
+
+		# "turn degrees counter clockwise negative 15 30 45 90", \
+		elif ("turn" in action_request) and ("degrees" in action_request):
+			if "fifteen" in action_request:
+				angle = 15
+			elif "thirty" in action_request:
+				angle = 30
+			elif "forty five" in action_request:
+				angle = 45
+			elif "ninety" in action_request:
+				angle = 90
+			else:
+				angle = 5
+			if ("counter" in action_request) or ("negative" in action_request):
+				angle = angle * -1
+			speak_print("Preparing to execute turn_degrees({}}".format(angle))
+			egpg.turn_degrees(angle)
+
+
+
+		# NO ACTION HANDLER - if natural language say I Heard: xxx
+		else:
+			print("\n*** doVoiceAction: [ " + action_request + " ] has no action handler")
+			if cmd_mode == False:
+				print_speak("I heard")
+				print_speak(action_request)
+
+		# Return if made it to here
+		return
+
+	except Exception:
+		traceback.print_stack()
+		traceback.print_exc()

@@ -19,9 +19,15 @@ import sys
 import time
 
 sys.path.insert(1,"/home/pi/Carl/plib")
+import easygopigo3
 import vcommand
+import tiltpan
 
 def main():
+
+	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
+	egpg.tp = tiltpan.TiltPan(egpg)
+	egpg.ds = egpg.init_distance_sensor(port="RPI_1")
 
 	print("Starting test_vcommand_commands.py")
 	while True:
@@ -34,7 +40,7 @@ def main():
 			if vcommand.isExitRequest(text):
 				break
 			else:
-				vcommand.doVoiceAction(text,cmd_mode=True)
+				vcommand.doVoiceAction(text,egpg,cmd_mode=True)
 				# Normally would exit and go back to hotword reco, 
 				# but reset the turn start time to test timeouts
 				if text == "TimeOut":

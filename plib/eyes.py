@@ -5,9 +5,10 @@
   Allow setting Carl's eyes to display status
   - light blue: waiting for keyword "Marvin"
     (later "Carl", "Hey Carl", "Carl Listen" )
-  - bright blue: simulates waiting for voice command mode
-  - light green: simulates performing voice command
-  - light red:   simulates voice command rejected
+  - bright blue: waiting for voice command mode
+  - light green: accepted voice command or phrase
+  - light red:   voice command rejected
+  - light white:  waiting for natural language phrase
 """
 
 
@@ -21,6 +22,7 @@ from time import sleep
 
 EYE_COLOR_COMMANDABLE = ( 0, 0,128)    # BRIGHT_BLUE
 EYE_COLOR_HOTWORD     = ( 0, 0, 20)    # LIGHT_BLUE
+EYE_COLOR_NL          = (50,50, 50)    # LIGHT_WHITE
 EYE_COLOR_ACCEPTED    = ( 0,20,  0)    # LIGHT_GREEN
 EYE_COLOR_REJECTED    = (20, 0,  0)    # LIGHT_RED
 EYE_COLOR_OFF         = ( 0, 0,  0)    # OFF
