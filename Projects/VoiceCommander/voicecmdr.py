@@ -127,7 +127,7 @@ def main():
 						print("Exception in vcommand.doVoiceCommand")
 						print(str(e))
 						traceback.print_stack()
-			else:  # nlu mode
+			try:  # nlu mode
 				while cmd_mode == False:
 					print("\nListening For Natural Language")
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_NL)
@@ -161,9 +161,13 @@ def main():
 						except KeyboardInterrupt:
 							break
 						except Exception as e:
-							print("Exception in vcommand.doVoiceNLU")
+							print("Exception in vcommand.doVoiceAction")
 							print(str(e))
 							traceback.print_stack()
+			except Exception as e:
+				print("Exception in natural language mode section")
+				print(str(e))
+				traceback.print_stack()
 
 
 

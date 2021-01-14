@@ -64,6 +64,7 @@ import json
 import traceback
 import ast
 import time
+import wikipedia
 
 import sys
 sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI 
@@ -169,6 +170,10 @@ cmd_keywords = '["list commands", \
 		"tilt up down fifteen thirty forty five sixty to level degrees", \
 		\
 		"[unk]"]'
+
+nlu_actions = [ "look up something",
+		"search something"]
+
 
 # path to the language model (from vosk-model-small-en-us-0.15)
 model = Model(vosk_model_path)
@@ -406,15 +411,41 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 
 		elif ("list commands" in action_request):
-			print("voice commands")
+			print("Voice Commands")
 			for x in ast.literal_eval(cmd_keywords):
 				if x != "[unk]": print_speak(x)
+			print_speak("The following are only available in natural language mode")
+			for x in nlu_actions:
+				print_speak(x)
 
 		# elif ("off dock" in action_request):  # "time off dock"
 
 		# elif ("recharging" in action_request):  # "time recharging"
 
-		# Robot Actions - Need egpg
+		# ========= NLU ACTIONS, with no robot needed
+		elif (("search" in action_request) or \
+			("look up" in action_request)):
+			if "look up" in action_request:
+				query = action_request.partition("look up")[2]
+			else:
+				query = action_request.partition("search")[2]
+			if query:
+				print_speak('Searching Wikipedia for {}'.format(query))
+				try:
+					results = wikipedia.summary(query, sentences=1)
+					print_speak("According to Wikipedia")
+					print_speak(results)
+				except wikipedia.exceptions.DisambiguationError as e:
+					for i in range(4):
+						print_speak(e.options[i])
+				except KeyboardInterrupt:
+					pass    # quit reading results
+				except:
+					print_speak("unkonwn wikipedia exception")
+			else:
+				print_speak("Did not catch what to search for")
+
+		# ========= ROBOT ACTIONS - Need egpg
 
 		elif egpg is None:
 			print_speak(" {} requires GoPiGo3, none passed".format(action_request))
