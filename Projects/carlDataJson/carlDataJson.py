@@ -88,7 +88,7 @@ def getCarlData(dataname=None):
         return None
 
 def printCarlData():
-    print("carlDataJson contents:")
+    print("carlData.json contents:")
     lcarlData = getCarlData()
     for i in lcarlData:
         print("  ",i," : ",lcarlData[i])
