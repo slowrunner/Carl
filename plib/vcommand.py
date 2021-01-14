@@ -63,6 +63,7 @@ import datetime as dt
 import json
 import traceback
 import ast
+import time
 
 import sys
 sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI 
@@ -70,6 +71,8 @@ import speak
 import status
 import tiltpan
 import carlDataJson
+import myDistSensor
+
 
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
@@ -158,9 +161,12 @@ cmd_keywords = '["list commands", \
 		"nod yes",  \
 		"nod no", \
 		"nod i dont know", \
-		"drive centimeters forward backward negative two five ten one hundred", \
-		"drive inches forward backward negative two six twelve twenty four thirty six", \
+		"drive centimeters forward backward backup negative two five ten one hundred", \
+		"drive inches forward backward backup negative two six twelve twenty four thirty six", \
 		"turn degrees counter clockwise negative fifteen thirty forty five ninety", \
+		"distance sensor reading in centimeters inches", \
+		"pan left right fifteen thirty forty five sixty ninety to of center degrees", \
+		"tilt up down fifteen thirty forty five sixty to level degrees", \
 		\
 		"[unk]"]'
 
@@ -440,7 +446,10 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			egpg.tp.nod_IDK()
 
 		# drive centimeters forward backward negative  2 5 10 100
-		elif ("drive" in action_request) and ("centimeters" in action_request):
+		elif (  ("drive" in action_request) or \
+			("backup" in action_request) or \
+			("forward" in action_request) ) \
+			and ("centimeters" in action_request):
 			if "one hundred" in action_request:  # must be before one
 				distance = 100
 			elif "two" in action_request:
@@ -451,37 +460,36 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				distance = 10
 			else:
 				distance = 1
-			if ("backward" in action_request) or ("negative" in action_request):
+			if ("backward" in action_request) or \
+				("negative" in action_request) or \
+				("backup" in action_request):
 				distance = distance * -1
-				speak_negative = " negative "
-			else:
-				speak_negative = " "
-			print_speak("Preparing to execute drive_cm({})".format(speak_negative + distance))
+			print_speak("Preparing to execute drive " + str(distance) + " centimeters")
 			egpg.drive_cm(distance)
 
-
-		# drive inches forward backward negative  2 6 12 24 36
-		elif ("drive" in action_request) and ("inches" in action_request):
-			if "two" in action_request:
-				distance = 2
-			elif "thirty six" in action_request:  # must be before six
+		# Must be after drive centimeters!
+		# drive inches forward backward backup negative two six twelve twenty four thirty six
+		elif (  ("drive" in action_request) or \
+			("backup" in action_request) or \
+			("forward" in action_request) ):
+			if "thirty six" in action_request:  # must be before single word distances
 				distance = 36
-			elif "twelve" in action_request:
-				distance = 12
 			elif "twenty four" in action_request:
 				distance = 24
+			elif "twelve" in action_request:
+				distance = 12
 			elif "six" in action_request:
 				distance = 6
+			elif "two" in action_request:
+				distance = two
 			else:
 				distance = 1
-			if ("backward" in action_request) or ("negative" in action_request):
+			if ("backward" in action_request) or \
+				("negative" in action_request) or \
+				("backup" in action_request):
 				distance = distance * -1
-				speak_negative = " negative "
-			else:
-				speak_negative = " "
-			print_speak("Preparing to execute drive_inches({})".format(speak_negative + distance))
+			print_speak("Preparing to execute drive " + str(distance) + " inches")
 			egpg.drive_inches(distance)
-
 
 
 		# "turn degrees counter clockwise negative 15 30 45 90", \
@@ -498,13 +506,76 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				angle = 5
 			if ("counter" in action_request) or ("negative" in action_request):
 				angle = angle * -1
-				speak_negative = " negative "
-			else:
-				speak_negative = " "
-			print_speak("Preparing to execute turn_degrees({})".format(speak_negative + angle))
+			print_speak("Preparing to execute turn " + str(angle) + " degrees")
 			egpg.turn_degrees(angle)
 
 
+		# distance sensor reading in centimeters inches
+		elif ("distance" in action_request):
+			if "centimeters" in action_request:
+				distance = (myDistSensor.adjustReadingInMMForError(egpg.ds.read_mm())) / 10.0
+				units = " centimeters "
+			else:
+				distance = (myDistSensor.adjustReadingInMMForError(egpg.ds.read_mm())) / 25.4
+				units = " inches "
+			print_speak("distance sensor reading {:.1f} {}".format(distance,units))
+
+
+
+		# pan left right fifteen thirty forty five sixty ninety to center degrees
+		elif ("pan" in action_request):
+			if "forty five" in action_request:  # must be before single word angles
+				angle = 45
+			elif "thirty" in action_request:
+				angle = 30
+			elif "ninety" in action_request:
+				angle = 90
+			elif "sixty" in action_request:
+				angle = 60
+			elif "fifteen" in action_request:
+				angle = 15
+			# pan to center, center pan
+			elif "center" in action_request:  # must be last to allow for 15 deg left of center
+				angle = 0
+			else:
+				angle = 0
+			if ("left" in action_request):
+				angle = angle * -1
+			# 0 = Left 90= Center 180=Right
+			pan_angle = 90 + angle
+			if pan_angle == 90:
+				print_speak("Panning to center")
+			else:
+				print_speak("Panning " + str(angle) + " degrees from center")
+			egpg.tp.pan(pan_angle)
+			time.sleep(1)
+			egpg.tp.off()
+
+		# tilt up down fifteen thirty forty five sixty to level degrees
+		elif ("tilt" in action_request):
+			if "forty five" in action_request:  # must be before single word angles
+				angle = 45
+			elif "thirty" in action_request:
+				angle = 30
+			elif "sixty" in action_request:
+				angle = 60
+			elif "fifteen" in action_request:
+				angle = 15
+			# tilt to level
+			elif "level" in action_request:
+				angle = 0
+			else:
+				angle = 0
+			if ("down" in action_request):
+				angle = angle * -1
+			# -90=Down  0=Level 90=Up
+			if angle == 0:
+				print_speak("Tilt to level")
+			else:
+				print_speak("Tilt to " + str(angle) + " degrees")
+			egpg.tp.tilt(angle)
+			time.sleep(1)
+			egpg.tp.off()
 
 		# NO ACTION HANDLER - if natural language say I Heard: xxx
 		else:

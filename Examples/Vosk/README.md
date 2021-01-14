@@ -72,3 +72,16 @@ real	0m15.933s
 user	0m15.563s
 sys	0m0.720s
 ```
+
+# vcommand.py
+- doVoiceCommand()  word list mode
+- doVoiceNL()       language model mode
+- doVoiceAction()   interpret and handle phrases
+
+# Maintenance of vcommand.py
+1) ./diff_w_plib.sh   to make sure local matches plib version
+2) make changes to local
+3) test the local
+4) ./release.sh   copies local to plib
+
+
