@@ -441,7 +441,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				except KeyboardInterrupt:
 					pass    # quit reading results
 				except:
-					print_speak("unkonwn wikipedia exception")
+					print_speak("unknown Wikipedia exception")
 			else:
 				print_speak("Did not catch what to search for")
 
