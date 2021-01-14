@@ -18,11 +18,12 @@ This module contains the rules for detecting charging status and charging status
 # from __future__ import division       #                           ''
 
 import sys
-sys.path.append('/home/pi/Carl/plib')
+# sys.path.append('/home/pi/Carl/plib')
+sys.path.insert(1,'/home/pi/Carl/plib')   # will use plib version of easygopigo3 and gopigo3
 import os
 from time import sleep, clock
-# import easygopigo3 # import the GoPiGo3 class
-import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
+import easygopigo3 # import the EasyGoPiGo3 class from plib to get timeout in drive_cm
+# import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
 import math
 import tiltpan
 import status
