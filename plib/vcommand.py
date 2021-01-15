@@ -179,7 +179,13 @@ nlu_actions = [ "look up something",
 model = Model(vosk_model_path)
 vosk_rate = 16000
 
+# doVoice Command or NL or Action State variables
+
+sleeping = False
+verbose  = True
+override_quiet_time = False
 dt_turn_start = None
+
 
 def reset_turn_start():
 	global dt_turn_start
@@ -330,21 +336,16 @@ def isExitRequest(command=""):
 		return_val = True
 	return return_val
 
-# doVoice Command or NL State variables
 
-sleeping = False
-verbose  = True
-
-
-def print_speak(response):
+def print_speak(response,override=override_quiet_time):
 	print("\n*** ",end="")
 	print(response)
 	if verbose:
-		speak.say(response)
+		speak.say(response,anytime=override)
 
 
 def doVoiceAction(action_request, egpg=None, cmd_mode=True):
-	global sleeping,verbose
+	global sleeping,verbose,override_quiet_time
 
 	try:
 		if action_request == "TimeOut":
@@ -361,6 +362,8 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		if sleeping:
 			if "wake up" in action_request:
 				sleeping = False
+				if speak.quietTime():
+					override_quiet_time = True
 				response = "Terminating Sleep Mode"
 				print_speak(response)
 				response = "I'm awake now"
@@ -395,15 +398,22 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				response = "Entering Quiet Mode"
 				print_speak(response)
 				verbose = False
+				override_quiet_time = False
 			else:
 				print("\n*** Already in Quiet Mode")
 
 		elif "you can talk" in action_request:
 			if verbose:
 				print_speak("I was not in quiet mode")
+				if speak.quietTime():
+					override_quiet_time = True
+					print_speak("but I'll override quiet time")
 			else:
 				verbose = True
 				print_speak("Terminating Quiet Mode")
+				if speak.quietTime():
+					override_quiet_time = True
+					print_speak("Ingoring Quiet Time Limit")
 				print_speak("Let's talk shall we?")
 
 		elif ("weather" in action_request) and ("long quiet" in action_request):
@@ -421,6 +431,11 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		# elif ("off dock" in action_request):  # "time off dock"
 
 		# elif ("recharging" in action_request):  # "time recharging"
+
+		# stop processing if request is unknown
+		elif (action_request == "[unk]"):
+			print("Ignoring unknown command")
+			pass
 
 		# ========= NLU ACTIONS, with no robot needed
 		elif (("search" in action_request) or \
