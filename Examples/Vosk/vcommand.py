@@ -450,6 +450,9 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				hoursSinceDismount = secondsSinceDismount/3600
 				response = "Current playtime {:.1f} hours so far".format(hoursSinceDismount)
 				print_speak(response)
+				vBatt = egpg.volt()
+				response = "Battery: {:.1f} volts".format(vBatt)
+				print_speak(response)
 			priorPlaytimeDuration = carlData.getCarlData('lastPlaytimeDuration')
 			response = "Prior Playtime was {} hours".format(priorPlaytimeDuration)
 			print_speak(response)
@@ -467,6 +470,9 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				secondsSinceDocking = (dt.datetime.now() - dtLastDockingTime).total_seconds()
 				hoursSinceDocking = secondsSinceDocking/3600
 				response = "Recharging {:.1f} hours so far".format(hoursSinceDocking)
+				print_speak(response)
+				vBatt = egpg.volt()
+				response = "Battery: {:.1f} volts".format(vBatt)
 				print_speak(response)
 			priorRechargeDuration = carlData.getCarlData('lastRechargeDuration')
 			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
