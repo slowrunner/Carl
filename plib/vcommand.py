@@ -17,16 +17,17 @@
     - getVoiceNL() uses RPI small language model
 
 
+
+   doVoiceAction(action_reqeust, cmd_mode)
+
+   Provides Carl programs a command and natural language action handler
+
+
    isExitRequest(command)
 
    Provide test if user requested "exit voice command mode" or pressed CTRL-c
 
 
-
-
-   doVoiceAction(action_reqeust, cmd_mode)
-
-   Provides Carl programs a command and natural language action handler
 
 
 
@@ -65,6 +66,8 @@ import traceback
 import ast
 import time
 import wikipedia
+import requests
+
 
 import sys
 sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI 
@@ -147,13 +150,14 @@ cmd_keywords = '["list commands", \
 		"you can talk now", \
 		"go to sleep", \
 		"wake up", \
-		"whats the weather like long quiet", \
+		"whats the weather look like long quiet", \
 		"up time since boot", \
 		"charging state", \
-		"playtime status", \
-		"recharge status", \
+		"new batteries changed", \
 		"natural language mode", \
 		\
+		"playtime status", \
+		"recharge status", \
 		"battery voltage", \
 		"turn around", \
 		"nod yes",  \
@@ -183,6 +187,8 @@ verbose  = True
 override_quiet_time = False
 dt_turn_start = None
 
+# openweathermap.key must exist with API key to aopenweathermap.org
+wx_url="http://api.openweathermap.org/data/2.5/weather?zip=33472&units=imperial&wind.direction.name&appid={}"
 
 def reset_turn_start():
 	global dt_turn_start
@@ -424,8 +430,38 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 					print_speak("Ingoring Quiet Time Limit")
 				print_speak("Let's talk shall we?")
 
-		elif ("weather" in action_request) and ("long quiet" in action_request):
-			print_speak("oh. I remember you")
+		elif ("weather" in action_request):
+			if ("long quiet" in action_request):
+				print_speak("oh. I remember you")
+			with open('/home/pi/Carl/Projects/WeatherAPI/openweathermap.key', 'r')as keyfile:
+                		key = keyfile.readline()
+               			key = key.rstrip(os.linesep)   # remove EOL
+                		# print("key:" + key + ":")
+			url_w_key = wx_url.format(key)
+			# print("url_w_key:",url_w_key)
+			result = requests.get(url_w_key)
+			lweather = result.json()
+			# for i in lweather:
+			# 	print("Item - {} : {}".format(i,lweather[i]))
+			print_speak("Weather Report for {}".format(lweather['name']))
+
+			weather_main = lweather['weather'] [0] ['main']
+			print("weather_main:",weather_main)
+			weather_description = lweather['weather'] [0] ['description']
+			print("weather_description: ",weather_description)
+			print_speak("{}".format(weather_description))
+
+			main_temp = round(lweather['main']['temp'],0)
+			print_speak("Temperature {:.0f}".format(main_temp))
+			main_humidity = lweather['main']['humidity']
+			print_speak("Humidity {} %".format(main_humidity))
+			main_temp_max = round(lweather['main']['temp_max'],0)
+			print_speak("High Today: {:.0f}".format(main_temp_max))
+			wind_speed = round(lweather['wind']['speed'])
+			wind_dir = lweather['wind']['deg']
+			wind_gust = lweather['wind']['gust']
+			wind_TTS = "Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust)
+			print_speak(wind_TTS)
 
 
 		elif ("list commands" in action_request):
@@ -436,47 +472,45 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			for x in nlu_actions:
 				print_speak(x)
 
-		elif ("playtime" in action_request):
-			print_speak("Playtime Status")
-			if status.getDockingState() == "Not Docked":
-				lastDismountTime = carlData.getCarlData('lastDismountTime')
-				dtLastDismountTime = dt.datetime.strptime(lastDismountTime, '%Y-%m-%d %H:%M:%S')
-				lastDismountForTTS = dtLastDismountTime.strftime( '%A at %-I %M')
-				if lastDismountForTTS[-2] == "0":
-					lastDismountForTTS = lastDismountForTTS[:-3] + " oh " + lastDismountForTTS[-1]
-				response = "Playtime began {}".format(lastDismountForTTS)
-				print_speak(response)
-				secondsSinceDismount = (dt.datetime.now() - dtLastDismountTime).total_seconds()
-				hoursSinceDismount = secondsSinceDismount/3600
-				response = "Current playtime {:.1f} hours so far".format(hoursSinceDismount)
-				print_speak(response)
-				vBatt = egpg.volt()
-				response = "Battery: {:.1f} volts".format(vBatt)
-				print_speak(response)
-			priorPlaytimeDuration = carlData.getCarlData('lastPlaytimeDuration')
-			response = "Prior Playtime was {} hours".format(priorPlaytimeDuration)
-			print_speak(response)
-
-		elif ("recharge" in action_request):
-			print_speak("Recharge Status")
-			if status.getDockingState() == "Docked":
-				lastDockingTime = carlData.getCarlData('lastDockingTime')
-				dtLastDockingTime = dt.datetime.strptime(lastDockingTime, '%Y-%m-%d %H:%M:%S')
-				lastDockingForTTS = dtLastDockingTime.strftime( '%A at %-I %M')
-				if lastDockingForTTS[-2] == "0":
-					lastDockingForTTS = lastDockingForTTS[:-3] + " oh " + lastDockingForTTS[-1]
-				response = "Recharge began {}".format(lastDockingForTTS)
-				print_speak(response)
-				secondsSinceDocking = (dt.datetime.now() - dtLastDockingTime).total_seconds()
-				hoursSinceDocking = secondsSinceDocking/3600
-				response = "Recharging {:.1f} hours so far".format(hoursSinceDocking)
-				print_speak(response)
-				vBatt = egpg.volt()
-				response = "Battery: {:.1f} volts".format(vBatt)
-				print_speak(response)
-			priorRechargeDuration = carlData.getCarlData('lastRechargeDuration')
-			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
-			print_speak(response)
+		elif ("batteries" in action_request) and \
+			(("changed" in action_request) or \
+			("new" in action_request)):
+			newBatterySetDate = carlData.getCarlData('newBatterySetDate')
+			newBatterySetAtDocking = int(carlData.getCarlData('newBatterySetAtDocking'))
+			newBatterySetAtLifeHours = carlData.getCarlData('newBatterySetAtLifeHours')
+			newBatterySetDesc = carlData.getCarlData('newBatterySetDesc')
+			currentChargeCycles = carlData.getCarlData('chargeCycles')
+			print_speak("Current Battery Set Information")
+			newBatterySetDescTTS = newBatterySetDesc.replace('x','')
+			wordList = newBatterySetDescTTS.split()
+			# print("wordList",wordList)
+			try:
+				indexTgt = wordList.index('NiMH')
+				# print("indexNiMH",indexNiMH)
+				wordList[indexTgt] = "Nickel Metal Hydride"
+			except:
+				pass
+			try:
+				indexTgt = wordList.index('mAh')
+				wordList[indexTgt] = "mili-amp hour"
+			except:
+				pass
+			try:
+				indexTgt = wordList.index('AA')
+				wordList[indexTgt] = "double-A"
+			except:
+				pass
+			newBatterySetDescTTS = ' '.join(wordList)
+			print_speak("Using {}".format(newBatterySetDescTTS))
+			dtNewBatterySetDate = dt.datetime.strptime(newBatterySetDate, '%Y-%m-%d')
+			newBatterySetDay = dtNewBatterySetDate.day
+			newBatterySetYear = dtNewBatterySetDate.year
+			newBatterySetMonth = dtNewBatterySetDate.strftime( '%B')
+			newBatterySetTTS = "Installed {} {}, {}".format(newBatterySetMonth,newBatterySetDay,newBatterySetYear)
+			print_speak(newBatterySetTTS)
+			print_speak("at docking number {}".format(newBatterySetAtDocking))
+			currentBatteriesCycle = int(currentChargeCycles) - int(newBatterySetAtDocking)
+			print_speak("This set is at cycle {}".format(currentBatteriesCycle))
 
 
 		# elif ("off dock" in action_request):  # "time off dock"
@@ -673,6 +707,49 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			egpg.tp.tilt(angle)
 			time.sleep(1)
 			egpg.tp.off()
+
+		elif ("playtime" in action_request):
+			print_speak("Playtime Status")
+			if status.getDockingState() == "Not Docked":
+				lastDismountTime = carlData.getCarlData('lastDismountTime')
+				dtLastDismountTime = dt.datetime.strptime(lastDismountTime, '%Y-%m-%d %H:%M:%S')
+				lastDismountForTTS = dtLastDismountTime.strftime( '%A at %-I %M')
+				if lastDismountForTTS[-2] == "0":
+					lastDismountForTTS = lastDismountForTTS[:-3] + " oh " + lastDismountForTTS[-1]
+				response = "Playtime began {}".format(lastDismountForTTS)
+				print_speak(response)
+				secondsSinceDismount = (dt.datetime.now() - dtLastDismountTime).total_seconds()
+				hoursSinceDismount = secondsSinceDismount/3600
+				response = "Current playtime {:.1f} hours so far".format(hoursSinceDismount)
+				print_speak(response)
+				vBatt = egpg.volt()
+				response = "Battery: {:.1f} volts".format(vBatt)
+				print_speak(response)
+			priorPlaytimeDuration = carlData.getCarlData('lastPlaytimeDuration')
+			response = "Prior Playtime was {} hours".format(priorPlaytimeDuration)
+			print_speak(response)
+
+		elif ("recharge" in action_request):
+			print_speak("Recharge Status")
+			if status.getDockingState() == "Docked":
+				lastDockingTime = carlData.getCarlData('lastDockingTime')
+				dtLastDockingTime = dt.datetime.strptime(lastDockingTime, '%Y-%m-%d %H:%M:%S')
+				lastDockingForTTS = dtLastDockingTime.strftime( '%A at %-I %M')
+				if lastDockingForTTS[-2] == "0":
+					lastDockingForTTS = lastDockingForTTS[:-3] + " oh " + lastDockingForTTS[-1]
+				response = "Recharge began {}".format(lastDockingForTTS)
+				print_speak(response)
+				secondsSinceDocking = (dt.datetime.now() - dtLastDockingTime).total_seconds()
+				hoursSinceDocking = secondsSinceDocking/3600
+				response = "Recharging {:.1f} hours so far".format(hoursSinceDocking)
+				print_speak(response)
+				vBatt = egpg.volt()
+				response = "Battery: {:.1f} volts".format(vBatt)
+				print_speak(response)
+			priorRechargeDuration = carlData.getCarlData('lastRechargeDuration')
+			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
+			print_speak(response)
+
 
 		# NO ACTION HANDLER - if natural language say I Heard: xxx
 		else:
