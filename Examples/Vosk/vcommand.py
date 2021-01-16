@@ -492,12 +492,12 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				pass
 			try:
 				indexTgt = wordList.index('mAh')
-				wordList[indexTgt] = "mili-amp hour"
+				wordList[indexTgt] = "milli Amp hour"
 			except:
 				pass
 			try:
 				indexTgt = wordList.index('AA')
-				wordList[indexTgt] = "double-A"
+				wordList[indexTgt] = "double eh"
 			except:
 				pass
 			newBatterySetDescTTS = ' '.join(wordList)
