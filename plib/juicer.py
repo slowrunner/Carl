@@ -18,11 +18,12 @@ This module contains the rules for detecting charging status and charging status
 # from __future__ import division       #                           ''
 
 import sys
-sys.path.append('/home/pi/Carl/plib')
+# sys.path.append('/home/pi/Carl/plib')
+sys.path.insert(1,'/home/pi/Carl/plib')   # will use plib version of easygopigo3 and gopigo3
 import os
 from time import sleep, clock
-# import easygopigo3 # import the GoPiGo3 class
-import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
+import easygopigo3 # import the EasyGoPiGo3 class from plib to get timeout in drive_cm
+# import my_easygopigo3 as easygopigo3 # import the GoPiGo3 class
 import math
 import tiltpan
 import status
@@ -499,6 +500,8 @@ def undock(egpg,ds,tp, rule="310c"):
              strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h recharge".format( dockingCount,vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
              cd.saveCarlData('lastDismount',strToLog)
+             cd.saveCarlData('lastDismountTime', dtNow.strftime("%Y-%m-%d %H:%M:%S"))
+             cd.saveCarlData('lastRechargeDuration', "{:.1f}".format(lastDockingChangeHours))
              print(strToLog)
              dtLastDockingStateChange = dtNow
              possibleEarlyTrickleVolts = 0      # undocked so possible trickle voltage no longer relevant
@@ -612,10 +615,12 @@ def dock(egpg,ds,tp):
         sleep(dockingFinalBackInSeconds)
         egpg.stop()
 
+
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.whisper("Docking completed.")
         dockingState = DOCKED
         cd.saveCarlData('dockingState', dockingState)
+        cd.saveCarlData('lastDockingTime', dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         dockingCount += 1
         lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
         lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
@@ -623,6 +628,7 @@ def dock(egpg,ds,tp):
         strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
         lifeLog.logger.info(strToLog)
         cd.saveCarlData('lastDocking',strToLog)
+        cd.saveCarlData('lastPlaytimeDuration',"{:.1f}".format(lastDockingChangeHours))
         dtLastDockingStateChange = dtNow
         possibleEarlyTrickleVolts = 0       # reset any prior detections
         sleep(5)

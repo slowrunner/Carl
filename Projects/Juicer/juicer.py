@@ -500,6 +500,8 @@ def undock(egpg,ds,tp, rule="310c"):
              strToLog = "---- Dismount {0} at {1:.1f} v after {2:.1f} h recharge".format( dockingCount,vBatt, lastDockingChangeHours)
              lifeLog.logger.info(strToLog)
              cd.saveCarlData('lastDismount',strToLog)
+             cd.saveCarlData('lastDismountTime', dtNow.strftime("%Y-%m-%d %H:%M:%S"))
+             cd.saveCarlData('lastRechargeDuration', "{:.1f}".format(lastDockingChangeHours))
              print(strToLog)
              dtLastDockingStateChange = dtNow
              possibleEarlyTrickleVolts = 0      # undocked so possible trickle voltage no longer relevant
@@ -613,10 +615,12 @@ def dock(egpg,ds,tp):
         sleep(dockingFinalBackInSeconds)
         egpg.stop()
 
+
         print("**** DOCKING COMPLETE AT ", dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         speak.whisper("Docking completed.")
         dockingState = DOCKED
         cd.saveCarlData('dockingState', dockingState)
+        cd.saveCarlData('lastDockingTime', dtNow.strftime("%Y-%m-%d %H:%M:%S") )
         dockingCount += 1
         lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
         lastDockingChangeDays = divmod(lastDockingChangeInSeconds, 86400)
@@ -624,6 +628,7 @@ def dock(egpg,ds,tp):
         strToLog = "---- Docking {0} completed  at {1:.1f} v after {2:.1f} h playtime".format( dockingCount,shortMeanVolts,lastDockingChangeHours)
         lifeLog.logger.info(strToLog)
         cd.saveCarlData('lastDocking',strToLog)
+        cd.saveCarlData('lastPlaytimeDuration',"{:.1f}".format(lastDockingChangeHours))
         dtLastDockingStateChange = dtNow
         possibleEarlyTrickleVolts = 0       # reset any prior detections
         sleep(5)
