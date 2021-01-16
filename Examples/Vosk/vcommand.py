@@ -71,7 +71,7 @@ sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI
 import speak
 import status
 import tiltpan
-import carlDataJson
+import carlDataJson as carlData
 import myDistSensor
 
 
@@ -148,17 +148,14 @@ cmd_keywords = '["list commands", \
 		"go to sleep", \
 		"wake up", \
 		"whats the weather like long quiet", \
-		"up time", \
-		"time since boot", \
-		"time off dock", \
-		"time recharging", \
-		"last playtime", \
-		"last charge", \
+		"up time since boot", \
+		"charging state", \
+		"playtime status", \
+		"recharge status", \
 		"natural language mode", \
 		\
 		"battery voltage", \
 		"turn around", \
-		"charging state", \
 		"nod yes",  \
 		"nod no", \
 		"nod i dont know", \
@@ -385,12 +382,23 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 		elif ("up time" in action_request) or \
 			("since boot" in action_request):
-			value = status.getUptime()  # *** Up 11 day  11 hours 25:12 up 11 day minutes
-			days = value[value.index("up")+2 : value.index("day")-1]
-			rest_of_value = value[value.index(",")+1 :]
+			value = status.getUptime()  # *** Up 11 day  11 hours 25:12 
+							# 19:23:15 up  5:12,  4 users,  load average: 0.28, 0.29, 0.27
+			if "day" in value:
+				days = value[value.index("up")+2 : value.index("day")-1]
+				rest_of_value = value[value.index(",")+1 :]
+			else:
+				days = 0
+				rest_of_value = value[value.index("up")+2 :]
 			hours = rest_of_value[:rest_of_value.index(":")]
-			minutes = rest_of_value[rest_of_value.index(":")+1:rest_of_value.index(",")]
+			minutes = str(int(rest_of_value[rest_of_value.index(":")+1:rest_of_value.index(",")]))
+
 			response = " Up {} days {} hours {} minutes since boot".format(days,hours,minutes)
+			print_speak(response)
+
+		elif ("charging state" in action_request):
+			charging_state = status.getChargingState()
+			response = "Charging State: {}".format(charging_state)
 			print_speak(response)
 
 		elif "be quiet" in action_request:
@@ -427,6 +435,43 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			print_speak("The following are only available in natural language mode")
 			for x in nlu_actions:
 				print_speak(x)
+
+		elif ("playtime" in action_request):
+			print_speak("Playtime Status")
+			if status.getDockingState() == "Not Docked":
+				lastDismountTime = carlData.getCarlData('lastDismountTime')
+				dtLastDismountTime = dt.datetime.strptime(lastDismountTime, '%Y-%m-%d %H:%M:%S')
+				lastDismountForTTS = dtLastDismountTime.strftime( '%A at %-I %M')
+				if lastDismountForTTS[-2] == "0":
+					lastDismountForTTS = lastDismountForTTS[:-3] + " oh " + lastDismountForTTS[-1]
+				response = "Playtime began {}".format(lastDismountForTTS)
+				print_speak(response)
+				secondsSinceDismount = (dt.datetime.now() - dtLastDismountTime).total_seconds()
+				hoursSinceDismount = secondsSinceDismount/3600
+				response = "Current playtime {:.1f} hours so far".format(hoursSinceDismount)
+				print_speak(response)
+			priorPlaytimeDuration = carlData.getCarlData('lastPlaytimeDuration')
+			response = "Prior Playtime was {} hours".format(priorPlaytimeDuration)
+			print_speak(response)
+
+		elif ("recharge" in action_request):
+			print_speak("Recharge Status")
+			if status.getDockingState() == "Docked":
+				lastDockingTime = carlData.getCarlData('lastDockingTime')
+				dtLastDockingTime = dt.datetime.strptime(lastDockingTime, '%Y-%m-%d %H:%M:%S')
+				lastDockingForTTS = dtLastDockingTime.strftime( '%A at %-I %M')
+				if lastDockingForTTS[-2] == "0":
+					lastDockingForTTS = lastDockingForTTS[:-3] + " oh " + lastDockingForTTS[-1]
+				response = "Recharge began {}".format(lastDockingForTTS)
+				print_speak(response)
+				secondsSinceDocking = (dt.datetime.now() - dtLastDockingTime).total_seconds()
+				hoursSinceDocking = secondsSinceDocking/3600
+				response = "Recharging {:.1f} hours so far".format(hoursSinceDocking)
+				print_speak(response)
+			priorRechargeDuration = carlData.getCarlData('lastRechargeDuration')
+			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
+			print_speak(response)
+
 
 		# elif ("off dock" in action_request):  # "time off dock"
 
