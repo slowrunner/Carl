@@ -459,8 +459,11 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			print_speak("High Today: {:.0f}".format(main_temp_max))
 			wind_speed = round(lweather['wind']['speed'])
 			wind_dir = lweather['wind']['deg']
-			wind_gust = lweather['wind']['gust']
-			wind_TTS = "Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust)
+			if 'gust' in lweather['wind']:
+				wind_gust = lweather['wind']['gust']
+				wind_TTS = "Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust)
+			else:
+				wind_TTS = "Wind {:.0f} from {} degrees".format(wind_speed,wind_dir)
 			print_speak(wind_TTS)
 
 
