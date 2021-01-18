@@ -757,7 +757,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		elif ("room temperature" in action_request):
 			try:
 				rtemp = round( status.getRoomTemp(egpg.imu), 0)
-				print_speak("Room Temperature {:.0f}".format(rtemp))
+				print_speak("Temperature down here on the floor is {:.0f}".format(rtemp))
 			except Exception as e:
 				print("Exception handling action_request \"room temperature\" ")
 				print(str(e))
