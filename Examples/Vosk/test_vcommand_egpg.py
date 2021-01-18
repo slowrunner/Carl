@@ -22,12 +22,13 @@ sys.path.insert(1,"/home/pi/Carl/plib")
 import easygopigo3
 import vcommand
 import tiltpan
-
+from my_safe_inertial_measurement_unit import SafeIMUSensor
 def main():
 
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 	egpg.tp = tiltpan.TiltPan(egpg)
 	egpg.ds = egpg.init_distance_sensor(port="RPI_1")
+	egpg.imu = SafeIMUSensor(port="AD1", use_mutex=True)
 
 	print("Starting test_vcommand_commands.py")
 	while True:

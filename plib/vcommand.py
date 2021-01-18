@@ -169,6 +169,7 @@ cmd_keywords = '["list commands", \
 		"distance sensor reading in centimeters inches", \
 		"pan left right fifteen thirty forty five sixty ninety to of center degrees", \
 		"tilt up down fifteen thirty forty five sixty to level degrees", \
+		"room temperature", \
 		\
 		"[unk]"]'
 
@@ -753,7 +754,14 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
 			print_speak(response)
 
-
+		elif ("room temperature" in action_request):
+			try:
+				rtemp = round( status.getRoomTemp(egpg.imu), 0)
+				print_speak("Room Temperature {:.0f}".format(rtemp))
+			except Exception as e:
+				print("Exception handling action_request \"room temperature\" ")
+				print(str(e))
+				traceback.print_stack()
 		# NO ACTION HANDLER - if natural language say I Heard: xxx
 		else:
 			print("\n*** doVoiceAction: [ " + action_request + " ] has no action handler")
