@@ -9,21 +9,18 @@ Documentation:
   Resets heading when docking state changes to Docked
 """
 
-# from __future__ import print_function # use python 3 syntax but make it compatible with python 2
-# from __future__ import division       #                           ''
-
 import sys
 import logging
 
 try:
-    sys.path.append('/home/pi/Carl/plib')
+    sys.path.insert(1,'/home/pi/Carl/plib')
     # import speak
     # import tiltpan
     # import status
     # import battery
     # import myDistSensor
     # import lifeLog
-    # import runLog
+    import runLog
     import myconfig
     # import myimutils   # display(windowname, image, scale_percent=30)
     import carlDataJson
@@ -220,7 +217,7 @@ def docking_check(egpg):
             curr_heading = egpg.imu.safe_read_euler()[0]
             logCurrentIMU(egpg,"imu reset")
 # MAIN
-
+@runLog.logRun
 def main():
     global motion_state, curr_heading, strt_heading, delta_heading, zero_crossed, strt_time, stop_time, motion_sec
 
