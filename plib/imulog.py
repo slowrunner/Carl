@@ -9,12 +9,11 @@ Documentation:
   Resets heading when docking state changes to Docked
 """
 
-
 import sys
 import logging
 
 try:
-    sys.path.append('/home/pi/Carl/plib')
+    sys.path.insert(1,'/home/pi/Carl/plib')
     # import speak
     # import tiltpan
     # import status
