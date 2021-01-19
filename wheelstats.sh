@@ -7,6 +7,10 @@
 # Note: bc scale=x only works for division!
 #
 echo "WHEEL STATS"
+
+echo "(Cleaning life.log first)"
+/home/pi/Carl/cleanlifelog.py
+echo " "
 declare -i catchupSegmentss=1500
 totalTravel=`(awk -F'travel:' '{sum+=sqrt($2^2)}END{printf "%.1f", sum/1000;}' wheel.log)`
 totalTravelFt=`(echo "scale=1; ($totalTravel / 0.3048)" | bc)`

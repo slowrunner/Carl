@@ -4,6 +4,10 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
+echo "TOTAL LIFE STATISTICS"
+echo "(Cleaning life.log first)"
+/home/pi/Carl/cleanlifelog.py
+echo " "
 fn="/home/pi/Carl/life.log"
 declare -i newBattsAtCycle=1453
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn

@@ -120,6 +120,9 @@ export LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1
 # for Google Cloud API
 export GOOGLE_APPLICATION_CREDENTIALS="/home/pi/Carl/Examples/GoogleCloud/google.cloud.cred.json"
 
+# for DeepSpeech, Google Cloud (and others)
+export PATH="$HOME/.local/bin":$PATH
+
 # ========= END   - ADDED FOR CARL ======
 
 xhost + >/dev/null 2>&1
