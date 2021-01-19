@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 
-url="http://api.openweathermap.org/data/2.5/weather?zip=33472&units=imperial&wind.direction.name&appid={}"
+# url="http://api.openweathermap.org/data/2.5/weather?zip=33472&units=imperial&wind.direction.name&appid={}"
+lat="26.5463162"
+lon="-80.152788"
+
+url="http://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&units=imperial&wind.direction.name&appid={}"
 
 import os
 import requests
+import datetime as dt
 
 # openweathermap.key must exist with API key to aopenweathermap.org
 def main():
@@ -12,12 +17,20 @@ def main():
 		key = keyfile.readline()
 		key = key.rstrip(os.linesep)   # remove EOL
 		# print("key:" + key + ":")
-	url_w_key = url.format(key)
+	url_w_key = url.format(lat,lon,key)
 	# print("url_w_key:",url_w_key)
 	result = requests.get(url_w_key)
 	lweather = result.json()
 	for i in lweather:
 		print("Item - {} : {}".format(i,lweather[i]))
+
+	today = lweather['daily'][0]['dt']
+	tomorrow = lweather['daily'][1]['dt']
+	# print(daily)
+	daily_dt = dt.datetime.fromtimestamp(int(tomorrow))
+	date_str = daily_dt.strftime('%B %d')
+	print(daily_dt)
+"""
 	weather_main = lweather['weather'] [0] ['main']
 	print("weather_main:",weather_main)
 	weather_description = lweather['weather'] [0] ['description']
@@ -31,11 +44,8 @@ def main():
 	print("High Today: {:.0f}".format(main_temp_max))
 	wind_speed = round(lweather['wind']['speed'])
 	wind_dir = lweather['wind']['deg']
-	if 'gust' in lweather['wind']:
-		wind_gust = lweather['wind']['gust']
-		print("Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust))
-	else:
-		print("Wind {:.0f} from {} degrees".format(wind_speed,wind_dir))
-
+	wind_gust = lweather['wind']['gust']
+	print("Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust))
+"""
 
 if __name__ == "__main__": main()
