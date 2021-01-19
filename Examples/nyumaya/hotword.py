@@ -35,8 +35,8 @@ def detectKeywords(libpath=nyumaya_libpath):
 	# keywordIdMarvin = detector.addModel('../../models/Hotword/marvin_v1.2.0.premium',0.6)
 	# keywordIdAlexa = detector.addModel('../../models/Hotword/alexa_v1.2.0.premium',0.6)
 
-	keywordIdMarvin = detector.addModel(nyumaya_engine_carl + '/models/Hotword/marvin_v1.2.0.premium',0.6)
-	# keywordIdMarvin = detector.addModel('nyumaya_models_carl/Hotword/hey_carl_v1.2.0.premium',0.6)
+	# keywordIdMarvin = detector.addModel(nyumaya_engine_carl + '/models/Hotword/marvin_v1.2.0.premium',0.6)
+	keywordIdHey_Carl = detector.addModel(nyumaya_engine_carl + '/models/Hotword/hey_carl_v1.2.3.premium',0.6)
 
 	bufsize = detector.getInputDataSize()
 
@@ -62,9 +62,13 @@ def detectKeywords(libpath=nyumaya_libpath):
 				# elif(prediction == keywordIdSheila):
 					# print("Sheila detected:" + now)
 				#elif(prediction == keywordIdMarvin):
-				if(prediction == keywordIdMarvin):
-					print("Marvin detected:" + now)
-					detected = "Marvin"
+				# if(prediction == keywordIdMarvin):
+				# 	print("Marvin detected:" + now)
+				# 	detected = "Marvin"
+				# 	break
+				if(prediction == keywordIdHey_Carl):
+					print("Hey Carl detected:" + now)
+					detected = "Hey Carl"
 					break
 				# elif(prediction == keywordIdAlexa):
 					# print("Alexa detected:" + now)

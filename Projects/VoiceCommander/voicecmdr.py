@@ -8,7 +8,7 @@ Combines ...
 - the Nyumaya Hotword speech recognition engine,  
   * (uses machine learning technology),
   * (extremely low processing load to conserve Carl's battery)
-  * Recognizes hotword "Marvin" (soon "Carl", "Hey Carl", or "Carl Listen" )   
+  * Recognizes hotword "Hey Carl" (soon "Carl", or "Carl Listen" )  
 with ...
 - the Vosk-API general speech recognition engine  
   * (uses machine learning technology),
@@ -20,7 +20,7 @@ with ...
 
 USAGE:  ./voicecmdr.py  
 
-- When SOFT BLUE LIGHT eyes are on, (HOTWORD MODE) say "Marvin"  
+- When SOFT BLUE LIGHT eyes are on, (HOTWORD MODE) say "Hey Carl"  
 
 - When BRIGHT BLUE LIGHT eyes are on, (COMMAND MODE), say a command:  
   * "quit voice commander" - will exit program   
@@ -55,7 +55,7 @@ import vcommand
 import eyes
 import tiltpan
 import speak
-
+from my_safe_inertial_measurement_unit import SafeIMUSensor
 """
 eyes.EYE_COLOR_COMMANDABLE = ( 0, 0,255)    # BRIGHT_BLUE
 eyes.EYE_COLOR_HOTWORD     = ( 0, 0, 20)    # LIGHT_BLUE
@@ -72,6 +72,7 @@ def main():
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 	egpg.tp = tiltpan.TiltPan(egpg)
 	egpg.ds = egpg.init_distance_sensor("RPI_1")  # HW I2C
+	egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True)
 
 	print("\n==== VOICE COMMANDER ====")
 
@@ -81,7 +82,7 @@ def main():
 	while True:
 		# Wait for wakup keyword/phrase
 		try:
-			print("\nListening For Hotword (Marvin)")
+			print("\nListening For Hotword (Hey Carl)")
 			eyes.carl_eyes(egpg,eyes.EYE_COLOR_HOTWORD)
 			detected = hotword.detectKeywords()
 

@@ -14,18 +14,19 @@ import time
 import sys
 import random
 
-# add Carl's plib to path
-sys.path.append("/home/pi/Carl/plib")
+# add Carl's plib to path, after local, before system
+sys.path.insert(1,"/home/pi/Carl/plib")
 import hotword
 import eyes
-import noinit_easygopigo3
-
+# import noinit_easygopigo3
+import easygopigo3
 
 # ==== carl_hotword_eyes.py  MAIN ====
 
 def main():
 
-	egpg = noinit_easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
+	# egpg = noinit_easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
+	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 
 	while True:
 		# Wait for wakup keyword/phrase
