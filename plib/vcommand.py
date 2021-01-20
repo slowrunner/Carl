@@ -170,6 +170,7 @@ cmd_keywords = '["list commands", \
 		"pan left right fifteen thirty forty five sixty ninety to of center degrees", \
 		"tilt up down fifteen thirty forty five sixty to level degrees", \
 		"room temperature", \
+		"stop", \
 		\
 		"[unk]"]'
 
@@ -448,16 +449,19 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 			weather_main = lweather['weather'] [0] ['main']
 			print("weather_main:",weather_main)
+
 			weather_description = lweather['weather'] [0] ['description']
-			print("weather_description: ",weather_description)
 			print_speak("{}".format(weather_description))
 
 			main_temp = round(lweather['main']['temp'],0)
 			print_speak("Temperature {:.0f}".format(main_temp))
+
 			main_humidity = lweather['main']['humidity']
 			print_speak("Humidity {} %".format(main_humidity))
-			main_temp_max = round(lweather['main']['temp_max'],0)
-			print_speak("High Today: {:.0f}".format(main_temp_max))
+
+			# main_temp_max = round(lweather['main']['temp_max'],0)
+			# print_speak("High Today: {:.0f}".format(main_temp_max))
+
 			wind_speed = round(lweather['wind']['speed'])
 			wind_dir = lweather['wind']['deg']
 			if 'gust' in lweather['wind']:
@@ -599,8 +603,9 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				("negative" in action_request) or \
 				("backup" in action_request):
 				distance = distance * -1
-			print_speak("Preparing to execute drive " + str(distance) + " centimeters")
-			egpg.drive_cm(distance)
+			print_speak("Caution! Preparing to execute drive " + str(distance) + " centimeters")
+			time.sleep(3)
+			egpg.drive_cm(distance,blocking=False)
 
 		# Must be after drive centimeters!
 		# drive inches forward backward backup negative two six twelve twenty four thirty six
@@ -623,8 +628,9 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				("negative" in action_request) or \
 				("backup" in action_request):
 				distance = distance * -1
-			print_speak("Preparing to execute drive " + str(distance) + " inches")
-			egpg.drive_inches(distance)
+			print_speak("Caution! Preparing to execute drive " + str(distance) + " inches")
+			time.sleep(3)
+			egpg.drive_inches(distance,blocking=False)
 
 
 		# "turn degrees counter clockwise negative 15 30 45 90", \
@@ -760,6 +766,16 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				print_speak("Temperature down here on the floor is {:.0f}".format(rtemp))
 			except Exception as e:
 				print("Exception handling action_request \"room temperature\" ")
+				print(str(e))
+				traceback.print_stack()
+
+
+		elif ("stop" in action_request):
+			try:
+				egpg.stop()
+				print_speak("Executed STOP")
+			except Exception as e:
+				print("Exception handling action_request \"STOP\" ")
 				print(str(e))
 				traceback.print_stack()
 		# NO ACTION HANDLER - if natural language say I Heard: xxx
