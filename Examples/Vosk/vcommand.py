@@ -67,7 +67,7 @@ import ast
 import time
 import wikipedia
 import requests
-
+import psutil
 
 import sys
 sys.path.insert(1,"/home/pi/Carl/plib")  # after local, before DI 
@@ -155,6 +155,7 @@ cmd_keywords = '["list commands", \
 		"charging state", \
 		"new batteries changed", \
 		"natural language mode", \
+		"swap space", \
 		\
 		"playtime status", \
 		"recharge status", \
@@ -520,6 +521,9 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			currentBatteriesCycle = int(currentChargeCycles) - int(newBatterySetAtDocking)
 			print_speak("This set is at cycle {}".format(currentBatteriesCycle))
 
+		elif ("swap" in action_request):
+			usage = psutil.swap_memory()[3]
+			print_speak("Swap usage {:.1f} percent".format(usage))
 
 		# elif ("off dock" in action_request):  # "time off dock"
 
