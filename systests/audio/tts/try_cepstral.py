@@ -2,7 +2,7 @@
 '''
 # Modified by Alan McDonley to run as user, and as female talking faster to sound similar to a Minion
 #
-# Usage:  ./speak_text.py
+# Usage:  ./try_cepstral.py
 #         Enter the Text: (enter line of text (with or without quotes - no printed char restrictions)
 
 ## License
@@ -43,11 +43,11 @@ text = input("Enter the Text: ")
 print(text)
 
 #Replacing ' ' with '_' to identify words in the text entered
-text = text.replace(' ', '_')
+# text = text.replace(' ', '_')
 text = text.replace("'","")
 text = text.replace('"',' quote ')
 #Calls the Espeak TTS Engine to read aloud a Text
 #call([cmd_beg+cmd_out+text+cmd_end], shell=True)
 # subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
-subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a50 "%s"' %  text], stderr=subprocess.STDOUT, shell=True)
-
+# subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a50 "%s"' %  text], stderr=subprocess.STDOUT, shell=True)
+subprocess.check_output(['/opt/swift/bin/swift -o samples/cepstral.wav -p audio/volume=400  "%s" ; aplay samples/cepstral.wav ' %  text], stderr=subprocess.STDOUT, shell=True)
