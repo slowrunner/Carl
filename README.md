@@ -1,7 +1,7 @@
 # Carl
 Robot Carl based on Dexter Industries GoPiGo3
 
-![Carl The GoPiGo3 Based Robot](/Graphics/Carl_the_GoPiGo3_robot.jpg?raw=true)
+![Carl The GoPiGo3 Based Robot](/Graphics/Carl_the_GoPiGo3_robot.jpg?raw=true){:height="50%" width="50%"}
 
 <!---
 ![Carl The GoPiGo3 Based Robot](/Graphics/2020_Carl_With_Toys.jpg?raw=true)
