@@ -56,6 +56,8 @@ import eyes
 import tiltpan
 import speak
 from my_safe_inertial_measurement_unit import SafeIMUSensor
+import runLog
+
 """
 eyes.EYE_COLOR_COMMANDABLE = ( 0, 0,255)    # BRIGHT_BLUE
 eyes.EYE_COLOR_HOTWORD     = ( 0, 0, 20)    # LIGHT_BLUE
@@ -66,7 +68,7 @@ eyes.EYE_COLOR_OFF         = ( 0, 0,  0)    # OFF
 """
 
 # ==== voicecmdr.py  MAIN ====
-
+@runLog.logRun
 def main():
 	# Using plib version of easygopigo3 to get noinit feature
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
