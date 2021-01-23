@@ -76,7 +76,7 @@ import status
 import tiltpan
 import carlDataJson as carlData
 import myDistSensor
-
+import voiceLog
 
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
@@ -90,7 +90,7 @@ def print_w_date_time(alert,event_time=None):
     if event_time is None: event_time = dt.datetime.now()
     str_event_time = event_time.strftime("%Y-%m-%d %H:%M:%S")
     print("{} {}".format(str_event_time,alert))
-
+    voiceLog.entry(alert)
 
 """
     printResult(res)

@@ -50,6 +50,7 @@ import traceback
 sys.path.insert(1,"/home/pi/Carl/plib")
 
 import easygopigo3
+import voiceLog
 import hotword
 import vcommand
 import eyes
@@ -69,6 +70,7 @@ eyes.EYE_COLOR_OFF         = ( 0, 0,  0)    # OFF
 
 # ==== voicecmdr.py  MAIN ====
 @runLog.logRun
+@voiceLog.logRun
 def main():
 	# Using plib version of easygopigo3 to get noinit feature
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
@@ -77,6 +79,7 @@ def main():
 	egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True)
 
 	print("\n==== VOICE COMMANDER ====")
+	voiceLog.entry("==== VOICE COMMANDER ====")
 
 	cmd_mode = True
 	verbose = True
@@ -84,7 +87,11 @@ def main():
 	while True:
 		# Wait for wakup keyword/phrase
 		try:
-			print("\nListening For Hotword (Hey Carl)")
+			print("\n")
+			msg="Listening For Hotword (Hey Carl)"
+			print(msg)
+			voiceLog.entry(msg)
+
 			eyes.carl_eyes(egpg,eyes.EYE_COLOR_HOTWORD)
 			detected = hotword.detectKeywords()
 
@@ -99,7 +106,10 @@ def main():
 		# Listen For Command or Natural Language Phrase
 		try:
 			if cmd_mode:
-				print("\nListening For A Command")
+				print("\n")
+				msg = "Listening For A Command"
+				print(msg)
+				voiceLog.entry(msg)
 				eyes.carl_eyes(egpg,eyes.EYE_COLOR_COMMANDABLE)
 				vcommand.reset_turn_start()
 				try:
@@ -118,6 +128,7 @@ def main():
 					break
 				if vcommand.isExitRequest(vcmd):
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_REJECTED)
+					voiceLog.entry("Heard {}".format(vcmd))
 					time.sleep(1)
 					break
 				elif vcmd == "TimeOut":
@@ -125,13 +136,17 @@ def main():
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_REJECTED)
 					time.sleep(1)
 				elif "natural language" in vcmd:
-					print("Entering Natural Language Mode")
+					voiceLog.entry("Heard {}".format(vcmd))
+					msg="Entering Natural Language Mode"
+					print(msg)
+					voiceLog.entry(msg)
 					cmd_mode = False
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
 					time.sleep(1)
 				else:
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
 					try:
+						voiceLog.entry("Calling vcommand.doVoiceAction({}) ".format(vcmd))
 						vcommand.doVoiceAction(vcmd,egpg)
 						if vcmd == "be quiet":
 							verbose = False
@@ -145,7 +160,10 @@ def main():
 						traceback.print_stack()
 			try:  # nlu mode
 				while cmd_mode == False:
-					print("\nListening For Natural Language")
+					print("\n")
+					msg="Listening For Natural Language"
+					print(msg)
+					voiceLog.entry(msg)
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_NL)
 					vcommand.reset_turn_start()
 					vphrase = vcommand.getVoiceNL(timeout=15)
@@ -155,8 +173,10 @@ def main():
 						break
 					elif "command mode" in vphrase:
 						eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
+						voiceLog.entry("Heard {}".format(vphrase))
 						alert = "Returning to COMMAND MODE"
 						print(alert)
+						voiceLog.entry(alert)
 						cmd_mode = True
 						if verbose:
 							speak.say(alert)
@@ -168,11 +188,14 @@ def main():
 					else:
 						eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
 						try:
-							print("Heard: ",vphrase)
+							msg="Heard: {}".format(vphrase)
+							print(msg)
+							voiceLog.entry(msg)
 							if verbose:
 								speak.say("I heard ")
 								time.sleep(0.8)
 								speak.say(vphrase)
+							voiceLog.entry("Calling vcommand.doVoiceAction({})".format(vphrase))
 							vcommand.doVoiceAction(vphrase,egpg)
 						except KeyboardInterrupt:
 							break

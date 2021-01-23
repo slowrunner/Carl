@@ -4,7 +4,7 @@ Combines ...
 - the Nyumaya Hotword speech recognition engine,  
   * (uses machine learning technology),
   * (extremely low processing load to conserve Carl's battery)
-  * Recognizes hotword "Marvin" (soon "Carl", "Hey Carl", or "Carl Listen" )   
+  * Custom "Hey Carl" model    
 with ...
 - the Vosk-API general speech recognition engine  
   * (uses machine learning technology),
@@ -16,15 +16,15 @@ with ...
 
 USAGE:  ./voicecmdr.py  
 
-- When SOFT BLUE LIGHT eyes are on, (HOTWORD MODE) say "Marvin"  
+- When SOFT BLUE LIGHT eyes are on, (HOTWORD MODE) say "Hey Carl"  
 
 - When BRIGHT BLUE LIGHT eyes are on, (COMMAND MODE), say a command:  
-  * "quit voice commander" - will exit program   
+  * "exit" or "quit voice commander" - will exit program   
   * "battery voltage" - will speak battery voltage  
   * "go to sleep" - ignore all commands until "wake up" command heard  
   * "be quiet", or "quiet mode" - only print to console and use eye color responses. Do not use TTS
   * "cancel quiet mode" - resume using TTS in responses
-  * (more to come)  
+  * Say "List Commands" to hear **EVERY** command you can say  
 
 - When SOFT RED LIGHT eyes are on, (SLEEP MODE) say command:  
   * "wake up" - to return to command mode  
@@ -40,20 +40,20 @@ EXAMPLE:
 
 TTS: "Voice Commander Ready"
 (Soft Blue Light)
-Say: "Marvin""
+Say: "Hey Carl"
 (Bright Blue Light)
 Say: "go to sleep"
 (Bright Green Light)
 
 (Soft Blue Light)
-Say: "Marvin"
+Say: "Hey Carl"
 (Soft Red Light)
 Say: "battery voltage"
 (Bright Red Light)
 
 
 (Soft Blue Light)
-Say: "Marvin"
+Say: "Hey Carl"
 (Soft Red Light)
 Say: "wake up"
 (Bright Green Light)

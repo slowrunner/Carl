@@ -9,6 +9,8 @@ import argparse
 import sys
 import datetime
 import time
+sys.path.insert(1,"/home/pi/Carl/plib")
+import voiceLog
 
 nyumaya_engine_carl = "/home/pi/Carl/nyumaya_engine_carl"
 # This is the libpath to pass to detectKeywords(hotword.nyumaya_libpath)
@@ -69,6 +71,7 @@ def detectKeywords(libpath=nyumaya_libpath):
 				if(prediction == keywordIdHey_Carl):
 					print("Hey Carl detected:" + now)
 					detected = "Hey Carl"
+					voiceLog.entry("Hey Carl detected")
 					break
 				# elif(prediction == keywordIdAlexa):
 					# print("Alexa detected:" + now)
