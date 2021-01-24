@@ -19,6 +19,12 @@ Typical Result:
 . 4 threads Parallel run time: 10.19 seconds  
 . 2 threads Parallel twice - run time: 9.58 seconds  
 
+Typical Result with yield:
+  Starting 4000000 cycles of cpu-only threading with a yield
+  Sequential run time: 20.88 seconds
+  4 threads Parallel run time: 69.21 seconds
+  2 threads Parallel twice - run time: 32.62 seconds
+
 Using multiprocessing:  
 Typical Result:  
 . Starting 4000 cycles of io-bound processing  
