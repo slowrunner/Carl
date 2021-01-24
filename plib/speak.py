@@ -95,7 +95,7 @@ def shout(phrase,vol=250,anytime=False):
     # vol = vol - 50  # adjust for flite
     # say_flite(phrase,vol,anytime)
 
-def whisper(phrase,vol=50,anytime=True):
+def whisper(phrase,vol=30,anytime=False):
     say_espeak(phrase,vol,anytime)
     # vol = vol + 30  # adjust for flite
     # say_flite(phrase,vol,anytime=False)
