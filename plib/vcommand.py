@@ -77,6 +77,8 @@ import tiltpan
 import carlDataJson as carlData
 import myDistSensor
 import voiceLog
+import weather
+
 
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
@@ -151,6 +153,7 @@ cmd_keywords = '["list commands", \
 		"go to sleep", \
 		"wake up", \
 		"whats the weather look like long quiet", \
+		"forecast", \
 		"up time since boot", \
 		"charging state", \
 		"new batteries changed", \
@@ -345,9 +348,13 @@ def isExitRequest(command=""):
 
 def print_speak(response,override=override_quiet_time):
 	print("\n*** ",end="")
-	print(response)
-	if verbose:
-		speak.say(response,anytime=override)
+	if isinstance(response, list):
+		for phrase in response:
+			print(phrase)
+			if verbose: speak.say(phrase,anytime=override)
+	else:
+		print(response)
+		if verbose: speak.say(response,anytime=override)
 
 
 def doVoiceAction(action_request, egpg=None, cmd_mode=True):
@@ -436,42 +443,12 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		elif ("weather" in action_request):
 			if ("long quiet" in action_request):
 				print_speak("oh. I remember you")
-			with open('/home/pi/Carl/Projects/WeatherAPI/openweathermap.key', 'r')as keyfile:
-                		key = keyfile.readline()
-               			key = key.rstrip(os.linesep)   # remove EOL
-                		# print("key:" + key + ":")
-			url_w_key = wx_url.format(key)
-			# print("url_w_key:",url_w_key)
-			result = requests.get(url_w_key)
-			lweather = result.json()
-			# for i in lweather:
-			# 	print("Item - {} : {}".format(i,lweather[i]))
-			print_speak("Weather Report for {}".format(lweather['name']))
+			wx_current = weather.current()
+			print_speak(wx_current)
 
-			weather_main = lweather['weather'] [0] ['main']
-			print("weather_main:",weather_main)
-
-			weather_description = lweather['weather'] [0] ['description']
-			print_speak("{}".format(weather_description))
-
-			main_temp = round(lweather['main']['temp'],0)
-			print_speak("Temperature {:.0f}".format(main_temp))
-
-			main_humidity = lweather['main']['humidity']
-			print_speak("Humidity {} %".format(main_humidity))
-
-			# main_temp_max = round(lweather['main']['temp_max'],0)
-			# print_speak("High Today: {:.0f}".format(main_temp_max))
-
-			wind_speed = round(lweather['wind']['speed'])
-			wind_dir = lweather['wind']['deg']
-			if 'gust' in lweather['wind']:
-				wind_gust = lweather['wind']['gust']
-				wind_TTS = "Wind {:.0f} from {} degrees, gusts {:.0f}".format(wind_speed,wind_dir,wind_gust)
-			else:
-				wind_TTS = "Wind {:.0f} from {} degrees".format(wind_speed,wind_dir)
-			print_speak(wind_TTS)
-
+		elif ("forecast" in action_request):
+			wx_forecast = weather.forecast()
+			print_speak(wx_forecast)
 
 		elif ("list commands" in action_request):
 			print("Voice Commands")
