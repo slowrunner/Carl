@@ -351,10 +351,18 @@ def print_speak(response,override=override_quiet_time):
 	if isinstance(response, list):
 		for phrase in response:
 			print(phrase)
-			if verbose: speak.say(phrase,anytime=override)
+			if verbose:
+				if speak.quietTime():
+					speak.whisper(phrase,anytime=True)
+				else:
+					speak.say(phrase,anytime=override)
 	else:
 		print(response)
-		if verbose: speak.say(response,anytime=override)
+		if verbose:
+			if speak.quietTime():
+				speak.whisper(response,anytime=True)
+			else:
+				speak.say(response,anytime=override)
 
 
 def doVoiceAction(action_request, egpg=None, cmd_mode=True):
