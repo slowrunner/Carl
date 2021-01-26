@@ -19,11 +19,13 @@ dtNow = datetime.datetime.now()
 
 inFileName = "/home/pi/Carl/life.log"
 outFileName = "/home/pi/Carl/life.log"
-bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+# bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+bkupFileName = "/home/pi/Carl/tmp/life.log.bak"
 
-inFileName = "life.log.test"
-outFileName = "life.log.new"
-bkupFileName = "life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+# Uncomment these to test in ~/Carl/Projects/CleanLifeLog/
+# inFileName = "life.log.test"
+# outFileName = "life.log.new"
+# bkupFileName = "life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
 
 # ARGUMENT PARSER
 ap = argparse.ArgumentParser()
@@ -36,7 +38,6 @@ clean_previous_session = args['previous']
 
 
 
-copyfile(inFileName, bkupFileName)
 changed = False
 
 with open(inFileName) as fIn:
@@ -48,7 +49,7 @@ last = -1
 print("lines: {}".format(lines))
 print("lastline: {}".format(lineList[last]))
 bootlogline = "----- boot -----"
-executionlogline = "lifelog.dEmain execution:"
+executionlogline = "dEmain execution:"
 
 if (clean_previous_session == True):
     # Find last boot log line
@@ -73,6 +74,8 @@ while (bootlogline not in lineList[lineIdx]):
     lineIdx -= 1
 
 if changed == True:
+    # backup the original file before rewriting with changes
+    copyfile(inFileName, bkupFileName)
     with open(outFileName,'w') as fOut:
         fOut.writelines(lineList)
 

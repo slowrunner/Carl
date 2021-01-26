@@ -19,7 +19,8 @@ dtNow = datetime.datetime.now()
 
 inFileName = "/home/pi/Carl/life.log"
 outFileName = "/home/pi/Carl/life.log"
-bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+# bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+bkupFileName = "/home/pi/Carl/tmp/life.log.bak"
 
 # Uncomment these to test in ~/Carl/Projects/CleanLifeLog/
 # inFileName = "life.log.test"
@@ -37,7 +38,6 @@ clean_previous_session = args['previous']
 
 
 
-copyfile(inFileName, bkupFileName)
 changed = False
 
 with open(inFileName) as fIn:
@@ -74,6 +74,8 @@ while (bootlogline not in lineList[lineIdx]):
     lineIdx -= 1
 
 if changed == True:
+    # backup the original file before rewriting with changes
+    copyfile(inFileName, bkupFileName)
     with open(outFileName,'w') as fOut:
         fOut.writelines(lineList)
 
