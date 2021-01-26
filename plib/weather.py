@@ -35,15 +35,17 @@ def forecast():
 	tomorrow = lweather['narrative'][1]
 	# print("Today: {}".format(today))
 	# print("Tomorrow: {}".format(tomorrow))
-	today1 = today[:today.index('and lows')]
-	today1_TTS = "Today: {}".format(today1)
-	# print(today1_TTS)
-	result.append(today1_TTS)
+	if 'and lows' in today:
+		today = today[:today.index('and lows')]
+	if 'and lows' in tomorrow:
+		tomorrow = tomorrow[:tomorrow.index('and lows')]
+	today_TTS = "Today: {}".format(today)
+	# print(today_TTS)
+	result.append(today_TTS)
 
-	tomorrow1 = tomorrow[:tomorrow.index('and lows')]
-	tomorrow1_TTS = "Tomorrow: {}".format(tomorrow1)
-	# print(tomorrow1_TTS)
-	result.append(tomorrow1_TTS)
+	tomorrow_TTS = "Tomorrow: {}".format(tomorrow)
+	# print(tomorrow_TTS)
+	result.append(tomorrow_TTS)
 	return result
 
 def current():

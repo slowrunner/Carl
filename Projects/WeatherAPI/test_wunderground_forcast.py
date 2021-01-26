@@ -35,10 +35,12 @@ def main():
 	tomorrow = lweather['narrative'][1]
 	print("Today: {}".format(today))
 	print("Tomorrow: {}".format(tomorrow))
-	today1 = today[:today.index('and lows')]
-	print("Today1: {}".format(today1))
-	today1_test = today1[:today.index('and lows')]
-	print("Today1_test: {}".format(today1_test))
+	if 'and lows' in today:
+		today = today[:today.index('and lows')]
+	if 'and lows' in tomorrow:
+		tomorrow = tomorrow[:tomorrow.index('and lows')]
+	print("Today: {}".format(today))
+	print("Tomorrow: {}".format(tomorrow))
 """
 	weather_main = lweather['weather'] [0] ['main']
 	print("weather_main:",weather_main)
