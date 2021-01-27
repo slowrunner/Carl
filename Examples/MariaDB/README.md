@@ -80,6 +80,112 @@ Closing Connection
 Connection closed
 Done Test
 
+# === Test Dropping Sensor Readings Database ===
+$ ./test_drop_db.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: 
+Connection successful
+
+Listing Databases
+('information_schema',)
+('mysql',)
+('performance_schema',)
+
+Dropping DB carldb
+Error dropping DB carldb: Can't drop database 'carldb'; database doesn't exist
+
+Listing Databases
+('information_schema',)
+('mysql',)
+('performance_schema',)
+
+Closing Connection
+Connection closed
+Done Test
+
+
 # === Test Creating Sensor Readings Database ===
-./test_create_db.py
+$ ./test_create_db.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: 
+Connection successful
+
+Creating DB carldb
+
+Listing Databases
+('carldb',)
+('information_schema',)
+('mysql',)
+('performance_schema',)
+
+Closing Connection
+Connection closed
+Done Test
+
+# === Test Dropping Sensor Readings Table from carldb Database ===
+./test_table_drop.py 
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Error connecting to MariaDB carldb: Unknown database 'carldb'
+
+# === Test Creating Sensor Readings Table in carldb Database ===
+$ ./test_table_create.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+Creating sensor_data table
+Query:  
+	CREATE TABLE IF NOT EXISTS sensor_data (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	sensor_name VARCHAR(25),
+	sensor_value VARCHAR(10),
+	sensor_units VARCHAR(15),
+	sensor_dt TIMESTAMP
+	) ENGINE=InnoDB;
+	
+Query Success
+
+Listing Tables
+sensor_data
+
+Closing Connection
+Connection closed
+Done Test
+
+# === Test Adding Data to Table ===
+$ ./test_data_add.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+sensor_name? distance
+sensor_reading? 21.2
+sensor_units? mm
+add the sensor reading
+Insert Success
+retrieve sensor reading
+Query:  
+	SELECT * FROM sensor_data
+	
+(1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+Commit Change? y
+Closing Connection
+Connection closed
+Done Test
+
+# === Test Listing Data in carldb.sensor_data ===
+
+$ ./test_data_list.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+Retrieve sensor reading
+Query:  
+	SELECT * FROM sensor_data
+	
+(1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+Closing Connection
+Connection closed
+Done Test
 

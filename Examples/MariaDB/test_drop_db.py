@@ -21,7 +21,7 @@ def getDBpw():
 # Get DB Password from mariadb.key file
 try:
 	pwDB = getDBpw()
-	print("\nConnect - User: {} PW: {} Host: {}  Port: {} DB: {}".format(user,pwDB,host,port,activeDB))
+	print("\nConnect - User: {} PW: {} Host: {}  Port: {} DB: {}".format(user,'****',host,port,activeDB))
 except Exception as e:
 	print("Exception Getting DB Password, check path and file mariadb.key")
 	print(str(e))

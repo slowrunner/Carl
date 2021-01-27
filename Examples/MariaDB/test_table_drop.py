@@ -33,7 +33,7 @@ def create_connection(host_name, user_name, tgt_db):
 	except Exception as e:
 		print("Exception Getting DB Password, check path and file mariadb.key")
 		print(str(e))
-		traceback.print_exc()
+		# traceback.print_exc()
 		sys.exit(1)
 
 	# Connect to MariaDB Platform
@@ -48,7 +48,7 @@ def create_connection(host_name, user_name, tgt_db):
 		print("Connection successful")
 		return conn
 	except mariadb.Error as e:
-		print(f"Error connecting to MariaDB {tgtDB}: {e}")
+		print(f"Error connecting to MariaDB {tgt_db}: {e}")
 		sys.exit(1)
 
 def execute_query(cur, q):

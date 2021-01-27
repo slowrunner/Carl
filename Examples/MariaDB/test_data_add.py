@@ -11,6 +11,7 @@ import mariadb
 import sys
 import os
 import traceback
+import datetime as dt
 
 user="pi"
 host="127.0.0.1"
@@ -60,14 +61,15 @@ def execute_query(cur, q):
 
 def add_reading(cur,sensor,value,units):
 	q="""
-	INSERT INTO carldb.sensor_data 
-	(sensor_name,sensor_value,sensor_units)
+	INSERT INTO carldb.sensor_data
+	(sensor_name,sensor_value,sensor_units,sensor_dt)
 	VALUES
-	(?, ?, ?)
+	(?, ?, ?, ?)
 	"""
 	try:
+		dtNow = dt.datetime.now()
 		str_value=str(value)
-		cur.execute(q,(sensor,str_value,units))
+		cur.execute(q,(sensor,str_value,units,dtNow))
 	except mariadb.Error as e:
 		print(f"Error: {e}")
 
