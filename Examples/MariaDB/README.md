@@ -15,6 +15,7 @@ $ sudo mysql -u root -e 'show processlist'
   (provides ACID-compliant transaction features along with foreign key support).
 
 # === List MariaDB users ===
+```
 ./test_list_users.py
 test_list_user.py
 Executing list_users.sql
@@ -23,9 +24,10 @@ User
 root
 
 Done
-
+```
 
 # === Create pi user for MariaDB
+```
 ./test_add_user.py
 test_add_user.py
 User to add: pi
@@ -49,8 +51,10 @@ Writing pw into mariadb.key.new
 Rename without .new to use it
 
 Done
+```
 
 # === To drop a user from MariaDB
+```
 $ ./test_drop_user.py 
 test_drop_user.py
 User to drop: pi
@@ -68,19 +72,25 @@ User
 root
  
 Done
+```
 
 # === Rename password key file for use ===
+```
 $ mv mariadb.key.new mariadb.key
+```
 
 # === Test Connection to MariaDB for pi user with pw in key file
+```
 $ ./test_connection.py
 Connect - User: pi PW: pipassword Host: 127.0.0.1  Port: 3306 DB: 
 Connection successful
 Closing Connection
 Connection closed
 Done Test
+```
 
 # === Test Dropping Sensor Readings Database ===
+```
 $ ./test_drop_db.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: 
@@ -102,9 +112,10 @@ Listing Databases
 Closing Connection
 Connection closed
 Done Test
-
+```
 
 # === Test Creating Sensor Readings Database ===
+```
 $ ./test_create_db.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: 
@@ -121,13 +132,17 @@ Listing Databases
 Closing Connection
 Connection closed
 Done Test
+```
 
 # === Test Dropping Sensor Readings Table from carldb Database ===
+```
 ./test_table_drop.py 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
 Error connecting to MariaDB carldb: Unknown database 'carldb'
+```
 
 # === Test Creating Sensor Readings Table in carldb Database ===
+```
 $ ./test_table_create.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
@@ -151,8 +166,10 @@ sensor_data
 Closing Connection
 Connection closed
 Done Test
+```
 
 # === Test Adding Data to Table ===
+```
 $ ./test_data_add.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
@@ -164,17 +181,14 @@ sensor_units? mm
 add the sensor reading
 Insert Success
 retrieve sensor reading
-Query:  
-	SELECT * FROM sensor_data
-	
 (1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
 Commit Change? y
 Closing Connection
 Connection closed
 Done Test
-
+```
 # === Test Listing Data in carldb.sensor_data ===
-
+```
 $ ./test_data_list.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
@@ -188,4 +202,4 @@ Query:
 Closing Connection
 Connection closed
 Done Test
-
+```

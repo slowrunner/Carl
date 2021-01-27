@@ -75,7 +75,7 @@ def add_reading(cur,sensor,value,units):
 
 def execute_read_query(cur, q):
 	try:
-		print("Query: ",q)
+		# print("Query: ",q)
 		cur.execute(q)
 		result = cur.fetchall()
 		return result
