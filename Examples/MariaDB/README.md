@@ -14,6 +14,10 @@ $ sudo mysql -u root -e 'show processlist'
 - InnoDB is the storage engine for the MySQL / MariaDB dbms (data base management system.  
   (provides ACID-compliant transaction features along with foreign key support).
 
+# === Add Python3 Interface To MariaDB
+pip3 install mariadb
+
+
 # === List MariaDB users ===
 ```
 ./test_list_users.py
@@ -54,6 +58,9 @@ Done
 ```
 
 # === To drop a user from MariaDB
+(If you drop pi user, you must create pi user again!)
+(DO NOT DROP root USER!)
+
 ```
 $ ./test_drop_user.py 
 test_drop_user.py
@@ -187,6 +194,12 @@ Closing Connection
 Connection closed
 Done Test
 ```
+
+NOTE: Suggest add two more records for demonstration:  
+- light  120  (0-255)  
+- distance 3000 mm  
+
+
 # === Test Listing Data in carldb.sensor_data ===
 ```
 $ ./test_data_list.py 
@@ -205,6 +218,7 @@ Done Test
 ```
 
 # === Test using WHERE to extract only one sensor's reading(s)
+'''
 $ ./test_data_where.py 
 
 Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
@@ -233,5 +247,72 @@ distance 21.2 mm at 2021-01-27 12:35:17
 Closing Connection
 Connection closed
 Done Test
+'''
 
+# === Test Update Latest Record Of A Sensor ===  
 
+Example changing last distance reading from 3000 mm to 200 mm:  
+
+```
+$ ./test_update_last.py 
+
+Executing test_update_last.py
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+Retrieve sensor readings
+(1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+(2, 'light', '120', '0-255', datetime.datetime(2021, 1, 27, 12, 43, 51))
+(3, 'distance', '3000', 'mm', datetime.datetime(2021, 1, 28, 7, 31, 48))
+
+Reading To Update
+sensor_name? distance
+New sensor_reading? 200
+New sensor_units? mm
+Updating the sensor reading and units
+Update Attempted
+
+Retrieve sensor readings
+(1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+(2, 'light', '120', '0-255', datetime.datetime(2021, 1, 27, 12, 43, 51))
+(3, 'distance', '200', 'mm', datetime.datetime(2021, 1, 28, 7, 42, 12))
+
+Commit Change? y
+Closing Connection
+Connection closed
+Done Test
+```
+
+# === Test Dropping Specific Row ====
+```
+$ ./test_row_drop.py
+
+Executing test_update_last.py
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+Retrieve sensor readings
+(1, 'distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+(2, 'light', '124', '(0-255)', datetime.datetime(2021, 1, 28, 7, 42, 51))
+(3, 'distance', '200', 'mm', datetime.datetime(2021, 1, 28, 7, 42, 12))
+
+Row To Drop
+id? 1
+Dropping row 1
+Executing Query: 
+	DELETE FROM carldb.sensor_data
+	WHERE id=?
+	
+Drop Attempted
+
+Retrieve sensor readings
+(2, 'light', '124', '(0-255)', datetime.datetime(2021, 1, 28, 7, 42, 51))
+(3, 'distance', '200', 'mm', datetime.datetime(2021, 1, 28, 7, 42, 12))
+
+Commit Change? y
+Closing Connection
+Connection closed
+Done Test
+```
