@@ -167,11 +167,8 @@ def main():
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_NL)
 					vcommand.reset_turn_start()
 					vphrase = vcommand.getVoiceNL(timeout=15)
-					if vcommand.isExitRequest(vphrase):
-						eyes.carl_eyes(egpg,eyes.EYE_COLOR_REJECTED)
-						time.sleep(1)
-						break
-					elif "command mode" in vphrase:
+					if ("exit" in vphrase) or \
+					("command mode" in vphrase):
 						eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
 						voiceLog.entry("Heard {}".format(vphrase))
 						alert = "Returning to COMMAND MODE"
@@ -188,15 +185,16 @@ def main():
 					else:
 						eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
 						try:
-							msg="Heard: {}".format(vphrase)
-							print(msg)
-							voiceLog.entry(msg)
-							if verbose:
-								speak.say("I heard ")
-								time.sleep(0.8)
-								speak.say(vphrase)
-							voiceLog.entry("Calling vcommand.doVoiceAction({})".format(vphrase))
-							vcommand.doVoiceAction(vphrase,egpg)
+							if vphrase != "":
+								msg="Heard: {}".format(vphrase)
+								print(msg)
+								voiceLog.entry(msg)
+								if verbose:
+									speak.say("I heard ")
+									time.sleep(0.8)
+									speak.say(vphrase)
+								voiceLog.entry("Calling vcommand.doVoiceAction({})".format(vphrase))
+								vcommand.doVoiceAction(vphrase,egpg)
 						except KeyboardInterrupt:
 							break
 						except Exception as e:
