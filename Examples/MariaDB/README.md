@@ -334,7 +334,7 @@ mariadb@.service                       disabled
 ```
 
 # === TO RE-ENABLE MARIADB TO START AT BOOT ===  
-'''
-$ sudo systemctl enable mariadb
-$ sudo systemctl start mariadb
-'''
+```
+$ sudo systemctl enable mariadb  
+$ sudo systemctl start mariadb  
+```
