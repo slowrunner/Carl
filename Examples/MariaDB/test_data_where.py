@@ -49,7 +49,7 @@ def create_connection(host_name, user_name, tgt_db):
 		print("Connection successful")
 		return conn
 	except mariadb.Error as e:
-		print(f"Error connecting to MariaDB {tgtDB}: {e}")
+		print(f"Error connecting to MariaDB {tgt_db}: {e}")
 		sys.exit(1)
 
 def execute_query(cur, q):
@@ -60,31 +60,19 @@ def execute_query(cur, q):
 	except mariadb.Error as e:
 		print(f"Error: {e}")
 
-def add_reading(cur,sensor,value,units):
-	q="""
-	INSERT INTO carldb.sensor_data 
-	(sensor_name,sensor_value,sensor_units)
-	VALUES
-	(?, ?, ?)
-	"""
-	try:
-		str_value=str(value)
-		cur.execute(q,(sensor,str_value,units))
-	except mariadb.Error as e:
-		print(f"Error: {e}")
-
 def get_all_readings(cur):
 	readings = []
 	cur.execute("SELECT * FROM carldb.sensor_data")
 
-	for (id,sensor_name, sensor_value, sensor_units)  in cur:
-		readings.append(f"{sensor_name}: {sensor_value} {sensor_units}")
+	for (id, sensor_name, sensor_value, sensor_units, sensor_dt)  in cur:
+		sensor_time=sensor_dt.strftime("%y-%m-%d %H:%M:%S")
+		readings.append(f"{id} - {sensor_name}: {sensor_value} {sensor_units} at {sensor_time}")
 	return readings
 
 def execute_read_query(cur, q,values):
 	try:
-		print("Query: ",q,values)
-		cur.execute(q,values)
+		print("Query: ",q, values)
+		cur.execute(q, tuple(values) )
 		result = cur.fetchall()
 		return result
 	except mariadb.Error as e:
@@ -96,38 +84,41 @@ def main():
 	cur = conn.cursor()
 
 	# Get All readings first
+	print("\nFirst Listing All Rows")
 	readings = get_all_readings(cur)
 	for r in readings:
 		print(r)
 
-	# Get a reading
+	print("\nNow Only Readings For One Type Of Sensor")
+	# Get a sensor to look up
 	sensor=input("\nsensor_name? ")
-	# sensor_reading=input("sensor_reading? ")
-	# sensor_units=input("sensor_units? ")
-
-	# Insert some data
-	# print("add the sensor reading")
-	# add_reading(cur,sensor_name, sensor_reading, sensor_units);
-	# print("Insert Success")
 
 
-	print("\nRetrieve sensor reading")
+	print("\nRetrieve {} sensor reading(s)".format(sensor))
 	query = """
-	SELECT * FROM sensor_data WHERE sensor_name
+	SELECT sensor_name, sensor_value, sensor_units, sensor_dt
+	FROM sensor_data
 	WHERE sensor_name=?
 	"""
-	#rows = execute_read_query(cur,query,(sensor))
-	cur.execute("SELECT * FROM carldb.sensor_data WHERE sensor_name=?",("distance"))
-	rows = cur.fetchall()
-	for r in rows:
-		print(r)
+	rows = execute_read_query(cur,query, (sensor,) )
 
-	# yn=input("Commit Change? ")
-	# if "y" in yn:
-	# 	conn.commit()
+	if rows:
+		print("Returns Rows:")
+		for r in rows:
+			print(r)
+	else:
+		print("No Rows Found")
+
+	print("\nRetrieve sensor readings not using fetchall()")
+
+	cur.execute("SELECT * FROM carldb.sensor_data WHERE sensor_name=?" , (sensor,) )
+	for (id, sensor_name, sensor_value, sensor_units, sensor_dt) in cur:
+		print("{} {} {} at {}".format(sensor_name, sensor_value, sensor_units, sensor_dt.strftime("%Y-%m-%d %H:%M:%S") ))
+
+
 
 	# Close Connection
-	print("Closing Connection")
+	print("\nClosing Connection")
 	try:
 		conn.close()
 		print("Connection closed")

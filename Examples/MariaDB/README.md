@@ -203,3 +203,35 @@ Closing Connection
 Connection closed
 Done Test
 ```
+
+# === Test using WHERE to extract only one sensor's reading(s)
+$ ./test_data_where.py 
+
+Connect - User: pi PW: **** Host: 127.0.0.1  Port: 3306 DB: carldb
+Connection successful
+
+First Listing All Rows
+1 - distance: 21.2 mm at 21-01-27 12:35:17
+2 - light: 120 0-255 at 21-01-27 12:43:51
+
+Now Only Readings For One Type Of Sensor
+
+sensor_name? distance
+
+Retrieve distance sensor reading(s)
+Query:  
+	SELECT sensor_name, sensor_value, sensor_units, sensor_dt
+	FROM sensor_data
+	WHERE sensor_name=?
+	 ('distance',)
+Returns Rows:
+('distance', '21.2', 'mm', datetime.datetime(2021, 1, 27, 12, 35, 17))
+
+Retrieve sensor readings not using fetchall()
+distance 21.2 mm at 2021-01-27 12:35:17
+
+Closing Connection
+Connection closed
+Done Test
+
+
