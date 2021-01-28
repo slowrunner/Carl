@@ -3,6 +3,10 @@
 
 (MariaDB is an open-source fork of MySQL at purchase by Oracle.)
 
+# === FOR MORE INFO on MariaDB ====
+
+https://mariadb.com/docs/appdev/connector-python/
+
 # === To Bring Down To Your GoPiGo  
 ```
 wget https://github.com/slowrunner/Carl/raw/master/Examples/MariaDB/MariaDBdemo.tgz 
