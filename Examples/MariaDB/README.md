@@ -1,3 +1,4 @@
+
 # Using MariaDB on Raspbian For Robots
 
 (MariaDB is an open-source fork of MySQL at purchase by Oracle.)
@@ -284,7 +285,7 @@ Connection closed
 Done Test
 ```
 
-# === Test Dropping Specific Row ====
+# === Test Dropping Specific Row ====  
 ```
 $ ./test_row_drop.py
 
@@ -316,3 +317,24 @@ Closing Connection
 Connection closed
 Done Test
 ```
+
+# === TO STOP MARIADB FROM STARTING AT BOOT ====  
+```
+$ sudo systemctl stop mariadb
+$ sudo systemctl disable  mariadb
+Removed /etc/systemd/system/multi-user.target.wants/mariadb.service.
+Removed /etc/systemd/system/mysqld.service.
+Removed /etc/systemd/system/mysql.service.
+
+NOTE: to see it is still there
+
+$ systemctl list-unit-files | grep mariadb
+mariadb.service                        disabled       
+mariadb@.service                       disabled       
+```
+
+# === TO RE-ENABLE MARIADB TO START AT BOOT ===  
+'''
+$ sudo systemctl enable mariadb
+$ sudo systemctl start mariadb
+'''
