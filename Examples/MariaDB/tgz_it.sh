@@ -7,6 +7,7 @@ fi
 mkdir MariaDBdemo
 cp *.py MariaDBdemo
 cp README.md MariaDBdemo
+cp *.sql MariaDBdemo
 tar -zcvf MariaDBdemo.tgz MariaDBdemo
 rm -r MariaDBdemo
 echo "done"
