@@ -19,10 +19,12 @@
 from __future__ import print_function
 from __future__ import division
 
+import sys
+sys.path.insert(1,"/home/pi/Carl/plib")
+# get plib version of easygopigo3 with corrected steer function
 import easygopigo3
 from math import pi
 import time
-import sys
 
 egpg = easygopigo3.EasyGoPiGo3(use_mutex = True)
 
