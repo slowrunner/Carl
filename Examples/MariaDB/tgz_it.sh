@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+if test -f "MariaDBdemo.tgz"; then
+  rm MariaDBdemo.tgz
+fi
 mkdir MariaDBdemo
 cp *.py MariaDBdemo
 cp README.md MariaDBdemo
