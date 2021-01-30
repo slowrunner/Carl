@@ -105,13 +105,13 @@ GoPiGo3 load on the 9.6v (8x NiMH cells) battery appears to be around 6 mA
 If see WHO_AM_I: 0x71 meaning I2C working, but get OSError: 121 writing to mag,  
   must power down GoPiGo3 or disconnect/reconnect IMU cable, then try again)  
 
-Add to other program:
+Add to other program:  
 
     USER_CTRL = 0x6A # [6]FIFO_EN [5]I2C_MST_EN [4]I2C_IF_DIS [2]FIFO_RST [1]I2C_MST_RST [0]SIG_COND_RST
     WHO_AM_I = 0x75 # Reg 117
-...
+```
     def initMPU(self):
         whoAmI = self.bus.read_byte_data(self.Device_Address, self.WHO_AM_I)
         print("WHO_AM_I: ",hex(whoAmI))
         self.bus.write_byte_data(self.Device_Address, self.USER_CTRL, 0x02) # reset I2C master/slave mode
-
+```
