@@ -27,7 +27,7 @@ def fixI2Cjam():
 	print(alert)
 	GPIO.setmode(GPIO.BOARD)  # use physical pin numbers
 
-	GPIO.setup(BOARD_PIN_12,GPIO.OUT, pull_up_down=GPIO.PUD_UP))
+	GPIO.setup(BOARD_PIN_12,GPIO.OUT, pull_up_down=GPIO.PUD_UP)
 	time.sleep(0.1)  # allow time for setup to complete
 
 	GPIO.output(BOARD_PIN_12,GPIO.HIGH) 	# Start with normal running mode
@@ -52,7 +52,7 @@ def fixI2Cjam():
 		traceback.print_exc()
 		return False  # unable to fixI2Cjam
 
-	runLog.entry("GoPiGo3 Board Reset to Clear I2C Failure Completed"
+	runLog.entry("GoPiGo3 Board Reset to Clear I2C Failure Completed")
 	print("Done")
 	return True  # I2Cjam fixed
 
