@@ -1293,4 +1293,96 @@
 2021-01-18 11:21|[juicer.py.undock]---- Dismount 1856 at 11.3 v after 3.9 h recharge
 2021-01-18 18:43|[juicer.py.dock]---- Docking 1857 completed  at 8.1 v after 7.4 h playtime
 2021-01-18 22:43|[juicer.py.undock]---- Dismount 1857 at 11.3 v after 4.0 h recharge
-2021-01-19 00:11|lifelogger.dEmain execution: 82
+2021-01-19 06:16|[juicer.py.dock]---- Docking 1858 completed  at 8.1 v after 7.5 h playtime
+2021-01-19 09:58|[juicer.py.undock]---- Dismount 1858 at 11.4 v after 3.7 h recharge
+2021-01-19 17:20|[juicer.py.dock]---- Docking 1859 completed  at 8.1 v after 7.4 h playtime
+2021-01-19 21:08|[juicer.py.undock]---- Dismount 1859 at 11.4 v after 3.8 h recharge
+2021-01-20 04:25|[juicer.py.dock]---- Docking 1860 completed  at 8.1 v after 7.3 h playtime
+2021-01-20 08:22|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-01-20 08:30|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-01-20 08:30|[juicer.py.undock]---- Dismount 1860 at 10.8 v after 4.1 h recharge
+2021-01-20 15:34|[juicer.py.dock]---- Docking 1861 completed  at 8.1 v after 7.1 h playtime
+2021-01-20 19:23|[juicer.py.undock]---- Dismount 1861 at 11.3 v after 3.8 h recharge
+2021-01-21 02:41|[juicer.py.dock]---- Docking 1862 completed  at 8.1 v after 7.3 h playtime
+2021-01-21 06:34|[juicer.py.undock]---- Dismount 1862 at 11.4 v after 3.9 h recharge
+2021-01-21 13:26|lifelogger.dEmain execution: 143.25
+2021-01-21 13:24|[logMaintenance.py.main]** Swap over 80% - system running very slow **
+2021-01-21 13:26|------------ boot ------------
+2021-01-21 13:26|[juicer.py.main]---- juicer.py started at 8.12v
+2021-01-21 13:32|[juicer.py.dock]---- Docking 1864 completed  at 8.1 v after 7.0 h playtime
+2021-01-21 13:39|[logMaintenance.py.main]** Started VoiceCommander **
+2021-01-21 17:23|[juicer.py.undock]---- Dismount 1864 at 11.3 v after 3.9 h recharge
+2021-01-22 00:30|[juicer.py.dock]---- Docking 1865 completed  at 8.1 v after 7.1 h playtime
+2021-01-22 04:23|[juicer.py.undock]---- Dismount 1865 at 11.4 v after 3.9 h recharge
+2021-01-22 11:34|[juicer.py.dock]---- Docking 1866 completed  at 8.1 v after 7.2 h playtime
+2021-01-22 15:34|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-01-22 15:36|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2021-01-22 15:36|[juicer.py.undock]---- Dismount 1866 at 10.9 v after 4.0 h recharge
+2021-01-22 22:33|[juicer.py.dock]---- Docking 1867 completed  at 8.1 v after 6.9 h playtime
+2021-01-23 02:28|[juicer.py.undock]---- Dismount 1867 at 11.3 v after 3.9 h recharge
+2021-01-23 07:46|[logMaintenance.py.main]** Restarting Juicer to pickup quiettime change in speak.py **
+2021-01-23 07:47|[juicer.py.main]---- juicer.py started at 9.17v 
+2021-01-23 09:39|[juicer.py.dock]---- Docking 1868 completed  at 8.1 v after 7.1 h playtime
+2021-01-23 13:33|[juicer.py.undock]---- Dismount 1868 at 11.3 v after 3.9 h recharge
+2021-01-23 20:40|[juicer.py.dock]---- Docking 1869 completed  at 8.1 v after 7.1 h playtime
+2021-01-24 00:39|[juicer.py.undock]---- Dismount 1869 at 11.3 v after 4.0 h recharge
+2021-01-24 07:47|[juicer.py.dock]---- Docking 1870 completed  at 8.1 v after 7.1 h playtime
+2021-01-24 09:30|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.2v
+2021-01-24 09:50|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.9v
+2021-01-24 09:50|[juicer.py.undock]---- Dismount 1870 at 9.9 v after 2.1 h recharge
+2021-01-24 10:17|[logMaintenance.py.main]** Recharge cut short by early trickle resulting from cpu bound thread vs multiprocessing tests **
+2021-01-24 12:41|[juicer.py.dock]---- Docking 1871 completed  at 8.1 v after 2.8 h playtime
+2021-01-24 16:29|[juicer.py.undock]---- Dismount 1871 at 11.4 v after 3.8 h recharge
+2021-01-24 23:41|[juicer.py.dock]---- Docking 1872 completed  at 8.1 v after 7.2 h playtime
+2021-01-25 03:32|[juicer.py.undock]---- Dismount 1872 at 11.3 v after 3.9 h recharge
+2021-01-25 10:40|[juicer.py.dock]---- Docking 1873 completed  at 8.1 v after 7.1 h playtime
+2021-01-25 14:32|[juicer.py.undock]---- Dismount 1873 at 11.3 v after 3.9 h recharge
+2021-01-25 21:42|[juicer.py.dock]---- Docking 1874 completed  at 8.1 v after 7.2 h playtime
+2021-01-26 01:29|[juicer.py.undock]---- Dismount 1874 at 11.4 v after 3.8 h recharge
+2021-01-26 08:45|[juicer.py.dock]---- Docking 1875 completed  at 8.1 v after 7.3 h playtime
+2021-01-26 12:32|[juicer.py.undock]---- Dismount 1875 at 11.3 v after 3.8 h recharge
+2021-01-26 19:37|[juicer.py.dock]---- Docking 1876 completed  at 8.1 v after 7.1 h playtime
+2021-01-26 23:12|[juicer.py.undock]---- Dismount 1876 at 11.4 v after 3.6 h recharge
+2021-01-27 06:25|[juicer.py.dock]**** Dock Approach Error
+2021-01-27 06:25|[juicer.py.dock]---- Manual Docking 1876 requested  at 8.1 v after 7.2 h playtime
+2021-01-27 06:26|lifelogger.dEmain execution: 137
+2021-01-27 06:41|[juicer.py.safetyCheck]Safety Shutdown at  7.37 volts
+2021-01-27 07:32|------------ boot ------------
+2021-01-27 07:33|[juicer.py.main]---- juicer.py started at 10.40v
+2021-01-27 10:50|[juicer.py.undock]---- Dismount 1876 at 11.4 v after 3.2 h recharge
+2021-01-27 18:09|[juicer.py.dock]---- Docking 1877 completed  at 8.1 v after 7.3 h playtime
+2021-01-27 22:04|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-01-27 22:09|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-01-27 22:10|[juicer.py.undock]---- Dismount 1877 at 10.8 v after 4.0 h recharge
+2021-01-28 05:19|[juicer.py.dock]---- Docking 1878 completed  at 8.1 v after 7.1 h playtime
+2021-01-28 09:03|[juicer.py.undock]---- Dismount 1878 at 11.3 v after 3.7 h recharge
+2021-01-28 15:32|lifelogger.dEmain execution: 32
+2021-01-28 16:18|[juicer.py.dock]**** Dock Approach Error
+2021-01-28 16:18|[juicer.py.dock]---- Manual Docking 1878 requested  at 8.1 v after 7.3 h playtime
+2021-01-28 16:20|[logMaintenance.py.main]** I2C failure caused Docking Approach Error - rebooting **
+2021-01-28 16:20|------------ boot ------------
+2021-01-28 16:20|[juicer.py.main]---- juicer.py started at 9.29v
+2021-01-28 16:54|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.9v
+2021-01-28 17:11|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.6v
+2021-01-28 17:12|[juicer.py.undock]---- Dismount 1879 at 9.6 v after 0.8 h recharge
+2021-01-28 18:16|[juicer.py.dock]---- Docking 1880 completed  at 8.1 v after 1.1 h playtime
+2021-01-28 22:07|[juicer.py.undock]---- Dismount 1880 at 11.3 v after 3.9 h recharge
+2021-01-29 05:29|[juicer.py.dock]---- Docking 1881 completed  at 8.1 v after 7.4 h playtime
+2021-01-29 07:54|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.3v
+2021-01-29 08:26|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.0v
+2021-01-29 08:26|[juicer.py.undock]---- Dismount 1881 at 10.0 v after 3.0 h recharge
+2021-01-29 12:47|[juicer.py.dock]---- Docking 1882 completed  at 8.1 v after 4.3 h playtime
+2021-01-29 16:39|[juicer.py.undock]---- Dismount 1882 at 11.3 v after 3.9 h recharge
+2021-01-29 20:20|lifelogger.dEmain execution: 28.1
+2021-01-29 20:22|[logMaintenance.py.main]** I2C failure again, turning off IMU logging, and rebooting **
+2021-01-29 20:28|------------ boot ------------
+2021-01-29 20:29|[juicer.py.main]---- juicer.py started at 9.40v
+2021-01-30 00:14|[juicer.py.dock]---- Docking 1884 completed  at 8.1 v after 7.6 h playtime
+2021-01-30 04:01|[juicer.py.undock]---- Dismount 1884 at 11.4 v after 3.8 h recharge
+2021-01-30 11:40|[juicer.py.dock]---- Docking 1885 completed  at 8.1 v after 7.7 h playtime
+2021-01-30 15:40|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-01-30 15:41|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-01-30 15:41|[juicer.py.undock]---- Dismount 1885 at 11.0 v after 4.0 h recharge
+2021-01-30 18:28|lifelogger.dEmain execution: 22
+2021-01-30 19:28|lifelogger.dEmain execution: 23
+2021-01-30 20:28|lifelogger.dEmain execution: 24
