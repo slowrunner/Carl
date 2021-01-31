@@ -48,7 +48,7 @@ def print_w_date_time(alert):
 
 @runLog.logRun
 def main():
-	print("healthCheck.py: Monitoring I2C")
+	print("healthCheck.py: Monitoring I2C and SWAP")
 
 	i2c_was_ok = True  	# presume good at start
 	swap_was_ok = True 	# presume good at start
