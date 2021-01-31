@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# FILE: test_quiet_time.py
+# FILE: check_quiet_time.py
 
 # PURPOSE: Check if current time is considered "quiet time"
 #          (quiet time is between 11pm and 10am )
