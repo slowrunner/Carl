@@ -1,0 +1,135 @@
+#! /usr/bin/env bash
+
+# Copyright (c) 2014, Chad Stovern, 2015 Jeremy Buis, 2016 Séverin Lemaignan
+# All rights reserved.
+
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+
+# * The names of its contributors may not be used to endorse or promote products 
+#   derived from this software without specific prior written permission.
+
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+################### IDONETHIS
+
+#### Fill these two fields to post the Git activity summaries to IDoneThis
+
+api_token=""
+team_name=""  # for instance, <username>-personal
+
+####
+
+
+## static values
+api_version="v0.1"
+done_date=`date '+%Y-%m-%d'`
+base_uri="https://idonethis.com/api/${api_version}"
+tmp_basedir="/tmp/"
+
+function submit_idonethis {
+
+    done_date="$2"
+
+    # done="{query}"
+    done="$1"
+    ### let's replace single and double quotes with unicode values so we can include them easily in the done
+    done="${done//\'/\\u0027}"
+    done="${done//\"/\\u0022}"
+
+
+    ## add done
+    ### create json temp file
+    tmp_file=$tmp_basedir"done"$d".json"
+cat > $tmp_file << DONE
+    {"team": "${base_uri}/teams/${team_name}/", "raw_text": "${done}", "done_date": "${done_date}"}
+DONE
+    ### submit done to api saving the return response
+    res=$(curl --silent -H "Content-type:application/json" -H "Authorization: Token ${api_token}" --data @${tmp_file} ${base_uri}/dones/)
+
+    ## if it was successful print out success message
+    ## if the request failed, print it
+    if [[ $res == *"\"ok\": true"* ]]
+    then
+        echo Posted to IDoneThis.
+    else
+        echo $res
+    fi
+}
+
+################### IDONETHIS
+
+if [[ -z $1 ]]; then
+    echo "You must provide a start date, eg '$0 2015-01-18' or '$0 last week'"
+    exit -1
+fi
+
+startdate="$@"
+
+if [[ $OSTYPE == darwin* ]]; then
+    ##check if gdate available (standard date command on unix doesn't allow 'yesterday' etc.)
+    command -v gdate >/dev/null 2>&1 
+    if [ $? != 0 ]; then
+        echo "Please install gdate from coreutils" >&2
+        exit -1
+    fi
+    alias date=gdate
+    shopt -s expand_aliases
+fi
+
+d=$(date -I -d "$startdate") || exit -1
+enddate=$(date -I)
+
+topdir=
+
+while [ "$d" != "$enddate" ]; do
+    echo "Git activity on the $d:"
+    msg=
+    for line in $(find $HOME -name ".git" -type d);do
+        path=$(dirname $line)
+        cd $path
+        nbcommit=$(git shortlog HEAD -s -n --author="$(git config user.name)" --all --since="$d 00:00" --until="$d 23:59" 2>&1 | awk '/[0-9]+/ {print $1}')
+
+        if [ ! -z $nbcommit ]
+        then
+            if [ "$topdir" != "$(dirname $path)" ]
+            then
+                topdir=$(dirname $path)
+                msg=$msg"`basename $topdir`:\n"
+            fi
+
+            msg=$msg"-- $nbcommit commits in `basename $path`\n"
+        fi
+    done
+
+    if [[ ! -z $msg ]]
+    then
+        echo -e $msg
+        if [[ ! -z $api_token ]]
+        then
+            submit_idonethis "Git activity:\n\n$msg" "$d"
+        fi
+    else
+        echo "None"
+    fi
+
+    d=$(date -I -d "$d + 1 day")
+    echo
+done
