@@ -15,6 +15,8 @@ Chatbots I've used over the years:
 - Chatterbot: 
   - 2016: "Stock Norman", investigating python chatbots
 - NLTK: Rule based chatbot
-  - 2019: "Carl_Chatbot", python, interfaced some of Carl's functions
+  - 2019: "Carl_Chat.py", Using NLTK WordNet 
+  - 2021: "keyword_chat.py", Uses regular expressions to find NLTK WordNet synonyms for user intents
+ 
 
 
