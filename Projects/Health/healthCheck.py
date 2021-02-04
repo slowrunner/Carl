@@ -12,6 +12,7 @@
 import smbus
 import time
 import psutil
+import datetime as dt
 
 # add Carl's Python library to path
 import sys
@@ -20,17 +21,30 @@ import runLog
 import lifeLog
 import speak
 import resetGoPiGo3
-
+import easygopigo3
+import di_sensors.easy_mutex
+import leds
 
 bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
+
 DISTANCE_SENSOR_0x2A = 0x2A
+
+# Need an egpg for wifi led blinker to indicate high swap usage
+try:
+	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
+except Exception as e:
+	print("Exception instantiating EasyGoPiGo3()\n",str(e))
+	exit(1)
 
 def checkI2C():
 	try:
+		di_sensors.easy_mutex.ifMutexAcquire(True)
 		bus.read_byte(DISTANCE_SENSOR_0x2A)
 		i2c_ok = True
 	except:
 		i2c_ok = False
+	finally:
+		di_sensors.easy_mutex.ifMutexRelease(True)
 	return i2c_ok
 
 def checkSwap(threshold=60):
@@ -53,6 +67,12 @@ def main():
 	i2c_was_ok = True  	# presume good at start
 	swap_was_ok = True 	# presume good at start
 	GoPiGo3_reset = False	# will attempt only once
+	delay_before_reset = 60 # see if I2C down is a glitch
+
+	# Blink WiFi LED to indicate startup
+	leds.wifi_blinker_on(egpg,color=leds.GREEN)
+	time.sleep(5)
+	leds.wifi_blinker_off(egpg)
 
 	while True:
 		try:
@@ -63,30 +83,45 @@ def main():
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 					speak.say(alert)
-				if GoPiGo3_reset == False:
-					alert="GoPiGo3 reset will be attempted in 30 seconds"
+					glitch_delay = delay_before_reset
+					alert = "Initiating {} second wait for I2C recovery".format(glitch_delay)
 					print_w_date_time(alert)
 					speak.say(alert)
-					time.sleep(30)
-					alert="Attempting GoPiGo3 Board Only reset"
-					print_w_date_time(alert)
-					speak.say(alert)
-					resetSuccess = resetGoPiGo3.fixI2Cjam()
-					if resetSuccess:
-						alert="Success: GoPiGo3 Board Only Reset"
+					lifeLog.logger.info(alert)
+				if (GoPiGo3_reset == False):
+					if (glitch_delay <= 0):
+						alert="GoPiGo3 reset will be attempted in 30 seconds"
 						print_w_date_time(alert)
 						speak.say(alert)
-						lifeLog.logger.info(alert)
-						# leave GoPiGo3_reset as False
-					else:
-						alert="Failure: GoPiGo3 Board Only Reset"
+						time.sleep(30)
+						alert="Attempting GoPiGo3 Board Only reset"
 						print_w_date_time(alert)
 						speak.say(alert)
-						lifeLog.logger.info(alert)
-						GoPiGo3_reset = True		# only try once if did not fix problem
-
-				else:	# Reset already attempted once
-					pass
+						life.logger.info(alert)
+						try:
+							resetSuccess = resetGoPiGo3.fixI2Cjam()
+						except Exception as e:
+							alert = "fixI2Cjam Exception: {}".format(str(e))
+							print_w_date_time(alert)
+							runLog.entry(alert)
+							traceback.print_exc()
+							resetSuccess = False
+						if resetSuccess:
+							alert="Success: GoPiGo3 Board Only Reset"
+							print_w_date_time(alert)
+							speak.say(alert)
+							lifeLog.logger.info(alert)
+							# leave GoPiGo3_reset as False
+						else:
+							alert="Failure: GoPiGo3 Board Only Reset"
+							print_w_date_time(alert)
+							speak.say(alert)
+							lifeLog.logger.info(alert)
+							GoPiGo3_reset = True		# only try once if did not fix problem
+					else:  # I2C not OK, reset not performed, delay counter not zero yet
+						glitch_delay -= 1
+				else:	# I2C down, Reset already attempted once unsuccessfully
+					pass	# Hope it comes back by magic
 
 			elif i2c_was_ok:
 				pass	# still good
@@ -107,6 +142,7 @@ def main():
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 					speak.say(alert)
+					leds.wifi_blinker_on(egpg,color=leds.ORANGE)
 				else:
 					pass
 
@@ -114,6 +150,7 @@ def main():
 			time.sleep(1)
 		except KeyboardInterrupt:
 			print("\nExiting healthCheck.py")
+			leds.wifi_blinker_off(egpg)
 			break
 
 if __name__ == '__main__': main()
