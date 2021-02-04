@@ -1,4 +1,4 @@
-# NLTK Rule-based Chatbot for GoPiGo3 Robot Carl
+# NLTK Rule-based Chatbots for GoPiGo3 Robot Carl
 
 
 # Installation  
@@ -46,4 +46,51 @@ english.pickle	English	Penn Treebank (LDC)	Wall Street Journal	~469,000	Jan Stru
   and additional papers by WordNet users, is available from MIT Press:  
   http://mitpress.mit.edu/book-home.tcl?isbn=026206197X  
   The WordNet Web Site  http://wordnet.princeton.edu
+
+
+
+# keyword_chat.py
+ - based on https://blog.datasciencedojo.com/building-a-rule-based-chatbot-in-python/
+ - Uses regular expression search of input for WordNet synonyms for user "intents"
+   - greeting
+   - battery_info
+   - processor_info
+   - carl_info
+   - my_name
+   - gratitude
+   - farewell
+   - (fallback if nothing matches)
+
+```
+./keyword_chat.py
+
+... (output shows synonym retrieval and regular expressions built)
+
+******************** KEYWORD CHAT ******************
+This is a regular expression WordNet synonym chatbot.
+
+Chatbot: What would you like to know?
+
+Input: First let me say Hello.
+Chatbot:  Hi!
+
+Input: Do you have a name?
+Chatbot:  My name is Carl.  I am a GoPiGo3 Robot impersonating minion Carl
+
+Input: Are you battery powered?
+Chatbot:  I run on eight double-A Nickel Metal Hydride cells
+
+Input: What processor do you use?
+Chatbot:  My brain is a Raspberry Pi 3B
+
+Input: What else do you know, Carl?
+Chatbot:  GoPiGo3 Robot Carl I am, but I did not understand your words
+
+Input: You seem a little confused.
+Chatbot:  I did not understand that.  Differently?
+
+Input: bye Carl
+Chatbot:  I hope you will visit me again soon
+Chatbot: Thank you for visiting.
+```
 
