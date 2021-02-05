@@ -4,7 +4,8 @@
 # A little history
 
 Chatbots I've used over the years:
-- ELIZA: reimplemented in CLIPS and Ada for learning rule based reasoning
+- ELIZA:
+  - 1985: Reimplemented in CLIPS, and in Ada for learning rule based reasoning
 - A.L.I.C.E: built several AIML based chatbots
   - 2007: "Nicer ALICE", (Polite Basic ruleset) Program_D, Java
   - 2011: "ArcheryBot", Pandorabots
@@ -15,6 +16,7 @@ Chatbots I've used over the years:
 - Chatterbot: 
   - 2016: "Stock Norman", investigating python chatbots
 - NLTK: Rule based chatbot
+  - 2016: "chatbro.py", Using NLTK to filter input and match input to responses
   - 2019: "Carl_Chat.py", Using NLTK WordNet 
   - 2021: "keyword_chat.py", Uses regular expressions to find NLTK WordNet synonyms for user intents
  
