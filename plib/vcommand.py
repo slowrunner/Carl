@@ -178,6 +178,10 @@ cmd_keywords = '["list commands", \
 		\
 		"[unk]"]'
 
+yes_no_keywords = '[ "yes", \
+			"no", \
+			"[unk]"]'
+
 nlu_actions = [ "look up something",
 		"search something"]
 

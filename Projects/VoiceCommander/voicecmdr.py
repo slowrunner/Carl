@@ -127,10 +127,30 @@ def main():
 					time.sleep(1)
 					break
 				if vcommand.isExitRequest(vcmd):
+					eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
+					alert="Heard {}".format(vcmd)
+					voiceLog.entry(alert)
+					print(alert)
+					alert = "Confirm Exit Yes Or No"
+					print(alert)
+					voiceLog.entry(alert)
+					speak.whisper(alert,anytime=True)
+					eyes.carl_eyes(egpg,eyes.EYE_COLOR_COMMANDABLE)
+					vcommand.reset_turn_start()
+					yn_cmd = vcommand.getVoiceCommand(commands=vcommand.yes_no_keywords,timeout=10)
+					alert="Heard {}".format(yn_cmd)
+					voiceLog.entry(alert)
+					print(alert)
+					if yn_cmd == "yes":
+						eyes.carl_eyes(egpg,eyes.EYE_COLOR_ACCEPTED)
+						time.sleep(1)
+						alert = "Exit Confirmed"
+						print(alert)
+						voiceLog.entry(alert)
+						speak.whisper(alert,anytime=True)
+						break
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_REJECTED)
-					voiceLog.entry("Heard {}".format(vcmd))
 					time.sleep(1)
-					break
 				elif vcmd == "TimeOut":
 					print("Command not heard before turn timeout")
 					eyes.carl_eyes(egpg,eyes.EYE_COLOR_REJECTED)
