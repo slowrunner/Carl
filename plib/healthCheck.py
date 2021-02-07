@@ -28,6 +28,8 @@ import leds
 bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 
 DISTANCE_SENSOR_0x2A = 0x2A
+SWAP_THRESHOLD = 60  # percent
+
 
 # Need an egpg for wifi led blinker to indicate high swap usage
 try:
@@ -134,11 +136,11 @@ def main():
 				i2c_was_ok = True
 
 			# SWAP SPACE - need to work out when is good time to reboot - not implemented yet
-			swap_ok,usage = checkSwap()
+			swap_ok,usage = checkSwap(SWAP_THRESHOLD)
 			if swap_ok == False:
 				if swap_was_ok:
 					swap_was_ok = False
-					alert="Swap usage {:.1f} % exceeds {:.0f} % threshold".format(usage,threshold)
+					alert="Swap usage {:.1f} % exceeds {:.0f} % threshold".format(usage,SWAP_THRESHOLD)
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 					speak.say(alert)

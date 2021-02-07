@@ -87,6 +87,9 @@ def do_wifi_blinking(egpg,color=RED):
 			sleep(1)
 	except Exception as e:
 		print("do_wifi_blinking: Exception {}".format(str(e)))
+		raise e
+	# print("do_wifi_blinking() exiting")
+	wifi_blinker_thread_quit = False
 
 wifi_blinker_thread = None
 wifi_blinker_thread_quit = False
@@ -98,7 +101,7 @@ def wifi_blinker_on(egpg,color=RED):
 		pass
 	else:   # need to start thread
 		wifi_blinker_thread_quit = False
-		wifi_blinker_thread = threading.Thread(target=do_wifi_blinking, args=(egpg,color,))
+		wifi_blinker_thread = threading.Thread(target=do_wifi_blinking, args=(egpg,color,), daemon=True)
 		wifi_blinker_thread.start()
 
 def wifi_blinker_off(egpg):
@@ -106,7 +109,13 @@ def wifi_blinker_off(egpg):
 
 	if wifi_blinker_thread:
 		wifi_blinker_thread_quit = True	# tell thread to quit
-		wifi_blinker_thread.join()	# wait for thread to quit
+		# wifi_blinker_thread.join()	# wait for thread to quit
+		timer = 0
+		while wifi_blinker_thread_quit and (timer < 5):
+			sleep(1)
+			timer+=1
+		wifi_blinker_thread_quit = False
+		wifi_blinker_thread = None
 	else:
 		pass
 
