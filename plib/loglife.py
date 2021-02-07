@@ -1,10 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 #
 # loglife.py   digital entity to log each hour of life
 #              to /home/pi/Carl/life.log
 #
 # with sudo crontab -e
-#      @reboot /home/pi/Carl/plib/loglife.py&
+#      @reboot /home/pi/Carl/nohup_loglife.py
 # touch /home/pi/Carl/life.log
 # chmod 777 /home/pi/Carl/life.log
 #

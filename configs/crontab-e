@@ -21,8 +21,11 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-@reboot /home/pi/Carl/plib/loglife.py&
-@reboot sleep 75 && /home/pi/Carl/nohup_juicer.sh
-@reboot sleep 90 && /home/pi/Carl/nohup_wheellog.sh
-@reboot sleep 95 && /home/pi/Carl/nohup_imulog.sh
-@reboot sleep 100 && /home/pi/Carl/nohup_voicecmdr.sh
+@reboot sleep 10  && /home/pi/Carl/nohup_loglife.sh
+@reboot sleep 75  && /home/pi/Carl/nohup_juicer.sh
+@reboot sleep 90  && /home/pi/Carl/nohup_healthCheck.sh
+@reboot sleep 100 && /home/pi/Carl/nohup_wheellog.sh
+@reboot sleep 110 && /home/pi/Carl/nohup_imulog.sh
+@reboot sleep 120 && /home/pi/Carl/nohup_voicecmdr.sh
+
+
