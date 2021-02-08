@@ -42,6 +42,33 @@ nohup /home/pi/Carl/plib/juicer.py > $LOGFILE &
 ```
 # 
 
+```
+Physical Aspects:
+        -------         Wall
+
+         120mm
+
+          ___           Docking Back stop
+           o            Skid Ball
+
+
+         280mm          Dismount Drive and docking backup distance
+
+
+           o            Skid after dismount and preparing to backup
+
+         ~50mm
+
+          _-_           Distance Sensor at approach point (444 - 450mm or so)
+
+          75mm
+
+        |  -  |         Wheels at approach point (and after dismount)
+
+```
+
+
+
 ## Notes: 
 - Author: Alan McDonley Nov 2020, Apr 2019 
 

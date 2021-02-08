@@ -12,6 +12,28 @@ Rules and Data that maintain Charging Status [UNKNOWN, CHARGING, TRICKLING, NOTC
 
 This module contains the rules for detecting charging status and charging status changes
 
+Physical Aspects:
+	-------		Wall
+
+	 120mm
+
+	  ___		Docking Back stop
+	   o		Skid Ball
+
+
+	 280mm		Dismount Drive and docking backup distance
+
+
+	   o		Skid after dismount
+
+	 ~50mm
+
+	  _-_		Distance Sensor at approach point (444 - 450mm or so)
+
+	  75mm
+
+	|     |		Wheels at approach point (and after dismount)
+
 """
 
 # from __future__ import print_function # use python 3 syntax but make it compatible with python 2
@@ -82,6 +104,7 @@ dtLastDockingStateChange = dtStart
 # Distance from rear castor docked position to rear castor undocked position
 dockingDistanceInMM = 280 # 90  # (measures about 85 to undock position after 90+3mm dismount)
 dockingApproachDistanceInMM = 444 # 375 # 263  # 263 to sign, 266 to wall
+allowedApproachErrorInMM = 50  # 2/2021 was 20  +/- band around target approach distance
 # Next value is subrtracted from backing distance to allaw drive_cm to always be short a little
 maxApproachDistanceMeasurementErrorInMM = 7  #  was 6, +/-5 typical max and min
 dismountFudgeInMM = 3  # results in 248 to CARL sign or 266 to wall after undock 90+3mm
@@ -569,7 +592,7 @@ def dock(egpg,ds,tp):
     print("**** Current  Distance is %.1f mm %.2f in" % (distanceForwardInMM, distanceForwardInMM / 25.4))
     print("**** Approach Distance is %.2f mm" % dockingApproachDistanceInMM )
     appErrorInMM = distanceForwardInMM - dockingApproachDistanceInMM
-    if ( -20 <  appErrorInMM > 20 ):
+    if ( -allowedApproachErrorInMM <  appErrorInMM > allowedApproachErrorInMM ):
         print(dt.datetime.now().strftime("%H:%M:%S"),"**** DOCK APPROACH ERROR - REQUEST MANUAL PLACEMENT ON DOCK ****")
         speak.say("Dock approach error. Please put me on the dock")
         lastDockingChangeInSeconds = (dtNow - dtLastDockingStateChange).total_seconds()
@@ -583,9 +606,9 @@ def dock(egpg,ds,tp):
         # Don't set dtLastDockingStateChane until actually Docked (RPIMonitor wants Docking.+playtime but don't want to reset playtime till actually on dock)
         # dtLastDockingStateChange = dt.datetime.now()
         if (  appErrorInMM > 0):
-            print("**** Approach Distance too large by %.2f MM" % appErrorInMM)
+            print("**** Approach Distance too large by %.2f MM" % (appErrorInMM-allowedApproachError))
         else:
-            print("**** Approace Distance too small by %.2f MM" % appErrorInMM)
+            print("**** Approace Distance too small by %.2f MM" % (appErrorInMM+allowedApproachError))
         sleep(5)
     elif ( (dockingState == NOTDOCKED) ):
         print("\n**** INITIATING DOCK MOUNTING SEQUENCE ****")
