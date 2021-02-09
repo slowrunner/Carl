@@ -57,7 +57,7 @@
 
 
 """
-
+# IMPORTANT: wikipedia must be installed systemwide (sudo pip3 install) to start voicecmdr as root/boot
 from vosk import Model, KaldiRecognizer, SetLogLevel
 import os
 import datetime as dt

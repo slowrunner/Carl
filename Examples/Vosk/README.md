@@ -73,7 +73,9 @@ user	0m15.563s
 sys	0m0.720s
 ```
 
+
 # vcommand.py
+# NOTE: wikipedia must be installed with (sudo pip3 install) to allow voicecmdr to be started as root at boot
 - doVoiceCommand()  word list mode
 - doVoiceNL()       language model mode
 - doVoiceAction()   interpret and handle phrases
