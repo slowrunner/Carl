@@ -335,16 +335,22 @@ $ sudo systemctl disable  mariadb
 Removed /etc/systemd/system/multi-user.target.wants/mariadb.service.
 Removed /etc/systemd/system/mysqld.service.
 Removed /etc/systemd/system/mysql.service.
+$ sudo systemctl stop mysql
+$ sudo systemctl disable mysql
 
 NOTE: to see it is still there
 
 $ systemctl list-unit-files | grep mariadb
 mariadb.service                        disabled       
-mariadb@.service                       disabled       
+mariadb@.service                       disabled 
+$ systemctl list-unit-files | grep mysql
+mysql.service		generated      
 ```
 
 # === TO RE-ENABLE MARIADB TO START AT BOOT ===  
 ```
 $ sudo systemctl enable mariadb  
 $ sudo systemctl start mariadb  
+$ sudo systemctl enable mysql
+$ sudo systemctl start mysql
 ```
