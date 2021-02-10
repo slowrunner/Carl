@@ -78,7 +78,7 @@ import carlDataJson as carlData
 import myDistSensor
 import voiceLog
 import weather
-
+import my_safe_inertial_measurement_unit as my_imu
 
 vosk_model_path = "/home/pi/Carl/vosk-api/model"
 
@@ -174,6 +174,7 @@ cmd_keywords = '["list commands", \
 		"pan left right fifteen thirty forty five sixty ninety to of center degrees", \
 		"tilt up down fifteen thirty forty five sixty to level degrees", \
 		"room temperature", \
+		"heading", \
 		"stop", \
 		\
 		"[unk]"]'
@@ -762,6 +763,15 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				print(str(e))
 				traceback.print_stack()
 
+
+		elif ("heading" in action_request):
+			try:
+				(heading,roll,pitch) = egpg.imu.safe_read_euler()
+				print_speak("I M U heading {:.0f} degrees".format(round(heading,0)))
+			except Exception as e:
+				print("Exception handling action_request \"heading\" ")
+				print(str(e))
+				traceback.print_stack()
 
 		elif ("stop" in action_request):
 			try:
