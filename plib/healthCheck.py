@@ -13,6 +13,7 @@ import smbus
 import time
 import psutil
 import datetime as dt
+import subprocess as sp
 
 # add Carl's Python library to path
 import sys
@@ -29,7 +30,7 @@ bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 
 DISTANCE_SENSOR_0x2A = 0x2A
 SWAP_THRESHOLD = 60  # percent
-
+ROUTER_IP = "10.0.0.1"
 
 # Need an egpg for wifi led blinker to indicate high swap usage
 try:
@@ -37,6 +38,19 @@ try:
 except Exception as e:
 	print("Exception instantiating EasyGoPiGo3()\n",str(e))
 	exit(1)
+
+
+# returns 0 if ping succeeds, 1 is ping fails
+def checkIP(ip="8.8.8.8", verbose=False):
+	# check once, wait only one second
+	status, result = sp.getstatusoutput("ping -c1 -w1 " + ip)
+	if verbose:
+		if status == 0:
+			print("System at {} is Up".format(ip))
+		else:
+			print("System at {} is Down".format(ip))
+	return status
+
 
 def checkI2C():
 	try:
@@ -64,17 +78,19 @@ def print_w_date_time(alert):
 
 @runLog.logRun
 def main():
-	print("healthCheck.py: Monitoring I2C and SWAP")
+	print("healthCheck.py: Monitoring I2C, SWAP, and WiFi")
 
 	i2c_was_ok = True  	# presume good at start
 	swap_was_ok = True 	# presume good at start
 	GoPiGo3_reset = False	# will attempt only once
 	delay_before_reset = 60 # see if I2C down is a glitch
+	router_was_ok = True	# presume good at start
 
 	# Blink WiFi LED to indicate startup
 	leds.wifi_blinker_on(egpg,color=leds.GREEN)
 	time.sleep(5)
 	leds.wifi_blinker_off(egpg)
+	blinker_cnt = 0		# start with no issue using blinking led
 
 	while True:
 		try:
@@ -144,10 +160,34 @@ def main():
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 					speak.say(alert)
+					blinker_cnt +=1
 					leds.wifi_blinker_on(egpg,color=leds.ORANGE)
 				else:
 					pass
 
+			# WiFi - Test if router is visible (don't care about Internet per se) 
+			router_not_ok = checkIP(ROUTER_IP)
+			if router_not_ok:  # returns 1 if not reachable
+				if router_was_ok:
+					alert="WiFi Router not responding ({})".format(ROUTER_IP)
+					lifeLog.logger.info(alert)
+					print_w_date_time(alert)
+					speak.say(alert)
+					leds.wifi_blinker_on(egpg,color=leds.TURQUOISE)
+					blinker_cnt += 1
+				else:  # already alerted - continues
+					pass
+			elif router_was_ok:
+				pass	# still good
+			else:
+				# Wifi was down, now restored
+				alert="WiFi Router again reachable"
+				lifeLog.logger.info(alert)
+				print_w_date_time(alert)
+				speak.say(alert)
+				router_was_ok=True
+				blinker_cnt -=1
+				if blinker_cnt <= 0: leds.wifi_blinker_off(egpg)
 
 			time.sleep(1)
 		except KeyboardInterrupt:
