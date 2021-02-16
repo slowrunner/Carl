@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 -u
+#!/usr/bin/env python3
 
 
 # FILE:  healthCheck.py
@@ -31,6 +31,7 @@ bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 DISTANCE_SENSOR_0x2A = 0x2A
 SWAP_THRESHOLD = 60  # percent
 ROUTER_IP = "10.0.0.1"
+verbose = True
 
 # Need an egpg for wifi led blinker to indicate high swap usage
 try:
@@ -46,9 +47,9 @@ def checkIP(ip="8.8.8.8", verbose=False):
 	status, result = sp.getstatusoutput("ping -c1 -w1 " + ip)
 	if verbose:
 		if status == 0:
-			print("System at {} is Up".format(ip))
+			print_w_date_time("System at {} is Up".format(ip))
 		else:
-			print("System at {} is Down".format(ip))
+			print_w_date_time("System at {} is Down".format(ip))
 	return status
 
 
@@ -166,7 +167,7 @@ def main():
 					pass
 
 			# WiFi - Test if router is visible (don't care about Internet per se) 
-			router_not_ok = checkIP(ROUTER_IP)
+			router_not_ok = checkIP(ROUTER_IP,verbose)
 			if router_not_ok:  # returns 1 if not reachable
 				if router_was_ok:
 					alert="WiFi Router not responding ({})".format(ROUTER_IP)

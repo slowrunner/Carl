@@ -1,4 +1,7 @@
 #!/bin/bash
+PYTHONUNBUFFERED=1
+export PYTHONUNBUFFERED
+
 LOGFILE=juicer.out
 
 if test -f /home/pi/Carl/$LOGFILE; then

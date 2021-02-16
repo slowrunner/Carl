@@ -1,4 +1,6 @@
 #!/bin/bash
+PYTHONUNBUFFERED=1
+export PYTHONUNBUFFERED
 LOGFILE=healthCheck.out
 
 if test -f /home/pi/Carl/$LOGFILE; then
