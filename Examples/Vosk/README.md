@@ -3,6 +3,16 @@
 As of January 2020, the CMU pocketsphinx engine does not install on the Raspberry PiOS without modifications,  
 so this investigation of new open-source engine for research, called [Vosk, available from Alpha Cephai]
 
+# FIRST TEST MICROPHONE CONFIGURATION  
+- run ./find_mic_device_number.py  
+  If it doesn't show device 25 is mic - possibly need to configure /home/pi/.asoundrc  (cp ~/Carl/configs/home.pi.dot.asoundrc.PiOS )  
+- $ arecord -d 7 -c 1 -f S16 -r 16000 test.wav  
+  Recording WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono  
+- $ aplay test.wav  
+  Playing WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono  
+
+
+
 
 # Installation
 
