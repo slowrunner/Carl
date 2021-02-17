@@ -1,5 +1,18 @@
 # NYUMAYA HotWord Detection  
 
+# === FIRST TEST DEFAULT MICROPHONE INPUT ===  
+This needs to work:  
+$ arecord -d 7 -c 1 -f S16 -r 16000 test.wav  
+  Recording WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono  
+$ aplay test.wav  
+Playing WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono  
+
+IF IT DID NOT WORK:  
+- diff /home/pi/.asoundrc ~/Carl/configs/home.pi.dot.asoundrc.PiOS  
+- If different:  
+  cp /home/pi/.asoundrc /home/pi/.asoundrc.bak  
+  cp ~/Carl/configs/home.pi.dot.asoundrc.PiOS /home/pi/.asoundrc  
+  and try again
 
 # === Get The Repository ===  
 ```

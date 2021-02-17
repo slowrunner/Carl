@@ -27,6 +27,20 @@ from auto_platform import AudiostreamSource, play_command,default_libpath
 def detectKeywords(libpath=nyumaya_libpath):
 
 	audio_stream = AudiostreamSource()
+	"""
+	# The following was needed before configuring /home/pi/.asoundrc from ~/Carl/configs/home.pi.dot.asoundrc.PiOS
+	audio_stream.input_device = 'plughw:2,0'
+	audio_stream._cmd = [
+			'arecord',
+			'-q',
+			'-t', 'raw',
+			'-D', audio_stream.input_device,
+			'-c', str(audio_stream.channels),
+			'-f', 's16',
+			'-r', str(audio_stream.sample_rate),
+		]
+	print("arecord cmd:",audio_stream._cmd)
+	"""
 	extractor = FeatureExtractor(libpath)
 	detector = AudioRecognition(libpath)
 
