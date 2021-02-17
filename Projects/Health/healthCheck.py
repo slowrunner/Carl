@@ -31,7 +31,6 @@ bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 DISTANCE_SENSOR_0x2A = 0x2A
 SWAP_THRESHOLD = 60  # percent
 ROUTER_IP = "10.0.0.1"
-verbose = True
 
 # Need an egpg for wifi led blinker to indicate high swap usage
 try:
@@ -86,6 +85,7 @@ def main():
 	GoPiGo3_reset = False	# will attempt only once
 	delay_before_reset = 60 # see if I2C down is a glitch
 	router_was_ok = True	# presume good at start
+	verbose = False
 
 	# Blink WiFi LED to indicate startup
 	leds.wifi_blinker_on(egpg,color=leds.GREEN)
@@ -169,19 +169,29 @@ def main():
 			# WiFi - Test if router is visible (don't care about Internet per se) 
 			router_not_ok = checkIP(ROUTER_IP,verbose)
 			if router_not_ok:  # returns 1 if not reachable
+				verbose = True
 				if router_was_ok:
 					alert="WiFi Router not responding ({})".format(ROUTER_IP)
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
-					speak.say(alert)
-					leds.wifi_blinker_on(egpg,color=leds.TURQUOISE)
-					blinker_cnt += 1
+
+					# Double check
+					time.sleep(1)
+					router_not_ok = checkIP(ROUTER_IP,verbose)
+					if router_not_ok:
+						speak.say(alert)
+						leds.wifi_blinker_on(egpg,color=leds.TURQUOISE)
+						router_was_ok = False
+						blinker_cnt += 1
+					else:  # already resolved
+						verbose = False
 				else:  # already alerted - continues
 					pass
 			elif router_was_ok:
 				pass	# still good
 			else:
 				# Wifi was down, now restored
+				verbose = False
 				alert="WiFi Router again reachable"
 				lifeLog.logger.info(alert)
 				print_w_date_time(alert)
