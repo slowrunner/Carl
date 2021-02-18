@@ -1383,6 +1383,175 @@
 2021-01-30 15:40|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
 2021-01-30 15:41|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
 2021-01-30 15:41|[juicer.py.undock]---- Dismount 1885 at 11.0 v after 4.0 h recharge
-2021-01-30 18:28|lifelogger.dEmain execution: 22
-2021-01-30 19:28|lifelogger.dEmain execution: 23
-2021-01-30 20:28|lifelogger.dEmain execution: 24
+2021-01-30 22:45|[juicer.py.dock]---- Docking 1886 completed  at 8.1 v after 7.1 h playtime
+2021-01-31 02:38|[juicer.py.undock]---- Dismount 1886 at 11.3 v after 3.9 h recharge
+2021-01-31 09:51|[juicer.py.dock]---- Docking 1887 completed  at 8.1 v after 7.2 h playtime
+2021-01-31 13:41|[juicer.py.undock]---- Dismount 1887 at 11.3 v after 3.8 h recharge
+2021-01-31 20:50|[juicer.py.dock]---- Docking 1888 completed  at 8.1 v after 7.1 h playtime
+2021-02-01 00:38|[juicer.py.undock]---- Dismount 1888 at 11.3 v after 3.8 h recharge
+2021-02-01 07:51|[juicer.py.dock]---- Docking 1889 completed  at 8.1 v after 7.2 h playtime
+2021-02-01 11:43|[juicer.py.undock]---- Dismount 1889 at 11.3 v after 3.9 h recharge
+2021-02-01 13:05|[healthCheck.py.main]I2C Bus Failure Detected
+2021-02-01 18:42|[healthCheck.py.main]I2C Bus Failure Detected
+2021-02-01 18:42|[healthCheck.py.main]Initiating 60 second wait for I2C recovery
+2021-02-01 18:43|[healthCheck.py.main]I2C Function Restored
+2021-02-01 18:51|[juicer.py.dock]---- Docking 1890 completed  at 8.1 v after 7.1 h playtime
+2021-02-01 22:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-01 22:52|[juicer.py.undock]---- Dismount 1890 at 11.5 v after 4.0 h recharge
+2021-02-02 06:09|[juicer.py.dock]---- Docking 1891 completed  at 8.1 v after 7.3 h playtime
+2021-02-02 10:07|[juicer.py.undock]---- Dismount 1891 at 11.3 v after 4.0 h recharge
+2021-02-02 17:27|[juicer.py.dock]---- Docking 1892 completed  at 8.1 v after 7.3 h playtime
+2021-02-02 21:18|[juicer.py.undock]---- Dismount 1892 at 11.4 v after 3.8 h recharge
+2021-02-03 04:26|[juicer.py.dock]---- Docking 1893 completed  at 8.1 v after 7.1 h playtime
+2021-02-03 08:26|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-02-03 08:26|[juicer.py.undock]---- Dismount 1893 at 11.5 v after 4.0 h recharge
+2021-02-03 15:41|[juicer.py.dock]---- Docking 1894 completed  at 8.1 v after 7.2 h playtime
+2021-02-03 19:40|[juicer.py.undock]---- Dismount 1894 at 11.4 v after 4.0 h recharge
+2021-02-04 03:02|[juicer.py.dock]---- Docking 1895 completed  at 8.1 v after 7.4 h playtime
+2021-02-04 06:54|[juicer.py.undock]---- Dismount 1895 at 11.4 v after 3.9 h recharge
+2021-02-04 14:19|[juicer.py.dock]---- Docking 1896 completed  at 8.1 v after 7.4 h playtime
+2021-02-04 18:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-02-04 18:20|[juicer.py.undock]---- Dismount 1896 at 11.5 v after 4.0 h recharge
+2021-02-05 01:36|[juicer.py.dock]---- Docking 1897 completed  at 8.1 v after 7.3 h playtime
+2021-02-05 05:37|[juicer.py.undock]---- Dismount 1897 at 11.4 v after 4.0 h recharge
+2021-02-05 12:43|[juicer.py.dock]---- Docking 1898 completed  at 8.1 v after 7.1 h playtime
+2021-02-05 16:43|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-02-05 16:43|[juicer.py.undock]---- Dismount 1898 at 11.4 v after 4.0 h recharge
+2021-02-05 23:48|[juicer.py.dock]---- Docking 1899 completed  at 8.1 v after 7.1 h playtime
+2021-02-06 03:48|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-06 03:48|[juicer.py.undock]---- Dismount 1899 at 11.5 v after 4.0 h recharge
+2021-02-06 10:54|[juicer.py.dock]---- Docking 1900 completed  at 8.1 v after 7.1 h playtime
+2021-02-06 12:11|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.1v
+2021-02-06 12:33|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.8v
+2021-02-06 12:33|[juicer.py.undock]---- Dismount 1900 at 9.8 v after 1.7 h recharge
+2021-02-06 14:33|[juicer.py.dock]---- Docking 1901 completed  at 8.1 v after 2.0 h playtime
+2021-02-06 18:31|[juicer.py.undock]---- Dismount 1901 at 11.3 v after 4.0 h recharge
+2021-02-06 18:48|[healthCheck.py.main]Swap usage 63.5 % exceeds 60 % threshold
+2021-02-06 19:29|lifelogger.dEmain execution: 191
+2021-02-06 19:37|[logMaintenance.py.main]** Rebooting to reset swap usage **
+2021-02-06 19:39|------------ boot ------------
+2021-02-06 19:39|[juicer.py.main]---- juicer.py started at 9.81v (add 1.15h)
+2021-02-07 01:37|[juicer.py.dock]---- Docking 1902 completed  at 8.1 v after 7.1 h playtime
+2021-02-07 05:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-07 05:37|[juicer.py.undock]---- Dismount 1902 at 11.5 v after 4.0 h recharge
+2021-02-07 12:41|[juicer.py.dock]**** Dock Approach Error
+2021-02-07 12:41|[juicer.py.dock]---- Manual Docking 1902 requested  at 8.1 v after 7.1 h playtime
+2021-02-07 12:43|[juicer.py.manualDockingCompleted]---- Docking 1903 (manual) at 8.3 v and 7.1 h playtime
+2021-02-07 16:16|[juicer.py.undock]---- Dismount 1903 at 11.3 v after 3.6 h recharge
+2021-02-07 21:11|[logMaintenance.py.main]** Trying new juicer with +/-50mm approach point error allowed **
+2021-02-07 21:12|[juicer.py.main]---- juicer.py started at 9.23v
+2021-02-07 23:19|[juicer.py.dock]---- Docking 1904 completed  at 8.1 v after 7.0 h playtime
+2021-02-08 03:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.6v
+2021-02-08 03:20|[juicer.py.undock]---- Dismount 1904 at 11.4 v after 4.0 h recharge
+2021-02-08 10:22|[juicer.py.dock]---- Docking 1905 completed  at 8.1 v after 7.0 h playtime
+2021-02-08 13:27|[logMaintenance.py.main]** Mystery no-motion imu and wheel log entries at 12:29 **
+2021-02-08 14:23|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-08 14:23|[juicer.py.undock]---- Dismount 1905 at 11.5 v after 4.0 h recharge
+2021-02-08 21:34|[juicer.py.dock]---- Docking 1906 completed  at 8.1 v after 7.2 h playtime
+2021-02-09 01:35|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-02-09 01:35|[juicer.py.undock]---- Dismount 1906 at 11.4 v after 4.0 h recharge
+2021-02-09 08:39|[juicer.py.dock]---- Docking 1907 completed  at 8.1 v after 7.1 h playtime
+2021-02-09 11:06|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.3v
+2021-02-09 11:08|[logMaintenance.py.main]** WiFi 186 disconnected, Dongle on 225 working **
+2021-02-09 11:20|[logMaintenance.py.main]** Trickle not detected at 11:04, manual dismount **
+2021-02-09 11:20|[juicer.py.undock]---- Dismount 1907 manual after 2.7 h recharge
+2021-02-09 11:37|[logMaintenance.py.main]** Executing shutdown to remove dongle and restart **
+2021-02-09 11:39|lifelogger.dEmain execution: 64
+2021-02-09 11:39|------------ boot ------------
+2021-02-09 11:40|[juicer.py.main]---- juicer.py started at 9.82v
+2021-02-09 12:05|[logMaintenance.py.main]** boot start of voicecmdr failed because wikipedia installed to pi (pip3) needs system (sudo pip3) **
+2021-02-09 15:24|[juicer.py.dock]---- Docking 1908 completed  at 8.1 v after 4.1 h playtime
+2021-02-09 19:24|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-02-09 19:25|[juicer.py.undock]---- Dismount 1908 at 11.1 v after 4.0 h recharge
+2021-02-10 02:24|[juicer.py.dock]---- Docking 1909 completed  at 8.1 v after 7.0 h playtime
+2021-02-10 06:18|[juicer.py.undock]---- Dismount 1909 at 11.3 v after 3.9 h recharge
+2021-02-10 10:19|[logMaintenance.py.main]** Rebooting Comcast Router appears to have cleared WiFi issue **
+2021-02-10 13:22|[juicer.py.dock]---- Docking 1910 completed  at 8.1 v after 7.1 h playtime
+2021-02-10 17:20|[juicer.py.undock]---- Dismount 1910 at 11.3 v after 4.0 h recharge
+2021-02-11 00:20|[juicer.py.dock]---- Docking 1911 completed  at 8.1 v after 7.0 h playtime
+2021-02-11 04:15|[juicer.py.undock]---- Dismount 1911 at 11.4 v after 3.9 h recharge
+2021-02-11 11:20|[juicer.py.dock]---- Docking 1912 completed  at 8.1 v after 7.1 h playtime
+2021-02-11 15:07|[juicer.py.undock]---- Dismount 1912 at 11.3 v after 3.8 h recharge
+2021-02-11 22:10|[juicer.py.dock]---- Docking 1913 completed  at 8.1 v after 7.0 h playtime
+2021-02-12 01:58|[juicer.py.undock]---- Dismount 1913 at 11.3 v after 3.8 h recharge
+2021-02-12 09:05|[juicer.py.dock]---- Docking 1914 completed  at 8.1 v after 7.1 h playtime
+2021-02-12 13:03|[juicer.py.undock]---- Dismount 1914 at 11.3 v after 4.0 h recharge
+2021-02-12 20:08|[juicer.py.dock]---- Docking 1915 completed  at 8.1 v after 7.1 h playtime
+2021-02-13 00:04|[juicer.py.undock]---- Dismount 1915 at 11.3 v after 3.9 h recharge
+2021-02-13 07:10|[juicer.py.dock]---- Docking 1916 completed  at 8.1 v after 7.1 h playtime
+2021-02-13 11:03|[juicer.py.undock]---- Dismount 1916 at 11.3 v after 3.9 h recharge
+2021-02-13 17:58|[juicer.py.dock]---- Docking 1917 completed  at 8.1 v after 6.9 h playtime
+2021-02-13 21:58|[juicer.py.undock]---- Dismount 1917 at 11.3 v after 4.0 h recharge
+2021-02-14 04:59|[juicer.py.dock]---- Docking 1918 completed  at 8.1 v after 7.0 h playtime
+2021-02-14 08:44|[juicer.py.undock]---- Dismount 1918 at 11.3 v after 3.7 h recharge
+2021-02-14 15:45|[juicer.py.dock]---- Docking 1919 completed  at 8.1 v after 7.0 h playtime
+2021-02-14 19:37|[juicer.py.undock]---- Dismount 1919 at 11.3 v after 3.9 h recharge
+2021-02-15 02:44|[juicer.py.dock]---- Docking 1920 completed  at 8.1 v after 7.1 h playtime
+2021-02-15 06:35|[juicer.py.undock]---- Dismount 1920 at 11.3 v after 3.9 h recharge
+2021-02-15 13:36|[juicer.py.dock]---- Docking 1921 completed  at 8.1 v after 7.0 h playtime
+2021-02-15 17:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-02-15 17:37|[juicer.py.undock]---- Dismount 1921 at 11.2 v after 4.0 h recharge
+2021-02-16 00:34|[juicer.py.dock]**** Dock Approach Error
+2021-02-16 00:34|[juicer.py.dock]---- Manual Docking 1921 requested  at 8.1 v after 7.0 h playtime
+2021-02-16 00:40|lifelogger.dEmain execution: 157
+2021-02-16 11:26|------------ boot ------------
+2021-02-16 11:29|[juicer.py.undock]---- Dismount 1921 at 10.3 v after 4.0 h recharge
+2021-02-16 11:47|[juicer.py.main]---- juicer.py started at 10.05v 
+2021-02-16 12:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-16 13:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-16 16:17|[juicer.py.dock]---- Docking 1922 completed  at 8.1 v after 7.0 h playtime
+2021-02-16 18:26|[logMaintenance.py.main]** Reboot to complete Pi OS update **
+2021-02-16 18:26|lifelogger.dEmain execution: 7.1
+2021-02-16 18:31|------------ boot ------------
+2021-02-16 18:49|[logMaintenance.py.main]** Reboot to test unbuffered juicer and healthcheck **
+2021-02-16 18:50|lifelogger.dEmain execution: 0.3
+2021-02-16 18:50|------------ boot ------------
+2021-02-16 18:51|[juicer.py.main]---- juicer.py started at 9.99v  add 2.6 h
+2021-02-16 19:57|lifelogger.dEmain execution: 1.15
+2021-02-16 19:57|[logMaintenance.py.main]** removed pulseaudio - rebooting **
+2021-02-16 19:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-16 20:00|------------ boot ------------
+2021-02-16 20:00|[juicer.py.main]---- juicer.py started at 9.67v
+2021-02-16 20:03|[juicer.py.undock]---- Dismount 1922 at 9.7 v after 3.8 h recharge
+2021-02-16 23:14|[juicer.py.dock]---- Docking 1923 completed  at 8.1 v after 3.2 h playtime
+2021-02-17 03:11|[juicer.py.undock]---- Dismount 1923 at 11.4 v after 3.9 h recharge
+2021-02-17 10:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-17 10:51|[juicer.py.dock]---- Docking 1924 completed  at 8.1 v after 7.7 h playtime
+2021-02-17 13:07|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.3v
+2021-02-17 13:31|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.0v
+2021-02-17 13:32|[juicer.py.undock]---- Dismount 1924 at 10.0 v after 2.7 h recharge
+2021-02-17 14:45|lifelogger.dEmain execution: 18.75
+2021-02-17 14:45|[logMaintenance.py.main]** Rebooting after voiceCmdr and asoundrc changes **
+2021-02-17 14:45|------------ boot ------------
+2021-02-17 14:45|[juicer.py.main]---- juicer.py started at 9.66v
+2021-02-17 14:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-17 16:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-17 16:47|[logMaintenance.py.main]** WiFi LED (antenna_wifi service) turned off permenantly **
+2021-02-17 17:51|[juicer.py.dock]---- Docking 1925 completed  at 8.1 v after 4.2 h playtime
+2021-02-17 21:27|[logMaintenance.py.main]** Reboot to see if mic device will stay 20 **
+2021-02-17 21:30|lifelogger.dEmain execution: 6.75
+2021-02-17 21:30|------------ boot ------------
+2021-02-17 21:30|[juicer.py.main]---- juicer.py started at 11.39v add 3.65 hr
+2021-02-17 21:49|[logMaintenance.py.main]** performed sudo rpi-update from 5.10.11-v7+  to 5.10.16-v7+ **
+2021-02-17 21:50|[healthCheck.py.main]Swap usage 100.0 % exceeds 60 % threshold
+2021-02-17 21:52|------------ boot ------------
+2021-02-17 21:52|[juicer.py.main]---- juicer.py started at 10.72v
+2021-02-17 21:55|[juicer.py.undock]---- Dismount 1925 at 10.7 v after 0.0 h recharge
+2021-02-17 21:59|[logMaintenance.py.main]** Distorted audio still - reverting kernal to 5.4.81 76c49e60e742d0bebd798be972d67dd3fd007691 **
+2021-02-17 23:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 03:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 05:01|[juicer.py.dock]---- Docking 1926 completed  at 8.1 v after 7.1 h playtime
+2021-02-18 06:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 06:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 07:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 08:47|[juicer.py.undock]---- Dismount 1926 at 11.3 v after 3.8 h recharge
+2021-02-18 08:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 08:52|lifelogger.dEmain execution: 11
+2021-02-18 09:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 09:15|[logMaintenance.py.main]** Distorted audio still - reverting kernal to 5.4.81 453e49bdd87325369b462b40e809d5f3187df21d **
+2021-02-18 09:29|------------ boot ------------
+2021-02-18 09:29|[logMaintenance.py.main]** Kernal 5.4.81 would not boot, restored system to Feb 13, 2021 backup **
+2021-02-18 09:29|[juicer.py.main]---- juicer.py started at 10.25v
+2021-02-18 09:30|[healthCheck.py.main]I2C Bus Failure Detected
+2021-02-18 09:30|[healthCheck.py.main]Initiating 60 second wait for I2C recovery
+2021-02-18 09:30|[healthCheck.py.main]I2C Function Restored

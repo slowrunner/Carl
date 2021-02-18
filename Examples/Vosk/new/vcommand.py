@@ -230,8 +230,8 @@ def getVoiceCommand(model=model, rate=vosk_rate, commands=cmd_keywords, printRes
 
 
 		p = pyaudio.PyAudio()
-		# Carl needs to use input_device_index 1
-		stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 1)
+		# Carl needs to use input_device_index 20? mic with PiOS Feb 2021 - mic device handles rate conversions
+		stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 20)
 		stream.start_stream()
 
 		jres = None
@@ -293,8 +293,8 @@ def getVoiceNL(model=model, rate=vosk_rate, printResults=False, timeout=60):
 
 
 		p = pyaudio.PyAudio()
-		# Carl needs to use input_device_index 1
-		stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 1)
+		# Carl needs to use input_device_index 20 mic with PiOS Feb 2021 - mic device handles rate conversions
+		stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000, input_device_index = 20)
 		stream.start_stream()
 
 		jres = None
