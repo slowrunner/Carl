@@ -155,6 +155,7 @@ cmd_keywords = '["list commands", \
 		"whats the weather look like long quiet", \
 		"forecast", \
 		"up time since boot", \
+		"loading", \
 		"charging state", \
 		"new batteries changed", \
 		"natural language mode", \
@@ -423,6 +424,20 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			minutes = str(int(rest_of_value[rest_of_value.index(":")+1:rest_of_value.index(",")]))
 
 			response = " Up {} days {} hours {} minutes since boot".format(days,hours,minutes)
+			print_speak(response)
+
+		elif (action_request == "loading"):
+			value = status.getUptime()  # *** Up 11 day  11 hours 25:12 
+							# 19:23:15 up  5:12,  4 users,  load average: 0.28, 0.29, 0.27
+			# print("value: ",value)
+			try:
+				strValue = value[value.rfind(" "):]
+				# print("strValue: ", strValue)
+				singleCoreLoad = float(strValue) * 100.0
+				response = " load {:.0f} percent".format(singleCoreLoad)
+			except:
+				response = " error computing Load"
+
 			print_speak(response)
 
 		elif ("charging state" in action_request):
