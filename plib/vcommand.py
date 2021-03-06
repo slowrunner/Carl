@@ -160,6 +160,7 @@ cmd_keywords = '["list commands", \
 		"new batteries changed", \
 		"natural language mode", \
 		"swap space", \
+		"memory", \
 		\
 		"playtime status", \
 		"recharge status", \
@@ -379,6 +380,12 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			print("\n*** doVoiceAction() ignoring TimeOut")
 			return
 
+		# stop processing if request is unknown
+		if (action_request == "[unk]"):
+			print("*** doVoiceAction() ignoring [unk] utterance")
+			return
+
+
 		if action_request == "":
 			print("\n*** doVoiceAction() ignoring empty action request")
 			return
@@ -387,7 +394,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 
 		if sleeping:
-			if "wake up" in action_request:
+			if action_request == "wake up":
 				sleeping = False
 				if speak.quietTime():
 					override_quiet_time = True
@@ -407,7 +414,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			print_speak("Entering Sleep Mode - Listening only for \'Wake Up\' " )
 			sleeping = True
 
-		elif "wake up" in action_request:
+		elif action_request == "wake up":
 			print_speak("Already Awake!")
 
 		elif ("up time" in action_request) or \
@@ -530,14 +537,14 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			usage = psutil.swap_memory()[3]
 			print_speak("Swap usage {:.1f} percent".format(usage))
 
-		# elif ("off dock" in action_request):  # "time off dock"
+		elif (action_request == "memory"):
+			totalMem = psutil.virtual_memory().total
+			freeMem = psutil.virtual_memory().available * 100 / totalMem
+			totalMem = totalMem / (1024 * 1024)
+			print_speak("Free memory {:.0f} percent of {:.0f} megabytes".format(freeMem,totalMem))
 
 		# elif ("recharging" in action_request):  # "time recharging"
 
-		# stop processing if request is unknown
-		elif (action_request == "[unk]"):
-			print("Ignoring unknown command")
-			pass
 
 		# ========= NLU ACTIONS, with no robot needed
 		elif (("search" in action_request) or \
