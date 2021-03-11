@@ -1,7 +1,60 @@
-minimalKB
-=========
+# Triple-Store KB Using minimalKB, dialogs in Python
 
-![Screenshot of a minimalKB knowledge model viewed with oro-view](doc/oroview.jpg)
+RDF/OWL Triple-store KnowledgeBase For Robots
+(Early work toward ORO - Open Robot Ontology)
+
+Consists of:
+1) minimalkb
+2) pykb
+3) dialogs
+4) oro-view ?
+
+cf: https://github.com/severin-lemaignan/minimalkb/blob/master/README.md
+cf: https://github.com/severin-lemaignan/pykb
+cf: https://github.com/severin-lemaignan/dialogs
+
+minimalKB is a SQLite-backed minimalistic knowledge base, initially designed for robots 
+
+pykb provides an idiomatic Python binding, making easy to integrate the knowledge base in your applications.
+
+dialogs provides input parsing, "naive" understanding, and generation of a response.
+ 
+== Installation ==
+
+$ sudo pip3 install minimalkb
+$ sudo pip3 install pykb
+$ sudo pip3 install dialogs
+
+
+=== MinimalKB USAGE SERVER MODE ====
+Start minimalkb where the desired kb.db exists (~/Carl/Examples/minimalkb/):
+
+$ minimalkb    (to run in separate command shell)
+or 
+$ minimalkb &  (to run in background - output will be interspersed with test program output)
+
+Start test program (in another shell):
+./mytest.py
+
+
+=== MinimalKB USAGE EMBEDDED MODE ===
+(run where kb.db exists)
+
+```
+import kb
+
+with kb.KB(embedded=True) as kb:
+	...
+
+```
+
+=== RESULTS / CONCLUSIONS ===
+- MinimalKB average load is 60% of one core of Raspberry Pi 3B
+  (Takes Carl from 15min ave of 0.4 to 1.0)
+  
+
+From the minimalKB README.md:
+=========
 
 minimalKB is a SQLite-backed minimalistic knowledge base, initially designed
 for robots (in particular human-robot interaction or multi-robot interaction).
@@ -20,23 +73,12 @@ Written in Python. The only required dependency is `sqlite3`. If `rdflib` is
 also available, you can easily import existing ontologies in RDF/OWL/n3/Turtle
 formats in the knowledge base.
 
-Installation
-------------
-
-```
-$ sudo pip3 install minimalkb
-$ sudo pip3 install pykb
-```
-
 Run `minimalkb --help` for available options.
 
 Features
 --------
 
 ### Server-Client or embedded
-
-`minimalKB` can be run as a stand-alone (socket) server, or directly embedded
-in Python applications.
 
 ### Multi-models
 
@@ -81,45 +123,12 @@ of the knowledge base. It is compatible with the visualization tool
 [oro-view](https://github.com/severin-lemaignan/oro-view).
 
 ```
-RDF/OWL Triple-store KnowledgeBase
-
-Consists of:
-1) minimalkb
-2) pykb
-3) dialogs
-4) oro-view
-
-cf: https://github.com/severin-lemaignan/minimalkb/blob/master/README.md
-
-minimalKB is a SQLite-backed minimalistic knowledge base, initially designed for robots 
-
-pykb provides an idiomatic Python binding, making easy to integrate the knowledge base in your applications.
-
-== Installation ==
-
-sudo pip3 install minimalkb
-sudo pip3 install pykb
-
-=== USAGE SERVER MODE ====
-Start minimalkb:
-
-$ minimalkb    (to run in separate command shell)
-or 
-$ minimalkb &  (to run in background - output will be interspersed with test program output)
-
-Start test program (in another shell):
-./mytest.py
-
-
-=== USAGE EMBEDDED MODE ===
-import kb
-
-with kb.KB(embedded=True) as kb:
-	...
-
 
 
 === KB-API ===
+```
+import kb
+
 kb = KB(dbname=None)					Create an instance of knowledge base
 						defaults to kb.db in local folder
 
@@ -199,3 +208,4 @@ kb.classesof('xyz', direct=False, models=None)
 
 
 ```
+
