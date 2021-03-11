@@ -1,4 +1,4 @@
-# A Chatterbot For GoPiGo3 Robot Carl
+# A ChatBot For GoPiGo3 Robot Carl
 
 
 # A little history
@@ -20,5 +20,17 @@ Chatbots I've used over the years:
   - 2019: "Carl_Chat.py", Using NLTK WordNet 
   - 2021: "keyword_chat.py", Uses regular expressions to find NLTK WordNet synonyms for user intents
  
+# The Idea
 
+I would like Carl to have some "knowledge" about the objects, events and agents in his environment,  
+and to be able to dialog about the knowledge to:  
+- describe what is known, 
+- what he can infer,  
+- remember sources and events  
+- what is unknown  
+- allow human assisted learning.  
+
+Ideally, the knowledge will use existing Robot Ontologies with RDF/OWL representation.
+
+Carl's limited processing resource (Raspberry Pi 3B),  and battery load require the knowledge base and dialog engine to minimize resource needs.
 
