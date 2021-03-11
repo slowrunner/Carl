@@ -5,9 +5,9 @@
 
 # PURPOSE:  Check GoPiGo3 health once per second
 #		by polling I2C for Distance Sensor on 0x2A
-#		if not seen, force a reset of the GoPiGo3 board
+#		if not seen after 1 minute, flash yellow LED
 #
-#		by checking swap space to be below threshold
+#		by checking free memory to be below threshold
 
 import smbus
 import time
@@ -21,7 +21,7 @@ sys.path.insert(1,"/home/pi/Carl/plib")
 import runLog
 import lifeLog
 import speak
-import resetGoPiGo3
+# import resetGoPiGo3
 import easygopigo3
 import di_sensors.easy_mutex
 import leds
@@ -29,10 +29,11 @@ import leds
 bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 
 DISTANCE_SENSOR_0x2A = 0x2A
-SWAP_THRESHOLD = 60  # percent
+MEM_THRESHOLD = 85  # percent
 ROUTER_IP = "10.0.0.1"
+DELAY_FOR_I2C_RECOVERY = 300
 
-# Need an egpg for wifi led blinker to indicate high swap usage
+# Need an egpg for wifi led blinker to indicate high mem usage
 try:
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 except Exception as e:
@@ -41,6 +42,7 @@ except Exception as e:
 
 
 # returns 0 if ping succeeds, 1 is ping fails
+# default is to check Internet access using the Google name server
 def checkIP(ip="8.8.8.8", verbose=False):
 	# check once, wait only one second
 	status, result = sp.getstatusoutput("ping -c1 -w1 " + ip)
@@ -63,6 +65,16 @@ def checkI2C():
 		di_sensors.easy_mutex.ifMutexRelease(True)
 	return i2c_ok
 
+def checkMem(threshold=85):
+	totalMem = psutil.virtual_memory().total
+	freeMem = psutil.virtual_memory().available * 100 / totalMem
+	usage = 100 - freeMem
+	if usage < threshold:
+		mem_ok = True
+	else:
+		mem_ok = False
+	return mem_ok, usage
+
 def checkSwap(threshold=60):
 	usage = psutil.swap_memory()[3]
 	if usage < threshold:
@@ -78,12 +90,10 @@ def print_w_date_time(alert):
 
 @runLog.logRun
 def main():
-	print("healthCheck.py: Monitoring I2C, SWAP, and WiFi")
+	print("healthCheck.py: Monitoring I2C, Memory, and WiFi")
 
 	i2c_was_ok = True  	# presume good at start
-	swap_was_ok = True 	# presume good at start
-	GoPiGo3_reset = False	# will attempt only once
-	delay_before_reset = 60 # see if I2C down is a glitch
+	mem_was_ok = True 	# presume good at start
 	router_was_ok = True	# presume good at start
 	verbose = False
 
@@ -101,46 +111,25 @@ def main():
 					alert="I2C Bus Failure Detected"
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
-					speak.say(alert)
-					glitch_delay = delay_before_reset
-					alert = "Initiating {} second wait for I2C recovery".format(glitch_delay)
+					# speak.say(alert)
+					glitch_delay = DELAY_FOR_I2C_RECOVERY
+					alert = "Initiating {} second watch for I2C recovery".format(glitch_delay)
 					print_w_date_time(alert)
-					speak.say(alert)
+					# speak.say(alert)
 					lifeLog.logger.info(alert)
-				if (GoPiGo3_reset == False):
+
+				else:	# I2C still down
 					if (glitch_delay <= 0):
-						alert="GoPiGo3 reset will be attempted in 30 seconds"
+						alert="I2C not recovered after {} seconds".format(DELAY_FOR_I2C_RECOVERY)
 						print_w_date_time(alert)
+						lifeLog.logger.info(alert)
 						speak.say(alert)
-						time.sleep(30)
-						alert="Attempting GoPiGo3 Board Only reset"
-						print_w_date_time(alert)
-						speak.say(alert)
-						life.logger.info(alert)
-						try:
-							resetSuccess = resetGoPiGo3.fixI2Cjam()
-						except Exception as e:
-							alert = "fixI2Cjam Exception: {}".format(str(e))
-							print_w_date_time(alert)
-							runLog.entry(alert)
-							traceback.print_exc()
-							resetSuccess = False
-						if resetSuccess:
-							alert="Success: GoPiGo3 Board Only Reset"
-							print_w_date_time(alert)
-							speak.say(alert)
-							lifeLog.logger.info(alert)
-							# leave GoPiGo3_reset as False
-						else:
-							alert="Failure: GoPiGo3 Board Only Reset"
-							print_w_date_time(alert)
-							speak.say(alert)
-							lifeLog.logger.info(alert)
-							GoPiGo3_reset = True		# only try once if did not fix problem
-					else:  # I2C not OK, reset not performed, delay counter not zero yet
+						glitch_delay = DELAY_FOR_I2C_RECOVERY  # start another wait for recovery
+						leds.wifi_blinker_on(egpg,color=leds.YELLOW_GREEN)
+						blinker_cnt += 1
+
+					else:  # I2C not OK, delay counter not zero yet
 						glitch_delay -= 1
-				else:	# I2C down, Reset already attempted once unsuccessfully
-					pass	# Hope it comes back by magic
 
 			elif i2c_was_ok:
 				pass	# still good
@@ -151,13 +140,15 @@ def main():
 				print_w_date_time(alert)
 				speak.say(alert)
 				i2c_was_ok = True
+				blinker_cnt -=1
+				if blinker_cnt <= 0: leds.wifi_blinker_off(egpg)
 
-			# SWAP SPACE - need to work out when is good time to reboot - not implemented yet
-			swap_ok,usage = checkSwap(SWAP_THRESHOLD)
-			if swap_ok == False:
-				if swap_was_ok:
-					swap_was_ok = False
-					alert="Swap usage {:.1f} % exceeds {:.0f} % threshold".format(usage,SWAP_THRESHOLD)
+			# mem SPACE - need to work out when is good time to reboot - not implemented yet
+			mem_ok,usage = checkMem(MEM_THRESHOLD)
+			if mem_ok == False:
+				if mem_was_ok:
+					mem_was_ok = False
+					alert="mem usage {:.1f} % exceeds {:.0f} % threshold".format(usage,MEM_THRESHOLD)
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 					speak.say(alert)
