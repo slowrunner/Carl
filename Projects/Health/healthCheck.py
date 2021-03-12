@@ -156,6 +156,19 @@ def main():
 					leds.wifi_blinker_on(egpg,color=leds.ORANGE)
 				else:
 					pass
+			elif mem_was_ok:	# is ok
+				pass		# is ok and was ok
+
+			else:   # is ok now but was not ok before
+				# Mem was over threshold, now better
+				alert="Memory usage {:.0f} % again below {:.0f} % threshold".format(usage,MEM_THRESHOLD)
+				lifeLog.logger.info(alert)
+				print_w_date_time(alert)
+				speak.say(alert)
+				mem_was_ok=True
+				blinker_cnt -=1
+				if blinker_cnt <= 0: leds.wifi_blinker_off(egpg)
+
 
 			# WiFi - Test if router is visible (don't care about Internet per se) 
 			router_not_ok = checkIP(ROUTER_IP,verbose)
