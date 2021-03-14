@@ -392,6 +392,13 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		else:
 			print("\n*** doVoiceAction() processing: [ " + action_request + " ]")
 
+		# print("action_request:\'{}\'".format(action_request))
+		action_request = action_request.replace('[unk]','')
+		# print("action_request:\'{}\'".format(action_request))
+		action_request = action_request.replace('  ',' ')
+		# print("action_request:\'{}\'".format(action_request))
+		action_request = action_request.strip()
+		# print("action_request:\'{}\'".format(action_request))
 
 		if sleeping:
 			if action_request == "wake up":
@@ -410,14 +417,14 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 
 		# Voice Action Only - No egpg required
-		if "go to sleep" in action_request:
+		if "go to sleep" == action_request:
 			print_speak("Entering Sleep Mode - Listening only for \'Wake Up\' " )
 			sleeping = True
 
 		elif action_request == "wake up":
 			print_speak("Already Awake!")
 
-		elif ("up time" in action_request) or \
+		elif ("up time" == action_request) or \
 			("since boot" in action_request):
 			value = status.getUptime()  # *** Up 11 day  11 hours 25:12 
 							# 19:23:15 up  5:12,  4 users,  load average: 0.28, 0.29, 0.27
@@ -447,12 +454,12 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 			print_speak(response)
 
-		elif ("charging state" in action_request):
+		elif ("charging state" == action_request):
 			charging_state = status.getChargingState()
 			response = "Charging State: {}".format(charging_state)
 			print_speak(response)
 
-		elif "be quiet" in action_request:
+		elif "be quiet" == action_request:
 			if verbose:
 				response = "Entering Quiet Mode"
 				print_speak(response)
@@ -481,11 +488,11 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			wx_current = weather.current()
 			print_speak(wx_current)
 
-		elif ("forecast" in action_request):
+		elif ("forecast" == action_request):
 			wx_forecast = weather.forecast()
 			print_speak(wx_forecast)
 
-		elif ("list commands" in action_request):
+		elif ("list commands" == action_request):
 			print("Voice Commands")
 			for x in ast.literal_eval(cmd_keywords):
 				if x != "[unk]": print_speak(x)
@@ -533,7 +540,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			currentBatteriesCycle = int(currentChargeCycles) - int(newBatterySetAtDocking)
 			print_speak("This set is at cycle {}".format(currentBatteriesCycle))
 
-		elif ("swap" in action_request):
+		elif ("swap" == action_request):
 			usage = psutil.swap_memory()[3]
 			print_speak("Swap usage {:.1f} percent".format(usage))
 
@@ -574,25 +581,20 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 		elif egpg is None:
 			print_speak(" {} requires GoPiGo3, none passed".format(action_request))
 
-		elif "battery voltage" in action_request:
+		elif "battery voltage" == action_request:
 			vBatt = egpg.volt()
 			response = "Battery: {:.1f} volts".format(vBatt)
 			print_speak(response)
 
-		elif "charging state" in action_request:
-			charging_state = status.getChargingState()
-			response = "Charging State: {}".format(charging_state)
-			print_speak(response)
-
-		elif "turn around" in action_request:
+		elif "turn around" == action_request:
 			print_speak("turning 180")
 			egpg.turn_degrees(180.0)
 
-		elif "nod yes" in action_request:
+		elif "nod yes" == action_request:
 			print_speak("nodding yes")
 			egpg.tp.nod_yes()
 
-		elif "nod no" in action_request:
+		elif "nod no" == action_request:
 			print_speak("nodding no")
 			egpg.tp.nod_no()
 
@@ -668,7 +670,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 
 
 		# distance sensor reading in centimeters inches
-		elif ("distance" in action_request):
+		elif ("distance" == action_request):
 			if "centimeters" in action_request:
 				distance = (myDistSensor.adjustReadingInMMForError(egpg.ds.read_mm())) / 10.0
 				units = " centimeters "
@@ -734,7 +736,8 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			time.sleep(1)
 			egpg.tp.off()
 
-		elif ("playtime" in action_request):
+		elif ("playtime" == action_request) or \
+			("playtime status" == action_request):
 			print_speak("Playtime Status")
 			if status.getDockingState() == "Not Docked":
 				lastDismountTime = carlData.getCarlData('lastDismountTime')
@@ -755,7 +758,8 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			response = "Prior Playtime was {} hours".format(priorPlaytimeDuration)
 			print_speak(response)
 
-		elif ("recharge" in action_request):
+		elif ("recharge" == action_request) or \
+			("recharge status" == action_request):
 			print_speak("Recharge Status")
 			if status.getDockingState() == "Docked":
 				lastDockingTime = carlData.getCarlData('lastDockingTime')
@@ -776,7 +780,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 			response = "Prior Recharge was {} hours".format(priorRechargeDuration)
 			print_speak(response)
 
-		elif ("room temperature" in action_request):
+		elif ("room temperature" == action_request):
 			try:
 				rtemp = round( status.getRoomTemp(egpg.imu), 0)
 				print_speak("Temperature down here on the floor is {:.0f}".format(rtemp))
@@ -786,7 +790,7 @@ def doVoiceAction(action_request, egpg=None, cmd_mode=True):
 				traceback.print_stack()
 
 
-		elif ("heading" in action_request):
+		elif ("heading" == action_request):
 			try:
 				(heading,roll,pitch) = egpg.imu.safe_read_euler()
 				print_speak("I M U heading {:.0f} degrees".format(round(heading,0)))
