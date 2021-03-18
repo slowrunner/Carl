@@ -466,13 +466,14 @@ def safetyCheck(egpg,low_battery_v = SHUTDOWN_LIMIT):
           print("SHORT MEAN BATTERY VOLTAGE: %.2f" % shortMeanVolts)
           sleep(1)
           vBatt = egpg.volt()
-          speak.shout("WARNING, WARNING, SHUTTING DOWN NOW")
-          print ("BATTERY %.2f volts BATTERY LOW - SHUTTING DOWN NOW" % vBatt)
-          print ("Shutdown at ", dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
-          strToLog = "Safety Shutdown at  {:.2f} volts".format(vBatt)
+          speak.shout("WARNING, WARNING, STARTING SHUTTING DOWN")
+          print ("BATTERY %.2f volts BATTERY LOW - STARTING SHUTTING DOWN" % vBatt)
+          print ("Shutdown Requested at ", dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S') )
+          strToLog = "Safety Shutdown at {:.2f} volts".format(vBatt)
           lifeLog.logger.info(strToLog)
           sleep(1)
-          os.system("sudo shutdown -h now")
+          os.system("sudo shutdown")
+          sleep(1)
           sys.exit(0)
 
 # default undocking is trickling->notcharging rule 310c
@@ -584,9 +585,15 @@ def dock(egpg,ds,tp):
 
     tp.tiltpan_center()
     distanceReadings = []
-    for x in range(6):
-        sleep(0.2)
-        distanceReadings += [ds.read_mm()]
+    try:
+        for x in range(6):
+            sleep(0.2)
+            distanceReadings += [ds.read_mm()]
+    except Exception as e:
+        strToLog = "--- ds.read_mm() Exception"
+        lifeLog.logger.info(strToLog)
+        print(strToLog)
+        print("Exception: {}".format(str(e)))
     # print("**** Distance Readings:",distanceReadings)
     distanceForwardInMM = myDistSensor.adjustReadingInMMForError(np.average(distanceReadings))
     print("**** Current  Distance is %.1f mm %.2f in" % (distanceForwardInMM, distanceForwardInMM / 25.4))
