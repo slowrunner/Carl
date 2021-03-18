@@ -37,7 +37,7 @@ def fixI2Cjam():
 	try:
 		GPIO.setmode(GPIO.BOARD)  # use physical pin numbers
 
-		GPIO.setup(BOARD_PIN_12,GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+		GPIO.setup(BOARD_PIN_12,GPIO.OUT)
 		time.sleep(0.1)  # allow time for setup to complete
 
 		GPIO.output(BOARD_PIN_12,GPIO.HIGH) 	# Start with normal running mode
@@ -47,7 +47,7 @@ def fixI2Cjam():
 		time.sleep(1)  				# Keep it low to ensure reset
 
 		GPIO.output(BOARD_PIN_12,GPIO.HIGH)  	# Let GoPiGo3 run again
-		time.sleep(0.5)
+		time.sleep(5)
 	except Exception as e:
 		alert="GPIO reset exception: {}".format(str(e))
 		runLog.logger.info(alert)
@@ -56,22 +56,34 @@ def fixI2Cjam():
 		return False  # unable to fixI2Cjam
 
 	try:
-		alert="Attempting Test Instantiation of egpg and sensors")
+		alert="Attempting Test Instantiation of egpg and sensors"
 		runLog.entry(alert)
 		print_w_date_time(alert)
 		egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)  # FULL INIT needed 
+		time.sleep(1)
+		print_w_date_time("Using new egpg to read battery: {:.1f} volts".format(egpg.volt()))
 		egpg.imu = SafeIMUSensor(port="AD1", use_mutex=True, init=True)  # I think will have to do the full init
+		time.sleep(1)
+		print_w_date_time("Using new egpg to read imu heading: {:.0f} deg".format(egpg.imu.safe_read_euler()[0]))
 		egpg.tp = tiltpan.TiltPan(egpg)
+		time.sleep(1)
 		egpg.ds = egpg.init_distance_sensor("RPI_1")   # HW I2C
-		time.sleep(3)
-		test=egpg.ds.read_mm()
-		time.sleep(3)
-		test=egpg.ds.read_mm()
-		time.sleep(3)
-		test=egpg.ds.read_mm()
-		alert="Distance Sensor Read Attempted: {} mm".format(test)
-		runLog.logger.info(alert)
-		print_w_date_time(alert)
+		if egpg.ds != None:
+			time.sleep(3)
+			test=egpg.ds.read_mm()
+			time.sleep(3)
+			test=egpg.ds.read_mm()
+			time.sleep(3)
+			test=egpg.ds.read_mm()
+			alert="Distance Sensor Read Attempted: {:.0f} mm".format(test)
+			print_w_date_time(alert)
+			runLog.logger.info(alert)
+
+		else:
+			alert="Distance Sensor Initialization Failed"
+			print_w_date_time(alert)
+			runLog.logger.info(alert)
+			return False
 
 	except Exception as e:
 		alert="Reset appears unsuccssful: {}".format(str(e))
