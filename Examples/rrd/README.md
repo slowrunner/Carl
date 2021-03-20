@@ -1,4 +1,10 @@
-# RPI-Monitor Utility rrdtool
+# RPI-Monitor Databases
+
+# Backing Up RPI-Monitor DBs ( to rpi_db_bkup/ )
+
+./get_all_rpi_databases.sh
+
+# Utility rrdtool
 
 - To dump a dynamic value to xml
 
