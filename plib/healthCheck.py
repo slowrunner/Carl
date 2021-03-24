@@ -45,7 +45,7 @@ except Exception as e:
 # default is to check Internet access using the Google name server
 def checkIP(ip="8.8.8.8", verbose=False):
 	# check once, wait only one second
-	status, result = sp.getstatusoutput("ping -c1 -w1 " + ip)
+	status, result = sp.getstatusoutput("ping -c1 -w2 " + ip)
 	if verbose:
 		if status == 0:
 			print_w_date_time("System at {} is Up".format(ip))
@@ -90,7 +90,10 @@ def print_w_date_time(alert):
 
 @runLog.logRun
 def main():
-	print("healthCheck.py: Monitoring I2C, Memory, and WiFi")
+	print_w_date_time("healthCheck.py: Monitoring I2C, Memory, and WiFi")
+
+	i2c_was_ok = checkI2C()  # throw away first check of distance sensor address check
+	print_w_date_time("Initial checkI2C() returned {}".format(i2c_was_ok))
 
 	i2c_was_ok = True  	# presume good at start
 	mem_was_ok = True 	# presume good at start
