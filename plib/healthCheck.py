@@ -31,6 +31,7 @@ bus = smbus.SMBus(1)  # 1 indicates /dev/i2c-1
 DISTANCE_SENSOR_0x2A = 0x2A
 MEM_THRESHOLD = 85  # percent
 ROUTER_IP = "10.0.0.1"
+MAC_IP = "10.0.0.182"
 DELAY_FOR_I2C_RECOVERY = 300
 
 # Need an egpg for wifi led blinker to indicate high mem usage
@@ -174,19 +175,21 @@ def main():
 
 
 			# WiFi - Test if router is visible (don't care about Internet per se) 
-			router_not_ok = checkIP(ROUTER_IP,verbose)
+			# router_not_ok = checkIP(ROUTER_IP,verbose)
+			ip_to_check = MAC_IP  #ROUTER_IP  # MAC_IP
+			router_not_ok = checkIP(ip_to_check,verbose)
 			if router_not_ok:  # returns 1 if not reachable
-				verbose = True
+				verbose = False
 				if router_was_ok:
-					alert="WiFi Router not responding ({})".format(ROUTER_IP)
+					alert="WiFi Router not responding ({})".format(ip_to_check)
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 
 					# Double check
-					time.sleep(1)
-					router_not_ok = checkIP(ROUTER_IP,verbose)
+					time.sleep(5)
+					router_not_ok = checkIP(ip_to_check,verbose)
 					if router_not_ok:
-						speak.say(alert)
+						# speak.say(alert)
 						leds.wifi_blinker_on(egpg,color=leds.TURQUOISE)
 						router_was_ok = False
 						blinker_cnt += 1
@@ -202,7 +205,7 @@ def main():
 				alert="WiFi Router again reachable"
 				lifeLog.logger.info(alert)
 				print_w_date_time(alert)
-				speak.say(alert)
+				# speak.say(alert)
 				router_was_ok=True
 				blinker_cnt -=1
 				if blinker_cnt <= 0: leds.wifi_blinker_off(egpg)
