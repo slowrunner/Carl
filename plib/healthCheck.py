@@ -32,6 +32,7 @@ DISTANCE_SENSOR_0x2A = 0x2A
 MEM_THRESHOLD = 85  # percent
 ROUTER_IP = "10.0.0.1"
 MAC_IP = "10.0.0.182"
+MAC_ETHER_IP = "10.0.0.128"
 DELAY_FOR_I2C_RECOVERY = 300
 
 # Need an egpg for wifi led blinker to indicate high mem usage
@@ -176,7 +177,7 @@ def main():
 
 			# WiFi - Test if router is visible (don't care about Internet per se) 
 			# router_not_ok = checkIP(ROUTER_IP,verbose)
-			ip_to_check = MAC_IP  #ROUTER_IP  # MAC_IP
+			ip_to_check = MAC_ETHER_IP  #ROUTER_IP  # MAC_IP
 			router_not_ok = checkIP(ip_to_check,verbose)
 			if router_not_ok:  # returns 1 if not reachable
 				verbose = False
