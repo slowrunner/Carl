@@ -53,7 +53,10 @@ try:
         #  (output mp3 encoded data to filename)
         # subprocess.call("arecord -D hw:1,0 -d " + dur + " -v --fatal-errors --buffer-size=192000 -f dat -t raw --quiet | lame -r --quiet --preset standard - " + filename,shell= True)
         # subprocess.call("arecord -D hw:1,0 -d " + dur + " --fatal-errors --buffer-size=192000 -f S16_LE -r48000 -c1 -t raw --quiet | lame --verbose -r -m m --bitwidth 16 -s 48 --preset standard - " + filename,shell= True)
-        subprocess.call("arecord -D hw:1,0 -d " + dur + " --fatal-errors --buffer-size=192000 -f S16_LE -r48000 -c1 --quiet " + wavfilename,shell= True)
+        # for kinobo mic
+        # subprocess.call("arecord -D hw:1,0 -d " + dur + " --fatal-errors --buffer-size=192000 -f S16_LE -r48000 -c1 --quiet " + wavfilename,shell= True)
+        # for Movo mic
+        subprocess.call("arecord -D hw:2,0 -d " + dur + " --fatal-errors --buffer-size=192000 -f S16_LE -r48000 -c1 --quiet " + wavfilename,shell= True)
 
         # SoX sound exchange (swiss knife for audio)
         # sox options:
