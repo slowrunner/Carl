@@ -1536,7 +1536,7 @@
 2021-02-17 21:50|[healthCheck.py.main]Swap usage 100.0 % exceeds 60 % threshold
 2021-02-17 21:52|------------ boot ------------
 2021-02-17 21:52|[juicer.py.main]---- juicer.py started at 10.72v
-2021-02-17 21:55|[juicer.py.undock]---- Dismount 1925 at 10.7 v after 0.0 h recharge
+2021-02-17 21:55|[juicer.py.undock]---- Dismount 1925 at 10.7 v after 4.1 h recharge
 2021-02-17 21:59|[logMaintenance.py.main]** Distorted audio still - reverting kernal to 5.4.81 76c49e60e742d0bebd798be972d67dd3fd007691 **
 2021-02-17 23:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
 2021-02-18 03:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
@@ -1546,12 +1546,1684 @@
 2021-02-18 07:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
 2021-02-18 08:47|[juicer.py.undock]---- Dismount 1926 at 11.3 v after 3.8 h recharge
 2021-02-18 08:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
-2021-02-18 08:52|lifelogger.dEmain execution: 11
 2021-02-18 09:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
 2021-02-18 09:15|[logMaintenance.py.main]** Distorted audio still - reverting kernal to 5.4.81 453e49bdd87325369b462b40e809d5f3187df21d **
+2021-02-18 09:29|lifelogger.dEmain execution: 11.6
 2021-02-18 09:29|------------ boot ------------
 2021-02-18 09:29|[logMaintenance.py.main]** Kernal 5.4.81 would not boot, restored system to Feb 13, 2021 backup **
 2021-02-18 09:29|[juicer.py.main]---- juicer.py started at 10.25v
 2021-02-18 09:30|[healthCheck.py.main]I2C Bus Failure Detected
 2021-02-18 09:30|[healthCheck.py.main]Initiating 60 second wait for I2C recovery
 2021-02-18 09:30|[healthCheck.py.main]I2C Function Restored
+2021-02-18 10:45|[logMaintenance.py.main]** Revert/Merge Feb18 to Feb13 add,commit,pushed to git **
+2021-02-18 10:47|lifelogger.dEmain execution: 1.3
+2021-02-18 10:47|------------ boot ------------
+2021-02-18 10:47|[juicer.py.main]---- juicer.py started at 9.56v
+2021-02-18 11:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 11:53|[logMaintenance.py.main]** Discovered opencv-contrib-python==4.1.1.26 already installed **
+2021-02-18 13:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 14:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 14:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 15:44|[juicer.py.dock]---- Docking 1927 completed  at 8.1 v after 6.8 h playtime
+2021-02-18 16:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 17:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 18:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 19:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 19:34|[juicer.py.undock]---- Dismount 1927 at 11.3 v after 3.9 h recharge
+2021-02-18 20:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-18 21:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 00:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 01:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 02:38|[juicer.py.dock]---- Docking 1928 completed  at 8.1 v after 7.1 h playtime
+2021-02-19 03:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 04:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 06:38|[juicer.py.undock]---- Dismount 1928 at 11.4 v after 4.0 h recharge
+2021-02-19 09:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 12:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 12:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 12:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 13:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 13:42|[juicer.py.dock]---- Docking 1929 completed  at 8.1 v after 7.1 h playtime
+2021-02-19 13:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 13:55|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 17:37|[juicer.py.undock]---- Dismount 1929 at 11.3 v after 3.9 h recharge
+2021-02-19 18:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 18:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 18:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 19:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-19 19:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 00:38|[juicer.py.dock]---- Docking 1930 completed  at 8.1 v after 7.0 h playtime
+2021-02-20 03:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 04:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 04:32|[juicer.py.undock]---- Dismount 1930 at 11.3 v after 3.9 h recharge
+2021-02-20 04:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 05:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 05:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 09:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 10:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 11:33|[juicer.py.dock]---- Docking 1931 completed  at 8.1 v after 7.0 h playtime
+2021-02-20 14:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 15:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 15:27|[juicer.py.undock]---- Dismount 1931 at 11.3 v after 3.9 h recharge
+2021-02-20 21:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-20 22:25|[juicer.py.dock]---- Docking 1932 completed  at 8.1 v after 7.0 h playtime
+2021-02-21 02:22|[juicer.py.undock]---- Dismount 1932 at 11.3 v after 4.0 h recharge
+2021-02-21 03:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 05:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 09:21|[juicer.py.dock]---- Docking 1933 completed  at 8.1 v after 7.0 h playtime
+2021-02-21 09:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 09:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 10:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 12:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 12:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 12:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 13:12|[juicer.py.undock]---- Dismount 1933 at 11.3 v after 3.9 h recharge
+2021-02-21 15:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 16:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 16:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 16:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 19:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 20:09|[juicer.py.dock]---- Docking 1934 completed  at 8.1 v after 6.9 h playtime
+2021-02-21 22:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-21 23:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 00:05|[juicer.py.undock]---- Dismount 1934 at 11.3 v after 4.0 h recharge
+2021-02-22 00:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 00:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 02:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 03:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 05:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 06:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 07:08|[juicer.py.dock]---- Docking 1935 completed  at 8.1 v after 7.0 h playtime
+2021-02-22 07:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 08:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 10:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 10:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 11:01|[juicer.py.undock]---- Dismount 1935 at 11.3 v after 3.9 h recharge
+2021-02-22 11:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 11:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 11:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 11:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 12:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 15:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 15:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 16:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 18:03|[juicer.py.dock]---- Docking 1936 completed  at 8.1 v after 7.0 h playtime
+2021-02-22 18:59|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 21:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 21:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-22 21:58|[juicer.py.undock]---- Dismount 1936 at 11.3 v after 3.9 h recharge
+2021-02-23 03:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 03:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 04:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 04:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 04:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 04:59|[juicer.py.dock]---- Docking 1937 completed  at 8.1 v after 7.0 h playtime
+2021-02-23 05:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 08:50|[juicer.py.undock]---- Dismount 1937 at 11.3 v after 3.9 h recharge
+2021-02-23 08:53|[logMaintenance.py.main]** Found imu quit on 21st - changed nohup to save imu.out **
+2021-02-23 09:00|[logMaintenance.py.main]** Shutting Down to measure current battery load **
+2021-02-23 09:02|[healthCheck.py.main]Swap usage 100.0 % exceeds 60 % threshold
+2021-02-23 09:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 09:10|lifelogger.dEmain execution: 118.4
+2021-02-23 09:10|------------ boot ------------
+2021-02-23 09:10|[juicer.py.main]---- juicer.py started at 10.52v
+2021-02-23 09:42|[healthCheck.py.main]I2C Bus Failure Detected
+2021-02-23 09:42|[healthCheck.py.main]Initiating 60 second wait for I2C recovery
+2021-02-23 09:42|[healthCheck.py.main]I2C Function Restored
+2021-02-23 09:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 10:55|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 11:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 11:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 11:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 11:29|[healthCheck.py.main]WiFi Router again reachable
+2021-02-23 11:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:49|[healthCheck.py.main]WiFi Router again reachable
+2021-02-23 12:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:49|[healthCheck.py.main]WiFi Router again reachable
+2021-02-23 12:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 12:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 13:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 13:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 14:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 15:11|[juicer.py.dock]---- Docking 1938 completed  at 8.1 v after 6.15 h playtime
+2021-02-23 15:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 16:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 17:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 17:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 18:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 18:40|[juicer.py.undock]---- Dismount 1938 at 11.2 v after 3.5 h recharge
+2021-02-23 21:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 21:19|[logMaintenance.py.main]** rebooting to remove current meter **
+2021-02-23 21:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-23 21:23|lifelogger.dEmain execution: 12.2
+2021-02-23 21:23|------------ boot ------------
+2021-02-23 21:23|[juicer.py.main]---- juicer.py started at 9.49v
+2021-02-23 21:23|[healthCheck.py.main]I2C Bus Failure Detected
+2021-02-23 21:24|[healthCheck.py.main]Initiating 60 second wait for I2C recovery
+2021-02-24 00:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 00:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 01:21|[logMaintenance.py.main]** Docking Process Started after 6.7 h playtime **
+2021-02-24 01:21|[logMaintenance.py.main]** Docking Process not completed - Juicer quit w/o logging **
+2021-02-24 01:55|[logMaintenance.py.main]** Non-managed Shutdown occurred **
+2021-02-24 01:55|lifelogger.dEmain execution: 4.37
+2021-02-24 07:42|------------ boot ------------
+2021-02-24 07:42|[logMaintenance.py.main]** Found Carl Off at Approach Point this Morning **
+2021-02-24 07:42|[logMaintenance.py.main]** Manual Docking Completed while off **
+2021-02-24 07:43|[juicer.py.main]---- juicer.py started at 9.59v
+2021-02-24 07:45|[juicer.py.undock]---- Dismount 1938 at 9.5 v after 0.0 h recharge
+2021-02-24 07:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 08:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 08:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 08:17|[juicer.py.dock]---- Docking 1939 completed  at 8.1 v after 0.5 h playtime
+2021-02-24 10:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 10:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 10:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 12:18|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-24 12:18|[juicer.py.undock]---- Dismount 1939 at 11.5 v after 4.0 h recharge
+2021-02-24 12:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 12:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 16:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 16:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 16:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 17:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 17:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 18:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 19:20|[juicer.py.dock]---- Docking 1940 completed  at 8.1 v after 7.0 h playtime
+2021-02-24 21:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-24 23:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-02-24 23:21|[juicer.py.undock]---- Dismount 1940 at 11.5 v after 4.0 h recharge
+2021-02-25 00:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 06:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 06:33|[juicer.py.dock]---- Docking 1941 completed  at 8.1 v after 7.2 h playtime
+2021-02-25 10:22|[juicer.py.undock]---- Dismount 1941 at 11.3 v after 3.8 h recharge
+2021-02-25 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 13:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 14:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 14:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 14:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 14:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 15:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 15:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 15:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 16:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 16:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 16:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 16:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-25 17:28|[juicer.py.dock]---- Docking 1942 completed  at 8.1 v after 7.1 h playtime
+2021-02-25 21:15|[juicer.py.undock]---- Dismount 1942 at 11.3 v after 3.8 h recharge
+2021-02-25 21:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 00:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 01:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 01:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 02:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 02:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 02:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 03:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 03:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 03:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 04:06|[juicer.py.dock]---- Docking 1943 completed  at 8.1 v after 6.9 h playtime
+2021-02-26 05:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 06:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 08:02|[juicer.py.undock]---- Dismount 1943 at 11.3 v after 3.9 h recharge
+2021-02-26 11:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 13:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 14:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 14:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 14:58|[juicer.py.dock]---- Docking 1944 completed  at 8.1 v after 6.9 h playtime
+2021-02-26 15:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-26 18:50|[juicer.py.undock]---- Dismount 1944 at 11.3 v after 3.9 h recharge
+2021-02-27 01:51|[juicer.py.dock]---- Docking 1945 completed  at 8.1 v after 7.0 h playtime
+2021-02-27 05:45|[juicer.py.undock]---- Dismount 1945 at 11.3 v after 3.9 h recharge
+2021-02-27 12:21|[juicer.py.dock]---- Docking 1946 completed  at 8.1 v after 6.6 h playtime
+2021-02-27 13:20|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.8v
+2021-02-27 13:22|[healthCheck.py.main]Swap usage 60.3 % exceeds 60 % threshold
+2021-02-27 13:40|[logMaintenance.py.main]** Swap over 60% after git clone ChatScript **
+2021-02-27 13:44|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 9.5v
+2021-02-27 13:44|[juicer.py.undock]---- Dismount 1946 at 9.5 v after 1.4 h recharge
+2021-02-27 13:45|[logMaintenance.py.main]** Executed sudo swapoff -a && sudo swapon -a **
+2021-02-27 13:49|[logMaintenance.py.main]** Cycled healthCheck **
+2021-02-27 14:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-27 15:04|[juicer.py.dock]---- Docking 1947 completed  at 8.1 v after 1.3 h playtime
+2021-02-27 15:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-27 17:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-27 18:43|lifelogger.dEmain execution: 83
+2021-02-27 18:52|[juicer.py.undock]---- Dismount 1947 at 11.3 v after 3.8 h recharge
+2021-02-27 19:10|[logMaintenance.py.main]** reboot to fix swap **
+2021-02-27 19:11|------------ boot ------------
+2021-02-27 19:12|[juicer.py.main]---- juicer.py started at 10.61v add 0.35
+2021-02-28 01:52|[juicer.py.dock]---- Docking 1948 completed  at 8.1 v after 6.4 h playtime
+2021-02-28 05:45|[juicer.py.undock]---- Dismount 1948 at 11.3 v after 3.9 h recharge
+2021-02-28 06:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 12:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 12:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 12:32|[juicer.py.dock]---- Docking 1949 completed  at 8.1 v after 6.8 h playtime
+2021-02-28 12:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 12:44|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 8.9v
+2021-02-28 12:51|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 8.5v
+2021-02-28 12:51|[juicer.py.undock]---- Dismount 1949 at 8.5 v after 0.3 h recharge
+2021-02-28 13:02|[juicer.py.dock]---- Docking 1950 completed  at 8.1 v after 0.2 h playtime
+2021-02-28 14:20|[healthCheck.py.main]Swap usage 61.8 % exceeds 60 % threshold
+2021-02-28 15:37|[logMaintenance.py.main]** Cloned ChatScript again caused high Swap usage **
+2021-02-28 15:41|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.4v
+2021-02-28 15:51|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.1v
+2021-02-28 15:51|[juicer.py.undock]---- Dismount 1950 at 10.1 v after 2.8 h recharge
+2021-02-28 17:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 17:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 19:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 19:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-02-28 20:29|[juicer.py.dock]---- Docking 1951 completed  at 8.1 v after 4.6 h playtime
+2021-02-28 23:56|[logMaintenance.py.main]** killed healthCheck to stop blinking swap notice **
+2021-03-01 00:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-01 00:29|[juicer.py.undock]---- Dismount 1951 at 11.4 v after 4.0 h recharge
+2021-03-01 07:25|[juicer.py.dock]---- Docking 1952 completed  at 8.1 v after 6.9 h playtime
+2021-03-01 11:23|[juicer.py.undock]---- Dismount 1952 at 11.3 v after 4.0 h recharge
+2021-03-01 18:37|[juicer.py.dock]---- Docking 1953 completed  at 8.1 v after 7.2 h playtime
+2021-03-01 22:26|[juicer.py.undock]---- Dismount 1953 at 11.3 v after 3.8 h recharge
+2021-03-02 05:27|[juicer.py.dock]---- Docking 1954 completed  at 8.1 v after 7.0 h playtime
+2021-03-02 09:10|[juicer.py.undock]---- Dismount 1954 at 11.3 v after 3.7 h recharge
+2021-03-02 11:58|[logMaintenance.py.main]** Added loading command to voice commander and restarted **
+2021-03-02 16:09|[juicer.py.dock]---- Docking 1955 completed  at 8.1 v after 7.0 h playtime
+2021-03-02 19:57|[juicer.py.undock]---- Dismount 1955 at 11.3 v after 3.8 h recharge
+2021-03-03 02:58|[juicer.py.dock]---- Docking 1956 completed  at 8.1 v after 7.0 h playtime
+2021-03-03 06:46|[juicer.py.undock]---- Dismount 1956 at 11.3 v after 3.8 h recharge
+2021-03-03 13:45|[juicer.py.dock]---- Docking 1957 completed  at 8.1 v after 7.0 h playtime
+2021-03-03 17:39|[juicer.py.undock]---- Dismount 1957 at 11.3 v after 3.9 h recharge
+2021-03-04 00:39|[juicer.py.dock]---- Docking 1958 completed  at 8.1 v after 7.0 h playtime
+2021-03-04 04:26|[juicer.py.undock]---- Dismount 1958 at 11.3 v after 3.8 h recharge
+2021-03-04 11:25|[juicer.py.dock]---- Docking 1959 completed  at 8.1 v after 7.0 h playtime
+2021-03-04 15:18|[juicer.py.undock]---- Dismount 1959 at 11.2 v after 3.9 h recharge
+2021-03-04 22:11|[juicer.py.dock]---- Docking 1960 completed  at 8.1 v after 6.9 h playtime
+2021-03-05 02:00|[juicer.py.undock]---- Dismount 1960 at 11.4 v after 3.8 h recharge
+2021-03-05 08:55|[juicer.py.dock]---- Docking 1961 completed  at 8.1 v after 6.9 h playtime
+2021-03-05 12:44|[juicer.py.undock]---- Dismount 1961 at 11.3 v after 3.8 h recharge
+2021-03-05 19:36|[juicer.py.dock]---- Docking 1962 completed  at 8.1 v after 6.9 h playtime
+2021-03-05 23:24|[juicer.py.undock]---- Dismount 1962 at 11.4 v after 3.8 h recharge
+2021-03-06 06:17|[juicer.py.dock]---- Docking 1963 completed  at 8.1 v after 6.9 h playtime
+2021-03-06 10:06|[juicer.py.undock]---- Dismount 1963 at 11.3 v after 3.8 h recharge
+2021-03-06 16:56|[juicer.py.dock]---- Docking 1964 completed  at 8.1 v after 6.8 h playtime
+2021-03-06 19:32|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.5v
+2021-03-06 19:33|[juicer.py.undock]---- Dismount 1964 at 10.3 v after 2.6 h recharge
+2021-03-06 21:18|[logMaintenance.py.main]** Playtime started dropping, Set chargeConditioning to 4 **
+2021-03-07 00:36|[juicer.py.dock]---- Docking 1965 completed  at 7.7 v after 5.1 h playtime
+2021-03-07 00:36|[juicer.py.main]-- Charge Conditioning 4 completed
+2021-03-07 04:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-03-07 04:37|[juicer.py.undock]---- Dismount 1965 at 11.5 v after 4.0 h recharge
+2021-03-07 11:44|[juicer.py.dock]---- Docking 1966 completed  at 7.7 v after 7.1 h playtime
+2021-03-07 11:44|[juicer.py.main]-- Charge Conditioning 3 completed
+2021-03-07 15:44|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-07 15:45|[juicer.py.undock]---- Dismount 1966 at 11.4 v after 4.0 h recharge
+2021-03-07 22:51|[juicer.py.dock]---- Docking 1967 completed  at 7.7 v after 7.1 h playtime
+2021-03-07 22:51|[juicer.py.main]-- Charge Conditioning 2 completed
+2021-03-08 02:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-03-08 02:51|[juicer.py.undock]---- Dismount 1967 at 11.5 v after 4.0 h recharge
+2021-03-08 09:59|[juicer.py.dock]---- Docking 1968 completed  at 7.7 v after 7.1 h playtime
+2021-03-08 10:00|[juicer.py.main]-- Charge Conditioning 1 completed
+2021-03-08 14:00|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-08 14:00|[juicer.py.undock]---- Dismount 1968 at 11.5 v after 4.0 h recharge
+2021-03-08 20:51|[juicer.py.dock]---- Docking 1969 completed  at 8.1 v after 6.8 h playtime
+2021-03-09 00:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-09 00:52|[juicer.py.undock]---- Dismount 1969 at 11.4 v after 4.0 h recharge
+2021-03-09 07:47|[juicer.py.dock]---- Docking 1970 completed  at 8.1 v after 6.9 h playtime
+2021-03-09 11:47|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-09 11:47|[juicer.py.undock]---- Dismount 1970 at 11.4 v after 4.0 h recharge
+2021-03-09 18:40|[juicer.py.dock]---- Docking 1971 completed  at 8.1 v after 6.9 h playtime
+2021-03-09 19:43|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.9v
+2021-03-09 19:50|[logMaintenance.py.main]** Issue may be playsound module installed and removed **
+2021-03-09 19:50|[logMaintenance.py.main]** audio device busy - rebooting **
+2021-03-09 19:51|lifelogger.dEmain execution: 240.65
+2021-03-09 19:51|------------ boot ------------
+2021-03-09 19:52|[juicer.py.main]---- juicer.py started at 9.63v
+2021-03-09 22:26|[juicer.py.undock]---- Dismount 1971 at 11.3 v after 2.5 h recharge
+2021-03-10 05:09|[juicer.py.dock]---- Docking 1972 completed  at 8.1 v after 6.7 h playtime
+2021-03-10 09:01|[juicer.py.undock]---- Dismount 1972 at 11.3 v after 3.9 h recharge
+2021-03-10 15:51|[juicer.py.dock]---- Docking 1973 completed  at 8.1 v after 6.8 h playtime
+2021-03-10 19:46|[juicer.py.undock]---- Dismount 1973 at 11.3 v after 3.9 h recharge
+2021-03-11 02:25|[juicer.py.dock]---- Docking 1974 completed  at 8.1 v after 6.6 h playtime
+2021-03-11 06:20|[juicer.py.undock]---- Dismount 1974 at 11.3 v after 3.9 h recharge
+2021-03-11 10:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 13:01|[juicer.py.dock]---- Docking 1975 completed  at 8.1 v after 6.7 h playtime
+2021-03-11 17:01|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-11 17:01|[juicer.py.undock]---- Dismount 1975 at 11.4 v after 4.0 h recharge
+2021-03-11 19:19|[healthCheck.py.main]mem usage 86.8 % exceeds 85 % threshold
+2021-03-11 19:19|[healthCheck.py.main]Memory usage 79 % again below 85 % threshold
+2021-03-11 19:53|[logMaintenance.py.main]** Tested healthCheck memory usage with memfill.py **
+2021-03-11 21:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 22:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 22:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 22:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:30|[healthCheck.py.main]WiFi Router again reachable
+2021-03-11 23:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:31|[healthCheck.py.main]WiFi Router again reachable
+2021-03-11 23:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:33|[healthCheck.py.main]WiFi Router again reachable
+2021-03-11 23:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:36|[healthCheck.py.main]WiFi Router again reachable
+2021-03-11 23:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:37|[healthCheck.py.main]WiFi Router again reachable
+2021-03-11 23:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-11 23:38|[juicer.py.dock]---- Docking 1976 completed  at 8.1 v after 6.6 h playtime
+2021-03-12 03:39|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-12 03:39|[juicer.py.undock]---- Dismount 1976 at 11.4 v after 4.0 h recharge
+2021-03-12 10:15|[juicer.py.dock]---- Docking 1977 completed  at 8.1 v after 6.6 h playtime
+2021-03-12 14:15|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-03-12 14:16|[juicer.py.undock]---- Dismount 1977 at 11.3 v after 4.0 h recharge
+2021-03-12 20:56|[juicer.py.dock]---- Docking 1978 completed  at 8.1 v after 6.7 h playtime
+2021-03-12 22:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-12 23:23|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 10.4v
+2021-03-12 23:23|[juicer.py.undock]---- Dismount 1978 at 10.3 v after 2.5 h recharge
+2021-03-13 03:52|lifelogger.dEmain execution: 80
+2021-03-13 03:54|[juicer.py.dock]**** Dock Approach Error
+2021-03-13 03:54|[juicer.py.dock]---- Manual Docking 1978 requested  at 8.1 v after 4.5 h playtime
+2021-03-13 11:00|------------ boot ------------
+2021-03-13 11:00|[juicer.py.main]---- juicer.py started at 11.87v
+2021-03-13 11:14|[juicer.py.undock]---- Dismount 1979 at 11.2 v after 3.2 h recharge
+2021-03-13 18:13|[juicer.py.dock]---- Docking 1980 completed  at 8.1 v after 7.0 h playtime
+2021-03-13 22:13|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-03-13 22:13|[juicer.py.undock]---- Dismount 1980 at 11.3 v after 4.0 h recharge
+2021-03-14 04:27|[juicer.py.dock]---- Docking 1981 completed  at 8.1 v after 6.2 h playtime
+2021-03-14 08:27|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-03-14 08:27|[juicer.py.undock]---- Dismount 1981 at 11.2 v after 4.0 h recharge
+2021-03-14 13:19|[juicer.py.dock]---- Docking 1982 completed  at 8.1 v after 4.9 h playtime
+2021-03-14 16:37|[logMaintenance.py.main]** Somehow three voicecmdr were running **
+2021-03-14 17:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-14 17:20|[juicer.py.undock]---- Dismount 1982 at 11.4 v after 4.0 h recharge
+2021-03-14 23:59|[juicer.py.dock]---- Docking 1983 completed  at 8.1 v after 6.6 h playtime
+2021-03-15 03:58|[juicer.py.undock]---- Dismount 1983 at 11.2 v after 4.0 h recharge
+2021-03-15 10:44|[juicer.py.dock]---- Docking 1984 completed  at 8.1 v after 6.8 h playtime
+2021-03-15 14:39|[juicer.py.undock]---- Dismount 1984 at 11.2 v after 3.9 h recharge
+2021-03-15 21:27|[juicer.py.dock]---- Docking 1985 completed  at 8.1 v after 6.8 h playtime
+2021-03-16 01:23|[juicer.py.undock]---- Dismount 1985 at 11.3 v after 3.9 h recharge
+2021-03-16 08:09|[juicer.py.dock]---- Docking 1986 completed  at 8.1 v after 6.8 h playtime
+2021-03-16 10:42|[juicer.py.main]---- juicer.py started at 11.18v 
+2021-03-16 10:43|[logMaintenance.py.main]** Restarted juicer delay shutdown and log exception for manual dock requewst **
+2021-03-16 12:08|[juicer.py.undock]---- Dismount 1987 at 11.2 v after 4.0 h recharge
+2021-03-16 18:53|[juicer.py.dock]---- Docking 1988 completed  at 8.1 v after 6.8 h playtime
+2021-03-16 22:47|[logMaintenance.py.main]** Unable To Undock due to bad dist sensor reading (I2C Failure) **
+2021-03-16 22:51|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-16 22:51|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-16 22:52|[logMaintenance.py.main]** Reboot to clear I2C **
+2021-03-16 22:54|lifelogger.dEmain execution: 82.9
+2021-03-16 22:54|------------ boot ------------
+2021-03-16 22:55|[juicer.py.main]---- juicer.py started at 10.85v 
+2021-03-16 22:56|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-16 22:56|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-16 23:05|[logMaintenance.py.main]** I2C failure continued through reboot, Cold booting **
+2021-03-16 23:09|------------ boot ------------
+2021-03-16 23:09|[juicer.py.main]---- juicer.py started at 10.48v
+2021-03-16 23:10|[logMaintenance.py.main]** Remember - Cold Boot required to fix I2C! **
+2021-03-16 23:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-16 23:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-16 23:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-16 23:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-16 23:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-17 05:28|[juicer.py.dock]---- Docking 1990 completed  at 8.1 v after 6.2 h playtime
+2021-03-17 09:22|[juicer.py.undock]---- Dismount 1990 at 11.3 v after 3.9 h recharge
+2021-03-17 12:23|[logMaintenance.py.main]** Attempting I2C reset **
+2021-03-17 12:23|[resetGoPiGo3.py.fixI2Cjam]Forcing GoPiGo3 Board Reset Via GPIO18 To Clear I2C Failure
+2021-03-17 12:25|[resetGoPiGo3.py.fixI2Cjam]Forcing GoPiGo3 Board Reset Via GPIO18 To Clear I2C Failure
+2021-03-17 12:26|[resetGoPiGo3.py.fixI2Cjam]Forcing GoPiGo3 Board Reset Via GPIO18 To Clear I2C Failure
+2021-03-17 12:28|[juicer.py.main]---- juicer.py started at 9.40v
+2021-03-17 12:29|[logMaintenance.py.main]** final resetGoPiGo3 test was successful, but imulog, wheellog, and juicer quit **
+2021-03-17 16:02|[juicer.py.dock]---- Docking 1991 completed  at 8.1 v after 6.6 h playtime
+2021-03-17 19:58|[juicer.py.undock]---- Dismount 1991 at 11.2 v after 3.9 h recharge
+2021-03-18 02:43|[juicer.py.dock]---- Docking 1992 completed  at 8.1 v after 6.7 h playtime
+2021-03-18 06:32|[juicer.py.undock]---- Dismount 1992 at 11.3 v after 3.8 h recharge
+2021-03-18 13:15|[juicer.py.dock]---- Docking 1993 completed  at 8.1 v after 6.7 h playtime
+2021-03-18 17:06|[juicer.py.undock]---- Dismount 1993 at 11.3 v after 3.9 h recharge
+2021-03-18 23:51|[juicer.py.dock]---- Docking 1994 completed  at 8.1 v after 6.7 h playtime
+2021-03-19 03:45|[juicer.py.undock]---- Dismount 1994 at 11.3 v after 3.9 h recharge
+2021-03-19 10:18|[juicer.py.dock]---- Docking 1995 completed  at 8.1 v after 6.5 h playtime
+2021-03-19 14:03|[juicer.py.undock]---- Dismount 1995 at 11.2 v after 3.8 h recharge
+2021-03-19 20:40|[juicer.py.dock]---- Docking 1996 completed  at 8.1 v after 6.6 h playtime
+2021-03-20 00:27|[juicer.py.undock]---- Dismount 1996 at 11.3 v after 3.8 h recharge
+2021-03-20 03:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-20 03:32|[healthCheck.py.main]WiFi Router again reachable
+2021-03-20 03:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-20 03:32|[healthCheck.py.main]WiFi Router again reachable
+2021-03-20 03:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-20 03:36|[healthCheck.py.main]WiFi Router again reachable
+2021-03-20 07:09|[juicer.py.dock]---- Docking 1997 completed  at 8.1 v after 6.7 h playtime
+2021-03-20 10:58|[juicer.py.undock]---- Dismount 1997 at 11.2 v after 3.8 h recharge
+2021-03-20 17:31|[juicer.py.dock]---- Docking 1998 completed  at 8.1 v after 6.5 h playtime
+2021-03-20 21:19|[juicer.py.undock]---- Dismount 1998 at 11.3 v after 3.8 h recharge
+2021-03-21 03:59|[juicer.py.dock]---- Docking 1999 completed  at 8.1 v after 6.7 h playtime
+2021-03-21 07:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-03-21 08:00|[juicer.py.undock]---- Dismount 1999 at 11.4 v after 4.0 h recharge
+2021-03-21 14:38|[juicer.py.dock]---- Docking 2000 completed  at 8.1 v after 6.6 h playtime
+2021-03-21 18:35|[juicer.py.undock]---- Dismount 2000 at 11.2 v after 4.0 h recharge
+2021-03-22 01:05|[juicer.py.dock]---- Docking 2001 completed  at 8.1 v after 6.5 h playtime
+2021-03-22 04:59|[juicer.py.undock]---- Dismount 2001 at 11.3 v after 3.9 h recharge
+2021-03-22 10:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 11:33|[juicer.py.dock]---- Docking 2002 completed  at 8.1 v after 6.6 h playtime
+2021-03-22 15:26|[juicer.py.undock]---- Dismount 2002 at 11.3 v after 3.9 h recharge
+2021-03-22 17:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 17:37|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 17:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:26|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:29|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:32|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:32|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:34|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 18:34|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 18:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 19:42|lifelogger.dEmain execution: 140.55
+2021-03-22 19:42|------------ boot ------------
+2021-03-22 19:42|[juicer.py.main]---- juicer.py started at 9.13v
+2021-03-22 19:43|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-22 19:43|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-22 19:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 19:43|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 19:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 19:44|[healthCheck.py.main]I2C Function Restored
+2021-03-22 19:57|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 19:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:02|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 20:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:04|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 20:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 20:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 21:18|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 21:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 21:24|[juicer.py.dock]--- ds.read_mm() Exception
+2021-03-22 21:27|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 21:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 21:43|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 21:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 21:56|lifelogger.dEmain execution: 2.2
+2021-03-22 21:56|------------ boot ------------
+2021-03-22 21:56|[juicer.py.main]---- juicer.py started at 10.79v
+2021-03-22 21:56|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-22 21:56|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-22 21:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 21:57|[healthCheck.py.main]I2C Function Restored
+2021-03-22 22:38|[healthCheck.py.main]WiFi Router again reachable
+2021-03-22 22:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-22 22:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:07|lifelogger.dEmain execution: 1.3
+2021-03-23 02:07|------------ boot ------------
+2021-03-23 02:07|[juicer.py.main]---- juicer.py started at 11.11v
+2021-03-23 02:07|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-23 02:07|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-23 02:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:10|[logMaintenance.py.main]** Manual Shutdown due to Comcast 2.4G issue **
+2021-03-23 02:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:13|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-03-23 02:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:17|[logMaintenance.py.main]** Time changed manually **
+2021-03-23 02:18|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-03-23 02:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:22|[logMaintenance.py.main]** reboot to try to get time in sync **
+2021-03-23 02:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-23 02:22|lifelogger.dEmain execution: 0.25
+2021-03-23 13:11|------------ boot ------------
+2021-03-23 13:11|[juicer.py.main]---- juicer.py started at 10.44v
+2021-03-23 13:12|[healthCheck.py.main]I2C Bus Failure Detected
+2021-03-23 13:12|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-03-23 13:15|[logMaintenance.py.main]** killed off healthCheck for time being **
+2021-03-23 13:18|[resetGoPiGo3.py.fixI2Cjam]Forcing GoPiGo3 Board Reset Via GPIO18 To Clear I2C Failure
+2021-03-23 13:18|[resetGoPiGo3.py.fixI2Cjam]Forcing GoPiGo3 Board Reset Via GPIO18 To Clear I2C Failure
+2021-03-23 13:20|[logMaintenance.py.main]** Dist Sensor will not reset, cold booting **
+2021-03-23 12:22|lifelogger.dEmain execution: 0.2
+2021-03-23 13:22|------------ boot ------------
+2021-03-23 13:22|[juicer.py.main]---- juicer.py started at 10.21v
+2021-03-23 17:56|[juicer.py.dock]---- Docking 2003 completed  at 8.1 v after 4.5 h playtime
+2021-03-23 18:55|[juicer.py.undock]---- Dismount 2003 at 9.7 v after 1.0 h recharge
+2021-03-23 20:01|[logMaintenance.py.main]** Started healthCheck with 2s IP wait **
+2021-03-23 20:03|[juicer.py.dock]---- Docking 2004 completed  at 8.1 v after 1.1 h playtime
+2021-03-23 20:17|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 9.2v
+2021-03-23 20:27|lifelogger.dEmain execution: 7.1
+2021-03-23 20:27|[logMaintenance.py.main]** Reboot to check rpimonitor **
+2021-03-23 20:27|------------ boot ------------
+2021-03-23 20:27|[juicer.py.main]---- juicer.py started at 9.22v
+2021-03-23 23:32|[juicer.py.undock]---- Dismount 2004 at 11.2 v after 3.0 h recharge
+2021-03-24 06:01|[juicer.py.dock]---- Docking 2005 completed  at 8.1 v after 6.5 h playtime
+2021-03-24 09:58|[juicer.py.undock]---- Dismount 2005 at 11.2 v after 4.0 h recharge
+2021-03-24 16:21|[juicer.py.dock]---- Docking 2006 completed  at 8.1 v after 6.4 h playtime
+2021-03-24 19:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-24 19:38|[healthCheck.py.main]WiFi Router again reachable
+2021-03-24 19:39|[logMaintenance.py.main]** Changed 2.4G Wifi to WPA2/AES only **
+2021-03-24 19:57|[juicer.py.undock]---- Dismount 2006 at 11.3 v after 3.6 h recharge
+2021-03-25 02:33|[juicer.py.dock]---- Docking 2007 completed  at 8.1 v after 6.6 h playtime
+2021-03-25 06:11|[juicer.py.undock]---- Dismount 2007 at 11.2 v after 3.7 h recharge
+2021-03-25 12:45|[juicer.py.dock]---- Docking 2008 completed  at 8.1 v after 6.6 h playtime
+2021-03-25 16:31|[juicer.py.undock]---- Dismount 2008 at 11.3 v after 3.8 h recharge
+2021-03-25 20:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-25 20:08|[healthCheck.py.main]WiFi Router again reachable
+2021-03-25 23:03|[juicer.py.dock]---- Docking 2009 completed  at 8.1 v after 6.5 h playtime
+2021-03-26 02:40|[juicer.py.undock]---- Dismount 2009 at 11.3 v after 3.6 h recharge
+2021-03-26 04:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-26 04:34|[healthCheck.py.main]WiFi Router again reachable
+2021-03-26 04:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-26 04:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-03-26 09:12|[juicer.py.dock]---- Docking 2010 completed  at 8.1 v after 6.5 h playtime
+2021-03-26 13:01|[juicer.py.undock]---- Dismount 2010 at 11.2 v after 3.8 h recharge
+2021-03-26 13:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-03-26 19:29|[juicer.py.dock]---- Docking 2011 completed  at 8.1 v after 6.5 h playtime
+2021-03-26 22:56|[juicer.py.undock]---- Dismount 2011 at 11.2 v after 3.5 h recharge
+2021-03-27 00:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-03-27 05:22|[juicer.py.dock]---- Docking 2012 completed  at 8.1 v after 6.4 h playtime
+2021-03-27 08:59|[juicer.py.undock]---- Dismount 2012 at 11.2 v after 3.6 h recharge
+2021-03-27 13:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-03-27 13:37|[healthCheck.py.main]WiFi Router again reachable
+2021-03-27 15:26|[juicer.py.dock]---- Docking 2013 completed  at 8.1 v after 6.4 h playtime
+2021-03-27 19:08|[juicer.py.undock]---- Dismount 2013 at 11.2 v after 3.7 h recharge
+2021-03-28 01:39|[juicer.py.dock]---- Docking 2014 completed  at 8.1 v after 6.5 h playtime
+2021-03-28 05:16|[juicer.py.undock]---- Dismount 2014 at 11.2 v after 3.6 h recharge
+2021-03-28 11:45|[juicer.py.dock]---- Docking 2015 completed  at 8.1 v after 6.5 h playtime
+2021-03-28 15:21|[juicer.py.undock]---- Dismount 2015 at 11.2 v after 3.6 h recharge
+2021-03-28 21:49|[juicer.py.dock]---- Docking 2016 completed  at 8.1 v after 6.5 h playtime
+2021-03-28 23:52|[juicer.py.main]---- Docking Failure Possible
+2021-03-28 23:52|[juicer.py.undock]---- Dismount 2016 at 9.6 v after 2.1 h recharge
+2021-03-29 01:58|[juicer.py.dock]---- Docking 2017 completed  at 8.1 v after 2.1 h playtime
+2021-03-29 05:38|[juicer.py.undock]---- Dismount 2017 at 11.2 v after 3.7 h recharge
+2021-03-29 12:07|[juicer.py.dock]---- Docking 2018 completed  at 8.1 v after 6.5 h playtime
+2021-03-29 15:46|[juicer.py.undock]---- Dismount 2018 at 11.2 v after 3.7 h recharge
+2021-03-29 22:16|[juicer.py.dock]---- Docking 2019 completed  at 8.1 v after 6.5 h playtime
+2021-03-30 01:48|[juicer.py.undock]---- Dismount 2019 at 11.2 v after 3.5 h recharge
+2021-03-30 08:11|[juicer.py.dock]---- Docking 2020 completed  at 8.1 v after 6.4 h playtime
+2021-03-30 11:49|[juicer.py.undock]---- Dismount 2020 at 11.2 v after 3.6 h recharge
+2021-03-30 18:17|[juicer.py.dock]---- Docking 2021 completed  at 8.1 v after 6.5 h playtime
+2021-03-30 21:52|[juicer.py.undock]---- Dismount 2021 at 11.2 v after 3.6 h recharge
+2021-03-31 04:10|[juicer.py.dock]---- Docking 2022 completed  at 8.1 v after 6.3 h playtime
+2021-03-31 07:44|[juicer.py.undock]---- Dismount 2022 at 11.2 v after 3.6 h recharge
+2021-03-31 14:09|[juicer.py.dock]---- Docking 2023 completed  at 8.1 v after 6.4 h playtime
+2021-03-31 17:53|[juicer.py.undock]---- Dismount 2023 at 11.2 v after 3.7 h recharge
+2021-04-01 00:17|[juicer.py.dock]---- Docking 2024 completed  at 8.1 v after 6.4 h playtime
+2021-04-01 03:51|[juicer.py.undock]---- Dismount 2024 at 11.2 v after 3.6 h recharge
+2021-04-01 10:09|[juicer.py.dock]---- Docking 2025 completed  at 8.1 v after 6.3 h playtime
+2021-04-01 13:52|[juicer.py.undock]---- Dismount 2025 at 11.2 v after 3.7 h recharge
+2021-04-01 20:16|[juicer.py.dock]---- Docking 2026 completed  at 8.1 v after 6.4 h playtime
+2021-04-01 23:53|[juicer.py.undock]---- Dismount 2026 at 11.2 v after 3.6 h recharge
+2021-04-02 00:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-02 00:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-02 00:30|[healthCheck.py.main]WiFi Router again reachable
+2021-04-02 00:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-02 00:40|[healthCheck.py.main]WiFi Router again reachable
+2021-04-02 00:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-02 06:15|[juicer.py.dock]---- Docking 2027 completed  at 8.1 v after 6.4 h playtime
+2021-04-02 09:50|[juicer.py.undock]---- Dismount 2027 at 11.2 v after 3.6 h recharge
+2021-04-02 16:12|[juicer.py.dock]---- Docking 2028 completed  at 8.1 v after 6.4 h playtime
+2021-04-02 19:51|[juicer.py.undock]---- Dismount 2028 at 11.2 v after 3.7 h recharge
+2021-04-03 00:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-03 00:15|[healthCheck.py.main]WiFi Router again reachable
+2021-04-03 02:12|[juicer.py.dock]---- Docking 2029 completed  at 8.1 v after 6.4 h playtime
+2021-04-03 06:02|[juicer.py.undock]---- Dismount 2029 at 11.2 v after 3.8 h recharge
+2021-04-03 12:24|[juicer.py.dock]---- Docking 2030 completed  at 8.1 v after 6.4 h playtime
+2021-04-03 16:07|[juicer.py.undock]---- Dismount 2030 at 11.2 v after 3.7 h recharge
+2021-04-03 22:26|[juicer.py.dock]---- Docking 2031 completed  at 8.1 v after 6.3 h playtime
+2021-04-04 02:06|[juicer.py.undock]---- Dismount 2031 at 11.2 v after 3.7 h recharge
+2021-04-04 08:22|[juicer.py.dock]---- Docking 2032 completed  at 8.1 v after 6.3 h playtime
+2021-04-04 12:05|[juicer.py.undock]---- Dismount 2032 at 11.2 v after 3.7 h recharge
+2021-04-04 18:13|[juicer.py.dock]---- Docking 2033 completed  at 8.1 v after 6.1 h playtime
+2021-04-04 21:52|[juicer.py.undock]---- Dismount 2033 at 11.2 v after 3.7 h recharge
+2021-04-04 23:59|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-05 00:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-05 04:07|[juicer.py.dock]---- Docking 2034 completed  at 8.1 v after 6.2 h playtime
+2021-04-05 07:46|[juicer.py.undock]---- Dismount 2034 at 11.2 v after 3.7 h recharge
+2021-04-05 14:01|[juicer.py.dock]---- Docking 2035 completed  at 8.1 v after 6.2 h playtime
+2021-04-05 17:44|[juicer.py.undock]---- Dismount 2035 at 11.2 v after 3.7 h recharge
+2021-04-05 23:59|[juicer.py.dock]---- Docking 2036 completed  at 8.1 v after 6.2 h playtime
+2021-04-06 03:40|[juicer.py.undock]---- Dismount 2036 at 11.2 v after 3.7 h recharge
+2021-04-06 04:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-06 09:55|[juicer.py.dock]---- Docking 2037 completed  at 8.1 v after 6.2 h playtime
+2021-04-06 13:35|[juicer.py.undock]---- Dismount 2037 at 11.2 v after 3.7 h recharge
+2021-04-06 19:47|[juicer.py.dock]---- Docking 2038 completed  at 8.1 v after 6.2 h playtime
+2021-04-06 21:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-06 23:15|[juicer.py.undock]---- Dismount 2038 at 11.2 v after 3.5 h recharge
+2021-04-07 05:26|[juicer.py.dock]---- Docking 2039 completed  at 8.1 v after 6.2 h playtime
+2021-04-07 09:03|[juicer.py.undock]---- Dismount 2039 at 11.2 v after 3.6 h recharge
+2021-04-07 15:15|[juicer.py.dock]---- Docking 2040 completed  at 8.1 v after 6.2 h playtime
+2021-04-07 18:57|[juicer.py.undock]---- Dismount 2040 at 11.2 v after 3.7 h recharge
+2021-04-08 01:09|[juicer.py.dock]---- Docking 2041 completed  at 8.1 v after 6.2 h playtime
+2021-04-08 03:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-08 04:57|[juicer.py.undock]---- Dismount 2041 at 11.2 v after 3.8 h recharge
+2021-04-08 07:57|lifelogger.dEmain execution: 371.5
+2021-04-08 07:57|[logMaintenance.py.main]** Shutting Down For Router Upgrade **
+2021-04-08 08:29|------------ boot ------------
+2021-04-08 08:29|[juicer.py.main]---- juicer.py started at 9.30v
+2021-04-08 08:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.129)
+2021-04-08 08:33|[healthCheck.py.main]WiFi Router again reachable
+2021-04-08 11:25|[juicer.py.dock]---- Docking 2043 completed  at 8.1 v after 2.8 h playtime
+2021-04-08 14:57|[juicer.py.undock]---- Dismount 2043 at 11.2 v after 3.5 h recharge
+2021-04-08 16:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-08 16:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-08 16:58|[healthCheck.py.main]WiFi Router again reachable
+2021-04-08 21:09|[juicer.py.dock]---- Docking 2044 completed  at 8.1 v after 6.2 h playtime
+2021-04-09 00:50|[juicer.py.undock]---- Dismount 2044 at 11.2 v after 3.7 h recharge
+2021-04-09 03:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 03:10|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 03:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 03:10|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 07:00|[juicer.py.dock]---- Docking 2045 completed  at 8.1 v after 6.2 h playtime
+2021-04-09 08:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 08:16|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 09:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 09:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 09:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 09:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 09:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:16|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 10:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:41|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 10:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-09 10:42|[healthCheck.py.main]WiFi Router again reachable
+2021-04-09 10:46|[juicer.py.undock]---- Dismount 2045 at 11.2 v after 3.8 h recharge
+2021-04-09 17:01|[juicer.py.dock]---- Docking 2046 completed  at 8.1 v after 6.3 h playtime
+2021-04-09 20:42|[juicer.py.undock]---- Dismount 2046 at 11.2 v after 3.7 h recharge
+2021-04-10 02:52|[juicer.py.dock]---- Docking 2047 completed  at 8.1 v after 6.2 h playtime
+2021-04-10 06:27|[juicer.py.undock]---- Dismount 2047 at 11.2 v after 3.6 h recharge
+2021-04-10 12:35|[juicer.py.dock]---- Docking 2048 completed  at 8.1 v after 6.1 h playtime
+2021-04-10 16:14|[juicer.py.undock]---- Dismount 2048 at 11.2 v after 3.7 h recharge
+2021-04-10 22:22|[juicer.py.dock]---- Docking 2049 completed  at 8.1 v after 6.1 h playtime
+2021-04-11 01:57|[juicer.py.undock]---- Dismount 2049 at 11.2 v after 3.6 h recharge
+2021-04-11 08:06|[juicer.py.dock]---- Docking 2050 completed  at 8.1 v after 6.1 h playtime
+2021-04-11 11:47|[juicer.py.undock]---- Dismount 2050 at 11.2 v after 3.7 h recharge
+2021-04-11 12:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-11 12:11|[healthCheck.py.main]WiFi Router again reachable
+2021-04-11 17:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-11 17:41|[healthCheck.py.main]WiFi Router again reachable
+2021-04-11 17:53|[juicer.py.dock]---- Docking 2051 completed  at 8.1 v after 6.1 h playtime
+2021-04-11 21:23|[juicer.py.undock]---- Dismount 2051 at 11.2 v after 3.5 h recharge
+2021-04-11 23:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-11 23:42|[healthCheck.py.main]WiFi Router again reachable
+2021-04-12 03:29|[juicer.py.dock]---- Docking 2052 completed  at 8.1 v after 6.1 h playtime
+2021-04-12 07:05|[juicer.py.undock]---- Dismount 2052 at 11.2 v after 3.6 h recharge
+2021-04-12 11:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-12 11:40|[healthCheck.py.main]WiFi Router again reachable
+2021-04-12 13:06|[juicer.py.dock]---- Docking 2053 completed  at 8.1 v after 6.0 h playtime
+2021-04-12 16:46|[juicer.py.undock]---- Dismount 2053 at 11.2 v after 3.7 h recharge
+2021-04-12 23:00|[juicer.py.dock]---- Docking 2054 completed  at 8.1 v after 6.2 h playtime
+2021-04-13 02:38|[juicer.py.undock]---- Dismount 2054 at 11.2 v after 3.6 h recharge
+2021-04-13 08:42|[juicer.py.dock]---- Docking 2055 completed  at 8.1 v after 6.1 h playtime
+2021-04-13 10:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-13 10:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-13 12:22|[juicer.py.undock]---- Dismount 2055 at 11.2 v after 3.7 h recharge
+2021-04-13 17:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-13 17:37|[healthCheck.py.main]WiFi Router again reachable
+2021-04-13 18:32|[juicer.py.dock]---- Docking 2056 completed  at 8.1 v after 6.2 h playtime
+2021-04-13 22:03|[juicer.py.undock]---- Dismount 2056 at 11.2 v after 3.5 h recharge
+2021-04-14 04:06|[juicer.py.dock]---- Docking 2057 completed  at 8.1 v after 6.1 h playtime
+2021-04-14 07:38|[juicer.py.undock]---- Dismount 2057 at 11.2 v after 3.5 h recharge
+2021-04-14 13:40|[juicer.py.dock]---- Docking 2058 completed  at 8.1 v after 6.0 h playtime
+2021-04-14 17:16|[juicer.py.undock]---- Dismount 2058 at 11.2 v after 3.6 h recharge
+2021-04-14 23:18|[juicer.py.dock]---- Docking 2059 completed  at 8.1 v after 6.0 h playtime
+2021-04-15 02:50|[juicer.py.undock]---- Dismount 2059 at 11.2 v after 3.5 h recharge
+2021-04-15 08:50|[juicer.py.dock]---- Docking 2060 completed  at 8.1 v after 6.0 h playtime
+2021-04-15 12:31|[juicer.py.undock]---- Dismount 2060 at 11.2 v after 3.7 h recharge
+2021-04-15 18:33|[juicer.py.dock]---- Docking 2061 completed  at 8.1 v after 6.0 h playtime
+2021-04-15 22:06|[juicer.py.undock]---- Dismount 2061 at 11.2 v after 3.6 h recharge
+2021-04-16 04:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 04:07|[healthCheck.py.main]WiFi Router again reachable
+2021-04-16 04:07|[juicer.py.dock]---- Docking 2062 completed  at 8.1 v after 6.0 h playtime
+2021-04-16 07:37|[juicer.py.undock]---- Dismount 2062 at 11.2 v after 3.5 h recharge
+2021-04-16 12:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 13:36|[juicer.py.dock]---- Docking 2063 completed  at 8.1 v after 6.0 h playtime
+2021-04-16 13:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 14:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 14:18|[healthCheck.py.main]WiFi Router again reachable
+2021-04-16 14:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 14:20|[healthCheck.py.main]WiFi Router again reachable
+2021-04-16 14:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 14:20|[healthCheck.py.main]WiFi Router again reachable
+2021-04-16 17:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-16 17:07|[healthCheck.py.main]WiFi Router again reachable
+2021-04-16 17:11|[juicer.py.undock]---- Dismount 2063 at 11.2 v after 3.6 h recharge
+2021-04-16 23:12|[juicer.py.dock]---- Docking 2064 completed  at 8.1 v after 6.0 h playtime
+2021-04-17 02:48|[juicer.py.undock]---- Dismount 2064 at 11.2 v after 3.6 h recharge
+2021-04-17 08:46|[juicer.py.dock]---- Docking 2065 completed  at 8.1 v after 6.0 h playtime
+2021-04-17 12:25|[juicer.py.undock]---- Dismount 2065 at 11.2 v after 3.7 h recharge
+2021-04-17 18:23|[juicer.py.dock]---- Docking 2066 completed  at 8.1 v after 6.0 h playtime
+2021-04-17 21:57|[juicer.py.undock]---- Dismount 2066 at 11.2 v after 3.6 h recharge
+2021-04-18 03:55|[juicer.py.dock]---- Docking 2067 completed  at 8.1 v after 6.0 h playtime
+2021-04-18 07:26|[juicer.py.undock]---- Dismount 2067 at 11.2 v after 3.5 h recharge
+2021-04-18 13:22|[juicer.py.dock]---- Docking 2068 completed  at 8.1 v after 5.9 h playtime
+2021-04-18 16:51|[juicer.py.undock]---- Dismount 2068 at 11.2 v after 3.5 h recharge
+2021-04-18 19:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-18 19:44|[healthCheck.py.main]WiFi Router again reachable
+2021-04-18 22:49|[juicer.py.dock]---- Docking 2069 completed  at 8.1 v after 6.0 h playtime
+2021-04-18 22:55|[juicer.py.main]---- Docking Failure Possible. Trickling, Need Charging
+2021-04-18 22:56|[juicer.py.undock]---- Dismount 2069 at 8.1 v after 0.1 h recharge
+2021-04-18 22:56|[juicer.py.dock]---- Docking 2070 completed  at 8.1 v after 0.0 h playtime
+2021-04-19 02:41|[juicer.py.undock]---- Dismount 2070 at 11.1 v after 3.7 h recharge
+2021-04-19 08:35|[juicer.py.dock]---- Docking 2071 completed  at 8.1 v after 5.9 h playtime
+2021-04-19 12:06|[juicer.py.undock]---- Dismount 2071 at 11.1 v after 3.5 h recharge
+2021-04-19 18:02|[juicer.py.dock]---- Docking 2072 completed  at 8.1 v after 5.9 h playtime
+2021-04-19 21:33|[juicer.py.undock]---- Dismount 2072 at 11.2 v after 3.5 h recharge
+2021-04-20 03:27|[juicer.py.dock]---- Docking 2073 completed  at 8.1 v after 5.9 h playtime
+2021-04-20 06:57|[juicer.py.undock]---- Dismount 2073 at 11.2 v after 3.5 h recharge
+2021-04-20 10:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-20 10:09|[healthCheck.py.main]WiFi Router again reachable
+2021-04-20 12:51|[juicer.py.dock]---- Docking 2074 completed  at 8.1 v after 5.9 h playtime
+2021-04-20 16:29|[juicer.py.undock]---- Dismount 2074 at 11.2 v after 3.7 h recharge
+2021-04-20 22:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-20 22:02|[healthCheck.py.main]WiFi Router again reachable
+2021-04-20 22:23|[juicer.py.dock]---- Docking 2075 completed  at 8.1 v after 5.9 h playtime
+2021-04-21 01:55|[juicer.py.undock]---- Dismount 2075 at 11.2 v after 3.5 h recharge
+2021-04-21 07:49|[juicer.py.dock]---- Docking 2076 completed  at 8.1 v after 5.9 h playtime
+2021-04-21 09:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-21 09:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-21 10:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-21 11:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-21 11:06|[healthCheck.py.main]WiFi Router again reachable
+2021-04-21 11:16|[juicer.py.undock]---- Dismount 2076 at 11.2 v after 3.4 h recharge
+2021-04-21 17:12|[juicer.py.dock]---- Docking 2077 completed  at 8.1 v after 5.9 h playtime
+2021-04-21 20:43|[juicer.py.undock]---- Dismount 2077 at 11.1 v after 3.5 h recharge
+2021-04-22 02:34|[juicer.py.dock]---- Docking 2078 completed  at 8.1 v after 5.9 h playtime
+2021-04-22 06:02|[juicer.py.undock]---- Dismount 2078 at 11.2 v after 3.5 h recharge
+2021-04-22 11:53|[juicer.py.dock]---- Docking 2079 completed  at 8.1 v after 5.9 h playtime
+2021-04-22 15:19|[juicer.py.undock]---- Dismount 2079 at 11.2 v after 3.4 h recharge
+2021-04-22 21:08|[juicer.py.dock]---- Docking 2080 completed  at 8.1 v after 5.8 h playtime
+2021-04-23 00:45|[juicer.py.undock]---- Dismount 2080 at 11.2 v after 3.6 h recharge
+2021-04-23 06:30|[juicer.py.dock]---- Docking 2081 completed  at 8.1 v after 5.7 h playtime
+2021-04-23 09:59|[juicer.py.undock]---- Dismount 2081 at 11.2 v after 3.5 h recharge
+2021-04-23 15:44|[juicer.py.dock]---- Docking 2082 completed  at 8.1 v after 5.7 h playtime
+2021-04-23 19:11|[juicer.py.undock]---- Dismount 2082 at 11.2 v after 3.5 h recharge
+2021-04-24 00:55|[juicer.py.dock]---- Docking 2083 completed  at 8.1 v after 5.7 h playtime
+2021-04-24 04:24|[juicer.py.undock]---- Dismount 2083 at 11.2 v after 3.5 h recharge
+2021-04-24 10:08|[juicer.py.dock]---- Docking 2084 completed  at 8.1 v after 5.7 h playtime
+2021-04-24 13:35|[juicer.py.undock]---- Dismount 2084 at 11.2 v after 3.5 h recharge
+2021-04-24 14:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-24 15:29|[healthCheck.py.main]WiFi Router again reachable
+2021-04-24 19:21|[juicer.py.dock]---- Docking 2085 completed  at 8.1 v after 5.8 h playtime
+2021-04-24 22:53|[juicer.py.undock]---- Dismount 2085 at 11.2 v after 3.5 h recharge
+2021-04-25 00:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:26|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 01:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:26|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 01:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:26|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 01:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:42|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 01:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 01:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 02:31|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 02:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 02:32|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 02:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 02:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 02:53|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 02:55|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 02:55|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 02:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 03:05|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 03:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 03:47|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 03:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 04:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 04:01|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 04:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 04:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 04:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 04:40|[juicer.py.dock]---- Docking 2086 completed  at 8.1 v after 5.8 h playtime
+2021-04-25 07:55|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:04|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 08:04|[juicer.py.undock]---- Dismount 2086 at 11.2 v after 3.4 h recharge
+2021-04-25 08:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 08:04|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 10:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 10:10|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 11:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 11:25|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 13:45|[juicer.py.dock]---- Docking 2087 completed  at 8.1 v after 5.7 h playtime
+2021-04-25 14:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:05|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 14:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:09|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 14:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:18|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 14:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:19|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 14:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:22|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 14:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 14:25|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:04|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:05|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:16|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:18|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:18|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:19|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:21|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:22|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:23|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:25|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 15:44|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 15:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:40|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 16:47|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:49|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 16:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:49|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 16:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 16:57|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 16:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 17:01|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 17:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 17:06|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 17:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 17:06|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 17:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 17:09|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 17:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 17:16|[juicer.py.undock]---- Dismount 2087 at 11.1 v after 3.5 h recharge
+2021-04-25 17:16|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 20:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 20:23|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 20:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-25 22:41|[healthCheck.py.main]WiFi Router again reachable
+2021-04-25 23:03|[juicer.py.dock]---- Docking 2088 completed  at 8.1 v after 5.8 h playtime
+2021-04-26 02:27|[juicer.py.undock]---- Dismount 2088 at 11.2 v after 3.4 h recharge
+2021-04-26 08:06|[juicer.py.dock]---- Docking 2089 completed  at 8.1 v after 5.6 h playtime
+2021-04-26 11:23|[juicer.py.undock]---- Dismount 2089 at 11.2 v after 3.3 h recharge
+2021-04-26 17:06|[juicer.py.dock]---- Docking 2090 completed  at 8.1 v after 5.7 h playtime
+2021-04-26 20:38|[juicer.py.undock]---- Dismount 2090 at 11.0 v after 3.5 h recharge
+2021-04-27 02:18|[juicer.py.dock]---- Docking 2091 completed  at 8.1 v after 5.7 h playtime
+2021-04-27 05:40|[juicer.py.undock]---- Dismount 2091 at 11.2 v after 3.4 h recharge
+2021-04-27 11:18|[juicer.py.dock]---- Docking 2092 completed  at 8.1 v after 5.6 h playtime
+2021-04-27 14:44|[juicer.py.undock]---- Dismount 2092 at 11.2 v after 3.4 h recharge
+2021-04-27 20:24|[juicer.py.dock]---- Docking 2093 completed  at 8.1 v after 5.7 h playtime
+2021-04-27 20:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:27|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 20:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:53|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 20:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 20:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:02|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:03|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:09|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:12|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:42|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:44|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 21:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 21:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:38|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 22:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:39|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 22:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:41|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 22:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:41|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 22:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:43|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 22:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 22:48|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 23:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-27 23:26|[healthCheck.py.main]WiFi Router again reachable
+2021-04-27 23:48|[juicer.py.undock]---- Dismount 2093 at 11.2 v after 3.4 h recharge
+2021-04-28 05:24|[juicer.py.dock]---- Docking 2094 completed  at 8.1 v after 5.6 h playtime
+2021-04-28 08:44|[juicer.py.undock]---- Dismount 2094 at 11.2 v after 3.3 h recharge
+2021-04-28 14:19|[juicer.py.dock]---- Docking 2095 completed  at 8.1 v after 5.6 h playtime
+2021-04-28 17:45|[juicer.py.undock]---- Dismount 2095 at 11.1 v after 3.4 h recharge
+2021-04-28 23:22|[juicer.py.dock]---- Docking 2096 completed  at 8.1 v after 5.6 h playtime
+2021-04-29 02:44|[juicer.py.undock]---- Dismount 2096 at 11.2 v after 3.4 h recharge
+2021-04-29 08:19|[juicer.py.dock]---- Docking 2097 completed  at 8.1 v after 5.6 h playtime
+2021-04-29 11:41|[juicer.py.undock]---- Dismount 2097 at 11.1 v after 3.4 h recharge
+2021-04-29 11:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 11:43|[healthCheck.py.main]WiFi Router again reachable
+2021-04-29 13:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 13:44|[healthCheck.py.main]WiFi Router again reachable
+2021-04-29 17:19|[juicer.py.dock]---- Docking 2098 completed  at 8.1 v after 5.6 h playtime
+2021-04-29 20:29|[juicer.py.undock]---- Dismount 2098 at 11.1 v after 3.2 h recharge
+2021-04-29 22:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 22:50|[healthCheck.py.main]WiFi Router again reachable
+2021-04-29 22:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 22:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 22:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 22:54|[healthCheck.py.main]WiFi Router again reachable
+2021-04-29 22:54|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-29 22:56|[healthCheck.py.main]WiFi Router again reachable
+2021-04-30 02:02|[juicer.py.dock]---- Docking 2099 completed  at 8.1 v after 5.6 h playtime
+2021-04-30 05:20|[juicer.py.undock]---- Dismount 2099 at 11.2 v after 3.3 h recharge
+2021-04-30 10:53|[juicer.py.dock]---- Docking 2100 completed  at 8.1 v after 5.5 h playtime
+2021-04-30 14:24|[juicer.py.undock]---- Dismount 2100 at 11.2 v after 3.5 h recharge
+2021-04-30 17:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-30 17:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-30 17:53|[healthCheck.py.main]WiFi Router again reachable
+2021-04-30 17:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-30 17:54|[healthCheck.py.main]WiFi Router again reachable
+2021-04-30 19:58|[juicer.py.dock]---- Docking 2101 completed  at 8.1 v after 5.6 h playtime
+2021-04-30 21:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-30 21:18|[healthCheck.py.main]WiFi Router again reachable
+2021-04-30 21:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-04-30 21:22|[healthCheck.py.main]WiFi Router again reachable
+2021-04-30 23:13|[juicer.py.undock]---- Dismount 2101 at 11.1 v after 3.3 h recharge
+2021-05-01 00:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 00:24|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 00:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 00:24|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 04:42|[juicer.py.dock]---- Docking 2102 completed  at 8.1 v after 5.5 h playtime
+2021-05-01 08:02|[juicer.py.undock]---- Dismount 2102 at 11.2 v after 3.3 h recharge
+2021-05-01 13:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 13:18|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 13:39|[juicer.py.dock]---- Docking 2103 completed  at 8.1 v after 5.6 h playtime
+2021-05-01 15:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 15:31|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 15:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 15:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 15:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 15:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 15:51|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 16:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 16:32|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 16:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 16:58|[juicer.py.undock]---- Dismount 2103 at 11.1 v after 3.3 h recharge
+2021-05-01 18:47|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-01 18:48|[healthCheck.py.main]WiFi Router again reachable
+2021-05-01 22:29|[juicer.py.dock]---- Docking 2104 completed  at 8.1 v after 5.5 h playtime
+2021-05-02 01:50|[juicer.py.undock]---- Dismount 2104 at 11.1 v after 3.4 h recharge
+2021-05-02 07:22|[juicer.py.dock]---- Docking 2105 completed  at 8.1 v after 5.5 h playtime
+2021-05-02 08:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-02 10:42|[juicer.py.undock]---- Dismount 2105 at 11.1 v after 3.3 h recharge
+2021-05-02 10:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-02 10:59|[healthCheck.py.main]WiFi Router again reachable
+2021-05-02 16:13|[juicer.py.dock]---- Docking 2106 completed  at 8.1 v after 5.5 h playtime
+2021-05-02 19:30|[juicer.py.undock]---- Dismount 2106 at 11.1 v after 3.3 h recharge
+2021-05-03 01:02|[juicer.py.dock]---- Docking 2107 completed  at 8.1 v after 5.5 h playtime
+2021-05-03 04:18|[juicer.py.undock]---- Dismount 2107 at 11.2 v after 3.3 h recharge
+2021-05-03 09:45|[juicer.py.dock]---- Docking 2108 completed  at 8.1 v after 5.4 h playtime
+2021-05-03 11:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:36|[healthCheck.py.main]WiFi Router again reachable
+2021-05-03 11:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:46|[healthCheck.py.main]WiFi Router again reachable
+2021-05-03 11:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 11:50|[healthCheck.py.main]WiFi Router again reachable
+2021-05-03 12:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 12:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 12:09|[healthCheck.py.main]WiFi Router again reachable
+2021-05-03 13:04|[juicer.py.undock]---- Dismount 2108 at 11.1 v after 3.3 h recharge
+2021-05-03 18:31|[juicer.py.dock]---- Docking 2109 completed  at 8.1 v after 5.5 h playtime
+2021-05-03 21:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.1)
+2021-05-03 21:52|[healthCheck.py.main]WiFi Router again reachable
+2021-05-03 21:53|[juicer.py.undock]---- Dismount 2109 at 11.1 v after 3.4 h recharge
+2021-05-04 03:22|[juicer.py.dock]---- Docking 2110 completed  at 8.1 v after 5.5 h playtime
+2021-05-04 06:34|[juicer.py.undock]---- Dismount 2110 at 11.2 v after 3.2 h recharge
+2021-05-04 12:03|[juicer.py.dock]---- Docking 2111 completed  at 8.1 v after 5.5 h playtime
+2021-05-04 15:22|[juicer.py.undock]---- Dismount 2111 at 11.1 v after 3.3 h recharge
+2021-05-04 20:51|[juicer.py.dock]---- Docking 2112 completed  at 8.1 v after 5.5 h playtime
+2021-05-05 00:10|[juicer.py.undock]---- Dismount 2112 at 11.1 v after 3.3 h recharge
+2021-05-05 05:34|[juicer.py.dock]---- Docking 2113 completed  at 8.1 v after 5.4 h playtime
+2021-05-05 08:50|[juicer.py.undock]---- Dismount 2113 at 11.1 v after 3.3 h recharge
+2021-05-05 14:20|[juicer.py.dock]---- Docking 2114 completed  at 8.1 v after 5.5 h playtime
+2021-05-05 17:38|[juicer.py.undock]---- Dismount 2114 at 11.1 v after 3.3 h recharge
+2021-05-05 23:08|[juicer.py.dock]---- Docking 2115 completed  at 8.1 v after 5.5 h playtime
+2021-05-06 02:24|[juicer.py.undock]---- Dismount 2115 at 11.2 v after 3.3 h recharge
+2021-05-06 07:49|[juicer.py.dock]---- Docking 2116 completed  at 8.1 v after 5.4 h playtime
+2021-05-06 11:05|[juicer.py.undock]---- Dismount 2116 at 11.1 v after 3.3 h recharge
+2021-05-06 16:31|[juicer.py.dock]---- Docking 2117 completed  at 8.1 v after 5.4 h playtime
+2021-05-06 19:46|[juicer.py.undock]---- Dismount 2117 at 11.1 v after 3.3 h recharge
+2021-05-07 01:12|[juicer.py.dock]---- Docking 2118 completed  at 8.1 v after 5.4 h playtime
+2021-05-07 03:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-07 03:45|[healthCheck.py.main]WiFi Router again reachable
+2021-05-07 03:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-07 03:46|[healthCheck.py.main]WiFi Router again reachable
+2021-05-07 03:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-07 03:46|[healthCheck.py.main]WiFi Router again reachable
+2021-05-07 04:27|[juicer.py.undock]---- Dismount 2118 at 11.2 v after 3.2 h recharge
+2021-05-07 09:53|[juicer.py.dock]---- Docking 2119 completed  at 8.1 v after 5.4 h playtime
+2021-05-07 13:04|[juicer.py.undock]---- Dismount 2119 at 11.1 v after 3.2 h recharge
+2021-05-07 18:30|[juicer.py.dock]---- Docking 2120 completed  at 8.1 v after 5.4 h playtime
+2021-05-07 21:42|[juicer.py.undock]---- Dismount 2120 at 11.1 v after 3.2 h recharge
+2021-05-08 03:05|[juicer.py.dock]---- Docking 2121 completed  at 8.1 v after 5.4 h playtime
+2021-05-08 06:21|[juicer.py.undock]---- Dismount 2121 at 11.1 v after 3.3 h recharge
+2021-05-08 11:49|[juicer.py.dock]---- Docking 2122 completed  at 8.1 v after 5.5 h playtime
+2021-05-08 15:00|[juicer.py.undock]---- Dismount 2122 at 11.1 v after 3.2 h recharge
+2021-05-08 20:25|[juicer.py.dock]---- Docking 2123 completed  at 8.1 v after 5.4 h playtime
+2021-05-08 23:37|[juicer.py.undock]---- Dismount 2123 at 11.1 v after 3.2 h recharge
+2021-05-09 05:01|[juicer.py.dock]---- Docking 2124 completed  at 8.1 v after 5.4 h playtime
+2021-05-09 08:17|[juicer.py.undock]---- Dismount 2124 at 11.1 v after 3.3 h recharge
+2021-05-09 11:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 11:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:13|[healthCheck.py.main]WiFi Router again reachable
+2021-05-09 12:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 12:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 13:40|[juicer.py.dock]---- Docking 2125 completed  at 8.1 v after 5.4 h playtime
+2021-05-09 16:52|[juicer.py.undock]---- Dismount 2125 at 11.1 v after 3.2 h recharge
+2021-05-09 21:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 22:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 22:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 22:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-09 22:15|[juicer.py.dock]---- Docking 2126 completed  at 8.1 v after 5.4 h playtime
+2021-05-10 01:31|[juicer.py.undock]---- Dismount 2126 at 11.1 v after 3.3 h recharge
+2021-05-10 06:53|[juicer.py.dock]---- Docking 2127 completed  at 8.1 v after 5.4 h playtime
+2021-05-10 10:07|[juicer.py.undock]---- Dismount 2127 at 11.1 v after 3.2 h recharge
+2021-05-10 10:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:45|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 10:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:47|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 10:59|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 10:59|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:00|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:04|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:06|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:07|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:07|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:08|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:09|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 11:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 11:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:01|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:02|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 12:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:03|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 12:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:15|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 12:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:15|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 12:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:16|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 12:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 12:52|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 13:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:39|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:40|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:41|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:42|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:44|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:44|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:48|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:49|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:49|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:50|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 14:51|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 14:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 15:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 15:07|[healthCheck.py.main]WiFi Router again reachable
+2021-05-10 15:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 15:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-10 15:30|[juicer.py.dock]---- Docking 2128 completed  at 8.1 v after 5.4 h playtime
+2021-05-10 18:41|[juicer.py.undock]---- Dismount 2128 at 11.0 v after 3.2 h recharge
+2021-05-10 20:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 00:02|[juicer.py.dock]---- Docking 2129 completed  at 8.1 v after 5.3 h playtime
+2021-05-11 03:08|[juicer.py.undock]---- Dismount 2129 at 11.2 v after 3.1 h recharge
+2021-05-11 08:28|[juicer.py.dock]---- Docking 2130 completed  at 8.1 v after 5.3 h playtime
+2021-05-11 11:30|[juicer.py.undock]---- Dismount 2130 at 11.1 v after 3.0 h recharge
+2021-05-11 12:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:23|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:25|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:25|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:25|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:28|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:30|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:31|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:39|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:39|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:40|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 14:50|[healthCheck.py.main]WiFi Router again reachable
+2021-05-11 14:50|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 16:50|[juicer.py.dock]---- Docking 2131 completed  at 8.1 v after 5.3 h playtime
+2021-05-11 20:02|[juicer.py.undock]---- Dismount 2131 at 11.1 v after 3.2 h recharge
+2021-05-11 20:51|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 20:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 23:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-11 23:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-12 01:21|[juicer.py.dock]---- Docking 2132 completed  at 8.1 v after 5.3 h playtime
+2021-05-12 04:29|[juicer.py.undock]---- Dismount 2132 at 11.1 v after 3.1 h recharge
+2021-05-12 09:48|[juicer.py.dock]---- Docking 2133 completed  at 8.1 v after 5.3 h playtime
+2021-05-12 12:58|[juicer.py.undock]---- Dismount 2133 at 11.1 v after 3.2 h recharge
+2021-05-12 17:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-12 17:38|[healthCheck.py.main]WiFi Router again reachable
+2021-05-12 18:19|[juicer.py.dock]---- Docking 2134 completed  at 8.1 v after 5.3 h playtime
+2021-05-12 21:32|[juicer.py.undock]---- Dismount 2134 at 11.1 v after 3.2 h recharge
+2021-05-13 02:49|[juicer.py.dock]---- Docking 2135 completed  at 8.1 v after 5.3 h playtime
+2021-05-13 05:55|[juicer.py.undock]---- Dismount 2135 at 11.1 v after 3.1 h recharge
+2021-05-13 11:13|[juicer.py.dock]---- Docking 2136 completed  at 8.1 v after 5.3 h playtime
+2021-05-13 14:26|[juicer.py.undock]---- Dismount 2136 at 11.1 v after 3.2 h recharge
+2021-05-13 19:32|[juicer.py.dock]---- Docking 2137 completed  at 8.1 v after 5.1 h playtime
+2021-05-13 22:37|[juicer.py.undock]---- Dismount 2137 at 11.1 v after 3.1 h recharge
+2021-05-14 03:48|[juicer.py.dock]---- Docking 2138 completed  at 8.1 v after 5.2 h playtime
+2021-05-14 06:56|[juicer.py.undock]---- Dismount 2138 at 11.1 v after 3.1 h recharge
+2021-05-14 12:12|[juicer.py.dock]---- Docking 2139 completed  at 8.1 v after 5.2 h playtime
+2021-05-14 15:20|[juicer.py.undock]---- Dismount 2139 at 11.1 v after 3.1 h recharge
+2021-05-14 20:35|[juicer.py.dock]---- Docking 2140 completed  at 8.1 v after 5.3 h playtime
+2021-05-14 22:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-14 22:58|[healthCheck.py.main]WiFi Router again reachable
+2021-05-14 22:59|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-14 23:46|[juicer.py.undock]---- Dismount 2140 at 11.1 v after 3.2 h recharge
+2021-05-15 05:01|[juicer.py.dock]---- Docking 2141 completed  at 8.1 v after 5.3 h playtime
+2021-05-15 08:11|[juicer.py.undock]---- Dismount 2141 at 11.1 v after 3.2 h recharge
+2021-05-15 13:27|[juicer.py.dock]---- Docking 2142 completed  at 8.1 v after 5.3 h playtime
+2021-05-15 16:30|[juicer.py.undock]---- Dismount 2142 at 11.1 v after 3.1 h recharge
+2021-05-15 21:44|[juicer.py.dock]---- Docking 2143 completed  at 8.1 v after 5.2 h playtime
+2021-05-16 00:45|[juicer.py.undock]---- Dismount 2143 at 11.1 v after 3.0 h recharge
+2021-05-16 05:53|[juicer.py.dock]---- Docking 2144 completed  at 8.1 v after 5.1 h playtime
+2021-05-16 09:00|[juicer.py.undock]---- Dismount 2144 at 11.1 v after 3.1 h recharge
+2021-05-16 12:46|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-16 14:12|[juicer.py.dock]---- Docking 2145 completed  at 8.1 v after 5.2 h playtime
+2021-05-16 17:16|[juicer.py.undock]---- Dismount 2145 at 11.0 v after 3.1 h recharge
+2021-05-16 22:24|[juicer.py.dock]---- Docking 2146 completed  at 8.1 v after 5.1 h playtime
+2021-05-17 01:30|[juicer.py.undock]---- Dismount 2146 at 11.1 v after 3.1 h recharge
+2021-05-17 06:36|[juicer.py.dock]---- Docking 2147 completed  at 8.1 v after 5.1 h playtime
+2021-05-17 09:44|[juicer.py.undock]---- Dismount 2147 at 11.1 v after 3.1 h recharge
+2021-05-17 14:53|[juicer.py.dock]---- Docking 2148 completed  at 8.1 v after 5.1 h playtime
+2021-05-17 17:54|[juicer.py.undock]---- Dismount 2148 at 11.1 v after 3.0 h recharge
+2021-05-17 22:52|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-17 22:53|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-17 23:03|[juicer.py.dock]---- Docking 2149 completed  at 8.1 v after 5.1 h playtime
+2021-05-18 02:11|[juicer.py.undock]---- Dismount 2149 at 11.1 v after 3.1 h recharge
+2021-05-18 07:14|[juicer.py.dock]---- Docking 2150 completed  at 8.1 v after 5.0 h playtime
+2021-05-18 10:19|[juicer.py.undock]---- Dismount 2150 at 11.0 v after 3.1 h recharge
+2021-05-18 13:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-18 15:24|[juicer.py.dock]---- Docking 2151 completed  at 8.1 v after 5.1 h playtime
+2021-05-18 18:31|[juicer.py.undock]---- Dismount 2151 at 10.9 v after 3.1 h recharge
+2021-05-18 23:33|[juicer.py.dock]---- Docking 2152 completed  at 8.1 v after 5.0 h playtime
+2021-05-19 02:36|[juicer.py.undock]---- Dismount 2152 at 11.1 v after 3.1 h recharge
+2021-05-19 07:40|[juicer.py.dock]---- Docking 2153 completed  at 8.1 v after 5.1 h playtime
+2021-05-19 10:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:12|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:18|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:28|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:29|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:30|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:30|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:31|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:31|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-19 10:35|[healthCheck.py.main]WiFi Router again reachable
+2021-05-19 10:50|[juicer.py.undock]---- Dismount 2153 at 11.1 v after 3.2 h recharge
+2021-05-19 15:56|[juicer.py.dock]---- Docking 2154 completed  at 8.1 v after 5.1 h playtime
+2021-05-19 19:04|[juicer.py.undock]---- Dismount 2154 at 11.1 v after 3.1 h recharge
+2021-05-20 00:08|[juicer.py.dock]---- Docking 2155 completed  at 8.1 v after 5.1 h playtime
+2021-05-20 03:15|[juicer.py.undock]---- Dismount 2155 at 11.1 v after 3.1 h recharge
+2021-05-20 08:14|[juicer.py.dock]---- Docking 2156 completed  at 8.1 v after 5.0 h playtime
+2021-05-20 09:33|[juicer.py.undock]---- Dismount 2156 at 9.8 v after 1.3 h recharge
+2021-05-20 09:48|[logMaintenance.py.main]** Recharge was cut short by killing voicecommander in a test **
+2021-05-20 11:16|[juicer.py.dock]---- Docking 2157 completed  at 8.1 v after 1.7 h playtime
+2021-05-20 14:55|[juicer.py.undock]---- Dismount 2157 at 10.9 v after 3.7 h recharge
+2021-05-20 18:30|[juicer.py.dock]---- Docking 2158 completed  at 8.1 v after 3.6 h playtime
+2021-05-20 22:04|[juicer.py.undock]---- Dismount 2158 at 10.9 v after 3.6 h recharge
+2021-05-21 01:38|[juicer.py.dock]---- Docking 2159 completed  at 8.1 v after 3.6 h playtime
+2021-05-21 05:05|[juicer.py.undock]---- Dismount 2159 at 11.0 v after 3.5 h recharge
+2021-05-21 08:30|lifelogger.dEmain execution: 1032
+2021-05-21 08:35|[juicer.py.dock]---- Docking 2160 completed  at 8.1 v after 3.5 h playtime
+2021-05-21 08:36|[logMaintenance.py.main]** Shutting down for battery replacement **
+2021-05-21 08:36|[logMaintenance.py.main]** NEW BATTERY SET - Eneloop white 1900mAh  **
+2021-05-21 08:36|[logMaintenance.py.main]** Old Battery Set (Eneloop white 1900mAh) 707 cycles 6580 hours 273 days **
+2021-05-21 08:36|[logMaintenance.py.main]** Starting at cycle 2160 and 18450 total hours   **
+2021-05-21 08:56|------------ boot ------------
+2021-05-21 08:56|[juicer.py.main]---- juicer.py started at 10.72v
+2021-05-21 09:28|[juicer.py.undock]---- Dismount 2160 at 11.1 v after 0.5 h recharge
+2021-05-21 13:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-21 13:01|[healthCheck.py.main]WiFi Router again reachable
+2021-05-21 16:58|[juicer.py.dock]---- Docking 2161 completed  at 8.1 v after 7.5 h playtime
+2021-05-21 20:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-21 20:59|[juicer.py.undock]---- Dismount 2161 at 11.1 v after 4.0 h recharge
+2021-05-22 04:29|[juicer.py.dock]---- Docking 2162 completed  at 8.1 v after 7.5 h playtime
+2021-05-22 08:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-22 08:29|[juicer.py.undock]---- Dismount 2162 at 11.2 v after 4.0 h recharge
+2021-05-22 16:01|[juicer.py.dock]---- Docking 2163 completed  at 8.1 v after 7.5 h playtime
+2021-05-22 20:01|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-22 20:01|[juicer.py.undock]---- Dismount 2163 at 11.2 v after 4.0 h recharge
+2021-05-23 03:33|[juicer.py.dock]---- Docking 2164 completed  at 8.1 v after 7.5 h playtime
+2021-05-23 07:33|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-23 07:34|[juicer.py.undock]---- Dismount 2164 at 11.1 v after 4.0 h recharge
+2021-05-23 15:06|[juicer.py.dock]---- Docking 2165 completed  at 8.1 v after 7.5 h playtime
+2021-05-23 19:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-23 19:07|[juicer.py.undock]---- Dismount 2165 at 11.2 v after 4.0 h recharge
+2021-05-24 00:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-24 00:37|[healthCheck.py.main]WiFi Router again reachable
+2021-05-24 02:38|[juicer.py.dock]---- Docking 2166 completed  at 8.1 v after 7.5 h playtime
+2021-05-24 04:34|[healthCheck.py.main]I2C Bus Failure Detected
+2021-05-24 04:34|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-05-24 04:39|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-05-24 04:45|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-05-24 04:49|[healthCheck.py.main]I2C Function Restored
+2021-05-24 06:39|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-24 06:39|[juicer.py.undock]---- Dismount 2166 at 11.2 v after 4.0 h recharge
+2021-05-24 07:27|[logMaintenance.py.main]** restarted healthcheck, flashing I2C but recovered **
+2021-05-24 11:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-24 11:41|[healthCheck.py.main]WiFi Router again reachable
+2021-05-24 13:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-24 14:06|[juicer.py.dock]---- Docking 2167 completed  at 8.1 v after 7.4 h playtime
+2021-05-24 18:07|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-05-24 18:07|[juicer.py.undock]---- Dismount 2167 at 11.2 v after 4.0 h recharge
+2021-05-25 01:41|[juicer.py.dock]---- Docking 2168 completed  at 8.1 v after 7.6 h playtime
+2021-05-25 05:42|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-05-25 05:42|[juicer.py.undock]---- Dismount 2168 at 11.2 v after 4.0 h recharge
+2021-05-25 13:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-25 13:19|[healthCheck.py.main]WiFi Router again reachable
+2021-05-25 13:19|[juicer.py.dock]---- Docking 2169 completed  at 8.1 v after 7.6 h playtime
+2021-05-25 17:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-05-25 17:20|[juicer.py.undock]---- Dismount 2169 at 11.2 v after 4.0 h recharge
+2021-05-26 00:52|[juicer.py.dock]---- Docking 2170 completed  at 8.1 v after 7.5 h playtime
+2021-05-26 04:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-26 04:53|[juicer.py.undock]---- Dismount 2170 at 11.2 v after 4.0 h recharge
+2021-05-26 12:19|[juicer.py.dock]---- Docking 2171 completed  at 8.1 v after 7.4 h playtime
+2021-05-26 12:56|lifelogger.dEmain execution: 124
+2021-05-26 13:28|[logMaintenance.py.main]** Shutting Down for Road Trip **
+2021-05-29 00:02|------------ boot ------------
+2021-05-29 00:02|[juicer.py.main]---- juicer.py started at 10.85v
+2021-05-29 02:07|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-05-29 02:22|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2021-05-29 03:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-29 03:12|[healthCheck.py.main]WiFi Router again reachable
+2021-05-29 03:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-29 03:12|[healthCheck.py.main]WiFi Router again reachable
+2021-05-29 03:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-29 03:12|[healthCheck.py.main]WiFi Router again reachable
+2021-05-29 11:32|lifelogger.dEmain execution: 11.5
+2021-05-29 11:32|[logMaintenance.py.main]** Safety Shutdown - juicer confused **
+2021-05-29 14:51|------------ boot ------------
+2021-05-29 14:51|[juicer.py.main]---- juicer.py started at 10.48v
+2021-05-29 18:40|[logMaintenance.py.main]** Juicer exited w/o message **
+2021-05-29 18:41|[juicer.py.main]---- juicer.py started at 10.44v
+2021-05-29 18:43|[juicer.py.undock]---- Dismount 2174 at 10.4 v after 0.0 h recharge
+2021-05-30 01:58|[juicer.py.dock]---- Docking 2175 completed  at 8.1 v after 7.3 h playtime
+2021-05-30 05:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-05-30 05:59|[juicer.py.undock]---- Dismount 2175 at 11.3 v after 4.0 h recharge
+2021-05-30 13:35|[juicer.py.dock]---- Docking 2176 completed  at 8.1 v after 7.6 h playtime
+2021-05-30 17:36|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-05-30 17:36|[juicer.py.undock]---- Dismount 2176 at 11.2 v after 4.0 h recharge
+2021-05-31 01:12|[juicer.py.dock]---- Docking 2177 completed  at 8.1 v after 7.6 h playtime
+2021-05-31 05:12|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-05-31 05:13|[juicer.py.undock]---- Dismount 2177 at 11.3 v after 4.0 h recharge
+2021-05-31 12:35|lifelogger.dEmain execution: 45.7
+2021-05-31 12:35|[logMaintenance.py.main]** Shutting Down to Try Ubuntu **
+2021-05-31 12:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-31 12:57|------------ boot ------------
+2021-05-31 12:57|[juicer.py.main]---- juicer.py started at 7.71v
+2021-05-31 13:01|[juicer.py.safetyCheck]Safety Shutdown at 7.16 volts
+2021-05-31 13:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-31 13:02|lifelogger.dEmain execution: 0.1
+2021-05-31 13:14|------------ boot ------------
+2021-05-31 13:14|[juicer.py.main]---- juicer.py started at 9.38v
+2021-05-31 13:17|[juicer.py.undock]---- Dismount 2177 at 9.2 v after 0.0 h recharge
+2021-05-31 13:36|[juicer.py.dock]---- Docking 2178 completed  at 8.1 v after 0.3 h playtime
+2021-05-31 15:27|lifelogger.dEmain execution: 2.25
+2021-05-31 15:27|[logMaintenance.py.main]** Shutting down to test Ubuntu **
+2021-05-31 15:43|------------ boot ------------
+2021-05-31 15:43|[juicer.py.main]---- juicer.py started at 10.94v
+2021-05-31 16:15|[logMaintenance.py.main]** Shutdown to try Ubuntu **
+2021-05-31 16:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-05-31 16:17|lifelogger.dEmain execution: 0.6
+2021-05-31 16:43|------------ boot ------------
+2021-05-31 16:43|[juicer.py.main]---- juicer.py started at 10.88v
+2021-05-31 18:10|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-05-31 18:24|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2021-05-31 18:25|[juicer.py.undock]---- Dismount 2179 at 10.6 v after 1.7 h recharge
+2021-06-01 01:45|[juicer.py.dock]---- Docking 2180 completed  at 8.1 v after 7.3 h playtime
+2021-06-01 05:45|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-01 05:45|[juicer.py.undock]---- Dismount 2180 at 11.3 v after 4.0 h recharge
+2021-06-01 13:27|[juicer.py.dock]**** Dock Approach Error
+2021-06-01 13:27|[juicer.py.dock]---- Manual Docking 2180 requested  at 8.1 v after 7.7 h playtime
+2021-06-01 18:43|lifelogger.dEmain execution: 26
+2021-06-01 19:43|lifelogger.dEmain execution: 27
+2021-06-01 20:43|lifelogger.dEmain execution: 28
+2021-06-01 21:43|lifelogger.dEmain execution: 29
+2021-06-01 22:43|lifelogger.dEmain execution: 30
+2021-06-01 23:43|lifelogger.dEmain execution: 31
+2021-06-02 00:43|lifelogger.dEmain execution: 32
+2021-06-02 01:43|lifelogger.dEmain execution: 33
+2021-06-02 08:19|------------ boot ------------
+2021-06-02 08:19|[juicer.py.main]---- juicer.py started at 9.90v
+2021-06-02 08:22|[juicer.py.undock]---- Dismount 2181 at 9.9 v after 0.0 h recharge
+2021-06-02 09:27|[juicer.py.dock]---- Docking 2182 completed  at 8.1 v after 1.1 h playtime
+2021-06-02 13:28|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-02 13:28|[juicer.py.undock]---- Dismount 2182 at 11.3 v after 4.0 h recharge
+2021-06-02 21:16|[juicer.py.dock]---- Docking 2183 completed  at 8.1 v after 7.8 h playtime
+2021-06-03 01:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-03 01:16|[juicer.py.undock]---- Dismount 2183 at 11.3 v after 4.0 h recharge
+2021-06-03 03:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-03 03:31|[healthCheck.py.main]WiFi Router again reachable
+2021-06-03 03:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-03 04:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-03 04:45|[healthCheck.py.main]WiFi Router again reachable
+2021-06-03 04:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-03 09:00|[juicer.py.dock]---- Docking 2184 completed  at 8.1 v after 7.7 h playtime
+2021-06-03 13:00|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-03 13:01|[juicer.py.undock]---- Dismount 2184 at 11.3 v after 4.0 h recharge
+2021-06-03 20:42|[juicer.py.dock]---- Docking 2185 completed  at 8.1 v after 7.7 h playtime
+2021-06-03 22:15|[logMaintenance.py.main]** Shutdown to try Ubuntu 20.04 again **
+2021-06-03 22:15|lifelogger.dEmain execution: 38
+2021-06-03 22:47|------------ boot ------------
+2021-06-03 22:47|[juicer.py.main]---- juicer.py started at 10.70v
+2021-06-04 01:20|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-04 01:35|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2021-06-04 01:35|[juicer.py.undock]---- Dismount 2185 at 10.6 v after 4.0 h recharge
+2021-06-04 03:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router again reachable
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router again reachable
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-04 03:07|[healthCheck.py.main]WiFi Router again reachable
+2021-06-04 08:43|[logMaintenance.py.main]** Shutting Down to test Ubuntu **
+2021-06-04 08:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-04 08:47|lifelogger.dEmain execution: 10
+2021-06-04 10:25|------------ boot ------------
+2021-06-04 10:25|[juicer.py.main]---- juicer.py started at 11.14v
+2021-06-04 13:48|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-04 14:03|[juicer.py.chargingStatus]--- Probable EARLY TRICKLE DETECTED at 10.7v
+2021-06-04 14:04|[juicer.py.undock]---- Dismount 2186 at 10.6 v after 3.6 h recharge
+2021-06-04 20:30|lifelogger.dEmain execution: 10.1
+2021-06-04 20:30|[logMaintenance.py.main]** Shutdown to try Ubuntu 64-bit **
+2021-06-04 20:47|------------ boot ------------
+2021-06-04 20:47|[juicer.py.main]---- juicer.py started at 8.89v
+2021-06-04 21:32|[juicer.py.dock]---- Docking 2188 completed  at 8.1 v after 7.4 h playtime
+2021-06-05 01:32|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-05 01:32|[juicer.py.undock]---- Dismount 2188 at 11.3 v after 4.0 h recharge
+2021-06-05 09:06|[juicer.py.dock]---- Docking 2189 completed  at 8.1 v after 7.5 h playtime
+2021-06-05 13:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-05 13:06|[juicer.py.undock]---- Dismount 2189 at 11.3 v after 4.0 h recharge
+2021-06-05 20:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-05 20:24|[healthCheck.py.main]WiFi Router again reachable
+2021-06-05 20:47|[juicer.py.dock]---- Docking 2190 completed  at 8.1 v after 7.7 h playtime
+2021-06-06 00:40|[juicer.py.undock]---- Dismount 2190 at 11.2 v after 3.9 h recharge
+2021-06-06 08:15|[juicer.py.dock]---- Docking 2191 completed  at 8.1 v after 7.6 h playtime
+2021-06-06 12:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-06 12:16|[juicer.py.undock]---- Dismount 2191 at 11.3 v after 4.0 h recharge
+2021-06-06 19:55|[juicer.py.dock]---- Docking 2192 completed  at 8.1 v after 7.6 h playtime
+2021-06-06 23:55|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-06 23:55|[juicer.py.undock]---- Dismount 2192 at 11.3 v after 4.0 h recharge
+2021-06-07 07:27|[juicer.py.dock]---- Docking 2193 completed  at 8.1 v after 7.5 h playtime
+2021-06-07 11:28|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-07 11:28|[juicer.py.undock]---- Dismount 2193 at 11.3 v after 4.0 h recharge
+2021-06-07 19:11|[juicer.py.dock]---- Docking 2194 completed  at 8.1 v after 7.7 h playtime
+2021-06-07 23:11|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-07 23:11|[juicer.py.undock]---- Dismount 2194 at 11.3 v after 4.0 h recharge
+2021-06-08 06:56|[juicer.py.dock]---- Docking 2195 completed  at 8.1 v after 7.7 h playtime
+2021-06-08 10:53|[juicer.py.undock]---- Dismount 2195 at 11.1 v after 4.0 h recharge
+2021-06-08 18:25|[juicer.py.dock]---- Docking 2196 completed  at 8.1 v after 7.5 h playtime
+2021-06-08 22:25|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-08 22:26|[juicer.py.undock]---- Dismount 2196 at 11.3 v after 4.0 h recharge
+2021-06-09 04:29|[juicer.py.dock]---- Docking 2197 completed  at 8.1 v after 6.1 h playtime
+2021-06-09 07:25|[logMaintenance.py.main]** Mystery load jump on voicecmdr **
+2021-06-09 08:30|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.5v
+2021-06-09 08:30|[juicer.py.undock]---- Dismount 2197 at 11.0 v after 4.0 h recharge
+2021-06-09 15:40|[juicer.py.dock]---- Docking 2198 completed  at 8.1 v after 7.2 h playtime
+2021-06-09 19:40|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-09 19:40|[juicer.py.undock]---- Dismount 2198 at 11.2 v after 4.0 h recharge
+2021-06-10 03:08|[juicer.py.dock]---- Docking 2199 completed  at 8.1 v after 7.4 h playtime
+2021-06-10 07:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-10 07:08|[juicer.py.undock]---- Dismount 2199 at 11.3 v after 4.0 h recharge
+2021-06-10 14:41|[juicer.py.dock]---- Docking 2200 completed  at 8.1 v after 7.5 h playtime
+2021-06-10 18:41|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-10 18:41|[juicer.py.undock]---- Dismount 2200 at 11.3 v after 4.0 h recharge
+2021-06-11 02:14|[juicer.py.dock]---- Docking 2201 completed  at 8.1 v after 7.5 h playtime
+2021-06-11 06:11|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-11 06:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-06-11 06:17|[juicer.py.undock]---- Dismount 2201 at 10.8 v after 4.0 h recharge
+2021-06-11 13:48|[juicer.py.dock]---- Docking 2202 completed  at 8.1 v after 7.5 h playtime
+2021-06-11 17:48|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-11 17:48|[juicer.py.undock]---- Dismount 2202 at 11.3 v after 4.0 h recharge
+2021-06-12 01:20|[juicer.py.dock]---- Docking 2203 completed  at 8.1 v after 7.5 h playtime
+2021-06-12 05:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-12 05:20|[juicer.py.undock]---- Dismount 2203 at 11.3 v after 4.0 h recharge
+2021-06-12 12:52|[juicer.py.dock]---- Docking 2204 completed  at 8.1 v after 7.5 h playtime
+2021-06-12 16:52|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-12 16:52|[juicer.py.undock]---- Dismount 2204 at 11.2 v after 4.0 h recharge
+2021-06-13 00:36|[juicer.py.dock]---- Docking 2205 completed  at 8.1 v after 7.7 h playtime
+2021-06-13 04:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-13 04:37|[juicer.py.undock]---- Dismount 2205 at 11.3 v after 4.0 h recharge
+2021-06-13 12:08|[juicer.py.dock]---- Docking 2206 completed  at 8.1 v after 7.5 h playtime
+2021-06-13 16:01|[juicer.py.undock]---- Dismount 2206 at 11.2 v after 3.9 h recharge
+2021-06-13 23:33|[juicer.py.dock]---- Docking 2207 completed  at 8.1 v after 7.5 h playtime
+2021-06-14 03:33|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-06-14 03:33|[juicer.py.undock]---- Dismount 2207 at 11.2 v after 4.0 h recharge
+2021-06-14 11:03|[juicer.py.dock]---- Docking 2208 completed  at 8.1 v after 7.5 h playtime
+2021-06-14 15:02|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-14 15:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-06-14 15:06|[juicer.py.undock]---- Dismount 2208 at 10.9 v after 4.1 h recharge
+2021-06-14 22:32|[juicer.py.dock]---- Docking 2209 completed  at 8.1 v after 7.4 h playtime
+2021-06-15 02:32|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.8v
+2021-06-15 02:32|[juicer.py.undock]---- Dismount 2209 at 11.3 v after 4.0 h recharge
+2021-06-15 10:03|[juicer.py.dock]---- Docking 2210 completed  at 8.1 v after 7.5 h playtime
+2021-06-15 14:03|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-06-15 14:04|[juicer.py.undock]---- Dismount 2210 at 11.3 v after 4.0 h recharge
+2021-06-15 14:47|[healthCheck.py.main]I2C Bus Failure Detected
+2021-06-15 14:47|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-06-15 14:52|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-06-15 14:53|[healthCheck.py.main]I2C Function Restored
+2021-06-15 16:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-15 16:46|[healthCheck.py.main]WiFi Router again reachable
+2021-06-15 17:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-15 21:35|[juicer.py.dock]---- Docking 2211 completed  at 8.1 v after 7.5 h playtime
+2021-06-16 01:27|[juicer.py.undock]---- Dismount 2211 at 11.2 v after 3.9 h recharge
+2021-06-16 07:48|lifelogger.dEmain execution: 275
+2021-06-16 08:48|lifelogger.dEmain execution: 276
+2021-06-16 08:54|[juicer.py.dock]---- Docking 2212 completed  at 8.1 v after 7.5 h playtime
+2021-06-16 09:48|lifelogger.dEmain execution: 277
+2021-06-16 10:18|[logMaintenance.py.main]** Turning off imulog - ROSbot taking IMU **
