@@ -72,14 +72,19 @@ eyes.EYE_COLOR_OFF         = ( 0, 0,  0)    # OFF
 @runLog.logRun
 @voiceLog.logRun
 def main():
+	print("\n==== VOICE COMMANDER ====")
+	voiceLog.entry("==== VOICE COMMANDER ====")
+
 	# Using plib version of easygopigo3 to get noinit feature
 	egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 	egpg.tp = tiltpan.TiltPan(egpg)
 	egpg.ds = egpg.init_distance_sensor("RPI_1")  # HW I2C
-	egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True)
-
-	print("\n==== VOICE COMMANDER ====")
-	voiceLog.entry("==== VOICE COMMANDER ====")
+	try:
+		egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True)
+	except:
+		print("No IMU")
+		voiceLog.entry("No IMU")
+		egpg.imu = None
 
 	cmd_mode = True
 	verbose = True
@@ -110,6 +115,7 @@ def main():
 				msg = "Listening For A Command"
 				print(msg)
 				voiceLog.entry(msg)
+				speak.whisper("Hi",anytime=True)
 				eyes.carl_eyes(egpg,eyes.EYE_COLOR_COMMANDABLE)
 				vcommand.reset_turn_start()
 				try:
