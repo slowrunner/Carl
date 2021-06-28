@@ -16228,3 +16228,1262 @@
 2021-06-16 08:09:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
 2021-06-16 08:09:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
 2021-06-16 08:09:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 12:27:16|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 12:27:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 12:27:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 12:27:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:12:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:12:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:12:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] no four) 
+2021-06-16 16:12:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:12:37|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:12:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:12:43|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 16:12:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:29:06|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:29:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:29:13|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(language know) 
+2021-06-16 16:29:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:32:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:32:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:32:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(you) 
+2021-06-16 16:32:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:33:27|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:33:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:33:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 16:33:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:34:05|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:34:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:34:11|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(right like sleep loading) 
+2021-06-16 16:34:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:34:15|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:34:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:34:18|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-16 16:34:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:34:46|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:34:46|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:34:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i) 
+2021-06-16 16:34:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:35:50|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:35:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:35:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(boot) 
+2021-06-16 16:35:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:42:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:42:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:42:28|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(one) 
+2021-06-16 16:42:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:47:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:47:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:48:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] [unk] center twenty [unk]) 
+2021-06-16 16:48:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 16:52:16|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 16:52:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 16:52:18|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(no) 
+2021-06-16 16:52:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 19:48:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 19:48:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 19:48:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 19:48:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 20:37:30|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 20:37:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 20:37:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(drive) 
+2021-06-16 20:37:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 20:40:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 20:40:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 20:40:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 20:40:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 20:50:16|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 20:50:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 20:50:22|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 20:50:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 20:52:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 20:52:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 20:52:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 20:52:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 21:00:55|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 21:00:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 21:01:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 21:01:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 21:12:41|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 21:12:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 21:12:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-16 21:12:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 21:25:00|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 21:25:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 21:25:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(list) 
+2021-06-16 21:25:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 22:20:44|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 22:20:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 22:20:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(mode the) 
+2021-06-16 22:20:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 22:51:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 22:51:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 22:51:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(you no reading in centimeters) 
+2021-06-16 22:51:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 22:56:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 22:56:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 22:57:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(know) 
+2021-06-16 22:57:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 23:38:13|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 23:38:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 23:38:19|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] yes like long recharge status) 
+2021-06-16 23:38:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 23:39:25|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 23:39:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 23:39:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] now commands five you sensor go to of in five inches i forward) 
+2021-06-16 23:39:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 23:46:50|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 23:46:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 23:46:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes stop status counter the around sixty ninety to around state left you sensor hundred) 
+2021-06-16 23:46:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 23:48:04|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 23:48:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 23:48:08|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] list) 
+2021-06-16 23:48:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-16 23:52:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-16 23:52:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-16 23:52:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-16 23:52:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 12:22:33|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 12:22:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 12:22:39|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] [unk]) 
+2021-06-17 12:22:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 12:23:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 12:23:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 12:23:30|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] [unk]) 
+2021-06-17 12:23:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 12:26:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 12:26:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 12:26:43|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(commands) 
+2021-06-17 12:26:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 12:26:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 12:26:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 12:26:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five time) 
+2021-06-17 12:26:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:38:13|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:38:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:38:19|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 13:38:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:39:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:39:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:39:23|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-17 13:39:23|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:39:35|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:39:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:39:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 13:39:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:51:57|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:51:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:52:03|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 13:52:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:52:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:52:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:52:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes center of counter twenty now) 
+2021-06-17 13:52:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 13:59:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 13:59:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 13:59:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 13:59:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 15:05:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 15:05:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 15:05:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 15:05:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 16:18:43|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 16:18:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 16:18:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i dont know twenty four) 
+2021-06-17 16:18:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 17:36:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 17:36:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 17:36:30|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 17:36:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 20:15:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 20:15:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 20:15:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 20:15:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 20:28:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 20:28:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 20:29:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(sensor reading in) 
+2021-06-17 20:29:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 20:36:44|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 20:36:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 20:36:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 20:36:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 20:56:22|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 20:56:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 20:56:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(be quiet) 
+2021-06-17 20:56:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 20:59:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 20:59:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 20:59:28|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(command mode) 
+2021-06-17 20:59:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 21:20:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 21:20:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 21:20:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(voice five ninety) 
+2021-06-17 21:20:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 21:34:44|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 21:34:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 21:34:48|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(since ninety status) 
+2021-06-17 21:34:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-17 23:01:51|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-17 23:01:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-17 23:01:57|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-17 23:01:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 07:50:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 07:50:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 07:51:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 07:51:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 07:51:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 07:51:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 07:51:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 07:51:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 10:25:41|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 10:25:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 10:25:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 10:25:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 10:26:05|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 10:26:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 10:26:11|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 10:26:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 10:26:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 10:26:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 10:26:48|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(talk now) 
+2021-06-18 10:26:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 11:36:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 11:36:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 11:36:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(wake up) 
+2021-06-18 11:36:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 11:36:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 11:36:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 11:36:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(forecast) 
+2021-06-18 11:36:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 11:37:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 11:37:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 11:37:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(weather [unk]) 
+2021-06-18 11:37:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 11:37:23|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 11:37:23|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 11:37:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(go to sleep) 
+2021-06-18 11:37:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 11:41:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 11:41:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 11:41:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] time memory one go to the) 
+2021-06-18 11:41:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 13:24:50|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 13:24:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 13:24:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(center) 
+2021-06-18 13:24:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 13:45:41|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 13:45:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 13:45:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] you negative the [unk]) 
+2021-06-18 13:45:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 14:37:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 14:37:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 14:37:52|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i) 
+2021-06-18 14:37:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 14:38:34|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 14:38:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 14:38:38|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(new language quiet) 
+2021-06-18 14:38:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 14:38:54|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 14:38:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 14:39:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(long quiet) 
+2021-06-18 14:39:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 14:45:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 14:45:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 14:45:54|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 14:45:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 14:50:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 14:50:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 14:50:38|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 14:50:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 15:12:41|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 15:12:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 15:12:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 15:12:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 15:15:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 15:15:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 15:16:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(no) 
+2021-06-18 15:16:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 15:16:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 15:16:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 15:17:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 15:17:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 15:20:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 15:20:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 15:21:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] quiet natural around) 
+2021-06-18 15:21:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 16:07:07|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 16:07:07|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 16:07:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes pan since voice) 
+2021-06-18 16:07:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 17:54:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 17:54:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 17:55:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 17:55:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 17:55:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 17:55:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 17:55:29|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 17:55:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 20:12:33|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 20:12:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 20:12:39|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 20:12:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 20:22:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 20:22:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 20:22:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 20:22:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 21:33:09|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 21:33:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 21:33:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(batteries) 
+2021-06-18 21:33:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 21:36:57|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 21:36:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 21:37:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(batteries) 
+2021-06-18 21:37:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 21:50:17|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 21:50:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 21:50:22|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 21:50:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 22:15:20|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 22:15:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 22:15:22|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(since) 
+2021-06-18 22:15:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 22:15:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 22:15:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 22:15:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(one you can [unk]) 
+2021-06-18 22:15:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 22:42:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 22:42:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 22:43:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-18 22:43:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-18 23:07:23|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-18 23:07:23|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-18 23:07:28|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] look i no) 
+2021-06-18 23:07:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 09:44:15|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 09:44:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 09:44:17|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five now) 
+2021-06-19 09:44:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 09:44:34|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 09:44:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 09:44:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(thirty be no) 
+2021-06-19 09:44:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 10:29:55|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 10:29:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 10:30:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] down drive i dont know [unk]) 
+2021-06-19 10:30:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 10:32:01|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 10:32:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 10:32:06|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-19 10:32:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 13:06:47|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 13:06:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 13:06:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(level reading in [unk]) 
+2021-06-19 13:06:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 14:53:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 14:53:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 14:53:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(inches [unk]) 
+2021-06-19 14:53:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 15:55:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 15:55:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 15:55:09|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-19 15:55:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 16:31:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 16:31:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 16:31:51|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-19 16:31:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 17:04:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 17:04:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 17:04:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(hundred) 
+2021-06-19 17:04:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 20:56:06|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 20:56:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 20:56:11|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(voice) 
+2021-06-19 20:56:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 21:30:54|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 21:30:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 21:31:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-19 21:31:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:25:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:25:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:25:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(center) 
+2021-06-19 23:25:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:34:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:34:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:35:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-19 23:35:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:36:05|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:36:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:36:08|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(voice) 
+2021-06-19 23:36:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:37:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:37:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:37:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(counter) 
+2021-06-19 23:37:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:40:20|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:40:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:40:25|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(changed status whats the) 
+2021-06-19 23:40:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-19 23:46:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-19 23:46:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-19 23:46:34|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-19 23:46:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 12:41:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 12:41:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 12:41:51|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(wake up) 
+2021-06-20 12:41:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 12:41:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 12:41:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 12:42:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(weather) 
+2021-06-20 12:42:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 12:42:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 12:42:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 12:42:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(forecast) 
+2021-06-20 12:42:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 12:42:37|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 12:42:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 12:42:40|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(go to sleep) 
+2021-06-20 12:42:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 16:10:00|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 16:10:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 16:10:07|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(space) 
+2021-06-20 16:10:07|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 16:11:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 16:11:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 16:11:36|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-20 16:11:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 16:21:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 16:21:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 16:21:10|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] five ten [unk] know state reading inches) 
+2021-06-20 16:21:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 17:56:55|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 17:56:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 17:57:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-20 17:57:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 18:05:50|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 18:05:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 18:05:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-20 18:05:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 18:08:08|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 18:08:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 18:08:11|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] list) 
+2021-06-20 18:08:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 18:09:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 18:09:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 18:09:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(now) 
+2021-06-20 18:09:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 19:10:01|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 19:10:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 19:10:07|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i) 
+2021-06-20 19:10:07|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 21:31:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 21:31:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 21:31:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(now) 
+2021-06-20 21:31:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:30:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:30:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:30:09|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-20 22:30:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:30:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:30:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:30:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(no) 
+2021-06-20 22:30:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:40:50|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:40:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:40:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-20 22:40:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:42:06|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:42:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:42:10|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(time) 
+2021-06-20 22:42:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:48:43|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:48:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:48:46|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(one) 
+2021-06-20 22:48:46|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:56:02|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:56:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:56:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(thirty forty space) 
+2021-06-20 22:56:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 22:56:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 22:56:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 22:57:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(forty reading inches nod to level to space ten one voltage sensor in be memory of center temperature) 
+2021-06-20 22:57:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:03:02|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:03:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:03:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-20 23:03:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:03:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:03:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:03:17|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(playtime yes yes) 
+2021-06-20 23:03:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:10:51|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:10:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:10:58|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] left right new voice you yes) 
+2021-06-20 23:10:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:11:25|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:11:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:11:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] five six twelve sleep stop) 
+2021-06-20 23:11:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:26:51|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:26:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:26:57|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(sixty) 
+2021-06-20 23:26:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:34:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:34:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:34:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(four thirty like time yes forty of degrees new swap space) 
+2021-06-20 23:34:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:40:11|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:40:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:40:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(inches) 
+2021-06-20 23:40:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:46:41|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:46:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:46:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(sensor distance drive inches of center degrees degrees five up time) 
+2021-06-20 23:46:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-20 23:47:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-20 23:47:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-20 23:47:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five ten to) 
+2021-06-20 23:47:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 12:13:05|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 12:13:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 12:13:10|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] nod i) 
+2021-06-21 12:13:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 12:58:56|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 12:58:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 12:59:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five ninety to) 
+2021-06-21 12:59:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 13:05:35|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 13:05:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 13:05:38|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(right [unk]) 
+2021-06-21 13:05:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:18:34|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:18:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:18:39|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] inches) 
+2021-06-21 14:18:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:20:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:20:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:20:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] five stop) 
+2021-06-21 14:20:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:23:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:23:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:23:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:24:37|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:24:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:24:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:43:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:43:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:43:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 14:43:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:45:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:45:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:45:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(state) 
+2021-06-21 14:45:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 14:48:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 14:48:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 14:48:51|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(quiet forty) 
+2021-06-21 14:48:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 15:05:36|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 15:05:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 15:05:39|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five) 
+2021-06-21 15:05:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 16:06:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 16:06:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 16:06:09|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 16:06:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 16:09:08|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 16:09:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 16:09:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 16:09:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 18:43:02|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 18:43:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 18:43:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(the weather like [unk]) 
+2021-06-21 18:43:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 20:08:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 20:08:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 20:08:58|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(status) 
+2021-06-21 20:08:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 20:56:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 20:56:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 20:56:39|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(nod no) 
+2021-06-21 20:56:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:07:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:07:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:07:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:07:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:19:12|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:19:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:19:17|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(right six twelve) 
+2021-06-21 21:19:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:23:10|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:23:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:23:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(you) 
+2021-06-21 21:23:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:28:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:28:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:28:40|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five) 
+2021-06-21 21:28:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:32:35|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:32:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:32:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:32:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:35:33|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:35:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:35:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(forty i changed thirty forty be voltage) 
+2021-06-21 21:35:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:35:44|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:35:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:35:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(language mode) 
+2021-06-21 21:35:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:39:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:39:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:39:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:39:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:39:51|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:39:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:39:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:39:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:41:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:41:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:41:58|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:41:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:50:15|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:50:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:50:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:50:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:50:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:50:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:50:58|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-21 21:50:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 21:56:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 21:56:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 21:56:52|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(thirty thirty [unk]) 
+2021-06-21 21:56:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 22:34:23|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 22:34:23|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 22:34:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(center new reading new) 
+2021-06-21 22:34:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:03:47|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:03:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:03:52|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(sensor boot whats) 
+2021-06-21 23:03:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:10:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:10:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:11:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(like long four since boot like long to sleep) 
+2021-06-21 23:11:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:29:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:29:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:29:06|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(now) 
+2021-06-21 23:29:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:37:47|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:37:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:37:51|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-21 23:37:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:38:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:38:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:38:42|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(inches two six i be [unk]) 
+2021-06-21 23:38:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:45:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:45:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:45:36|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(centimeters one) 
+2021-06-21 23:45:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:46:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:46:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:46:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(time) 
+2021-06-21 23:46:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:46:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:46:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:46:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(thirty) 
+2021-06-21 23:46:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:46:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:46:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:46:42|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(turn around) 
+2021-06-21 23:46:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:47:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:47:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:47:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(status) 
+2021-06-21 23:47:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:47:34|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:47:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:47:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(center status) 
+2021-06-21 23:47:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-21 23:52:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-21 23:52:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-21 23:52:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-21 23:52:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 00:13:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 00:13:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 00:13:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(temperature space) 
+2021-06-22 00:13:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 11:53:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 11:53:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 11:53:51|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-22 11:53:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 13:11:05|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 13:11:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 13:11:13|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(the weather [unk] sensor like to command up) 
+2021-06-22 13:11:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 13:13:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 13:13:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 13:14:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(recharge nod no in to changed) 
+2021-06-22 13:14:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 13:45:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 13:45:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 13:46:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(the) 
+2021-06-22 13:46:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 14:07:37|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 14:07:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 14:07:43|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-22 14:07:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 22:58:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 22:58:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 22:58:56|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(space) 
+2021-06-22 22:58:56|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 23:02:09|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 23:02:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 23:02:15|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-22 23:02:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 23:06:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 23:06:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 23:06:08|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(stop) 
+2021-06-22 23:06:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-22 23:10:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-22 23:10:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-22 23:10:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-22 23:10:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 10:15:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 10:15:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 10:15:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 10:15:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 12:17:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 12:17:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 12:17:44|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(quiet) 
+2021-06-23 12:17:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 14:00:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 14:00:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 14:01:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 16:55:06|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 16:55:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 16:55:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 16:55:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 16:55:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 16:55:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 16:55:25|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 16:55:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 21:21:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 21:21:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 21:21:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(whats the) 
+2021-06-23 21:21:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 21:26:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 21:26:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 21:26:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] i [unk]) 
+2021-06-23 21:26:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 22:34:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 22:34:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 22:34:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five sixty to sleep) 
+2021-06-23 22:34:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 22:36:06|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 22:36:06|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 22:36:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 22:36:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 22:38:07|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 22:38:07|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 22:38:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-23 22:38:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 22:48:10|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 22:48:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 22:48:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(stop) 
+2021-06-23 22:48:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 22:49:43|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 22:49:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 22:49:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 22:49:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 23:12:57|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 23:12:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 23:13:03|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-23 23:13:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-23 23:18:10|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-23 23:18:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-23 23:18:12|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(status) 
+2021-06-23 23:18:12|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 06:14:39|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 06:14:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 06:14:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 06:14:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 11:29:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 11:29:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 11:29:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] since) 
+2021-06-24 11:29:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 11:43:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 11:43:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 11:43:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-24 11:43:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 11:43:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 11:43:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 11:43:54|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-24 11:43:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 13:24:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 13:24:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 13:24:44|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 13:24:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 13:29:25|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 13:29:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 13:29:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 13:29:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 13:40:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 13:40:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 13:40:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 13:40:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 14:29:47|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 14:29:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 14:29:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(voice) 
+2021-06-24 14:29:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 14:40:35|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 14:40:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 14:40:40|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 14:40:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 16:58:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 16:58:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 16:58:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-24 16:58:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 17:06:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 17:06:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 17:06:30|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(pan) 
+2021-06-24 17:06:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 17:16:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 17:16:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 17:16:25|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(up one hundred) 
+2021-06-24 17:16:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 17:26:16|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 17:26:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 17:26:22|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 17:26:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 18:35:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 18:35:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 18:35:25|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i like sleep) 
+2021-06-24 18:35:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 20:21:57|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 20:21:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 20:21:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-24 20:21:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 20:42:30|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 20:42:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 20:42:34|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(space) 
+2021-06-24 20:42:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 21:26:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 21:26:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 21:26:20|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 21:26:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 21:52:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 21:52:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 21:53:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 21:53:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 22:06:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 22:06:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 22:06:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 22:06:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 22:07:15|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 22:07:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 22:07:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 22:07:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 22:07:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 22:07:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 22:07:44|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 22:07:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 22:26:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 22:26:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 22:26:48|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 22:26:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 22:32:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 22:32:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 22:32:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 22:32:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-24 23:12:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-24 23:12:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-24 23:12:54|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-24 23:12:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:41:46|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:41:46|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:41:49|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-25 00:41:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:44:09|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:44:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:44:14|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 00:44:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:44:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:44:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:44:46|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(space five whats drive) 
+2021-06-25 00:44:46|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:48:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:48:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:48:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] long quiet) 
+2021-06-25 00:48:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:50:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:50:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:50:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] reading in can five space) 
+2021-06-25 00:50:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:53:30|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:53:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:53:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-25 00:53:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 00:57:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 00:57:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 00:57:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-25 00:57:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 01:00:33|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 01:00:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 01:00:40|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(right sixty ninety charging one five hundred) 
+2021-06-25 01:00:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 01:01:02|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 01:01:02|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 01:01:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 01:01:22|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 01:01:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 01:01:28|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(six status in centimeters four like to level degrees) 
+2021-06-25 01:01:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 01:03:04|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 01:03:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 01:03:10|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(changed) 
+2021-06-25 01:03:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 01:14:30|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 01:14:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 01:14:36|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 01:14:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 07:40:13|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 07:40:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 07:40:19|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 07:40:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 08:58:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 08:58:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 08:59:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 08:59:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:00:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:00:49|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:00:55|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 12:00:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:25:37|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:25:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:25:42|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 12:25:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:38:22|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:38:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:38:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 12:38:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:45:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:45:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:45:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 12:45:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:50:22|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:50:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:50:29|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(four) 
+2021-06-25 12:50:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:56:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:56:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:56:41|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five you long [unk]) 
+2021-06-25 12:56:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 12:58:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 12:58:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 12:58:36|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 12:58:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 13:02:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 13:02:52|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 13:02:57|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(now) 
+2021-06-25 13:02:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 13:08:16|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 13:08:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 13:08:22|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 13:08:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 13:11:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 13:11:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 13:11:30|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-25 13:11:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 13:18:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 13:18:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 13:18:42|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-25 13:18:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 14:44:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 14:44:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 14:44:20|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-25 14:44:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 17:40:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 17:40:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 17:40:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(space) 
+2021-06-25 17:40:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 19:48:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 19:48:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 19:48:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(state [unk]) 
+2021-06-25 19:48:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 21:21:55|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 21:21:55|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 21:22:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 21:22:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 21:28:10|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 21:28:10|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 21:28:15|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 21:28:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 21:41:36|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 21:41:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 21:41:42|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 21:41:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 21:47:25|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 21:47:25|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 21:47:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 21:47:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 22:01:30|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 22:01:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 22:01:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(center long) 
+2021-06-25 22:01:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 22:34:20|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 22:34:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 22:34:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-25 22:34:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 22:37:04|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 22:37:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 22:37:13|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(five sixty forty temperature go to tilt be temperature batteries voice mode forward right) 
+2021-06-25 22:37:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 22:41:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 22:41:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 22:41:26|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(memory inches forward) 
+2021-06-25 22:41:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 22:51:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 22:51:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 22:52:04|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-25 22:52:04|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 23:07:13|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 23:07:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 23:07:16|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-25 23:07:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 23:08:48|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 23:08:48|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 23:08:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(sensor five ninety) 
+2021-06-25 23:08:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-25 23:26:09|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-25 23:26:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-25 23:26:13|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(hundred forty five [unk]) 
+2021-06-25 23:26:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 11:17:57|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 11:17:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 11:18:03|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 11:18:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 13:06:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 13:06:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 13:06:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] pan list [unk]) 
+2021-06-26 13:06:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 14:38:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 14:38:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 14:38:31|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 14:38:31|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 14:38:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 14:38:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 14:38:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 14:38:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 14:51:36|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 14:51:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 14:51:40|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(you two five) 
+2021-06-26 14:51:40|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 15:14:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 15:14:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 15:14:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 15:14:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 15:19:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 15:19:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 15:19:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 15:19:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 18:35:29|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 18:35:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 18:35:33|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(six) 
+2021-06-26 18:35:33|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 18:52:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 18:52:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 18:52:18|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(since can talk swap) 
+2021-06-26 18:52:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 20:31:47|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 20:31:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 20:31:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 20:31:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 21:02:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 21:02:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 21:02:08|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 21:02:08|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 21:02:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 21:02:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 21:02:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 21:02:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 21:09:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 21:09:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 21:09:24|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 21:09:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 21:29:38|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 21:29:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 21:29:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(since) 
+2021-06-26 21:29:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 21:56:15|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 21:56:15|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 21:56:18|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(status twenty ten) 
+2021-06-26 21:56:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 22:28:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 22:28:14|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 22:28:20|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-26 22:28:20|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 23:11:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 23:11:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 23:11:59|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(degrees) 
+2021-06-26 23:11:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 23:17:43|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 23:17:43|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 23:17:46|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(boot) 
+2021-06-26 23:17:46|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 23:48:17|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 23:48:17|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 23:48:27|/home/pi/Carl/plib/voicecmdr.py.main: Heard [unk] i sixty to of center five exit degrees counter yes
+2021-06-26 23:48:27|/home/pi/Carl/plib/voicecmdr.py.main: Confirm Exit Yes Or No
+2021-06-26 23:48:35|/home/pi/Carl/plib/voicecmdr.py.main: Heard [unk]
+2021-06-26 23:48:36|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-26 23:49:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-26 23:49:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-26 23:49:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk] weather like long in centimeters battery thirty) 
+2021-06-26 23:49:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 00:01:00|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 00:01:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 00:01:05|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(fifteen can [unk]) 
+2021-06-27 00:01:05|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 10:52:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 10:52:26|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 10:52:32|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 10:52:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 11:01:45|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 11:01:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 11:01:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 11:01:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 12:01:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 12:01:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 12:02:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(two six) 
+2021-06-27 12:02:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 13:36:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 13:36:41|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 13:36:45|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(swap) 
+2021-06-27 13:36:45|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 13:39:54|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 13:39:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 13:40:00|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 13:40:00|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 13:50:53|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 13:50:53|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 13:50:58|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 13:50:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 14:03:42|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 14:03:42|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 14:03:47|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 14:03:47|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 14:07:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 14:07:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 14:07:34|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(status) 
+2021-06-27 14:07:34|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 14:09:03|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 14:09:03|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 14:09:09|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 14:09:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 14:16:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 14:16:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 14:16:38|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction() 
+2021-06-27 14:16:38|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 15:08:51|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 15:08:51|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 15:08:53|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(wake up) 
+2021-06-27 15:08:57|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 15:08:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 15:08:59|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 15:09:02|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(forecast) 
+2021-06-27 15:09:11|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 15:09:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 15:09:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 15:09:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(go to sleep) 
+2021-06-27 15:09:39|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 20:22:18|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 20:22:18|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 20:22:21|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(inches) 
+2021-06-27 20:22:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 21:27:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 21:27:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 21:28:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(yes) 
+2021-06-27 21:28:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-27 21:34:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-27 21:34:19|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-27 21:34:27|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(whats backward sleep inches four two six) 
+2021-06-27 21:34:27|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:15:09|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:15:09|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:15:16|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(list right the weather [unk]) 
+2021-06-28 10:15:16|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:15:44|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:15:44|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:15:50|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-28 10:15:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:15:58|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:15:58|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:16:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(i pan go) 
+2021-06-28 10:16:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:16:54|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:16:54|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:17:01|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(no you can state) 
+2021-06-28 10:17:01|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:18:24|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:18:24|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:18:29|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction([unk]) 
+2021-06-28 10:18:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:41:31|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:41:53|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:42:22|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:42:40|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:47:18|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:51:17|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:51:17|voicecmdr.py.main: ==== VOICE COMMANDER ====
+2021-06-28 10:51:17|voicecmdr.py.main: No IMU
+2021-06-28 10:51:55|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:51:55|voicecmdr.py.main: ==== VOICE COMMANDER ====
+2021-06-28 10:51:56|voicecmdr.py.main: No IMU
+2021-06-28 10:51:56|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:52:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:52:21|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:52:28|voicecmdr.py.main: Calling vcommand.doVoiceAction(now) 
+2021-06-28 10:52:28|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:52:36|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:52:36|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:52:38|voicecmdr.py.main: Calling vcommand.doVoiceAction(weather [unk]) 
+2021-06-28 10:52:54|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:53:10|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:53:10|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:53:14|voicecmdr.py.main: Calling vcommand.doVoiceAction(distance) 
+2021-06-28 10:53:18|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:53:26|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:53:26|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:53:30|voicecmdr.py.main: Calling vcommand.doVoiceAction(distance) 
+2021-06-28 10:53:34|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:53:46|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:53:46|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:53:53|voicecmdr.py.main: Calling vcommand.doVoiceAction(i nod six i you state) 
+2021-06-28 10:53:53|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:54:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:54:19|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:54:22|voicecmdr.py.main: Heard exit
+2021-06-28 10:54:22|voicecmdr.py.main: Confirm Exit Yes Or No
+2021-06-28 10:54:27|voicecmdr.py.main: Heard [unk] yes
+2021-06-28 10:54:28|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:54:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:54:40|voicecmdr.py.main: Listening For A Command
+2021-06-28 10:54:44|voicecmdr.py.main: Heard exit
+2021-06-28 10:54:44|voicecmdr.py.main: Confirm Exit Yes Or No
+2021-06-28 10:54:49|voicecmdr.py.main: Heard yes
+2021-06-28 10:54:50|voicecmdr.py.main: Exit Confirmed
+2021-06-28 10:54:52|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2021-06-28 10:57:22|/home/pi/Carl/plib/runLog.py.runLog: Started
+2021-06-28 10:57:22|/home/pi/Carl/plib/voicecmdr.py.main: ==== VOICE COMMANDER ====
+2021-06-28 10:57:23|/home/pi/Carl/plib/voicecmdr.py.main: No IMU
+2021-06-28 10:57:23|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 10:57:32|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 10:57:32|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 10:57:37|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(heading) 
+2021-06-28 10:57:37|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2021-06-28 11:01:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2021-06-28 11:01:21|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2021-06-28 11:01:25|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(distance) 
+2021-06-28 11:01:29|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
