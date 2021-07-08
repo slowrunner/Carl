@@ -115,7 +115,7 @@ def main():
 				msg = "Listening For A Command"
 				print(msg)
 				voiceLog.entry(msg)
-				speak.whisper("Hi",anytime=True)
+				# speak.whisper("Hi",anytime=True)
 				eyes.carl_eyes(egpg,eyes.EYE_COLOR_COMMANDABLE)
 				vcommand.reset_turn_start()
 				try:
