@@ -6,9 +6,10 @@
 import myPyLib
 import datetime
 import sys
-sys.path.append("/home/pi/Carl/plib")
+sys.path.insert(1,"/home/pi/Carl/plib")
 import time
 import os
+from noinit_easygopigo3 import EasyGoPiGo3
 
 #  8 * 1.0125v/cell = 8.1v - 0.6v GoPiGo3 reverse polarity protection diode to get volt() reading
 SafeShutDown = 7.5  # (1.0125v/cell yields 6.7hr "fun time", 2% life 8m remaining)
@@ -30,6 +31,8 @@ SafeShutDown = 7.5  # (1.0125v/cell yields 6.7hr "fun time", 2% life 8m remainin
 #   Sep 2018  9h21m   (8x EBL 2800mAh AA cells, around 2550 mAh on BC-3000 test)
 #   Aug 2018  7h20m   (8x EBL 2800mAh))
 
+REV_PROTECT_DIODE = 0.81    # The GoPiGo3 has a reverse polarity protection diode drop of 0.6v to 0.8v (n=2)
+                            # This value results in average readings vs battery voltage error of +/- 0.03
 
 #  (V , Time remaining)
 lifePoints= (
@@ -67,16 +70,26 @@ def batteryTooLow(vBatt):
   else:
       return False
 
+def vBatt_vReading(egpg):
+	vReading = egpg.volt()
+	vBatt = vReading + REV_PROTECT_DIODE
+	return vBatt,vReading
+
+def voltages_string(egpg):
+        vBatt, vReading = vBatt_vReading(egpg)
+        return "Current Battery {:.2f}v EasyGoPiGo3 Reading {:.2f}v".format(vBatt,vReading)
 
 # ##### MAIN ######
 def main():
-      print ("\n")
-      printLifeTable()
-      print ("Safety Shutdown:",SafeShutDown,"v")
-      print ("batteryTooLow(8.5): ",batteryTooLow(8.5))
-      print ("batteryTooLow(7.4): ",batteryTooLow(7.4))
-      Vtest=10.7
-      print ("hoursOfLifeRemaining(%.1f): %.2fh"% (Vtest,hoursOfLifeRemaining(Vtest)) )
+      # print ("\n")
+      # printLifeTable()
+      # print ("Safety Shutdown:",SafeShutDown,"v")
+      # print ("batteryTooLow(8.5): ",batteryTooLow(8.5))
+      # print ("batteryTooLow(7.4): ",batteryTooLow(7.4))
+      # Vtest=10.7
+      # print ("hoursOfLifeRemaining(%.1f): %.2fh"% (Vtest,hoursOfLifeRemaining(Vtest)) )
+      egpg = EasyGoPiGo3(use_mutex=True, noinit=True)
+      print(voltages_string(egpg))
 
 if __name__ == "__main__":
     main()
