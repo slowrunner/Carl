@@ -29,9 +29,7 @@
 #     gratification for longevity.
 #
 #
-# from __future__ import print_function
-# from __future__ import division
-
+# July 2021: Removed IMU from Carl - commented out IMU init
 
 # IMPORTS
 import sys
@@ -143,8 +141,10 @@ def main():
     # #### Create a mutex protected instance of EasyGoPiGo3 base class
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
     myconfig.setParameters(egpg)
-    egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True, init = False)
-
+    # try:
+    #     egpg.imu = SafeIMUSensor(port = "AD1", use_mutex = True, init = False)
+    # except Exception: # no imu
+    #     pass
     batteryLowCount = 0
     warningCount = 0
 
