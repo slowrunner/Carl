@@ -15,7 +15,7 @@ declare -i catchupSegmentss=1500
 totalTravel=`(awk -F'travel:' '{sum+=sqrt($2^2)}END{printf "%.1f", sum/1000;}' wheel.log)`
 totalTravelFt=`(echo "scale=1; ($totalTravel / 0.3048)" | bc)`
 echo "Total Travel: " $totalTravel "m" $totalTravelFt "ft"
-totalRotate=`(awk -F'rotation:' '{sum+=$2}END{printf "%.1f", sum;}' wheel.log)`
+totalRotate=`(awk -F'rotation:' '{sum+=sqrt($2^2)}END{printf "%.1f", sum;}' wheel.log)`
 totalRevs=`(echo "scale=1; $totalRotate / 360" | bc)`
 echo "Total Rotate: " $totalRotate "deg" $totalRevs "revolutions"
 totalMotion=`(awk -F'motion:' '{sum+=$2}END{printf "%.1f", sum;}' wheel.log)`
