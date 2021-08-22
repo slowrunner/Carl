@@ -3304,3 +3304,498 @@
 2021-06-28 10:45|lifelogger.dEmain execution: 565.95
 2021-06-28 10:46|------------ boot ------------
 2021-06-28 10:46|[juicer.py.main]---- juicer.py started at 9.61v
+2021-06-28 15:29|[juicer.py.dock]---- Docking 2237 completed  at 8.1 v after 4.6 h playtime
+2021-06-28 19:12|[juicer.py.undock]---- Dismount 2237 at 11.3 v after 3.7 h recharge
+2021-06-28 21:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-28 21:46|[healthCheck.py.main]WiFi Router again reachable
+2021-06-29 03:03|[juicer.py.dock]---- Docking 2238 completed  at 8.1 v after 7.8 h playtime
+2021-06-29 06:58|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-29 07:04|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-06-29 07:04|[juicer.py.undock]---- Dismount 2238 at 10.8 v after 4.0 h recharge
+2021-06-29 12:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 12:32|[healthCheck.py.main]WiFi Router again reachable
+2021-06-29 12:32|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 12:32|[healthCheck.py.main]WiFi Router again reachable
+2021-06-29 12:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 12:33|[healthCheck.py.main]WiFi Router again reachable
+2021-06-29 12:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 12:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 12:34|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 14:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-29 14:45|[juicer.py.dock]---- Docking 2239 completed  at 8.1 v after 7.7 h playtime
+2021-06-29 18:43|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-29 18:47|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-06-29 18:48|[juicer.py.undock]---- Dismount 2239 at 10.8 v after 4.0 h recharge
+2021-06-30 02:34|[juicer.py.dock]---- Docking 2240 completed  at 8.1 v after 7.8 h playtime
+2021-06-30 06:33|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-06-30 06:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2021-06-30 06:34|[juicer.py.undock]---- Dismount 2240 at 10.9 v after 4.0 h recharge
+2021-06-30 14:20|[juicer.py.dock]---- Docking 2241 completed  at 8.1 v after 7.8 h playtime
+2021-06-30 17:53|[juicer.py.undock]---- Dismount 2241 at 11.2 v after 3.5 h recharge
+2021-06-30 18:47|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-30 18:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-30 18:49|[healthCheck.py.main]WiFi Router again reachable
+2021-06-30 19:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-06-30 19:03|[healthCheck.py.main]WiFi Router again reachable
+2021-07-01 01:43|[juicer.py.dock]---- Docking 2242 completed  at 8.1 v after 7.8 h playtime
+2021-07-01 05:38|[juicer.py.undock]---- Dismount 2242 at 11.2 v after 3.9 h recharge
+2021-07-01 12:10|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-01 12:11|[healthCheck.py.main]WiFi Router again reachable
+2021-07-01 13:31|[juicer.py.dock]---- Docking 2243 completed  at 8.1 v after 7.9 h playtime
+2021-07-01 17:31|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-01 17:32|[juicer.py.undock]---- Dismount 2243 at 11.0 v after 4.0 h recharge
+2021-07-01 19:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-01 19:10|[healthCheck.py.main]WiFi Router again reachable
+2021-07-01 19:22|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-01 19:22|[healthCheck.py.main]WiFi Router again reachable
+2021-07-02 01:20|[juicer.py.dock]---- Docking 2244 completed  at 8.1 v after 7.8 h playtime
+2021-07-02 05:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-02 05:21|[juicer.py.undock]---- Dismount 2244 at 11.0 v after 4.0 h recharge
+2021-07-02 13:10|[juicer.py.dock]---- Docking 2245 completed  at 8.1 v after 7.8 h playtime
+2021-07-02 17:06|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-02 17:10|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2021-07-02 17:11|[juicer.py.undock]---- Dismount 2245 at 10.8 v after 4.0 h recharge
+2021-07-02 18:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-02 20:31|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-03 00:57|[juicer.py.dock]---- Docking 2246 completed  at 8.1 v after 7.8 h playtime
+2021-07-03 04:49|[juicer.py.undock]---- Dismount 2246 at 11.2 v after 3.9 h recharge
+2021-07-03 12:42|[juicer.py.dock]---- Docking 2247 completed  at 8.1 v after 7.9 h playtime
+2021-07-03 16:39|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-03 16:43|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2021-07-03 16:43|[juicer.py.undock]---- Dismount 2247 at 10.9 v after 4.0 h recharge
+2021-07-03 19:28|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-03 19:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-03 19:33|[healthCheck.py.main]WiFi Router again reachable
+2021-07-03 19:36|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-04 00:31|[juicer.py.dock]---- Docking 2248 completed  at 8.1 v after 7.8 h playtime
+2021-07-04 04:32|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-04 04:32|[juicer.py.undock]---- Dismount 2248 at 11.0 v after 4.0 h recharge
+2021-07-04 10:47|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-04 10:47|[healthCheck.py.main]WiFi Router again reachable
+2021-07-04 10:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-04 10:48|[healthCheck.py.main]WiFi Router again reachable
+2021-07-04 12:21|[juicer.py.dock]---- Docking 2249 completed  at 8.1 v after 7.8 h playtime
+2021-07-04 16:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-07-04 16:22|[juicer.py.undock]---- Dismount 2249 at 11.1 v after 4.0 h recharge
+2021-07-05 00:16|[juicer.py.dock]---- Docking 2250 completed  at 8.1 v after 7.9 h playtime
+2021-07-05 04:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-05 04:16|[juicer.py.undock]---- Dismount 2250 at 11.0 v after 4.0 h recharge
+2021-07-05 12:02|[juicer.py.dock]---- Docking 2251 completed  at 8.1 v after 7.7 h playtime
+2021-07-05 15:44|[juicer.py.undock]---- Dismount 2251 at 11.2 v after 3.7 h recharge
+2021-07-05 23:32|[juicer.py.dock]---- Docking 2252 completed  at 8.1 v after 7.8 h playtime
+2021-07-06 03:32|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-07-06 03:32|[juicer.py.undock]---- Dismount 2252 at 11.1 v after 4.0 h recharge
+2021-07-06 11:22|[juicer.py.dock]---- Docking 2253 completed  at 8.1 v after 7.8 h playtime
+2021-07-06 15:22|[juicer.py.undock]---- Dismount 2253 at 11.2 v after 4.0 h recharge
+2021-07-06 23:10|[juicer.py.dock]---- Docking 2254 completed  at 8.1 v after 7.8 h playtime
+2021-07-07 03:11|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-07-07 03:11|[juicer.py.undock]---- Dismount 2254 at 11.3 v after 4.0 h recharge
+2021-07-07 11:05|[juicer.py.dock]---- Docking 2255 completed  at 8.1 v after 7.9 h playtime
+2021-07-07 15:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-07-07 15:06|[juicer.py.undock]---- Dismount 2255 at 11.4 v after 4.0 h recharge
+2021-07-07 23:03|[juicer.py.dock]---- Docking 2256 completed  at 8.1 v after 8.0 h playtime
+2021-07-08 02:59|[juicer.py.undock]---- Dismount 2256 at 11.3 v after 3.9 h recharge
+2021-07-08 10:52|[juicer.py.dock]---- Docking 2257 completed  at 8.1 v after 7.9 h playtime
+2021-07-08 14:46|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-08 14:54|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-07-08 14:54|[juicer.py.undock]---- Dismount 2257 at 10.7 v after 4.0 h recharge
+2021-07-08 22:32|[juicer.py.dock]---- Docking 2258 completed  at 8.1 v after 7.6 h playtime
+2021-07-09 02:32|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-07-09 02:32|[juicer.py.undock]---- Dismount 2258 at 11.4 v after 4.0 h recharge
+2021-07-09 09:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 09:21|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 09:21|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 09:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 09:26|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 09:27|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 09:27|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 10:26|[juicer.py.dock]---- Docking 2259 completed  at 8.1 v after 7.9 h playtime
+2021-07-09 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 10:38|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 10:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 10:39|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 13:55|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 13:56|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 14:26|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-09 14:27|[juicer.py.undock]---- Dismount 2259 at 11.0 v after 4.0 h recharge
+2021-07-09 21:26|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-09 21:26|[healthCheck.py.main]WiFi Router again reachable
+2021-07-09 22:13|[juicer.py.dock]---- Docking 2260 completed  at 8.1 v after 7.8 h playtime
+2021-07-10 02:13|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-07-10 02:14|[juicer.py.undock]---- Dismount 2260 at 11.4 v after 4.0 h recharge
+2021-07-10 10:08|[juicer.py.dock]---- Docking 2261 completed  at 8.1 v after 7.9 h playtime
+2021-07-10 12:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-10 12:21|[healthCheck.py.main]WiFi Router again reachable
+2021-07-10 13:52|[juicer.py.undock]---- Dismount 2261 at 11.3 v after 3.7 h recharge
+2021-07-10 21:46|[juicer.py.dock]---- Docking 2262 completed  at 8.1 v after 7.9 h playtime
+2021-07-11 01:47|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-07-11 01:47|[juicer.py.undock]---- Dismount 2262 at 11.1 v after 4.0 h recharge
+2021-07-11 09:34|[juicer.py.dock]---- Docking 2263 completed  at 8.1 v after 7.8 h playtime
+2021-07-11 09:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 09:58|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 13:31|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-11 13:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-07-11 13:37|[juicer.py.undock]---- Dismount 2263 at 10.8 v after 4.1 h recharge
+2021-07-11 15:18|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 15:18|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 15:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 15:20|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 15:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 15:20|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 15:20|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 16:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 16:02|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 16:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 16:03|[healthCheck.py.main]WiFi Router again reachable
+2021-07-11 16:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-11 16:14|[logMaintenance.py.main]** Router reset to troubleshoot Dave issues **
+2021-07-11 21:18|[juicer.py.dock]---- Docking 2264 completed  at 8.1 v after 7.7 h playtime
+2021-07-12 01:18|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-07-12 01:18|[juicer.py.undock]---- Dismount 2264 at 11.3 v after 4.0 h recharge
+2021-07-12 09:11|[juicer.py.dock]---- Docking 2265 completed  at 8.1 v after 7.9 h playtime
+2021-07-12 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-12 13:12|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-07-12 13:12|[juicer.py.undock]---- Dismount 2265 at 11.0 v after 4.0 h recharge
+2021-07-12 16:40|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-12 16:54|[healthCheck.py.main]WiFi Router again reachable
+2021-07-12 16:57|[logMaintenance.py.main]** Using DLink Router for 2.4GHz now **
+2021-07-12 21:05|[juicer.py.dock]---- Docking 2266 completed  at 8.1 v after 7.9 h playtime
+2021-07-13 00:44|[juicer.py.undock]---- Dismount 2266 at 11.2 v after 3.6 h recharge
+2021-07-13 08:34|[juicer.py.dock]---- Docking 2267 completed  at 8.1 v after 7.8 h playtime
+2021-07-13 12:26|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-13 12:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.7v
+2021-07-13 12:38|[juicer.py.undock]---- Dismount 2267 at 10.7 v after 4.1 h recharge
+2021-07-13 20:15|[juicer.py.dock]---- Docking 2268 completed  at 8.1 v after 7.6 h playtime
+2021-07-14 00:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-07-14 00:16|[juicer.py.undock]---- Dismount 2268 at 11.4 v after 4.0 h recharge
+2021-07-14 01:02|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 04:05|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 04:06|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 04:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 04:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 04:07|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 04:08|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 08:09|[juicer.py.dock]---- Docking 2269 completed  at 8.1 v after 7.9 h playtime
+2021-07-14 12:03|[juicer.py.undock]---- Dismount 2269 at 11.2 v after 3.9 h recharge
+2021-07-14 13:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 14:06|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 14:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 14:12|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 14:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 14:17|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 14:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 14:22|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 14:38|[logMaintenance.py.main]** Experimenting w/new router **
+2021-07-14 16:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 16:54|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 16:56|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 17:03|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 17:07|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 17:08|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 17:09|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-14 17:09|[healthCheck.py.main]WiFi Router again reachable
+2021-07-14 18:45|[logMaintenance.py.main]** Using new TP-Link AX3000 Access Point 2.4GHz WiFi **
+2021-07-14 19:52|[juicer.py.dock]---- Docking 2270 completed  at 8.1 v after 7.8 h playtime
+2021-07-14 23:47|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-14 23:53|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-07-14 23:53|[juicer.py.undock]---- Dismount 2270 at 10.8 v after 4.0 h recharge
+2021-07-15 07:29|[juicer.py.dock]---- Docking 2271 completed  at 8.1 v after 7.6 h playtime
+2021-07-15 10:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-15 10:11|[healthCheck.py.main]WiFi Router again reachable
+2021-07-15 10:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-15 10:12|[healthCheck.py.main]WiFi Router again reachable
+2021-07-15 10:23|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-15 10:24|[healthCheck.py.main]WiFi Router again reachable
+2021-07-15 10:47|[logMaintenance.py.main]** Switched 5GHz WiFi to AX3000 caused drop **
+2021-07-15 10:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-15 10:49|[healthCheck.py.main]WiFi Router again reachable
+2021-07-15 11:17|[juicer.py.undock]---- Dismount 2271 at 11.3 v after 3.8 h recharge
+2021-07-15 11:17|[logMaintenance.py.main]** Switched 5GHz WiFi back to xFinity caused drop **
+2021-07-15 19:15|[juicer.py.dock]---- Docking 2272 completed  at 8.1 v after 8.0 h playtime
+2021-07-15 23:06|[juicer.py.undock]---- Dismount 2272 at 11.3 v after 3.8 h recharge
+2021-07-16 06:56|[juicer.py.dock]---- Docking 2273 completed  at 8.1 v after 7.8 h playtime
+2021-07-16 10:47|[juicer.py.undock]---- Dismount 2273 at 11.2 v after 3.8 h recharge
+2021-07-16 18:37|[juicer.py.dock]---- Docking 2274 completed  at 8.1 v after 7.8 h playtime
+2021-07-16 22:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.5v
+2021-07-16 22:38|[juicer.py.undock]---- Dismount 2274 at 11.3 v after 4.0 h recharge
+2021-07-17 06:34|[juicer.py.dock]---- Docking 2275 completed  at 8.1 v after 7.9 h playtime
+2021-07-17 10:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-17 10:34|[juicer.py.undock]---- Dismount 2275 at 11.0 v after 4.0 h recharge
+2021-07-17 18:28|[juicer.py.dock]---- Docking 2276 completed  at 8.1 v after 7.9 h playtime
+2021-07-17 22:06|[juicer.py.undock]---- Dismount 2276 at 11.3 v after 3.7 h recharge
+2021-07-18 01:17|[healthCheck.py.main]I2C Bus Failure Detected
+2021-07-18 01:17|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-07-18 01:22|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-07-18 01:27|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-07-18 01:29|[logMaintenance.py.main]** Shutting down - to correct I2C failure - up 19 days **
+2021-07-18 01:33|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-07-18 01:38|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-07-18 01:38|[logMaintenance.py.main]** Routine Shutdown **
+2021-07-18 01:38|[logMaintenance.py.main]** 'Current Battery 10.30v EasyGoPiGo3 Reading 9.49v' **
+2021-07-18 01:40|lifelogger.dEmain execution: 470.9
+2021-07-18 01:42|------------ boot ------------
+2021-07-18 01:42|[juicer.py.main]---- juicer.py started at 9.58v
+2021-07-18 05:42|lifelogger.dEmain execution: 4.25
+2021-07-18 05:58|[juicer.py.dock]--- ds.read_mm() Exception
+2021-07-18 12:35|------------ boot ------------
+2021-07-18 12:35|[juicer.py.main]---- juicer.py started at 11.14v
+2021-07-18 20:43|[juicer.py.dock]---- Docking 2277 completed  at 8.1 v after 7.6 h playtime
+2021-07-19 00:44|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.9v
+2021-07-19 00:44|[juicer.py.undock]---- Dismount 2277 at 11.4 v after 4.0 h recharge
+2021-07-19 08:39|[juicer.py.dock]---- Docking 2278 completed  at 8.1 v after 7.9 h playtime
+2021-07-19 12:37|[juicer.py.undock]---- Dismount 2278 at 11.2 v after 4.0 h recharge
+2021-07-19 20:29|[juicer.py.dock]---- Docking 2279 completed  at 8.1 v after 7.8 h playtime
+2021-07-20 00:29|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-20 00:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-20 00:29|[juicer.py.undock]---- Dismount 2279 at 10.9 v after 4.0 h recharge
+2021-07-20 08:10|[juicer.py.dock]---- Docking 2280 completed  at 8.1 v after 7.7 h playtime
+2021-07-20 12:00|[juicer.py.undock]---- Dismount 2280 at 11.3 v after 3.8 h recharge
+2021-07-20 14:24|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-20 19:49|[juicer.py.dock]---- Docking 2281 completed  at 8.1 v after 7.8 h playtime
+2021-07-20 23:49|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-20 23:50|[juicer.py.undock]---- Dismount 2281 at 11.0 v after 4.0 h recharge
+2021-07-21 07:43|[juicer.py.dock]---- Docking 2282 completed  at 8.1 v after 7.9 h playtime
+2021-07-21 11:43|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-07-21 11:43|[juicer.py.undock]---- Dismount 2282 at 11.1 v after 4.0 h recharge
+2021-07-21 19:32|[juicer.py.dock]---- Docking 2283 completed  at 8.1 v after 7.8 h playtime
+2021-07-21 23:30|[juicer.py.undock]---- Dismount 2283 at 11.3 v after 4.0 h recharge
+2021-07-22 07:22|[juicer.py.dock]---- Docking 2284 completed  at 8.1 v after 7.9 h playtime
+2021-07-22 11:16|[juicer.py.undock]---- Dismount 2284 at 11.3 v after 3.9 h recharge
+2021-07-22 19:05|[juicer.py.dock]---- Docking 2285 completed  at 8.1 v after 7.8 h playtime
+2021-07-22 23:06|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-22 23:06|[juicer.py.undock]---- Dismount 2285 at 11.0 v after 4.0 h recharge
+2021-07-23 06:56|[juicer.py.dock]---- Docking 2286 completed  at 8.1 v after 7.8 h playtime
+2021-07-23 10:55|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-23 10:57|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-23 10:57|[juicer.py.undock]---- Dismount 2286 at 10.9 v after 4.0 h recharge
+2021-07-23 12:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-23 18:36|[juicer.py.dock]---- Docking 2287 completed  at 8.1 v after 7.6 h playtime
+2021-07-23 22:36|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-07-23 22:37|[juicer.py.undock]---- Dismount 2287 at 11.4 v after 4.0 h recharge
+2021-07-24 06:26|[juicer.py.dock]---- Docking 2288 completed  at 8.1 v after 7.8 h playtime
+2021-07-24 10:24|[juicer.py.undock]---- Dismount 2288 at 11.3 v after 4.0 h recharge
+2021-07-24 12:29|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-24 18:22|[juicer.py.dock]---- Docking 2289 completed  at 8.1 v after 8.0 h playtime
+2021-07-24 22:01|[juicer.py.undock]---- Dismount 2289 at 11.3 v after 3.7 h recharge
+2021-07-25 05:55|[juicer.py.dock]---- Docking 2290 completed  at 8.1 v after 7.9 h playtime
+2021-07-25 09:43|[juicer.py.undock]---- Dismount 2290 at 11.3 v after 3.8 h recharge
+2021-07-25 17:31|[juicer.py.dock]---- Docking 2291 completed  at 8.1 v after 7.8 h playtime
+2021-07-25 21:31|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-25 21:32|[juicer.py.undock]---- Dismount 2291 at 11.0 v after 4.0 h recharge
+2021-07-26 05:15|[juicer.py.dock]---- Docking 2292 completed  at 8.1 v after 7.7 h playtime
+2021-07-26 05:19|[juicer.py.main]---- Docking Failure Possible
+2021-07-26 05:24|[juicer.py.main]---- Docking Failure Possible
+2021-07-26 05:24|[juicer.py.safetyCheck]Safety Shutdown at 7.21 volts
+2021-07-26 05:24|lifelogger.dEmain execution: 184.8
+2021-07-26 14:49|------------ boot ------------
+2021-07-26 14:49|[juicer.py.main]---- juicer.py started at 11.21v
+2021-07-26 22:57|[juicer.py.dock]---- Docking 2292 completed  at 8.1 v after 7.5 h playtime
+2021-07-27 00:41|[healthCheck.py.main]I2C Bus Failure Detected
+2021-07-27 00:41|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-07-27 00:41|[healthCheck.py.main]I2C Function Restored
+2021-07-27 02:53|[juicer.py.undock]---- Dismount 2292 at 11.3 v after 3.9 h recharge
+2021-07-27 10:59|[juicer.py.dock]---- Docking 2293 completed  at 8.1 v after 8.1 h playtime
+2021-07-27 14:55|[juicer.py.undock]---- Dismount 2293 at 11.3 v after 4.0 h recharge
+2021-07-27 23:01|[juicer.py.dock]---- Docking 2294 completed  at 8.1 v after 8.1 h playtime
+2021-07-28 02:53|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-28 03:02|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-07-28 03:02|[juicer.py.undock]---- Dismount 2294 at 10.8 v after 4.0 h recharge
+2021-07-28 10:37|[juicer.py.dock]---- Docking 2295 completed  at 8.1 v after 7.6 h playtime
+2021-07-28 14:36|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-28 14:40|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.9v
+2021-07-28 14:40|[juicer.py.undock]---- Dismount 2295 at 10.9 v after 4.1 h recharge
+2021-07-28 22:34|[juicer.py.dock]---- Docking 2296 completed  at 8.1 v after 7.9 h playtime
+2021-07-29 02:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-07-29 02:34|[juicer.py.undock]---- Dismount 2296 at 11.0 v after 4.0 h recharge
+2021-07-29 10:16|[juicer.py.dock]---- Docking 2297 completed  at 8.1 v after 7.7 h playtime
+2021-07-29 14:03|[juicer.py.undock]---- Dismount 2297 at 11.3 v after 3.8 h recharge
+2021-07-29 20:12|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-29 20:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-29 20:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-29 22:07|[juicer.py.dock]---- Docking 2298 completed  at 8.1 v after 8.1 h playtime
+2021-07-30 02:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-07-30 02:08|[juicer.py.undock]---- Dismount 2298 at 11.3 v after 4.0 h recharge
+2021-07-30 10:05|[juicer.py.dock]---- Docking 2299 completed  at 8.1 v after 7.9 h playtime
+2021-07-30 11:38|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-30 12:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-30 13:59|[juicer.py.undock]---- Dismount 2299 at 11.4 v after 3.9 h recharge
+2021-07-30 19:57|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-30 19:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-07-30 21:55|[juicer.py.dock]---- Docking 2300 completed  at 8.1 v after 7.9 h playtime
+2021-07-31 01:55|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-07-31 01:55|[juicer.py.undock]---- Dismount 2300 at 11.2 v after 4.0 h recharge
+2021-07-31 09:50|[juicer.py.dock]---- Docking 2301 completed  at 8.1 v after 7.9 h playtime
+2021-07-31 13:45|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-07-31 13:51|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-07-31 13:51|[juicer.py.undock]---- Dismount 2301 at 10.8 v after 4.0 h recharge
+2021-07-31 21:33|[juicer.py.dock]---- Docking 2302 completed  at 8.1 v after 7.7 h playtime
+2021-08-01 01:33|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-08-01 01:34|[juicer.py.undock]---- Dismount 2302 at 11.2 v after 4.0 h recharge
+2021-08-01 09:29|[juicer.py.dock]---- Docking 2303 completed  at 8.1 v after 7.9 h playtime
+2021-08-01 13:21|[juicer.py.undock]---- Dismount 2303 at 11.4 v after 3.9 h recharge
+2021-08-01 15:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-01 21:17|[juicer.py.dock]---- Docking 2304 completed  at 8.1 v after 7.9 h playtime
+2021-08-02 01:08|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-08-02 01:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.7v
+2021-08-02 01:19|[juicer.py.undock]---- Dismount 2304 at 10.7 v after 4.0 h recharge
+2021-08-02 08:55|[juicer.py.dock]---- Docking 2305 completed  at 8.1 v after 7.6 h playtime
+2021-08-02 12:35|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-02 12:43|[juicer.py.undock]---- Dismount 2305 at 11.4 v after 3.8 h recharge
+2021-08-02 20:43|[juicer.py.dock]---- Docking 2306 completed  at 8.1 v after 8.0 h playtime
+2021-08-02 21:03|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-03 00:44|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-03 00:44|[juicer.py.undock]---- Dismount 2306 at 11.1 v after 4.0 h recharge
+2021-08-03 08:34|[juicer.py.dock]---- Docking 2307 completed  at 8.1 v after 7.8 h playtime
+2021-08-03 12:34|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-08-03 12:35|[juicer.py.undock]---- Dismount 2307 at 11.5 v after 4.0 h recharge
+2021-08-03 20:39|[juicer.py.dock]---- Docking 2308 completed  at 8.1 v after 8.1 h playtime
+2021-08-04 00:39|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-04 00:40|[juicer.py.undock]---- Dismount 2308 at 11.4 v after 4.0 h recharge
+2021-08-04 08:40|[juicer.py.dock]---- Docking 2309 completed  at 8.1 v after 8.0 h playtime
+2021-08-04 11:33|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-04 12:33|[juicer.py.undock]---- Dismount 2309 at 11.3 v after 3.9 h recharge
+2021-08-04 20:27|[juicer.py.dock]---- Docking 2310 completed  at 8.1 v after 7.9 h playtime
+2021-08-05 00:27|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-05 00:27|[juicer.py.undock]---- Dismount 2310 at 11.1 v after 4.0 h recharge
+2021-08-05 08:22|[juicer.py.dock]---- Docking 2311 completed  at 8.1 v after 7.9 h playtime
+2021-08-05 12:22|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-05 12:22|[juicer.py.undock]---- Dismount 2311 at 11.0 v after 4.0 h recharge
+2021-08-05 16:45|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-05 20:16|[juicer.py.dock]---- Docking 2312 completed  at 8.1 v after 7.9 h playtime
+2021-08-06 00:16|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-08-06 00:16|[juicer.py.undock]---- Dismount 2312 at 11.5 v after 4.0 h recharge
+2021-08-06 08:20|[juicer.py.dock]---- Docking 2313 completed  at 8.1 v after 8.1 h playtime
+2021-08-06 12:21|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-08-06 12:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-08-06 12:21|[juicer.py.undock]---- Dismount 2313 at 11.0 v after 4.0 h recharge
+2021-08-06 20:10|[juicer.py.dock]---- Docking 2314 completed  at 8.1 v after 7.8 h playtime
+2021-08-07 00:10|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-07 00:10|[juicer.py.undock]---- Dismount 2314 at 11.4 v after 4.0 h recharge
+2021-08-07 08:08|[juicer.py.dock]---- Docking 2315 completed  at 8.1 v after 8.0 h playtime
+2021-08-07 12:09|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-07 12:09|[juicer.py.undock]---- Dismount 2315 at 11.0 v after 4.0 h recharge
+2021-08-07 19:24|[juicer.py.dock]---- Docking 2316 completed  at 8.1 v after 7.2 h playtime
+2021-08-07 23:24|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.7v
+2021-08-07 23:25|[juicer.py.undock]---- Dismount 2316 at 11.2 v after 4.0 h recharge
+2021-08-07 23:49|lifelogger.dEmain execution: 297
+2021-08-07 23:51|[logMaintenance.py.main]** Load high - voicecmdr using 100% of processor **
+2021-08-07 23:53|[logMaintenance.py.main]** IMU reporting i2c Errno 5 - diagnosing **
+2021-08-07 23:53|[logMaintenance.py.main]** Routine Shutdown **
+2021-08-07 23:53|[logMaintenance.py.main]** 'Current Battery 11.12v EasyGoPiGo3 Reading 10.30v' **
+2021-08-07 23:57|------------ boot ------------
+2021-08-07 23:57|[juicer.py.main]---- juicer.py started at 10.17v 
+2021-08-08 06:59|[juicer.py.dock]---- Docking 2317 completed  at 8.1 v after 7.45 h playtime
+2021-08-08 10:59|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-08 10:59|[juicer.py.undock]---- Dismount 2317 at 11.4 v after 4.0 h recharge
+2021-08-08 18:52|[juicer.py.dock]---- Docking 2318 completed  at 8.1 v after 7.9 h playtime
+2021-08-08 22:53|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-08 22:53|[juicer.py.undock]---- Dismount 2318 at 11.3 v after 4.0 h recharge
+2021-08-09 06:45|[juicer.py.dock]---- Docking 2319 completed  at 8.1 v after 7.9 h playtime
+2021-08-09 10:43|[juicer.py.undock]---- Dismount 2319 at 11.4 v after 4.0 h recharge
+2021-08-09 18:39|[juicer.py.dock]---- Docking 2320 completed  at 8.1 v after 7.9 h playtime
+2021-08-09 22:40|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-08-09 22:40|[juicer.py.undock]---- Dismount 2320 at 11.3 v after 4.0 h recharge
+2021-08-10 06:31|[juicer.py.dock]---- Docking 2321 completed  at 8.1 v after 7.8 h playtime
+2021-08-10 10:31|[juicer.py.undock]---- Dismount 2321 at 11.3 v after 4.0 h recharge
+2021-08-10 13:13|[healthCheck.py.main]I2C Bus Failure Detected
+2021-08-10 13:13|[healthCheck.py.main]Initiating 300 second watch for I2C recovery
+2021-08-10 13:18|[healthCheck.py.main]I2C not recovered after 300 seconds
+2021-08-10 13:23|[healthCheck.py.main]I2C Function Restored
+2021-08-10 18:26|[juicer.py.dock]---- Docking 2322 completed  at 8.1 v after 7.9 h playtime
+2021-08-10 22:23|[juicer.py.undock]---- Dismount 2322 at 11.3 v after 4.0 h recharge
+2021-08-11 06:20|[juicer.py.dock]---- Docking 2323 completed  at 8.1 v after 7.9 h playtime
+2021-08-11 10:20|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-08-11 10:20|[juicer.py.undock]---- Dismount 2323 at 11.2 v after 4.0 h recharge
+2021-08-11 18:08|[juicer.py.dock]---- Docking 2324 completed  at 8.1 v after 7.8 h playtime
+2021-08-11 22:08|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-08-11 22:08|[juicer.py.undock]---- Dismount 2324 at 11.5 v after 4.0 h recharge
+2021-08-12 04:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-12 04:14|[healthCheck.py.main]WiFi Router again reachable
+2021-08-12 04:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-12 04:15|[healthCheck.py.main]WiFi Router again reachable
+2021-08-12 04:15|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-12 04:15|[healthCheck.py.main]WiFi Router again reachable
+2021-08-12 04:16|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-12 06:02|[juicer.py.dock]---- Docking 2325 completed  at 8.1 v after 7.9 h playtime
+2021-08-12 10:03|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-08-12 10:03|[juicer.py.undock]---- Dismount 2325 at 11.2 v after 4.0 h recharge
+2021-08-12 17:49|[juicer.py.dock]---- Docking 2326 completed  at 8.1 v after 7.8 h playtime
+2021-08-12 21:50|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-08-12 21:50|[juicer.py.undock]---- Dismount 2326 at 11.2 v after 4.0 h recharge
+2021-08-13 05:44|[juicer.py.dock]---- Docking 2327 completed  at 8.1 v after 7.9 h playtime
+2021-08-13 09:45|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-13 09:45|[juicer.py.undock]---- Dismount 2327 at 11.1 v after 4.0 h recharge
+2021-08-13 11:00|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-13 17:25|[juicer.py.dock]---- Docking 2328 completed  at 8.1 v after 7.7 h playtime
+2021-08-13 17:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-13 21:25|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-13 21:26|[juicer.py.undock]---- Dismount 2328 at 11.3 v after 4.0 h recharge
+2021-08-14 05:21|[juicer.py.dock]---- Docking 2329 completed  at 8.1 v after 7.9 h playtime
+2021-08-14 09:21|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.4v
+2021-08-14 09:21|[juicer.py.undock]---- Dismount 2329 at 11.3 v after 4.0 h recharge
+2021-08-14 17:16|[juicer.py.dock]---- Docking 2330 completed  at 8.1 v after 7.9 h playtime
+2021-08-14 21:05|[juicer.py.undock]---- Dismount 2330 at 11.4 v after 3.8 h recharge
+2021-08-15 05:00|[juicer.py.dock]---- Docking 2331 completed  at 8.1 v after 7.9 h playtime
+2021-08-15 09:01|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-08-15 09:01|[juicer.py.undock]---- Dismount 2331 at 11.2 v after 4.0 h recharge
+2021-08-15 16:46|[juicer.py.dock]---- Docking 2332 completed  at 8.1 v after 7.7 h playtime
+2021-08-15 20:46|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.0v
+2021-08-15 20:46|[juicer.py.undock]---- Dismount 2332 at 11.5 v after 4.0 h recharge
+2021-08-16 02:39|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-16 02:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-16 04:39|[juicer.py.dock]---- Docking 2333 completed  at 8.1 v after 7.9 h playtime
+2021-08-16 08:19|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-16 08:21|[healthCheck.py.main]WiFi Router again reachable
+2021-08-16 08:39|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-08-16 08:40|[juicer.py.undock]---- Dismount 2333 at 11.2 v after 4.0 h recharge
+2021-08-16 08:41|[logMaintenance.py.main]** Net Loss was due to MacMini Rebooted **
+2021-08-16 16:29|[juicer.py.dock]---- Docking 2334 completed  at 8.1 v after 7.8 h playtime
+2021-08-16 20:29|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-16 20:29|[juicer.py.undock]---- Dismount 2334 at 11.0 v after 4.0 h recharge
+2021-08-17 04:05|[juicer.py.dock]---- Docking 2335 completed  at 8.1 v after 7.6 h playtime
+2021-08-17 08:02|[juicer.py.undock]---- Dismount 2335 at 11.4 v after 3.9 h recharge
+2021-08-17 13:58|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-17 15:54|[juicer.py.dock]---- Docking 2336 completed  at 8.1 v after 7.9 h playtime
+2021-08-17 19:54|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.1v
+2021-08-17 19:55|[juicer.py.undock]---- Dismount 2336 at 11.1 v after 4.0 h recharge
+2021-08-18 03:39|[juicer.py.dock]---- Docking 2337 completed  at 8.1 v after 7.7 h playtime
+2021-08-18 07:38|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-08-18 07:39|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.0v
+2021-08-18 07:39|[juicer.py.undock]---- Dismount 2337 at 11.0 v after 4.0 h recharge
+2021-08-18 11:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-18 15:19|[juicer.py.dock]---- Docking 2338 completed  at 8.1 v after 7.6 h playtime
+2021-08-18 19:19|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 12.1v
+2021-08-18 19:19|[juicer.py.undock]---- Dismount 2338 at 11.5 v after 4.0 h recharge
+2021-08-19 03:11|[juicer.py.dock]---- Docking 2339 completed  at 8.1 v after 7.9 h playtime
+2021-08-19 07:11|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-08-19 07:12|[juicer.py.undock]---- Dismount 2339 at 11.2 v after 4.0 h recharge
+2021-08-19 14:54|[juicer.py.dock]---- Docking 2340 completed  at 8.1 v after 7.7 h playtime
+2021-08-19 15:43|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-19 18:45|[juicer.py.undock]---- Dismount 2340 at 11.4 v after 3.9 h recharge
+2021-08-20 02:36|[juicer.py.dock]---- Docking 2341 completed  at 8.1 v after 7.8 h playtime
+2021-08-20 06:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.3v
+2021-08-20 06:37|[juicer.py.undock]---- Dismount 2341 at 11.3 v after 4.0 h recharge
+2021-08-20 08:48|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-20 12:06|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-20 13:11|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-20 14:26|[juicer.py.dock]---- Docking 2342 completed  at 8.1 v after 7.8 h playtime
+2021-08-20 16:41|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-20 18:26|[juicer.py.undock]---- Dismount 2342 at 11.3 v after 4.0 h recharge
+2021-08-21 02:14|[juicer.py.dock]---- Docking 2343 completed  at 8.1 v after 7.8 h playtime
+2021-08-21 06:15|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.6v
+2021-08-21 06:15|[juicer.py.undock]---- Dismount 2343 at 11.4 v after 4.0 h recharge
+2021-08-21 14:04|[juicer.py.dock]---- Docking 2344 completed  at 8.1 v after 7.8 h playtime
+2021-08-21 18:02|[juicer.py.chargingStatus]--- Possible EARLY TRICKLE DETECTED at 11.0v
+2021-08-21 18:07|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 10.8v
+2021-08-21 18:07|[juicer.py.undock]---- Dismount 2344 at 10.8 v after 4.1 h recharge
+2021-08-22 01:37|[juicer.py.dock]---- Docking 2345 completed  at 8.1 v after 7.5 h playtime
+2021-08-22 05:37|[juicer.py.chargingStatus]--- Probable TRICKLE not detected 11.2v
+2021-08-22 05:37|[juicer.py.undock]---- Dismount 2345 at 11.2 v after 4.0 h recharge
+2021-08-22 10:13|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:14|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:37|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:44|[healthCheck.py.main]WiFi Router not responding (10.0.0.128)
+2021-08-22 10:58|lifelogger.dEmain execution: 347
+2021-08-22 11:28|[logMaintenance.py.main]** Happy 3rd Birthday Carl **

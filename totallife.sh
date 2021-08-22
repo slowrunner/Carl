@@ -47,5 +47,11 @@ aveRechargeTime=`(echo "scale=1; $rechargeTime / ($dockingsThisYear - $dockingFa
 aveCycleTime=`(echo "scale=1; $avePlaytime + $aveRechargeTime" | bc)`
 echo "Ave Cycle this year: " $aveCycleTime "hours"
 echo "Ave Playtime this year: " $avePlaytime
+last10recordNumber=`(echo "$dockingsThisYear - 10" | bc)`
+# echo "last10recordNumber:" $last10recordNumber
+last10playtimes=`(grep playtime $fn | tail -10 | awk -F"after"  '{sum+=$2}END{print sum;}' )`
+# echo "last10playtimes" $last10playtimes
+last10avePlaytime=`(echo "scale=1; $last10playtimes / 10" | bc)`
+echo "Ave of Last 10 Playtimes" $last10avePlaytime
 echo "Last Docking: " $lastDockingStr
 echo "Last Recharge: " `(grep Dismount $fn | tail -1)`
