@@ -4,8 +4,10 @@ from math import pi
 
 # Wheel Dia and Wheel Base for Carl
 #    HP Speaker mounted on rear apron
-CARLS_WHEEL_DIAMETER    = 64.0
-CARLS_WHEEL_BASE_WIDTH  = 114.05  # for Monk Makes speaker.  (115.1 with HP speaker)
+# CARLS_WHEEL_DIAMETER    = 64.0
+# CARLS_WHEEL_BASE_WIDTH  = 114.05  # for Monk Makes speaker.  (115.1 with HP speaker)
+CARLS_WHEEL_DIAMETER    = 64.35    # 8/23/2021 check
+CARLS_WHEEL_BASE_WIDTH  = 114.375
 CARLS_CONFIG_SPEED      = 150    # speed Carl was configured to be most accurate
 
 def setParameters(egpg, wd=CARLS_WHEEL_DIAMETER, wbw=CARLS_WHEEL_BASE_WIDTH, verbose=False):
