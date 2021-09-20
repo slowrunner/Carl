@@ -17,7 +17,9 @@ echo "Total Life: " $totalLife "hrs since Aug 22,2018"
 lifeThisYear=`(awk -F':' 'FNR > 6 {sum+=$3}END{print sum;}' $fn)`
 echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
 # echo "Sessions (boot) this year: " `(grep -c "\- boot \-" $fn)`
-bootedThisYr=`(grep "\- boot \-" $fn | sort -u -k1,1 | wc -l)`
+# for first boot in prior year
+# bootedThisYr=`(grep "\- boot \-" $fn | sort -u -k1,1 | wc -l)`
+bootedThisYr=`(grep "\- boot \-" $fn | wc -l)`
 echo "Days Booted This Year: " $bootedThisYr
 aveSession=`(echo "scale=0; $lifeThisYear / $bootedThisYr" | bc)`
 echo "Average Time Between Reboot: " $aveSession "hrs"
