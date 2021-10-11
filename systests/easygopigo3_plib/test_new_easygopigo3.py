@@ -8,16 +8,16 @@ import sys
 import easygopigo3  # from local since/if it exists
 
 sys.path.append('/home/pi/Carl/plib')
-
-import tiltpan
-import my_safe_inertial_measurement_unit
+import tiltpan  # noqa
+import my_safe_inertial_measurement_unit  # noqa
 
 print("Testing local easygopigo3.py")
 try:
     egpg = easygopigo3.EasyGoPiGo3(use_mutex=True, noinit=True)
 except Exception as e:
     print("Exception while instantiating EasyGoPiGo3(noinit=True)")
-    print("If complaint is TypeError: __init__() got an unexpected keyword argument \'noinit\'")
+    print("If complaint is TypeError:")
+    print("__init__() got an unexpected keyword argument \'noinit\'")
     print("Check that local easygopigo3.py exists (use make_locals.sh)")
     exit(1)
 
@@ -27,7 +27,7 @@ egpg.tp = tiltpan.TiltPan(egpg)
 egpg.ds = egpg.init_distance_sensor(port="RPI_1")
 
 # port must be "AD1" or "AD2" for SW I2C with clock stretching
-egpg.imu = my_safe_inertial_measurement_unit.SafeIMUSensor(port="AD1", use_mutex=True, init=False)
+# egpg.imu = my_safe_inertial_measurement_unit.SafeIMUSensor(
+#                          port="AD1", use_mutex=True, init=False)
 
 print("Success")
-
