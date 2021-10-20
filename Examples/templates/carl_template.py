@@ -9,7 +9,7 @@ Documentation:
 
 import sys
 try:
-    sys.path.append('/home/pi/Carl/plib')
+    sys.path.insert(1,'/home/pi/Carl/plib')
     import speak
     import tiltpan
     import status
