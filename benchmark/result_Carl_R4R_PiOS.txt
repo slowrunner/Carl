@@ -1,0 +1,64 @@
+cat /etc/os-release 
+PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="10"
+VERSION="10 (buster)"
+VERSION_CODENAME=buster
+ID=raspbian
+ID_LIKE=debian
+
+
+Raspberry Pi Benchmark Test
+Author: AikonCWD
+Version: 3.0
+
+temp=55.8'C
+arm_freq=1200
+core_freq=400
+sdram_freq=450
+gpu_freq=300
+sd_clock=50.000 MHz
+
+Running InternetSpeed test...
+Ping: 30.715 ms
+Download: 48.91 Mbit/s
+Upload: 11.99 Mbit/s
+
+Running CPU test...
+ total time: 14.2167s
+ min: 5.36ms
+ avg: 5.68ms
+ max: 16.00ms
+temp=66.6'C
+
+Running THREADS test...
+ total time: 24.0244s
+ min: 8.31ms
+ avg: 9.61ms
+ max: 123.27ms
+temp=72.5'C
+
+Running MEMORY test...
+Operations performed: 3145728 (1866458.00 ops/sec)
+3072.00 MB transferred (1822.71 MB/sec)
+ total time: 1.6854s
+ min: 0.00ms
+ avg: 0.00ms
+ max: 8.73ms
+temp=74.1'C
+
+Running HDPARM test...
+ HDIO_DRIVE_CMD(identify) failed: Invalid argument
+ Timing buffered disk reads:  64 MB in  3.03 seconds =  21.15 MB/sec
+temp=66.6'C
+
+Running DD WRITE test...
+536870912 bytes (537 MB, 512 MiB) copied, 47.4344 s, 11.3 MB/s
+temp=59.1'C
+
+Running DD READ test...
+536870912 bytes (537 MB, 512 MiB) copied, 24.883 s, 21.6 MB/s
+temp=59.1'C
+
+AikonCWD's rpi-benchmark completed!
+
