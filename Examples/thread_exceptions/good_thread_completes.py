@@ -2,12 +2,7 @@
 
 """
   Threading example that will
-  - Provide a thread exception traceback
-  - Re-raise a thread exception for handling in the main
-  - Handle a main thread exception
-  - Handle a thread thread exception
-  - Allow Main to tell thread to exit
-  - optionally show Handling for thread completion
+  - Handle thread completes before main()
 
 Note: if the thread is waiting on I/O it will not be polling for exitFlag
       that case requires setting up a blocking I/O operation with a timeout
@@ -41,8 +36,8 @@ class MyThread(threading.Thread):
 
 
         # if thread wants to complete, it can tell itself to stop
-        # logging.info("%s: Complete - telling self to exit", self.name)
-        # self.exitFlag = True    # (Will not happen due to divbyzero exception in this example)
+        logging.info("%s: Complete - telling self to exit", self.name)
+        self.exitFlag = True    # (Will not happen due to divbyzero exception in this example)
 
     def run(self):
 
