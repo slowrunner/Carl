@@ -1,8 +1,8 @@
 # A STAB AT A GOOD DESIGN FOR USING A THREAD
 
-**The example is a personal musing on "good enough design IMO" and I am not a Python expert, so it probably is not a good design.  
+**The example is a personal musing on "good enough design IMO" and I am not a Python expert, so it probably is not good design.**  
 
-![Additionally, if the thread purpose is to wait for I/O, (the main reason for threading usually), 
+**[Additionally, if the thread purpose is to wait for I/O, (the main reason for threading usually), 
 the thread design requires even more complexity - "blocking I/O with timeout", 
 of which there is an example here](https://www.geeksforgeeks.org/start-and-stop-a-thread-in-python/)**
 
@@ -24,12 +24,12 @@ MultiProcessing:  Best for spreading computationally intensive tasks across core
 - main exception initiating thread termination
 
 
-"good_design.py" with forced errors  
-good_normal_and_cntr-c.py  
-good_thread_completes.py           
-good_main_exception.py     
-good_thread_exception.py            
-good_thread_and_main_exception.py  
+"good_design.py" with forced errors:  
+- good_normal_and_cntr-c.py  
+- good_thread_completes.py           
+- good_main_exception.py     
+- good_thread_exception.py            
+- good_thread_and_main_exception.py  
 
 
 Simpler specific case examples:  
@@ -74,9 +74,6 @@ $ ./good_thread_completes.py
 12:30:07: Main(): telling thread to exit if has not already  
 12:30:07: Main(): waiting for thread exit  
 12:30:07: Main: Main normal exit  
-
-
-
 
 
 == Main Exception only  
