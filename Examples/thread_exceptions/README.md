@@ -24,7 +24,7 @@ MultiProcessing:  Best for spreading computationally intensive tasks across core
 - main exception initiating thread termination
 
 
-"good_design.py" with forced errors:  
+Example "good_design.py" with forced conditions:    
 - good_normal_and_cntr-c.py  
 - good_thread_completes.py           
 - good_main_exception.py     
