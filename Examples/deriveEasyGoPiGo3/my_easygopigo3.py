@@ -6,8 +6,8 @@ from easygopigo3 import EasyGoPiGo3
 
 class My_EasyGoPiGo3(EasyGoPiGo3):
 
-  def __init__(self):
-    super().__init__()    # Init the EasyGoPiGo3 (and GoPiGo3) base classes
+  def __init__(self, use_mutex=True):
+    super().__init__(use_mutex=use_mutex)    # Init the EasyGoPiGo3 (and GoPiGo3) base classes
     print("speed from base EasyGoPiGo3() class:", self.speed)
     self.speed = 200
     print("speed from My_EasyGoPiGo3() class:", self.speed)

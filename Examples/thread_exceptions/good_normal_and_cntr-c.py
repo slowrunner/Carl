@@ -73,7 +73,9 @@ class MyThread(threading.Thread):
 # A MAIN Function
 def do_some_main_stuff():
     logging.info("Doing Some Main Stuff")
-    time.sleep(10)
+    time.sleep(1)
+    print("PRESS CTRL-C NOW TO TEST USER TERMINATION REQUEST")
+    time.sleep(9)
     # logging.info("Causing an exception in do_some_main_stuff()")
     # divbyzero=1/0
 
