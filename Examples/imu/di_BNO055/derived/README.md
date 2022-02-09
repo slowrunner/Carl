@@ -13,6 +13,8 @@ just that I needed it when building a ROS2 GoPiGo3 node.
 
 See: https://github.com/slowrunner/rosbot-on-gopigo3/tree/main/imu4gopigo3ros2
 
-and https://pypi.org/project/imu4gopigo3ros/
+Available on PyPi:  
+Python2: https://pypi.org/project/imu4gopigo3ros/  
+Python3: https://pypi.org/project/imu4gopigo3ros2/  
 
 
