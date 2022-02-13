@@ -1,0 +1,36 @@
+
+We took 10 measurements at 1.0 seconds (based on reference voltage of 10.057)
+min: -0.128  max: 0.000  mean: -0.071  sdev: 0.043 
+
+We took 103 measurements at 0.1 seconds (based on reference voltage of 9.997)
+min: -0.205  max: 0.000  mean: -0.160  sdev: 0.037 
+
+We took 105 measurements at 0.1 seconds (based on reference voltage of 10.091)
+min: -0.103  max: 0.060  mean: -0.056  sdev: 0.026 
+
+We took 10 measurements at 1.0 seconds (based on reference voltage of 10.048)
+min: -0.120  max: 0.000  mean: -0.075  sdev: 0.033 
+
+We took 60 measurements at 1.0 seconds (based on reference voltage of 10.022)
+min: -0.129  max: 0.085  mean: -0.084  sdev: 0.038 
+
+We took 60 measurements at 1.0 seconds (based on reference voltage of 9.98)
+min: -0.145  max: 0.043  mean: -0.108  sdev: 0.038 
+
+We took 605 measurements at 0.1 seconds (based on reference voltage of 9.98)
+min: -0.120  max: 0.120  mean: -0.072  sdev: 0.033 
+
+We took 638 measurements at 0.1 seconds (based on reference voltage of 9.851)
+min: -0.214  max: 0.017  mean: -0.158  sdev: 0.036 
+
+We took 1200 measurements at 0.1 seconds (based on reference voltage of 9.466)
+min: -0.154  max: 0.146  mean: -0.091  sdev: 0.044 
+
+We took 121 measurements at 1.0 seconds (based on reference voltage of 9.466)
+min: -0.128  max: 0.035  mean: -0.083  sdev: 0.037 
+
+We took 120 measurements at 1.0 seconds (based on reference voltage of 9.483)
+min: -0.103  max: 0.086  mean: -0.056  sdev: 0.043 
+
+We took 1202 measurements at 0.1 seconds (based on reference voltage of 9.431)
+min: -0.146  max: 0.154  mean: -0.096  sdev: 0.042 
