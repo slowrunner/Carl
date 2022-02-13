@@ -34,3 +34,15 @@ min: -0.103  max: 0.086  mean: -0.056  sdev: 0.043
 
 We took 1202 measurements at 0.1 seconds (based on reference voltage of 9.431)
 min: -0.146  max: 0.154  mean: -0.096  sdev: 0.042 
+
+We took 60 measurements at 1.0 seconds (based on reference voltage of 8.917)
+min: -0.180  max: 0.077  mean: -0.134  mode: -0.155   sdev: 0.056 
+
+We took 60 measurements at 1.0 seconds (based on reference voltage of 8.952)
+min: -0.137  max: 0.026  mean: -0.098  mode: -0.120   sdev: 0.041 
+
+We took 601 measurements at 0.1 seconds (based on reference voltage of 8.926)
+min: -0.171  max: 0.129  mean: -0.115  mode: -0.137   sdev: 0.047 
+
+We took 602 measurements at 0.1 seconds (based on reference voltage of 8.909)
+min: -0.188  max: 0.112  mean: -0.129  mode: -0.154   sdev: 0.048 

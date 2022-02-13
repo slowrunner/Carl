@@ -96,7 +96,7 @@ except KeyboardInterrupt:
     print(data)
     file1.write(data)
     file1.write("\n")
-    data="min: {:.3f}  max: {:.3f}  mean: {:.3f}  sdev: {:.3f} \n".format(min(values), max(values), statistics.mean(values), statistics.pstdev(values))
+    data="min: {:.3f}  max: {:.3f}  mean: {:.3f}  mode: {:.3f}   sdev: {:.3f} \n".format(min(values), max(values), statistics.mean(values), statistics.mode(values), statistics.pstdev(values))
     print(data)
     file1.write(data)
     file1.close()
