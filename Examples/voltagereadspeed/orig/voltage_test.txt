@@ -1,0 +1,24 @@
+
+We took 60 measurements and the average differential was 2.684
+(based on an input reference voltage of 12.0)
+
+We took 601 measurements and the average differential was 2.692
+(based on an input reference voltage of 12.0)
+
+We took 663 measurements and the average differential was 2.699
+(based on an input reference voltage of 12.0)
+
+We took 66 measurements and the average differential was 2.707
+(based on an input reference voltage of 12.0)
+
+We took 60 measurements and the average differential was 2.713
+(based on an input reference voltage of 12.0)
+
+We took 602 measurements and the average differential was 2.716
+(based on an input reference voltage of 12.0)
+
+We took 60 measurements and the average differential was 2.728
+(based on an input reference voltage of 12.0)
+
+We took 611 measurements and the average differential was 2.729
+(based on an input reference voltage of 12.0)
