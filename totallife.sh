@@ -4,15 +4,15 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
-echo "TOTAL LIFE STATISTICS"
 echo "(Cleaning life.log first)"
 /home/pi/Carl/cleanlifelog.py
-echo " "
 fn="/home/pi/Carl/life.log"
 # declare -i newBattsAtCycle=1453
 declare -i newBattsAtCycle=2160
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' $fn)`
+echo " "
+echo "TOTAL LIFE STATISTICS"
 echo "Total Life: " $totalLife "hrs since Aug 22,2018"
 lifeThisYear=`(awk -F':' 'FNR > 6 {sum+=$3}END{print sum;}' $fn)`
 echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
@@ -57,3 +57,5 @@ last10avePlaytime=`(echo "scale=1; $last10playtimes / 10" | bc)`
 echo "Ave of Last 10 Playtimes" $last10avePlaytime
 echo "Last Docking: " $lastDockingStr
 echo "Last Recharge: " `(grep Dismount $fn | tail -1)`
+uptime
+
