@@ -14,7 +14,7 @@ import numpy
     FILE:  wallfollowing.py
     REF: https://www.youtube.com/watch?v=UhquY0m7qic
 
-    This program demonstrates a form of wall following consisting of three zones:
+    This module demonstrates a form of wall following consisting of three zones:
     Zones:  1) Too Close to Wall (45 degree side sensor readings smaller than desired)
             2) Farther From Wall than desired but within limit
             3) Very Far From Wall (45 degree side sensor reading larger than limit)
@@ -54,15 +54,16 @@ import numpy
 
 TURNING_CIRCLE = 16.5  # cm - "safe" distance from center of wheel-base to back corner of bot
 BASE_BOARDS = 2.5     # cm - Bot turning circle ->|BaseBoards|<-Wall
+BOT_REAR_TO_WHEELS = 13  # cm
 FOLLOW_DIAGONAL = 1.414 * (TURNING_CIRCLE + BASE_BOARDS) # sqrt(2) times distance_to_wall (10.6 inches)
 SAFE_FOLLOW_DISTANCE = 0.5 * FOLLOW_DIAGONAL # When to declare path blocked
 LOST_WALL_DISTANCE = 1.5 * FOLLOW_DIAGONAL  # When to declare wall end
 LOST_WALL_DIFFERENCE = FOLLOW_DIAGONAL / 5.0  # If distance jumps 20% declare lost wall
-FOLLOWING_SPEED = 300  # Works in range 100-300
+FOLLOWING_SPEED = 300  # Works in range 100-300 egpg.DEFAULT_SPEED=300
 SERVO_FOR_WALL_ON_RIGHT = 45.0
 SERVO_FOR_WALL_ON_LEFT  = 135.0
 SERVO_CENTER = 90.0
-DISTANCE_SENSOR_TO_WHEELS = 8.9 # cm from wheels to distance sensor
+DISTANCE_SENSOR_TO_WHEELS = 6.3 # cm from wheels to distance sensor
 CW_180 = 180.0
 CCW_180 = -180.0
 CW_90  = 90.0
@@ -71,17 +72,16 @@ CCW_90 = -90.0
 STEERING_MULTIPLIER = 0.5 / FOLLOW_DIAGONAL  # For distance {0..2xFollowDist} to {-0.5 .. +0.5} (-50%..+50%) 
 LOOP_TIME = 0.05  # 20 times per second
 
-TALK = False
+TALK = True
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
 
 def say(phrase):
     if TALK:
-        vol=125  # whisper = 50, shout = 250, normal = 125
         phrase = phrase.replace(' mm', ' millimeters ')
         phrase = phrase.replace(' cm', ' centimeters ')
-        # subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stdout=None, stderr=None, shell=True)
-        subprocess.call(['espeak-ng -s150 -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stdout=None, stderr=None, shell=True)
+        # subprocess.Popen(["/usr/bin/espeak-ng", phrase])
+        subprocess.Popen(["/usr/bin/espeak-ng","-s150","-ven+f5", phrase])
 
 def enc_to_dist_cm(egpg,enc_l,enc_r):
     enc_ave = (enc_l + enc_r) / 2.0
@@ -144,7 +144,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
             if status != TOO_FAR:
                 status == TOO_FAR
             # slow inside wheel proportional to error
-            steering = (distance_reading-FOLLOW_DIAGONAL) * STEERING_MULTIPLIER  # slow inside wheel percent of outside wheel speed
+            steering = (distance_reading-FOLLOW_DIAGONAL) * STEERING_MULTIPLIER  # slow inside wheel percent, speed up outside wheel
             msg="too far"
             logging.info(msg)
             if ((loopcnt % 10) == 0):
@@ -155,7 +155,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
             if status != TOO_CLOSE:
                 status == TOO_CLOSE
             # increase inside wheel percent of outside wheel speed
-            steering = (distance_reading-FOLLOW_DIAGONAL) * STEERING_MULTIPLIER  # speed-up inside wheel percent of outside wheel speed
+            steering = (distance_reading-FOLLOW_DIAGONAL) * STEERING_MULTIPLIER  # speed-up inside wheel percent, slow outside wheel 
             msg="too close"
             logging.info(msg)
             if ((loopcnt % 10) == 0):
@@ -177,16 +177,17 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
         time.sleep(LOOP_TIME)
 
     egpg.stop()
+    time.sleep(1)
     curr_l_enc, curr_r_enc = egpg.read_encoders()
     dist_traveled_cm  = enc_to_dist_cm(egpg, (curr_l_enc - start_l_enc), (curr_r_enc - start_r_enc))
     msg="Traveled {:.1f} cm following wall".format(dist_traveled_cm)
     logging.info(msg)
     say(msg)
-
+    time.sleep(4)
     msg="GOT A PROBLEM HERE"
     logging.info(msg)
     say(msg)
-
+    time.sleep(2)
     if status == TRAVEL_LIMITED:
         msg="travel limit of {:.0f} cm reached".format(travel_limit_cm)
         logging.info(msg)
@@ -203,7 +204,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
         msg="OBSTACLE OR CORNER"
         logging.info(msg)
         say(msg)
-    time.sleep(1)
+    time.sleep(3)
     return dist_traveled_cm
 
 def wall_ended(egpg):
@@ -224,14 +225,15 @@ def backup_for_turning_room(egpg):
     logging.info(msg)
     say(msg)
     egpg.drive_cm( (-1.0*backup_distance), blocking=True)
-
+    time.sleep(4)
 
 def main():
 
     logging.info("==== WALL FOLLOWING ====")
-    msg="Point me along a wall on my right side please"
+    msg="Point me along a wall on my right side, about 15 cm away please"
     logging.info(msg)
     say(msg)
+    time.sleep(3)
     try:
         egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
         egpg.ds = egpg.init_distance_sensor('RPI_1')
@@ -246,6 +248,7 @@ def main():
     msg="OUTA MY WAY! I'm goin' till I can't"
     logging.info(msg)
     say(msg)
+    time.sleep(2)
     follow_wall(egpg,right0_left1=0)
     time.sleep(1)
 
@@ -259,11 +262,21 @@ def main():
     egpg.turn_degrees(CCW_180,blocking=True)
     time.sleep(1)
 
-    msg="OUTA MY WAY! I'm goin' till I can't"
+    msg="OUTA MY WAY! I'm goin' to the other end of this wall"
     logging.info(msg)
     say(msg)
-    follow_wall(egpg,right0_left1=1)
-    time.sleep(1)
+    time.sleep(3)
+    distance_traveled_cm = follow_wall(egpg,right0_left1=1)
+    # bot started the return trip with rear approximately at end of wall
+    # wheels are turning_circle/2 from end of wall
+    # wheels traveled distance returned from follow_wall
+    # distance sensor is 8.9cm in front of wheels
+    # end of wall is the distance reading * cos(45) in front of sensor
+    wall_length= TURNING_CIRCLE/2.0 + distance_traveled_cm + DISTANCE_SENSOR_TO_WHEELS + egpg.ds.read_mm/10.0*0.707
+    msg="Wall is approximately {:.1f} cm long".format(wall_length)
+    logging.info(msg)
+    say(msg)
+    time.sleep(2)
 
     if not safe_to_turn(egpg):
         backup_for_turning_room(egpg)
@@ -274,12 +287,12 @@ def main():
     logging.info(msg)
     say(msg)
     egpg.turn_degrees(CW_180,blocking=True)
-    time.sleep(1)
+    time.sleep(2)
 
 
 
-    logging.info("==== GUESS THAT'S ALL SHE WROTE ====")
-    say("GUESS THAT'S ALL SHE WROTE")
+    logging.info("==== THAT'S ALL FOR THIS TEST OF WALL FOLLOWING ====")
+    say("THAT'S ALL FOR THIS TEST OF WALL FOLLOWING")
 
 if __name__ == '__main__':
     main()
