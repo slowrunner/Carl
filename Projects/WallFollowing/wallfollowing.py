@@ -55,8 +55,8 @@ import numpy
 TURNING_CIRCLE = 16.5  # cm - "safe" distance from center of wheel-base to back corner of bot
 BASE_BOARDS = 2.5     # cm - Bot turning circle ->|BaseBoards|<-Wall
 BOT_REAR_TO_WHEELS = 13  # cm
-FOLLOW_DIAGONAL = 1.414 * (TURNING_CIRCLE + BASE_BOARDS) # sqrt(2) times distance_to_wall (10.6 inches)
-SAFE_FOLLOW_DISTANCE = 0.5 * FOLLOW_DIAGONAL # When to declare path blocked
+FOLLOW_DIAGONAL = 1.414 * (TURNING_CIRCLE + BASE_BOARDS) # sqrt(2) times distance_to_wall (~27cm)
+SAFE_FOLLOW_DISTANCE = 0.6 * FOLLOW_DIAGONAL # When to declare path blocked
 LOST_WALL_DISTANCE = 1.5 * FOLLOW_DIAGONAL  # When to declare wall end
 LOST_WALL_DIFFERENCE = FOLLOW_DIAGONAL / 5.0  # If distance jumps 20% declare lost wall
 FOLLOWING_SPEED = 300  # Works in range 100-300 egpg.DEFAULT_SPEED=300
@@ -64,6 +64,7 @@ SERVO_FOR_WALL_ON_RIGHT = 45.0
 SERVO_FOR_WALL_ON_LEFT  = 135.0
 SERVO_CENTER = 90.0
 DISTANCE_SENSOR_TO_WHEELS = 6.3 # cm from wheels to distance sensor
+WALL_FOLLOW_STOP_FROM_END = 10  # cm approximate distance to end of wall by wall follow algorithm
 CW_180 = 180.0
 CCW_180 = -180.0
 CW_90  = 90.0
@@ -76,8 +77,54 @@ TALK = True
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
 
+
+def init_robot(ds_port="RPI_1",ps_port="SERVO1"):
+    try:
+        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
+        egpg.ds = egpg.init_distance_sensor(port=ds_port)
+        egpg.pan = egpg.init_servo(port=ps_port)
+        msg="Created EasyGoPiGo3 with Distance Sensor on Pan Servo"
+        logging.info(msg)
+        msg="Created Easy Go Pi Go 3 with Distance Sensor on Pan Servo"
+        say(msg)
+        time.sleep(6)
+        return egpg
+    except:
+        logging.info("Initialization Failure - Cannot Proceed")
+        sys.exit(1)
+
+def safe_turn(egpg, angle):
+    if not safe_to_turn(egpg):
+        backup_for_turning_room(egpg)
+        time.sleep(1)
+    if 185 > abs(angle) > 175:
+        msg="TURNING AROUND"
+    elif 95 > abs(angle) > 85:
+        msg="TURNING 90 DEGREES"
+    logging.info(msg)
+    say(msg)
+    egpg.turn_degrees(angle,blocking=True)
+    time.sleep(1)
+
+def wall_length_from_dist_traveled(egpg,dist_cm):
+    # bot starts the trip with rear approximately at end of a wall
+    # wheels are about 13 cm from bot rear
+    # wheels traveled distance returned from follow_wall
+    # distance sensor is 8.9cm in front of wheels
+    # distance to end of wall is either following diag cos(45) or about 2cm if corner/obstacle
+    dist_reading = egpg.ds.read_mm()/10.0
+    if dist_reading < SAFE_FOLLOW_DISTANCE:
+        dist_from_end_of_wall = dist_reading * 0.707
+    else:
+        dist_from_end_of_wall = WALL_FOLLOW_STOP_FROM_END  # allow for stop distance after end of wall detected
+    # logging.info("using dist from wall = {:.1f} cm".format(dist_from_end_of_wall))
+    wall_length = BOT_REAR_TO_WHEELS + dist_cm + DISTANCE_SENSOR_TO_WHEELS + dist_from_end_of_wall
+    return wall_length
+
+
 def say(phrase):
     if TALK:
+        phrase = str(phrase)
         phrase = phrase.replace(' mm', ' millimeters ')
         phrase = phrase.replace(' cm', ' centimeters ')
         # subprocess.Popen(["/usr/bin/espeak-ng", phrase])
@@ -183,11 +230,11 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
     msg="Traveled {:.1f} cm following wall".format(dist_traveled_cm)
     logging.info(msg)
     say(msg)
-    time.sleep(4)
-    msg="GOT A PROBLEM HERE"
+    time.sleep(4.5)
+    msg="PROBLEM"
     logging.info(msg)
     say(msg)
-    time.sleep(2)
+    time.sleep(1)
     if status == TRAVEL_LIMITED:
         msg="travel limit of {:.0f} cm reached".format(travel_limit_cm)
         logging.info(msg)
@@ -204,7 +251,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
         msg="OBSTACLE OR CORNER"
         logging.info(msg)
         say(msg)
-    time.sleep(3)
+    time.sleep(4)
     return dist_traveled_cm
 
 def wall_ended(egpg):
@@ -215,13 +262,15 @@ def safe_to_turn(egpg):
     egpg.pan.rotate_servo(SERVO_CENTER)
     time.sleep(1)
     distance_reading = ave_dist_cm(egpg)
-    safe_in_front = (distance_reading > (TURNING_CIRCLE - DISTANCE_SENSOR_TO_WHEELS))
+    safe_in_front = (distance_reading + DISTANCE_SENSOR_TO_WHEELS) > (TURNING_CIRCLE + BASE_BOARDS)
     return safe_in_front
 
-def backup_for_turning_room(egpg):
+def backup_for_turning_room(egpg):  # at 300DPI will backup an extra 3 cm due to coasting to stop
     distance_reading = ave_dist_cm(egpg)
-    backup_distance = TURNING_CIRCLE - (distance_reading + DISTANCE_SENSOR_TO_WHEELS)
-    msg="BACKING UP {:.1f} INCHES FOR TURNING CLEARANCE".format(backup_distance)
+    logging.info("distance reading: {:.1f} cm".format(distance_reading))
+
+    backup_distance = (TURNING_CIRCLE + BASE_BOARDS) - (distance_reading + DISTANCE_SENSOR_TO_WHEELS)
+    msg="BACKING UP {:.1f} cm FOR TURNING CLEARANCE".format(backup_distance)
     logging.info(msg)
     say(msg)
     egpg.drive_cm( (-1.0*backup_distance), blocking=True)
@@ -229,19 +278,17 @@ def backup_for_turning_room(egpg):
 
 def main():
 
-    logging.info("==== WALL FOLLOWING ====")
+    logging.info("==== WALL FOLLOWING EXAMPLE====")
+
+    egpg = init_robot(ds_port="RPI_1", ps_port="SERVO1")
+
     msg="Point me along a wall on my right side, about 15 cm away please"
     logging.info(msg)
     say(msg)
-    time.sleep(3)
-    try:
-        egpg = easygopigo3.EasyGoPiGo3(use_mutex=True)
-        egpg.ds = egpg.init_distance_sensor('RPI_1')
-        egpg.pan = egpg.init_servo()
-    except:
-        logging.info("Initialization Failure - Cannot Proceed")
-        sys.exit(1)
-    time.sleep(10)
+    for msg in reversed(range(10)):
+        logging.info(msg)
+        say(msg)
+        time.sleep(1)
 
 
 
@@ -249,50 +296,15 @@ def main():
     logging.info(msg)
     say(msg)
     time.sleep(2)
-    follow_wall(egpg,right0_left1=0)
+
+    dist_traveled_cm = follow_wall(egpg,right0_left1=0)
+
     time.sleep(1)
 
-    if not safe_to_turn(egpg):
-        backup_for_turning_room(egpg)
-        time.sleep(1)
+    safe_turn(egpg,CCW_180)
 
-    msg="TURNING AROUND"
-    logging.info(msg)
-    say(msg)
-    egpg.turn_degrees(CCW_180,blocking=True)
-    time.sleep(1)
-
-    msg="OUTA MY WAY! I'm goin' to the other end of this wall"
-    logging.info(msg)
-    say(msg)
-    time.sleep(3)
-    distance_traveled_cm = follow_wall(egpg,right0_left1=1)
-    # bot started the return trip with rear approximately at end of wall
-    # wheels are turning_circle/2 from end of wall
-    # wheels traveled distance returned from follow_wall
-    # distance sensor is 8.9cm in front of wheels
-    # end of wall is the distance reading * cos(45) in front of sensor
-    wall_length= TURNING_CIRCLE/2.0 + distance_traveled_cm + DISTANCE_SENSOR_TO_WHEELS + egpg.ds.read_mm/10.0*0.707
-    msg="Wall is approximately {:.1f} cm long".format(wall_length)
-    logging.info(msg)
-    say(msg)
-    time.sleep(2)
-
-    if not safe_to_turn(egpg):
-        backup_for_turning_room(egpg)
-        time.sleep(1)
-
-
-    msg="TURNING BACK AROUND"
-    logging.info(msg)
-    say(msg)
-    egpg.turn_degrees(CW_180,blocking=True)
-    time.sleep(2)
-
-
-
-    logging.info("==== THAT'S ALL FOR THIS TEST OF WALL FOLLOWING ====")
-    say("THAT'S ALL FOR THIS TEST OF WALL FOLLOWING")
+    logging.info("==== THAT'S ALL FOR THIS EXAMPLE OF WALL FOLLOWING ====")
+    say("THAT'S ALL FOR THIS EXAMPLE OF WALL FOLLOWING")
 
 if __name__ == '__main__':
     main()
