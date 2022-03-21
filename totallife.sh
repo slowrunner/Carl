@@ -8,7 +8,8 @@ echo "(Cleaning life.log first)"
 /home/pi/Carl/cleanlifelog.py
 fn="/home/pi/Carl/life.log"
 # declare -i newBattsAtCycle=1453
-declare -i newBattsAtCycle=2160
+#declare -i newBattsAtCycle=2160
+declare -i newBattsAtCycle=2831
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' $fn)`
 echo " "
