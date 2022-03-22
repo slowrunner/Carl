@@ -56,7 +56,7 @@ TURNING_CIRCLE = 16.5  # cm - "safe" distance from center of wheel-base to back 
 BASE_BOARDS = 2.5     # cm - Bot turning circle ->|BaseBoards|<-Wall
 BOT_REAR_TO_WHEELS = 13  # cm
 FOLLOW_DIAGONAL = 1.414 * (TURNING_CIRCLE + BASE_BOARDS) # sqrt(2) times distance_to_wall (~27cm)
-SAFE_FOLLOW_DISTANCE = 0.6 * FOLLOW_DIAGONAL # When to declare path blocked
+SAFE_FOLLOW_DISTANCE = 0.7 * FOLLOW_DIAGONAL # When to declare path blocked
 LOST_WALL_DISTANCE = 1.5 * FOLLOW_DIAGONAL  # When to declare wall end
 LOST_WALL_DIFFERENCE = FOLLOW_DIAGONAL / 5.0  # If distance jumps 20% declare lost wall
 FOLLOWING_SPEED = 300  # Works in range 100-300 egpg.DEFAULT_SPEED=300
@@ -87,7 +87,6 @@ def init_robot(ds_port="RPI_1",ps_port="SERVO1"):
         logging.info(msg)
         msg="Created Easy Go Pi Go 3 with Distance Sensor on Pan Servo"
         say(msg)
-        time.sleep(6)
         return egpg
     except:
         logging.info("Initialization Failure - Cannot Proceed")
@@ -122,13 +121,19 @@ def wall_length_from_dist_traveled(egpg,dist_cm):
     return wall_length
 
 
-def say(phrase):
+def say(phrase,blocking=True):
     if TALK:
+        volume="-a{}".format(str(125))  # result "-a125"
         phrase = str(phrase)
         phrase = phrase.replace(' mm', ' millimeters ')
         phrase = phrase.replace(' cm', ' centimeters ')
+        # logging.info("Starting say")
         # subprocess.Popen(["/usr/bin/espeak-ng", phrase])
-        subprocess.Popen(["/usr/bin/espeak-ng","-s150","-ven+f5", phrase])
+        if blocking:
+            subprocess.run(["/usr/bin/espeak-ng","-s150","-ven+f5",volume, phrase])
+        else:
+            subprocess.Popen(["/usr/bin/espeak-ng","-s150","-ven+f5",volume, phrase])
+        # logging.info("Completed say")
 
 def enc_to_dist_cm(egpg,enc_l,enc_r):
     enc_ave = (enc_l + enc_r) / 2.0
@@ -182,6 +187,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
 
         if (distance_reading - last_distance_reading) > LOST_WALL_DIFFERENCE:
             status = DISCONTINUITY
+            egpg.stop()
             break
 
         last_distance_reading = distance_reading
@@ -195,7 +201,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
             msg="too far"
             logging.info(msg)
             if ((loopcnt % 10) == 0):
-                say(msg)
+                say(msg,blocking=False)
             loopcnt += 1
         else:
             # pointing toward the wall or too close
@@ -206,7 +212,7 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
             msg="too close"
             logging.info(msg)
             if ((loopcnt % 10) == 0):
-                say(msg)
+                say(msg,blocking=False)
             loopcnt += 1
 
         numpy.clip(steering, -0.5, 0.5)          # constrain steering to +/- 50 percent of speed
@@ -224,17 +230,15 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
         time.sleep(LOOP_TIME)
 
     egpg.stop()
-    time.sleep(1)
+    msg="TERMINATED"
+    logging.info(msg)
+    say(msg)
+
     curr_l_enc, curr_r_enc = egpg.read_encoders()
     dist_traveled_cm  = enc_to_dist_cm(egpg, (curr_l_enc - start_l_enc), (curr_r_enc - start_r_enc))
     msg="Traveled {:.1f} cm following wall".format(dist_traveled_cm)
     logging.info(msg)
     say(msg)
-    time.sleep(4.5)
-    msg="PROBLEM"
-    logging.info(msg)
-    say(msg)
-    time.sleep(1)
     if status == TRAVEL_LIMITED:
         msg="travel limit of {:.0f} cm reached".format(travel_limit_cm)
         logging.info(msg)
@@ -251,7 +255,6 @@ def follow_wall(egpg,right0_left1=0,travel_limit_cm=0):
         msg="OBSTACLE OR CORNER"
         logging.info(msg)
         say(msg)
-    time.sleep(4)
     return dist_traveled_cm
 
 def wall_ended(egpg):
@@ -274,7 +277,7 @@ def backup_for_turning_room(egpg):  # at 300DPI will backup an extra 3 cm due to
     logging.info(msg)
     say(msg)
     egpg.drive_cm( (-1.0*backup_distance), blocking=True)
-    time.sleep(4)
+
 
 def main():
 

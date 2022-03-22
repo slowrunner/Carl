@@ -11,7 +11,7 @@ import wallfollowing
     This program uses wallfollowing to measure the length of a wall
 
     Process:
-    - Start with robot roughly parallel to a wall on right 15-20 cm away
+    - Start with robot roughly parallel to a wall on right 20-30 cm away
     - Bot will travel to end of wall (corner or wall opening) and then turn 180
     - Bot will wall follow to other end of wall (corner or wall opening)
     - Bot will announce wall length estimate and turn 180 to face original direction
@@ -27,26 +27,22 @@ def main():
 
     logging.info("==== MEASURE WALL USING WALL FOLLOWING ====")
     wallfollowing.say("Measure wall using wall follwoing")
-    time.sleep(4)
 
     egpg = wallfollowing.init_robot(ds_port="RPI_1", ps_port="SERVO1")
 
-    msg="Point me along a wall on my right side, about 15 cm away please"
+    msg="Point me along a wall on my right side, about 20 cm away please"
     logging.info(msg)
     wallfollowing.say(msg)
-    time.sleep(5)
 
-    for msg in reversed(range(10)):
+    for msg in reversed(range(4)):
         logging.info(msg)
         wallfollowing.say(msg)
-        time.sleep(1)
 
 
 
     msg="OUTA MY WAY! I'm goin' till I can't"
     logging.info(msg)
     wallfollowing.say(msg)
-    time.sleep(2)
 
     wallfollowing.follow_wall(egpg,right0_left1=0)
 
@@ -58,7 +54,6 @@ def main():
     msg="OUTA MY WAY! I'm goin' to the other end of this wall"
     logging.info(msg)
     wallfollowing.say(msg)
-    time.sleep(3)
 
     distance_traveled_cm = wallfollowing.follow_wall(egpg,right0_left1=1)
 
@@ -68,9 +63,6 @@ def main():
     wallfollowing.say(msg)
 
     wallfollowing.safe_turn(egpg,wallfollowing.CW_180)
-
-    time.sleep(2)
-
 
 
     logging.info("==== THAT'S ALL FOR THIS TEST OF WALL FOLLOWING ====")
