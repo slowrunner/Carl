@@ -14,20 +14,21 @@ import numpy
     FILE:  wallfollowing.py
     REF: https://www.youtube.com/watch?v=UhquY0m7qic
 
-    This module demonstrates a form of wall following consisting of three zones:
-    Zones:  1) Too Close to Wall (45 degree side sensor readings smaller than desired)
-            2) Farther From Wall than desired but within limit
-            3) Very Far From Wall (45 degree side sensor reading larger than limit)
+    This module provides wall following based on 45 degree angle sensor readings::
+    Zones:  1) Corner or Obstacle (sensor readings less than 70% of desired)
+            2) Closer to Wall than desired, (sensor readings 70-100% of desired)
+            3) Farther From Wall than desired, (sensor readings 101-150% of desired)
+            4) Very Far From Wall (sensor reading greater than 150% of desired)
 
     Starting Conditions:
-            1) Roughly aligned to wall (+/- 30 deg)
-            2) Roughly spaced from wall by turning_circle distance (16.5 cm)
+            1) Roughly aligned parallel to wall
+            2) Roughly spaced from wall by 19 cm
 
     Target wall following path is 19 cm from wall
     to allow clearance behind the robot to turn away from wall 90 or 180 degrees
 
 
-    Turning circle is roughly 16.5 cm. Allowing an extra 2.5 cm for baseboards.
+    Turning circle radius is roughly 16.5 cm. Allowing an extra 2.5 cm for baseboards.
 
     Wall      |
               | <------- sensor
@@ -40,16 +41,28 @@ import numpy
     Stopping Conditions (Diagonal Wall Following Distance = 27 cm):
     - No Wall: Distance reading > 1.5 x Diagonal Distance (approx 40 cm)
     - No Wall: Distance reading jumps up by 20% of Diagonal Distance (approx 5 cm)
-    - Obstacle or Corner: Distance Reading is less than half Diagonal Distance
+    - Obstacle or Corner: Distance Reading is less than 70% Diagonal Distance (19cm)
 
-    Control Algorithm:
+    Control Algorithm - percent_error = ((reading - desired) / desired):
     - Set inside wheel proportional to error (1-percent_error/2)
     - Set outside wheel proportional to error (1+percent_error/2)
-    - Too Close: error will be negative  (inside wheel speeds up, outside slows)
-    - Too Far:   error will be positive  (inside wheel slows down, outside speeds up)
+    - Too Close: percent_error will be negative  (inside wheel speeds up, outside slows)
+    - Too Far:   percent_error will be positive  (inside wheel slows down, outside speeds up)
     - percent error allowed to vary in range from -50% to +50% of Diagonal Distance
 
-    Note: Only stock GoPiGo3 APIs, no plib code used
+    Note: Only uses stock GoPiGo3 APIs
+          Pan Servo plugged into Servo1
+
+
+    WALL FOLLOWING MODULE API:
+    - wallfollowing.init_robot()  # returns EasyGoPiGo3 object (with .pan and .ds attached objects)
+    - wallfollowing.safe_turn(egpg, angle)  # will backup if needed to safely turn around
+    - wallfollowing.follow_wall(egpg, right0_left1=0, travel_limit_cm=0) # follow left or right wall
+                                                                         # returns distance traveled
+    - wallfollowing.wall_length_from_dist_traveled(egpg,dist_cm) # estimate wall length from travel
+    - wallfollowing.say(phrase,blocking=True) # speak phrase using espeak-ng, converts mm and cm
+    - wallfollowing.ps_off(egpg) # disables pan servo to conserve battery and allow free rotation
+
 """
 
 TURNING_CIRCLE = 16.5  # cm - "safe" distance from center of wheel-base to back corner of bot
@@ -91,6 +104,16 @@ def init_robot(ds_port="RPI_1",ps_port="SERVO1"):
     except:
         logging.info("Initialization Failure - Cannot Proceed")
         sys.exit(1)
+
+def ps_off(egpg):          # turn pan servo off
+      # set PWM freq to 0 to stop holding position
+      egpg.pan.disable_servo()
+
+def stop(egpg):
+    egpg.stop()
+    msg="Emergency Stop Requested"
+    logging.info(msg)
+    say(msg)
 
 def safe_turn(egpg, angle):
     if not safe_to_turn(egpg):
@@ -285,26 +308,27 @@ def main():
 
     egpg = init_robot(ds_port="RPI_1", ps_port="SERVO1")
 
-    msg="Point me along a wall on my right side, about 15 cm away please"
+    msg="Point me along a wall on my right side, about 19 cm away please"
     logging.info(msg)
     say(msg)
-    for msg in reversed(range(10)):
+
+    for msg in reversed(range(4)):
         logging.info(msg)
         say(msg)
-        time.sleep(1)
 
 
 
     msg="OUTA MY WAY! I'm goin' till I can't"
     logging.info(msg)
     say(msg)
-    time.sleep(2)
 
     dist_traveled_cm = follow_wall(egpg,right0_left1=0)
 
     time.sleep(1)
 
     safe_turn(egpg,CCW_180)
+
+    ps_off(egpg)   # turn pan servo off 
 
     logging.info("==== THAT'S ALL FOR THIS EXAMPLE OF WALL FOLLOWING ====")
     say("THAT'S ALL FOR THIS EXAMPLE OF WALL FOLLOWING")
