@@ -41,7 +41,7 @@ echo "Safety Shutdowns this year: " $safetyShutdowns " or " $safetyPercent "% of
 #aveCycleTimeTotal=`(echo "scale=1; $totalLife / $totalDockings" | bc)`
 #echo "Ave Cycle total life: " $aveCycleTimeTotal "hours"
 aveCycleTime=`(echo "scale=1; $lifeThisYear / ($dockingsThisYear - $dockingFailures)" | bc)`
-echo "Ave Cycle this year (w/o failures): " $aveCycleTime "hours"
+# echo "Ave Cycle this year (w/o failures): " $aveCycleTime "hours"
 
 playtime=`(grep playtime $fn | awk -F"after" '{sum+=$2}END{print sum;}' )`
 avePlaytime=`(echo "scale=1; $playtime / ($dockingsThisYear - $dockingFailures)" | bc)`
