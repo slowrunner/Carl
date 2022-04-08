@@ -10,7 +10,11 @@ a set of "global state and value variables" for interprocess communication.
 
 The physical robot had sensors:
 ```
-- front located "45 degree cross eyed" IR detectors
+- front located "45 degree cross eyed" IR obstacle detector
+  left
+  front (left and right)
+  right
+
 - 360 degree bumper that detected contact from  
   left  
   front (left and right)
