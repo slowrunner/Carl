@@ -9,6 +9,7 @@ written in Interactive C programming language, consisting of a multi-processing 
 a set of "global state and value variables" for interprocess communication.  
 
 The Global Variables:
+```
 - cru_trans    Cruise translational velocity command  
 - cru_rot      Cruise rotational velocity command  
 - cru_act      Cruise active state flag  
@@ -30,14 +31,15 @@ The Global Variables:
 
 - mot_trans    Current Motor Translation Command  
 - mot_rotate   Current Motor Rotate Command  
-
+```
 
 The Behaviors:
+```
 - Cruise      Move forward always  
 - Avoid       Detect obstacles and arc away  
 - Escape      Detect collision/bump direction and react appropriately  
 - Motor       Executes motor control  
 - Arbitrate   Prioritize the behavior output commands  
 - Report      Display Behavior states and current motor commands  
-
+```
 
