@@ -8,6 +8,19 @@ In MR:I2I the authors present the subsumption architecture for a robot behavior 
 written in Interactive C programming language, consisting of a multi-processing set of behaviors that use  
 a set of "global state and value variables" for interprocess communication.  
 
+The physical robot had sensors:
+```
+- front located "45 degree cross eyed" IR detectors
+- 360 degree bumper that detected contact from  
+  left  
+  front (left and right)
+  right
+  right rear (right and rear) 
+  rear
+  left rear  (left and rear)
+```
+
+
 The Global Variables:
 ```
 - cru_trans    Cruise translational velocity command  
