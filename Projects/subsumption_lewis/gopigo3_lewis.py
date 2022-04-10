@@ -49,7 +49,8 @@ import sys
 import logging
 import subprocess
 import threading
-
+import numpy
+import traceback
 
 # Lewis and Clark
 # Behavior Set: Move and don't get stuck
@@ -72,6 +73,7 @@ tScan = None  # Scan Behavior Thread Object
 tMotors = None  # Motor Control Thread Object
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
+inhibit_drive = True
 
 # ==== UTILITY FUNCTIONS ====
 
@@ -162,6 +164,7 @@ class Behavior(threading.Thread):
         self.exc = None  # var to hold any exception
         self.name = threading.current_thread().name
         try:
+            logging.info("Running %s",self.name)
             while (self.exitFlag is not True):
                 self.threadFunction()
             logging.info("%s: thread told to exit",self.name)
@@ -184,6 +187,8 @@ class Behavior(threading.Thread):
 # pan servo object is assumed to be at egpg.pan
 
 def scan_behavior():
+        global scan_behavior_active
+
         try:
             msg="Starting scan behavior"
             logging.info(msg)
@@ -197,10 +202,10 @@ def scan_behavior():
             logging.info("Exception {}".format(str(e)))
             tScan.exc = e
 
-        pan_behavior_active = True
-        while pan_behavior_active:
+        scan_behavior_active = True
+        while scan_behavior_active:
             if tScan.exitFlag:
-                pan_behavior_active = False
+                scan_behavior_active = False
                 break
 
             for direction in PAN_ANGLES:
@@ -211,7 +216,7 @@ def scan_behavior():
                     msg="Cound not pan to {} degrees".format(angle)
                     logging.info(msg)
                     logging.info("Exception {}".format(str(e)))
-                    pan_behavior_active = False
+                    scan_behavior_active = False
                     tScan.exc = e
 
                 try:
@@ -225,31 +230,161 @@ def scan_behavior():
                     msg="Exception reading distance sensor"
                     logging.info(msg)
                     logging.info("Exception {}".format(str(e)))
-                    pan_behavior_active = False
+                    scan_behavior_active = False
                     tScan.exc = e
                 time.sleep(0.1)
 # END SCAN BEHAVIOR
 
 # MOTORS BEHAVIOR
 
+# inputs:
+#   - mot_trans   -100 to +100 percentage of set_speed
+#   - mot_rot     -100 (CCW) to +100 (CW) percent of set_speed
 def motors_behavior():
+        global motors_behavior_active
 
         motors_behavior_active = True
         current_trans = 0
         current_rot = 0
 
+        logging.info("Entering motors_behavior()")
         while motors_behavior_active:
             if tMotors.exitFlag:
                 motors_behavior_active = False
                 egpg.stop()
                 break
             if (mot_trans != current_trans) or (mot_rot != current_rot):
-                msg="Setting motors - translate: {}  rotate: {}".format(mot_trans, mot_rot)
+                if mot_rot == 0:
+                    right_pct = mot_trans
+                    left_pct  = right_pct
+                elif mot_trans == 0:
+                    right_pct = -1.0 * mot_rot
+                    left_pct = mot_rot
+                elif numpy.sign(mot_trans) > 0:   # motor_trans is not zero so have to mix,
+                    if numpy.sign(mot_rot) > 0:            # mot_trans positive, rotate clockwise
+                        right_pct = (mot_trans - mot_rot)
+                        left_pct  = mot_trans
+                    else:                                  # mot_trans positive, rotate counter-clockwise
+                        left_pct = mot_trans - abs(mot_rot)
+                        right_pct  = mot_trans
+                else:       # mot_trans is not zero and not positive, have to mix
+                    if numpy.sign(mot_rot) > 0:            # mot_trans positive, rotate clockwise
+                        right_pct = (mot_trans + mot_rot)
+                        left_pct  = mot_trans
+                    else:                                  # mot_trans positive, rotate counter-clockwise
+                        left_pct = mot_trans + abs(mot_rot)
+                        right_pct  = mot_trans
+
+                msg="Motors Behavior Interpretation - translate: {}  rotate: {} left: {}% right: {}%".format(mot_trans, mot_rot, left_pct, right_pct)
                 logging.info(msg)
                 say(msg)
                 current_trans = mot_trans
                 current_rot   = mot_rot
+
+                if inhibit_drive is not True:
+                    egpg.steer( left_pct * egpg.get_speed(), right_pct * egpg.get_speed() )
+                else:
+                    logging.info("inhibit_drive True - ignoring command")
             time.sleep(0.1)
+
+def test_motors_behavior():
+            global mot_trans, mot_rot
+
+            logging.info("==== TEST MOTORS BEHAVIOR ====")
+            say("Motor Behavior Test Will Begin In 5 seconds")
+            time.sleep(5)
+
+            mot_trans  = 100
+            mot_rot    = 0
+            time.sleep(1)
+
+            mot_trans  = -100
+            mot_rot    = 0
+            time.sleep(1)
+
+            mot_trans  = 0
+            mot_rot    = 0
+            time.sleep(1)
+
+            mot_trans = 0
+            mot_rot  = 100
+            time.sleep(1)
+
+
+            mot_trans  = 0
+            mot_rot    = 0
+            time.sleep(1)
+
+            mot_trans = 0
+            mot_rot  = -100
+            time.sleep(1)
+
+            mot_trans  = 0
+            mot_rot    = 0
+            time.sleep(1)
+
+
+            mot_trans  = 100
+            mot_rot  = 25
+            time.sleep(1)
+            mot_rot  = 50
+            time.sleep(1)
+            mot_rot  = 75
+            time.sleep(1)
+            mot_rot  = 100
+            time.sleep(1)
+
+            mot_rot  = 0
+            mot_trans = 0
+            time.sleep(1)
+
+            mot_trans = 100
+            time.sleep(1)
+            mot_rot  = -25
+            time.sleep(1)
+            mot_rot  = -50
+            time.sleep(1)
+            mot_rot  = -75
+            time.sleep(1)
+            mot_rot  = -100
+            time.sleep(1)
+
+            mot_trans = 0
+            mot_rot  = 0
+            time.sleep(1)
+
+            mot_trans  = -100
+            mot_rot  = 25
+            time.sleep(1)
+            mot_rot  = 50
+            time.sleep(1)
+            mot_rot  = 75
+            time.sleep(1)
+            mot_rot  = 100
+            time.sleep(1)
+
+            mot_rot  = 0
+            mot_trans = 0
+            time.sleep(1)
+
+            mot_trans = - 100
+            time.sleep(1)
+            mot_rot  = -25
+            time.sleep(1)
+            mot_rot  = -50
+            time.sleep(1)
+            mot_rot  = -75
+            time.sleep(1)
+            mot_rot  = -100
+            time.sleep(1)
+
+            mot_trans = 0
+            mot_rot  = 0
+            time.sleep(1)
+
+            logging.info("==== MOTOR BEHAVIOR TEST COMPLETE ====")
+            say("Motor Behavior Test Complete")
+
 
 # END MOTOR CONTROL BEHAVIOR
 
@@ -260,8 +395,10 @@ def setup():
 
     try:
         egpg = init_robot(ds_port="RPI_1", pan_port="SERVO1")
+
         tScan = Behavior(scan_behavior)
         tScan.start()
+
         tMotors = Behavior(motors_behavior)
         tMotors.start()
         logging.info("setup complete")
@@ -269,6 +406,9 @@ def setup():
     except KeyboardInterrupt:
         logging.info("Keyboard Interrupt in setup")
         raise KeyboardInterrupt
+
+    except Exception as e:
+        logging.info("Setup exception: %s",e)
 
 
 def teardown():
@@ -309,15 +449,9 @@ def main():
     say("Lewis and Clark. Subsumption Architecture Example.")
     try:
         setup()
-        while True:
-            mot_trans  = 150
-            time.sleep(1)
-            mot_trans  = 0
-            time.sleep(1)
-            mot_rot  = 150
-            time.sleep(1)
-            mot_rot  = 0
-            time.sleep(1)
+        # while True:
+        # do main things
+        test_motors_behavior()
 
     except KeyboardInterrupt:
         print("")
@@ -325,10 +459,13 @@ def main():
         logging.info(msg)
         say(msg)
 
-        teardown()
-
     except Exception as e:
         logging.info("Handling main exception: %s",e)
+
+    finally:
+        teardown()
+        logging.info("==== Lewis and Clark Done ====")
+        say("Lewis and Clark done")
 
 
 if __name__ == "__main__":

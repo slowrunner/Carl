@@ -47,7 +47,7 @@ The Global Variables:
 - es_spin      Escape Spin Duration  
 
 - mot_trans    Current Motor Translation Command  
-- mot_rotate   Current Motor Rotate Command  
+- mot_rot      Current Motor Rotate Command  
 ```
 
 The Behaviors:
