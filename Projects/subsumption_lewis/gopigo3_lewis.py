@@ -48,6 +48,7 @@ import time
 import sys
 import logging
 import subprocess
+import threading
 
 
 # Lewis and Clark
@@ -59,14 +60,18 @@ MIN_TURNING_CIRCLE_RADIUS  =  5    # cm - safe for GoPiGo3 to turn toward object
 
 BUMP_DISTANCES =     { "front":  5, "right front":  7, "right":  5, "left front":   7, "left":   5 }
 OBSTACLE_DISTANCES = { "front": 20, "right front": 28, "right": 20, "left front":  28, "left":  20 }
-PAN_ANGLES =         { "front": 90, "right front": 45, "right":  0, "left front": 135, "left": 180 }
+PAN_ANGLES =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
 
 TALK = False
 
 obstacles =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 bumps     =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 
-robot = None
+egpg = None   # The EasyGoPiGo3 robot object
+tScan = None  # Scan Behavior Thread Object
+tMotors = None  # Motor Control Thread Object
+mot_trans = 0     # motor translation command
+mot_rot = 0    # motor rotation command
 
 # ==== UTILITY FUNCTIONS ====
 
@@ -115,18 +120,72 @@ def say(phrase,blocking=True):
             subprocess.Popen(["/usr/bin/espeak-ng","-s150","-ven+f5",volume, phrase])
         # logging.info("Completed say")
 
+def evaluate_scan_reading(direction,distance_reading_cm):
+    global obstacles, bumps
+
+    if distance_reading_cm > OBSTACLE_DISTANCES[direction]:
+        if obstacles[direction]:
+            msg="{} obstacle cleared".format(direction)
+            logging.info(msg)
+            say(msg,blocking=False)
+            obstacles[direction] = False
+        if bumps[direction]:
+            msg="{} bump cleared".format(direction)
+            logging.info(msg)
+            say(msg,blocking=False)
+            bumps[direction] = False
+    elif distance_reading_cm > BUMP_DISTANCES[direction]:
+        if obstacles[direction] is not True:
+            msg="{} obstacle set".format(direction)
+            logging.info(msg)
+            say(msg,blocking=False)
+            obstacles[direction] = True
+    elif bumps[direction] is not True:
+            msg="{} bump set".format(direction)
+            logging.info(msg)
+            say(msg,blocking=False)
+            bumps[direction] = True
 
 # ===== BEHAVIORS =======
 
+# BASE BEHAVIOR CLASS
 
-# PAN BEHAVIOR
+class Behavior(threading.Thread):
+
+    def __init__(self,thread_func):
+        threading.Thread.__init__(self)
+        self.exitFlag = False               # used to signal behavior to exit
+        self.threadFunction = thread_func
+        self.exe = None
+
+    def run(self):
+        self.exc = None  # var to hold any exception
+        self.name = threading.current_thread().name
+        try:
+            while (self.exitFlag is not True):
+                self.threadFunction()
+            logging.info("%s: thread told to exit",self.name)
+        except Exception as e:
+            logging.info("%s: Printing traceback in the thread exception handler",self.name)
+            traceback.print_exc()
+            self.exc = e      # save exception for later re-raising to the main
+
+    def join(self):
+        threading.Thread.join(self)
+        if self.exc:  # re-raise the exception in main
+            name = threading.current_thread().name
+            logging.info("%s: re-raising exception in thread.join()", name)
+            raise self.exc
+
+# END class Behavior
+
+# SCAN BEHAVIOR
 
 # pan servo object is assumed to be at egpg.pan
 
-def pan_behavior(egpg):
-    try:
+def scan_behavior():
         try:
-            msg="Starting pan behavior"
+            msg="Starting scan behavior"
             logging.info(msg)
             say(msg)
 
@@ -135,10 +194,15 @@ def pan_behavior(egpg):
             msg="Could not center pan servo"
             logging.info(msg)
             say(msg)
-
             logging.info("Exception {}".format(str(e)))
+            tScan.exc = e
+
         pan_behavior_active = True
         while pan_behavior_active:
+            if tScan.exitFlag:
+                pan_behavior_active = False
+                break
+
             for direction in PAN_ANGLES:
                 angle = PAN_ANGLES[direction]
                 try:
@@ -148,44 +212,96 @@ def pan_behavior(egpg):
                     logging.info(msg)
                     logging.info("Exception {}".format(str(e)))
                     pan_behavior_active = False
+                    tScan.exc = e
+
                 try:
                     dist_reading_cm = egpg.ds.read_mm()/10.0  # read() returns whole centimeters so use read_mm()/10.0
-                    msg="distance {:.0f} cm looking {} at {} degrees".format(dist_reading_cm,direction,angle)
+                    msg="distance {:>5.0f} cm looking {:<11s} at {:>3d} degrees".format(dist_reading_cm,direction,angle)
                     logging.info(msg)
+                    evaluate_scan_reading(direction,dist_reading_cm)
+
 
                 except Exception as e:
                     msg="Exception reading distance sensor"
                     logging.info(msg)
                     logging.info("Exception {}".format(str(e)))
                     pan_behavior_active = False
-                time.sleep(1.0)
-    except KeyboardInterrupt:
-        raise KeyboardInterrupt
+                    tScan.exc = e
+                time.sleep(0.1)
+# END SCAN BEHAVIOR
+
+# MOTORS BEHAVIOR
+
+def motors_behavior():
+
+        motors_behavior_active = True
+        current_trans = 0
+        current_rot = 0
+
+        while motors_behavior_active:
+            if tMotors.exitFlag:
+                motors_behavior_active = False
+                egpg.stop()
+                break
+            if (mot_trans != current_trans) or (mot_rot != current_rot):
+                msg="Setting motors - translate: {}  rotate: {}".format(mot_trans, mot_rot)
+                logging.info(msg)
+                say(msg)
+                current_trans = mot_trans
+                current_rot   = mot_rot
+            time.sleep(0.1)
+
+# END MOTOR CONTROL BEHAVIOR
 
 # SETUP AND TEAR DOWN BEHAVIOR
 
 def setup():
-    global robot
+    global egpg, tScan, tMotors
 
     try:
-        robot = init_robot(ds_port="RPI_1", pan_port="SERVO1")
+        egpg = init_robot(ds_port="RPI_1", pan_port="SERVO1")
+        tScan = Behavior(scan_behavior)
+        tScan.start()
+        tMotors = Behavior(motors_behavior)
+        tMotors.start()
+        logging.info("setup complete")
 
-        pan_behavior(robot)
     except KeyboardInterrupt:
+        logging.info("Keyboard Interrupt in setup")
         raise KeyboardInterrupt
 
 
 def teardown():
+    global tScan
     msg="Tear Down Process Initiated"
     logging.info(msg)
     say(msg)
 
-    ps_center(robot)
-    ps_off(robot)
+    try:
+        logging.info("Telling scan behavior thread to exit (if still running)")
+        tScan.exitFlag = True
+        logging.info("Waiting for scan thread to exit")
+        tScan.join()
+    except Exception as e:
+        logging.info("Got exception set in scan thread: %s", e)
+
+    try:
+        logging.info("Telling motors behavior thread to exit (if still running)")
+        tMotors.exitFlag = True
+        logging.info("Waiting for motors thread to exit")
+        tMotors.join()
+    except Exception as e:
+        logging.info("Got exception set in motors thread: %s", e)
+
+
+    ps_center(egpg)
+    ps_off(egpg)
+
 
 # MAIN
 
 def main():
+    global mot_trans, mot_rot
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
 
@@ -194,14 +310,26 @@ def main():
     try:
         setup()
         while True:
+            mot_trans  = 150
             time.sleep(1)
+            mot_trans  = 0
+            time.sleep(1)
+            mot_rot  = 150
+            time.sleep(1)
+            mot_rot  = 0
+            time.sleep(1)
+
     except KeyboardInterrupt:
-        print("\n")
-        msg="Ctrl-C Detected"
+        print("")
+        msg="Ctrl-C Detected in Main"
         logging.info(msg)
         say(msg)
 
         teardown()
+
+    except Exception as e:
+        logging.info("Handling main exception: %s",e)
+
 
 if __name__ == "__main__":
     main()

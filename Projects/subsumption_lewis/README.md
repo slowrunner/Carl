@@ -1,10 +1,10 @@
 # SUBSUMPTION ROBOT ARCHITECTURE IN PYTHON  
 
 My first exposure to the Brooks 1984 Subsumption Behavior Based Robotics Architecture  
-was via assembling the 6500 based RugWarrior Pro Robot and  
+was via assembling the 68HC11 based RugWarrior Pro Robot and  
 the book "Mobile Robots: Inspiration to Implementation", Joseph L. Jones, Anita M. Flynn, Bruce A. Seiger.  
 
-In MR:I2I the authors present the subsumption architecture for a robot behavior named "Lewis and Clark"  
+In MR:I2I p314, the authors present a subsumption architecture for a robot behavior named "Lewis and Clark"  
 written in Interactive C programming language, consisting of a multi-processing set of behaviors that use  
 a set of "global state and value variables" for interprocess communication.  
 
