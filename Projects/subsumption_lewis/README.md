@@ -60,3 +60,54 @@ The Behaviors:
 - Report      Display Behavior states and current motor commands  
 ```
 
+# subsumption.py
+
+Provides a subsumption robot architecture with the following API:
+```
+setup()              instantiates an EasyGoPiGo3 with Pan Servo and Distance Sensor
+                     and starts the following behaviors
+                     - Motors behavior
+                     - Scan behavior
+                     - Arbitrate Motors
+                     - Escape behavior
+                     - Avoid behavior
+                     - Cruise behavior
+                     - Report behavior
+
+if_obstacle()        returns list of keys of detected obstacles (Python treats empty list as False)
+if_bump()            returns list of keys of detected "bumps"   (Python treats empty list as False)
+
+teardown()           Stops all behavior threads gracefully, centers and turns off pan servo
+
+inhibit_drive        Set True to inhibit Motors behavior from actually driving the robot
+inhibit_scan         Set True to inhibit the five direction distance scanning 
+inhibit_escape       Set True to inhibit reacting to bumps 
+inhibit_avoid        Set True to inhibit reacting to obstacles 
+inhibit_cruise       Set True to inhibit driving as the default behavior
+ 
+mot_trans            Motors Behavior Input: Translate +100 pct to -100 pct
+mot_rot              Motors Behavior Input: Rotate    +100 pct to -100 pct
+```
+
+# gopigo3_lewis.py
+
+Implements the MR:I2I p314 Lewis and Clark Program using the subsumption.py module
+
+
+Will drive forward until obstacle or bump
+  - Set GoPiGo3 Eyes Green
+
+Will avoid obstacles: (something within 20 cm of robot)
+  - Set GoPiGo3 Eyes YELLOW
+  - left front or right front obstacle: stop, turn away from obstacle 
+  - front obstacle: stop, spin left or right 
+
+Will escape "bumps": (something within 5 cm of robot)
+  - Set GoPiGo3 Eyes RED
+  - front: stop, backup for clearance, spin 90 left
+  - front left: stop, spin toward bump, backup for clearance, turn 90 right
+  - left: stop, spin toward bump, backup for clearance, turn 90 right
+  - front right: stop, spin toward bump, backup for clearance, turn 90 left
+  - right: stop, spin toward bump, backup for clearance, turn 90 left
+
+# test_subsumption.py
