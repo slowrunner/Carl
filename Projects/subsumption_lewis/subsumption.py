@@ -76,6 +76,12 @@ motors_behavior_active = False
 inhibit_drive = False
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
+MOTORS_RATE = 40
+
+tArbitrate = None  # Motor Arbitration Thread Object
+arbitrate_behavior_active = False
+inhibit_arbitrate = False
+ARBITRATE_RATE = 50    # 50 times per second
 
 tEscape = None  #               Escape Behavior Thread Object
 escape_behavior_active = False  # flag indicating escape behavior is active/needed
@@ -84,10 +90,36 @@ escape_trans = 0                # escape active trans percent
 escape_rot = 0                  # escape active rotation percent
 escape_default_trans = 100      # trans velocity percent
 escape_default_rot = 50         # spin velocity percent
-escape_trans_time = 0.25        # forward/backward time
-escape_rot_time = 0.25          # spin in place time
-escape_stop_time = 1.0          # stop duration before any escape maneuver
-ESCAPE_RATE = 10		# Check for escape needed roughly 10 times per second
+escape_trans_time = 1        # forward/backward time
+escape_rot_time = 1          # spin in place time
+escape_stop_time = 1          # stop duration before any escape maneuver
+ESCAPE_RATE = 20		# Check for escape needed roughly 10 times per second
+
+
+tAvoid = None  #               Avoid Behavior Thread Object
+avoid_behavior_active = False  # flag indicating avoid behavior is active/needed
+inhibit_avoid = False          # Set true to ignore very close scan readings
+avoid_trans = 0                # avoid active trans percent
+avoid_rot = 0                  # avoid active rotation percent
+avoid_default_trans = 100      # trans velocity percent
+avoid_default_rot = 50         # spin velocity percent
+avoid_trans_time = 0.25        # forward/backward time
+avoid_rot_time = 0.25          # spin in place time
+avoid_stop_time = 1.0          # stop duration before any avoid maneuver
+AVOID_RATE = 10		# Check for avoid needed roughly 10 times per second
+
+
+tCruise = None  #               Cruise Behavior Thread Object
+cruise_behavior_active = False  # flag indicating cruise behavior is active/needed
+inhibit_cruise = False          # Set true to ignore very close scan readings
+cruise_trans = 0                # cruise active trans percent
+cruise_rot = 0                  # cruise active rotation percent
+cruise_default_trans = 100      # trans velocity percent
+cruise_default_rot = 50         # spin velocity percent
+cruise_trans_time = 0.25        # forward/backward time
+cruise_rot_time = 0.25          # spin in place time
+cruise_stop_time = 1.0          # stop duration before any cruise maneuver
+CRUISE_RATE = 5		# Check for cruise needed roughly 10 times per second
 
 
 
@@ -163,23 +195,23 @@ def evaluate_scan_reading(direction,distance_reading_cm):
         if obstacles[direction]:
             msg="{} obstacle cleared".format(direction)
             logging.info(msg)
-            say(msg,blocking=False)
+            # say(msg,blocking=False)
             obstacles[direction] = False
         if bumps[direction]:
             msg="{} bump cleared".format(direction)
             logging.info(msg)
-            say(msg,blocking=False)
+            # say(msg,blocking=False)
             bumps[direction] = False
     elif distance_reading_cm > BUMP_DISTANCES[direction]:
         if obstacles[direction] is not True:
             msg="{} obstacle set".format(direction)
             logging.info(msg)
-            say(msg,blocking=False)
+            # say(msg,blocking=False)
             obstacles[direction] = True
     elif bumps[direction] is not True:
             msg="{} bump set".format(direction)
             logging.info(msg)
-            say(msg,blocking=False)
+            # say(msg,blocking=False)
             bumps[direction] = True
 
 # ===== BEHAVIORS =======
@@ -291,11 +323,8 @@ def motors_behavior():
         current_rot = 0
 
         logging.info("Starting motors behavior")
-        while motors_behavior_active:
-            if tMotors.exitFlag:
-                motors_behavior_active = False
-                emergency_stop()
-                break
+        while tMotors.exitFlag is not True:
+            time.sleep(1.0/MOTORS_RATE)
             if (mot_trans != current_trans) or (mot_rot != current_rot):
                 if mot_rot == 0:
                     right_pct = mot_trans
@@ -328,15 +357,35 @@ def motors_behavior():
                     spd = egpg.get_speed()
                     egpg.set_motor_dps( egpg.MOTOR_LEFT, left_pct/100.0 * spd )
                     egpg.set_motor_dps( egpg.MOTOR_RIGHT , right_pct/100.0 * spd)
+                    motors_behavior_active = (left_pct + right_pct) < 1.0   # if left and right wheel drive is less than 1% no need to be active
                 else:
                     logging.info("inhibit_drive True - ignoring command")
-            time.sleep(0.1)
+
+        egpg.stop()
+        msg="Motors Behavior Exit Flag Detected"
+        logging.info(msg)
+        say(msg)
+        motors_behavior_active = False
 
 # END MOTOR CONTROL BEHAVIOR
 
 
 
 # ESCAPE BEHAVIOR
+
+# Return cw (1), ccw (-1)
+def escape_ccw_or_cw(obstacle_list):
+    CW = 1
+    CCW = -1
+    if obstacle_list:
+        if ("front left" in obstacle_list) or ("left" in obstacle_list):
+            escape_spin = CW
+        else:
+            escape_spin = CCW
+    else:   # empty list
+        escape_spin = CCW
+    return escape_spin
+
 
 def escape_behavior():
     global escape_behavior_active
@@ -349,6 +398,7 @@ def escape_behavior():
 
         while (tEscape.exitFlag is not True):
 
+            time.sleep(1.0/ESCAPE_RATE)
             if inhibit_escape:
                 continue
 
@@ -356,34 +406,107 @@ def escape_behavior():
             bumps_now = if_bump()
             if "front" in bumps_now:           # bumped in front
                 escape_behavior_active = True  # alert escape behavior actively needed
+
                 escape_trans = 0               # stop forward motion
                 escape_rot = 0                 # stop any rotation
+
+                msg="Requesting Escape From Front Bump"
+                logging.info(msg)
+                say(msg)
+
                 time.sleep(escape_stop_time)   # wait for stop to occur
 
-                escape_trans = -escape_default_trans)   # backup up
+                msg="Escape Backup"
+                logging.info(msg)
+                say(msg)
+
+                escape_trans = -escape_default_trans   # backup up
                 escape_rot = 0
                 time.sleep(escape_trans_time)  # backup for set time
+
+                msg="Escape Spin"
+                logging.info(msg)
+                say(msg)
 
                 escape_trans = 0
                 obstacles_now = if_obstacle()  # get obstacle list
                 # choose clockwise (+1) or counterclockwise (-1) based on obstacle list
                 escape_rot = escape_ccw_or_cw(obstacles_now) * escape_default_rot
-                time.sleep(escape_time_rot)    # spin for set time
+                time.sleep(escape_rot_time)    # spin for set time
 
                 escape_rot = 0                 # stop spinning
                 time.sleep(escape_stop_time)
 
                 escape_trans = escape_default_trans  # drive a little to escape away
                 escape_rot = 0
+                msg="Escape Forward"
+                logging.info(msg)
+                say(msg)
+
                 time.sleep(escape_trans_time)
 
                 escape_trans = 0                 # stop escape motion
                 escape_behavior_active = False   # we're done escape behavior for now
+                msg="Escape From Front Bump Complete"
+                logging.info(msg)
+                say(msg)
 
 
-            time.sleep(1.0/ESCAPE_RATE)
+
+    except Exception as e:
+        msg="Exception in escape_behavior"
+        logging.info(msg)
+        logging.info("Exception {}".format(str(e)))
+        escape_behavior_active = False
+        tEscape.exc = e
 
 # END ESCAPE BEHAVIOR
+
+
+# ARBITRATE BEHAVIOR
+
+def arbitrate_behavior():
+    global arbitrate_behavior_active, mot_trans, mot_rot
+
+    try:
+        msg="Starting Arbitrate Behavior Thread"
+        logging.info(msg)
+        # say(msg)
+
+
+        while (tArbitrate.exitFlag is not True):
+            time.sleep(1.0/ARBITRATE_RATE)
+
+            if inhibit_arbitrate:
+                continue
+
+
+            if escape_behavior_active:
+                # logging.info("Setting Escape Commands")
+                mot_trans = escape_trans
+                mot_rot   = escape_rot
+            elif avoid_behavior_active:
+                # logging.info("Setting Avoid Commands")
+                mot_trans  = avoid_trans
+                mot_rot    = avoid_rot
+            elif cruise_behavior_active:
+                # logging.info("Setting Cruise Commands")
+                mot_trans   = cruise_trans
+                mot_rot     = cruise_rot
+            else:
+                # logging.info("Stopping - No Commands")
+                mot_trans  = 0
+                mot_rot    = 0
+
+
+    except Exception as e:
+        msg="Exception in arbitrate_behavior"
+        logging.info(msg)
+        logging.info("Exception {}".format(str(e)))
+        arbitrate_behavior_active = False
+        tArbitrate.exc = e
+
+# END ARBITRATE BEHAVIOR
 
 
 
@@ -394,7 +517,7 @@ def escape_behavior():
 # SETUP AND TEAR DOWN BEHAVIOR
 
 def setup():
-    global egpg, tScan, tMotors
+    global egpg, tScan, tMotors, tEscape, tArbitrate
 
     try:
         egpg = init_robot(ds_port="RPI_1", pan_port="SERVO1")
@@ -404,6 +527,12 @@ def setup():
 
         tMotors = Behavior(motors_behavior)
         tMotors.start()
+
+        tArbitrate = Behavior(arbitrate_behavior)
+        tArbitrate.start()
+
+        tEscape = Behavior(escape_behavior)
+        tEscape.start()
 
         # wait for everything to initialize and be running
         time.sleep(1)
@@ -438,6 +567,22 @@ def teardown():
         tMotors.join()
     except Exception as e:
         logging.info("Got exception set in motors thread: %s", e)
+
+    try:
+        logging.info("Telling arbitrate behavior thread to exit (if still running)")
+        tArbitrate.exitFlag = True
+        logging.info("Waiting for arbitrate thread to exit")
+        tArbitrate.join()
+    except Exception as e:
+        logging.info("Got exception set in arbitrate thread: %s", e)
+
+    try:
+        logging.info("Telling escape behavior thread to exit (if still running)")
+        tEscape.exitFlag = True
+        logging.info("Waiting for escape thread to exit")
+        tEscape.join()
+    except Exception as e:
+        logging.info("Got exception set in escape thread: %s", e)
 
 
     ps_center()
