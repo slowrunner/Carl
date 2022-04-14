@@ -76,12 +76,12 @@ motors_behavior_active = False
 inhibit_drive = False
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
-MOTORS_RATE = 40
+MOTORS_RATE = 10
 
 tArbitrate = None  # Motor Arbitration Thread Object
 arbitrate_behavior_active = False
 inhibit_arbitrate = False
-ARBITRATE_RATE = 50    # 50 times per second
+ARBITRATE_RATE = 10    # 50 times per second
 
 tEscape = None  #               Escape Behavior Thread Object
 escape_behavior_active = False  # flag indicating escape behavior is active/needed
@@ -93,7 +93,7 @@ escape_default_rot = 50         # spin velocity percent
 escape_trans_time = 1        # forward/backward time
 escape_rot_time = 1          # spin in place time
 escape_stop_time = 1          # stop duration before any escape maneuver
-ESCAPE_RATE = 20		# Check for escape needed roughly 10 times per second
+ESCAPE_RATE = 10		# Check for escape needed roughly 10 times per second
 
 
 tAvoid = None  #               Avoid Behavior Thread Object
@@ -208,11 +208,19 @@ def evaluate_scan_reading(direction,distance_reading_cm):
             logging.info(msg)
             # say(msg,blocking=False)
             obstacles[direction] = True
+        if bumps[direction] is True:
+            msg="{} bump cleared".format(direction)
+            logging.info(msg)
+            bumps[direction] = False
     elif bumps[direction] is not True:
             msg="{} bump set".format(direction)
             logging.info(msg)
             # say(msg,blocking=False)
             bumps[direction] = True
+            if obstacles[direction] is not True:
+                msg="{} obstacle set".format(direction)
+                logging.info(msg)
+                obstacles[direction] = True
 
 # ===== BEHAVIORS =======
 
@@ -349,15 +357,19 @@ def motors_behavior():
 
                 msg="Motors Behavior Interpretation - translate: {}  rotate: {} left: {}% right: {}%".format(mot_trans, mot_rot, left_pct, right_pct)
                 logging.info(msg)
-                say(msg)
+
                 current_trans = mot_trans
                 current_rot   = mot_rot
 
                 if inhibit_drive is not True:
                     spd = egpg.get_speed()
-                    egpg.set_motor_dps( egpg.MOTOR_LEFT, left_pct/100.0 * spd )
-                    egpg.set_motor_dps( egpg.MOTOR_RIGHT , right_pct/100.0 * spd)
-                    motors_behavior_active = (left_pct + right_pct) < 1.0   # if left and right wheel drive is less than 1% no need to be active
+                    left_spd = left_pct/100.0 * spd
+                    right_spd = right_pct/100.0 * spd
+                    egpg.set_motor_dps( egpg.MOTOR_LEFT, left_spd )
+                    egpg.set_motor_dps( egpg.MOTOR_RIGHT , right_spd)
+                    msg="Motors set - left: {}% right: {}%".format(left_spd, right_spd)
+                    logging.info(msg)
+                    motors_behavior_active = (left_pct + right_pct) >  1.0   # if left and right wheel drive is less than 1% no need to be active
                 else:
                     logging.info("inhibit_drive True - ignoring command")
 
@@ -388,7 +400,7 @@ def escape_ccw_or_cw(obstacle_list):
 
 
 def escape_behavior():
-    global escape_behavior_active
+    global escape_behavior_active, escape_trans, escape_rot
 
     try:
         msg="Starting Escape Behavior Thread"
