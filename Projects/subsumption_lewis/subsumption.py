@@ -60,7 +60,7 @@ BUMP_DISTANCES =     { "front":  5, "right front":  7, "right":  5, "left front"
 OBSTACLE_DISTANCES = { "front": 20, "right front": 28, "right": 20, "left front":  28, "left":  20 }
 PAN_ANGLES =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
 
-TALK = False
+TALK = True
 
 obstacles =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 bumps     =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
@@ -69,13 +69,27 @@ egpg = None   # The EasyGoPiGo3 robot object
 
 tScan = None  # Scan Behavior Thread Object
 scan_behavior_active = False
-tMotors = None  # Motor Control Thread Object
 inhibit_scan = False
 
+tMotors = None  # Motor Control Thread Object
 motors_behavior_active = False
+inhibit_drive = False
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
-inhibit_drive = False
+
+tEscape = None  #               Escape Behavior Thread Object
+escape_behavior_active = False  # flag indicating escape behavior is active/needed
+inhibit_escape = False          # Set true to ignore very close scan readings
+escape_trans = 0                # escape active trans percent
+escape_rot = 0                  # escape active rotation percent
+escape_default_trans = 100      # trans velocity percent
+escape_default_rot = 50         # spin velocity percent
+escape_trans_time = 0.25        # forward/backward time
+escape_rot_time = 0.25          # spin in place time
+escape_stop_time = 1.0          # stop duration before any escape maneuver
+ESCAPE_RATE = 10		# Check for escape needed roughly 10 times per second
+
+
 
 # ==== UTILITY FUNCTIONS ====
 
@@ -311,12 +325,71 @@ def motors_behavior():
                 current_rot   = mot_rot
 
                 if inhibit_drive is not True:
-                    egpg.steer( left_pct * egpg.get_speed(), right_pct * egpg.get_speed() )
+                    spd = egpg.get_speed()
+                    egpg.set_motor_dps( egpg.MOTOR_LEFT, left_pct/100.0 * spd )
+                    egpg.set_motor_dps( egpg.MOTOR_RIGHT , right_pct/100.0 * spd)
                 else:
                     logging.info("inhibit_drive True - ignoring command")
             time.sleep(0.1)
 
 # END MOTOR CONTROL BEHAVIOR
+
+
+
+# ESCAPE BEHAVIOR
+
+def escape_behavior():
+    global escape_behavior_active
+
+    try:
+        msg="Starting Escape Behavior Thread"
+        logging.info(msg)
+        say(msg)
+
+
+        while (tEscape.exitFlag is not True):
+
+            if inhibit_escape:
+                continue
+
+
+            bumps_now = if_bump()
+            if "front" in bumps_now:           # bumped in front
+                escape_behavior_active = True  # alert escape behavior actively needed
+                escape_trans = 0               # stop forward motion
+                escape_rot = 0                 # stop any rotation
+                time.sleep(escape_stop_time)   # wait for stop to occur
+
+                escape_trans = -escape_default_trans)   # backup up
+                escape_rot = 0
+                time.sleep(escape_trans_time)  # backup for set time
+
+                escape_trans = 0
+                obstacles_now = if_obstacle()  # get obstacle list
+                # choose clockwise (+1) or counterclockwise (-1) based on obstacle list
+                escape_rot = escape_ccw_or_cw(obstacles_now) * escape_default_rot
+                time.sleep(escape_time_rot)    # spin for set time
+
+                escape_rot = 0                 # stop spinning
+                time.sleep(escape_stop_time)
+
+                escape_trans = escape_default_trans  # drive a little to escape away
+                escape_rot = 0
+                time.sleep(escape_trans_time)
+
+                escape_trans = 0                 # stop escape motion
+                escape_behavior_active = False   # we're done escape behavior for now
+
+
+            time.sleep(1.0/ESCAPE_RATE)
+
+# END ESCAPE BEHAVIOR
+
+
+
+
+
+
 
 # SETUP AND TEAR DOWN BEHAVIOR
 

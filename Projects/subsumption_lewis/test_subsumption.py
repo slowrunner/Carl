@@ -15,8 +15,14 @@ import subsumption
 import time
 import logging
 
-subsumption.inhibit_drive = True
+subsumption.inhibit_scan = True
+subsumption.inhibit_drive = False
 subsumption.TALK = False
+
+def stop():
+            subsumption.mot_trans  = 0
+            subsumption.mot_rot    = 0
+            time.sleep(3)
 
 def test_motors_behavior():
 
@@ -28,90 +34,245 @@ def test_motors_behavior():
             subsumption.mot_rot    = 0
             time.sleep(1)
 
-            subsumption.mot_trans  = 0
-            subsumption.mot_rot    = 0
-            time.sleep(1)
+            stop()
 
             subsumption.mot_trans  = -100
             subsumption.mot_rot    = 0
             time.sleep(1)
 
+            stop()
 
             subsumption.mot_trans = 0
             subsumption.mot_rot  = 100
             time.sleep(1)
 
 
-            subsumption.mot_trans  = 0
-            subsumption.mot_rot    = 0
-            time.sleep(1)
+            stop()
 
             subsumption.mot_trans = 0
             subsumption.mot_rot  = -100
             time.sleep(1)
 
-            subsumption.mot_trans  = 0
-            subsumption.mot_rot    = 0
-            time.sleep(1)
-
+            stop()
 
             subsumption.mot_trans  = 100
             subsumption.mot_rot  = 25
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 100
             subsumption.mot_rot  = 50
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 100
             subsumption.mot_rot  = 75
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 100
             subsumption.mot_rot  = 100
             time.sleep(1)
 
-            subsumption.mot_rot  = 0
-            subsumption.mot_trans = 0
-            time.sleep(1)
+            stop()
 
             subsumption.mot_trans = 100
-            time.sleep(1)
             subsumption.mot_rot  = -25
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 100
             subsumption.mot_rot  = -50
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 100
             subsumption.mot_rot  = -75
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 100
             subsumption.mot_rot  = -100
             time.sleep(1)
 
-            subsumption.mot_trans = 0
-            subsumption.mot_rot  = 0
-            time.sleep(1)
+            stop()
 
             subsumption.mot_trans  = -100
             subsumption.mot_rot  = 25
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -100
             subsumption.mot_rot  = 50
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -100
             subsumption.mot_rot  = 75
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -100
             subsumption.mot_rot  = 100
             time.sleep(1)
 
-            subsumption.mot_rot  = 0
-            subsumption.mot_trans = 0
-            time.sleep(1)
+            stop()
 
             subsumption.mot_trans = - 100
-            time.sleep(1)
             subsumption.mot_rot  = -25
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 100
             subsumption.mot_rot  = -50
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 100
             subsumption.mot_rot  = -75
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 100
             subsumption.mot_rot  = -100
             time.sleep(1)
 
-            subsumption.mot_trans = 0
-            subsumption.mot_rot  = 0
+            stop()
+
+            logging.info("NOW TEST WITH TRANSLATE = 50")
+
+            subsumption.mot_trans  = 50
+            subsumption.mot_rot    = 0
             time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -50
+            subsumption.mot_rot    = 0
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 0
+            subsumption.mot_rot  = 50
+            time.sleep(1)
+
+
+            stop()
+
+            subsumption.mot_trans = 0
+            subsumption.mot_rot  = -50
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 50
+            subsumption.mot_rot  = 25
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 50
+            subsumption.mot_rot  = 50
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 50
+            subsumption.mot_rot  = 75
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = 50
+            subsumption.mot_rot  = 100
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 50
+            subsumption.mot_rot  = -25
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 50
+            subsumption.mot_rot  = -50
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 50
+            subsumption.mot_rot  = -75
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = 50
+            subsumption.mot_rot  = -100
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -50
+            subsumption.mot_rot  = 25
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -50
+            subsumption.mot_rot  = 50
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -50
+            subsumption.mot_rot  = 75
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans  = -50
+            subsumption.mot_rot  = 100
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 50
+            subsumption.mot_rot  = -25
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 50
+            subsumption.mot_rot  = -50
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 50
+            subsumption.mot_rot  = -75
+            time.sleep(1)
+
+            stop()
+
+            subsumption.mot_trans = - 50
+            subsumption.mot_rot  = -100
+            time.sleep(1)
+
+            stop()
 
             logging.info("==== MOTOR BEHAVIOR TEST COMPLETE ====")
             subsumption.say("Motor Behavior Test Complete")
