@@ -140,4 +140,10 @@ Will escape "bumps": (something within 5 cm of robot)
   - front right: stop, spin toward bump, backup for clearance, turn 90 left
   - right: stop, spin toward bump, backup for clearance, turn 90 left
 
-# test_subsumption.py
+# TEST PROGRAMS
+- test_escape_behavior.py
+- test_avoid_behavior.py
+- test_motor_behavior.py
+- test_scan.py
+- test_cruise_behavior.py
+
