@@ -62,6 +62,10 @@ PAN_ANGLES =         { "front": 90, "right": 0, "right front":  45, "left front"
 
 TALK = True
 
+CW = 1
+CCW = -1
+
+
 obstacles =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 bumps     =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 
@@ -76,7 +80,7 @@ motors_behavior_active = False
 inhibit_drive = False
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
-MOTORS_RATE = 10
+MOTORS_RATE = 20
 
 tArbitrate = None  # Motor Arbitration Thread Object
 arbitrate_behavior_active = False
@@ -101,11 +105,8 @@ avoid_behavior_active = False  # flag indicating avoid behavior is active/needed
 inhibit_avoid = False          # Set true to ignore very close scan readings
 avoid_trans = 0                # avoid active trans percent
 avoid_rot = 0                  # avoid active rotation percent
-avoid_default_trans = 100      # trans velocity percent
-avoid_default_rot = 50         # spin velocity percent
-avoid_trans_time = 0.25        # forward/backward time
-avoid_rot_time = 0.25          # spin in place time
-avoid_stop_time = 1.0          # stop duration before any avoid maneuver
+avoid_default_trans = 50       # slow a little when avoiding - trans velocity percent
+avoid_default_rot = 25         # spin velocity percent
 AVOID_RATE = 10		# Check for avoid needed roughly 10 times per second
 
 
@@ -221,6 +222,21 @@ def evaluate_scan_reading(direction,distance_reading_cm):
                 msg="{} obstacle set".format(direction)
                 logging.info(msg)
                 obstacles[direction] = True
+
+# Return cw (1), ccw (-1)
+def ccw_or_cw(obstacle_list):
+    if obstacle_list:
+        if ("front left" in obstacle_list) or ("left" in obstacle_list):
+            spin = CW
+        else:
+            spin = CCW
+    else:   # empty list
+        spin = CCW
+    return spin
+
+
+
+
 
 # ===== BEHAVIORS =======
 
@@ -367,7 +383,7 @@ def motors_behavior():
                     right_spd = right_pct/100.0 * spd
                     egpg.set_motor_dps( egpg.MOTOR_LEFT, left_spd )
                     egpg.set_motor_dps( egpg.MOTOR_RIGHT , right_spd)
-                    msg="Motors set - left: {}% right: {}%".format(left_spd, right_spd)
+                    msg="Motors set - left: {} DPS right: {} DPS".format(left_spd, right_spd)
                     logging.info(msg)
                     motors_behavior_active = (left_pct + right_pct) >  1.0   # if left and right wheel drive is less than 1% no need to be active
                 else:
@@ -384,19 +400,6 @@ def motors_behavior():
 
 
 # ESCAPE BEHAVIOR
-
-# Return cw (1), ccw (-1)
-def escape_ccw_or_cw(obstacle_list):
-    CW = 1
-    CCW = -1
-    if obstacle_list:
-        if ("front left" in obstacle_list) or ("left" in obstacle_list):
-            escape_spin = CW
-        else:
-            escape_spin = CCW
-    else:   # empty list
-        escape_spin = CCW
-    return escape_spin
 
 
 def escape_behavior():
@@ -443,7 +446,7 @@ def escape_behavior():
                 escape_trans = 0
                 obstacles_now = if_obstacle()  # get obstacle list
                 # choose clockwise (+1) or counterclockwise (-1) based on obstacle list
-                escape_rot = escape_ccw_or_cw(obstacles_now) * escape_default_rot
+                escape_rot = ccw_or_cw(obstacles_now) * escape_default_rot
                 time.sleep(escape_rot_time)    # spin for set time
 
                 escape_rot = 0                 # stop spinning
@@ -475,6 +478,61 @@ def escape_behavior():
 # END ESCAPE BEHAVIOR
 
 
+
+# AVOID BEHAVIOR
+
+
+def avoid_behavior():
+    global avoid_behavior_active, avoid_trans, avoid_rot
+
+    try:
+        msg="Starting Avoid Behavior Thread"
+        logging.info(msg)
+        say(msg)
+
+
+        while (tAvoid.exitFlag is not True):
+
+            time.sleep(1.0/AVOID_RATE)
+            if inhibit_avoid:
+                continue
+
+
+            obstacles_now = if_obstacle()
+            if obstacles_now:           # something nearing
+                avoid_behavior_active = True  # alert avoid behavior actively needed
+                avoid_trans = avoid_default_trans
+                # choose clockwise (+1) or counterclockwise (-1) based on obstacle list
+                avoid_rot = ccw_or_cw(obstacles_now) * avoid_default_rot
+                if avoid_rot > 0:
+                    msg="avoid left"
+                elif avoid_rot < 0:
+                    msg="avoid right"
+                else: # weird
+                    msg="avoid_rot is zero???"
+                logging.info(msg)
+                say(msg)
+
+
+            elif avoid_behavior_active:       # no obstacles right now, turn off avoid if active
+                avoid_behavior_active = False
+                avoid_rot = 0
+
+                msg="avoid done"
+                logging.info(msg)
+                say(msg)
+
+
+    except Exception as e:
+        msg="Exception in avoid_behavior"
+        logging.info(msg)
+        logging.info("Exception {}".format(str(e)))
+        avoid_behavior_active = False
+        tAvoid.exc = e
+
+# END AVOID BEHAVIOR
+
+
 # ARBITRATE BEHAVIOR
 
 def arbitrate_behavior():
@@ -482,6 +540,7 @@ def arbitrate_behavior():
 
     try:
         msg="Starting Arbitrate Behavior Thread"
+
         logging.info(msg)
         # say(msg)
 
@@ -529,7 +588,7 @@ def arbitrate_behavior():
 # SETUP AND TEAR DOWN BEHAVIOR
 
 def setup():
-    global egpg, tScan, tMotors, tEscape, tArbitrate
+    global egpg, tScan, tMotors, tEscape, tArbitrate, tAvoid, tCruise
 
     try:
         egpg = init_robot(ds_port="RPI_1", pan_port="SERVO1")
@@ -545,6 +604,12 @@ def setup():
 
         tEscape = Behavior(escape_behavior)
         tEscape.start()
+
+        tAvoid = Behavior(avoid_behavior)
+        tAvoid.start()
+
+        # tCruise = Behavior(cruise_behavior)
+        # tCruise.start()
 
         # wait for everything to initialize and be running
         time.sleep(1)
@@ -595,6 +660,14 @@ def teardown():
         tEscape.join()
     except Exception as e:
         logging.info("Got exception set in escape thread: %s", e)
+
+    try:
+        logging.info("Telling avoid behavior thread to exit (if still running)")
+        tAvoid.exitFlag = True
+        logging.info("Waiting for avoid thread to exit")
+        tAvoid.join()
+    except Exception as e:
+        logging.info("Got exception set in avoid thread: %s", e)
 
 
     ps_center()
