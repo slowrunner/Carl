@@ -1,11 +1,12 @@
-# SUBSUMPTION ROBOT ARCHITECTURE IN PYTHON  
+# SUBSUMPTION ROBOT ARCHITECTURE IN PYTHON FOR GOPIGO3  
 
 My first exposure to the Brooks 1984 Subsumption Behavior Based Robotics Architecture  
 was via assembling the 68HC11 based RugWarrior Pro Robot and  
 the book "Mobile Robots: Inspiration to Implementation", Joseph L. Jones, Anita M. Flynn, Bruce A. Seiger.  
 
 In MR:I2I p314, the authors present a subsumption architecture for a robot behavior named "Lewis and Clark"  
-written in Interactive C programming language, consisting of a multi-processing set of behaviors that use  
+written in Interactive C programming language, consisting of a multi-processing set of 
+behavior finite-state machines that use  
 a set of "global state and value variables" for interprocess communication.  
 
 The physical robot had sensors:
@@ -27,27 +28,56 @@ The physical robot had sensors:
 
 The Global Variables:
 ```
-- cru_trans    Cruise translational velocity command  
-- cru_rot      Cruise rotational velocity command  
-- cru_act      Cruise active state flag  
-- cru_def_vel  Cruise default velocity   
+- BUMP_DISTANCES =     { "front":  5, "right front":  7, "right":  5, "left front":   7, "left":   5 }
+- OBSTACLE_DISTANCES = { "front": 20, "right front": 28, "right": 20, "left front":  28, "left":  20 }
+- PAN_ANGLES =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
 
-- av_trans     Avoid translational velocity command  
-- av_rot       Avoid rotational velocity command  
-- av_act       Avoid active state flag  
-- av_def_trans Avoid default translation velocity  
-- av_def_rot   Avoid default rotational velocity  
+- obstacles =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
+- bumps     =         { "front": False, "right front": False, "right":  False, "left front": False, "left": False }
 
-- es_trans     Escape translational velocity command  
-- es_rot       Escape rotational velocity command  
-- es_act       Escape active state flag  
-- es_def_trans Escape default translation velocity  
-- es_def_rot   Escape default rotational velocity  
-- es_bf        Escape Backward/Forward Duration  
-- es_spin      Escape Spin Duration  
+- CW = 1              Positive mot_rot causes Clockwise rotation
+- CCW = -1            Negative mot_rot causes Counter Clockwise rotation
 
-- mot_trans    Current Motor Translation Command  
-- mot_rot      Current Motor Rotate Command  
+- cruise_trans                Cruise translational velocity command (percent -100 to +100)  
+- cruise_rot                  Cruise rotational velocity command (percent)
+- cruise_behavior_active      Cruise active state flag  
+- cruise_default_trans        Cruise default forward velocity percent   
+- CRUISE_RATE                 Approx. Cruise Loop Rate per second
+
+- avoid_trans                 Avoid translational velocity command (percent)  
+- avoid_rot                   Avoid rotational velocity command (percent)  
+- avoid_behavior_active       Avoid active state flag  
+- avoid_default_trans         Avoid default translation velocity percent  
+- avoid_default_rot           Avoid default rotational velocity percent
+- AVOID_RATE                  Approximate Avoid Loop Rate per second
+
+- escape_trans                Escape translational velocity command  
+- escape_rot                  Escape rotational velocity command  
+- escape_behavior_active      Escape active state flag  
+- escape_default_trans        Escape default translation velocity  
+- escape_default_rot          Escape default rotational velocity  
+- escape_trans_time           Escape Backward/Forward Duration  
+- escape_spin_time            Escape Spin Duration  
+- escape_stop_time            Escape stop duration before executing escape action
+- ESCAPE_RATE                 Approx. Escape Loop Rate per second
+
+- mot_trans        Current Motor Translation Command  
+- mot_rot          Current Motor Rotate Command  
+- MOTORS_RATE      Approx. Motors Loop Rate per second
+
+- ARBITRATE_RATE              Approx. Subsumption Arbitration Loop Rate per second
+
+- SCAN_DWELL                  Time to dwell at each of the five scan directions before taking a distance reading
+
+- inhibit_drive               Inhibit movement of motor commands
+- inhibit_scan                Inhibit panning servo and distance readings
+- inhibit_escape              Ignore bumps
+- inhibit_avoid               Ignore obstacles
+- inhibit_cruise              Turn off default behavior of driving forward
+- inhibit_arbitrate           Turn off the subsumption arbitration into mot_trans and mot_rot commands
+
+- TALK                        True: report actions with TTS, False: quietly execute behaviors
+               
 ```
 
 The Behaviors:
