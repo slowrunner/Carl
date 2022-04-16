@@ -59,8 +59,8 @@ def main():
     logging.info("==== LEWIS AND CLARK - SUBSUMPTION ARCHITECTURE EXAMPLE ====")
     subsumption.say("Lewis and Clark. Subsumption Architecture Example.")
 
-    subsumption.TALK = False
-    subsumption.inhibit_drive = True
+    subsumption.TALK = True
+    subsumption.inhibit_drive = False
 
     try:
         subsumption.setup()

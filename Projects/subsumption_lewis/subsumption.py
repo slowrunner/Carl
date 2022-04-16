@@ -115,11 +115,7 @@ cruise_behavior_active = False  # flag indicating cruise behavior is active/need
 inhibit_cruise = False          # Set true to ignore very close scan readings
 cruise_trans = 0                # cruise active trans percent
 cruise_rot = 0                  # cruise active rotation percent
-cruise_default_trans = 100      # trans velocity percent
-cruise_default_rot = 50         # spin velocity percent
-cruise_trans_time = 0.25        # forward/backward time
-cruise_rot_time = 0.25          # spin in place time
-cruise_stop_time = 1.0          # stop duration before any cruise maneuver
+cruise_default_trans = 50       # trans velocity percent
 CRUISE_RATE = 5		# Check for cruise needed roughly 10 times per second
 
 
@@ -285,7 +281,6 @@ def scan_behavior():
         try:
             msg="Starting scan behavior"
             logging.info(msg)
-            say(msg)
 
             egpg.pan.rotate_servo(PAN_ANGLES["front"])
         except Exception as e:
@@ -408,7 +403,6 @@ def escape_behavior():
     try:
         msg="Starting Escape Behavior Thread"
         logging.info(msg)
-        say(msg)
 
 
         while (tEscape.exitFlag is not True):
@@ -533,6 +527,38 @@ def avoid_behavior():
 # END AVOID BEHAVIOR
 
 
+# CRUISE BEHAVIOR
+
+def cruise_behavior():
+    global cruise_behavior_active, cruise_trans, cruise_rot
+
+    try:
+        msg="Starting Cruise Behavior Thread"
+        logging.info(msg)
+
+
+        while (tCruise.exitFlag is not True):
+
+            time.sleep(1.0/CRUISE_RATE)
+            if inhibit_cruise:
+                continue
+
+
+            cruise_behavior_active = True
+            cruise_trans = cruise_default_trans
+            cruise_rot = 0
+
+    except Exception as e:
+        msg="Exception in cruise_behavior"
+        logging.info(msg)
+        logging.info("Exception {}".format(str(e)))
+        cruise_behavior_active = False
+        inhibit_cruse = True
+        tCruise.exc = e
+
+# END CRUISE BEHAVIOR
+
+
 # ARBITRATE BEHAVIOR
 
 def arbitrate_behavior():
@@ -540,9 +566,7 @@ def arbitrate_behavior():
 
     try:
         msg="Starting Arbitrate Behavior Thread"
-
         logging.info(msg)
-        # say(msg)
 
 
         while (tArbitrate.exitFlag is not True):
@@ -593,6 +617,10 @@ def setup():
     try:
         egpg = init_robot(ds_port="RPI_1", pan_port="SERVO1")
 
+        msg="Subsumption Architecture Setup Initiated"
+        logging.info(msg)
+        say(msg)
+
         tScan = Behavior(scan_behavior)
         tScan.start()
 
@@ -608,12 +636,14 @@ def setup():
         tAvoid = Behavior(avoid_behavior)
         tAvoid.start()
 
-        # tCruise = Behavior(cruise_behavior)
-        # tCruise.start()
+        tCruise = Behavior(cruise_behavior)
+        tCruise.start()
 
         # wait for everything to initialize and be running
         time.sleep(1)
-        logging.info("setup complete")
+        msg="Setup complete"
+        logging.info(msg)
+        say(msg)
 
     except KeyboardInterrupt:
         logging.info("Keyboard Interrupt in setup")
@@ -668,6 +698,14 @@ def teardown():
         tAvoid.join()
     except Exception as e:
         logging.info("Got exception set in avoid thread: %s", e)
+
+    try:
+        logging.info("Telling Cruise behavior thread to exit (if still running)")
+        tCruise.exitFlag = True
+        logging.info("Waiting for Cruise thread to exit")
+        tCruise.join()
+    except Exception as e:
+        logging.info("Got exception set in Cruise thread: %s", e)
 
 
     ps_center()
