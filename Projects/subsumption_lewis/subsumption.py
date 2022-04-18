@@ -58,7 +58,9 @@ MIN_TURNING_CIRCLE_RADIUS  =  5    # cm - safe for GoPiGo3 to turn toward object
 
 BUMP_DISTANCES =     { "front":  5, "right front":  7, "right":  5, "left front":   7, "left":   5 }
 OBSTACLE_DISTANCES = { "front": 20, "right front": 28, "right": 20, "left front":  28, "left":  20 }
-PAN_ANGLES =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
+PAN_ANGLES_5 =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
+PAN_ANGLES_3 =         { "front": 90, "right front":  45, "left front": 135 }
+
 
 TALK = True
 
@@ -74,30 +76,32 @@ egpg = None   # The EasyGoPiGo3 robot object
 tScan = None  # Scan Behavior Thread Object
 scan_behavior_active = False
 inhibit_scan = False
+SCAN_DWELL = 0.05
+pan_angles = PAN_ANGLES_3
 
 tMotors = None  # Motor Control Thread Object
 motors_behavior_active = False
 inhibit_drive = False
 mot_trans = 0     # motor translation command
 mot_rot = 0    # motor rotation command
-MOTORS_RATE = 20
+MOTORS_RATE = 250
 
 tArbitrate = None  # Motor Arbitration Thread Object
 arbitrate_behavior_active = False
 inhibit_arbitrate = False
-ARBITRATE_RATE = 10    # 50 times per second
+ARBITRATE_RATE = 20    # 50 times per second
 
 tEscape = None  #               Escape Behavior Thread Object
 escape_behavior_active = False  # flag indicating escape behavior is active/needed
 inhibit_escape = False          # Set true to ignore very close scan readings
 escape_trans = 0                # escape active trans percent
 escape_rot = 0                  # escape active rotation percent
-escape_default_trans = 100      # trans velocity percent
+escape_default_trans = 50       # trans velocity percent
 escape_default_rot = 50         # spin velocity percent
-escape_trans_time = 1        # forward/backward time
-escape_rot_time = 1          # spin in place time
-escape_stop_time = 1          # stop duration before any escape maneuver
-ESCAPE_RATE = 10		# Check for escape needed roughly 10 times per second
+escape_trans_time = 0.5           # forward/backward time
+escape_rot_time = 1             # spin in place time
+escape_stop_time = 1            # stop duration before any escape maneuver
+ESCAPE_RATE = 15		# Check for escape needed roughly 10 times per second
 
 
 tAvoid = None  #               Avoid Behavior Thread Object
@@ -158,7 +162,7 @@ def ps_off():          # turn pan servo off
 def ps_center():
     global egpg
 
-    egpg.pan.rotate_servo(PAN_ANGLES["front"])
+    egpg.pan.rotate_servo(pan_angles["front"])
     logging.info("Pan Servo Centered")
     time.sleep(1)
 
@@ -273,7 +277,6 @@ class Behavior(threading.Thread):
 # pan servo object is assumed to be at egpg.pan
 
 # For five directions: 1.4s total at 0.05s, 1.5s total at 0.1s dwell, 2s total at 0.2s dwell
-SCAN_DWELL = 0.2
 
 def scan_behavior():
         global scan_behavior_active
@@ -300,8 +303,8 @@ def scan_behavior():
                 time.sleep(SCAN_DWELL)
                 continue
 
-            for direction in PAN_ANGLES:
-                angle = PAN_ANGLES[direction]
+            for direction in pan_angles:
+                angle = pan_angles[direction]
                 try:
                     egpg.pan.rotate_servo(angle)
                 except Exception as e:

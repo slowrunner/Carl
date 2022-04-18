@@ -52,6 +52,8 @@ import subsumption
 
 # MAIN
 
+subsumption.TALK = False
+
 def main():
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
@@ -59,8 +61,7 @@ def main():
     logging.info("==== LEWIS AND CLARK - SUBSUMPTION ARCHITECTURE EXAMPLE ====")
     subsumption.say("Lewis and Clark. Subsumption Architecture Example.")
 
-    subsumption.TALK = True
-    subsumption.inhibit_drive = False
+    # subsumption.inhibit_drive = True
 
     try:
         subsumption.setup()
