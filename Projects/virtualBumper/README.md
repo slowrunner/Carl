@@ -19,7 +19,9 @@ wget https://raw.githubusercontent.com/slowrunner/Carl/master/Projects/virtualBu
     egpg.bumper = VirtualBumper(egpg)
     BUMPER_CHECK_RATE = 20 # times per second (between 20 and 100 is good)
     SPEED = 3  # get_motor_status[3] is current wheel speed
-for forward() or backward():
+
+For forward() or backward():
+
     drive_time = 2  # seconds
     egpg.forward()
     # Drive for drive_time,  unless bump into something
@@ -29,7 +31,9 @@ for forward() or backward():
             sleep(0.1)
             break
         sleep(1.0/BUMPER_CHECK_RATE)
-or for drive_cm():
+
+For drive_cm():
+
     drive_dist_cm = 25
     egpg.drive_cm(drive_dist_cm, blocking=False)
     # while wheels are turning, check if bumped into something
