@@ -130,7 +130,7 @@ class  VirtualBumper(object):
             else:                    # drive has not begun
                 self.virtual_bumper_state = False
                 self.last_bump_time = None
-
+                sleep(0.05)
 
             return self.virtual_bumper_state
 
