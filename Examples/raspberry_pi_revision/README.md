@@ -3,9 +3,10 @@
 C function to decode the Revision: field of /proc/cpuinfo on the Raspberry
 Pi. 
 
-MOD: added country to manufacturer string
+MODS: 2022-04-23: Added country to manufacturer string
+REF: Based on https://github.com/AndrewFromMelbourne/raspberry_pi_revision.git
 
-# Known revisions
+# Known Raspberry Pi Revisions
 
 The file /proc/cpuinfo contains a line such as:-
 
@@ -46,9 +47,9 @@ Known revisions (prior to the Raspberry Pi 2) are:
 If the Raspberry Pi has been over-volted (voiding the warranty) the
 revision number will have 100 at the front. e.g. 1000002.
 
-## Raspberry Pi 2 / Model Zero
+## Raspberry Pi 2, 3, 4 / Model Zero / Compute Module
 
-With the release of the Raspberry Pi 2, there is a new encoding of the
+With the release of the Raspberry Pi 2, there began a new encoding of the
 Revision field in /proc/cpuinfo. The bit fields are as follows
 
 
