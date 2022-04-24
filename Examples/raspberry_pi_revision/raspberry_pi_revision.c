@@ -866,17 +866,17 @@ raspberryPiManufacturerToString(
 
     case RPI_MANUFACTURER_EGOMAN:
 
-        string = "Egoman";
+        string = "Egoman, China";
         break;
 
     case RPI_MANUFACTURER_QISDA:
 
-        string = "Qisda";
+        string = "Qisda, Taiwan";
         break;
 
     case RPI_MANUFACTURER_EMBEST:
 
-        string = "Embest";
+        string = "Embest, China";
         break;
 
     case RPI_MANUFACTURER_SONY_JAPAN:
@@ -886,7 +886,7 @@ raspberryPiManufacturerToString(
 
     case RPI_MANUFACTURER_STADIUM:
 
-        string = "Stadium";
+        string = "Stadium, China";
         break;
 
     default:
