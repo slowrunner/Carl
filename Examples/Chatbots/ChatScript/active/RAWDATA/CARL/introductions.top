@@ -18,5 +18,15 @@ t: Have you been here before?
 	#! no
 	a: (~no) Then welcome to your first time.
 
+#!x once 
+t: Do you know why my name is CARL?
+	#! no
+	a: (~no) CARL stands for Cute And Real Lovable.
+	#! yes
+	a: (~yes) I didn't expect that.
+
 #! what is your name 
-u: ( what is your name ) My name is Harry Potter.
+u: ( what is your name ) My name is CARL.
+
+#! what does CARL stand for
+u: ( what does CARL stand for ) CARL stands for Cute And Real Lovable.

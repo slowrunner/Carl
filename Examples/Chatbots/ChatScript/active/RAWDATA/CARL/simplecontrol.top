@@ -24,7 +24,7 @@ $botprompt = ^"CARL: "
 $singleResponse = 1 # issue only 1 output message
 
 # windows can do voice output if the next line is removed
-$SHUTUP = 1
+#$SHUTUP = 1
 
 # This tells the engine what bot to use if no botname is provided in the message
 table: defaultbot (^name)
@@ -159,8 +159,12 @@ t: (^query(direct_v ? chatoutput ? -1 ? @9  ))  # get the sentences  (why is the
 			$$tmp = ^"talk \"$$tmp\" "
 			popen($$tmp null)
 		}
-        if (!%server AND %os == mac  AND !$SHUTUP)
-        {
-            $$shellerror = system(^"say \"$$tmp\" ")
-        }
+		if (!%server AND %os == mac  AND !$SHUTUP)
+		{
+			$$shellerror = system(^"say \"$$tmp\" ")
+		}
+		if (!%server AND %os == linux  AND !$SHUTUP)
+		{
+			$$shellerror = system(^"say \"$$tmp\" ")
+		}
 	}
