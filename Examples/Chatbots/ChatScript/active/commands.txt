@@ -1,0 +1,146 @@
+ChatScript Commands (:commands)
+
+---- Debugging commands - 
+ 0  :do - Execute the arguments as an output stream, e.g., invoke a function, set variables, etc
+ 0  :silent - toggle silent - dont show outputs
+ 0  :log - dump message into log file
+ 0  :noreact - Disable replying to input
+ 0  :notime - Toggle notiming during this topic
+ 0  :notrace - Toggle notracing during this topic
+ 0  :redo - Back up to turn n and try replacement user input
+ 0  :retry - Back up and try replacement user input or just redo last sentence
+ 0  :say - Make chatbot say this line
+ 0  :skip - Erase next n gambits
+ 0  :show - All, Input, Mark, Number, Pos, Stats, Topic, Topics, Why, Reject, Newlines
+ 0  :time - Set timing variable (all none prepare match ruleflow pattern query json macro user usercache sql tcp topic)
+ 0  :trace - Set trace variable (all none basic prepare match output pattern infer query substitute hierarchy fact control topic pos)
+ 0  :why - Show rules causing most recent output
+ 0  :authorize - Flip authorization for all debug commands
+ 0  :serverlog - Flip authorization for server logging default
+ 0  
+---- Fact info - 
+ 0  :allfacts - Write all facts to TMP/facts.tmp
+ 0  :facts - Display all facts with given word or meaning or fact set
+ 0  :userfacts - Display current user facts
+ 0  :alldict - Write all words to TMP/dict.tmp
+ 0  
+---- Topic info - 
+ 0  :gambits - Show gambit sequence of topic
+ 0  :pending - Show current pending topics list
+ 0  :topicstats - Show stats on all topics or named topic or NORMAL for non-system topics
+ 0  :topicinfo - Show information on a topic
+ 0  :labelremap - for a topic, internal to label into TMP/labels.txt
+ 0  :topics - Show topics that given input resonates with
+ 0  :where - What file is the given topic in
+ 0  
+---- System info - 
+ 0  :commands - Show all :commands
+ 0  :context - Display current context labels
+ 0  :conceptlist - Show all concepts- or with argument show concepts starting with argument
+ 0  :definition - Show code of macro named
+ 0  :directories - Show current directories
+ 0  :functions - List all defined system ^functions
+ 0  :identify - Give version data on this CS
+ 0  :macros - List all user-defined ^macros and plans
+ 0  :memstats - Show memory allocations
+ 0  :list - $ (variables) @ (factsets)  _  (match variables)   ^ (macros)   ~ (topics&concepts)
+ 0  :queries - List all defined queries
+ 0  :timedfunctions - List all user defined macros currently being timed
+ 0  :timedtopics - List all topics currently being timed
+ 0  :tracedfunctions - List all user defined macros currently being traced
+ 0  :tracedtopics - List all topics currently being traced
+ 0  :variables - Display current bot/user/sysytem/match/all variables
+ 0  :who - show current login/computer pair
+ 0  
+---- Word information - 
+ 0  :down - Show wordnet items inheriting from here or concept members
+ 0  :concepts - Show concepts triggered by this word
+ 0  :findwords - show words matching pattern of letters and *
+ 0  :hasflag - List words of given set having or !having some system flag
+ 0  :nonset - List words of POS type not encompassed by given set
+ 0  :overlap - Direct members of set x that are also in set y somehow
+ 0  :up - Display concept structure above a word
+ 0  :word - Display information about given word
+ 0  :mixedcase - List words occurring in both cases, not part of WordNet
+ 0  :dualupper - List words occurring in multiple uppercase forms, not part of WordNet
+ 0  
+---- System Control commands - 
+ 0  :build - Compile a script - filename {nospell,outputspell,reset}
+ 0  :bot - Change to this bot
+ 0  :clearlog - Erase user log file
+ 0  :crash - Simulate a server crash
+ 0  :debug - Initiate debugger
+ 0  :flush - Flush server cached user data to files
+ 0  :quit - Exit ChatScript
+ 0  :reset - Start user all over again, flushing his history
+ 0  :restart - Restart Chatscript
+ 0  :user - Change to named user, not new conversation
+ 0  
+---- Script Testing - 
+ 0  :autoreply - [OK,Why] use one of those as all input.
+ 0  :common - What concepts have the two words in common.
+ 0  :spellit - Show spelling correction traces
+ 0  :tokenize - Show results of tokenization
+ 0  :prepare - Show results of tokenization, tagging, and marking on a sentence
+ 0  :regress - create or test a regression file
+ 0  :source - Switch input to named file
+ 0  :testpattern - See if a pattern works with an input.
+ 0  :variablereference - List variables set or retrieved and how often
+ 0  :testtopic - Try named topic responders on input
+ 0  :verify - Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all.
+ 0  
+---- Document Processing - 
+ 0  :document - Switch input to named file/directory as a document {single, echo}
+ 0  :wikitext - read wiki xml and write plaintext
+ 0  
+---- Analytics - 
+ 0  :abstract - Display overview of ChatScript topics
+ 0  :coverage - Save execution coverage of ChatScript rules
+ 0  :showcoverage - Display execution coverage of ChatScript rules
+ 0  :diff - match 2 files and report lines that differ
+ 0  :trim - Strip excess off chatlog file to make simple file TMP/tmp.txt
+ 0  :jahuman - reformat simple file TMP/tmp.txt
+ 0  :removecrlf - echo file  to TMP/tmp.txt with no crlf 
+ 0  :ja2source - JA echo csv  to TMP/tmp.txt reformatting to source 
+ 0  :ja2starts - JA echo file to TMP/tmp.txt minus short line in column
+ 0  :trimdown - echo  to TMP/tmp.txt single word entries from a :down list
+ 0  :checklist - echo  to TMP/tmp.txt words in file list that can be verbs
+ 0  :dictwrite - echo  to TMP/x.txt dictionary entries on one line
+ 0  
+---- internal support - 
+ 0  :allmembers - show all members recursive, excluding when members of named concepts
+ 0  :compiledp - compile dp bot
+ 0  :ingestlog - execute a log file as source
+ 0  :dedupe - echo input file to TMP/tmp.txt without duplicate lines)
+ 0  :topicdump - Dump topic data suitable for inclusion as extra topics into TMP/tmp.txt (:extratopic or PerformChatGivenTopic)
+ 0  :listvariables - List variables into tmp/variables.txt
+ 0  :builddict -  basic, layer0, layer1, foreign, or wordnet are options instead of default full
+ 0  :buildforeign - regenerate foreign language dictionary given name of language
+ 0  :clean - Convert source files to NL instead of CR/LF for unix
+ 0  :medtable - Read lines from file, add quotes around them, write to TMP/tmp.txt
+ 0  :rewriteconverse - Read lines from file, reformat as conversation,  write to TMP/tmp.txt
+ 0  :rewrite2tsv - Read lines from file, reformat as tsv,  write to same file with tsv sufficx
+ 0  :fuse - Read lines from file, merge to 1 line and write to TMP/tmp.txt
+ 0  :quotelines - Read lines from file, add quotes around them, write to TMP/tmp.txt
+ 0  :newdiff - Read lines from paired file, note diff lines into tmp/match.txt and tmp/unmatch.txt
+ 0  :mergelines - Read lines from sorted file, rewrite only 1 instence of 1st words to TMP/tmp.txt
+ 0  :striplog - Read lines from a server log file, reducing them to normal inputs for :source, write to TMP/tmp.txt
+ 0  :extratopic - given topic name and file as output from :topicdump, build in core topic and use it thereafter
+ 0  :pennformat - rewrite penn tagfile (eg as output from stanford) as one liners
+ 0  :penndecode - FILE convert penn parse to simple tag format
+ 0  :pennmatch - FILE {raw ambig} compare penn file against internal result
+ 0  :pennnoun - locate mass nouns in pennbank
+ 0  :pos - Show results of tokenization and tagging
+ 0  :plural - Show plural of word
+ 0  :sortconcept - Prepare concept file alphabetically
+ 0  :translateconcept - take
+ 0  :timepos - compute wps average to prepare inputs
+ 0  :verifypos - Regress pos-tagging using default REGRESS/postest.txt file or named file
+ 0  :verifyspell - Regress spell checker against file
+ 0  :verifysubstitutes - Regress test substitutes of all kinds
+ 0  :worddump - show words via hardcoded test
+ 0  :verifySentence - verification data
+ 0  :timelog - avg min and max of a log named
+ 0  :countwords - generate counts of words listed in file
+ 0  :countcat - generate counts of words listed in file
+ 0  :suffix - word + suffix, tell us root
