@@ -21,9 +21,12 @@ a=1
 b=2
 c=0
 start_pc=time.perf_counter()
-c = a + b
+for a in range(1,4000):
+    c = a + b
 end_pc=time.perf_counter()
-print("integer c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
+# print("integer c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
+print("4000 x integer c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
+print("integer c = a + b: %f ms \n" % ((end_pc - start_pc)*1000/4000.0) )
 
 print("About to test float addition")
 time.sleep(1)
@@ -31,9 +34,12 @@ a=2.0
 b=4.0
 c=0.0
 start_pc=time.perf_counter()
-c = a + b
+for i in range(1,4000):
+    # c = a + b
+    c = float(i) + b
 end_pc=time.perf_counter()
-print("float c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
-
+# print("float c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
+print("4000 x float c = a + b: %f ms \n" % ((end_pc - start_pc)*1000) )
+print("float c = a + b: %f ms \n" % ((end_pc - start_pc)*1000/4000.0) )
 
 print("Done!")
