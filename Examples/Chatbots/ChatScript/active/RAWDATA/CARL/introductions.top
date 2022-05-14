@@ -17,13 +17,14 @@ t: Have you been here before?
 	a: (~yes) Welcome back!
 	#! no
 	a: (~no) Then welcome to your first time.
-
 #!x once 
 t: Do you know why my name is CARL?
 	#! no
 	a: (~no) CARL stands for Cute And Real Lovable.
 	#! yes
 	a: (~yes) I didn't expect that.
+        #! why
+        a: (~why) Because I'm Cute And Real Lovable.
 
 #! what is your name 
 u: ( what is your name ) My name is CARL.
