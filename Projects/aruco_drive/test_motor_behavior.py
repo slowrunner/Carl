@@ -20,7 +20,7 @@ def stop():
             subsumption.mot_rot    = 0
             subsumption.mot_deg    = 0
             subsumption.mot_cm     = 0
-            time.sleep(3)
+            # time.sleep(3)
 
 def test_motors_behavior():
     try:
@@ -30,17 +30,42 @@ def test_motors_behavior():
 
             logging.info("==== test turn 90 degrees ====")
             subsumption.say("test turn 90 degrees will begin in 5 seconds")
-            time.sleep(5) 
+            time.sleep(5)
 
             subsumption.mot_trans  = 0
             subsumption.mot_rot    = 0
             subsumption.mot_deg    = 90
             subsumption.mot_cm     = 0
-            logging.info("==== waiting 5 seconds for turn 90 degrees to complete ====")
-            subsumption.say("waiting 5 seconds for turn 90 degrees to complete")
+            logging.info("==== waiting up to 5 seconds for turn 90 degrees to complete ====")
+            subsumption.say("waiting up to 5 seconds for turn 90 degrees to complete")
+            count = 0
+            while subsumption.mot_deg != 0 and (count < 5):
+                logging.info("test: waiting")
+                count +=1
+                time.sleep(1)
+            logging.info("test: turn complete detected or wait expired")
+
+            logging.info("test: issuing safety stop")
+            stop()
+
+            logging.info("==== test stopping turn -90 degrees early ====")
+            subsumption.say("test stopping turn -90 degrees will begin in 5 seconds")
             time.sleep(5)
 
+            subsumption.mot_trans  = 0
+            subsumption.mot_rot    = 0
+            subsumption.mot_deg    = -90
+            subsumption.mot_cm     = 0
+            time.sleep(0.2)
+            logging.info("==== stopping turn now ====")
+            subsumption.say("stopping turn now")
             stop()
+            count = 0
+            while subsumption.motors_behavior_active and (count < 5):
+                logging.info("test: waiting")
+                count +=1
+                time.sleep(1)
+            logging.info("test: turn degrees no longer active detected or timeout waiting")
 
 
             logging.info("==== test drive 10 cm ====")
@@ -53,11 +78,35 @@ def test_motors_behavior():
             subsumption.mot_cm     = 100
             logging.info("==== waiting 5 seconds for drive 10 cm to complete ====")
             subsumption.say("waiting 5 seconds for drive 10 cm to complete")
-            time.sleep(5)
+            count = 0
+            while subsumption.mot_cm != 0 and (count < 5):
+                logging.info("test: waiting")
+                count +=1
+                time.sleep(1)
+            logging.info("test: drive_cm completion detected or wait expired")
 
+            logging.info("test: issuing safety stop")
             stop()
 
-            return
+
+            logging.info("==== test stopping drive_cm -100 early ====")
+            subsumption.say("test stopping drive_cm -100 will begin in 5 seconds")
+            time.sleep(5)
+
+            subsumption.mot_trans  = 0
+            subsumption.mot_rot    = 0
+            subsumption.mot_deg    = 0
+            subsumption.mot_cm     = -100
+            time.sleep(0.2)
+            logging.info("==== stopping drive_cm now ====")
+            subsumption.say("stopping drive_cm")
+            stop()
+            count = 0
+            while subsumption.motors_behavior_active and (count < 5):
+                logging.info("test: waiting")
+                count +=1
+                time.sleep(1)
+            logging.info("test: dtrive_cm no longer active detected or timeout waiting")
 
 
 

@@ -374,19 +374,112 @@ def scan_behavior():
 # inputs:
 #   - mot_trans   -100 to +100 percentage of set_speed
 #   - mot_rot     -100 (CCW) to +100 (CW) percent of set_speed
+#   - mot_deg     +/= degrees to turn (non-blocking)
+#   - mot_cm      +/- cm to drive (non-blocking)
 def motors_behavior():
-        global motors_behavior_active
+        global motors_behavior_active, mot_deg, mot_cm
 
         motors_behavior_active = True
         current_trans = 0
         current_rot = 0
         current_deg = 0
         current_cm  = 0
+        sim_start_time = None
 
         logging.info("Starting motors behavior")
         while tMotors.exitFlag is not True:
             time.sleep(1.0/MOTORS_RATE)
-            if (mot_trans != current_trans) or (mot_rot != current_rot):
+            if (current_deg != 0):      # active in turn_degrees
+                if (mot_deg == 0):          # early stop request
+                    logging.info("Motors Behavior Early Stop of turn_degrees")
+                    current_deg = 0    # set turn_degrees not active
+                    motors_behavior_active = False
+                    if inhibit_drive is not True:
+                        egpg.stop()
+                        continue
+                    else:
+                        sim_start_time = None
+                        continue
+                # active no early stop request 
+                ldps = egpg.get_motor_status(egpg.MOTOR_LEFT)[3]
+                rdps = egpg.get_motor_status(egpg.MOTOR_RIGHT)[3]
+                # logging.info("motors status l: {} DPS  r: {} DPS".format(ldps,rdps))
+                if (ldps + rdps) == 0:     # Done turn
+                    if (sim_start_time):
+                        dt = time.time() - sim_start_time
+                        if (dt < 1):
+                            continue
+                        else:
+                            sim_start_time = None
+                    msg="Motors Behavior turn_degrees completed"
+                    logging.info(msg)
+                    current_deg = 0
+                    mot_deg = 0
+                    motors_behavior_active = False
+                elif mot_deg == 0:  # stop turn early
+                    egpg.stop()
+                    logging.info("Motors Behavior turn_degrees terminated early")
+                    sim_start_time = None   # in case simulating 
+
+
+            elif (mot_deg != current_deg):  # turn_degrees desired
+                msg="Motors Behavior turn_degrees: {}".format(mot_deg)
+                logging.info(msg)
+                current_deg = mot_deg
+                motors_behavior_active = True
+                if inhibit_drive is not True:
+                    egpg.turn_degrees(mot_deg, blocking=False)
+                else:
+                    logging.info("Motors Behavior inhibit_drive True - simulating command")
+                    sim_start_time = time.time()
+
+
+
+            if (current_cm != 0):      # active in drive_cm
+                if (mot_cm == 0):          # early stop request
+                    logging.info("Motors Behavior Early Stop of drive_cm")
+                    current_cm = 0    # set drive_cm not active
+                    motors_behavior_active = False
+                    if inhibit_drive is not True:
+                        egpg.stop()
+                        continue
+                    else:
+                        sim_start_time = None
+                        continue
+                # active no early stop request 
+                ldps = egpg.get_motor_status(egpg.MOTOR_LEFT)[3]
+                rdps = egpg.get_motor_status(egpg.MOTOR_RIGHT)[3]
+                # logging.info("motors status l: {} DPS  r: {} DPS".format(ldps,rdps))
+                if (ldps + rdps) == 0:     # Done turn
+                    if (sim_start_time):
+                        dt = time.time() - sim_start_time
+                        if (dt < 1):
+                            continue
+                        else:
+                            sim_start_time = None
+                    msg="Motors Behavior drive_cm completed"
+                    logging.info(msg)
+                    current_cm = 0
+                    mot_cm = 0
+                    motors_behavior_active = False
+                elif mot_cm == 0:  # stop turn early
+                    egpg.stop()
+                    logging.info("Motors Behavior drive_cm terminated early")
+                    sim_start_time = None   # in case simulating 
+
+            elif (mot_cm != current_cm):  # drive_cm desired
+                msg="Motors Behavior drive_cm: {}".format(mot_cm)
+                logging.info(msg)
+                current_cm = mot_cm
+                motors_behavior_active = True
+                if inhibit_drive is not True:
+                    egpg.drive_cm(mot_cm, blocking=False)
+                else:
+                    logging.info("Motors Behavior inhibit_drive True - simulating command")
+                    sim_start_time = time.time()
+
+
+            elif (mot_trans != current_trans) or (mot_rot != current_rot):
                 if mot_rot == 0:
                     right_pct = mot_trans
                     left_pct  = right_pct
@@ -658,7 +751,7 @@ def aruco_sensor_behavior():
 
 
             aruco_sensor_behavior_active = True
-            logging.info("aruco_sensor_behavior executing now")
+            # logging.info("aruco_sensor_behavior executing now")
 
     except Exception as e:
         msg="Exception in aruco_sensor_behavior"
