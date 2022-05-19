@@ -55,7 +55,9 @@ import traceback
 from imutils.video import VideoStream
 import imutils
 import cv2
-
+sys.path.append('/home/pi/Carl/plib/')
+import camUtils
+import wheellog
 
 SAFE_TURNING_CIRCLE_RADIUS = 20    # cm - safe for GoPiGo3 to turn away if no object within this distance
 MIN_TURNING_CIRCLE_RADIUS  =  5    # cm - safe for GoPiGo3 to turn toward objects farther than this distance
@@ -157,11 +159,13 @@ aruco_find_deg = 0                  # active turn degrees
 aruco_find_cm  = 0                  # active drive cm
 aruco_find_default_rot = 10         # trans velocity percent
 ARUCO_FIND_RATE = 3           # Check for aruco drive needed times per second
+ARUCO_FIND_SCAN_TIME = 60     # search for 60 seconds
+HALF_FOV_X_PIXELS = 320  # center of 640x480 image
 
 tArUcoSensor = None              # ArUco Sensor Behavior Thread Object
 aruco_sensor_behavior_active = False  # flag indicating behavior is active/needed
 inhibit_aruco_sensor = False          # Set true to prohibit behavior
-ARUCO_SENSOR_RATE = 2           # Check for aruco drive needed times per second
+ARUCO_SENSOR_RATE = 5           # Check for aruco drive needed times per second
 aruco_markers = []              # list of markers (markerID, cX, cY)
 
 
@@ -704,9 +708,12 @@ def aruco_drive_behavior():
 # END ARUCODRIVE BEHAVIOR
 
 # ARUCO FIND BEHAVIOR
+# - Rotate slowly until ArUco marker is seen
+# - Turn to face marker
+
 
 def aruco_find_behavior():
-    global aruco_find_behavior_active, inhibit_aruco_find, aruco_find_trans, aruco_find_rot, aruco_find_deg, aruco_find_cm
+    global aruco_find_behavior_active, inhibit_aruco_find, inhibit_aruco_sensor, aruco_find_trans, aruco_find_rot, aruco_find_deg, aruco_find_cm
 
     try:
         msg="Starting Aruco Find Behavior Thread"
@@ -717,14 +724,66 @@ def aruco_find_behavior():
 
             time.sleep(1.0/ARUCO_FIND_RATE)
             if inhibit_aruco_find:
+                aruco_find_behavior_active = False
                 continue
 
-
+            logging.info("aruco_find_behavior: active")
             aruco_find_behavior_active = True
-            aruco_find_trans = 0
-            aruco_find_rot = aruco_find_default_rot
-            aruco_find_deg = 0
-            aruco_find_cm  = 0
+
+            if inhibit_aruco_sensor is True:
+                inhibit_aruco_sensor = False    # turn on scanning
+                logging.info("aruco_find_behavior: Enabling aruco_sensor_behavior")
+                time.sleep(1)
+
+            angle_turned = 0
+            start_l_enc, start_r_enc = egpg.read_encoders()
+            start_time = time.time()
+            scan_time_sec = 0
+            found_aruco_marker = len(aruco_markers)
+            while (found_aruco_marker is not True) and (angle_turned < 720) and (scan_time_sec < ARUCO_FIND_SCAN_TIME):
+                # start or continue rotation
+                aruco_find_trans = 0
+                aruco_find_rot = aruco_find_default_rot
+                aruco_find_deg = 0
+                aruco_find_cm  = 0
+
+                # yield to keep processor load down
+                time.sleep(1.0/ARUCO_FIND_RATE)
+                # compute angle turned
+                curr_l_enc, curr_r_enc = egpg.read_encoders()
+                dEnc_l = curr_l_enc - start_l_enc
+                dEnc_r = curr_r_enc - start_r_enc
+                angle_turned = wheellog.enc_to_angle_deg(egpg, dEnc_l, dEnc_r)
+                scan_time_sec = time.time() - start_time
+                logging.info("aruco_find_behavior: angle_turned: {:>4.0f}  scan_time_sec: {:>4.0f}".format(angle_turned, scan_time_sec))
+                # May have found a marker
+                if len(aruco_markers) > 0:
+                    markerID = aruco_markers[0][0]
+                    cX = aruco_markers[0][1]
+                    cY = aruco_markers[0][2]
+                    logging.info("aruco_find_behavior:  Found  marker {} at [{}, {}]".format(markerID, cX, cY))
+                    if  abs(cX - HALF_FOV_X_PIXELS) < 80:
+                        found_aruco_marker = True
+            # Found marker or spun twice
+            aruco_find_rot = 0   # stop turning
+            if (angle_turned > 720) or (scan_time_sec > ARUCO_FIND_SCAN_TIME):
+                logging.info("aruco_find_behavior: angle_turned: {:>4.0f}  scan_time_sec: {:>4.0f}".format(angle_turned, scan_time_sec))
+                logging.info("aruco_find_behavior:  Failed to find marker")
+                inhibit_aruco_sensor = True
+                inhibit_aruco_find = True            # stop trying to find
+                continue
+
+            # May have found a marker
+            if len(aruco_markers) > 0:
+                markerID = aruco_markers[0][0]
+                cX = aruco_markers[0][1]
+                cY = aruco_markers[0][2]
+                logging.info("aruco_find_behavior:  Terminating search  marker {} at [{}, {}]".format(markerID, cX, cY))
+
+            # Done
+            inhibit_aruco_find = True
+
+
 
     except Exception as e:
         msg="Exception in aruco_find_behavior"
@@ -750,9 +809,11 @@ def aruco_sensor_behavior():
         arucoParams = cv2.aruco.DetectorParameters_create()
         # initialize the video stream and allow the camera sensor to warm up
         print("[INFO] starting video stream...")
-        vs = VideoStream(src=0, framerate=10)
+        vs = VideoStream(src=0, framerate=15)
+        if inhibit_aruco_sensor is not True:
+            vs.start()
         # vs = VideoStream(usePiCamera=True, framerate=10)
-        aruco_sensor_behavior_active = False
+        aruco_sensor_behavior_active = True
 
         while (tArUcoSensor.exitFlag is not True):
 
@@ -760,13 +821,12 @@ def aruco_sensor_behavior():
             if inhibit_aruco_sensor:
                 # logging.info("Aruco Sensor Inhibited")
                 aruco_markers = []
-                aruco_sensor_behavior_active = False
                 vs.stop()
                 continue
 
-            if aruco_sensor_behavior_active is not True:
+            else:
                 vs.start()
-                aruco_sensor_behavior_active = True
+                time.sleep(0.5)
             # logging.info("aruco_sensor_behavior executing now")
             colorframe = vs.read()
             # colorframe = picam2.capture_array()
@@ -818,6 +878,10 @@ def aruco_sensor_behavior():
                 # logging.info("Aruco Sensor Behavior: aruco_markers: {}".format(aruco_markers))
             else:
                 aruco_markers = []
+        # terminating aruco_sensor_behavior
+        if vs is not None:
+            vs.stop()
+        aruco_sensor_behavior_active = False
 
     except Exception as e:
         msg="Exception in aruco_sensor_behavior"
@@ -826,6 +890,8 @@ def aruco_sensor_behavior():
         aruco_sensor_behavior_active = False
         inhibit_aruco_sensor = True
         tArUcoSensor.exc = e
+        if vs is not None:
+            vs.stop()
 
 # END ARUCO SENSOR BEHAVIOR
 
@@ -893,7 +959,7 @@ def arbitrate_behavior():
                 mot_deg     = avoid_deg
                 mod_cm      = avoid_cm
             elif aruco_find_behavior_active:
-                # logging.info("Setting ArUco Find Commands")
+                # logging.info("arbitrate_behavior: Setting ArUco Find Commands")
                 mot_trans   = aruco_find_trans
                 mot_rot     = aruco_find_rot
                 mot_deg     = aruco_find_deg
