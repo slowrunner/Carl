@@ -52,6 +52,10 @@ import threading
 import numpy
 import traceback
 
+from imutils.video import VideoStream
+import imutils
+import cv2
+
 
 SAFE_TURNING_CIRCLE_RADIUS = 20    # cm - safe for GoPiGo3 to turn away if no object within this distance
 MIN_TURNING_CIRCLE_RADIUS  =  5    # cm - safe for GoPiGo3 to turn toward objects farther than this distance
@@ -157,8 +161,8 @@ ARUCO_FIND_RATE = 3           # Check for aruco drive needed times per second
 tArUcoSensor = None              # ArUco Sensor Behavior Thread Object
 aruco_sensor_behavior_active = False  # flag indicating behavior is active/needed
 inhibit_aruco_sensor = False          # Set true to prohibit behavior
-ARUCO_SENSOR_RATE = 5           # Check for aruco drive needed times per second
-
+ARUCO_SENSOR_RATE = 2           # Check for aruco drive needed times per second
+aruco_markers = []              # list of markers (markerID, cX, cY)
 
 
 # ==== UTILITY FUNCTIONS ====
@@ -736,22 +740,84 @@ def aruco_find_behavior():
 # ARUCO SENSOR BEHAVIOR
 
 def aruco_sensor_behavior():
-    global aruco_sensor_behavior_active, inhibit_aruco_sensor
+    global aruco_sensor_behavior_active, inhibit_aruco_sensor, aruco_markers
 
     try:
         msg="Starting Aruco Sensor Behavior Thread"
         logging.info(msg)
 
+        arucoDict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
+        arucoParams = cv2.aruco.DetectorParameters_create()
+        # initialize the video stream and allow the camera sensor to warm up
+        print("[INFO] starting video stream...")
+        vs = VideoStream(src=0, framerate=10)
+        # vs = VideoStream(usePiCamera=True, framerate=10)
+        aruco_sensor_behavior_active = False
 
         while (tArUcoSensor.exitFlag is not True):
 
             time.sleep(1.0/ARUCO_SENSOR_RATE)
             if inhibit_aruco_sensor:
+                # logging.info("Aruco Sensor Inhibited")
+                aruco_markers = []
+                aruco_sensor_behavior_active = False
+                vs.stop()
                 continue
 
-
-            aruco_sensor_behavior_active = True
+            if aruco_sensor_behavior_active is not True:
+                vs.start()
+                aruco_sensor_behavior_active = True
             # logging.info("aruco_sensor_behavior executing now")
+            colorframe = vs.read()
+            # colorframe = picam2.capture_array()
+            frame = cv2.cvtColor(colorframe, cv2.COLOR_BGR2GRAY)
+            # frame = imutils.resize(frame, width=1000)
+            # frame = imutils.resize(frame, width=1000)
+            # detect ArUco markers in the input frame
+            (corners, ids, rejected) = cv2.aruco.detectMarkers(frame,
+                                       arucoDict, parameters=arucoParams)
+
+            # verify *at least* one ArUco marker was detected
+            if len(corners) > 0:
+                # flatten the ArUco IDs list
+                ids = ids.flatten()
+                # loop over the detected ArUCo corners
+                new_aruco_markers = []
+                for (markerCorner, markerID) in zip(corners, ids):
+                    # extract the marker corners (which are always returned in
+                    # top-left, top-right, bottom-right, and bottom-left order)
+                    corners = markerCorner.reshape((4, 2))
+                    (topLeft, topRight, bottomRight, bottomLeft) = corners
+
+                    # convert each of the (x, y)-coordinate pairs to integers
+                    topRight = (int(topRight[0]), int(topRight[1]))
+                    bottomRight = (int(bottomRight[0]), int(bottomRight[1]))
+                    bottomLeft = (int(bottomLeft[0]), int(bottomLeft[1]))
+                    topLeft = (int(topLeft[0]), int(topLeft[1]))
+
+                    # draw the bounding box of the ArUCo detection
+                    # cv2.line(colorframe, topLeft, topRight, (0, 255, 0), 2)
+                    # cv2.line(colorframe, topRight, bottomRight, (0, 255, 0), 2)
+                    # cv2.line(colorframe, bottomRight, bottomLeft, (0, 255, 0), 2)
+                    # cv2.line(colorframe, bottomLeft, topLeft, (0, 255, 0), 2)
+                    # compute and draw the center (x, y)-coordinates of the
+                    # ArUco marker
+                    cX = int((topLeft[0] + bottomRight[0]) / 2.0)
+                    cY = int((topLeft[1] + bottomRight[1]) / 2.0)
+                    # cv2.circle(colorframe, (cX, cY), 4, (0, 0, 255), -1)
+                    # draw the ArUco marker ID on the frame
+                    # cv2.putText(colorframe, str(markerID),
+                    #    (topLeft[0], topLeft[1] - 15),
+                    #     cv2.FONT_HERSHEY_SIMPLEX,
+                    #     0.5, (255, 0, 0), 2)
+
+                    # print("Marker: {} at [{}, {}]".format(str(markerID), cX, cY))
+                    if len(new_aruco_markers) == 0:
+                        new_aruco_markers = [(markerID, cX, cY)]
+                aruco_markers = new_aruco_markers
+                # logging.info("Aruco Sensor Behavior: aruco_markers: {}".format(aruco_markers))
+            else:
+                aruco_markers = []
 
     except Exception as e:
         msg="Exception in aruco_sensor_behavior"
