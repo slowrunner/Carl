@@ -3,7 +3,7 @@
 """
 FILE: subsumption_w_aruco.py
 
-PURPOSE: Add "Find ArUco Marker", and "Drive To ArUco Marker" to
+PURPOSE: Add "Find ArUco Marker", "Drive To ArUco Marker", and "Ready at Dock", to
          [Brooks 84/85/86] Subsumption Architecture For A Mobile Robot
 
 REFERENCES:
@@ -66,7 +66,7 @@ BUMP_DISTANCES =     { "front":  5, "right front":  7, "right":  5, "left front"
 OBSTACLE_DISTANCES = { "front": 20, "right front": 28, "right": 20, "left front":  28, "left":  20 }
 PAN_ANGLES_5 =         { "front": 90, "right": 0, "right front":  45, "left front": 135, "left": 180 }
 PAN_ANGLES_3 =         { "front": 90, "right front":  45, "left front": 135 }
-
+PAN_ANGLE_FRONT =      { "front": 90 }
 
 TALK = False
 
@@ -84,6 +84,7 @@ scan_behavior_active = False
 inhibit_scan = True
 SCAN_DWELL = 0.05
 pan_angles = PAN_ANGLES_3
+dist_reading_cm = 0		# global holding of latest distance reading
 
 tArUcoSensor = None  # ArUco Sensor Behavior Thread
 aruco_sensor_behavior_active = False
@@ -149,6 +150,8 @@ aruco_drive_deg = 0                  # active turn degrees
 aruco_drive_cm  = 0                  # active drive cm
 aruco_drive_default_trans = 50       # trans velocity percent
 ARUCO_DRIVE_RATE = 5           # Check for aruco drive needed times per second
+MARKER_AHEAD_PIXEL = 269        # Drive straight forward for this marker cX
+DOCKING_READY_DIST = 44         # Stop when facing dock at this distance
 
 tArUcoFind = None              # ArUco Find Behavior Thread Object
 aruco_find_behavior_active = False  # flag indicating behavior is active/needed
@@ -167,7 +170,7 @@ aruco_sensor_behavior_active = False  # flag indicating behavior is active/neede
 inhibit_aruco_sensor = False          # Set true to prohibit behavior
 ARUCO_SENSOR_RATE = 5           # Check for aruco drive needed times per second
 aruco_markers = []              # list of markers (markerID, cX, cY)
-
+DISPLAY_MARKERS = False         # if X-server available can set True to see markers
 
 # ==== UTILITY FUNCTIONS ====
 
@@ -182,6 +185,9 @@ def if_bump():
     for key, value in bumps.items():
         if value:  bump_list += [key]
     return bump_list
+
+def if_marker():
+    return aruco_markers
 
 def init_robot(ds_port="RPI_1",pan_port="SERVO1"):
     global egpg
@@ -324,7 +330,7 @@ class Behavior(threading.Thread):
 # For five directions: 1.4s total at 0.05s, 1.5s total at 0.1s dwell, 2s total at 0.2s dwell
 
 def scan_behavior():
-        global scan_behavior_active
+        global scan_behavior_active, dist_reading_cm
 
         try:
             msg="Starting scan behavior"
@@ -363,7 +369,7 @@ def scan_behavior():
                     time.sleep(SCAN_DWELL)
                     dist_reading_cm = egpg.ds.read_mm()/10.0  # read() returns whole centimeters so use read_mm()/10.0
                     msg="distance {:>5.0f} cm looking {:<11s} at {:>3d} degrees".format(dist_reading_cm,direction,angle)
-                    logging.info(msg)
+                    # logging.info(msg)
                     evaluate_scan_reading(direction,dist_reading_cm)
 
 
@@ -384,6 +390,7 @@ def scan_behavior():
 #   - mot_rot     -100 (CCW) to +100 (CW) percent of set_speed
 #   - mot_deg     +/= degrees to turn (non-blocking)
 #   - mot_cm      +/- cm to drive (non-blocking)
+
 def motors_behavior():
         global motors_behavior_active, mot_deg, mot_cm
 
@@ -677,7 +684,7 @@ def avoid_behavior():
 # ARUCODRIVE BEHAVIOR
 
 def aruco_drive_behavior():
-    global aruco_drive_behavior_active, inhibit_aruco_drive, aruco_drive_trans, aruco_drive_rot, aruco_drive_deg, aruco_drive_cm
+    global aruco_drive_behavior_active, inhibit_aruco_drive, aruco_drive_trans, aruco_drive_rot, aruco_drive_deg, aruco_drive_cm, pan_angles, inhibit_scan, inhibit_aruco_sensor
 
     try:
         msg="Starting Aruco Drive Behavior Thread"
@@ -688,16 +695,65 @@ def aruco_drive_behavior():
 
             time.sleep(1.0/ARUCO_DRIVE_RATE)
             if inhibit_aruco_drive:
+                # pan_angles = prior_pan_angles
+                # inhibit_scan = prior_inhibit_scan
                 continue
 
+            if aruco_drive_behavior_active is not True:   # start up behavior
 
-            aruco_drive_behavior_active = True
-            aruco_drive_trans = aruco_drive_default_trans
-            aruco_drive_rot = 0
-            aruco_drive_deg = 0
-            aruco_drive_cm  = 0
+                # save off scan parameters and start scan as front only
+                prior_pan_angles = pan_angles
+                prior_inhibit_scan = inhibit_scan
+                pan_angles = PAN_ANGLE_FRONT
+                inhibit_scan = False
+
+                # start aruco_sensor_behavior if not already running
+                inhibit_aruco_sensor = False
+                logging.info("aruco_drive_behavior: enabled aruco_sensor")
+
+                aruco_drive_behavior_active = True
+                logging.info("aruco_drive_behavior: active and not inhibited")
+
+            elif if_marker():
+                logging.info("aruco_drive_behavior: got marker")
+
+                if if_obstacle():
+                    logging.info("aruco_drive_behavior: blocked by obstacle")
+                    aruco_drive_trans = 0
+                    aruco_drive_rot = 0
+                    aruco_drive_deg = 0
+                    aruco_drive_cm  = 0
+                    inhibit_aruco_drive = True
+
+                elif (dist_reading_cm > DOCKING_READY_DIST):
+                    logging.info("aruco_drive_behavior: Starting Forward")
+                    aruco_drive_trans = aruco_drive_default_trans
+                    aruco_drive_rot = 0
+                    aruco_drive_deg = 0
+                    aruco_drive_cm  = 0
+                else:
+                    logging.info("aruco_drive_behavior: Arrived at docking ready point")
+                    aruco_drive_trans = 0
+                    aruco_drive_rot = 0
+                    aruco_drive_deg = 0
+                    aruco_drive_cm  = 0
+                    time.sleep(2)
+                    logging.info("aruco_drive_behavior: Turning 180")
+                    aruco_drive_deg = 180   # arbitrate will reset this when accepted
+                    time.sleep(5)
+                    inhibit_aruco_drive = True
+
+
+            else:   # marker not in view
+                logging.info("aruco_drive_behavior: stopping")
+                aruco_drive_trans = 0
+                aruco_drive_rot = 0
+                aruco_drive_deg = 0
+                aruco_drive_cm  = 0
+                inhibit_aruco_drive = True
 
     except Exception as e:
+        emergency_stop()
         msg="Exception in aruco_drive_behavior"
         logging.info(msg)
         logging.info("Exception {}".format(str(e)))
@@ -805,6 +861,7 @@ def aruco_sensor_behavior():
         msg="Starting Aruco Sensor Behavior Thread"
         logging.info(msg)
 
+        prior_inhibit_aruco_sensor = inhibit_aruco_sensor
         arucoDict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_50)
         arucoParams = cv2.aruco.DetectorParameters_create()
         # initialize the video stream and allow the camera sensor to warm up
@@ -814,20 +871,26 @@ def aruco_sensor_behavior():
             vs.start()
         # vs = VideoStream(usePiCamera=True, framerate=10)
         aruco_sensor_behavior_active = True
+        prior_inhibit_aruco_sensor = inhibit_aruco_sensor
 
         while (tArUcoSensor.exitFlag is not True):
 
             time.sleep(1.0/ARUCO_SENSOR_RATE)
             if inhibit_aruco_sensor:
-                # logging.info("Aruco Sensor Inhibited")
-                aruco_markers = []
-                vs.stop()
+                if prior_inhibit_aruco_sensor is not True:
+                    logging.info("Aruco Sensor Now Inhibited")
+                    aruco_markers = []
+                    vs.stop()
+                    prior_inhibit_aruco_sensor = inhibit_aruco_sensor
                 continue
 
-            else:
+
+            elif prior_inhibit_aruco_sensor:   # was inhibited now not
+                logging.info("Aruco Sensor No Longer Inhibited")
                 vs.start()
                 time.sleep(0.5)
-            # logging.info("aruco_sensor_behavior executing now")
+                prior_inhibit_aruco_sensor = inhibit_aruco_sensor 
+           # logging.info("aruco_sensor_behavior executing now")
             colorframe = vs.read()
             # colorframe = picam2.capture_array()
             frame = cv2.cvtColor(colorframe, cv2.COLOR_BGR2GRAY)
@@ -860,23 +923,27 @@ def aruco_sensor_behavior():
                     # cv2.line(colorframe, topRight, bottomRight, (0, 255, 0), 2)
                     # cv2.line(colorframe, bottomRight, bottomLeft, (0, 255, 0), 2)
                     # cv2.line(colorframe, bottomLeft, topLeft, (0, 255, 0), 2)
-                    # compute and draw the center (x, y)-coordinates of the
-                    # ArUco marker
+                    # compute the center (x, y)-coordinates of the ArUco marker
                     cX = int((topLeft[0] + bottomRight[0]) / 2.0)
                     cY = int((topLeft[1] + bottomRight[1]) / 2.0)
-                    # cv2.circle(colorframe, (cX, cY), 4, (0, 0, 255), -1)
-                    # draw the ArUco marker ID on the frame
-                    # cv2.putText(colorframe, str(markerID),
-                    #    (topLeft[0], topLeft[1] - 15),
-                    #     cv2.FONT_HERSHEY_SIMPLEX,
-                    #     0.5, (255, 0, 0), 2)
-
+                    if DISPLAY_MARKERS:
+                        # draw the center of the ArUco marker
+                        cv2.circle(colorframe, (cX, cY), 4, (0, 0, 255), -1)
+                        # draw the ArUco marker ID on the frame
+                        cv2.putText(colorframe, str(markerID),
+                           (topLeft[0], topLeft[1] - 15),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            0.5, (255, 0, 0), 2)
+                        cv2.imshow("aruco_sensor_behavior", colorframe)
+                        cv2.waitKey(1)
                     # print("Marker: {} at [{}, {}]".format(str(markerID), cX, cY))
                     if len(new_aruco_markers) == 0:
                         new_aruco_markers = [(markerID, cX, cY)]
                 aruco_markers = new_aruco_markers
                 # logging.info("Aruco Sensor Behavior: aruco_markers: {}".format(aruco_markers))
             else:
+                if DISPLAY_MARKERS:
+                    cv2.destroyAllWindows()
                 aruco_markers = []
         # terminating aruco_sensor_behavior
         if vs is not None:
@@ -889,6 +956,8 @@ def aruco_sensor_behavior():
         logging.info("Exception {}".format(str(e)))
         aruco_sensor_behavior_active = False
         inhibit_aruco_sensor = True
+        if DISPLAY_MARKERS:
+            cv2.destroyAllWindows()
         tArUcoSensor.exc = e
         if vs is not None:
             vs.stop()
@@ -932,7 +1001,7 @@ def cruise_behavior():
 # ARBITRATE BEHAVIOR
 
 def arbitrate_behavior():
-    global arbitrate_behavior_active, mot_trans, mot_rot, mot_degrees, mot_cm
+    global arbitrate_behavior_active, mot_trans, mot_rot, mot_degrees, mot_cm, aruco_drive_deg, aruco_drive_cm
 
     try:
         msg="Starting Arbitrate Behavior Thread"
@@ -965,11 +1034,15 @@ def arbitrate_behavior():
                 mot_deg     = aruco_find_deg
                 mod_cm      = aruco_find_cm
             elif aruco_drive_behavior_active:
-                # logging.info("Setting ArUco Drive Commands")
+                logging.info("Setting ArUco Drive Commands")
                 mot_trans   = aruco_drive_trans
                 mot_rot     = aruco_drive_rot
                 mot_deg     = aruco_drive_deg
                 mod_cm      = aruco_drive_cm
+                if aruco_drive_deg != 0:   # reset to show accepted
+                    aruco_drive_deg = 0
+                if aruco_drive_cm != 0:    # reset to show accepted
+                    aruco_drive_cm = 0
             elif cruise_behavior_active:
                 # logging.info("Setting Cruise Commands")
                 mot_trans   = cruise_trans

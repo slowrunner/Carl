@@ -1,5 +1,8 @@
 # SUBSUMPTION ROBOT ARCHITECTURE WITH OpenCV for ArUco Markers IN PYTHON FOR GOPIGO3  
 
+This version adds behaviors to sense ArUco markers, spin to find markers, 
+drive toward markers, and use these to position at docking ready
+
 My first exposure to the Brooks 1984 Subsumption Behavior Based Robotics Architecture  
 was via assembling the 68HC11 based RugWarrior Pro Robot and  
 the book "Mobile Robots: Inspiration to Implementation", Joseph L. Jones, Anita M. Flynn, Bruce A. Seiger.  
@@ -77,6 +80,7 @@ The Global Variables:
 - inhibit_arbitrate           Turn off the subsumption arbitration into mot_trans and mot_rot commands
 
 - TALK                        True: report actions with TTS, False: quietly execute behaviors
+- DISPLAY_MARKERS             False: Set True to use cv2.imshow to display view with marker(s)
                
 ```
 
@@ -88,6 +92,10 @@ The Behaviors:
 - Motor       Executes motor control  
 - Arbitrate   Prioritize the behavior output commands  
 - Report      Display Behavior states and current motor commands  
+- aruco_sensor  Use PiCamera to locate ArUco 4X4_50 markers
+- aruco_find    Rotate slowly until ArUco marker is centered in view
+- aruco_drive   Drive toward ArUco marker till docking approach distance
+- dock_ready    Perform aruco_find, then aruco_drive, then turn 180
 ```
 
 # subsumption.py
@@ -103,9 +111,14 @@ setup()              instantiates an EasyGoPiGo3 with Pan Servo and Distance Sen
                      - Avoid behavior
                      - Cruise behavior
                      - Report behavior
+                     - aruco_sensor behavior
+                     - aruco_find behavior
+                     - aruco_drive behavior
+                     - aruco_dock_ready behavior
 
 if_obstacle()        returns list of keys of detected obstacles (Python treats empty list as False)
 if_bump()            returns list of keys of detected "bumps"   (Python treats empty list as False)
+if_markers()         returns list of (markerID, cX, cY) of ArUco markers in view 
 
 teardown()           Stops all behavior threads gracefully, centers and turns off pan servo
 
@@ -114,9 +127,15 @@ inhibit_scan         Set True to inhibit the five direction distance scanning
 inhibit_escape       Set True to inhibit reacting to bumps 
 inhibit_avoid        Set True to inhibit reacting to obstacles 
 inhibit_cruise       Set True to inhibit driving as the default behavior
+inhibit_aruco_sensor Set False to open PiCam stream and watch for ArUco markers
+inhibit_aruco_find   Set False to initiate search for an ArUco marker
+inhibit_aruco_drive  Set False to initiate drive toward found ArUco maker
+inhibit_dock_ready   Set False to initiate aruco_find (w/aruco_sensor),drive, and 180 at dock
  
 mot_trans            Motors Behavior Input: Translate +100 pct to -100 pct
 mot_rot              Motors Behavior Input: Rotate    +100 pct to -100 pct
+mot_deg              Motors Behavior Input: Rotate +/- Degrees
+mot_cm               Motors Behavior Input: Drive +/- Centimeters
 ```
 
 # gopigo3_lewis.py
@@ -140,6 +159,8 @@ Will escape "bumps": (something within 5 cm of robot)
   - front right: stop, spin toward bump, backup for clearance, turn 90 left
   - right: stop, spin toward bump, backup for clearance, turn 90 left
 
+
+
 # TEST PROGRAMS
 - test_escape_behavior.py
 - test_avoid_behavior.py
@@ -147,3 +168,7 @@ Will escape "bumps": (something within 5 cm of robot)
 - test_scan.py
 - test_cruise_behavior.py
 
+- test_aruco_sensor_behavior.py
+- test_aruco_find_behavior.py
+- test_aruco_drive_behavior.py
+- test_dock_ready_behavior.py
