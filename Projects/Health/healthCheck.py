@@ -43,6 +43,16 @@ except Exception as e:
 	exit(1)
 
 
+def juicerRunning():
+    result = sp.run(["/usr/bin/pgrep", "-a", "python"], capture_output=True, text=True)
+    # print("result:\n", result.stdout)
+    # f = result.stdout.find("juicer.py")
+    # print(".find:",f)
+    if result.stdout.find("juicer.py") != -1:
+        return True
+    else:
+        return False
+
 # returns 0 if ping succeeds, 1 is ping fails
 # default is to check Internet access using the Google name server
 def checkIP(ip="8.8.8.8", verbose=False):
@@ -100,6 +110,8 @@ def main():
 	i2c_was_ok = True  	# presume good at start
 	mem_was_ok = True 	# presume good at start
 	router_was_ok = True	# presume good at start
+	juicer_was_running = True  # presume good at start
+	juicer_warning_cnt = 0
 	verbose = False
 
 	# Blink WiFi LED to indicate startup
@@ -110,6 +122,25 @@ def main():
 
 	while True:
 		try:
+			if juicerRunning():
+				if juicer_was_running is not True:
+					alert="Juicer running"
+					lifeLog.logger.info(alert)
+					print_w_date_time(alert)
+					speak.say(alert)
+				juicer_was_running = True
+				juicer_warning_cnt = 0
+			elif juicer_was_running or (juicer_warning_cnt > 300):       # juicer not running and need to warn
+				# juicer not running is a serious issue
+				alert="WARNING - juicer not running"
+				lifeLog.logger.info(alert)
+				print_w_date_time(alert)
+				speak.say(alert)
+				juicer_was_running = False
+				juicer_warning_cnt = 1
+			else:    # juicer not running, wait before warning again
+				juicer_warning_cnt += 1
+
 			if checkI2C() == False:
 				if i2c_was_ok:
 					i2c_was_ok = False
