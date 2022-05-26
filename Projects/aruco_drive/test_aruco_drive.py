@@ -19,7 +19,7 @@ import status
 
 subsumption.pan_angles = { "front": 90 }
 subsumption.inhibit_scan = True
-subsumption.inhibit_drive = True
+subsumption.inhibit_drive = False
 subsumption.inhibit_escape = True
 subsumption.inhibit_avoid = True
 subsumption.TALK = False
@@ -27,6 +27,7 @@ subsumption.inhibit_aruco_drive = True
 subsumption.inhibit_aruco_find = True
 subsumption.inhibit_aruco_sensor = True
 subsumption.DISPLAY_MARKERS = False        # Set True if running in windowed environment (VNC or ssh -X)
+subsumption.inhibit_motors = False
 
 def stop():
             subsumption.mot_trans  = 0

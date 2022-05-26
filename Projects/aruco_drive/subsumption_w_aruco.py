@@ -405,6 +405,7 @@ def motors_behavior():
         while tMotors.exitFlag is not True:
             time.sleep(1.0/MOTORS_RATE)
             if (current_deg != 0):      # active in turn_degrees
+                logging.info("Motors Behavior: Active in turn_degrees")
                 if (mot_deg == 0):          # early stop request
                     logging.info("Motors Behavior Early Stop of turn_degrees")
                     current_deg = 0    # set turn_degrees not active
@@ -443,6 +444,7 @@ def motors_behavior():
                 current_deg = mot_deg
                 motors_behavior_active = True
                 if inhibit_drive is not True:
+                    logging.info("Motors Behavior: Commanding egpg.turn_degrees({})".format(mot_deg))
                     egpg.turn_degrees(mot_deg, blocking=False)
                 else:
                     logging.info("Motors Behavior inhibit_drive True - simulating command")
@@ -689,7 +691,7 @@ def aruco_drive_behavior():
     try:
         msg="Starting Aruco Drive Behavior Thread"
         logging.info(msg)
-
+        docking_ready = False
 
         while (tArUcoDrive.exitFlag is not True):
 
@@ -715,7 +717,8 @@ def aruco_drive_behavior():
                 logging.info("aruco_drive_behavior: active and not inhibited")
 
             elif if_marker():
-                logging.info("aruco_drive_behavior: got marker")
+                marker = if_marker()[0]
+                logging.info("aruco_drive_behavior: got marker: {}".format(marker))
 
                 if if_obstacle():
                     logging.info("aruco_drive_behavior: blocked by obstacle")
@@ -726,12 +729,18 @@ def aruco_drive_behavior():
                     inhibit_aruco_drive = True
 
                 elif (dist_reading_cm > DOCKING_READY_DIST):
-                    logging.info("aruco_drive_behavior: Starting Forward")
+                    logging.info("aruco_drive_behavior: Driving toward marker")
                     aruco_drive_trans = aruco_drive_default_trans
-                    aruco_drive_rot = 0
+                    dX = marker[1] - MARKER_AHEAD_PIXEL
+                    logging.info("aruco_drive_behavior: marker cX: {} dX: {} dist: {}".format(marker[1], dX, dist_reading_cm))
+                    if (abs(dX) > 10):
+                        aruco_drive_rot = int(dX/10)
+                    else:
+                        aruco_drive_rot = 0
                     aruco_drive_deg = 0
                     aruco_drive_cm  = 0
-                else:
+                elif docking_ready is not True:
+                    docking_ready = True
                     logging.info("aruco_drive_behavior: Arrived at docking ready point")
                     aruco_drive_trans = 0
                     aruco_drive_rot = 0
@@ -740,9 +749,12 @@ def aruco_drive_behavior():
                     time.sleep(2)
                     logging.info("aruco_drive_behavior: Turning 180")
                     aruco_drive_deg = 180   # arbitrate will reset this when accepted
-                    time.sleep(5)
+                    while aruco_drive_deg > 0:
+                        logging.info("aruco_drive_behavior: waiting for turn 180 to complete")
+                        time.sleep(1.0/ARUCO_DRIVE_RATE)
+                else:  # at docking reedy and turned 180
                     inhibit_aruco_drive = True
-
+                    aruco_drive_behavior_active = False
 
             else:   # marker not in view
                 logging.info("aruco_drive_behavior: stopping")
@@ -750,7 +762,7 @@ def aruco_drive_behavior():
                 aruco_drive_rot = 0
                 aruco_drive_deg = 0
                 aruco_drive_cm  = 0
-                inhibit_aruco_drive = True
+                # inhibit_aruco_drive = True
 
     except Exception as e:
         emergency_stop()
@@ -1007,6 +1019,8 @@ def arbitrate_behavior():
         msg="Starting Arbitrate Behavior Thread"
         logging.info(msg)
 
+        waiting_deg = False  # flag when waiting for motors behavior to complete turn_degrees()
+        waiting_cm  = False  # flag when waiting for motors behavior to complete drive_cm()
 
         while (tArbitrate.exitFlag is not True):
             time.sleep(1.0/ARBITRATE_RATE)
@@ -1034,15 +1048,32 @@ def arbitrate_behavior():
                 mot_deg     = aruco_find_deg
                 mod_cm      = aruco_find_cm
             elif aruco_drive_behavior_active:
-                logging.info("Setting ArUco Drive Commands")
-                mot_trans   = aruco_drive_trans
-                mot_rot     = aruco_drive_rot
-                mot_deg     = aruco_drive_deg
-                mod_cm      = aruco_drive_cm
+                logging.info("Setting ArUco Drive Commands deg:{} cm:{} trans:{} rot:{}".format(aruco_drive_deg, aruco_drive_cm, aruco_drive_trans, aruco_drive_rot))
                 if aruco_drive_deg != 0:   # reset to show accepted
-                    aruco_drive_deg = 0
-                if aruco_drive_cm != 0:    # reset to show accepted
-                    aruco_drive_cm = 0
+                    if waiting_deg:
+                        if mot_deg == 0:  # done
+                            waiting_deg = False
+                            aruco_drive_deg = 0
+                        else:     # not done
+                            pass
+                    else:           # tell motors to start turn_degrees
+                        mot_deg     = aruco_drive_deg
+                        waiting_deg = True
+                elif aruco_drive_cm != 0:    # reset to show accepted
+                    if waiting_cm:
+                        if mot_cm == 0:  # done
+                            waiting_cm = False
+                            aruco_drive_cm = 0
+                        else:     # not done
+                            pass
+                    else:           # tell motors to start drive_cm()
+                        mot_cm     = aruco_drive_cm
+                        waiting_cm = True
+                else:
+                    mot_trans   = aruco_drive_trans
+                    mot_rot     = aruco_drive_rot
+                    mot_deg     = aruco_drive_deg
+                    mod_cm      = aruco_drive_cm
             elif cruise_behavior_active:
                 # logging.info("Setting Cruise Commands")
                 mot_trans   = cruise_trans
