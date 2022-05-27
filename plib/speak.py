@@ -24,6 +24,18 @@ import runLog
 import time
 debug = False
 import math
+import logging
+
+
+# create logger
+logger = logging.getLogger('speakLog')
+logger.setLevel(logging.INFO)
+
+loghandler = logging.FileHandler('/home/pi/Carl/speak.log')
+logformatter = logging.Formatter('%(asctime)s|%(message)s',"%Y-%m-%d %H:%M")
+# logformatter = logging.Formatter('%(asctime)s|[%(filename)s.%(funcName)s]%(message)s',"%Y-%m-%d %H:%M")
+loghandler.setFormatter(logformatter)
+logger.addHandler(loghandler)
 
 # QUIET TIME is before 10AM and after 11PM
 # (unless told to ignore , then never quietTime
@@ -83,6 +95,7 @@ def say_espeak(phrase,vol=100,anytime=False):
     else:
         # subprocess.check_output(['espeak -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
         subprocess.check_output(['espeak-ng -s150 -ven-us+f5 -a'+str(vol)+' "%s"' % phrase], stderr=subprocess.STDOUT, shell=True)
+    logger.info(phrase)
 
 def say(phrase,vol=125,anytime=False):
     say_espeak(phrase,vol,anytime)
@@ -106,6 +119,8 @@ def main():
     global debug
     # say("hello from speak dot p y test main")
     # say_espeak("whats the weather, long quiet?")
+    logger.info("Starting speak.py test main")
+
     if (len(sys.argv) >1):
         strToSay = sys.argv[1]
         if ( len(sys.argv)>2 ):
