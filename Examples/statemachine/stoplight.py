@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# FILE: test_statemachine.py
+# FILE: stoplight.py
 
 # Flash red five times, then loop: [ 5xGreen, 1 yellow, 1 red ] 
 from statemachine import StateMachine, State
