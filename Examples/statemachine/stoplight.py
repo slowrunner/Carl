@@ -67,17 +67,20 @@ class TrafficLightMachine(StateMachine):
 
 # === TEST IT ===
 
-# instantiate in initial state
-stm = TrafficLightMachine()  
+def main():
+	# instantiate in initial state
+	stm = TrafficLightMachine()  
 
-try:
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
-    logging.info("Starting State: {}".format(stm.current_state))
+	try:
+	    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
+	    logging.info("Starting State: {}".format(stm.current_state))
 
-    # execute flash red transition which sets machine "running"
-    stm.flshred()
+	    # execute flash red transition which sets machine "running"
+	    stm.flshred()
 
-except KeyboardInterrupt:
-    logging.info("ctrl-c: Exiting")
+	except KeyboardInterrupt:
+	    logging.info("ctrl-c: Exiting")
 
 
+if __name__ == "__main__":
+    main()

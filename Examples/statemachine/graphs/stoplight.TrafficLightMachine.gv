@@ -1,0 +1,14 @@
+// stoplight.TrafficLightMachine
+digraph {
+	Green -> Yellow [label=grn2yel]
+	Green -> Green [label=grn2grn]
+	Green -> Green [label=toitself]
+	Green -> Red [label=flshred]
+	Red -> Green [label=red2grn]
+	Red -> Red [label=red2red]
+	Red -> Red [label=toitself]
+	Red -> Red [label=flshred]
+	Yellow -> Red [label=yel2red]
+	Yellow -> Yellow [label=toitself]
+	Yellow -> Red [label=flshred]
+}

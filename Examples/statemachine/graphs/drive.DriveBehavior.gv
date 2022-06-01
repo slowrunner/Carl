@@ -1,0 +1,17 @@
+// drive.DriveBehavior
+digraph {
+	Driving -> Obstacle [label=d2o]
+	Driving -> Exit [label=quit]
+	Driving -> Driving [label=cycle]
+	Exit -> Exit [label=cycle]
+	Obstacle -> Waiting [label=o2w]
+	Obstacle -> Exit [label=quit]
+	Obstacle -> Obstacle [label=cycle]
+	Startup -> Waiting [label=s2w]
+	Startup -> Exit [label=quit]
+	Startup -> Startup [label=cycle]
+	Waiting -> Driving [label=w2d]
+	Waiting -> Obstacle [label=w2o]
+	Waiting -> Exit [label=quit]
+	Waiting -> Waiting [label=cycle]
+}
