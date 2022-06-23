@@ -68,9 +68,17 @@ Process Complete
 
 ```
 
+# Using camera_cal.npy for ArUco marker Pose Estimation
+
 Run detect.py to detect with camera_calibration  
 
 Run locate.py to get distance from marker normal, distance from marker, and heading to marker  
 - configured for 88mm ArUco DICT_4X4_50 marker  
 - Uses 40FPS 640x480 video   
 - Uses camera_cal.npy from process.py step  
+
+# Video showing process and results
+
+https://player.vimeo.com/video/723422779
+
+
