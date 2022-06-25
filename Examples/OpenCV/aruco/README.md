@@ -81,4 +81,6 @@ Run locate.py to get distance from marker normal, distance from marker, and head
 
 https://player.vimeo.com/video/723422779
 
+Note:  locate with camera_cal.129.npy provides more stable measurements than with camera_cal.69.npy  
+leading to believe 100 images is better than 60 images.
 
