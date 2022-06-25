@@ -3,7 +3,6 @@ from ina219 import INA219
 from ina219 import DeviceRangeError
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
 
 SHUNT_OHMS = 0.1
 MAX_EXPECTED_AMPS = 1.0   # 12v at 0.75 expected

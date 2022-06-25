@@ -11,6 +11,9 @@ i2cdetect -y 1
 
 https://pypi.org/project/pi-ina219/  
 
+https://github.com/chrisb2/pi_ina219
+
+
 == DATASHEET ==  
 
 https://cdn-shop.adafruit.com/datasheets/ina219.pdf  
@@ -60,8 +63,6 @@ from ina219 import INA219
 from ina219 import DeviceRangeError
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
-
 SHUNT_OHMS = 0.1
 MAX_EXPECTED_AMPS = 1.0   # 12v at 0.75 expected
 
@@ -96,7 +97,6 @@ from ina219 import INA219
 from ina219 import DeviceRangeError
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(funcName)s: %(message)s')
 
 SHUNT_OHMS = 0.1
 MAX_EXPECTED_AMPS = 1.0   # 12v at 0.75 expected
