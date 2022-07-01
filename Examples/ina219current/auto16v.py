@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from ina219 import INA219
 from ina219 import DeviceRangeError
 import logging
