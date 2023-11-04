@@ -9,7 +9,7 @@
 # requires bc  (sudo apt-get install bc)
 #              note bc scale only works for division
 #
-year=3
+year=5
 echo "WHEEL STATS for YEAR " $year
 wfn="wheel.log.year.$year"
 lfn="life.log.year.$year"
