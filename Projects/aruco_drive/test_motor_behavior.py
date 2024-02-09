@@ -12,7 +12,7 @@ import time
 import logging
 
 subsumption.inhibit_scan = True
-subsumption.inhibit_drive = True
+subsumption.inhibit_drive = False
 subsumption.TALK = False
 
 def stop():

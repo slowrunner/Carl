@@ -151,7 +151,7 @@ aruco_drive_cm  = 0                  # active drive cm
 aruco_drive_default_trans = 50       # trans velocity percent
 ARUCO_DRIVE_RATE = 5           # Check for aruco drive needed times per second
 MARKER_AHEAD_PIXEL = 269        # Drive straight forward for this marker cX
-DOCKING_READY_DIST = 44         # Stop when facing dock at this distance
+DOCKING_READY_DIST = 47         # Stop when facing dock at this distance
 
 tArUcoFind = None              # ArUco Find Behavior Thread Object
 aruco_find_behavior_active = False  # flag indicating behavior is active/needed
@@ -403,6 +403,7 @@ def motors_behavior():
 
         logging.info("Starting motors behavior")
         while tMotors.exitFlag is not True:
+            # logging.info("motors_behavior: cur t:{} r:{} d:{} c:{} mot t:{} r:{} d:{} c:{}".format(current_trans, current_rot, current_deg, current_cm, mot_trans, mot_rot, mot_deg, mot_cm))
             time.sleep(1.0/MOTORS_RATE)
             if (current_deg != 0):      # active in turn_degrees
                 logging.info("Motors Behavior: Active in turn_degrees")
@@ -1013,7 +1014,7 @@ def cruise_behavior():
 # ARBITRATE BEHAVIOR
 
 def arbitrate_behavior():
-    global arbitrate_behavior_active, mot_trans, mot_rot, mot_degrees, mot_cm, aruco_drive_deg, aruco_drive_cm
+    global arbitrate_behavior_active, mot_trans, mot_rot, mot_deg, mot_cm, aruco_drive_deg, aruco_drive_cm
 
     try:
         msg="Starting Arbitrate Behavior Thread"
@@ -1048,15 +1049,17 @@ def arbitrate_behavior():
                 mot_deg     = aruco_find_deg
                 mod_cm      = aruco_find_cm
             elif aruco_drive_behavior_active:
-                logging.info("Setting ArUco Drive Commands deg:{} cm:{} trans:{} rot:{}".format(aruco_drive_deg, aruco_drive_cm, aruco_drive_trans, aruco_drive_rot))
+                # logging.info("Setting ArUco Drive Commands deg:{} cm:{} trans:{} rot:{}".format(aruco_drive_deg, aruco_drive_cm, aruco_drive_trans, aruco_drive_rot))
                 if aruco_drive_deg != 0:   # reset to show accepted
                     if waiting_deg:
                         if mot_deg == 0:  # done
                             waiting_deg = False
                             aruco_drive_deg = 0
                         else:     # not done
+                            # logging.info("arbitrate_behavior: waiting for turn complete")
                             pass
                     else:           # tell motors to start turn_degrees
+                        # logging.info("arbitrate_behavior: setting mot_deg")
                         mot_deg     = aruco_drive_deg
                         waiting_deg = True
                 elif aruco_drive_cm != 0:    # reset to show accepted
@@ -1067,9 +1070,11 @@ def arbitrate_behavior():
                         else:     # not done
                             pass
                     else:           # tell motors to start drive_cm()
+                        # logging.info("arbitrate_behavior: setting mot_cm")
                         mot_cm     = aruco_drive_cm
                         waiting_cm = True
                 else:
+                    # logging.info("arbitrate_behavior: setting mot_ from aruco_drive_")
                     mot_trans   = aruco_drive_trans
                     mot_rot     = aruco_drive_rot
                     mot_deg     = aruco_drive_deg

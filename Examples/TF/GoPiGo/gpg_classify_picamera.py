@@ -101,6 +101,7 @@ def main():
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
 
   print("Starting TensorFlow Lite Classification With PiCamera at 640x480")
+  print("Tensor Input width: {} height: {}".format(width, height) )
   with picamera.PiCamera(resolution=(640, 480), framerate=30) as camera:
     if preview:
         camera.start_preview()
