@@ -33,6 +33,7 @@ MEM_THRESHOLD = 85  # percent
 ROUTER_IP = "10.0.0.1"
 MAC_IP = "10.0.0.182"
 MAC_ETHER_IP = "10.0.0.128"
+GOOGLE_IP = "8.8.8.8"
 DELAY_FOR_I2C_RECOVERY = 300
 
 # Need an egpg for wifi led blinker to indicate high mem usage
@@ -55,7 +56,7 @@ def juicerRunning():
 
 # returns 0 if ping succeeds, 1 is ping fails
 # default is to check Internet access using the Google name server
-def checkIP(ip="8.8.8.8", verbose=False):
+def checkIP(ip=GOOGLE_IP, verbose=False):
 	# check once, wait only one second
 	status, result = sp.getstatusoutput("ping -c1 -w2 " + ip)
 	if verbose:
@@ -208,12 +209,12 @@ def main():
 
 			# WiFi - Test if router is visible (don't care about Internet per se) 
 			# router_not_ok = checkIP(ROUTER_IP,verbose)
-			ip_to_check = MAC_ETHER_IP  #ROUTER_IP  # MAC_IP
+			ip_to_check = GOOGLE_IP  #ROUTER_IP  # MAC_IP #MAC_ETHER_IP
 			router_not_ok = checkIP(ip_to_check,verbose)
 			if router_not_ok:  # returns 1 if not reachable
 				verbose = False
 				if router_was_ok:
-					alert="WiFi Router not responding ({})".format(ip_to_check)
+					alert="WiFi check failed ({})".format(ip_to_check)
 					lifeLog.logger.info(alert)
 					print_w_date_time(alert)
 
@@ -234,7 +235,7 @@ def main():
 			else:
 				# Wifi was down, now restored
 				verbose = False
-				alert="WiFi Router again reachable"
+				alert="WiFi recovery"
 				lifeLog.logger.info(alert)
 				print_w_date_time(alert)
 				# speak.say(alert)
