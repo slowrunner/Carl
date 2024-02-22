@@ -12,7 +12,7 @@ fn="/home/pi/Carl/life.log"
 #declare -i newBattsAtCycle=2831
 declare -i newBattsAtCycle=3651
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
-totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' $fn)`
+totalLife=`(awk -F'execution:' '{sum+=$2}END{print sum;}' $fn)`
 echo " "
 echo "TOTAL LIFE STATISTICS"
 echo "Total Life: " $totalLife "hrs since Aug 22,2018"
