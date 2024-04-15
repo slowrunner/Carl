@@ -1,1 +1,0 @@
-# Carl Temporary Files Folder

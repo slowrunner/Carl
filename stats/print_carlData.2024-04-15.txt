@@ -1,0 +1,15 @@
+carlData.json contents:
+   lastDocking  :  ---- Docking 4573 completed  at 8.1 v after 2.6 h playtime
+   chargeCycles  :  4573
+   lastDismount  :  ---- Dismount 4573 at 10.9 v after 2.5 h recharge
+   dockingState  :  1
+   chargingState  :  1
+   chargeConditioning  :  0
+   lastDismountTime  :  2024-04-15 06:47:03
+   lastRechargeDuration  :  2.5
+   newBatterySetDate  :  2023-03-21
+   newBatterySetAtDocking  :  3652
+   newBatterySetAtLifeHours  :  36810.9
+   newBatterySetDesc  :  8x Eneloop White 2000 mAh NiMH AA cells
+   lastDockingTime  :  2024-04-15 04:15:21
+   lastPlaytimeDuration  :  2.6
