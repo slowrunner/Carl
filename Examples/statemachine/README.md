@@ -51,5 +51,6 @@ and:
 stoplight.TrafficLightMachine.gv.png
 ```
 
+<img src="https://github.com/slowrunner/Carl/blob/master/Examples/statemachine/graphs/stoplight.TrafficLightMachine.gv.png">
 
 
