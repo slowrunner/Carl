@@ -2,12 +2,15 @@
 #
 # cleanlifelog.py
 #
-# save life.log to life.log.timestamp
+# PURPOSE: Clean/delete extra execution records from entire life.log
+# 
+# save life.log to life.log.bak
 # read ~/Carl/life.log file into list
 # starting at next to last line
-# loop until "boot logged line"
-#    if line is an execution log line: delete it
-#    else point to previous line
+# loop until END OF LIFE line marking beginning of file
+#     loop until "boot logged line" or "END OF LIFE" line marking begining of file
+#        if line is an execution log line: delete it
+#        else point to previous line
 # write out modified file
 
 import datetime
@@ -19,22 +22,21 @@ dtNow = datetime.datetime.now()
 
 inFileName = "/home/pi/Carl/life.log"
 outFileName = "/home/pi/Carl/life.log"
-# bkupFileName = "/home/pi/Carl/life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
 bkupFileName = "/home/pi/Carl/tmp/life.log.bak"
 
 # Uncomment these to test in ~/Carl/Projects/CleanLifeLog/
-# inFileName = "life.log.test"
-# outFileName = "life.log.new"
-# bkupFileName = "life.log.bkup_"+dtNow.strftime("%Y%m%d_%H%M%S")
+inFileName = "life.log"
+outFileName = "life.log.new"
+bkupFileName = "life.log.bak"
 
 # ARGUMENT PARSER
-ap = argparse.ArgumentParser()
+# ap = argparse.ArgumentParser()
 # ap.add_argument("-f", "--file", required=True, help="path to input file")
 # ap.add_argument("-n", "--num", type=int, default=5, help="number")
-ap.add_argument("-p", "--previous", default=False, action='store_true', help="clean previous boot session")
-args = vars(ap.parse_args())
+# ap.add_argument("-p", "--previous", default=False, action='store_true', help="clean previous boot session")
+# args = vars(ap.parse_args())
 # print("Started with args:",args)
-clean_previous_session = args['previous']
+# clean_previous_session = args['previous']
 
 
 
@@ -50,27 +52,35 @@ print("lines: {}".format(lines))
 print("lastline: {}".format(lineList[last]))
 bootlogline = "----- boot -----"
 executionlogline = "dEmain execution:"
+donelogline = "END OF YEAR"
 
-if (clean_previous_session == True):
-    # Find last boot log line
-    while (bootlogline not in lineList[lineIdx]):
-        lineIdx -=1
-    lineIdx -=1
 
-# Find last execution log line before the last boot log line
-while ((bootlogline not in lineList[lineIdx]) and (executionlogline not in lineList[lineIdx])):
-    lineIdx -= 1
 
-# leave the last execution log line
-if (executionlogline in lineList[lineIdx]):
-    lineIdx -= 1
+while (donelogline not in lineList[lineIdx]):       # Loop till done all
+    print("Checking lineIdx {}:{}".format(lineIdx, lineList[lineIdx]))
 
-while (bootlogline not in lineList[lineIdx]):
-    # print("Checking line {}".format(lineIdx+1))
+    # Find last execution log line before the last boot log line  - or stop if neither found
+    while ((bootlogline not in lineList[lineIdx]) and \
+           (executionlogline not in lineList[lineIdx]) and \
+           (donelogline not in lineList[lineIdx]) ):
+        lineIdx -= 1
+
+    print("Checking lineIdx {}:{}".format(lineIdx, lineList[lineIdx]))
+
+    # leave the last execution log line
     if (executionlogline in lineList[lineIdx]):
-        print("removing: {}".format(lineList[lineIdx]))
-        del lineList[lineIdx]
-        changed = True
+        lineIdx -= 1
+
+
+    while ( (bootlogline not in lineList[lineIdx]) and \
+            (donelogline not in lineList[lineIdx]) ):
+
+        print("Checking lineIdx {}:{}".format(lineIdx, lineList[lineIdx]))
+        if (executionlogline in lineList[lineIdx]):
+            print("removing: {}".format(lineList[lineIdx]))
+            del lineList[lineIdx]
+            changed = True
+        lineIdx -= 1
     lineIdx -= 1
 
 if changed == True:
