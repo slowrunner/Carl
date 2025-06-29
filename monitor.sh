@@ -1,6 +1,6 @@
 #!/bin/bash
 
-diskused=`df | grep mmcblk0p2` ; \
+diskused=`df | grep mmcblk0p1` ; \
 
 while true; \
 do echo -e "\n********** GoPiGo3 CARL MONITOR ******************************"; \
@@ -10,10 +10,10 @@ uptime; \
 vcgencmd measure_temp && vcgencmd measure_clock arm && vcgencmd get_throttled; \
 # python3 /home/ubuntu/KiltedDave/plib/battery.py; 
 python3 /home/pi/Carl/plib/battery.py; 
-echo "Disk Usage: "${diskused: -6:4}; \
+echo "Disk Usage: "${diskused: -9:4}; \
 echo ""; \
 free -h; \
-diskused=`df | grep mmcblk0p2` ; \
+diskused=`df | grep mmcblk0p1` ; \
 sleep 10; \
 echo " "; \
 done
