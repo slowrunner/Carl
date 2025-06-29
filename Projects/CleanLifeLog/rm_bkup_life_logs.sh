@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Removing"
-ls life.log.bkup_*
-rm life.log.bkup_*
+ls life.*
+rm life.*.new
+rm life.*.bak
+ls life.*
 echo "Complete"
 

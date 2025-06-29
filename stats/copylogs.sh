@@ -2,7 +2,7 @@
 
 # Copies the active logs to stats directory with .year.n extension
 
-year=6
+year=6.5
 
 # ../imu.log  ../life.log  ../run.log  ../speak.log  ../voice.log  ../wheel.log
 # ../totallife.sh

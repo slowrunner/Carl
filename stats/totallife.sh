@@ -8,13 +8,15 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
-year=6
+year=6.5
 echo "TOTAL LIFE STATISTICS for YEAR " $year
 fn="/home/pi/Carl/stats/life.log.year.$year"
 # declare -i newBattsAtCycle=1453
 # declare -i newBattsAtCycle=2160
 # declare -i newBattsAtCycle=2831
-declare -i newBattsAtCycle=3651
+#declare -i newBattsAtCycle=3651
+declare -i newBattsAtCycle=4588
+
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
 totalLife=`(awk -F':' '{sum+=$3}END{print sum;}' $fn)`
 echo "Total Life: " $totalLife "hrs since Aug 22,2018"
