@@ -8,7 +8,7 @@
 #
 # requires bc  (sudo apt-get install bc)
 #
-year=6.5
+year=7
 echo "TOTAL LIFE STATISTICS for YEAR " $year
 fn="/home/pi/Carl/stats/life.log.year.$year"
 # declare -i newBattsAtCycle=1453
