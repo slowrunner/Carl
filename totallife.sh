@@ -24,8 +24,13 @@ echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
 # bootedThisYr=`(grep "\- boot \-" $fn | sort -u -k1,1 | wc -l)`
 bootedThisYr=`(grep "\- boot \-" $fn | wc -l)`
 echo "Days Booted This Year: " $bootedThisYr
+bootedBefore=`(grep "Booted" $fn)`
+bootedBefore=$(echo "$bootedBefore" | sed 's/^[^:]*:[^:]*://')
+echo "Prior Boots: " $bootedBefore
+totalBoots=`(echo "scale=0; $bootedBefore + $bootedThisYr" | bc)`
+echo "Total Boots: " $totalBoots
 aveSession=`(echo "scale=0; $lifeThisYear / $bootedThisYr" | bc)`
-echo "Average Time Between Reboot: " $aveSession "hrs"
+echo "Average Time Between Reboot This Year: " $aveSession "hrs"
 lastDockingStr=`(grep "h playtime" $fn | tail -1)`
 totalDockings=`(awk -F"Docking " '{sub(/ .*/,"",$2);print $2}' <<< $lastDockingStr)`
 echo "Total Dockings: " $totalDockings
