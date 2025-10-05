@@ -198,281 +198,83 @@
 2025-09-23 05:36|[juicer.py.undock]---- Dismount 5803 at 11.3 v after 3.4 h recharge
 2025-09-23 11:50|[juicer.py.dock]---- Docking 5804 completed  at 8.1 v after 6.2 h playtime
 2025-09-23 15:13|[juicer.py.undock]---- Dismount 5804 at 11.3 v after 3.4 h recharge
-2025-09-23 15:13|lifelogger.dEmain execution: 764
-2025-09-23 16:13|lifelogger.dEmain execution: 765
-2025-09-23 17:13|lifelogger.dEmain execution: 766
-2025-09-23 18:13|lifelogger.dEmain execution: 767
-2025-09-23 19:13|lifelogger.dEmain execution: 768
-2025-09-23 20:13|lifelogger.dEmain execution: 769
 2025-09-23 20:56|[juicer.py.dock]---- Docking 5805 completed  at 8.1 v after 5.7 h playtime
-2025-09-23 21:13|lifelogger.dEmain execution: 770
-2025-09-23 22:13|lifelogger.dEmain execution: 771
-2025-09-23 23:13|lifelogger.dEmain execution: 772
-2025-09-24 00:13|lifelogger.dEmain execution: 773
 2025-09-24 00:20|[juicer.py.undock]---- Dismount 5805 at 11.3 v after 3.4 h recharge
-2025-09-24 01:13|lifelogger.dEmain execution: 774
-2025-09-24 02:13|lifelogger.dEmain execution: 775
-2025-09-24 03:13|lifelogger.dEmain execution: 776
-2025-09-24 04:13|lifelogger.dEmain execution: 777
-2025-09-24 05:13|lifelogger.dEmain execution: 778
-2025-09-24 06:13|lifelogger.dEmain execution: 779
 2025-09-24 06:16|[juicer.py.dock]---- Docking 5806 completed  at 8.1 v after 5.9 h playtime
-2025-09-24 07:13|lifelogger.dEmain execution: 780
-2025-09-24 08:13|lifelogger.dEmain execution: 781
-2025-09-24 09:13|lifelogger.dEmain execution: 782
 2025-09-24 09:41|[juicer.py.undock]---- Dismount 5806 at 11.3 v after 3.4 h recharge
 2025-09-24 09:54|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-09-24 10:03|[healthCheck.py.main]WiFi check failed (8.8.8.8)
-2025-09-24 10:13|lifelogger.dEmain execution: 783
-2025-09-24 11:13|lifelogger.dEmain execution: 784
-2025-09-24 12:13|lifelogger.dEmain execution: 785
-2025-09-24 13:13|lifelogger.dEmain execution: 786
-2025-09-24 14:13|lifelogger.dEmain execution: 787
-2025-09-24 15:13|lifelogger.dEmain execution: 788
 2025-09-24 15:21|[juicer.py.dock]---- Docking 5807 completed  at 8.1 v after 5.6 h playtime
-2025-09-24 16:13|lifelogger.dEmain execution: 789
-2025-09-24 17:13|lifelogger.dEmain execution: 790
-2025-09-24 18:13|lifelogger.dEmain execution: 791
 2025-09-24 18:46|[juicer.py.undock]---- Dismount 5807 at 11.3 v after 3.4 h recharge
-2025-09-24 19:13|lifelogger.dEmain execution: 792
-2025-09-24 20:13|lifelogger.dEmain execution: 793
-2025-09-24 21:13|lifelogger.dEmain execution: 794
-2025-09-24 22:13|lifelogger.dEmain execution: 795
-2025-09-24 23:13|lifelogger.dEmain execution: 796
-2025-09-25 00:13|lifelogger.dEmain execution: 797
 2025-09-25 00:34|[juicer.py.dock]---- Docking 5808 completed  at 8.1 v after 5.8 h playtime
-2025-09-25 01:13|lifelogger.dEmain execution: 798
-2025-09-25 02:13|lifelogger.dEmain execution: 799
-2025-09-25 03:13|lifelogger.dEmain execution: 800
 2025-09-25 03:50|[juicer.py.undock]---- Dismount 5808 at 11.3 v after 3.3 h recharge
-2025-09-25 04:13|lifelogger.dEmain execution: 801
-2025-09-25 05:13|lifelogger.dEmain execution: 802
-2025-09-25 06:13|lifelogger.dEmain execution: 803
-2025-09-25 07:13|lifelogger.dEmain execution: 804
-2025-09-25 08:13|lifelogger.dEmain execution: 805
-2025-09-25 09:13|lifelogger.dEmain execution: 806
 2025-09-25 09:41|[juicer.py.dock]---- Docking 5809 completed  at 8.1 v after 5.8 h playtime
-2025-09-25 10:13|lifelogger.dEmain execution: 807
-2025-09-25 11:13|lifelogger.dEmain execution: 808
-2025-09-25 12:13|lifelogger.dEmain execution: 809
 2025-09-25 13:06|[juicer.py.undock]---- Dismount 5809 at 11.3 v after 3.4 h recharge
-2025-09-25 13:13|lifelogger.dEmain execution: 810
-2025-09-25 14:13|lifelogger.dEmain execution: 811
-2025-09-25 15:13|lifelogger.dEmain execution: 812
-2025-09-25 16:13|lifelogger.dEmain execution: 813
-2025-09-25 17:13|lifelogger.dEmain execution: 814
-2025-09-25 18:13|lifelogger.dEmain execution: 815
 2025-09-25 19:00|[juicer.py.dock]---- Docking 5810 completed  at 8.1 v after 5.9 h playtime
-2025-09-25 19:13|lifelogger.dEmain execution: 816
-2025-09-25 20:13|lifelogger.dEmain execution: 817
-2025-09-25 21:13|lifelogger.dEmain execution: 818
-2025-09-25 22:13|lifelogger.dEmain execution: 819
 2025-09-25 22:23|[juicer.py.undock]---- Dismount 5810 at 11.3 v after 3.4 h recharge
-2025-09-25 23:13|lifelogger.dEmain execution: 820
-2025-09-26 00:13|lifelogger.dEmain execution: 821
-2025-09-26 01:13|lifelogger.dEmain execution: 822
-2025-09-26 02:13|lifelogger.dEmain execution: 823
-2025-09-26 03:13|lifelogger.dEmain execution: 824
-2025-09-26 04:13|lifelogger.dEmain execution: 825
 2025-09-26 04:18|[juicer.py.dock]---- Docking 5811 completed  at 8.1 v after 5.9 h playtime
-2025-09-26 05:13|lifelogger.dEmain execution: 826
-2025-09-26 06:13|lifelogger.dEmain execution: 827
-2025-09-26 07:13|lifelogger.dEmain execution: 828
 2025-09-26 07:42|[juicer.py.undock]---- Dismount 5811 at 11.3 v after 3.4 h recharge
-2025-09-26 08:13|lifelogger.dEmain execution: 829
-2025-09-26 09:13|lifelogger.dEmain execution: 830
-2025-09-26 10:13|lifelogger.dEmain execution: 831
-2025-09-26 11:13|lifelogger.dEmain execution: 832
-2025-09-26 12:13|lifelogger.dEmain execution: 833
-2025-09-26 13:13|lifelogger.dEmain execution: 834
 2025-09-26 13:32|[juicer.py.dock]---- Docking 5812 completed  at 8.1 v after 5.8 h playtime
-2025-09-26 14:13|lifelogger.dEmain execution: 835
-2025-09-26 15:13|lifelogger.dEmain execution: 836
 2025-09-26 15:53|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-09-26 15:54|[healthCheck.py.main]WiFi check failed (8.8.8.8)
-2025-09-26 16:13|lifelogger.dEmain execution: 837
 2025-09-26 16:53|[juicer.py.undock]---- Dismount 5812 at 11.3 v after 3.4 h recharge
-2025-09-26 17:13|lifelogger.dEmain execution: 838
-2025-09-26 18:13|lifelogger.dEmain execution: 839
-2025-09-26 19:13|lifelogger.dEmain execution: 840
-2025-09-26 20:13|lifelogger.dEmain execution: 841
-2025-09-26 21:13|lifelogger.dEmain execution: 842
-2025-09-26 22:13|lifelogger.dEmain execution: 843
 2025-09-26 22:42|[juicer.py.dock]---- Docking 5813 completed  at 8.1 v after 5.8 h playtime
-2025-09-26 23:13|lifelogger.dEmain execution: 844
-2025-09-27 00:13|lifelogger.dEmain execution: 845
-2025-09-27 01:13|lifelogger.dEmain execution: 846
 2025-09-27 02:04|[juicer.py.undock]---- Dismount 5813 at 11.3 v after 3.4 h recharge
-2025-09-27 02:13|lifelogger.dEmain execution: 847
-2025-09-27 03:13|lifelogger.dEmain execution: 848
-2025-09-27 04:13|lifelogger.dEmain execution: 849
-2025-09-27 05:13|lifelogger.dEmain execution: 850
-2025-09-27 06:13|lifelogger.dEmain execution: 851
-2025-09-27 07:13|lifelogger.dEmain execution: 852
 2025-09-27 07:58|[juicer.py.dock]---- Docking 5814 completed  at 8.1 v after 5.9 h playtime
-2025-09-27 08:13|lifelogger.dEmain execution: 853
-2025-09-27 09:14|lifelogger.dEmain execution: 854
-2025-09-27 10:14|lifelogger.dEmain execution: 855
-2025-09-27 11:14|lifelogger.dEmain execution: 856
 2025-09-27 11:22|[juicer.py.undock]---- Dismount 5814 at 11.3 v after 3.4 h recharge
-2025-09-27 12:14|lifelogger.dEmain execution: 857
-2025-09-27 13:14|lifelogger.dEmain execution: 858
-2025-09-27 14:14|lifelogger.dEmain execution: 859
-2025-09-27 15:14|lifelogger.dEmain execution: 860
-2025-09-27 16:14|lifelogger.dEmain execution: 861
-2025-09-27 17:14|lifelogger.dEmain execution: 862
 2025-09-27 17:18|[juicer.py.dock]---- Docking 5815 completed  at 8.1 v after 5.9 h playtime
-2025-09-27 18:14|lifelogger.dEmain execution: 863
-2025-09-27 19:14|lifelogger.dEmain execution: 864
-2025-09-27 20:14|lifelogger.dEmain execution: 865
 2025-09-27 20:39|[juicer.py.undock]---- Dismount 5815 at 11.3 v after 3.3 h recharge
-2025-09-27 21:14|lifelogger.dEmain execution: 866
-2025-09-27 22:14|lifelogger.dEmain execution: 867
-2025-09-27 23:14|lifelogger.dEmain execution: 868
-2025-09-28 00:14|lifelogger.dEmain execution: 869
-2025-09-28 01:14|lifelogger.dEmain execution: 870
-2025-09-28 02:14|lifelogger.dEmain execution: 871
 2025-09-28 02:28|[juicer.py.dock]---- Docking 5816 completed  at 8.1 v after 5.8 h playtime
-2025-09-28 03:14|lifelogger.dEmain execution: 872
-2025-09-28 04:14|lifelogger.dEmain execution: 873
-2025-09-28 05:14|lifelogger.dEmain execution: 874
 2025-09-28 05:47|[juicer.py.undock]---- Dismount 5816 at 11.3 v after 3.3 h recharge
-2025-09-28 06:14|lifelogger.dEmain execution: 875
-2025-09-28 07:14|lifelogger.dEmain execution: 876
-2025-09-28 08:14|lifelogger.dEmain execution: 877
-2025-09-28 09:14|lifelogger.dEmain execution: 878
-2025-09-28 10:14|lifelogger.dEmain execution: 879
-2025-09-28 11:14|lifelogger.dEmain execution: 880
 2025-09-28 11:37|[juicer.py.dock]---- Docking 5817 completed  at 8.1 v after 5.8 h playtime
-2025-09-28 12:14|lifelogger.dEmain execution: 881
 2025-09-28 12:33|[healthCheck.py.main]WiFi check failed (8.8.8.8)
-2025-09-28 13:14|lifelogger.dEmain execution: 882
-2025-09-28 14:14|lifelogger.dEmain execution: 883
 2025-09-28 15:01|[juicer.py.undock]---- Dismount 5817 at 11.3 v after 3.4 h recharge
-2025-09-28 15:14|lifelogger.dEmain execution: 884
-2025-09-28 16:14|lifelogger.dEmain execution: 885
-2025-09-28 17:14|lifelogger.dEmain execution: 886
-2025-09-28 18:14|lifelogger.dEmain execution: 887
-2025-09-28 19:14|lifelogger.dEmain execution: 888
-2025-09-28 20:14|lifelogger.dEmain execution: 889
 2025-09-28 20:53|[juicer.py.dock]---- Docking 5818 completed  at 8.1 v after 5.9 h playtime
-2025-09-28 21:14|lifelogger.dEmain execution: 890
-2025-09-28 22:14|lifelogger.dEmain execution: 891
-2025-09-28 23:14|lifelogger.dEmain execution: 892
 2025-09-29 00:13|[juicer.py.undock]---- Dismount 5818 at 11.3 v after 3.3 h recharge
-2025-09-29 00:14|lifelogger.dEmain execution: 893
-2025-09-29 01:14|lifelogger.dEmain execution: 894
-2025-09-29 02:14|lifelogger.dEmain execution: 895
-2025-09-29 03:14|lifelogger.dEmain execution: 896
-2025-09-29 04:14|lifelogger.dEmain execution: 897
-2025-09-29 05:14|lifelogger.dEmain execution: 898
 2025-09-29 06:05|[juicer.py.dock]---- Docking 5819 completed  at 8.1 v after 5.9 h playtime
-2025-09-29 06:14|lifelogger.dEmain execution: 899
-2025-09-29 07:14|lifelogger.dEmain execution: 900
-2025-09-29 08:14|lifelogger.dEmain execution: 901
-2025-09-29 09:14|lifelogger.dEmain execution: 902
 2025-09-29 09:28|[juicer.py.undock]---- Dismount 5819 at 11.3 v after 3.4 h recharge
-2025-09-29 10:14|lifelogger.dEmain execution: 903
-2025-09-29 11:14|lifelogger.dEmain execution: 904
-2025-09-29 12:14|lifelogger.dEmain execution: 905
-2025-09-29 13:14|lifelogger.dEmain execution: 906
-2025-09-29 14:14|lifelogger.dEmain execution: 907
-2025-09-29 15:14|lifelogger.dEmain execution: 908
 2025-09-29 15:22|[juicer.py.dock]---- Docking 5820 completed  at 8.1 v after 5.9 h playtime
-2025-09-29 16:14|lifelogger.dEmain execution: 909
-2025-09-29 17:14|lifelogger.dEmain execution: 910
-2025-09-29 18:14|lifelogger.dEmain execution: 911
 2025-09-29 18:44|[juicer.py.undock]---- Dismount 5820 at 11.3 v after 3.4 h recharge
-2025-09-29 19:14|lifelogger.dEmain execution: 912
-2025-09-29 20:14|lifelogger.dEmain execution: 913
-2025-09-29 21:14|lifelogger.dEmain execution: 914
-2025-09-29 22:14|lifelogger.dEmain execution: 915
-2025-09-29 23:14|lifelogger.dEmain execution: 916
-2025-09-30 00:14|lifelogger.dEmain execution: 917
 2025-09-30 00:31|[juicer.py.dock]---- Docking 5821 completed  at 8.1 v after 5.8 h playtime
-2025-09-30 01:14|lifelogger.dEmain execution: 918
-2025-09-30 02:14|lifelogger.dEmain execution: 919
-2025-09-30 03:14|lifelogger.dEmain execution: 920
 2025-09-30 03:49|[juicer.py.undock]---- Dismount 5821 at 11.3 v after 3.3 h recharge
-2025-09-30 04:14|lifelogger.dEmain execution: 921
 2025-09-30 04:26|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-09-30 04:29|[healthCheck.py.main]WiFi recovery
 2025-09-30 04:29|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-09-30 04:29|[healthCheck.py.main]WiFi recovery
-2025-09-30 05:14|lifelogger.dEmain execution: 922
-2025-09-30 06:14|lifelogger.dEmain execution: 923
-2025-09-30 07:14|lifelogger.dEmain execution: 924
-2025-09-30 08:14|lifelogger.dEmain execution: 925
-2025-09-30 09:14|lifelogger.dEmain execution: 926
 2025-09-30 09:41|[juicer.py.dock]---- Docking 5822 completed  at 8.1 v after 5.8 h playtime
-2025-09-30 10:14|lifelogger.dEmain execution: 927
-2025-09-30 11:14|lifelogger.dEmain execution: 928
 2025-09-30 11:52|[healthCheck.py.main]WiFi check failed (8.8.8.8)
-2025-09-30 12:14|lifelogger.dEmain execution: 929
 2025-09-30 12:59|[juicer.py.undock]---- Dismount 5822 at 11.3 v after 3.3 h recharge
-2025-09-30 13:14|lifelogger.dEmain execution: 930
-2025-09-30 14:14|lifelogger.dEmain execution: 931
-2025-09-30 15:14|lifelogger.dEmain execution: 932
-2025-09-30 16:14|lifelogger.dEmain execution: 933
-2025-09-30 17:14|lifelogger.dEmain execution: 934
-2025-09-30 18:14|lifelogger.dEmain execution: 935
 2025-09-30 18:46|[juicer.py.dock]---- Docking 5823 completed  at 8.1 v after 5.8 h playtime
-2025-09-30 19:14|lifelogger.dEmain execution: 936
-2025-09-30 20:14|lifelogger.dEmain execution: 937
-2025-09-30 21:14|lifelogger.dEmain execution: 938
 2025-09-30 22:09|[juicer.py.undock]---- Dismount 5823 at 11.3 v after 3.4 h recharge
-2025-09-30 22:14|lifelogger.dEmain execution: 939
-2025-09-30 23:14|lifelogger.dEmain execution: 940
-2025-10-01 00:14|lifelogger.dEmain execution: 941
-2025-10-01 01:14|lifelogger.dEmain execution: 942
-2025-10-01 02:14|lifelogger.dEmain execution: 943
-2025-10-01 03:14|lifelogger.dEmain execution: 944
 2025-10-01 03:57|[juicer.py.dock]---- Docking 5824 completed  at 8.1 v after 5.8 h playtime
-2025-10-01 04:14|lifelogger.dEmain execution: 945
-2025-10-01 05:14|lifelogger.dEmain execution: 946
-2025-10-01 06:14|lifelogger.dEmain execution: 947
-2025-10-01 07:14|lifelogger.dEmain execution: 948
 2025-10-01 07:16|[juicer.py.undock]---- Dismount 5824 at 11.3 v after 3.3 h recharge
-2025-10-01 08:14|lifelogger.dEmain execution: 949
-2025-10-01 09:14|lifelogger.dEmain execution: 950
-2025-10-01 10:14|lifelogger.dEmain execution: 951
 2025-10-01 10:27|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-10-01 10:27|[healthCheck.py.main]WiFi recovery
-2025-10-01 11:14|lifelogger.dEmain execution: 952
-2025-10-01 12:14|lifelogger.dEmain execution: 953
 2025-10-01 13:08|[juicer.py.dock]---- Docking 5825 completed  at 8.1 v after 5.9 h playtime
-2025-10-01 13:14|lifelogger.dEmain execution: 954
-2025-10-01 14:14|lifelogger.dEmain execution: 955
-2025-10-01 15:14|lifelogger.dEmain execution: 956
-2025-10-01 16:14|lifelogger.dEmain execution: 957
 2025-10-01 16:31|[juicer.py.undock]---- Dismount 5825 at 11.3 v after 3.4 h recharge
-2025-10-01 17:14|lifelogger.dEmain execution: 958
-2025-10-01 18:14|lifelogger.dEmain execution: 959
-2025-10-01 19:14|lifelogger.dEmain execution: 960
-2025-10-01 20:14|lifelogger.dEmain execution: 961
-2025-10-01 21:14|lifelogger.dEmain execution: 962
-2025-10-01 22:14|lifelogger.dEmain execution: 963
 2025-10-01 22:20|[juicer.py.dock]---- Docking 5826 completed  at 8.1 v after 5.8 h playtime
-2025-10-01 23:14|lifelogger.dEmain execution: 964
-2025-10-02 00:14|lifelogger.dEmain execution: 965
-2025-10-02 01:14|lifelogger.dEmain execution: 966
 2025-10-02 01:43|[juicer.py.undock]---- Dismount 5826 at 11.3 v after 3.4 h recharge
 2025-10-02 01:49|[healthCheck.py.main]WiFi check failed (8.8.8.8)
 2025-10-02 01:52|[healthCheck.py.main]WiFi recovery
-2025-10-02 02:14|lifelogger.dEmain execution: 967
-2025-10-02 03:14|lifelogger.dEmain execution: 968
-2025-10-02 04:14|lifelogger.dEmain execution: 969
-2025-10-02 05:14|lifelogger.dEmain execution: 970
-2025-10-02 06:14|lifelogger.dEmain execution: 971
-2025-10-02 07:14|lifelogger.dEmain execution: 972
 2025-10-02 07:33|[juicer.py.dock]---- Docking 5827 completed  at 8.1 v after 5.8 h playtime
-2025-10-02 08:14|lifelogger.dEmain execution: 973
-2025-10-02 09:14|lifelogger.dEmain execution: 974
-2025-10-02 10:14|lifelogger.dEmain execution: 975
 2025-10-02 10:54|[juicer.py.undock]---- Dismount 5827 at 11.3 v after 3.4 h recharge
-2025-10-02 11:14|lifelogger.dEmain execution: 976
-2025-10-02 12:14|lifelogger.dEmain execution: 977
-2025-10-02 13:14|lifelogger.dEmain execution: 978
-2025-10-02 14:14|lifelogger.dEmain execution: 979
 2025-10-02 15:14|lifelogger.dEmain execution: 980
 2025-10-02 15:32|[logMaintenance.py.main]** accidentally performed update/upgrade. Probably messed everything up **
+2025-10-02 15:41|[healthCheck.py.main]WiFi check failed (8.8.8.8)
+2025-10-02 15:42|------------ boot ------------
+2025-10-02 15:42|[juicer.py.main]---- juicer.py started at 8.69v
+2025-10-02 16:30|[juicer.py.dock]---- Docking 5827 completed  at 8.1 v after 0.7 h playtime
+2025-10-02 19:45|[juicer.py.undock]---- Dismount 5827 at 11.3 v after 3.2 h recharge
+2025-10-03 00:23|[healthCheck.py.main]WiFi check failed (8.8.8.8)
+2025-10-03 01:48|[juicer.py.dock]---- Docking 5828 completed  at 8.1 v after 6.1 h playtime
+2025-10-03 05:01|[juicer.py.undock]---- Dismount 5828 at 11.3 v after 3.2 h recharge
+2025-10-03 11:10|[juicer.py.dock]---- Docking 5829 completed  at 8.1 v after 6.1 h playtime
+2025-10-03 14:28|[juicer.py.undock]---- Dismount 5829 at 11.3 v after 3.3 h recharge
+2025-10-03 18:02|[healthCheck.py.main]WiFi check failed (8.8.8.8)
+2025-10-03 20:43|[juicer.py.dock]---- Docking 5830 completed  at 8.1 v after 6.2 h playtime
+2025-10-04 00:01|[juicer.py.undock]---- Dismount 5830 at 11.3 v after 3.3 h recharge
+2025-10-04 06:14|[juicer.py.dock]---- Docking 5831 completed  at 8.1 v after 6.2 h playtime
+2025-10-04 09:25|[juicer.py.undock]---- Dismount 5831 at 11.3 v after 3.2 h recharge
+2025-10-04 15:26|[juicer.py.dock]---- Docking 5832 completed  at 8.1 v after 6.0 h playtime
+2025-10-04 18:43|[juicer.py.undock]---- Dismount 5832 at 11.3 v after 3.3 h recharge
+2025-10-04 20:42|lifelogger.dEmain execution: 53

@@ -113096,3 +113096,328 @@
 2025-10-02 13:13:30|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
 2025-10-02 13:13:35|/home/pi/Carl/plib/voicecmdr.py.main: Calling vcommand.doVoiceAction(loading) 
 2025-10-02 13:13:35|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2025-10-02 15:43:50|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-02 15:43:50|/home/pi/Carl/plib/voicecmdr.py.main: ==== VOICE COMMANDER ====
+2025-10-02 15:43:50|/home/pi/Carl/plib/voicecmdr.py.main: No IMU
+2025-10-02 15:43:50|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2025-10-02 15:44:28|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-02 15:44:28|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2025-10-02 15:44:34|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:10:13|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:10:13|/home/pi/Carl/plib/voicecmdr.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:10:13|/home/pi/Carl/plib/voicecmdr.py.main: No IMU
+2025-10-04 11:10:13|/home/pi/Carl/plib/voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:10:22|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:10:22|/home/pi/Carl/plib/voicecmdr.py.main: Listening For A Command
+2025-10-04 11:10:28|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:17:25|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:17:25|voicecmdr.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:17:26|voicecmdr.py.main: No IMU
+2025-10-04 11:17:26|voicecmdr.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:17:33|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:17:33|voicecmdr.py.main: Listening For A Command
+2025-10-04 11:17:39|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:27:28|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:27:28|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:27:28|test.py.main: No IMU
+2025-10-04 11:27:28|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:27:31|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:27:31|test.py.main: Listening For A Command
+2025-10-04 11:28:58|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:28:58|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:28:58|test.py.main: No IMU
+2025-10-04 11:28:58|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:29:14|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:29:14|test.py.main: Listening For A Command
+2025-10-04 11:29:20|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:31:11|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:31:11|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:31:12|test.py.main: No IMU
+2025-10-04 11:31:12|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:31:13|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:31:13|test.py.main: Listening For A Command
+2025-10-04 11:31:20|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:42:23|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:42:23|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:42:23|test.py.main: No IMU
+2025-10-04 11:42:23|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:42:35|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:42:35|test.py.main: Listening For A Command
+2025-10-04 11:42:42|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:48:56|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:48:56|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:48:57|test.py.main: No IMU
+2025-10-04 11:48:57|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:48:59|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:48:59|test.py.main: Listening For A Command
+2025-10-04 11:49:05|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:49:59|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:49:59|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:49:59|test.py.main: No IMU
+2025-10-04 11:49:59|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:50:04|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:50:04|test.py.main: Listening For A Command
+2025-10-04 11:50:10|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:51:14|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:51:14|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:51:14|test.py.main: No IMU
+2025-10-04 11:51:14|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:51:17|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:51:17|test.py.main: Listening For A Command
+2025-10-04 11:51:23|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 11:56:38|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 11:56:38|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 11:56:38|test.py.main: No IMU
+2025-10-04 11:56:38|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 11:56:40|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 11:56:40|test.py.main: Listening For A Command
+2025-10-04 11:56:47|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 12:20:56|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:20:56|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:20:56|test.py.main: No IMU
+2025-10-04 12:20:56|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:21:19|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:21:19|test.py.main: Listening For A Command
+2025-10-04 12:21:25|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 12:34:19|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:34:19|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:34:19|test.py.main: No IMU
+2025-10-04 12:34:19|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:34:21|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:34:21|test.py.main: Listening For A Command
+2025-10-04 12:34:27|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 12:40:50|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:40:50|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:40:50|test.py.main: No IMU
+2025-10-04 12:40:50|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:40:52|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:40:52|test.py.main: Listening For A Command
+2025-10-04 12:41:44|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:41:44|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:41:45|test.py.main: No IMU
+2025-10-04 12:41:45|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:41:49|/home/pi/Carl/plib/hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:41:49|test.py.main: Listening For A Command
+2025-10-04 12:41:58|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 12:49:59|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:49:59|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:49:59|test.py.main: No IMU
+2025-10-04 12:49:59|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:50:03|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:50:03|test.py.main: Listening For A Command
+2025-10-04 12:50:15|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 12:51:55|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 12:51:55|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 12:51:56|test.py.main: No IMU
+2025-10-04 12:51:56|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:51:57|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:51:57|test.py.main: Listening For A Command
+2025-10-04 12:52:08|test.py.main: Calling vcommand.doVoiceAction() 
+2025-10-04 12:52:08|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:52:12|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:52:12|test.py.main: Listening For A Command
+2025-10-04 12:52:21|test.py.main: Calling vcommand.doVoiceAction(now) 
+2025-10-04 12:52:21|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:52:38|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:52:39|test.py.main: Listening For A Command
+2025-10-04 12:52:46|test.py.main: Calling vcommand.doVoiceAction(nod no) 
+2025-10-04 12:52:49|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:53:09|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:53:09|test.py.main: Listening For A Command
+2025-10-04 12:53:19|test.py.main: Calling vcommand.doVoiceAction() 
+2025-10-04 12:53:19|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:53:24|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 12:53:24|test.py.main: Listening For A Command
+2025-10-04 12:53:32|test.py.main: Calling vcommand.doVoiceAction() 
+2025-10-04 12:53:32|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 12:53:42|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 13:05:56|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 13:05:56|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 13:05:57|test.py.main: No IMU
+2025-10-04 13:05:57|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:05:59|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:05:59|test.py.main: Listening For A Command
+2025-10-04 13:06:08|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 13:06:20|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 13:06:20|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 13:06:20|test.py.main: No IMU
+2025-10-04 13:06:20|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:06:23|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:06:23|test.py.main: Listening For A Command
+2025-10-04 13:06:33|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 13:11:05|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 13:11:05|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 13:11:06|test.py.main: No IMU
+2025-10-04 13:11:06|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:11:08|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:11:08|test.py.main: Listening For A Command
+2025-10-04 13:11:17|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 13:12:45|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 13:12:45|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 13:12:45|test.py.main: No IMU
+2025-10-04 13:12:45|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:12:53|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:12:53|test.py.main: Listening For A Command
+2025-10-04 13:13:04|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 13:13:45|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 13:13:45|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 13:13:46|test.py.main: No IMU
+2025-10-04 13:13:46|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:13:48|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:13:48|test.py.main: Listening For A Command
+2025-10-04 13:14:00|test.py.main: Calling vcommand.doVoiceAction(weather) 
+2025-10-04 13:14:13|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:14:18|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:14:18|test.py.main: Listening For A Command
+2025-10-04 13:14:30|test.py.main: Calling vcommand.doVoiceAction(go to sleep) 
+2025-10-04 13:14:34|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 13:15:09|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 13:15:09|test.py.main: Listening For A Command
+2025-10-04 13:15:16|test.py.main: Calling vcommand.doVoiceAction([unk]) 
+2025-10-04 13:15:16|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:13:41|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:18:53|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:18:53|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:18:54|test.py.main: No IMU
+2025-10-04 14:18:54|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:18:57|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:18:57|test.py.main: Listening For A Command
+2025-10-04 14:19:07|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:19:41|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:19:41|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:19:42|test.py.main: No IMU
+2025-10-04 14:19:42|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:19:45|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:19:45|test.py.main: Listening For A Command
+2025-10-04 14:19:56|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:20:49|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:20:49|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:20:50|test.py.main: No IMU
+2025-10-04 14:20:50|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:20:53|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:20:53|test.py.main: Listening For A Command
+2025-10-04 14:21:01|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:23:53|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:23:53|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:23:53|test.py.main: No IMU
+2025-10-04 14:23:53|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:24:02|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:24:02|test.py.main: Listening For A Command
+2025-10-04 14:24:15|test.py.main: Calling vcommand.doVoiceAction(weather) 
+2025-10-04 14:24:30|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:24:40|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:24:40|test.py.main: Listening For A Command
+2025-10-04 14:24:50|test.py.main: Calling vcommand.doVoiceAction(forecast) 
+2025-10-04 14:24:59|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:25:07|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:25:07|test.py.main: Listening For A Command
+2025-10-04 14:25:21|test.py.main: Calling vcommand.doVoiceAction() 
+2025-10-04 14:25:21|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:25:25|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:25:25|test.py.main: Listening For A Command
+2025-10-04 14:25:39|test.py.main: Heard command exit
+2025-10-04 14:25:39|test.py.main: Confirm Exit Yes Or No
+2025-10-04 14:25:44|test.py.main: Heard yes
+2025-10-04 14:25:45|test.py.main: Exit Confirmed
+2025-10-04 14:25:47|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:26:38|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:26:38|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:26:38|test.py.main: No IMU
+2025-10-04 14:26:38|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:26:43|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:26:43|test.py.main: Listening For A Command
+2025-10-04 14:26:58|test.py.main: Calling vcommand.doVoiceAction(battery) 
+2025-10-04 14:26:58|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:27:06|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:27:06|test.py.main: Listening For A Command
+2025-10-04 14:27:16|test.py.main: Calling vcommand.doVoiceAction(status) 
+2025-10-04 14:27:16|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:27:26|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:27:26|test.py.main: Listening For A Command
+2025-10-04 14:27:37|test.py.main: Calling vcommand.doVoiceAction(battery status) 
+2025-10-04 14:27:37|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:27:49|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:27:49|test.py.main: Listening For A Command
+2025-10-04 14:27:59|test.py.main: Calling vcommand.doVoiceAction(like can i state) 
+2025-10-04 14:27:59|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:28:10|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:28:10|test.py.main: Listening For A Command
+2025-10-04 14:28:22|test.py.main: Calling vcommand.doVoiceAction(whats can i state) 
+2025-10-04 14:28:22|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:29:04|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:29:41|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:29:41|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:29:41|test.py.main: No IMU
+2025-10-04 14:29:41|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:29:43|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:29:43|test.py.main: Listening For A Command
+2025-10-04 14:29:52|test.py.main: Calling vcommand.doVoiceAction(weather [unk]) 
+2025-10-04 14:29:55|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:30:47|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:30:47|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:30:47|test.py.main: No IMU
+2025-10-04 14:30:47|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:30:59|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:30:59|test.py.main: Listening For A Command
+2025-10-04 14:31:07|test.py.main: Calling vcommand.doVoiceAction(weather look four) 
+2025-10-04 14:31:10|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:31:41|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:31:41|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:31:41|test.py.main: No IMU
+2025-10-04 14:31:41|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:31:50|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:31:50|test.py.main: Listening For A Command
+2025-10-04 14:32:01|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:32:24|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:32:24|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:32:24|test.py.main: No IMU
+2025-10-04 14:32:24|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:32:36|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:32:36|test.py.main: Listening For A Command
+2025-10-04 14:32:47|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:33:17|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:33:17|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:33:17|test.py.main: No IMU
+2025-10-04 14:33:17|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:33:21|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:33:21|test.py.main: Listening For A Command
+2025-10-04 14:33:28|test.py.main: Calling vcommand.doVoiceAction(weather [unk]) 
+2025-10-04 14:33:44|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:33:44|/home/pi/Carl/plib/runLog.py.runLog: Finished
+2025-10-04 14:34:31|/home/pi/Carl/plib/runLog.py.runLog: Started
+2025-10-04 14:34:31|test.py.main: ==== VOICE COMMANDER ====
+2025-10-04 14:34:32|test.py.main: No IMU
+2025-10-04 14:34:32|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:34:36|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:34:36|test.py.main: Listening For A Command
+2025-10-04 14:34:45|test.py.main: Calling vcommand.doVoiceAction(four) 
+2025-10-04 14:34:45|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:34:49|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:34:49|test.py.main: Listening For A Command
+2025-10-04 14:34:58|test.py.main: Calling vcommand.doVoiceAction(center around) 
+2025-10-04 14:34:58|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:35:07|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:35:07|test.py.main: Listening For A Command
+2025-10-04 14:35:16|test.py.main: Calling vcommand.doVoiceAction(turn thirty hundred sixty degrees) 
+2025-10-04 14:35:20|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:35:31|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:35:31|test.py.main: Listening For A Command
+2025-10-04 14:35:39|test.py.main: Calling vcommand.doVoiceAction(turn [unk]) 
+2025-10-04 14:35:39|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:35:47|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:35:47|test.py.main: Listening For A Command
+2025-10-04 14:35:56|test.py.main: Calling vcommand.doVoiceAction(turn list thirty degrees) 
+2025-10-04 14:36:00|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:36:19|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:36:19|test.py.main: Listening For A Command
+2025-10-04 14:36:31|test.py.main: Calling vcommand.doVoiceAction([unk] list go to sleep) 
+2025-10-04 14:36:31|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:36:43|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:36:43|test.py.main: Listening For A Command
+2025-10-04 14:36:51|test.py.main: Calling vcommand.doVoiceAction(sleep) 
+2025-10-04 14:36:51|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:37:01|/home/pi/Carl/Projects/VoiceCommander/test_hotword.py.detectKeywords: Hey Carl detected
+2025-10-04 14:37:01|test.py.main: Listening For A Command
+2025-10-04 14:37:09|test.py.main: Calling vcommand.doVoiceAction(sleep) 
+2025-10-04 14:37:09|test.py.main: Listening For Hotword (Hey Carl)
+2025-10-04 14:37:19|/home/pi/Carl/plib/runLog.py.runLog: Finished
