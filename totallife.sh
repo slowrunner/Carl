@@ -11,7 +11,8 @@ fn="/home/pi/Carl/life.log"
 #declare -i newBattsAtCycle=2160
 #declare -i newBattsAtCycle=2831
 #declare -i newBattsAtCycle=3651
-declare -i newBattsAtCycle=4588
+#declare -i newBattsAtCycle=4588
+declare -i newBattsAtCycle=6008
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
 totalLife=`(awk -F'execution:' '{sum+=$2}END{print sum;}' $fn)`
 echo " "

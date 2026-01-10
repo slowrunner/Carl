@@ -53,7 +53,21 @@ print("lastline: {}".format(lineList[last]))
 bootlogline = "----- boot -----"
 executionlogline = "dEmain execution:"
 donelogline = "END OF YEAR"
+nullchar = '\x00'
 
+# REMOVE ANY NULL CHARS FROM POWER FAIL
+new_lineList = []
+
+for s in lineList:
+  if nullchar in s:
+    new_lineList.append(s.replace(nullchar,""))
+    changed = True
+    print("Removed null chars from life.log\n")
+  else:
+    new_lineList.append(s)
+
+if (changed == True):
+  lineList = new_lineList
 
 
 while (donelogline not in lineList[lineIdx]):       # Loop till done all
