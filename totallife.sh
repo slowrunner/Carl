@@ -16,7 +16,7 @@ declare -i newBattsAtCycle=6008
 # awk -F':' '{sum+=$3}END{print "total life: " sum " hrs";}' $fn
 totalLife=`(awk -F'execution:' '{sum+=$2}END{print sum;}' $fn)`
 echo " "
-echo "TOTAL LIFE STATISTICS"
+echo "CARL TOTAL LIFE STATISTICS"
 echo "Total Life: " $totalLife "hrs since Aug 22,2018"
 lifeThisYear=`(awk -F':' 'FNR > 6 {sum+=$3}END{print sum;}' $fn)`
 echo "Life this year: " $lifeThisYear "hrs (BOY Aug 22)"
